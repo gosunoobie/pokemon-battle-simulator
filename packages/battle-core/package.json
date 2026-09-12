@@ -1,0 +1,15 @@
+{
+  "name": "@battle/battle-core",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js",
+    "./moves": "./src/moves.js"
+  },
+  "files": [
+    "src",
+    "assets",
+    "README.md"
+  ],
+  "sideEffects": false
+}

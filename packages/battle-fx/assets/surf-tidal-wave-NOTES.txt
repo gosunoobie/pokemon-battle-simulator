@@ -1,0 +1,20 @@
+Surf tidal-wave artwork
+
+File: surf-tidal-wave.png
+Generated for this project using the built-in OpenAI image generator on 9 September 2026.
+One generation; the returned artwork was copied without pixel edits.
+1774 x 887 RGBA PNG, actual transparent background. The output is 2:1 rather than the requested 3:2; the migrated main wave has nominal dimensions 432 x 216, scaled by target metrics and capped at 44% of logical stage width, preserving that ratio. The following swell uses 336/432 of the main dimensions; the image itself is unchanged.
+This is original generated effect artwork, not an official Pokemon sprite. Existing Pokemon sprite credits remain separate.
+The bitmap is inspected for composition/transparency; browser animation visual QA has not been performed.
+
+Integration: load once through Pixi Assets; share the same texture between two temporary sprites. Use nearest-neighbor sampling. Logical positions remain continuous as the camera fits the viewport. Do not destroy the shared asset texture when removing a crest. The JS timeline creates motion, collapse, trailing whitewater, and square spray around this single sprite; the PNG is not an animated sprite sheet.
+
+Exact generation prompt:
+
+Use case: stylized-concept
+Asset type: one transparent raster sprite for a Vue/PixiJS Pokémon battle Surf move animation.
+Primary request: a refined 16-bit pixel-art tidal wave, side view, traveling LEFT TO RIGHT.
+Scene/backdrop: genuinely transparent alpha background; no backdrop or painted checkerboard.
+Subject and composition: one cohesive large wave sprite in approximately 3:2 landscape framing. A low trailing wake begins at the LEFT and rises through a substantial deep blue and turquoise water mass into a towering breaking crest at the upper RIGHT. The crest curls forward and falls down toward the RIGHT, with thick bright white and pale cyan foam. Flat horizontal water base. Visible curved flowing bands inside the wave. A few scattered square spray pixels around the crest. Fill most of the frame while leaving safe transparent padding on every side.
+Style/medium: polished 16-bit console battle VFX pixel art. Strong stepped pixel clusters, crisp square edges, visibly coarse and deliberate pixel shapes. Intended display about 600 logical pixels wide and 280 high, with square pixel blocks roughly 4–6 display pixels. Limited palette of 8–12 flat shades: navy, cobalt blue, azure, turquoise, cyan, pale cyan, white.
+Constraints: single big noticeable tidal wave, large tall crest, coherent substantial water silhouette, no thin vector-line appearance. No smooth gradients, antialias smoothing, blur, glow, painterly brushwork, or photorealism. No sea horizon, beach, surroundings, characters, text, border, watermark, UI, sprite sheet, or multiple waves. Preserve actual transparent background.

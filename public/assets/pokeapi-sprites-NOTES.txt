@@ -1,0 +1,27 @@
+Unmodified static sprites from PokeAPI/sprites. Pokémon artwork belongs to Nintendo / Game Freak.
+
+The preview roster contains the nine Kanto starters. Each uses dedicated front and back artwork.
+Near/player field: back. Far/opponent field: front. Choosing the move user never switches these views.
+Alpha bounds are measured; normalized sockets are visually estimated host metadata, never FX.
+Back-view mouth/eyes may be obscured. Original Charizard-back and Venusaur-front calibrated sockets are retained.
+Original sprite pixel scale at 1000×450: near 265/96, far 235/96. Visible-height floors: 150 near / 125 far.
+Width follows the original aspect ratio. No fixed size classes or species-specific enlargement.
+Sources:
+bulbasaur-front.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png
+bulbasaur-back.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png
+ivysaur-front.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png
+ivysaur-back.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/2.png
+venusaur-front.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png
+venusaur-back.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/3.png
+charmander-front.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png
+charmander-back.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/4.png
+charmeleon-front.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png
+charmeleon-back.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/5.png
+charizard-front.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png
+charizard-back.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/6.png
+squirtle-front.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png
+squirtle-back.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/7.png
+wartortle-front.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png
+wartortle-back.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/8.png
+blastoise-front.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png
+blastoise-back.png: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png

@@ -1,0 +1,19 @@
+{
+  "name": "@battle/battle-fx",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js",
+    "./catalog": "./src/catalog.js"
+  },
+  "files": [
+    "src",
+    "assets",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "pixi.js": "^8.13.0",
+    "gsap": "^3.13.0"
+  }
+}

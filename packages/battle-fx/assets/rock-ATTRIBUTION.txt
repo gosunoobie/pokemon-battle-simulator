@@ -1,0 +1,12 @@
+Rock icon by Lorc, from Game-icons.net.
+License: Creative Commons Attribution 3.0 Unported (CC BY 3.0).
+Source: https://game-icons.net/1x1/lorc/rock.html
+Exact SVG download: https://game-icons.net/icons/ffffff/transparent/1x1/lorc/rock.svg
+Author: https://lorcblog.blogspot.com/
+License: https://creativecommons.org/licenses/by/3.0/
+
+Attribution for use in credits:
+“Rock” by Lorc, Game-icons.net, licensed under CC BY 3.0.
+
+Adaptations: Artwork path and viewBox are unchanged. Explicit width/height of 256 pixels added for predictable loading. The demo tints, rotates, scales, and animates the icon.
+Retrieved: 2026-09-08.

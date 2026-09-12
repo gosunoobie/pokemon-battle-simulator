@@ -1,0 +1,29 @@
+Smooth Waterfall body asset
+Generated 10 September 2026 using built-in image_gen, exactly one generation.
+New artwork without input references, retries, variants, or image edits.
+File: waterfall-flow.png, 1024 x 1536 RGBA. Alpha range 0-254.
+Fully transparent: 633794 pixels (40.3%). Nonzero alpha bounds: entire canvas
+because faint alpha fringes reach its edges. Alpha >127 bounds: (206,0,817,1536).
+The body extends through both vertical edges; exact seamlessness is not guaranteed.
+
+This replaces the former pixel-art waterfall-cascade.png in response to feedback
+that the earlier effect was too pixelated, too large, and static after impact.
+The new picture contains ONLY falling water. Never add a baked-in pool or splash.
+The temporary TilingSprite uses linear sampling and continuous coordinates. Its
+nominal width is 210, bounded by target/stage scale and 23% of logical stage width;
+height runs from above the target to its ground anchor. Alpha reaches 1 and
+vertical scrolling uses U(540) logical units/s (see the animation specification). The full texture is shared;
+no cropped texture view or independent per-play texture is allocated. Ground
+foam, expanding rings and droplets are separate timeline-owned animated geometry.
+The image was inspected; browser animation appearance has not been inspected.
+
+Final generation prompt:
+Use case: stylized-concept
+Asset type: transparent seamless vertical flowing-water body texture for a compact 2D game attack effect, displayed approximately 145x318 pixels. Exactly one image.
+Primary request: only a smooth stylized cyan/blue waterfall curtain, a continuous vertical sheet of flowing water. NOT pixel art. This is the moving BODY of a waterfall, with no splash or impact region.
+Canvas and transparency: portrait 1024x1536 RGBA image with truly transparent background outside the central water sheet. Centered sheet occupies roughly 70 percent of the canvas width, leaving narrow clear transparent margins to its left and right. Water continues beyond both top and bottom canvas edges; do not draw ends or caps.
+Repeatability: top edge and bottom edge must align visually to tile vertically, with matching stream widths and the same color distribution and same parallel stream lanes along the entire height. Keep the sheet's overall width constant from top to bottom. No horizontal bands or transitions.
+Style: smooth polished stylized 2D game-water illustration with clean anti-aliased edges, soft curved long vertical flowing streaks, organically wavy but mostly straight vertical wisps, and translucent pale highlights. Broad coherent visible water mass, not scattered thin individual lines. No chunky pixel clusters, staircase pixels, dithering, or hard blocky shapes.
+Color: pale turquoise core with medium-blue edges and a few long narrow white streaming streaks. Natural water contrast; no neon glow, bloom, halo, or luminous aura.
+Composition: a single fairly wide straight vertical water ribbon/sheet running uninterrupted from the top edge to the bottom edge. Parallel gently curving lanes flow continuously down its full height. The center remains pale turquoise while blue edging stays in consistent vertical lanes. Refined smooth curves and restrained translucent highlights.
+Avoid: absolutely no pool, crash, foam mound, splashing foam, splash, breaking waves, water band, horizontal ripple, ground, rocks, scenery, characters, text, logos, droplets outside the water body, mist clouds, shadows, background color, checkerboard pattern, frame, or other objects. No widening at the bottom. The entire image must depict only the continuous falling-water body with actual transparent surroundings.
