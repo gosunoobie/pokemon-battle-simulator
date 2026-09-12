@@ -861,3 +861,28 @@ Core uses fixed single-hit results with no new state or resolver branches. Spit 
 
 
 The September 2026 visual rework passed all four focused pressure-move tests and the production build for both pages. Browser review rendered 60 deterministic frames across wide and portrait layouts and both attack directions. All 126 normal playbacks (seven moves, two sides, nine starter profiles) and fourteen reduced-motion playbacks completed with one impact cue, empty effect layers and fully restored poses.
+
+
+## Magical leaves, petals, cutting wind and electric body strikes
+
+Six independent additions bring the catalog to 257. Existing recipes, including the seven water/energy reworks, are unchanged. Each new effect owns its geometry, particle motion and recovery; core rules and display metadata remain separate from FX.
+
+| Move | Release | Contact / complete | Demo damage | Shape and movement |
+| --- | --- | --- | --- | --- |
+| Magical Leaf | 0.42 s | 1.06 / 2.05 s | 42 | Six luminous colored leaves orbit, home along separate curves, then converge into a bloom and 24 glints. |
+| Petal Dance | 0.40 s | 1.02 / 2.65 s | 84 | Thirty-six pink petals gather, stream into a target vortex and loosen into a falling aftermath. |
+| Razor Wind | 0.84 s | 1.16 / 2.35 s | 56 | Five winding charge coils compress into two broad silver cutting sheets with moving wake threads. |
+| Charge | Source only | 0.95 / 2.10 s | 0 | Twenty-six electric motes draw inward while climbing arcs and concentric rings store light around the user. |
+| Spark | Body strike | 0.64 / 1.70 s | 46 | A quick electrified lunge, short crackling wake, seven branching impact bolts and seventeen discharge sparks. |
+| Volt Tackle | Body strike | 0.98 / 2.45 s | 84 + recoil | A gathered electric mantle drives an accelerating dash, five lightning trails, twelve impact branches, twenty-five sparks and a strong rebound. |
+
+Magical Leaf staggers launches by 0.021 s and converges all six leaf fronts on the posed target at 1.06 s, emitting a single result cue. Its colored veins and pointed contours remain separate from the narrow fading trails. Petal Dance staggers its 36 petals by 0.012 s; the first arrives at 1.02 s and later petals keep feeding the target swirl. Individual petals turn and descend without reversing gravity when the attack direction flips. Razor Wind combines visible preparation and the attack in one independent clip, using broad curved sheets rather than a sustained filled beam.
+
+Charge is registered with FX subject `source` and independently targets `self` in core, so it works without any opponent. It preserves the user's pose and draws around the live center. Spark and Volt Tackle use the supplied `tackle` socket, solve the body contact pose, fit the full source silhouette inside the logical field and update the visible contact artwork before the cue. Their fixed collision origins anchor detached discharge fragments while the source rebounds. In constrained edge layouts, the receiver approaches by the minimum bounded distance needed for the fitted tackle socket to touch its visible body. Recoil starts from this adjusted pose, and both receiver coordinates return home. Ordinary layouts retain their original contact positions. Both actors retain full scale and opacity, with complete pose/effect restoration on finish or cancellation.
+
+Metadata follows [Pokémon Showdown move definitions](https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/moves.ts): Magical Leaf has reference power 60 and always-hit accuracy; Petal Dance 120; Razor Wind 80 and Normal type; Spark 65; Volt Tackle 120. Charge raises Special Defense by one stage through the existing capped boost rule, with no persistent electric-power store. Volt Tackle uses existing `recoilDamage: 0.33`, based on HP actually removed, rounded to nearest HP with a minimum of one for positive damage and capped by the user's HP. Both losses commit together and reveal at the ordinary impact cue. Petal Dance turn locking and confusion, Razor Wind separate turns/spread targeting/critical rolls, and random paralysis for Spark or Volt Tackle are outside these fixed previews. Each limitation is shown in the move's description panel.
+
+`tests/leaf-electric.test.mjs` checks registration, immutable results, Charge caps and source-only playback, Volt Tackle overkill/recoil, presentation with effects off/cues/failure/skip, live launch/contact ordering, both directions, full field-edge/portrait bounds, reduced motion and cancellation. The existing core catalog fixture now covers 257 entries.
+
+
+Verification: all 160 tests and the two-page production build pass. Browser review inspected 96 deterministic frames across both directions and wide/portrait layouts, with 124 successful playback checks including source-only Charge. After the electric edge-contact correction, 32 Spark/Volt Tackle frames were regenerated and all 40 targeted normal/reduced playbacks passed. No previous move recipe changed.

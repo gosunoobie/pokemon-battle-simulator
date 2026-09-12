@@ -693,4 +693,10 @@ export const MOVE_RULES = Object.freeze([
   {"id": "hyper-beam", "name": "Hyper Beam", "type": "Normal", "power": 150, "accuracy": 90, "damage": 100, "effective": false},
   {"id": "aeroblast", "name": "Aeroblast", "type": "Flying", "power": 100, "accuracy": 95, "damage": 70, "effective": false},
   {"id": "luster-purge", "name": "Luster Purge", "type": "Psychic", "power": 95, "accuracy": 100, "damage": 66, "effective": false},
+  {"id": "magical-leaf", "name": "Magical Leaf", "type": "Grass", "power": 60, "accuracy": null, "damage": 42, "effective": false},
+  {"id": "petal-dance", "name": "Petal Dance", "type": "Grass", "power": 120, "accuracy": 100, "damage": 84, "effective": false},
+  {"id": "razor-wind", "name": "Razor Wind", "type": "Normal", "power": 80, "accuracy": 100, "damage": 56, "effective": false},
+  {"id": "charge", "name": "Charge", "type": "Electric", "power": null, "accuracy": null, "damage": 0, "effective": false, "target": "self", "specialDefenseChange": 1},
+  {"id": "spark", "name": "Spark", "type": "Electric", "power": 65, "accuracy": 100, "damage": 46, "effective": false},
+  {"id": "volt-tackle", "name": "Volt Tackle", "type": "Electric", "power": 120, "accuracy": 100, "damage": 84, "effective": false, "recoilDamage": 0.33},
 ].map(Object.freeze))

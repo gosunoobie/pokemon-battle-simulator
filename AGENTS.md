@@ -2,7 +2,7 @@
 
 ## Scope and working style
 
-This is a Vue 3, plain JavaScript, PixiJS 8 and GSAP 3 workspace with 251 registered moves. Preserve all active moves and the existing visual direction unless the user requests a redesign. Water Gun now has an active standalone recipe; its older `examples/` copy remains inactive teaching code. Do not duplicate an existing move.
+This is a Vue 3, plain JavaScript, PixiJS 8 and GSAP 3 workspace with 257 registered moves. Preserve all active moves and the existing visual direction unless the user requests a redesign. Water Gun now has an active standalone recipe; its older `examples/` copy remains inactive teaching code. Do not duplicate an existing move.
 
 The user prefers focused iteration: inspect the relevant source, change the animation, check its contact and cleanup, build once, and publish the existing demo when authorized. Defer full ZIP exports, fresh installations, broad regression runs and full document refreshes for ordinary visual tweaks. A package or lifecycle change warrants the relevant integration tests; this migration updated the full guides because every layer changed. Use `rg`, preserve unrelated edits, and keep progress updates brief.
 
@@ -20,7 +20,7 @@ Higher-priority instructions and the user's current request override this guide.
 
 ## Either side can act
 
-All 251 moves support both perspectives. Stable scene IDs are field identities; `request.sourceId` is the selected move user and may refer to the far-side actor. Never swap actor IDs/artwork or mirror the camera to fake an opponent move. Keep preview fixtures, messages, HP and every badge symmetric, using the selected actor ID. Side/species changes must cancel old playback and reject stale display/completion updates. `PokemonInfo.vue` renders the same state fields for either side. Keep move details and Use controls above the grid.
+All 257 moves support both perspectives. Stable scene IDs are field identities; `request.sourceId` is the selected move user and may refer to the far-side actor. Never swap actor IDs/artwork or mirror the camera to fake an opponent move. Keep preview fixtures, messages, HP and every badge symmetric, using the selected actor ID. Side/species changes must cancel old playback and reject stale display/completion updates. `PokemonInfo.vue` renders the same state fields for either side. Keep move details and Use controls above the grid.
 
 Host anatomy owns native-facing conversion: mirror fallback sockets for left-native art, then merge explicit profile/custom sockets unchanged. Merge partial `spec.anchors` over the profile; do not drop measured emission/origin metadata. Use `visualCenter` for geometric pivots/bounds and semantic `center` for aiming. Scene URLs/textures and learnset filtering stay outside FX. `createPreviewTransaction` accepts optional host-supplied `allowedMoveIds`; the showcase itself remains unrestricted. See `docs/OPPONENT_PREVIEW.md`.
 
@@ -97,6 +97,8 @@ Per-move local reaction code may emit `onCue({type:'impact'})`, optionally follo
 Shared asset-cache textures belong to the loader. Runtime-created glow belongs to the runtime; temporary sprites never destroy shared textures. Keep Bootstrap MIT, Lorc rock attribution and generated-art notes in package assets.
 
 ## Validation and documentation
+
+Magical Leaf, Petal Dance, Razor Wind, Charge, Spark and Volt Tackle own six independent additions, bringing the catalog to 257. Preserve the preceding water/energy reworks. Charge uses FX `subject: 'source'` and core `target: 'self'`, with existing `specialDefenseChange: 1`; stored electric power is not modeled. Volt Tackle uses existing `recoilDamage: 0.33`; do not calculate HP in FX. Spark/Volt Tackle fit the full attacker silhouette and label their actual tackle contact before the cue. When a constrained edge prevents contact, shift the receiver only the minimum bounded distance needed for body contact, then restore both receiver coordinates after recoil. Magical Leaf converges six homing leaves once, Petal Dance keeps petals moving through the falling aftermath, and Razor Wind combines its wind-up and cutting attack in one clip. Multi-turn, critical-hit and random paralysis systems remain outside the preview. `tests/leaf-electric.test.mjs` covers rules, source-only Charge, recoil, optional presentation, exact contact, bounds and lifecycle.
 
 Water Gun, Hydro Cannon, Spit Up, Hyper Beam, Aeroblast and Luster Purge own independent additions. Hydro Pump was explicitly redesigned: retain its 0.72/2.80 s timing and 72 damage, live nozzle/target tracking, dense pressure bands, moving crown and repeated spray. The six other additions preserve all pre-existing recipes. Fit complete contours and actor bounds; keep scale/opacity at one, gravity downward, beam effects attached through recoil and the source in its firing pose until cutoff. One-shot debris may freeze at its collision point. Spit Up is an explicit one-stockpile sample with variable metadata; recharge, charge consumption, critical rolls and Luster Purge's secondary remain unsimulated. No new core state or resolver branch is needed. `tests/pressure-moves.test.mjs` covers fixed outcomes, sockets, continued flow, full edge/portrait bounds and cleanup. The original fixture intentionally excludes redesigned Hydro Pump; 31 unchanged recipes still match 93 reference frames.
 

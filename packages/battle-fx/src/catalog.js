@@ -383,4 +383,10 @@ export const FX_CATALOG = Object.freeze([
   {"id": "hyper-beam", "name": "Hyper Beam", "tint": 15973997},
   {"id": "aeroblast", "name": "Aeroblast", "tint": 13232095},
   {"id": "luster-purge", "name": "Luster Purge", "tint": 14993908},
+  {"id": "magical-leaf", "name": "Magical Leaf", "tint": 9692854},
+  {"id": "petal-dance", "name": "Petal Dance", "tint": 16034253},
+  {"id": "razor-wind", "name": "Razor Wind", "tint": 14150123},
+  {"id": "charge", "name": "Charge", "tint": 16243832},
+  {"id": "spark", "name": "Spark", "tint": 16769400},
+  {"id": "volt-tackle", "name": "Volt Tackle", "tint": 16765018},
 ].map(Object.freeze))

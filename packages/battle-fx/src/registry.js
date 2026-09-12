@@ -1,3 +1,9 @@
+import magicalLeaf from './moves/restored/magical-leaf.js'
+import petalDance from './moves/restored/petal-dance.js'
+import razorWind from './moves/restored/razor-wind.js'
+import charge from './moves/restored/charge.js'
+import spark from './moves/restored/spark.js'
+import voltTackle from './moves/restored/volt-tackle.js'
 import waterGun from './moves/restored/water-gun.js'
 import hydroCannon from './moves/restored/hydro-cannon.js'
 import spitUp from './moves/restored/spit-up.js'
@@ -452,6 +458,12 @@ const entries = [
   ['hyper-beam', hyperBeam, 1.1, 2.6],
   ['aeroblast', aeroblast, 0.83, 2.25],
   ['luster-purge', lusterPurge, 1.05, 2.15],
+  ['magical-leaf', magicalLeaf, 1.06, 2.05],
+  ['petal-dance', petalDance, 1.02, 2.65],
+  ['razor-wind', razorWind, 1.16, 2.35],
+  ['charge', charge, 0.95, 2.1, 'source'],
+  ['spark', spark, 0.64, 1.7],
+  ['volt-tackle', voltTackle, 0.98, 2.45],
 ]
 const preparations = Object.freeze({
   'fly': Object.freeze({ build: flyPrepare, contact: 0.94, duration: 1.4, subject: 'source' }),
