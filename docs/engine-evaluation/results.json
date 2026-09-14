@@ -1,0 +1,1793 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Pinned simulator diagnostic only; no production rules, engine integration or deployment adoption.",
+  "generatedAt": "2026-09-14T12:15:24.919Z",
+  "source": {
+    "dexMod": "gen3",
+    "gitCommit": "739a5e1fee432ad80ff7136d70cca993be358b59",
+    "integrity": "sha512-FdW7gt3TkG4AdXmpMTPYX2kx42VEfY8tQApjW9wEHOGzwH6Kn97wD0o5uIzAc4xpO1W+Tim70Ti9+FNkMNCA2w==",
+    "provider": "pokemon-showdown",
+    "tarball": "https://registry.npmjs.org/pokemon-showdown/-/pokemon-showdown-0.11.11.tgz",
+    "treeSha256": "c7b63998d8fe9e6dcd646e616efad1727415be741d468ec982ba9c376a1e034d",
+    "version": "0.11.11",
+    "verifiedFileCount": 1585
+  },
+  "probeSha256": "5f88ad62a7ed010aab5659a5dc4879c1d0b70a178cbc29b984a16a49a70a5d47",
+  "environment": {
+    "node": "v24.4.1",
+    "versions": {
+      "node": "24.4.1",
+      "acorn": "8.15.0",
+      "ada": "3.2.4",
+      "amaro": "1.1.0",
+      "ares": "1.34.5",
+      "brotli": "1.1.0",
+      "cjs_module_lexer": "2.1.0",
+      "cldr": "47.0",
+      "icu": "77.1",
+      "llhttp": "9.3.0",
+      "modules": "137",
+      "napi": "10",
+      "nbytes": "0.1.1",
+      "ncrypto": "0.0.1",
+      "nghttp2": "1.66.0",
+      "openssl": "3.6.0",
+      "simdjson": "3.13.0",
+      "simdutf": "6.4.0",
+      "sqlite": "3.50.3",
+      "tz": "2025a",
+      "undici": "7.11.0",
+      "unicode": "16.0",
+      "uv": "1.51.0",
+      "uvwasi": "0.0.21",
+      "v8": "13.6.233.10-node.17",
+      "zlib": "1.2.12",
+      "zstd": "1.5.7"
+    },
+    "platform": "darwin",
+    "arch": "arm64",
+    "osType": "Darwin",
+    "osRelease": "25.6.0",
+    "cpuModel": "Apple M4",
+    "logicalCpuCount": 10,
+    "totalMemoryBytes": 17179869184,
+    "processExecArgv": []
+  },
+  "workload": {
+    "formatId": "gen3ubers",
+    "formatIsDiagnosticOnly": true,
+    "fixedSeed": "gen5,0001000200030004",
+    "rng": "Explicit gen5 seed selects Showdown Gen5RNG, not a GBA cartridge RNG sequence.",
+    "maxDecisionBatches": 50,
+    "submittedTeams": [
+      [
+        {
+          "name": "Charizard",
+          "species": "Charizard",
+          "ability": "Blaze",
+          "moves": [
+            "Flamethrower"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Blastoise",
+          "species": "Blastoise",
+          "ability": "Torrent",
+          "moves": [
+            "Surf"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Venusaur",
+          "species": "Venusaur",
+          "ability": "Overgrow",
+          "moves": [
+            "Razor Leaf"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Raichu",
+          "species": "Raichu",
+          "ability": "Static",
+          "moves": [
+            "Thunderbolt"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Alakazam",
+          "species": "Alakazam",
+          "ability": "Synchronize",
+          "moves": [
+            "Psychic"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Machamp",
+          "species": "Machamp",
+          "ability": "Guts",
+          "moves": [
+            "Cross Chop"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        }
+      ],
+      [
+        {
+          "name": "Feraligatr",
+          "species": "Feraligatr",
+          "ability": "Torrent",
+          "moves": [
+            "Surf"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Typhlosion",
+          "species": "Typhlosion",
+          "ability": "Blaze",
+          "moves": [
+            "Flamethrower"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Meganium",
+          "species": "Meganium",
+          "ability": "Overgrow",
+          "moves": [
+            "Razor Leaf"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Ampharos",
+          "species": "Ampharos",
+          "ability": "Static",
+          "moves": [
+            "Thunderbolt"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Gardevoir",
+          "species": "Gardevoir",
+          "ability": "Synchronize",
+          "moves": [
+            "Psychic"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Hariyama",
+          "species": "Hariyama",
+          "ability": "Guts",
+          "moves": [
+            "Brick Break"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        }
+      ]
+    ],
+    "validatedTeams": [
+      [
+        {
+          "name": "Charizard",
+          "species": "Charizard",
+          "ability": "Blaze",
+          "moves": [
+            "Flamethrower"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Blastoise",
+          "species": "Blastoise",
+          "ability": "Torrent",
+          "moves": [
+            "Surf"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Venusaur",
+          "species": "Venusaur",
+          "ability": "Overgrow",
+          "moves": [
+            "Razor Leaf"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Raichu",
+          "species": "Raichu",
+          "ability": "Static",
+          "moves": [
+            "Thunderbolt"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Alakazam",
+          "species": "Alakazam",
+          "ability": "Synchronize",
+          "moves": [
+            "Psychic"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Machamp",
+          "species": "Machamp",
+          "ability": "Guts",
+          "moves": [
+            "Cross Chop"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        }
+      ],
+      [
+        {
+          "name": "Feraligatr",
+          "species": "Feraligatr",
+          "ability": "Torrent",
+          "moves": [
+            "Surf"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Typhlosion",
+          "species": "Typhlosion",
+          "ability": "Blaze",
+          "moves": [
+            "Flamethrower"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Meganium",
+          "species": "Meganium",
+          "ability": "Overgrow",
+          "moves": [
+            "Razor Leaf"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Ampharos",
+          "species": "Ampharos",
+          "ability": "Static",
+          "moves": [
+            "Thunderbolt"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Gardevoir",
+          "species": "Gardevoir",
+          "ability": "Synchronize",
+          "moves": [
+            "Psychic"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        },
+        {
+          "name": "Hariyama",
+          "species": "Hariyama",
+          "ability": "Guts",
+          "moves": [
+            "Brick Break"
+          ],
+          "level": 100,
+          "nature": "Hardy",
+          "item": "",
+          "gender": "M",
+          "happiness": 255,
+          "evs": {
+            "hp": 252,
+            "atk": 252,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 4
+          },
+          "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+          }
+        }
+      ]
+    ],
+    "strategy": "One legal offensive move per Pokémon; no items; side.autoChoose through Battle.makeChoices chooses defaults and replacement switches. No strategic opponent or realistic team diversity.",
+    "timestampNormalization": "Only |t:| wall-clock payloads are removed before comparing the complete detached serialized state."
+  },
+  "checks": {
+    "passed": true,
+    "count": 11,
+    "cases": [
+      {
+        "name": "Both six-member teams validate on clones; caller inputs remain unchanged",
+        "passed": true
+      },
+      {
+        "name": "Built-in diagnostic format resolves to Gen 3 singles with no team preview",
+        "passed": true
+      },
+      {
+        "name": "Same validated teams, seed, and automatic decisions give identical normalized complete state",
+        "passed": true
+      },
+      {
+        "name": "Checkpoint restores complete state",
+        "passed": true
+      },
+      {
+        "name": "Restored continuation matches uninterrupted state",
+        "passed": true
+      },
+      {
+        "name": "Checkpoint restores complete state with a pending first-side choice",
+        "passed": true
+      },
+      {
+        "name": "Restored continuation matches uninterrupted state after completing the pending decision",
+        "passed": true
+      },
+      {
+        "name": "Regression: toJSON log aliases live log; immediate JSON serialization detaches it",
+        "passed": true
+      },
+      {
+        "name": "Negative probe: bare custom-rule checkpoint loses @@@ rules",
+        "passed": true
+      },
+      {
+        "name": "Preserving validated full format ID separately restores the diagnostic custom rules",
+        "passed": true
+      },
+      {
+        "name": "All benchmark matches are explicitly terminated and accounted for",
+        "passed": true
+      }
+    ]
+  },
+  "deterministicOutcome": {
+    "decisionBatches": 39,
+    "capped": false,
+    "winner": "Probe One",
+    "turns": 30
+  },
+  "deterministicStateSha256": "356736221c83c351e05fda74f4c8f6de8d1ae20c949e3749ff8e973b7131363e",
+  "checkpoints": [
+    {
+      "pendingChoice": false,
+      "bytes": 33847,
+      "stringifyMs": 0.6647500000000264,
+      "restoreMs": 1.36162499999989,
+      "pendingChoiceAbsentFromInputLog": null,
+      "outcome": {
+        "decisionBatches": 38,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 30
+      }
+    },
+    {
+      "pendingChoice": true,
+      "bytes": 33982,
+      "stringifyMs": 0.4271249999999327,
+      "restoreMs": 0.4758749999999736,
+      "pendingChoiceAbsentFromInputLog": true,
+      "outcome": {
+        "decisionBatches": 37,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 30
+      }
+    }
+  ],
+  "customFormat": {
+    "diagnosticOnly": true,
+    "canonicalId": "gen3customgame@@@Obtainable,Species Clause,!! Max Team Size = 6,Min Team Size = 6,!! Max Move Count = 4,!! Max Level = 100,Min Level = 100,! HP Percentage Mod,! Cancel Mod",
+    "serializedId": "gen3customgame",
+    "original": {
+      "id": "gen3customgame",
+      "gen": 3,
+      "debug": true,
+      "usesMathTrunc": true,
+      "rules": [
+        "-nonexistent",
+        "-tag:unobtainable",
+        "-unreleased",
+        "defaultlevel",
+        "evlimit",
+        "maxlevel",
+        "maxmovecount",
+        "maxteamsize",
+        "minlevel",
+        "minteamsize",
+        "obtainable",
+        "obtainableabilities",
+        "obtainableformes",
+        "obtainablemisc",
+        "obtainablemoves",
+        "speciesclause"
+      ],
+      "values": {
+        "defaultlevel": "100",
+        "evlimit": "Auto",
+        "maxlevel": "100",
+        "maxmovecount": "4",
+        "maxteamsize": "6",
+        "minlevel": "100",
+        "minteamsize": "6"
+      }
+    },
+    "bareRestore": {
+      "id": "gen3customgame",
+      "gen": 3,
+      "debug": true,
+      "usesMathTrunc": true,
+      "rules": [
+        "cancelmod",
+        "defaultlevel",
+        "hppercentagemod",
+        "maxlevel",
+        "maxmovecount",
+        "maxteamsize"
+      ],
+      "values": {
+        "defaultlevel": "100",
+        "maxlevel": "9999",
+        "maxmovecount": "24",
+        "maxteamsize": "24"
+      }
+    },
+    "envelopeRestore": {
+      "id": "gen3customgame",
+      "gen": 3,
+      "debug": true,
+      "usesMathTrunc": true,
+      "rules": [
+        "-nonexistent",
+        "-tag:unobtainable",
+        "-unreleased",
+        "defaultlevel",
+        "evlimit",
+        "maxlevel",
+        "maxmovecount",
+        "maxteamsize",
+        "minlevel",
+        "minteamsize",
+        "obtainable",
+        "obtainableabilities",
+        "obtainableformes",
+        "obtainablemisc",
+        "obtainablemoves",
+        "speciesclause"
+      ],
+      "values": {
+        "defaultlevel": "100",
+        "evlimit": "Auto",
+        "maxlevel": "100",
+        "maxmovecount": "4",
+        "maxteamsize": "6",
+        "minlevel": "100",
+        "minteamsize": "6"
+      }
+    },
+    "warning": "This diagnostic base inherits debug=true and Math.trunc. It is not an approved authentic production format. A custom-format checkpoint must preserve its full resolvable rules identity separately."
+  },
+  "timingsMs": {
+    "sourceVerification": 475.485375,
+    "upstreamRequire": 14.501041999999984,
+    "formatAndTwoTeamValidation": 153.83245800000003,
+    "firstBattleInitializationAfterValidation": 4.771124999999984
+  },
+  "microbenchmark": {
+    "warmupMatches": 10,
+    "matchCount": 100,
+    "sequential": true,
+    "elapsedMs": 492.62470800000006,
+    "initializationMs": {
+      "samples": 100,
+      "min": 0.18112500000006548,
+      "p50": 0.2147500000000946,
+      "p95": 0.2784159999999929,
+      "max": 0.3170000000000073,
+      "mean": 0.22296085000000743
+    },
+    "decisionBatchMs": {
+      "samples": 3474,
+      "min": 0.028874999999970896,
+      "p50": 0.15545799999995324,
+      "p95": 0.21404099999995196,
+      "max": 0.5237500000000637,
+      "mean": 0.13511444070236278
+    },
+    "naturalWins": 100,
+    "naturalDraws": 0,
+    "forcedDrawsAtCap": 0,
+    "outcomes": [
+      {
+        "index": 0,
+        "seed": "gen5,0001000200030004",
+        "decisionBatches": 39,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 30
+      },
+      {
+        "index": 1,
+        "seed": "gen5,0001000200030005",
+        "decisionBatches": 30,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 20
+      },
+      {
+        "index": 2,
+        "seed": "gen5,0001000200030006",
+        "decisionBatches": 38,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 29
+      },
+      {
+        "index": 3,
+        "seed": "gen5,0001000200030007",
+        "decisionBatches": 40,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 30
+      },
+      {
+        "index": 4,
+        "seed": "gen5,0001000200030008",
+        "decisionBatches": 35,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 26
+      },
+      {
+        "index": 5,
+        "seed": "gen5,0001000200030009",
+        "decisionBatches": 29,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 20
+      },
+      {
+        "index": 6,
+        "seed": "gen5,000100020003000a",
+        "decisionBatches": 40,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 31
+      },
+      {
+        "index": 7,
+        "seed": "gen5,000100020003000b",
+        "decisionBatches": 36,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 27
+      },
+      {
+        "index": 8,
+        "seed": "gen5,000100020003000c",
+        "decisionBatches": 30,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 21
+      },
+      {
+        "index": 9,
+        "seed": "gen5,000100020003000d",
+        "decisionBatches": 38,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 29
+      },
+      {
+        "index": 10,
+        "seed": "gen5,000100020003000e",
+        "decisionBatches": 39,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 30
+      },
+      {
+        "index": 11,
+        "seed": "gen5,000100020003000f",
+        "decisionBatches": 33,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 24
+      },
+      {
+        "index": 12,
+        "seed": "gen5,0001000200030010",
+        "decisionBatches": 30,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 21
+      },
+      {
+        "index": 13,
+        "seed": "gen5,0001000200030011",
+        "decisionBatches": 29,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 20
+      },
+      {
+        "index": 14,
+        "seed": "gen5,0001000200030012",
+        "decisionBatches": 42,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 33
+      },
+      {
+        "index": 15,
+        "seed": "gen5,0001000200030013",
+        "decisionBatches": 32,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 23
+      },
+      {
+        "index": 16,
+        "seed": "gen5,0001000200030014",
+        "decisionBatches": 37,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 28
+      },
+      {
+        "index": 17,
+        "seed": "gen5,0001000200030015",
+        "decisionBatches": 43,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 33
+      },
+      {
+        "index": 18,
+        "seed": "gen5,0001000200030016",
+        "decisionBatches": 42,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 32
+      },
+      {
+        "index": 19,
+        "seed": "gen5,0001000200030017",
+        "decisionBatches": 39,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 30
+      },
+      {
+        "index": 20,
+        "seed": "gen5,0001000200030018",
+        "decisionBatches": 40,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 31
+      },
+      {
+        "index": 21,
+        "seed": "gen5,0001000200030019",
+        "decisionBatches": 38,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 29
+      },
+      {
+        "index": 22,
+        "seed": "gen5,000100020003001a",
+        "decisionBatches": 40,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 31
+      },
+      {
+        "index": 23,
+        "seed": "gen5,000100020003001b",
+        "decisionBatches": 27,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 18
+      },
+      {
+        "index": 24,
+        "seed": "gen5,000100020003001c",
+        "decisionBatches": 37,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 28
+      },
+      {
+        "index": 25,
+        "seed": "gen5,000100020003001d",
+        "decisionBatches": 35,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 26
+      },
+      {
+        "index": 26,
+        "seed": "gen5,000100020003001e",
+        "decisionBatches": 42,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 33
+      },
+      {
+        "index": 27,
+        "seed": "gen5,000100020003001f",
+        "decisionBatches": 31,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 22
+      },
+      {
+        "index": 28,
+        "seed": "gen5,0001000200030020",
+        "decisionBatches": 28,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 19
+      },
+      {
+        "index": 29,
+        "seed": "gen5,0001000200030021",
+        "decisionBatches": 31,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 22
+      },
+      {
+        "index": 30,
+        "seed": "gen5,0001000200030022",
+        "decisionBatches": 30,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 21
+      },
+      {
+        "index": 31,
+        "seed": "gen5,0001000200030023",
+        "decisionBatches": 40,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 31
+      },
+      {
+        "index": 32,
+        "seed": "gen5,0001000200030024",
+        "decisionBatches": 32,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 23
+      },
+      {
+        "index": 33,
+        "seed": "gen5,0001000200030025",
+        "decisionBatches": 35,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 26
+      },
+      {
+        "index": 34,
+        "seed": "gen5,0001000200030026",
+        "decisionBatches": 40,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 31
+      },
+      {
+        "index": 35,
+        "seed": "gen5,0001000200030027",
+        "decisionBatches": 31,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 22
+      },
+      {
+        "index": 36,
+        "seed": "gen5,0001000200030028",
+        "decisionBatches": 29,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 20
+      },
+      {
+        "index": 37,
+        "seed": "gen5,0001000200030029",
+        "decisionBatches": 31,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 22
+      },
+      {
+        "index": 38,
+        "seed": "gen5,000100020003002a",
+        "decisionBatches": 28,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 20
+      },
+      {
+        "index": 39,
+        "seed": "gen5,000100020003002b",
+        "decisionBatches": 33,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 24
+      },
+      {
+        "index": 40,
+        "seed": "gen5,000100020003002c",
+        "decisionBatches": 31,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 22
+      },
+      {
+        "index": 41,
+        "seed": "gen5,000100020003002d",
+        "decisionBatches": 31,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 22
+      },
+      {
+        "index": 42,
+        "seed": "gen5,000100020003002e",
+        "decisionBatches": 37,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 28
+      },
+      {
+        "index": 43,
+        "seed": "gen5,000100020003002f",
+        "decisionBatches": 28,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 20
+      },
+      {
+        "index": 44,
+        "seed": "gen5,0001000200030030",
+        "decisionBatches": 31,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 22
+      },
+      {
+        "index": 45,
+        "seed": "gen5,0001000200030031",
+        "decisionBatches": 44,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 34
+      },
+      {
+        "index": 46,
+        "seed": "gen5,0001000200030032",
+        "decisionBatches": 40,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 30
+      },
+      {
+        "index": 47,
+        "seed": "gen5,0001000200030033",
+        "decisionBatches": 37,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 27
+      },
+      {
+        "index": 48,
+        "seed": "gen5,0001000200030034",
+        "decisionBatches": 33,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 24
+      },
+      {
+        "index": 49,
+        "seed": "gen5,0001000200030035",
+        "decisionBatches": 30,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 21
+      },
+      {
+        "index": 50,
+        "seed": "gen5,0001000200030036",
+        "decisionBatches": 31,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 22
+      },
+      {
+        "index": 51,
+        "seed": "gen5,0001000200030037",
+        "decisionBatches": 32,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 23
+      },
+      {
+        "index": 52,
+        "seed": "gen5,0001000200030038",
+        "decisionBatches": 37,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 28
+      },
+      {
+        "index": 53,
+        "seed": "gen5,0001000200030039",
+        "decisionBatches": 39,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 30
+      },
+      {
+        "index": 54,
+        "seed": "gen5,000100020003003a",
+        "decisionBatches": 33,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 24
+      },
+      {
+        "index": 55,
+        "seed": "gen5,000100020003003b",
+        "decisionBatches": 36,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 27
+      },
+      {
+        "index": 56,
+        "seed": "gen5,000100020003003c",
+        "decisionBatches": 33,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 24
+      },
+      {
+        "index": 57,
+        "seed": "gen5,000100020003003d",
+        "decisionBatches": 29,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 20
+      },
+      {
+        "index": 58,
+        "seed": "gen5,000100020003003e",
+        "decisionBatches": 36,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 27
+      },
+      {
+        "index": 59,
+        "seed": "gen5,000100020003003f",
+        "decisionBatches": 37,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 28
+      },
+      {
+        "index": 60,
+        "seed": "gen5,0001000200030040",
+        "decisionBatches": 35,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 26
+      },
+      {
+        "index": 61,
+        "seed": "gen5,0001000200030041",
+        "decisionBatches": 31,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 22
+      },
+      {
+        "index": 62,
+        "seed": "gen5,0001000200030042",
+        "decisionBatches": 31,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 22
+      },
+      {
+        "index": 63,
+        "seed": "gen5,0001000200030043",
+        "decisionBatches": 37,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 28
+      },
+      {
+        "index": 64,
+        "seed": "gen5,0001000200030044",
+        "decisionBatches": 34,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 25
+      },
+      {
+        "index": 65,
+        "seed": "gen5,0001000200030045",
+        "decisionBatches": 30,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 20
+      },
+      {
+        "index": 66,
+        "seed": "gen5,0001000200030046",
+        "decisionBatches": 28,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 19
+      },
+      {
+        "index": 67,
+        "seed": "gen5,0001000200030047",
+        "decisionBatches": 43,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 34
+      },
+      {
+        "index": 68,
+        "seed": "gen5,0001000200030048",
+        "decisionBatches": 39,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 30
+      },
+      {
+        "index": 69,
+        "seed": "gen5,0001000200030049",
+        "decisionBatches": 33,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 24
+      },
+      {
+        "index": 70,
+        "seed": "gen5,000100020003004a",
+        "decisionBatches": 37,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 28
+      },
+      {
+        "index": 71,
+        "seed": "gen5,000100020003004b",
+        "decisionBatches": 29,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 20
+      },
+      {
+        "index": 72,
+        "seed": "gen5,000100020003004c",
+        "decisionBatches": 31,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 22
+      },
+      {
+        "index": 73,
+        "seed": "gen5,000100020003004d",
+        "decisionBatches": 29,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 21
+      },
+      {
+        "index": 74,
+        "seed": "gen5,000100020003004e",
+        "decisionBatches": 29,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 20
+      },
+      {
+        "index": 75,
+        "seed": "gen5,000100020003004f",
+        "decisionBatches": 41,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 32
+      },
+      {
+        "index": 76,
+        "seed": "gen5,0001000200030050",
+        "decisionBatches": 34,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 25
+      },
+      {
+        "index": 77,
+        "seed": "gen5,0001000200030051",
+        "decisionBatches": 30,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 21
+      },
+      {
+        "index": 78,
+        "seed": "gen5,0001000200030052",
+        "decisionBatches": 28,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 20
+      },
+      {
+        "index": 79,
+        "seed": "gen5,0001000200030053",
+        "decisionBatches": 29,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 20
+      },
+      {
+        "index": 80,
+        "seed": "gen5,0001000200030054",
+        "decisionBatches": 41,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 32
+      },
+      {
+        "index": 81,
+        "seed": "gen5,0001000200030055",
+        "decisionBatches": 40,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 31
+      },
+      {
+        "index": 82,
+        "seed": "gen5,0001000200030056",
+        "decisionBatches": 39,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 30
+      },
+      {
+        "index": 83,
+        "seed": "gen5,0001000200030057",
+        "decisionBatches": 40,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 31
+      },
+      {
+        "index": 84,
+        "seed": "gen5,0001000200030058",
+        "decisionBatches": 39,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 30
+      },
+      {
+        "index": 85,
+        "seed": "gen5,0001000200030059",
+        "decisionBatches": 33,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 24
+      },
+      {
+        "index": 86,
+        "seed": "gen5,000100020003005a",
+        "decisionBatches": 41,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 31
+      },
+      {
+        "index": 87,
+        "seed": "gen5,000100020003005b",
+        "decisionBatches": 29,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 20
+      },
+      {
+        "index": 88,
+        "seed": "gen5,000100020003005c",
+        "decisionBatches": 36,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 27
+      },
+      {
+        "index": 89,
+        "seed": "gen5,000100020003005d",
+        "decisionBatches": 37,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 28
+      },
+      {
+        "index": 90,
+        "seed": "gen5,000100020003005e",
+        "decisionBatches": 26,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 17
+      },
+      {
+        "index": 91,
+        "seed": "gen5,000100020003005f",
+        "decisionBatches": 35,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 26
+      },
+      {
+        "index": 92,
+        "seed": "gen5,0001000200030060",
+        "decisionBatches": 37,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 28
+      },
+      {
+        "index": 93,
+        "seed": "gen5,0001000200030061",
+        "decisionBatches": 41,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 31
+      },
+      {
+        "index": 94,
+        "seed": "gen5,0001000200030062",
+        "decisionBatches": 39,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 30
+      },
+      {
+        "index": 95,
+        "seed": "gen5,0001000200030063",
+        "decisionBatches": 39,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 30
+      },
+      {
+        "index": 96,
+        "seed": "gen5,0001000200030064",
+        "decisionBatches": 29,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 20
+      },
+      {
+        "index": 97,
+        "seed": "gen5,0001000200030065",
+        "decisionBatches": 39,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 29
+      },
+      {
+        "index": 98,
+        "seed": "gen5,0001000200030066",
+        "decisionBatches": 40,
+        "capped": false,
+        "winner": "Probe One",
+        "turns": 31
+      },
+      {
+        "index": 99,
+        "seed": "gen5,0001000200030067",
+        "decisionBatches": 32,
+        "capped": false,
+        "winner": "Probe Two",
+        "turns": 23
+      }
+    ]
+  },
+  "caveats": [
+    "gen3ubers includes its own competitive clauses and restrictions. Its selection here approves no game rules and does not implement the proposed open format.",
+    "Correctness checks are self-consistency tests against one pinned provider, not independent proof of cartridge authenticity or coverage of all mechanics.",
+    "Elapsed times and generatedAt vary between runs. Nearest-rank p50/p95 summarize this one warm local sequential workload, not production response times.",
+    "One decision batch can include both sides and a forced replacement request; it is not a client command, animation, wall-clock turn or HTTP/WebSocket latency measurement.",
+    "No simultaneous-match load, network, authentication, lobby, matchmaking, room ownership, durable journal, reconnect privacy, database, worker isolation, browser, memory-soak or deployment certification is performed.",
+    "Checkpoint samples measure one shallow initial battle state and one pending choice, not maximum-size or long-running state, crash atomicity, cross-version migration or exhaustive replay recovery.",
+    "No relative performance comparison with another engine was performed. Fixed test seeds are public diagnostic inputs; production rule RNG state must remain private.",
+    "The observed toJSON alias and custom-rule identity loss are expected negative probes. Assertions deliberately fail if these pinned assumptions change."
+  ]
+}

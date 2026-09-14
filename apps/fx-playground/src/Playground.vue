@@ -48,7 +48,7 @@ onBeforeUnmount(() => { disposed = true; generation++; fx.dispose(); scene?.disp
 
 <template>
   <main class="app-shell">
-    <header class="playground-heading"><h1>Battle FX playground</h1><a href="/">Back to battle ↗</a></header>
+    <header class="playground-heading"><h1>Battle FX playground</h1><nav class="playground-project-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/simulation.html">Simulation</a><a href="/preview.html">Move preview</a><a href="/playground.html" aria-current="page">FX playground</a></nav></header>
     <section class="battle-panel">
       <div ref="host" class="playground-stage" role="img" aria-label="Independent battle effect preview"></div>
       <p class="playground-status" role="status">{{ message }}</p>
@@ -75,3 +75,8 @@ onBeforeUnmount(() => { disposed = true; generation++; fx.dispose(); scene?.disp
     </section>
   </main>
 </template>
+
+<style scoped>
+.playground-heading{gap:20px;flex-wrap:wrap}.playground-project-nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-left:auto}.playground-project-nav a{margin-left:0;padding:10px 12px;border-radius:6px;color:#a7b3a6;font-size:12px;font-weight:500;text-decoration:none;white-space:nowrap}.playground-project-nav a:hover{color:#edf0e4;background:#ffffff05}.playground-project-nav a[aria-current]{background:#27342c;color:#e0eacb}
+@media(max-width:700px){.playground-heading{justify-content:center;gap:13px}.playground-heading h1{font-size:26px;text-align:center}.playground-project-nav{width:100%;justify-content:center;gap:0;margin-left:0}.playground-project-nav a{padding:9px 8px;font-size:11px}}
+</style>

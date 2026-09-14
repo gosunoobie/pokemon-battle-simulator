@@ -1,6 +1,12 @@
 # Pokémon battle animation workspace
 
-Vue 3 + PixiJS 8 + GSAP 3, with **335 independently authored moves**, an optional effects package, previews from either side, and an independent animation playground.
+Vue 3 + PixiJS 8 + GSAP 3, with **335 independently authored moves**, an optional effects package, previews from either side, and a playable Generation 3 battle simulation.
+
+For the production engine plan, read the [Gen 3 battle engine guide and architecture comparison](/Users/cdr/pokemon-battle-vue/docs/BATTLE_ENGINE_GUIDE.md), including a reproducible simulator diagnostic and staged implementation gates.
+
+The independent [headless Gen 3 engine](/Users/cdr/pokemon-battle-vue/packages/battle-engine/README.md) is now available. Run `npm run engine:demo` for a complete battle with checkpoint recovery and replay verification, or `npm run test:engine` for its integration suite. The visual showcase continues to use its existing preview core.
+
+The new [battle simulation interface](docs/BATTLE_SIMULATION.md) connects that engine to the existing sprite scene and optional effects. It runs against an automated opponent with three validated preset teams. The engine runs in Node; the browser receives only its permitted player view and events.
 
 Explosion builds into a broad source-centered blast with pressure rings and smoke; Self-Destruct uses a shorter shudder and sharper burst. Both send a narrow pressure wave toward the opponent. The user’s HP becomes zero alongside target damage, and the host shows a fainted badge even with effects off. Replay resets both actors.
 
@@ -10,7 +16,9 @@ Rock Blast fires three small rocks; Ancient Power lifts glowing stones before la
 
 Mega Punch uses a heavy fist strike; Meteor Mash adds a steel fist and starry trail; Dynamic Punch bursts into fragments and dizzy stars; Focus Punch holds a longer charge before striking. Dynamic Punch displays a separate confusion badge without replacing other status conditions. Meteor Mash’s random Attack boost and Focus Punch’s interruption are not simulated.
 
-- Game: `/` — choose Your side or Opponent side, choose either Pokémon, then preview a move. Effects toggle, skip, replay, and reset remain available. The selected move description and Use button stay above the move grid.
+- Home: `/` — choose a battle simulation, move preview, or FX playground.
+- Simulation: `/simulation.html` — select a team and lead, choose moves or switches, finish a battle, and reconnect after a page reload.
+- Move preview: `/preview.html` — choose Your side or Opponent side, choose either Pokémon, then preview a move. Effects toggle, skip, replay, and reset remain available. The selected move description and Use button stay above the move grid.
 - Playground: `/playground.html` — play any effect without importing battle logic; change actors, size, facing, stage proportions, and motion preference.
 
 ## Run
@@ -25,7 +33,9 @@ npm run build
 npm run preview
 ```
 
-Vite builds both HTML entries into `dist`. The game can resolve and display moves when effects are disabled, missing, or broken. Battle results never wait for an animation to become authoritative.
+Vite builds all four HTML entries into `dist`. Both `npm run dev` and `npm run preview` include the same-origin simulation API. After building, `npm start` serves the pages and API together at `http://127.0.0.1:3000`. A static file host alone cannot run the simulation. The game can resolve and display moves when effects are disabled, missing, or broken. Battle results never wait for an animation to become authoritative.
+
+Run `npm run test:simulation` for presentation, transport, and actual HTTP integration checks. The local server retains battles in memory for 30 minutes of inactivity; restarting it ends those sessions. This slice has preset teams and an automated opponent, with multiplayer rooms and persistent reconnect storage still separate work.
 
 ## Source layout
 
@@ -33,6 +43,10 @@ Vite builds both HTML entries into `dist`. The game can resolve and display move
 | --- | --- |
 | `packages/battle-core` | Pure state and rules; no Vue, PixiJS, GSAP, DOM, or FX imports |
 | `packages/battle-fx` | Vue-free PixiJS effects, seeded visual randomness, timelines, assets and cleanup |
+| `packages/battle-engine` | Headless authentic Gen 3 rules, legal decisions, private projections and recovery |
+| `apps/home` | Home page linking all three experiences |
+| `apps/server` | Same-origin simulation API, preset validation, automated opponent and local static host |
+| `apps/simulation` | Live engine controls, event presentation, party, result and reconnect interface |
 | `apps/game/src/presentation` | Ordered presentation of committed transactions; fallback and cancellation |
 | `apps/game/src/scene` | Host-owned actor artwork, semantic anchors, pose layers and camera |
 | `apps/game/src/components` | Vue controls and displayed battle state |
@@ -43,7 +57,7 @@ The packages have their own manifests and can be packed independently with `npm 
 
 Read [the project overview](docs/PROJECT_OVERVIEW.md), [migration contracts](docs/MIGRATION.md), [animation specification](docs/ANIMATION_SPEC.md), and [adding moves guide](docs/ADDING_MOVES.md). Future agents should start with [AGENTS.md](AGENTS.md).
 
-This remains a fixed-result, guaranteed-hit showcase. It is not a complete Pokémon battle simulator: no turn scheduling, move legality, PP, accuracy rolls, type calculation, or secondary-effect rolls. Thunder Wave and Stun Spore preview paralysis, Poison Powder and Poison Gas preview poison, Sleep Powder previews sleep, and Toxic previews bad poisoning. Smokescreen lowers a core-owned accuracy stage and shows a badge; hits stay guaranteed. Immunities and ongoing status effects are not simulated. The core supports arbitrary named actors and HP; the game page intentionally uses the existing Charizard/Venusaur matchup and resets each replay.
+The move preview remains a fixed-result, guaranteed-hit showcase, separate from the new simulation: it does not schedule turns or calculate move legality, PP, accuracy, types, or secondary-effect rolls. Thunder Wave and Stun Spore preview paralysis, Poison Powder and Poison Gas preview poison, Sleep Powder previews sleep, and Toxic previews bad poisoning. Smokescreen lowers a core-owned accuracy stage and shows a badge; preview hits stay guaranteed. Immunities and ongoing status effects are not simulated in that preview. The preview core supports arbitrary named actors and HP; its page uses the selected matchup and resets each replay.
 
 Sprites remain in `public/assets`; effect assets and attribution notices travel with `battle-fx/assets`. Preserve Pokémon credits and the Bootstrap leaf / Lorc rock notices. Browser visual verification of this migration is pending because the preview browser was blocked by the environment.
 

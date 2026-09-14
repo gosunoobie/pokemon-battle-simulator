@@ -1,0 +1,23 @@
+{
+  "name": "@battle/battle-engine",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Server-only authentic Gen 3 engine with project-owned decisions, private observations and recovery",
+  "exports": {
+    ".": {
+      "browser": "./src/browser.js",
+      "node": "./src/index.js",
+      "default": "./src/browser.js"
+    }
+  },
+  "files": ["src", "examples", "README.md", "NOTICE"],
+  "engines": { "node": ">=24" },
+  "dependencies": {
+    "@battle/game-data": "0.1.0",
+    "pokemon-showdown": "0.11.11"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "demo": "node examples/headless.mjs"
+  }
+}

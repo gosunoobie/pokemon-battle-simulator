@@ -134,9 +134,9 @@ onBeforeUnmount(() => { disposed = true; sceneGeneration++; playGeneration++; pr
 
 <template>
   <main class="app-shell">
-    <header class="page-header">
+    <header class="page-header preview-page-header">
       <div class="brand"><span class="ball-mark" aria-hidden="true"></span> Battle Demo</div>
-      <a class="playground-link" href="/playground.html">FX playground ↗</a><span class="header-note">{{ MOVES.length }} MOVES. BOTH SIDES.</span>
+      <nav class="preview-project-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/simulation.html">Simulation</a><a href="/preview.html" aria-current="page">Move preview</a><a href="/playground.html">FX playground</a></nav>
     </header>
 
     <section class="battle-panel" aria-labelledby="battle-title">
@@ -207,3 +207,8 @@ onBeforeUnmount(() => { disposed = true; sceneGeneration++; playGeneration++; pr
     <footer class="page-footer"><span>Pokémon © Nintendo / Game Freak</span><span>Fan animation · Sprites from <a href="https://pokemondb.net/sprites" target="_blank" rel="noopener noreferrer">Pokémon Database ↗</a> / <a href="https://github.com/PokeAPI/sprites" target="_blank" rel="noopener noreferrer">PokéAPI ↗</a></span><span>Rock art: <a href="https://game-icons.net/1x1/lorc/rock.html" target="_blank" rel="noopener noreferrer">Lorc</a> · <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a></span></footer>
   </main>
 </template>
+
+<style scoped>
+.preview-project-nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.preview-project-nav a{padding:10px 12px;border-radius:6px;color:#a7b3a6;font-size:12px;font-weight:500;text-decoration:none;white-space:nowrap}.preview-project-nav a:hover{color:#edf0e4;background:#ffffff05}.preview-project-nav a[aria-current]{background:#27342c;color:#e0eacb}
+@media(max-width:700px){.preview-page-header{height:auto;min-height:112px;justify-content:center;flex-wrap:wrap;gap:12px;padding:20px 0 17px}.preview-project-nav{width:100%;justify-content:center;gap:0}.preview-project-nav a{padding:9px 8px;font-size:11px}}
+</style>
