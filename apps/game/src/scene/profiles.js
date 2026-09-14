@@ -1,8 +1,15 @@
 import { STARTER_SPRITES } from './spriteViews.js'
+import { SPRITE_VIEWS, SPRITE_URLS } from '@battle/pokemon-sprites'
+
+// New artwork has measured alpha bounds and uses the host's generic sockets.
+// Keep hand-calibrated starter anatomy as the final override for those views.
+export const ROSTER_SPRITES = Object.fromEntries(Object.entries(SPRITE_VIEWS).map(([id, views]) => [id,
+  Object.fromEntries(Object.entries(views).map(([view, spec]) => [view, { ...spec, url: SPRITE_URLS[spec.file] }]))]))
+const ARTWORK_VIEWS = { ...ROSTER_SPRITES, ...STARTER_SPRITES }
 
 // Visible-art sockets and optional registration pivot belong to the host's artwork profiles.
 export const SPRITE_PROFILES = {
-  ...Object.fromEntries(Object.entries(STARTER_SPRITES).map(([id, views]) => [id, views.front])),
+  ...Object.fromEntries(Object.entries(ARTWORK_VIEWS).map(([id, views]) => [id, views.front])),
   charizard: { url: '/assets/charizard-back.png', nativeFacing: 1, bounds: { x: 4, y: 4, width: 84, height: 83 },
     anchors: { vine: [(44+84*96/265)/84,(92-91*96/265)/83], aura: [44/84,(92-110*96/265)/83], smoke: [(44+15*96/265)/84,(92-120*96/265)/83], vent: [(44+35*96/265)/84,(92-115*96/265)/83], leaf: [(44+85*96/265)/84,(92-120*96/265)/83], fissure: [(44+74*96/265)/84,(92-34*96/265)/83], emission: [79/84,45/83], hand: [70/84,63/83], foot: [70/84,80/83], body: [68/84,65/83], tackle: [68/84,65/83], slam: [52/84,57/83], trail: [52/84,63/83], center: [.55,.6], origin: [44/84,92/83], floor: [44/84,92/83] } },
   venusaur: { url: '/assets/venusaur-front.png', nativeFacing: -1, bounds: { x: 8, y: 12, width: 79, height: 69 },
@@ -16,7 +23,7 @@ export const SPRITE_PROFILES = {
 /** Select artwork by field view, never by which actor is currently using a move. */
 export function resolveSpriteProfile({ profile, view } = {}) {
   const original = SPRITE_PROFILES[profile] ?? SPRITE_PROFILES.tall
-  const selected = STARTER_SPRITES[profile]?.[view]
+  const selected = ARTWORK_VIEWS[profile]?.[view]
   if (!selected) return original
   // Retain the approved sockets for artwork already used in the original animations.
   if (selected.url === original.url) return { ...selected, anchors: { ...selected.anchors, ...original.anchors } }

@@ -6,15 +6,15 @@ export default function surf(context) {
   const { tl, assets, glowTexture, random, onCue, onFrame } = context
   const { temporary, attacker, defender, home, defenderHome, focus, floor, emission, socket, targetSocket, solveContact, captureActor, world, gridOrigin } = bindEffectSpace(context)
   const sourceBaseScale=1, targetBaseScale=1, move={tint:context.tint}
-  const impactGlow=new Sprite(glowTexture);impactGlow.anchor.set(.5);impactGlow.position.set(focus.x-10,focus.y);impactGlow.tint=move.tint;impactGlow.blendMode='add';impactGlow.width=330;impactGlow.height=240;impactGlow.alpha=0;temporary.addChild(impactGlow)
+  const impactGlow=new Sprite(glowTexture);impactGlow.label='surf-impact-glow';impactGlow.anchor.set(.5);impactGlow.position.set(focus.x-10,focus.y);impactGlow.tint=move.tint;impactGlow.blendMode='add';impactGlow.width=330;impactGlow.height=240;impactGlow.alpha=0;temporary.addChild(impactGlow)
   const mouthGlow=new Sprite(glowTexture);mouthGlow.anchor.set(.5);mouthGlow.position.copyFrom(emission);mouthGlow.tint=0xff6c1d;mouthGlow.blendMode='add';mouthGlow.width=mouthGlow.height=150;mouthGlow.alpha=0;temporary.addChild(mouthGlow)
   onFrame(() => mouthGlow.position.copyFrom(socket('emission', true)))
   const emitter={strength:0};let spawnCarry=0
 
-  function addHit(tl, move, at, { shake = 3, recoil = 13 } = {}) {
+  function addHit(tl, move, at, { shake = 3, recoil = 13, beforeCue = () => {} } = {}) {
     tl.to(defender,{x:defenderHome.x+recoil,duration:.06,repeat:7,yoyo:true,ease:'none'},at)
       .to(world,{x:shake,y:-shake/2,duration:.06,repeat:7,yoyo:true,ease:'none'},at)
-      .call(()=>{onCue({type:'impact'});defender.tint=move.tint},[],at)
+      .call(()=>{beforeCue();onCue({type:'impact'});defender.tint=move.tint},[],at)
       .call(()=>{defender.tint=0xffffff},[],at+.24)
       .set(defender,{x:defenderHome.x},at+.5).set(world,{x:0,y:0},at+.5)
   }
@@ -26,7 +26,10 @@ function surf(tl, move) {
     // Load the artwork once with the scene; both crests share it through cleanup/replay.
     assets.surf.source.scaleMode = 'nearest'
     const waveScale = 0.6
+    // Keep the approved wash/spray size; only the two crests are 12% smaller.
+    const crestScale = waveScale * 0.88
     const target = { x: (focus.x), y: (focus.y) }
+    const crestY = y => target.y + (y - target.y) * crestScale
     const scaleY = y => target.y + (y - target.y) * waveScale
     const washTop = target.y + (floor.y + .4 - target.y) / waveScale
     const wash = new Graphics()
@@ -59,9 +62,9 @@ function surf(tl, move) {
     const makeWave = (width, height, x, y, tint) => {
       const wave = new Sprite(assets.surf)
       wave.anchor.set(1, 1)
-      wave.width = width * waveScale
-      wave.height = height * waveScale
-      wave.position.set(x, scaleY(y))
+      wave.width = width * crestScale
+      wave.height = height * crestScale
+      wave.position.set(x, crestY(y))
       wave.tint = tint
       wave.alpha = 0
       wave.roundPixels = true
@@ -73,8 +76,8 @@ function surf(tl, move) {
 
     leading.label='surf-leading';following.label='surf-following';wash.label='surf-wash'
     const followGround=()=>{
-      leading.y=scaleY(target.y+158)+routeY(leading.x-.045*leading.width)
-      following.y=scaleY(target.y+170)+routeY(following.x-.045*following.width)
+      leading.y=crestY(target.y+158)+routeY(leading.x-.045*leading.width)
+      following.y=crestY(target.y+170)+routeY(following.x-.045*following.width)
     }
     onFrame(followGround);followGround()
 
@@ -87,6 +90,7 @@ function surf(tl, move) {
         const foam = new Graphics().rect(0, 0, size * 2, size)
           .fill({ color: [0xf1fdff, 0xb9f1ff, 0x56c9f1][i % 3] })
         if (i % 2 === 0) foam.rect(size, -size, size, size).fill({ color: 0xf1fdff })
+        foam.label = `surf-foam-${at.toFixed(2)}-${i}`
         foam.alpha = 0
         foam.scale.set(waveScale)
         foam.position.set(x, y)
@@ -108,30 +112,30 @@ function surf(tl, move) {
     tl.to(attacker, { x: home.x - 12, duration: 0.22 }, 0)
       .to(attacker, { x: home.x + 5, duration: 0.2 }, 0.22)
       .to(attacker, { x: home.x, duration: 0.35 }, 2)
-      .to(wash, { alpha: 0.8, duration: 0.25 }, 0.24)
-      .to(flow, { reach: 1, duration: 1.3, ease: 'power1.out', onUpdate: drawWash }, 0.24)
-      .to(flow, { phase: 540, duration: 2.4, ease: 'none', onUpdate: drawWash }, 0.24)
+      .to(wash, { alpha: 0.8, duration: 0.25 }, 0.16)
+      .to(flow, { reach: 1, duration: 1.3, ease: 'power1.out', onUpdate: drawWash }, 0.16)
+      .to(flow, { phase: 540, duration: 2.4, ease: 'none', onUpdate: drawWash }, 0.16)
       .to(wash, { alpha: 0, duration: 0.5 }, 2.35)
-      .to(leading, { alpha: 1, duration: 0.2 }, 0.24)
-      .to(leading, { height: 360 * waveScale, duration: 0.48, ease: 'power2.out' }, 0.24)
+      .to(leading, { alpha: 1, duration: 0.2 }, 0.20)
+      .to(leading, { height: 360 * crestScale, duration: 0.48, ease: 'power2.out' }, 0.20)
       // The sprite's forward foam lip is at normalized (0.955, 0.56).
       // The authored lip meets the dynamic target before the cosmetic impact cue.
-      .to(leading, { x: target.x + 0.045 * 720 * waveScale, duration: 0.88, ease: 'power1.in' }, 0.24)
-      .to(leading, { x: (focus.x + 500), duration: 0.88, ease: 'none' }, 1.12)
-      .to(leading, { height: 110 * waveScale, duration: 0.74, ease: 'power1.in' }, 1.44)
-      .to(leading, { alpha: 0, duration: 0.4 }, 2.08)
-      .to(following, { alpha: 0.88, duration: 0.25 }, 0.42)
-      .to(following, { height: 280 * waveScale, duration: 0.55, ease: 'power2.out' }, 0.42)
-      .to(following, { x: (focus.x + 40), duration: 1.12, ease: 'power1.in' }, 0.42)
-      .to(following, { x: (focus.x + 460), duration: 0.72, ease: 'none' }, 1.54)
-      .to(following, { height: 70 * waveScale, duration: 0.65, ease: 'power1.in' }, 1.7)
-      .to(following, { alpha: 0, duration: 0.35 }, 2.3)
-      .to(impactGlow, { alpha: 0.22, duration: 0.12 }, 1.12)
-      .to(impactGlow, { alpha: 0, duration: 0.4 }, 1.58)
-    foamSpray(1.12, 28, target.x, target.y, 150)
-    foamSpray(1.46, 22, target.x + 55, target.y + 46, 120)
-    foamSpray(1.82, 18, target.x + 30, target.y + 77, 130)
-    addHit(tl, move, 1.12, { recoil: 18, shake: 4, duration: 0.85 })
+      .to(leading, { x: target.x + 0.045 * 720 * crestScale, duration: 0.80, ease: 'power1.in' }, 0.20)
+      .to(leading, { x: (focus.x + 500), duration: 0.88, ease: 'none' }, 1.00)
+      .to(leading, { height: 110 * crestScale, duration: 0.74, ease: 'power1.in' }, 1.32)
+      .to(leading, { alpha: 0, duration: 0.4 }, 1.96)
+      .to(following, { alpha: 0.88, duration: 0.25 }, 0.32)
+      .to(following, { height: 280 * crestScale, duration: 0.55, ease: 'power2.out' }, 0.32)
+      .to(following, { x: (focus.x + 40), duration: 1.00, ease: 'power1.in' }, 0.32)
+      .to(following, { x: (focus.x + 460), duration: 0.72, ease: 'none' }, 1.32)
+      .to(following, { height: 70 * crestScale, duration: 0.65, ease: 'power1.in' }, 1.48)
+      .to(following, { alpha: 0, duration: 0.35 }, 2.08)
+      .to(impactGlow, { alpha: 0.22, duration: 0.12 }, 1.00)
+      .to(impactGlow, { alpha: 0, duration: 0.4 }, 1.46)
+    foamSpray(1.00, 28, target.x, target.y, 150)
+    foamSpray(1.28, 22, target.x + 55, target.y + 46, 120)
+    foamSpray(1.60, 18, target.x + 30, target.y + 77, 130)
+    addHit(tl, move, 1.00, { recoil: 18, shake: 4, beforeCue: followGround })
     tl.call(() => {}, [], 3.2)
   }
   surf(tl,move)

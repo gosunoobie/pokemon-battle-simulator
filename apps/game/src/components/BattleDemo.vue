@@ -6,7 +6,9 @@ import { createPresenter } from '../presentation/presenter.js'
 import { createPreviewState, createPreviewTransaction } from '../previewState.js'
 
 import PokemonInfo from './PokemonInfo.vue'
-import { PREVIEW_POKEMON, previewSceneActors, previewBattleActors } from '../scene/previewActors.js'
+import RosterPicker from './RosterPicker.vue'
+import { ROSTER } from '../roster/index.js'
+import { previewSceneActors, previewBattleActors } from '../scene/previewActors.js'
 
 const activeActorId = ref('source'), nearProfile = ref('charizard'), farProfile = ref('venusaur')
 const selectedActor = computed(() => displayed.value.actors[activeActorId.value])
@@ -147,8 +149,8 @@ onBeforeUnmount(() => { disposed = true; sceneGeneration++; playGeneration++; pr
         <div class="field-lines" aria-hidden="true"></div>
         <div ref="stage" class="canvas-mount" role="img" :aria-label="`${displayed.actors.source.name} on your side faces ${displayed.actors.target.name} on the opponent side. ${selectedActor.name} is selected to use the move.`"></div>
 
-        <PokemonInfo class="attacker-info" :actor="displayed.actors.source" :type="PREVIEW_POKEMON[nearProfile].type" :active="activeActorId === 'source'" :animate="animateHealth" :reduced-motion="reducedMotion" />
-        <PokemonInfo class="defender-info" :actor="displayed.actors.target" :type="PREVIEW_POKEMON[farProfile].type" :active="activeActorId === 'target'" :animate="animateHealth" :reduced-motion="reducedMotion" />
+        <PokemonInfo class="attacker-info" :actor="displayed.actors.source" :types="ROSTER[nearProfile].types" :active="activeActorId === 'source'" :animate="animateHealth" :reduced-motion="reducedMotion" />
+        <PokemonInfo class="defender-info" :actor="displayed.actors.target" :types="ROSTER[farProfile].types" :active="activeActorId === 'target'" :animate="animateHealth" :reduced-motion="reducedMotion" />
 
         <div v-if="!sceneReady" class="load-message" role="status">{{ error || 'Preparing the battlefield…' }}</div>
         <div v-if="fieldSummary" class="weather-badge">{{ fieldSummary }}</div>
@@ -162,8 +164,8 @@ onBeforeUnmount(() => { disposed = true; sceneGeneration++; playGeneration++; pr
           <button :aria-pressed="activeActorId === 'source'" :class="{ selected: activeActorId === 'source' }" @click="selectAttacker('source')">Your side</button>
           <button :aria-pressed="activeActorId === 'target'" :class="{ selected: activeActorId === 'target' }" @click="selectAttacker('target')">Opponent side</button>
         </div>
-        <label>Your Pokémon<select v-model="nearProfile" @change="refreshScene"><option v-for="(item, id) in PREVIEW_POKEMON" :key="id" :value="id">{{ item.name }}</option></select></label>
-        <label>Opponent Pokémon<select v-model="farProfile" @change="refreshScene"><option v-for="(item, id) in PREVIEW_POKEMON" :key="id" :value="id">{{ item.name }}</option></select></label>
+        <RosterPicker v-model="nearProfile" label="Your Pokémon" @change="refreshScene" />
+        <RosterPicker v-model="farProfile" label="Opponent Pokémon" @change="refreshScene" />
       </div>
 
       <div class="move-panel" :style="{ '--move-accent': selectedMove.color }">

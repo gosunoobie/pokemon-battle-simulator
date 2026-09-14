@@ -1,3 +1,29 @@
+import bind from './moves/restored/bind.js'
+import wrap from './moves/restored/wrap.js'
+import constrict from './moves/restored/constrict.js'
+import stringShot from './moves/restored/string-shot.js'
+import sandAttack from './moves/restored/sand-attack.js'
+import mudSlap from './moves/restored/mud-slap.js'
+import cottonSpore from './moves/restored/cotton-spore.js'
+import featherDance from './moves/restored/feather-dance.js'
+import mudShot from './moves/restored/mud-shot.js'
+import muddyWater from './moves/restored/muddy-water.js'
+import viceGrip from './moves/restored/vice-grip.js'
+import clamp from './moves/restored/clamp.js'
+import superFang from './moves/restored/super-fang.js'
+import crabhammer from './moves/restored/crabhammer.js'
+import magnitude from './moves/restored/magnitude.js'
+import mirrorMove from './moves/restored/mirror-move.js'
+import sketch from './moves/restored/sketch.js'
+import spiderWeb from './moves/restored/spider-web.js'
+import block from './moves/restored/block.js'
+import kinesis from './moves/restored/kinesis.js'
+import lick from './moves/restored/lick.js'
+import boneClub from './moves/restored/bone-club.js'
+import boneRush from './moves/restored/bone-rush.js'
+import bonemerang from './moves/restored/bonemerang.js'
+import furySwipes from './moves/restored/fury-swipes.js'
+import transform from './moves/restored/transform.js'
 import followMe from './moves/restored/follow-me.js'
 import helpingHand from './moves/restored/helping-hand.js'
 import teeterDance from './moves/restored/teeter-dance.js'
@@ -320,7 +346,7 @@ const entries = [
   ['thunder-wave', thunderWave, .76, 1.85], ['thunder-shock', thunderShock, .46, 1.3], ['thunderbolt', thunderbolt, .52, 2], ['thunder', thunder, .84, 2.45],
   ['blizzard', blizzard, .82, 2.65], ['ice-punch', icePunch, .5, 1.7], ['aurora-beam', auroraBeam, .7, 2.3], ['ice-beam', iceBeam, .68, 2.4],
   ['psychic', psychic, .95, 2.15], ['shadow-ball', shadowBall, 1.1, 2.35], ['bubble', bubble, 1.02, 2.45], ['bubble-beam', bubbleBeam, .78, 2.3],
-  ['hydro-pump', hydroPump, .72, 2.8], ['surf', surf, 1.12, 3.2], ['waterfall', waterfall, .78, 3.15],
+  ['hydro-pump', hydroPump, .72, 2.8], ['surf', surf, 1.00, 3.2], ['waterfall', waterfall, .78, 3.15],
   ['quick-attack', quickAttack, .3, 1.2], ['mach-punch', machPunch, .38, 1.35], ['extreme-speed', extremeSpeed, .32, 1.4], ['body-slam', bodySlam, .82, 1.85],
   ['poison-powder', poisonPowder, .9, 2.45], ['sleep-powder', sleepPowder, 1.02, 2.6], ['stun-spore', stunSpore, .74, 2.2],
   ['bite', bite, .44, 1.25], ['crunch', crunch, .64, 1.8], ['hyper-fang', hyperFang, .38, 1.3], ['poison-fang', poisonFang, .58, 2.05],
@@ -568,6 +594,32 @@ const entries = [
   ['reversal', reversal, 0.92, 2.2],
   ['revenge', revenge, 1.04, 2.4],
   ['superpower', superpower, 1.1, 2.65],
+  ['bind', bind, 0.82, 2.1],
+  ['wrap', wrap, 0.9, 2.25],
+  ['constrict', constrict, 0.76, 1.95],
+  ['string-shot', stringShot, 0.74, 1.95],
+  ['sand-attack', sandAttack, 0.68, 1.95],
+  ['mud-slap', mudSlap, 0.64, 1.85],
+  ['cotton-spore', cottonSpore, 1.08, 2.55],
+  ['feather-dance', featherDance, 1.1, 2.6],
+  ['mud-shot', mudShot, 0.6, 1.9],
+  ['muddy-water', muddyWater, 1.00, 3.2],
+  ['vice-grip', viceGrip, 0.8, 1.95],
+  ['clamp', clamp, 0.9, 2.1],
+  ['super-fang', superFang, 0.72, 1.85],
+  ['crabhammer', crabhammer, 1.02, 2.35],
+  ['magnitude', magnitude, 1.12, 2.55],
+  ['mirror-move', mirrorMove, 0.98, 2.15],
+  ['sketch', sketch, 1.08, 2.35],
+  ['spider-web', spiderWeb, 0.94, 2.4],
+  ['block', block, 0.92, 2.15],
+  ['kinesis', kinesis, 1.06, 2.3],
+  ['lick', lick, 0.66, 1.85],
+  ['bone-club', boneClub, 0.78, 1.95],
+  ['bone-rush', boneRush, 1.16, 2.25],
+  ['bonemerang', bonemerang, 1.35, 2.25],
+  ['fury-swipes', furySwipes, 0.92, 1.9],
+  ['transform', transform, 1.36, 2.6],
 ]
 const preparations = Object.freeze({
   'fly': Object.freeze({ build: flyPrepare, contact: 0.94, duration: 1.4, subject: 'source' }),

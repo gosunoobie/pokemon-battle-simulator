@@ -1,13 +1,13 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { createBattleFx, FX_CATALOG } from '@battle/battle-fx'
-import { PREVIEW_POKEMON, previewSpriteHeight } from '../../game/src/scene/previewActors.js'
+import { previewSpriteHeight } from '../../game/src/scene/previewActors.js'
 import { createScene } from '../../game/src/scene/index.js'
+import RosterPicker from '../../game/src/components/RosterPicker.vue'
 
 const host = ref(null), move = ref('hydro-pump'), source = ref('charizard'), target = ref('venusaur')
 const activeActorId = ref('source')
 const phase = ref('attack'), phased = computed(() => FX_CATALOG.find(item => item.id === move.value)?.phases)
-const profileNames = [...Object.keys(PREVIEW_POKEMON), 'tall', 'wide']
 const sourceSize = ref(1), targetSize = ref(1), layout = ref('wide'), reversed = ref(false), reducedMotion = ref(false)
 const busy = ref(false), loading = ref(true), message = ref('Preparing the playground…')
 const dimensions = { wide: [1000, 450], square: [720, 600], portrait: [560, 700] }
@@ -64,14 +64,14 @@ onBeforeUnmount(() => { disposed = true; generation++; fx.dispose(); scene?.disp
       </div>
       <div class="playground-controls">
         <label>Move<select v-model="move" :disabled="busy" @change="phase = phased ? 'prepare' : 'attack'"><option v-for="item in FX_CATALOG" :key="item.id" :value="item.id">{{ item.name }}</option></select></label>
-        <label>Your Pokémon<select v-model="source" @change="changeProfile('source')"><option v-for="id in profileNames" :key="id" :value="id">{{ PREVIEW_POKEMON[id]?.name || id }}</option></select></label>
-        <label>Opponent Pokémon<select v-model="target" @change="changeProfile('target')"><option v-for="id in profileNames" :key="id" :value="id">{{ PREVIEW_POKEMON[id]?.name || id }}</option></select></label>
+        <RosterPicker v-model="source" label="Your Pokémon" include-shapes @change="changeProfile('source')" />
+        <RosterPicker v-model="target" label="Opponent Pokémon" include-shapes @change="changeProfile('target')" />
         <label>Your scale · {{ Number(sourceSize).toFixed(1) }}×<input v-model="sourceSize" type="range" min="0.8" max="1.2" step="0.1" @change="refresh"></label>
         <label>Opponent scale · {{ Number(targetSize).toFixed(1) }}×<input v-model="targetSize" type="range" min="0.8" max="1.2" step="0.1" @change="refresh"></label>
         <label>Battlefield<select v-model="layout" @change="refresh"><option value="wide">Wide</option><option value="square">Square</option><option value="portrait">Portrait</option></select></label>
         <label class="effects-toggle"><input v-model="reversed" type="checkbox" @change="refresh"> Mirror battlefield layout</label>
       </div>
-      <p class="playground-help">Choose the move user without moving either Pokémon. Change artwork, size and facing to check attachment points. Resize the window during playback to check camera scaling. Tall and wide shapes use the default anchors; the Pokémon use artwork-specific anchors.</p>
+      <p class="playground-help">Choose the move user without moving either Pokémon. Change artwork, size and facing to check attachment points. Resize the window during playback to check camera scaling. The nine calibrated starters keep their measured profiles. Other Pokémon and the tall/wide shapes use generic attachment points; these are not measured anatomy.</p>
     </section>
   </main>
 </template>

@@ -190,3 +190,13 @@ Psycho Boost uses `sourceSpecialAttackChange: -2`; Superpower uses `sourceAttack
 Follow Me adds validated default-false `attention`, displayed as a preview badge without redirecting attacks. Helping Hand and Splash reuse source-targeted `previewOnly` casts; Helping Hand does not invent an ally or boost either actor. Teeter Dance reuses opponent confusion for the singles scene. Psywave reuses level damage for a labeled fixed 100% roll, while Beat Up uses four cosmetic contacts and one fixed total result.
 
 Host fixtures cap False Swipe’s living recipient at 18 HP and Flail/Reversal’s living user at 10% HP; Revenge supplies an explicit example 32-damage incoming hit this turn. These fixtures honor explicit participant IDs, do not raise existing low HP or revive fainted actors, and leave observers untouched. The host labels each bounded sample and omitted mechanics.
+
+## Binding and copying previews
+
+`halfCurrentHp` lets Super Fang deal floor(current target HP / 2), with minimum one damage and the existing remaining-HP cap. It can knock out a target at 1 HP, preserves the source and all unrelated actor fields, and uses the ordinary committed result and impact reveal. It does not share False Swipe’s survival floor.
+
+`accuracyChangeOnHit: -1` is an opt-in damaging secondary used by Mud-Slap. A surviving recipient loses one accuracy stage, clamped to −6; a knockout preserves its previous stage. The hit succeeds at the accuracy floor, and its result reports both damage and the attempted drop. Status-only `accuracyChange` and `failAtAccuracyFloor` retain their existing semantics for Smokescreen and Flash and support Sand Attack and Kinesis. Mud Shot reuses the existing survivor-only Speed drop.
+
+Spider Web and Block reuse validated `trapped` preview state. A repeated trap fails unchanged, and the result names the move that actually cast it; Mean Look preserves its prior wording. No switching, escape or duration enforcement is added. Bind, Wrap and Clamp show only their initial fixed hit, as with prior trapping attacks. Constrict, Lick, Muddy Water, Bone Club and Crabhammer do not gain forced random secondary effects or critical rolls.
+
+Mirror Move, Sketch and Transform are opponent-targeted `previewOnly` casts. They resolve without changing HP, species, stats, abilities, moves or PP. Their effects illustrate reflection, drawing and a temporary visual imitation; no move history or persistent actor replacement is introduced. Transform’s FX uses the supplied opponent as a cosmetic reference but sends its single impact cue at the source center after the imitation returns. The presenter still reveals the already-committed snapshot and never interprets geometry. The 26 new host entries introduce no HP/status fixtures.

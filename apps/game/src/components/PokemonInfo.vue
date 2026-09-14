@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue'
-const props = defineProps({ actor: Object, type: String, active: Boolean, animate: Boolean, reducedMotion: Boolean })
+const props = defineProps({ actor: Object, types: { type: Array, default: () => [] }, active: Boolean, animate: Boolean, reducedMotion: Boolean })
 const conditions = { paralysis: 'PARALYZED', poison: 'POISONED', sleep: 'ASLEEP', 'bad-poison': 'BADLY POISONED', burn: 'BURNED' }
 const badges = computed(() => {
   const a = props.actor
@@ -18,8 +18,14 @@ const badges = computed(() => {
   <div class="pokemon-info" :class="{ 'active-actor-info': active }">
     <div class="name-line"><h2>{{ actor.name }}</h2><span>Lv. {{ actor.level }}</span></div>
     <div class="hp-line"><span>HP</span><div class="hp-track" role="progressbar" :aria-label="`${actor.name} HP`" :aria-valuenow="actor.hp" :aria-valuemax="actor.maxHp" :aria-valuemin="0"><div class="hp-fill" :class="{ animated: animate && !reducedMotion }" :style="{ width: `${actor.hp / actor.maxHp * 100}%` }"></div></div></div>
-    <div class="info-bottom"><span class="type-label" :class="type.toLowerCase()">{{ type.toUpperCase() }}</span><span>{{ actor.hp }} / {{ actor.maxHp }}</span></div>
+    <div class="info-bottom"><span class="pokemon-types"><span v-for="type in types" :key="type" class="type-label" :class="type.toLowerCase()">{{ type.toUpperCase() }}</span></span><span>{{ actor.hp }} / {{ actor.maxHp }}</span></div>
     <p v-if="conditions[actor.condition]" class="condition-badge" :class="`condition-${actor.condition}`">{{ conditions[actor.condition] }}</p>
     <div v-if="badges.length" class="guard-badges"><span v-for="badge in badges" :key="badge" class="condition-badge guard-badge">{{ badge }}</span></div>
   </div>
 </template>
+
+<style scoped>
+.pokemon-types { display: flex; flex-wrap: wrap; gap: 7px; }
+.info-bottom { gap: 8px; }
+.info-bottom > span:last-child { white-space: nowrap; }
+</style>

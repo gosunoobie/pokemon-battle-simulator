@@ -1,0 +1,9 @@
+{
+  "dexMod": "gen3",
+  "gitCommit": "739a5e1fee432ad80ff7136d70cca993be358b59",
+  "integrity": "sha512-FdW7gt3TkG4AdXmpMTPYX2kx42VEfY8tQApjW9wEHOGzwH6Kn97wD0o5uIzAc4xpO1W+Tim70Ti9+FNkMNCA2w==",
+  "provider": "pokemon-showdown",
+  "tarball": "https://registry.npmjs.org/pokemon-showdown/-/pokemon-showdown-0.11.11.tgz",
+  "treeSha256": "c7b63998d8fe9e6dcd646e616efad1727415be741d468ec982ba9c376a1e034d",
+  "version": "0.11.11"
+}

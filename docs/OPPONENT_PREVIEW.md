@@ -2,7 +2,7 @@
 
 The game page keeps fixed field IDs: `source` is the near position and `target` is the far position. These names are historical, not attack roles. Choosing **Opponent side** sends `sourceId: 'target'` to FX. Offensive moves use `targetIds: ['source']`; field weather uses an empty target list. The camera and Pokémon positions stay in place. All 140 IDs use their existing independent recipe; there is no duplicate opponent registry, AI, turn scheduler or new battle engine.
 
-The Use button and description remain above the move grid. Either position can display every supported stat, screen, status, confusion, trapping and fainted badge. Drain and cure fixtures follow the selected attacker. Side/species changes cancel active playback; late cues and completion cannot overwrite the new selection. Both pages offer all nine Kanto starter evolutions; the playground additionally supports geometric actors, scale controls and alternate layouts.
+The Use button and description remain above the move grid. Either position can display every supported stat, screen, status, confusion, trapping and fainted badge. Drain and cure fixtures follow the selected attacker. Side/species changes cancel active playback; late cues and completion cannot overwrite the new selection. Both pages offer all 386 Gen 1–3 species and 33 explicit forms through searchable selectors; the playground additionally supports geometric actors, scale controls and alternate layouts.
 
 ## Sprite presentation
 
@@ -12,7 +12,7 @@ Smaller sprites receive a visible-height floor of **150 near / 125 far** so they
 
 The playground defaults to this same sizing, with a small optional scale adjustment that still respects the minimum. Alternate logical layouts and window resizing apply uniform scene scaling. No move choreography, texture, socket or timing changed in this correction.
 
-`previewSceneActors` assigns `view: 'back'` to the near field and `view: 'front'` to the far field. `spriteViews.js` supplies 18 dedicated PNGs with separate visible bounds and anatomical sockets. `resolveSpriteProfile` is used consistently for texture loading and actor geometry. Choosing the opponent as move user does not change artwork or field placement. Original Charizard-back and Venusaur-front sockets remain calibrated; the other views use measured host metadata. No move recipe, timing, FX runtime or battle rule was changed for this sprite update.
+`previewSceneActors` assigns `view: 'back'` to the near field and `view: 'front'` to the far field. `spriteViews.js` preserves the 18 calibrated starter views. The independent `packages/pokemon-sprites` package supplies all 838 pinned front/back PNGs with measured alpha bounds; new species use generic host attachment sockets. Reference details show both types, abilities and base stats without changing fixed preview HP or move outcomes. See `tools/roster-import/reports/REPORT.md`. `resolveSpriteProfile` is used consistently for texture loading and actor geometry. Choosing the opponent as move user does not change artwork or field placement. Original Charizard-back and Venusaur-front sockets remain calibrated; the other views use measured host metadata. No move recipe, timing, FX runtime or battle rule was changed for this sprite update.
 
 ## Ground platforms
 

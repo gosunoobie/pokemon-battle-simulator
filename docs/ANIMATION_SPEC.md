@@ -1061,3 +1061,51 @@ Follow Me, Helping Hand and Splash use source-only FX and core targeting, includ
 Reference metadata and HP power bands follow [Pokémon Showdown move definitions](https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/moves.ts). False Swipe leaves at least 1 HP; Flail and Reversal use remaining-HP power bands; Psycho Boost and Superpower lower the user’s stats. Revenge uses a supplied current-turn hit to double demo damage. Psywave uses a labeled fixed roll. Follow Me marks attention; Helping Hand is a casting-only sample without an ally or boost. Teeter Dance confuses the opponent in this singles scene, while Splash changes no battle state. Party-dependent Beat Up power, random secondaries, redirection and turn mechanics remain outside the preview.
 
 Validation: all 252 tests pass, including 24 focused tests for these additions, and the two-page production build succeeds. Browser review covered 300 deterministic frames across all fifteen moves, both directions and wide/portrait fields, followed by 20 updated Teeter Dance frames after correcting mirrored sway. All 300 normal/reduced playback checks across nine species and 32 game outcome checks passed without browser errors. Focused real-Pixi tests additionally verify solo source effects, live custom sockets, full edge bounds, moving particles, cancellation and cleanup. All 294 preceding move recipes and four preparation modules remain byte-for-byte unchanged.
+
+## Binding, earth, bone and copying additions
+
+These 26 independent recipes bring the catalog to 335. The 309 preceding recipes and four preparation modules are unchanged.
+
+| Move | Impact / completion | Choreography |
+| --- | --- | --- |
+| Bind | 0.82 / 2.10 s | Narrow tan cords shoot out and cinch into a loose binding cage around the opponent. |
+| Wrap | 0.90 / 2.25 s | Broad cream bands spiral around the opponent, tighten, then unwind into curling strips. |
+| Constrict | 0.76 / 1.95 s | Rose-colored coils close inward in a compact squeeze before relaxing into loose curls. |
+| String Shot | 0.74 / 1.95 s | A sticky pale strand stretches toward the target and tangles into a small web of threads. |
+| Sand Attack | 0.68 / 1.95 s | A low fan of golden sand sprays toward the opponent, scattering into falling grains. |
+| Mud-Slap | 0.64 / 1.85 s | A small muddy smear slaps across the opponent and breaks into dark flecks. |
+| Cotton Spore | 1.08 / 2.55 s | Soft cotton clusters drift toward the opponent and collect in a fluffy, floating cloud. |
+| Feather Dance | 1.10 / 2.60 s | Pink and ivory feathers flutter around the opponent in a gently descending dance. |
+| Mud Shot | 0.60 / 1.90 s | A compact mud projectile travels low and bursts into a heavy splat with falling clods. |
+| Muddy Water | 1.02 / 2.50 s | A churning brown-water surge rolls toward the opponent with muddy foam and spray. |
+| Vice Grip | 0.80 / 1.95 s | A broad orange pincer closes around the target with a crisp gripping snap. |
+| Clamp | 0.90 / 2.10 s | Two pearly shell jaws close on the opponent and release a scatter of watery droplets. |
+| Super Fang | 0.72 / 1.85 s | Two oversized ivory fangs snap together in a sharp, bright bite. |
+| Crabhammer | 1.02 / 2.35 s | A water-coated heavy claw swings down, striking with a broad splash and falling droplets. |
+| Magnitude | 1.12 / 2.55 s | A ground pulse ripples across the field and erupts under the target in rattling slabs and dust. |
+| Mirror Move | 0.98 / 2.15 s | A mirrored shimmer gathers a symbolic attack pattern and reflects it in a luminous echo. |
+| Sketch | 1.08 / 2.35 s | A brush traces a luminous sketch of the opponent’s action, leaving curling ink strokes. |
+| Spider Web | 0.94 / 2.40 s | A fine silvery web unfurls around the target, catches the light, then loosens into strands. |
+| Block | 0.92 / 2.15 s | A sturdy open-centered barrier slides into place around the opponent, briefly sealing its path. |
+| Kinesis | 1.06 / 2.30 s | A gleaming spoon bends under psychic pressure, releasing warped rings toward the opponent. |
+| Lick | 0.66 / 1.85 s | A long pink tongue extends to the target, flicks upward and recoils with small glistening droplets. |
+| Bone Club | 0.78 / 1.95 s | A solid ivory bone swings from the user’s hand into a blunt, dusty strike. |
+| Bone Rush | 1.16 / 2.25 s | A bone staff lands three quick alternating blows, each leaving a short dusty wake. |
+| Bonemerang | 1.35 / 2.25 s | A spinning bone flies through the opponent, curves back for a second strike and returns to the user. |
+| Fury Swipes | 0.92 / 1.90 s | Three rapid claw sweeps alternate across the opponent, scattering pale scratch fragments. |
+| Transform | 1.36 / 2.60 s | A flowing transformation aura borrows the opponent’s silhouette, projects an imitation around the user and dissolves back to normal. |
+
+All clips require the selected opponent. Most leading artwork meets its live semantic center; Magnitude travels from source floor to target floor, while Transform’s returning imitation reaches the source center. Transform uses a supplied target snapshot when available with a symbolic fallback, without changing the source’s underlying actor identity or owning its shared textures. Physical tools remain attached to optional claw, mouth, tongue, bone or hand sockets with appropriate fallbacks. Bone Rush and Fury Swipes preview three contacts; Bonemerang previews an outgoing and returning strike before it is caught. Each clip sends only one final impact cue.
+
+Full actor and effect contours fit the logical scene across edge and portrait layouts. Actor proportions and visibility remain intact; all poses recover, moving particles continue through their fade, and loose debris falls in world coordinates from either side. Geometry and lifecycle belong to each local recipe; no existing animation is generalized or replaced.
+
+Reference metadata follows [Pokémon Showdown move definitions](https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/moves.ts). Super Fang removes half the target’s current HP with minimum one damage. Mud-Slap and Mud Shot apply their guaranteed accuracy and Speed drops on surviving hits. String Shot and Cotton Spore lower Speed; Feather Dance lowers Attack; Sand Attack and Kinesis lower accuracy. Spider Web and Block apply a trapping badge. Magnitude uses a labeled magnitude-7 sample. Initial binding damage, random secondary effects, multi-hit totals and copying limitations are stated in the host descriptions. No turn, move-history, party, learning or persistent transformation engine is added.
+
+Validation: all 280 tests pass, including 28 focused tests for this batch, and the two-page production build succeeds. Browser review covered 520 deterministic frames across all 26 moves, both directions and wide/portrait layouts. All 520 normal/reduced playback checks across nine species and 52 game result checks passed with no browser errors. Focused real-Pixi tests additionally verify live custom sockets, complete edge bounds, repeated physical contacts, Bonemerang’s return catch, Transform snapshot/fallback and shared-texture ownership, continued particle flow, cancellation and cleanup. All 309 preceding recipes and four preparation modules remain byte-for-byte unchanged.
+
+
+### Surf and Muddy Water refinement
+
+Surf keeps its approved pixel-art wave silhouette, floor wash, foam particles and recovery. Only the two crests are 12% smaller, with floor wash beginning at 0.16 s, leading crest at 0.20 s and following crest at 0.32 s. The first crest contacts at 1.00 s; the following crest reaches its departure point at 1.32 s. Both clips finish at 3.20 s.
+
+At the user’s request, Muddy Water now uses the exact revised Surf choreography in its own recipe. Its existing wave texture is rendered in silty browns with subtle grain; wash and foam use matching earth tones. Both use the same cached PNG, while Muddy Water’s filters are disposed per run. Damage and battle behavior remain unchanged (Surf 66, Muddy Water 64). Focused tests cover timing, crest size, choreography parity, contact and cleanup.

@@ -223,7 +223,7 @@ export function resolveMove(before, { moveId, sourceId, targetId, previousHit })
     && Number.isSafeInteger(previousHit.damage) && previousHit.damage > 0)
   const hpBand = Math.max(1, Math.floor(source.hp * 48 / source.maxHp))
   const powerUsed = move.lowHpPower ? hpBand < 2 ? 200 : hpBand < 5 ? 150 : hpBand < 10 ? 100 : hpBand < 17 ? 80 : hpBand < 33 ? 40 : 20 : move.power
-  const baseDamage = move.lowHpPower ? Math.round(powerUsed * .7) : move.levelDamage ? source.level : move.damage
+  const baseDamage = move.halfCurrentHp ? Math.max(1, Math.floor(target.hp / 2)) : move.lowHpPower ? Math.round(powerUsed * .7) : move.levelDamage ? source.level : move.damage
   const boostedDamage = (move.statusDamageBoost && ['burn', 'poison', 'bad-poison', 'paralysis'].includes(source.condition)) || (move.paralysisDamageBoost && target.condition === 'paralysis')
   // OHKO entries preview an already-successful hit; eligibility and accuracy belong to a full battle engine.
   const damage = move.ohko ? target.hp : baseDamage * (boostedDamage || revengeBoosted ? 2 : 1) * (knockedItem ? 1.5 : 1)
@@ -242,7 +242,9 @@ export function resolveMove(before, { moveId, sourceId, targetId, previousHit })
   const causedConfusion = move.confuses && hp > 0 && !target.confused
   const confusionFailed = move.confuses && move.damage === 0 && target.confused
   const previousAccuracy = target.accuracyStage ?? 0
-  const accuracyStage = Math.max(-6, Math.min(6, previousAccuracy + (move.accuracyChange ?? 0)))
+  // Guaranteed damaging accuracy drops apply only to a surviving recipient; status-only rules stay independent.
+  const accuracyDropOnHit = hp > 0 ? move.accuracyChangeOnHit ?? 0 : 0
+  const accuracyStage = Math.max(-6, Math.min(6, previousAccuracy + (move.accuracyChange ?? accuracyDropOnHit)))
   const previousDefense = target.defenseStage ?? 0
   const defenseStage = Math.max(-6, Math.min(6, previousDefense + (move.defenseChange ?? 0)))
   // Defense boosts use cap/failure handling while Barrier retains its original standalone preview behavior.
@@ -293,12 +295,12 @@ export function resolveMove(before, { moveId, sourceId, targetId, previousHit })
       : move.defenseChange ? `${target.name}’s Defense ${defenseStage === previousDefense ? 'cannot rise further' : defenseStage - previousDefense === 2 ? 'rose sharply' : 'rose'}! Stat preview only.`
       : move.guard ? `${target.name} ${GUARD_TEXT[move.guard]}`
       : move.accuracyChange ? `${target.name}’s accuracy ${accuracyStage < previousAccuracy ? 'fell' : 'cannot fall further'}! Stat preview only.`
-      : move.trapPreview ? `${target.name} ${trapFailed ? 'is already marked as trapped' : 'was caught in Mean Look'}! Trapping preview only; switching is not simulated.`
+      : move.trapPreview ? `${target.name} ${trapFailed ? 'is already marked as trapped' : move.id === 'mean-look' ? 'was caught in Mean Look' : `was caught by ${move.name}`}! Trapping preview only; switching is not simulated.`
       : move.switchPreview ? `${target.name} was buffeted by Whirlwind! No HP damage; switching is not simulated.`
       : move.drain ? `${damageMessage} ${source.name} restored ${healing} HP.`
       : move.selfDestruct ? `${damageMessage} ${source.name} fainted!`
       : hasRecoil ? `${damageMessage} ${source.name} took ${recoil} recoil damage.`
-      : `${damageMessage}${sourceBoosts.length ? ` ${source.name}’s ${sourceBoostMessage}!` : ''}${move.minimumTargetHp && hp <= move.minimumTargetHp ? ` ${target.name} held on!` : ''}${move.lowHpPower ? ` Remaining-HP power: ${powerUsed}; demo damage uses 70% of power.` : ''}${revengeBoosted ? ' Revenge was boosted by the supplied hit this turn!' : ''}${knockedItem ? ` ${target.name} lost its ${knockedItem}!` : ''}${boostedDamage ? ' Condition-boosted preview.' : ''}${curedParalysis ? ` ${target.name} was cured of paralysis!` : ''}${inflictedCondition ? ` ${target.name} is ${CONDITION_TEXT[inflictedCondition]}!` : ''}${brokeScreens ? ' The target’s screens were broken!' : ''}${causedConfusion ? ` ${target.name} became confused! Confusion preview only.` : ''}`,
+      : `${damageMessage}${accuracyDropOnHit ? ` ${target.name}’s accuracy ${accuracyStage < previousAccuracy ? 'fell' : 'cannot fall further'}!` : ''}${sourceBoosts.length ? ` ${source.name}’s ${sourceBoostMessage}!` : ''}${move.minimumTargetHp && hp <= move.minimumTargetHp ? ` ${target.name} held on!` : ''}${move.lowHpPower ? ` Remaining-HP power: ${powerUsed}; demo damage uses 70% of power.` : ''}${revengeBoosted ? ' Revenge was boosted by the supplied hit this turn!' : ''}${knockedItem ? ` ${target.name} lost its ${knockedItem}!` : ''}${boostedDamage ? ' Condition-boosted preview.' : ''}${curedParalysis ? ` ${target.name} was cured of paralysis!` : ''}${inflictedCondition ? ` ${target.name} is ${CONDITION_TEXT[inflictedCondition]}!` : ''}${brokeScreens ? ' The target’s screens were broken!' : ''}${causedConfusion ? ` ${target.name} became confused! Confusion preview only.` : ''}`,
   })
   return Object.freeze({ id, before, after, event })
 }

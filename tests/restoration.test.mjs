@@ -1,3 +1,4 @@
+import './helpers/headless-pixi.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
@@ -19,7 +20,7 @@ function shapes(root){
     for(const c of n.children??[])walk(c,alpha)
   }walk(root);return out
 }
-test('31 unchanged restored effects match 93 sampled original visual geometry frames',async()=>{
+test('30 unchanged restored effects match 90 sampled original visual geometry frames',async()=>{
   assert.equal(fixture.referenceCommit,'ab6d3c42af93b8114a4c3a8d7c205e9ba0cc1fca')
   const art=texture(96,96),glow=texture(64,64),assets={leaf:texture(256,256),rock:texture(256,256),surf:texture(1774,887),waterfall:texture(1024,1536)}
   const scene=createSceneGraph({textures:{charizard:art,venusaur:art}});let tl
@@ -28,7 +29,10 @@ test('31 unchanged restored effects match 93 sampled original visual geometry fr
     // Waterfall now crops the image before rendering; its visible coverage and
     // texture sampling are checked separately in waterfall.test.mjs.
     // Hydro Pump was explicitly redesigned; its new geometry is checked in pressure-moves.test.mjs.
-    for(const moveId of new Set(fixture.frames.filter(frame=>!['waterfall','hydro-pump'].includes(frame.moveId)).map(frame=>frame.moveId))){
+    // Surf crests and timing were explicitly adjusted; surf-muddy.test.mjs checks that contract.
+    const unchanged=fixture.frames.filter(frame=>!['waterfall','hydro-pump','surf'].includes(frame.moveId))
+    assert.equal(new Set(unchanged.map(frame=>frame.moveId)).size,30);assert.equal(unchanged.length,90)
+    for(const moveId of new Set(unchanged.map(frame=>frame.moveId))){
       const run=fx.play({moveId,sourceId:'source',targetIds:['target'],visualSeed:42},{scene});await tick();let previous=0
       for(const frame of fixture.frames.filter(f=>f.moveId===moveId)){
         for(let t=previous+1/120;t<=frame.time+1e-8;t+=1/120){tl.time(t,false);previous=t}

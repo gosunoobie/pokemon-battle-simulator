@@ -1,0 +1,16 @@
+Sprite source: https://github.com/PokeAPI/sprites
+Pinned commit: 2ecb4eeacd5a1718621fc30f12772e3f60d830b9
+
+All PNG files are unmodified copies of the identified upstream files.
+UPSTREAM-LICENCE.txt is copied unchanged from that revision. Its opening
+notice states that all image contents are Copyright The Pokémon Company,
+and that the repository is distributed under CC0 1.0 Universal. This package
+does not claim ownership of the Pokémon artwork or grant additional rights.
+
+Pokemon/form identity mapping was checked against the PokeAPI/pokeapi CSVs
+at 4b82c204ddd19ecb8eda2ea044ccb59e222b721c. Detailed mapping provenance,
+sprite checksums and source paths are recorded in the manifests.
+
+Battle reference data is separately imported from Pokémon Showdown. No battle
+values, rules, sound effects or generated replacement artwork are supplied by
+this sprite package.

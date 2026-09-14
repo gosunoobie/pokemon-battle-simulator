@@ -7,14 +7,24 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "data:setup": "npm ci --prefix tools/data-import --ignore-scripts --omit=optional --no-audit --no-fund",
+    "data:import": "node tools/data-import/import.mjs",
+    "data:check": "node tools/data-import/import.mjs --check",
+    "test:data": "node --test tools/data-import/tests/*.test.mjs packages/game-data/tests/*.test.mjs",
+    "roster:setup": "npm ci --prefix tools/roster-import --ignore-scripts --no-audit --no-fund",
+    "roster:fetch": "node tools/roster-import/import.mjs --fetch",
+    "roster:import": "node tools/roster-import/import.mjs",
+    "roster:check": "node tools/roster-import/import.mjs --check",
+    "test:roster": "node --test tools/roster-import/tests/*.test.mjs"
   },
   "dependencies": {
     "vue": "^3.5.0",
     "pixi.js": "^8.13.0",
     "gsap": "^3.13.0",
     "@battle/battle-core": "file:packages/battle-core",
-    "@battle/battle-fx": "file:packages/battle-fx"
+    "@battle/battle-fx": "file:packages/battle-fx",
+    "@battle/pokemon-sprites": "file:packages/pokemon-sprites"
   },
   "devDependencies": {
     "vite": "^7.1.0",

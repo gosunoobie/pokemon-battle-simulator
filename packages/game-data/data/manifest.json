@@ -1,0 +1,80 @@
+{
+  "artifacts": {
+    "LICENSE": {
+      "sha256": "b2002a9fd52ba8db3783a05fbdebfb09c34fd09513b90f6b390a2c0dfbc93ed0"
+    },
+    "data/gen3.json": {
+      "bytes": 4479761,
+      "sha256": "1997623fda7c898ff8a4bdc5a5a158cadfdcf2d054a007c40d3c79180a9046fd"
+    },
+    "data/source-files.json": {
+      "files": 1585,
+      "sha256": "c7b63998d8fe9e6dcd646e616efad1727415be741d468ec982ba9c376a1e034d"
+    }
+  },
+  "capabilities": {
+    "battleSimulation": false,
+    "learnsetCandidates": true,
+    "teamValidation": false
+  },
+  "counts": {
+    "abilities": 76,
+    "captureBalls": 20,
+    "forms": 33,
+    "items": 106,
+    "learnsets": 419,
+    "moves": 354,
+    "natures": 25,
+    "species": 386,
+    "types": 17
+  },
+  "dataset": "gen3",
+  "importer": {
+    "inputs": [
+      {
+        "path": "tools/data-import/package.json",
+        "sha256": "f2584c7876028c84f643c0af630074b62b9d1ddd597336f1e5e49283b7c8bfb4"
+      },
+      {
+        "path": "tools/data-import/package-lock.json",
+        "sha256": "b67903cb068dcc93c151bd3edb349d1ee6352c7a89b06d43d153a1356058f562"
+      },
+      {
+        "path": "tools/data-import/source-lock.json",
+        "sha256": "a26b9cdcdda3d8eab8b8e2a4dbca496e18a113fd314998de7f3196a74356d3ef"
+      },
+      {
+        "path": "tools/data-import/extract.mjs",
+        "sha256": "7f382d42c73e45f3ee0a9cd70c074e07421395346e230013d693f0742e98003b"
+      },
+      {
+        "path": "tools/data-import/provenance.mjs",
+        "sha256": "f82465823eab073ac4371b0a76087e7b88ca4a74c753dae9f9d08888bc32aff8"
+      },
+      {
+        "path": "tools/data-import/validate.mjs",
+        "sha256": "c2ec76b2d3665bb95934d33b94842e854880182ce8f5555e049a2fb8d4cfcfea"
+      },
+      {
+        "path": "tools/data-import/diagnostics.mjs",
+        "sha256": "acb4ac80e00cf560b7136ecf4747301841f9e3b7a97f18e4b8c2f9c1de0f23ca"
+      },
+      {
+        "path": "tools/data-import/import.mjs",
+        "sha256": "cda6e93dcf4087c8898d1ab39cc3576ec2fa4f98c094474c2fdf0fd3fa46b796"
+      }
+    ],
+    "minimumNodeMajor": 24
+  },
+  "projection": "allowlisted-static-metadata",
+  "schemaVersion": 1,
+  "source": {
+    "dexMod": "gen3",
+    "gitCommit": "739a5e1fee432ad80ff7136d70cca993be358b59",
+    "integrity": "sha512-FdW7gt3TkG4AdXmpMTPYX2kx42VEfY8tQApjW9wEHOGzwH6Kn97wD0o5uIzAc4xpO1W+Tim70Ti9+FNkMNCA2w==",
+    "provider": "pokemon-showdown",
+    "tarball": "https://registry.npmjs.org/pokemon-showdown/-/pokemon-showdown-0.11.11.tgz",
+    "treeSha256": "c7b63998d8fe9e6dcd646e616efad1727415be741d468ec982ba9c376a1e034d",
+    "version": "0.11.11"
+  }
+}

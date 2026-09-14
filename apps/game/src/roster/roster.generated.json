@@ -1,0 +1,9944 @@
+{
+  "source": {
+    "dataSha256": "1997623fda7c898ff8a4bdc5a5a158cadfdcf2d054a007c40d3c79180a9046fd",
+    "dexMod": "gen3",
+    "gitCommit": "739a5e1fee432ad80ff7136d70cca993be358b59",
+    "provider": "pokemon-showdown",
+    "version": "0.11.11"
+  },
+  "species": [
+    {
+      "abilities": [
+        "Overgrow"
+      ],
+      "baseSpeciesId": "bulbasaur",
+      "baseStats": {
+        "atk": 49,
+        "def": 49,
+        "hp": 45,
+        "spa": 65,
+        "spd": 65,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "bulbasaur",
+      "kind": "base",
+      "name": "Bulbasaur",
+      "num": 1,
+      "speciesGeneration": 1,
+      "types": [
+        "Grass",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Overgrow"
+      ],
+      "baseSpeciesId": "ivysaur",
+      "baseStats": {
+        "atk": 62,
+        "def": 63,
+        "hp": 60,
+        "spa": 80,
+        "spd": 80,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "ivysaur",
+      "kind": "base",
+      "name": "Ivysaur",
+      "num": 2,
+      "speciesGeneration": 1,
+      "types": [
+        "Grass",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Overgrow"
+      ],
+      "baseSpeciesId": "venusaur",
+      "baseStats": {
+        "atk": 82,
+        "def": 83,
+        "hp": 80,
+        "spa": 100,
+        "spd": 100,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "venusaur",
+      "kind": "base",
+      "name": "Venusaur",
+      "num": 3,
+      "speciesGeneration": 1,
+      "types": [
+        "Grass",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Blaze"
+      ],
+      "baseSpeciesId": "charmander",
+      "baseStats": {
+        "atk": 52,
+        "def": 43,
+        "hp": 39,
+        "spa": 60,
+        "spd": 50,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "charmander",
+      "kind": "base",
+      "name": "Charmander",
+      "num": 4,
+      "speciesGeneration": 1,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Blaze"
+      ],
+      "baseSpeciesId": "charmeleon",
+      "baseStats": {
+        "atk": 64,
+        "def": 58,
+        "hp": 58,
+        "spa": 80,
+        "spd": 65,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "charmeleon",
+      "kind": "base",
+      "name": "Charmeleon",
+      "num": 5,
+      "speciesGeneration": 1,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Blaze"
+      ],
+      "baseSpeciesId": "charizard",
+      "baseStats": {
+        "atk": 84,
+        "def": 78,
+        "hp": 78,
+        "spa": 109,
+        "spd": 85,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "charizard",
+      "kind": "base",
+      "name": "Charizard",
+      "num": 6,
+      "speciesGeneration": 1,
+      "types": [
+        "Fire",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Torrent"
+      ],
+      "baseSpeciesId": "squirtle",
+      "baseStats": {
+        "atk": 48,
+        "def": 65,
+        "hp": 44,
+        "spa": 50,
+        "spd": 64,
+        "spe": 43
+      },
+      "forme": "",
+      "id": "squirtle",
+      "kind": "base",
+      "name": "Squirtle",
+      "num": 7,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Torrent"
+      ],
+      "baseSpeciesId": "wartortle",
+      "baseStats": {
+        "atk": 63,
+        "def": 80,
+        "hp": 59,
+        "spa": 65,
+        "spd": 80,
+        "spe": 58
+      },
+      "forme": "",
+      "id": "wartortle",
+      "kind": "base",
+      "name": "Wartortle",
+      "num": 8,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Torrent"
+      ],
+      "baseSpeciesId": "blastoise",
+      "baseStats": {
+        "atk": 83,
+        "def": 100,
+        "hp": 79,
+        "spa": 85,
+        "spd": 105,
+        "spe": 78
+      },
+      "forme": "",
+      "id": "blastoise",
+      "kind": "base",
+      "name": "Blastoise",
+      "num": 9,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Shield Dust"
+      ],
+      "baseSpeciesId": "caterpie",
+      "baseStats": {
+        "atk": 30,
+        "def": 35,
+        "hp": 45,
+        "spa": 20,
+        "spd": 20,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "caterpie",
+      "kind": "base",
+      "name": "Caterpie",
+      "num": 10,
+      "speciesGeneration": 1,
+      "types": [
+        "Bug"
+      ]
+    },
+    {
+      "abilities": [
+        "Shed Skin"
+      ],
+      "baseSpeciesId": "metapod",
+      "baseStats": {
+        "atk": 20,
+        "def": 55,
+        "hp": 50,
+        "spa": 25,
+        "spd": 25,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "metapod",
+      "kind": "base",
+      "name": "Metapod",
+      "num": 11,
+      "speciesGeneration": 1,
+      "types": [
+        "Bug"
+      ]
+    },
+    {
+      "abilities": [
+        "Compound Eyes"
+      ],
+      "baseSpeciesId": "butterfree",
+      "baseStats": {
+        "atk": 45,
+        "def": 50,
+        "hp": 60,
+        "spa": 80,
+        "spd": 80,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "butterfree",
+      "kind": "base",
+      "name": "Butterfree",
+      "num": 12,
+      "speciesGeneration": 1,
+      "types": [
+        "Bug",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Shield Dust"
+      ],
+      "baseSpeciesId": "weedle",
+      "baseStats": {
+        "atk": 35,
+        "def": 30,
+        "hp": 40,
+        "spa": 20,
+        "spd": 20,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "weedle",
+      "kind": "base",
+      "name": "Weedle",
+      "num": 13,
+      "speciesGeneration": 1,
+      "types": [
+        "Bug",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Shed Skin"
+      ],
+      "baseSpeciesId": "kakuna",
+      "baseStats": {
+        "atk": 25,
+        "def": 50,
+        "hp": 45,
+        "spa": 25,
+        "spd": 25,
+        "spe": 35
+      },
+      "forme": "",
+      "id": "kakuna",
+      "kind": "base",
+      "name": "Kakuna",
+      "num": 14,
+      "speciesGeneration": 1,
+      "types": [
+        "Bug",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Swarm"
+      ],
+      "baseSpeciesId": "beedrill",
+      "baseStats": {
+        "atk": 80,
+        "def": 40,
+        "hp": 65,
+        "spa": 45,
+        "spd": 80,
+        "spe": 75
+      },
+      "forme": "",
+      "id": "beedrill",
+      "kind": "base",
+      "name": "Beedrill",
+      "num": 15,
+      "speciesGeneration": 1,
+      "types": [
+        "Bug",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Keen Eye"
+      ],
+      "baseSpeciesId": "pidgey",
+      "baseStats": {
+        "atk": 45,
+        "def": 40,
+        "hp": 40,
+        "spa": 35,
+        "spd": 35,
+        "spe": 56
+      },
+      "forme": "",
+      "id": "pidgey",
+      "kind": "base",
+      "name": "Pidgey",
+      "num": 16,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Keen Eye"
+      ],
+      "baseSpeciesId": "pidgeotto",
+      "baseStats": {
+        "atk": 60,
+        "def": 55,
+        "hp": 63,
+        "spa": 50,
+        "spd": 50,
+        "spe": 71
+      },
+      "forme": "",
+      "id": "pidgeotto",
+      "kind": "base",
+      "name": "Pidgeotto",
+      "num": 17,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Keen Eye"
+      ],
+      "baseSpeciesId": "pidgeot",
+      "baseStats": {
+        "atk": 80,
+        "def": 75,
+        "hp": 83,
+        "spa": 70,
+        "spd": 70,
+        "spe": 91
+      },
+      "forme": "",
+      "id": "pidgeot",
+      "kind": "base",
+      "name": "Pidgeot",
+      "num": 18,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Run Away",
+        "Guts"
+      ],
+      "baseSpeciesId": "rattata",
+      "baseStats": {
+        "atk": 56,
+        "def": 35,
+        "hp": 30,
+        "spa": 25,
+        "spd": 35,
+        "spe": 72
+      },
+      "forme": "",
+      "id": "rattata",
+      "kind": "base",
+      "name": "Rattata",
+      "num": 19,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Run Away",
+        "Guts"
+      ],
+      "baseSpeciesId": "raticate",
+      "baseStats": {
+        "atk": 81,
+        "def": 60,
+        "hp": 55,
+        "spa": 50,
+        "spd": 70,
+        "spe": 97
+      },
+      "forme": "",
+      "id": "raticate",
+      "kind": "base",
+      "name": "Raticate",
+      "num": 20,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Keen Eye"
+      ],
+      "baseSpeciesId": "spearow",
+      "baseStats": {
+        "atk": 60,
+        "def": 30,
+        "hp": 40,
+        "spa": 31,
+        "spd": 31,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "spearow",
+      "kind": "base",
+      "name": "Spearow",
+      "num": 21,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Keen Eye"
+      ],
+      "baseSpeciesId": "fearow",
+      "baseStats": {
+        "atk": 90,
+        "def": 65,
+        "hp": 65,
+        "spa": 61,
+        "spd": 61,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "fearow",
+      "kind": "base",
+      "name": "Fearow",
+      "num": 22,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Intimidate",
+        "Shed Skin"
+      ],
+      "baseSpeciesId": "ekans",
+      "baseStats": {
+        "atk": 60,
+        "def": 44,
+        "hp": 35,
+        "spa": 40,
+        "spd": 54,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "ekans",
+      "kind": "base",
+      "name": "Ekans",
+      "num": 23,
+      "speciesGeneration": 1,
+      "types": [
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Intimidate",
+        "Shed Skin"
+      ],
+      "baseSpeciesId": "arbok",
+      "baseStats": {
+        "atk": 85,
+        "def": 69,
+        "hp": 60,
+        "spa": 65,
+        "spd": 79,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "arbok",
+      "kind": "base",
+      "name": "Arbok",
+      "num": 24,
+      "speciesGeneration": 1,
+      "types": [
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Static"
+      ],
+      "baseSpeciesId": "pikachu",
+      "baseStats": {
+        "atk": 55,
+        "def": 30,
+        "hp": 35,
+        "spa": 50,
+        "spd": 40,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "pikachu",
+      "kind": "base",
+      "name": "Pikachu",
+      "num": 25,
+      "speciesGeneration": 1,
+      "types": [
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Static"
+      ],
+      "baseSpeciesId": "raichu",
+      "baseStats": {
+        "atk": 90,
+        "def": 55,
+        "hp": 60,
+        "spa": 90,
+        "spd": 80,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "raichu",
+      "kind": "base",
+      "name": "Raichu",
+      "num": 26,
+      "speciesGeneration": 1,
+      "types": [
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Sand Veil"
+      ],
+      "baseSpeciesId": "sandshrew",
+      "baseStats": {
+        "atk": 75,
+        "def": 85,
+        "hp": 50,
+        "spa": 20,
+        "spd": 30,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "sandshrew",
+      "kind": "base",
+      "name": "Sandshrew",
+      "num": 27,
+      "speciesGeneration": 1,
+      "types": [
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Sand Veil"
+      ],
+      "baseSpeciesId": "sandslash",
+      "baseStats": {
+        "atk": 100,
+        "def": 110,
+        "hp": 75,
+        "spa": 45,
+        "spd": 55,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "sandslash",
+      "kind": "base",
+      "name": "Sandslash",
+      "num": 28,
+      "speciesGeneration": 1,
+      "types": [
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Poison Point"
+      ],
+      "baseSpeciesId": "nidoranf",
+      "baseStats": {
+        "atk": 47,
+        "def": 52,
+        "hp": 55,
+        "spa": 40,
+        "spd": 40,
+        "spe": 41
+      },
+      "forme": "",
+      "id": "nidoranf",
+      "kind": "base",
+      "name": "Nidoran-F",
+      "num": 29,
+      "speciesGeneration": 1,
+      "types": [
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Poison Point"
+      ],
+      "baseSpeciesId": "nidorina",
+      "baseStats": {
+        "atk": 62,
+        "def": 67,
+        "hp": 70,
+        "spa": 55,
+        "spd": 55,
+        "spe": 56
+      },
+      "forme": "",
+      "id": "nidorina",
+      "kind": "base",
+      "name": "Nidorina",
+      "num": 30,
+      "speciesGeneration": 1,
+      "types": [
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Poison Point"
+      ],
+      "baseSpeciesId": "nidoqueen",
+      "baseStats": {
+        "atk": 82,
+        "def": 87,
+        "hp": 90,
+        "spa": 75,
+        "spd": 85,
+        "spe": 76
+      },
+      "forme": "",
+      "id": "nidoqueen",
+      "kind": "base",
+      "name": "Nidoqueen",
+      "num": 31,
+      "speciesGeneration": 1,
+      "types": [
+        "Poison",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Poison Point"
+      ],
+      "baseSpeciesId": "nidoranm",
+      "baseStats": {
+        "atk": 57,
+        "def": 40,
+        "hp": 46,
+        "spa": 40,
+        "spd": 40,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "nidoranm",
+      "kind": "base",
+      "name": "Nidoran-M",
+      "num": 32,
+      "speciesGeneration": 1,
+      "types": [
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Poison Point"
+      ],
+      "baseSpeciesId": "nidorino",
+      "baseStats": {
+        "atk": 72,
+        "def": 57,
+        "hp": 61,
+        "spa": 55,
+        "spd": 55,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "nidorino",
+      "kind": "base",
+      "name": "Nidorino",
+      "num": 33,
+      "speciesGeneration": 1,
+      "types": [
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Poison Point"
+      ],
+      "baseSpeciesId": "nidoking",
+      "baseStats": {
+        "atk": 92,
+        "def": 77,
+        "hp": 81,
+        "spa": 85,
+        "spd": 75,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "nidoking",
+      "kind": "base",
+      "name": "Nidoking",
+      "num": 34,
+      "speciesGeneration": 1,
+      "types": [
+        "Poison",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Cute Charm"
+      ],
+      "baseSpeciesId": "clefairy",
+      "baseStats": {
+        "atk": 45,
+        "def": 48,
+        "hp": 70,
+        "spa": 60,
+        "spd": 65,
+        "spe": 35
+      },
+      "forme": "",
+      "id": "clefairy",
+      "kind": "base",
+      "name": "Clefairy",
+      "num": 35,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Cute Charm"
+      ],
+      "baseSpeciesId": "clefable",
+      "baseStats": {
+        "atk": 70,
+        "def": 73,
+        "hp": 95,
+        "spa": 85,
+        "spd": 90,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "clefable",
+      "kind": "base",
+      "name": "Clefable",
+      "num": 36,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Flash Fire"
+      ],
+      "baseSpeciesId": "vulpix",
+      "baseStats": {
+        "atk": 41,
+        "def": 40,
+        "hp": 38,
+        "spa": 50,
+        "spd": 65,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "vulpix",
+      "kind": "base",
+      "name": "Vulpix",
+      "num": 37,
+      "speciesGeneration": 1,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Flash Fire"
+      ],
+      "baseSpeciesId": "ninetales",
+      "baseStats": {
+        "atk": 76,
+        "def": 75,
+        "hp": 73,
+        "spa": 81,
+        "spd": 100,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "ninetales",
+      "kind": "base",
+      "name": "Ninetales",
+      "num": 38,
+      "speciesGeneration": 1,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Cute Charm"
+      ],
+      "baseSpeciesId": "jigglypuff",
+      "baseStats": {
+        "atk": 45,
+        "def": 20,
+        "hp": 115,
+        "spa": 45,
+        "spd": 25,
+        "spe": 20
+      },
+      "forme": "",
+      "id": "jigglypuff",
+      "kind": "base",
+      "name": "Jigglypuff",
+      "num": 39,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Cute Charm"
+      ],
+      "baseSpeciesId": "wigglytuff",
+      "baseStats": {
+        "atk": 70,
+        "def": 45,
+        "hp": 140,
+        "spa": 75,
+        "spd": 50,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "wigglytuff",
+      "kind": "base",
+      "name": "Wigglytuff",
+      "num": 40,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Inner Focus"
+      ],
+      "baseSpeciesId": "zubat",
+      "baseStats": {
+        "atk": 45,
+        "def": 35,
+        "hp": 40,
+        "spa": 30,
+        "spd": 40,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "zubat",
+      "kind": "base",
+      "name": "Zubat",
+      "num": 41,
+      "speciesGeneration": 1,
+      "types": [
+        "Poison",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Inner Focus"
+      ],
+      "baseSpeciesId": "golbat",
+      "baseStats": {
+        "atk": 80,
+        "def": 70,
+        "hp": 75,
+        "spa": 65,
+        "spd": 75,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "golbat",
+      "kind": "base",
+      "name": "Golbat",
+      "num": 42,
+      "speciesGeneration": 1,
+      "types": [
+        "Poison",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll"
+      ],
+      "baseSpeciesId": "oddish",
+      "baseStats": {
+        "atk": 50,
+        "def": 55,
+        "hp": 45,
+        "spa": 75,
+        "spd": 65,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "oddish",
+      "kind": "base",
+      "name": "Oddish",
+      "num": 43,
+      "speciesGeneration": 1,
+      "types": [
+        "Grass",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll"
+      ],
+      "baseSpeciesId": "gloom",
+      "baseStats": {
+        "atk": 65,
+        "def": 70,
+        "hp": 60,
+        "spa": 85,
+        "spd": 75,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "gloom",
+      "kind": "base",
+      "name": "Gloom",
+      "num": 44,
+      "speciesGeneration": 1,
+      "types": [
+        "Grass",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll"
+      ],
+      "baseSpeciesId": "vileplume",
+      "baseStats": {
+        "atk": 80,
+        "def": 85,
+        "hp": 75,
+        "spa": 100,
+        "spd": 90,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "vileplume",
+      "kind": "base",
+      "name": "Vileplume",
+      "num": 45,
+      "speciesGeneration": 1,
+      "types": [
+        "Grass",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Effect Spore"
+      ],
+      "baseSpeciesId": "paras",
+      "baseStats": {
+        "atk": 70,
+        "def": 55,
+        "hp": 35,
+        "spa": 45,
+        "spd": 55,
+        "spe": 25
+      },
+      "forme": "",
+      "id": "paras",
+      "kind": "base",
+      "name": "Paras",
+      "num": 46,
+      "speciesGeneration": 1,
+      "types": [
+        "Bug",
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Effect Spore"
+      ],
+      "baseSpeciesId": "parasect",
+      "baseStats": {
+        "atk": 95,
+        "def": 80,
+        "hp": 60,
+        "spa": 60,
+        "spd": 80,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "parasect",
+      "kind": "base",
+      "name": "Parasect",
+      "num": 47,
+      "speciesGeneration": 1,
+      "types": [
+        "Bug",
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Compound Eyes"
+      ],
+      "baseSpeciesId": "venonat",
+      "baseStats": {
+        "atk": 55,
+        "def": 50,
+        "hp": 60,
+        "spa": 40,
+        "spd": 55,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "venonat",
+      "kind": "base",
+      "name": "Venonat",
+      "num": 48,
+      "speciesGeneration": 1,
+      "types": [
+        "Bug",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Shield Dust"
+      ],
+      "baseSpeciesId": "venomoth",
+      "baseStats": {
+        "atk": 65,
+        "def": 60,
+        "hp": 70,
+        "spa": 90,
+        "spd": 75,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "venomoth",
+      "kind": "base",
+      "name": "Venomoth",
+      "num": 49,
+      "speciesGeneration": 1,
+      "types": [
+        "Bug",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Sand Veil",
+        "Arena Trap"
+      ],
+      "baseSpeciesId": "diglett",
+      "baseStats": {
+        "atk": 55,
+        "def": 25,
+        "hp": 10,
+        "spa": 35,
+        "spd": 45,
+        "spe": 95
+      },
+      "forme": "",
+      "id": "diglett",
+      "kind": "base",
+      "name": "Diglett",
+      "num": 50,
+      "speciesGeneration": 1,
+      "types": [
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Sand Veil",
+        "Arena Trap"
+      ],
+      "baseSpeciesId": "dugtrio",
+      "baseStats": {
+        "atk": 80,
+        "def": 50,
+        "hp": 35,
+        "spa": 50,
+        "spd": 70,
+        "spe": 120
+      },
+      "forme": "",
+      "id": "dugtrio",
+      "kind": "base",
+      "name": "Dugtrio",
+      "num": 51,
+      "speciesGeneration": 1,
+      "types": [
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Pickup"
+      ],
+      "baseSpeciesId": "meowth",
+      "baseStats": {
+        "atk": 45,
+        "def": 35,
+        "hp": 40,
+        "spa": 40,
+        "spd": 40,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "meowth",
+      "kind": "base",
+      "name": "Meowth",
+      "num": 52,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Limber"
+      ],
+      "baseSpeciesId": "persian",
+      "baseStats": {
+        "atk": 70,
+        "def": 60,
+        "hp": 65,
+        "spa": 65,
+        "spd": 65,
+        "spe": 115
+      },
+      "forme": "",
+      "id": "persian",
+      "kind": "base",
+      "name": "Persian",
+      "num": 53,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Damp",
+        "Cloud Nine"
+      ],
+      "baseSpeciesId": "psyduck",
+      "baseStats": {
+        "atk": 52,
+        "def": 48,
+        "hp": 50,
+        "spa": 65,
+        "spd": 50,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "psyduck",
+      "kind": "base",
+      "name": "Psyduck",
+      "num": 54,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Damp",
+        "Cloud Nine"
+      ],
+      "baseSpeciesId": "golduck",
+      "baseStats": {
+        "atk": 82,
+        "def": 78,
+        "hp": 80,
+        "spa": 95,
+        "spd": 80,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "golduck",
+      "kind": "base",
+      "name": "Golduck",
+      "num": 55,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Vital Spirit"
+      ],
+      "baseSpeciesId": "mankey",
+      "baseStats": {
+        "atk": 80,
+        "def": 35,
+        "hp": 40,
+        "spa": 35,
+        "spd": 45,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "mankey",
+      "kind": "base",
+      "name": "Mankey",
+      "num": 56,
+      "speciesGeneration": 1,
+      "types": [
+        "Fighting"
+      ]
+    },
+    {
+      "abilities": [
+        "Vital Spirit"
+      ],
+      "baseSpeciesId": "primeape",
+      "baseStats": {
+        "atk": 105,
+        "def": 60,
+        "hp": 65,
+        "spa": 60,
+        "spd": 70,
+        "spe": 95
+      },
+      "forme": "",
+      "id": "primeape",
+      "kind": "base",
+      "name": "Primeape",
+      "num": 57,
+      "speciesGeneration": 1,
+      "types": [
+        "Fighting"
+      ]
+    },
+    {
+      "abilities": [
+        "Intimidate",
+        "Flash Fire"
+      ],
+      "baseSpeciesId": "growlithe",
+      "baseStats": {
+        "atk": 70,
+        "def": 45,
+        "hp": 55,
+        "spa": 70,
+        "spd": 50,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "growlithe",
+      "kind": "base",
+      "name": "Growlithe",
+      "num": 58,
+      "speciesGeneration": 1,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Intimidate",
+        "Flash Fire"
+      ],
+      "baseSpeciesId": "arcanine",
+      "baseStats": {
+        "atk": 110,
+        "def": 80,
+        "hp": 90,
+        "spa": 100,
+        "spd": 80,
+        "spe": 95
+      },
+      "forme": "",
+      "id": "arcanine",
+      "kind": "base",
+      "name": "Arcanine",
+      "num": 59,
+      "speciesGeneration": 1,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Water Absorb",
+        "Damp"
+      ],
+      "baseSpeciesId": "poliwag",
+      "baseStats": {
+        "atk": 50,
+        "def": 40,
+        "hp": 40,
+        "spa": 40,
+        "spd": 40,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "poliwag",
+      "kind": "base",
+      "name": "Poliwag",
+      "num": 60,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Water Absorb",
+        "Damp"
+      ],
+      "baseSpeciesId": "poliwhirl",
+      "baseStats": {
+        "atk": 65,
+        "def": 65,
+        "hp": 65,
+        "spa": 50,
+        "spd": 50,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "poliwhirl",
+      "kind": "base",
+      "name": "Poliwhirl",
+      "num": 61,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Water Absorb",
+        "Damp"
+      ],
+      "baseSpeciesId": "poliwrath",
+      "baseStats": {
+        "atk": 85,
+        "def": 95,
+        "hp": 90,
+        "spa": 70,
+        "spd": 90,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "poliwrath",
+      "kind": "base",
+      "name": "Poliwrath",
+      "num": 62,
+      "speciesGeneration": 1,
+      "types": [
+        "Water",
+        "Fighting"
+      ]
+    },
+    {
+      "abilities": [
+        "Synchronize",
+        "Inner Focus"
+      ],
+      "baseSpeciesId": "abra",
+      "baseStats": {
+        "atk": 20,
+        "def": 15,
+        "hp": 25,
+        "spa": 105,
+        "spd": 55,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "abra",
+      "kind": "base",
+      "name": "Abra",
+      "num": 63,
+      "speciesGeneration": 1,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Synchronize",
+        "Inner Focus"
+      ],
+      "baseSpeciesId": "kadabra",
+      "baseStats": {
+        "atk": 35,
+        "def": 30,
+        "hp": 40,
+        "spa": 120,
+        "spd": 70,
+        "spe": 105
+      },
+      "forme": "",
+      "id": "kadabra",
+      "kind": "base",
+      "name": "Kadabra",
+      "num": 64,
+      "speciesGeneration": 1,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Synchronize",
+        "Inner Focus"
+      ],
+      "baseSpeciesId": "alakazam",
+      "baseStats": {
+        "atk": 50,
+        "def": 45,
+        "hp": 55,
+        "spa": 135,
+        "spd": 85,
+        "spe": 120
+      },
+      "forme": "",
+      "id": "alakazam",
+      "kind": "base",
+      "name": "Alakazam",
+      "num": 65,
+      "speciesGeneration": 1,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Guts"
+      ],
+      "baseSpeciesId": "machop",
+      "baseStats": {
+        "atk": 80,
+        "def": 50,
+        "hp": 70,
+        "spa": 35,
+        "spd": 35,
+        "spe": 35
+      },
+      "forme": "",
+      "id": "machop",
+      "kind": "base",
+      "name": "Machop",
+      "num": 66,
+      "speciesGeneration": 1,
+      "types": [
+        "Fighting"
+      ]
+    },
+    {
+      "abilities": [
+        "Guts"
+      ],
+      "baseSpeciesId": "machoke",
+      "baseStats": {
+        "atk": 100,
+        "def": 70,
+        "hp": 80,
+        "spa": 50,
+        "spd": 60,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "machoke",
+      "kind": "base",
+      "name": "Machoke",
+      "num": 67,
+      "speciesGeneration": 1,
+      "types": [
+        "Fighting"
+      ]
+    },
+    {
+      "abilities": [
+        "Guts"
+      ],
+      "baseSpeciesId": "machamp",
+      "baseStats": {
+        "atk": 130,
+        "def": 80,
+        "hp": 90,
+        "spa": 65,
+        "spd": 85,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "machamp",
+      "kind": "base",
+      "name": "Machamp",
+      "num": 68,
+      "speciesGeneration": 1,
+      "types": [
+        "Fighting"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll"
+      ],
+      "baseSpeciesId": "bellsprout",
+      "baseStats": {
+        "atk": 75,
+        "def": 35,
+        "hp": 50,
+        "spa": 70,
+        "spd": 30,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "bellsprout",
+      "kind": "base",
+      "name": "Bellsprout",
+      "num": 69,
+      "speciesGeneration": 1,
+      "types": [
+        "Grass",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll"
+      ],
+      "baseSpeciesId": "weepinbell",
+      "baseStats": {
+        "atk": 90,
+        "def": 50,
+        "hp": 65,
+        "spa": 85,
+        "spd": 45,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "weepinbell",
+      "kind": "base",
+      "name": "Weepinbell",
+      "num": 70,
+      "speciesGeneration": 1,
+      "types": [
+        "Grass",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll"
+      ],
+      "baseSpeciesId": "victreebel",
+      "baseStats": {
+        "atk": 105,
+        "def": 65,
+        "hp": 80,
+        "spa": 100,
+        "spd": 60,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "victreebel",
+      "kind": "base",
+      "name": "Victreebel",
+      "num": 71,
+      "speciesGeneration": 1,
+      "types": [
+        "Grass",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Clear Body",
+        "Liquid Ooze"
+      ],
+      "baseSpeciesId": "tentacool",
+      "baseStats": {
+        "atk": 40,
+        "def": 35,
+        "hp": 40,
+        "spa": 50,
+        "spd": 100,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "tentacool",
+      "kind": "base",
+      "name": "Tentacool",
+      "num": 72,
+      "speciesGeneration": 1,
+      "types": [
+        "Water",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Clear Body",
+        "Liquid Ooze"
+      ],
+      "baseSpeciesId": "tentacruel",
+      "baseStats": {
+        "atk": 70,
+        "def": 65,
+        "hp": 80,
+        "spa": 80,
+        "spd": 120,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "tentacruel",
+      "kind": "base",
+      "name": "Tentacruel",
+      "num": 73,
+      "speciesGeneration": 1,
+      "types": [
+        "Water",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Rock Head",
+        "Sturdy"
+      ],
+      "baseSpeciesId": "geodude",
+      "baseStats": {
+        "atk": 80,
+        "def": 100,
+        "hp": 40,
+        "spa": 30,
+        "spd": 30,
+        "spe": 20
+      },
+      "forme": "",
+      "id": "geodude",
+      "kind": "base",
+      "name": "Geodude",
+      "num": 74,
+      "speciesGeneration": 1,
+      "types": [
+        "Rock",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Rock Head",
+        "Sturdy"
+      ],
+      "baseSpeciesId": "graveler",
+      "baseStats": {
+        "atk": 95,
+        "def": 115,
+        "hp": 55,
+        "spa": 45,
+        "spd": 45,
+        "spe": 35
+      },
+      "forme": "",
+      "id": "graveler",
+      "kind": "base",
+      "name": "Graveler",
+      "num": 75,
+      "speciesGeneration": 1,
+      "types": [
+        "Rock",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Rock Head",
+        "Sturdy"
+      ],
+      "baseSpeciesId": "golem",
+      "baseStats": {
+        "atk": 110,
+        "def": 130,
+        "hp": 80,
+        "spa": 55,
+        "spd": 65,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "golem",
+      "kind": "base",
+      "name": "Golem",
+      "num": 76,
+      "speciesGeneration": 1,
+      "types": [
+        "Rock",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Run Away",
+        "Flash Fire"
+      ],
+      "baseSpeciesId": "ponyta",
+      "baseStats": {
+        "atk": 85,
+        "def": 55,
+        "hp": 50,
+        "spa": 65,
+        "spd": 65,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "ponyta",
+      "kind": "base",
+      "name": "Ponyta",
+      "num": 77,
+      "speciesGeneration": 1,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Run Away",
+        "Flash Fire"
+      ],
+      "baseSpeciesId": "rapidash",
+      "baseStats": {
+        "atk": 100,
+        "def": 70,
+        "hp": 65,
+        "spa": 80,
+        "spd": 80,
+        "spe": 105
+      },
+      "forme": "",
+      "id": "rapidash",
+      "kind": "base",
+      "name": "Rapidash",
+      "num": 78,
+      "speciesGeneration": 1,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Oblivious",
+        "Own Tempo"
+      ],
+      "baseSpeciesId": "slowpoke",
+      "baseStats": {
+        "atk": 65,
+        "def": 65,
+        "hp": 90,
+        "spa": 40,
+        "spd": 40,
+        "spe": 15
+      },
+      "forme": "",
+      "id": "slowpoke",
+      "kind": "base",
+      "name": "Slowpoke",
+      "num": 79,
+      "speciesGeneration": 1,
+      "types": [
+        "Water",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Oblivious",
+        "Own Tempo"
+      ],
+      "baseSpeciesId": "slowbro",
+      "baseStats": {
+        "atk": 75,
+        "def": 110,
+        "hp": 95,
+        "spa": 100,
+        "spd": 80,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "slowbro",
+      "kind": "base",
+      "name": "Slowbro",
+      "num": 80,
+      "speciesGeneration": 1,
+      "types": [
+        "Water",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Magnet Pull",
+        "Sturdy"
+      ],
+      "baseSpeciesId": "magnemite",
+      "baseStats": {
+        "atk": 35,
+        "def": 70,
+        "hp": 25,
+        "spa": 95,
+        "spd": 55,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "magnemite",
+      "kind": "base",
+      "name": "Magnemite",
+      "num": 81,
+      "speciesGeneration": 1,
+      "types": [
+        "Electric",
+        "Steel"
+      ]
+    },
+    {
+      "abilities": [
+        "Magnet Pull",
+        "Sturdy"
+      ],
+      "baseSpeciesId": "magneton",
+      "baseStats": {
+        "atk": 60,
+        "def": 95,
+        "hp": 50,
+        "spa": 120,
+        "spd": 70,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "magneton",
+      "kind": "base",
+      "name": "Magneton",
+      "num": 82,
+      "speciesGeneration": 1,
+      "types": [
+        "Electric",
+        "Steel"
+      ]
+    },
+    {
+      "abilities": [
+        "Keen Eye",
+        "Inner Focus"
+      ],
+      "baseSpeciesId": "farfetchd",
+      "baseStats": {
+        "atk": 65,
+        "def": 55,
+        "hp": 52,
+        "spa": 58,
+        "spd": 62,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "farfetchd",
+      "kind": "base",
+      "name": "Farfetch’d",
+      "num": 83,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Run Away",
+        "Early Bird"
+      ],
+      "baseSpeciesId": "doduo",
+      "baseStats": {
+        "atk": 85,
+        "def": 45,
+        "hp": 35,
+        "spa": 35,
+        "spd": 35,
+        "spe": 75
+      },
+      "forme": "",
+      "id": "doduo",
+      "kind": "base",
+      "name": "Doduo",
+      "num": 84,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Run Away",
+        "Early Bird"
+      ],
+      "baseSpeciesId": "dodrio",
+      "baseStats": {
+        "atk": 110,
+        "def": 70,
+        "hp": 60,
+        "spa": 60,
+        "spd": 60,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "dodrio",
+      "kind": "base",
+      "name": "Dodrio",
+      "num": 85,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Thick Fat"
+      ],
+      "baseSpeciesId": "seel",
+      "baseStats": {
+        "atk": 45,
+        "def": 55,
+        "hp": 65,
+        "spa": 45,
+        "spd": 70,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "seel",
+      "kind": "base",
+      "name": "Seel",
+      "num": 86,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Thick Fat"
+      ],
+      "baseSpeciesId": "dewgong",
+      "baseStats": {
+        "atk": 70,
+        "def": 80,
+        "hp": 90,
+        "spa": 70,
+        "spd": 95,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "dewgong",
+      "kind": "base",
+      "name": "Dewgong",
+      "num": 87,
+      "speciesGeneration": 1,
+      "types": [
+        "Water",
+        "Ice"
+      ]
+    },
+    {
+      "abilities": [
+        "Stench",
+        "Sticky Hold"
+      ],
+      "baseSpeciesId": "grimer",
+      "baseStats": {
+        "atk": 80,
+        "def": 50,
+        "hp": 80,
+        "spa": 40,
+        "spd": 50,
+        "spe": 25
+      },
+      "forme": "",
+      "id": "grimer",
+      "kind": "base",
+      "name": "Grimer",
+      "num": 88,
+      "speciesGeneration": 1,
+      "types": [
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Stench",
+        "Sticky Hold"
+      ],
+      "baseSpeciesId": "muk",
+      "baseStats": {
+        "atk": 105,
+        "def": 75,
+        "hp": 105,
+        "spa": 65,
+        "spd": 100,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "muk",
+      "kind": "base",
+      "name": "Muk",
+      "num": 89,
+      "speciesGeneration": 1,
+      "types": [
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Shell Armor"
+      ],
+      "baseSpeciesId": "shellder",
+      "baseStats": {
+        "atk": 65,
+        "def": 100,
+        "hp": 30,
+        "spa": 45,
+        "spd": 25,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "shellder",
+      "kind": "base",
+      "name": "Shellder",
+      "num": 90,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Shell Armor"
+      ],
+      "baseSpeciesId": "cloyster",
+      "baseStats": {
+        "atk": 95,
+        "def": 180,
+        "hp": 50,
+        "spa": 85,
+        "spd": 45,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "cloyster",
+      "kind": "base",
+      "name": "Cloyster",
+      "num": 91,
+      "speciesGeneration": 1,
+      "types": [
+        "Water",
+        "Ice"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "gastly",
+      "baseStats": {
+        "atk": 35,
+        "def": 30,
+        "hp": 30,
+        "spa": 100,
+        "spd": 35,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "gastly",
+      "kind": "base",
+      "name": "Gastly",
+      "num": 92,
+      "speciesGeneration": 1,
+      "types": [
+        "Ghost",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "haunter",
+      "baseStats": {
+        "atk": 50,
+        "def": 45,
+        "hp": 45,
+        "spa": 115,
+        "spd": 55,
+        "spe": 95
+      },
+      "forme": "",
+      "id": "haunter",
+      "kind": "base",
+      "name": "Haunter",
+      "num": 93,
+      "speciesGeneration": 1,
+      "types": [
+        "Ghost",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "gengar",
+      "baseStats": {
+        "atk": 65,
+        "def": 60,
+        "hp": 60,
+        "spa": 130,
+        "spd": 75,
+        "spe": 110
+      },
+      "forme": "",
+      "id": "gengar",
+      "kind": "base",
+      "name": "Gengar",
+      "num": 94,
+      "speciesGeneration": 1,
+      "types": [
+        "Ghost",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Rock Head",
+        "Sturdy"
+      ],
+      "baseSpeciesId": "onix",
+      "baseStats": {
+        "atk": 45,
+        "def": 160,
+        "hp": 35,
+        "spa": 30,
+        "spd": 45,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "onix",
+      "kind": "base",
+      "name": "Onix",
+      "num": 95,
+      "speciesGeneration": 1,
+      "types": [
+        "Rock",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Insomnia"
+      ],
+      "baseSpeciesId": "drowzee",
+      "baseStats": {
+        "atk": 48,
+        "def": 45,
+        "hp": 60,
+        "spa": 43,
+        "spd": 90,
+        "spe": 42
+      },
+      "forme": "",
+      "id": "drowzee",
+      "kind": "base",
+      "name": "Drowzee",
+      "num": 96,
+      "speciesGeneration": 1,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Insomnia"
+      ],
+      "baseSpeciesId": "hypno",
+      "baseStats": {
+        "atk": 73,
+        "def": 70,
+        "hp": 85,
+        "spa": 73,
+        "spd": 115,
+        "spe": 67
+      },
+      "forme": "",
+      "id": "hypno",
+      "kind": "base",
+      "name": "Hypno",
+      "num": 97,
+      "speciesGeneration": 1,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Hyper Cutter",
+        "Shell Armor"
+      ],
+      "baseSpeciesId": "krabby",
+      "baseStats": {
+        "atk": 105,
+        "def": 90,
+        "hp": 30,
+        "spa": 25,
+        "spd": 25,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "krabby",
+      "kind": "base",
+      "name": "Krabby",
+      "num": 98,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Hyper Cutter",
+        "Shell Armor"
+      ],
+      "baseSpeciesId": "kingler",
+      "baseStats": {
+        "atk": 130,
+        "def": 115,
+        "hp": 55,
+        "spa": 50,
+        "spd": 50,
+        "spe": 75
+      },
+      "forme": "",
+      "id": "kingler",
+      "kind": "base",
+      "name": "Kingler",
+      "num": 99,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Soundproof",
+        "Static"
+      ],
+      "baseSpeciesId": "voltorb",
+      "baseStats": {
+        "atk": 30,
+        "def": 50,
+        "hp": 40,
+        "spa": 55,
+        "spd": 55,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "voltorb",
+      "kind": "base",
+      "name": "Voltorb",
+      "num": 100,
+      "speciesGeneration": 1,
+      "types": [
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Soundproof",
+        "Static"
+      ],
+      "baseSpeciesId": "electrode",
+      "baseStats": {
+        "atk": 50,
+        "def": 70,
+        "hp": 60,
+        "spa": 80,
+        "spd": 80,
+        "spe": 140
+      },
+      "forme": "",
+      "id": "electrode",
+      "kind": "base",
+      "name": "Electrode",
+      "num": 101,
+      "speciesGeneration": 1,
+      "types": [
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll"
+      ],
+      "baseSpeciesId": "exeggcute",
+      "baseStats": {
+        "atk": 40,
+        "def": 80,
+        "hp": 60,
+        "spa": 60,
+        "spd": 45,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "exeggcute",
+      "kind": "base",
+      "name": "Exeggcute",
+      "num": 102,
+      "speciesGeneration": 1,
+      "types": [
+        "Grass",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll"
+      ],
+      "baseSpeciesId": "exeggutor",
+      "baseStats": {
+        "atk": 95,
+        "def": 85,
+        "hp": 95,
+        "spa": 125,
+        "spd": 65,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "exeggutor",
+      "kind": "base",
+      "name": "Exeggutor",
+      "num": 103,
+      "speciesGeneration": 1,
+      "types": [
+        "Grass",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Rock Head",
+        "Lightning Rod"
+      ],
+      "baseSpeciesId": "cubone",
+      "baseStats": {
+        "atk": 50,
+        "def": 95,
+        "hp": 50,
+        "spa": 40,
+        "spd": 50,
+        "spe": 35
+      },
+      "forme": "",
+      "id": "cubone",
+      "kind": "base",
+      "name": "Cubone",
+      "num": 104,
+      "speciesGeneration": 1,
+      "types": [
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Rock Head",
+        "Lightning Rod"
+      ],
+      "baseSpeciesId": "marowak",
+      "baseStats": {
+        "atk": 80,
+        "def": 110,
+        "hp": 60,
+        "spa": 50,
+        "spd": 80,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "marowak",
+      "kind": "base",
+      "name": "Marowak",
+      "num": 105,
+      "speciesGeneration": 1,
+      "types": [
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Limber"
+      ],
+      "baseSpeciesId": "hitmonlee",
+      "baseStats": {
+        "atk": 120,
+        "def": 53,
+        "hp": 50,
+        "spa": 35,
+        "spd": 110,
+        "spe": 87
+      },
+      "forme": "",
+      "id": "hitmonlee",
+      "kind": "base",
+      "name": "Hitmonlee",
+      "num": 106,
+      "speciesGeneration": 1,
+      "types": [
+        "Fighting"
+      ]
+    },
+    {
+      "abilities": [
+        "Keen Eye"
+      ],
+      "baseSpeciesId": "hitmonchan",
+      "baseStats": {
+        "atk": 105,
+        "def": 79,
+        "hp": 50,
+        "spa": 35,
+        "spd": 110,
+        "spe": 76
+      },
+      "forme": "",
+      "id": "hitmonchan",
+      "kind": "base",
+      "name": "Hitmonchan",
+      "num": 107,
+      "speciesGeneration": 1,
+      "types": [
+        "Fighting"
+      ]
+    },
+    {
+      "abilities": [
+        "Own Tempo",
+        "Oblivious"
+      ],
+      "baseSpeciesId": "lickitung",
+      "baseStats": {
+        "atk": 55,
+        "def": 75,
+        "hp": 90,
+        "spa": 60,
+        "spd": 75,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "lickitung",
+      "kind": "base",
+      "name": "Lickitung",
+      "num": 108,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "koffing",
+      "baseStats": {
+        "atk": 65,
+        "def": 95,
+        "hp": 40,
+        "spa": 60,
+        "spd": 45,
+        "spe": 35
+      },
+      "forme": "",
+      "id": "koffing",
+      "kind": "base",
+      "name": "Koffing",
+      "num": 109,
+      "speciesGeneration": 1,
+      "types": [
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "weezing",
+      "baseStats": {
+        "atk": 90,
+        "def": 120,
+        "hp": 65,
+        "spa": 85,
+        "spd": 70,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "weezing",
+      "kind": "base",
+      "name": "Weezing",
+      "num": 110,
+      "speciesGeneration": 1,
+      "types": [
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Lightning Rod",
+        "Rock Head"
+      ],
+      "baseSpeciesId": "rhyhorn",
+      "baseStats": {
+        "atk": 85,
+        "def": 95,
+        "hp": 80,
+        "spa": 30,
+        "spd": 30,
+        "spe": 25
+      },
+      "forme": "",
+      "id": "rhyhorn",
+      "kind": "base",
+      "name": "Rhyhorn",
+      "num": 111,
+      "speciesGeneration": 1,
+      "types": [
+        "Ground",
+        "Rock"
+      ]
+    },
+    {
+      "abilities": [
+        "Lightning Rod",
+        "Rock Head"
+      ],
+      "baseSpeciesId": "rhydon",
+      "baseStats": {
+        "atk": 130,
+        "def": 120,
+        "hp": 105,
+        "spa": 45,
+        "spd": 45,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "rhydon",
+      "kind": "base",
+      "name": "Rhydon",
+      "num": 112,
+      "speciesGeneration": 1,
+      "types": [
+        "Ground",
+        "Rock"
+      ]
+    },
+    {
+      "abilities": [
+        "Natural Cure",
+        "Serene Grace"
+      ],
+      "baseSpeciesId": "chansey",
+      "baseStats": {
+        "atk": 5,
+        "def": 5,
+        "hp": 250,
+        "spa": 35,
+        "spd": 105,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "chansey",
+      "kind": "base",
+      "name": "Chansey",
+      "num": 113,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll"
+      ],
+      "baseSpeciesId": "tangela",
+      "baseStats": {
+        "atk": 55,
+        "def": 115,
+        "hp": 65,
+        "spa": 100,
+        "spd": 40,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "tangela",
+      "kind": "base",
+      "name": "Tangela",
+      "num": 114,
+      "speciesGeneration": 1,
+      "types": [
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Early Bird"
+      ],
+      "baseSpeciesId": "kangaskhan",
+      "baseStats": {
+        "atk": 95,
+        "def": 80,
+        "hp": 105,
+        "spa": 40,
+        "spd": 80,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "kangaskhan",
+      "kind": "base",
+      "name": "Kangaskhan",
+      "num": 115,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim"
+      ],
+      "baseSpeciesId": "horsea",
+      "baseStats": {
+        "atk": 40,
+        "def": 70,
+        "hp": 30,
+        "spa": 70,
+        "spd": 25,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "horsea",
+      "kind": "base",
+      "name": "Horsea",
+      "num": 116,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Poison Point"
+      ],
+      "baseSpeciesId": "seadra",
+      "baseStats": {
+        "atk": 65,
+        "def": 95,
+        "hp": 55,
+        "spa": 95,
+        "spd": 45,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "seadra",
+      "kind": "base",
+      "name": "Seadra",
+      "num": 117,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim",
+        "Water Veil"
+      ],
+      "baseSpeciesId": "goldeen",
+      "baseStats": {
+        "atk": 67,
+        "def": 60,
+        "hp": 45,
+        "spa": 35,
+        "spd": 50,
+        "spe": 63
+      },
+      "forme": "",
+      "id": "goldeen",
+      "kind": "base",
+      "name": "Goldeen",
+      "num": 118,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim",
+        "Water Veil"
+      ],
+      "baseSpeciesId": "seaking",
+      "baseStats": {
+        "atk": 92,
+        "def": 65,
+        "hp": 80,
+        "spa": 65,
+        "spd": 80,
+        "spe": 68
+      },
+      "forme": "",
+      "id": "seaking",
+      "kind": "base",
+      "name": "Seaking",
+      "num": 119,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Illuminate",
+        "Natural Cure"
+      ],
+      "baseSpeciesId": "staryu",
+      "baseStats": {
+        "atk": 45,
+        "def": 55,
+        "hp": 30,
+        "spa": 70,
+        "spd": 55,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "staryu",
+      "kind": "base",
+      "name": "Staryu",
+      "num": 120,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Illuminate",
+        "Natural Cure"
+      ],
+      "baseSpeciesId": "starmie",
+      "baseStats": {
+        "atk": 75,
+        "def": 85,
+        "hp": 60,
+        "spa": 100,
+        "spd": 85,
+        "spe": 115
+      },
+      "forme": "",
+      "id": "starmie",
+      "kind": "base",
+      "name": "Starmie",
+      "num": 121,
+      "speciesGeneration": 1,
+      "types": [
+        "Water",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Soundproof"
+      ],
+      "baseSpeciesId": "mrmime",
+      "baseStats": {
+        "atk": 45,
+        "def": 65,
+        "hp": 40,
+        "spa": 100,
+        "spd": 120,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "mrmime",
+      "kind": "base",
+      "name": "Mr. Mime",
+      "num": 122,
+      "speciesGeneration": 1,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Swarm"
+      ],
+      "baseSpeciesId": "scyther",
+      "baseStats": {
+        "atk": 110,
+        "def": 80,
+        "hp": 70,
+        "spa": 55,
+        "spd": 80,
+        "spe": 105
+      },
+      "forme": "",
+      "id": "scyther",
+      "kind": "base",
+      "name": "Scyther",
+      "num": 123,
+      "speciesGeneration": 1,
+      "types": [
+        "Bug",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Oblivious"
+      ],
+      "baseSpeciesId": "jynx",
+      "baseStats": {
+        "atk": 50,
+        "def": 35,
+        "hp": 65,
+        "spa": 115,
+        "spd": 95,
+        "spe": 95
+      },
+      "forme": "",
+      "id": "jynx",
+      "kind": "base",
+      "name": "Jynx",
+      "num": 124,
+      "speciesGeneration": 1,
+      "types": [
+        "Ice",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Static"
+      ],
+      "baseSpeciesId": "electabuzz",
+      "baseStats": {
+        "atk": 83,
+        "def": 57,
+        "hp": 65,
+        "spa": 95,
+        "spd": 85,
+        "spe": 105
+      },
+      "forme": "",
+      "id": "electabuzz",
+      "kind": "base",
+      "name": "Electabuzz",
+      "num": 125,
+      "speciesGeneration": 1,
+      "types": [
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Flame Body"
+      ],
+      "baseSpeciesId": "magmar",
+      "baseStats": {
+        "atk": 95,
+        "def": 57,
+        "hp": 65,
+        "spa": 100,
+        "spd": 85,
+        "spe": 93
+      },
+      "forme": "",
+      "id": "magmar",
+      "kind": "base",
+      "name": "Magmar",
+      "num": 126,
+      "speciesGeneration": 1,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Hyper Cutter"
+      ],
+      "baseSpeciesId": "pinsir",
+      "baseStats": {
+        "atk": 125,
+        "def": 100,
+        "hp": 65,
+        "spa": 55,
+        "spd": 70,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "pinsir",
+      "kind": "base",
+      "name": "Pinsir",
+      "num": 127,
+      "speciesGeneration": 1,
+      "types": [
+        "Bug"
+      ]
+    },
+    {
+      "abilities": [
+        "Intimidate"
+      ],
+      "baseSpeciesId": "tauros",
+      "baseStats": {
+        "atk": 100,
+        "def": 95,
+        "hp": 75,
+        "spa": 40,
+        "spd": 70,
+        "spe": 110
+      },
+      "forme": "",
+      "id": "tauros",
+      "kind": "base",
+      "name": "Tauros",
+      "num": 128,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim"
+      ],
+      "baseSpeciesId": "magikarp",
+      "baseStats": {
+        "atk": 10,
+        "def": 55,
+        "hp": 20,
+        "spa": 15,
+        "spd": 20,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "magikarp",
+      "kind": "base",
+      "name": "Magikarp",
+      "num": 129,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Intimidate"
+      ],
+      "baseSpeciesId": "gyarados",
+      "baseStats": {
+        "atk": 125,
+        "def": 79,
+        "hp": 95,
+        "spa": 60,
+        "spd": 100,
+        "spe": 81
+      },
+      "forme": "",
+      "id": "gyarados",
+      "kind": "base",
+      "name": "Gyarados",
+      "num": 130,
+      "speciesGeneration": 1,
+      "types": [
+        "Water",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Water Absorb",
+        "Shell Armor"
+      ],
+      "baseSpeciesId": "lapras",
+      "baseStats": {
+        "atk": 85,
+        "def": 80,
+        "hp": 130,
+        "spa": 85,
+        "spd": 95,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "lapras",
+      "kind": "base",
+      "name": "Lapras",
+      "num": 131,
+      "speciesGeneration": 1,
+      "types": [
+        "Water",
+        "Ice"
+      ]
+    },
+    {
+      "abilities": [
+        "Limber"
+      ],
+      "baseSpeciesId": "ditto",
+      "baseStats": {
+        "atk": 48,
+        "def": 48,
+        "hp": 48,
+        "spa": 48,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "",
+      "id": "ditto",
+      "kind": "base",
+      "name": "Ditto",
+      "num": 132,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Run Away"
+      ],
+      "baseSpeciesId": "eevee",
+      "baseStats": {
+        "atk": 55,
+        "def": 50,
+        "hp": 55,
+        "spa": 45,
+        "spd": 65,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "eevee",
+      "kind": "base",
+      "name": "Eevee",
+      "num": 133,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Water Absorb"
+      ],
+      "baseSpeciesId": "vaporeon",
+      "baseStats": {
+        "atk": 65,
+        "def": 60,
+        "hp": 130,
+        "spa": 110,
+        "spd": 95,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "vaporeon",
+      "kind": "base",
+      "name": "Vaporeon",
+      "num": 134,
+      "speciesGeneration": 1,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Volt Absorb"
+      ],
+      "baseSpeciesId": "jolteon",
+      "baseStats": {
+        "atk": 65,
+        "def": 60,
+        "hp": 65,
+        "spa": 110,
+        "spd": 95,
+        "spe": 130
+      },
+      "forme": "",
+      "id": "jolteon",
+      "kind": "base",
+      "name": "Jolteon",
+      "num": 135,
+      "speciesGeneration": 1,
+      "types": [
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Flash Fire"
+      ],
+      "baseSpeciesId": "flareon",
+      "baseStats": {
+        "atk": 130,
+        "def": 60,
+        "hp": 65,
+        "spa": 95,
+        "spd": 110,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "flareon",
+      "kind": "base",
+      "name": "Flareon",
+      "num": 136,
+      "speciesGeneration": 1,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Trace"
+      ],
+      "baseSpeciesId": "porygon",
+      "baseStats": {
+        "atk": 60,
+        "def": 70,
+        "hp": 65,
+        "spa": 85,
+        "spd": 75,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "porygon",
+      "kind": "base",
+      "name": "Porygon",
+      "num": 137,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim",
+        "Shell Armor"
+      ],
+      "baseSpeciesId": "omanyte",
+      "baseStats": {
+        "atk": 40,
+        "def": 100,
+        "hp": 35,
+        "spa": 90,
+        "spd": 55,
+        "spe": 35
+      },
+      "forme": "",
+      "id": "omanyte",
+      "kind": "base",
+      "name": "Omanyte",
+      "num": 138,
+      "speciesGeneration": 1,
+      "types": [
+        "Rock",
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim",
+        "Shell Armor"
+      ],
+      "baseSpeciesId": "omastar",
+      "baseStats": {
+        "atk": 60,
+        "def": 125,
+        "hp": 70,
+        "spa": 115,
+        "spd": 70,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "omastar",
+      "kind": "base",
+      "name": "Omastar",
+      "num": 139,
+      "speciesGeneration": 1,
+      "types": [
+        "Rock",
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim",
+        "Battle Armor"
+      ],
+      "baseSpeciesId": "kabuto",
+      "baseStats": {
+        "atk": 80,
+        "def": 90,
+        "hp": 30,
+        "spa": 55,
+        "spd": 45,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "kabuto",
+      "kind": "base",
+      "name": "Kabuto",
+      "num": 140,
+      "speciesGeneration": 1,
+      "types": [
+        "Rock",
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim",
+        "Battle Armor"
+      ],
+      "baseSpeciesId": "kabutops",
+      "baseStats": {
+        "atk": 115,
+        "def": 105,
+        "hp": 60,
+        "spa": 65,
+        "spd": 70,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "kabutops",
+      "kind": "base",
+      "name": "Kabutops",
+      "num": 141,
+      "speciesGeneration": 1,
+      "types": [
+        "Rock",
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Rock Head",
+        "Pressure"
+      ],
+      "baseSpeciesId": "aerodactyl",
+      "baseStats": {
+        "atk": 105,
+        "def": 65,
+        "hp": 80,
+        "spa": 60,
+        "spd": 75,
+        "spe": 130
+      },
+      "forme": "",
+      "id": "aerodactyl",
+      "kind": "base",
+      "name": "Aerodactyl",
+      "num": 142,
+      "speciesGeneration": 1,
+      "types": [
+        "Rock",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Immunity",
+        "Thick Fat"
+      ],
+      "baseSpeciesId": "snorlax",
+      "baseStats": {
+        "atk": 110,
+        "def": 65,
+        "hp": 160,
+        "spa": 65,
+        "spd": 110,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "snorlax",
+      "kind": "base",
+      "name": "Snorlax",
+      "num": 143,
+      "speciesGeneration": 1,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Pressure"
+      ],
+      "baseSpeciesId": "articuno",
+      "baseStats": {
+        "atk": 85,
+        "def": 100,
+        "hp": 90,
+        "spa": 95,
+        "spd": 125,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "articuno",
+      "kind": "base",
+      "name": "Articuno",
+      "num": 144,
+      "speciesGeneration": 1,
+      "types": [
+        "Ice",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Pressure"
+      ],
+      "baseSpeciesId": "zapdos",
+      "baseStats": {
+        "atk": 90,
+        "def": 85,
+        "hp": 90,
+        "spa": 125,
+        "spd": 90,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "zapdos",
+      "kind": "base",
+      "name": "Zapdos",
+      "num": 145,
+      "speciesGeneration": 1,
+      "types": [
+        "Electric",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Pressure"
+      ],
+      "baseSpeciesId": "moltres",
+      "baseStats": {
+        "atk": 100,
+        "def": 90,
+        "hp": 90,
+        "spa": 125,
+        "spd": 85,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "moltres",
+      "kind": "base",
+      "name": "Moltres",
+      "num": 146,
+      "speciesGeneration": 1,
+      "types": [
+        "Fire",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Shed Skin"
+      ],
+      "baseSpeciesId": "dratini",
+      "baseStats": {
+        "atk": 64,
+        "def": 45,
+        "hp": 41,
+        "spa": 50,
+        "spd": 50,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "dratini",
+      "kind": "base",
+      "name": "Dratini",
+      "num": 147,
+      "speciesGeneration": 1,
+      "types": [
+        "Dragon"
+      ]
+    },
+    {
+      "abilities": [
+        "Shed Skin"
+      ],
+      "baseSpeciesId": "dragonair",
+      "baseStats": {
+        "atk": 84,
+        "def": 65,
+        "hp": 61,
+        "spa": 70,
+        "spd": 70,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "dragonair",
+      "kind": "base",
+      "name": "Dragonair",
+      "num": 148,
+      "speciesGeneration": 1,
+      "types": [
+        "Dragon"
+      ]
+    },
+    {
+      "abilities": [
+        "Inner Focus"
+      ],
+      "baseSpeciesId": "dragonite",
+      "baseStats": {
+        "atk": 134,
+        "def": 95,
+        "hp": 91,
+        "spa": 100,
+        "spd": 100,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "dragonite",
+      "kind": "base",
+      "name": "Dragonite",
+      "num": 149,
+      "speciesGeneration": 1,
+      "types": [
+        "Dragon",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Pressure"
+      ],
+      "baseSpeciesId": "mewtwo",
+      "baseStats": {
+        "atk": 110,
+        "def": 90,
+        "hp": 106,
+        "spa": 154,
+        "spd": 90,
+        "spe": 130
+      },
+      "forme": "",
+      "id": "mewtwo",
+      "kind": "base",
+      "name": "Mewtwo",
+      "num": 150,
+      "speciesGeneration": 1,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Synchronize"
+      ],
+      "baseSpeciesId": "mew",
+      "baseStats": {
+        "atk": 100,
+        "def": 100,
+        "hp": 100,
+        "spa": 100,
+        "spd": 100,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "mew",
+      "kind": "base",
+      "name": "Mew",
+      "num": 151,
+      "speciesGeneration": 1,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Overgrow"
+      ],
+      "baseSpeciesId": "chikorita",
+      "baseStats": {
+        "atk": 49,
+        "def": 65,
+        "hp": 45,
+        "spa": 49,
+        "spd": 65,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "chikorita",
+      "kind": "base",
+      "name": "Chikorita",
+      "num": 152,
+      "speciesGeneration": 2,
+      "types": [
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Overgrow"
+      ],
+      "baseSpeciesId": "bayleef",
+      "baseStats": {
+        "atk": 62,
+        "def": 80,
+        "hp": 60,
+        "spa": 63,
+        "spd": 80,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "bayleef",
+      "kind": "base",
+      "name": "Bayleef",
+      "num": 153,
+      "speciesGeneration": 2,
+      "types": [
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Overgrow"
+      ],
+      "baseSpeciesId": "meganium",
+      "baseStats": {
+        "atk": 82,
+        "def": 100,
+        "hp": 80,
+        "spa": 83,
+        "spd": 100,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "meganium",
+      "kind": "base",
+      "name": "Meganium",
+      "num": 154,
+      "speciesGeneration": 2,
+      "types": [
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Blaze"
+      ],
+      "baseSpeciesId": "cyndaquil",
+      "baseStats": {
+        "atk": 52,
+        "def": 43,
+        "hp": 39,
+        "spa": 60,
+        "spd": 50,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "cyndaquil",
+      "kind": "base",
+      "name": "Cyndaquil",
+      "num": 155,
+      "speciesGeneration": 2,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Blaze"
+      ],
+      "baseSpeciesId": "quilava",
+      "baseStats": {
+        "atk": 64,
+        "def": 58,
+        "hp": 58,
+        "spa": 80,
+        "spd": 65,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "quilava",
+      "kind": "base",
+      "name": "Quilava",
+      "num": 156,
+      "speciesGeneration": 2,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Blaze"
+      ],
+      "baseSpeciesId": "typhlosion",
+      "baseStats": {
+        "atk": 84,
+        "def": 78,
+        "hp": 78,
+        "spa": 109,
+        "spd": 85,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "typhlosion",
+      "kind": "base",
+      "name": "Typhlosion",
+      "num": 157,
+      "speciesGeneration": 2,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Torrent"
+      ],
+      "baseSpeciesId": "totodile",
+      "baseStats": {
+        "atk": 65,
+        "def": 64,
+        "hp": 50,
+        "spa": 44,
+        "spd": 48,
+        "spe": 43
+      },
+      "forme": "",
+      "id": "totodile",
+      "kind": "base",
+      "name": "Totodile",
+      "num": 158,
+      "speciesGeneration": 2,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Torrent"
+      ],
+      "baseSpeciesId": "croconaw",
+      "baseStats": {
+        "atk": 80,
+        "def": 80,
+        "hp": 65,
+        "spa": 59,
+        "spd": 63,
+        "spe": 58
+      },
+      "forme": "",
+      "id": "croconaw",
+      "kind": "base",
+      "name": "Croconaw",
+      "num": 159,
+      "speciesGeneration": 2,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Torrent"
+      ],
+      "baseSpeciesId": "feraligatr",
+      "baseStats": {
+        "atk": 105,
+        "def": 100,
+        "hp": 85,
+        "spa": 79,
+        "spd": 83,
+        "spe": 78
+      },
+      "forme": "",
+      "id": "feraligatr",
+      "kind": "base",
+      "name": "Feraligatr",
+      "num": 160,
+      "speciesGeneration": 2,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Run Away",
+        "Keen Eye"
+      ],
+      "baseSpeciesId": "sentret",
+      "baseStats": {
+        "atk": 46,
+        "def": 34,
+        "hp": 35,
+        "spa": 35,
+        "spd": 45,
+        "spe": 20
+      },
+      "forme": "",
+      "id": "sentret",
+      "kind": "base",
+      "name": "Sentret",
+      "num": 161,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Run Away",
+        "Keen Eye"
+      ],
+      "baseSpeciesId": "furret",
+      "baseStats": {
+        "atk": 76,
+        "def": 64,
+        "hp": 85,
+        "spa": 45,
+        "spd": 55,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "furret",
+      "kind": "base",
+      "name": "Furret",
+      "num": 162,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Insomnia",
+        "Keen Eye"
+      ],
+      "baseSpeciesId": "hoothoot",
+      "baseStats": {
+        "atk": 30,
+        "def": 30,
+        "hp": 60,
+        "spa": 36,
+        "spd": 56,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "hoothoot",
+      "kind": "base",
+      "name": "Hoothoot",
+      "num": 163,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Insomnia",
+        "Keen Eye"
+      ],
+      "baseSpeciesId": "noctowl",
+      "baseStats": {
+        "atk": 50,
+        "def": 50,
+        "hp": 100,
+        "spa": 76,
+        "spd": 96,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "noctowl",
+      "kind": "base",
+      "name": "Noctowl",
+      "num": 164,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Swarm",
+        "Early Bird"
+      ],
+      "baseSpeciesId": "ledyba",
+      "baseStats": {
+        "atk": 20,
+        "def": 30,
+        "hp": 40,
+        "spa": 40,
+        "spd": 80,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "ledyba",
+      "kind": "base",
+      "name": "Ledyba",
+      "num": 165,
+      "speciesGeneration": 2,
+      "types": [
+        "Bug",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Swarm",
+        "Early Bird"
+      ],
+      "baseSpeciesId": "ledian",
+      "baseStats": {
+        "atk": 35,
+        "def": 50,
+        "hp": 55,
+        "spa": 55,
+        "spd": 110,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "ledian",
+      "kind": "base",
+      "name": "Ledian",
+      "num": 166,
+      "speciesGeneration": 2,
+      "types": [
+        "Bug",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Swarm",
+        "Insomnia"
+      ],
+      "baseSpeciesId": "spinarak",
+      "baseStats": {
+        "atk": 60,
+        "def": 40,
+        "hp": 40,
+        "spa": 40,
+        "spd": 40,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "spinarak",
+      "kind": "base",
+      "name": "Spinarak",
+      "num": 167,
+      "speciesGeneration": 2,
+      "types": [
+        "Bug",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Swarm",
+        "Insomnia"
+      ],
+      "baseSpeciesId": "ariados",
+      "baseStats": {
+        "atk": 90,
+        "def": 70,
+        "hp": 70,
+        "spa": 60,
+        "spd": 60,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "ariados",
+      "kind": "base",
+      "name": "Ariados",
+      "num": 168,
+      "speciesGeneration": 2,
+      "types": [
+        "Bug",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Inner Focus"
+      ],
+      "baseSpeciesId": "crobat",
+      "baseStats": {
+        "atk": 90,
+        "def": 80,
+        "hp": 85,
+        "spa": 70,
+        "spd": 80,
+        "spe": 130
+      },
+      "forme": "",
+      "id": "crobat",
+      "kind": "base",
+      "name": "Crobat",
+      "num": 169,
+      "speciesGeneration": 2,
+      "types": [
+        "Poison",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Volt Absorb",
+        "Illuminate"
+      ],
+      "baseSpeciesId": "chinchou",
+      "baseStats": {
+        "atk": 38,
+        "def": 38,
+        "hp": 75,
+        "spa": 56,
+        "spd": 56,
+        "spe": 67
+      },
+      "forme": "",
+      "id": "chinchou",
+      "kind": "base",
+      "name": "Chinchou",
+      "num": 170,
+      "speciesGeneration": 2,
+      "types": [
+        "Water",
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Volt Absorb",
+        "Illuminate"
+      ],
+      "baseSpeciesId": "lanturn",
+      "baseStats": {
+        "atk": 58,
+        "def": 58,
+        "hp": 125,
+        "spa": 76,
+        "spd": 76,
+        "spe": 67
+      },
+      "forme": "",
+      "id": "lanturn",
+      "kind": "base",
+      "name": "Lanturn",
+      "num": 171,
+      "speciesGeneration": 2,
+      "types": [
+        "Water",
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Static"
+      ],
+      "baseSpeciesId": "pichu",
+      "baseStats": {
+        "atk": 40,
+        "def": 15,
+        "hp": 20,
+        "spa": 35,
+        "spd": 35,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "pichu",
+      "kind": "base",
+      "name": "Pichu",
+      "num": 172,
+      "speciesGeneration": 2,
+      "types": [
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Cute Charm"
+      ],
+      "baseSpeciesId": "cleffa",
+      "baseStats": {
+        "atk": 25,
+        "def": 28,
+        "hp": 50,
+        "spa": 45,
+        "spd": 55,
+        "spe": 15
+      },
+      "forme": "",
+      "id": "cleffa",
+      "kind": "base",
+      "name": "Cleffa",
+      "num": 173,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Cute Charm"
+      ],
+      "baseSpeciesId": "igglybuff",
+      "baseStats": {
+        "atk": 30,
+        "def": 15,
+        "hp": 90,
+        "spa": 40,
+        "spd": 20,
+        "spe": 15
+      },
+      "forme": "",
+      "id": "igglybuff",
+      "kind": "base",
+      "name": "Igglybuff",
+      "num": 174,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Hustle",
+        "Serene Grace"
+      ],
+      "baseSpeciesId": "togepi",
+      "baseStats": {
+        "atk": 20,
+        "def": 65,
+        "hp": 35,
+        "spa": 40,
+        "spd": 65,
+        "spe": 20
+      },
+      "forme": "",
+      "id": "togepi",
+      "kind": "base",
+      "name": "Togepi",
+      "num": 175,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Hustle",
+        "Serene Grace"
+      ],
+      "baseSpeciesId": "togetic",
+      "baseStats": {
+        "atk": 40,
+        "def": 85,
+        "hp": 55,
+        "spa": 80,
+        "spd": 105,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "togetic",
+      "kind": "base",
+      "name": "Togetic",
+      "num": 176,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Synchronize",
+        "Early Bird"
+      ],
+      "baseSpeciesId": "natu",
+      "baseStats": {
+        "atk": 50,
+        "def": 45,
+        "hp": 40,
+        "spa": 70,
+        "spd": 45,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "natu",
+      "kind": "base",
+      "name": "Natu",
+      "num": 177,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Synchronize",
+        "Early Bird"
+      ],
+      "baseSpeciesId": "xatu",
+      "baseStats": {
+        "atk": 75,
+        "def": 70,
+        "hp": 65,
+        "spa": 95,
+        "spd": 70,
+        "spe": 95
+      },
+      "forme": "",
+      "id": "xatu",
+      "kind": "base",
+      "name": "Xatu",
+      "num": 178,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Static"
+      ],
+      "baseSpeciesId": "mareep",
+      "baseStats": {
+        "atk": 40,
+        "def": 40,
+        "hp": 55,
+        "spa": 65,
+        "spd": 45,
+        "spe": 35
+      },
+      "forme": "",
+      "id": "mareep",
+      "kind": "base",
+      "name": "Mareep",
+      "num": 179,
+      "speciesGeneration": 2,
+      "types": [
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Static"
+      ],
+      "baseSpeciesId": "flaaffy",
+      "baseStats": {
+        "atk": 55,
+        "def": 55,
+        "hp": 70,
+        "spa": 80,
+        "spd": 60,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "flaaffy",
+      "kind": "base",
+      "name": "Flaaffy",
+      "num": 180,
+      "speciesGeneration": 2,
+      "types": [
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Static"
+      ],
+      "baseSpeciesId": "ampharos",
+      "baseStats": {
+        "atk": 75,
+        "def": 75,
+        "hp": 90,
+        "spa": 115,
+        "spd": 90,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "ampharos",
+      "kind": "base",
+      "name": "Ampharos",
+      "num": 181,
+      "speciesGeneration": 2,
+      "types": [
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll"
+      ],
+      "baseSpeciesId": "bellossom",
+      "baseStats": {
+        "atk": 80,
+        "def": 85,
+        "hp": 75,
+        "spa": 90,
+        "spd": 100,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "bellossom",
+      "kind": "base",
+      "name": "Bellossom",
+      "num": 182,
+      "speciesGeneration": 2,
+      "types": [
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Thick Fat",
+        "Huge Power"
+      ],
+      "baseSpeciesId": "marill",
+      "baseStats": {
+        "atk": 20,
+        "def": 50,
+        "hp": 70,
+        "spa": 20,
+        "spd": 50,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "marill",
+      "kind": "base",
+      "name": "Marill",
+      "num": 183,
+      "speciesGeneration": 2,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Thick Fat",
+        "Huge Power"
+      ],
+      "baseSpeciesId": "azumarill",
+      "baseStats": {
+        "atk": 50,
+        "def": 80,
+        "hp": 100,
+        "spa": 50,
+        "spd": 80,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "azumarill",
+      "kind": "base",
+      "name": "Azumarill",
+      "num": 184,
+      "speciesGeneration": 2,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Sturdy",
+        "Rock Head"
+      ],
+      "baseSpeciesId": "sudowoodo",
+      "baseStats": {
+        "atk": 100,
+        "def": 115,
+        "hp": 70,
+        "spa": 30,
+        "spd": 65,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "sudowoodo",
+      "kind": "base",
+      "name": "Sudowoodo",
+      "num": 185,
+      "speciesGeneration": 2,
+      "types": [
+        "Rock"
+      ]
+    },
+    {
+      "abilities": [
+        "Water Absorb",
+        "Damp"
+      ],
+      "baseSpeciesId": "politoed",
+      "baseStats": {
+        "atk": 75,
+        "def": 75,
+        "hp": 90,
+        "spa": 90,
+        "spd": 100,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "politoed",
+      "kind": "base",
+      "name": "Politoed",
+      "num": 186,
+      "speciesGeneration": 2,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll"
+      ],
+      "baseSpeciesId": "hoppip",
+      "baseStats": {
+        "atk": 35,
+        "def": 40,
+        "hp": 35,
+        "spa": 35,
+        "spd": 55,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "hoppip",
+      "kind": "base",
+      "name": "Hoppip",
+      "num": 187,
+      "speciesGeneration": 2,
+      "types": [
+        "Grass",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll"
+      ],
+      "baseSpeciesId": "skiploom",
+      "baseStats": {
+        "atk": 45,
+        "def": 50,
+        "hp": 55,
+        "spa": 45,
+        "spd": 65,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "skiploom",
+      "kind": "base",
+      "name": "Skiploom",
+      "num": 188,
+      "speciesGeneration": 2,
+      "types": [
+        "Grass",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll"
+      ],
+      "baseSpeciesId": "jumpluff",
+      "baseStats": {
+        "atk": 55,
+        "def": 70,
+        "hp": 75,
+        "spa": 55,
+        "spd": 85,
+        "spe": 110
+      },
+      "forme": "",
+      "id": "jumpluff",
+      "kind": "base",
+      "name": "Jumpluff",
+      "num": 189,
+      "speciesGeneration": 2,
+      "types": [
+        "Grass",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Run Away",
+        "Pickup"
+      ],
+      "baseSpeciesId": "aipom",
+      "baseStats": {
+        "atk": 70,
+        "def": 55,
+        "hp": 55,
+        "spa": 40,
+        "spd": 55,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "aipom",
+      "kind": "base",
+      "name": "Aipom",
+      "num": 190,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll"
+      ],
+      "baseSpeciesId": "sunkern",
+      "baseStats": {
+        "atk": 30,
+        "def": 30,
+        "hp": 30,
+        "spa": 30,
+        "spd": 30,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "sunkern",
+      "kind": "base",
+      "name": "Sunkern",
+      "num": 191,
+      "speciesGeneration": 2,
+      "types": [
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll"
+      ],
+      "baseSpeciesId": "sunflora",
+      "baseStats": {
+        "atk": 75,
+        "def": 55,
+        "hp": 75,
+        "spa": 105,
+        "spd": 85,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "sunflora",
+      "kind": "base",
+      "name": "Sunflora",
+      "num": 192,
+      "speciesGeneration": 2,
+      "types": [
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Speed Boost",
+        "Compound Eyes"
+      ],
+      "baseSpeciesId": "yanma",
+      "baseStats": {
+        "atk": 65,
+        "def": 45,
+        "hp": 65,
+        "spa": 75,
+        "spd": 45,
+        "spe": 95
+      },
+      "forme": "",
+      "id": "yanma",
+      "kind": "base",
+      "name": "Yanma",
+      "num": 193,
+      "speciesGeneration": 2,
+      "types": [
+        "Bug",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Damp",
+        "Water Absorb"
+      ],
+      "baseSpeciesId": "wooper",
+      "baseStats": {
+        "atk": 45,
+        "def": 45,
+        "hp": 55,
+        "spa": 25,
+        "spd": 25,
+        "spe": 15
+      },
+      "forme": "",
+      "id": "wooper",
+      "kind": "base",
+      "name": "Wooper",
+      "num": 194,
+      "speciesGeneration": 2,
+      "types": [
+        "Water",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Damp",
+        "Water Absorb"
+      ],
+      "baseSpeciesId": "quagsire",
+      "baseStats": {
+        "atk": 85,
+        "def": 85,
+        "hp": 95,
+        "spa": 65,
+        "spd": 65,
+        "spe": 35
+      },
+      "forme": "",
+      "id": "quagsire",
+      "kind": "base",
+      "name": "Quagsire",
+      "num": 195,
+      "speciesGeneration": 2,
+      "types": [
+        "Water",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Synchronize"
+      ],
+      "baseSpeciesId": "espeon",
+      "baseStats": {
+        "atk": 65,
+        "def": 60,
+        "hp": 65,
+        "spa": 130,
+        "spd": 95,
+        "spe": 110
+      },
+      "forme": "",
+      "id": "espeon",
+      "kind": "base",
+      "name": "Espeon",
+      "num": 196,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Synchronize"
+      ],
+      "baseSpeciesId": "umbreon",
+      "baseStats": {
+        "atk": 65,
+        "def": 110,
+        "hp": 95,
+        "spa": 60,
+        "spd": 130,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "umbreon",
+      "kind": "base",
+      "name": "Umbreon",
+      "num": 197,
+      "speciesGeneration": 2,
+      "types": [
+        "Dark"
+      ]
+    },
+    {
+      "abilities": [
+        "Insomnia"
+      ],
+      "baseSpeciesId": "murkrow",
+      "baseStats": {
+        "atk": 85,
+        "def": 42,
+        "hp": 60,
+        "spa": 85,
+        "spd": 42,
+        "spe": 91
+      },
+      "forme": "",
+      "id": "murkrow",
+      "kind": "base",
+      "name": "Murkrow",
+      "num": 198,
+      "speciesGeneration": 2,
+      "types": [
+        "Dark",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Oblivious",
+        "Own Tempo"
+      ],
+      "baseSpeciesId": "slowking",
+      "baseStats": {
+        "atk": 75,
+        "def": 80,
+        "hp": 95,
+        "spa": 100,
+        "spd": 110,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "slowking",
+      "kind": "base",
+      "name": "Slowking",
+      "num": 199,
+      "speciesGeneration": 2,
+      "types": [
+        "Water",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "misdreavus",
+      "baseStats": {
+        "atk": 60,
+        "def": 60,
+        "hp": 60,
+        "spa": 85,
+        "spd": 85,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "misdreavus",
+      "kind": "base",
+      "name": "Misdreavus",
+      "num": 200,
+      "speciesGeneration": 2,
+      "types": [
+        "Ghost"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "",
+      "id": "unown",
+      "kind": "base",
+      "name": "Unown",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "B",
+      "id": "unownb",
+      "kind": "cosmetic",
+      "name": "Unown-B",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "C",
+      "id": "unownc",
+      "kind": "cosmetic",
+      "name": "Unown-C",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "D",
+      "id": "unownd",
+      "kind": "cosmetic",
+      "name": "Unown-D",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "E",
+      "id": "unowne",
+      "kind": "cosmetic",
+      "name": "Unown-E",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "Exclamation",
+      "id": "unownexclamation",
+      "kind": "cosmetic",
+      "name": "Unown-Exclamation",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "F",
+      "id": "unownf",
+      "kind": "cosmetic",
+      "name": "Unown-F",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "G",
+      "id": "unowng",
+      "kind": "cosmetic",
+      "name": "Unown-G",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "H",
+      "id": "unownh",
+      "kind": "cosmetic",
+      "name": "Unown-H",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "I",
+      "id": "unowni",
+      "kind": "cosmetic",
+      "name": "Unown-I",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "J",
+      "id": "unownj",
+      "kind": "cosmetic",
+      "name": "Unown-J",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "K",
+      "id": "unownk",
+      "kind": "cosmetic",
+      "name": "Unown-K",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "L",
+      "id": "unownl",
+      "kind": "cosmetic",
+      "name": "Unown-L",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "M",
+      "id": "unownm",
+      "kind": "cosmetic",
+      "name": "Unown-M",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "N",
+      "id": "unownn",
+      "kind": "cosmetic",
+      "name": "Unown-N",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "O",
+      "id": "unowno",
+      "kind": "cosmetic",
+      "name": "Unown-O",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "P",
+      "id": "unownp",
+      "kind": "cosmetic",
+      "name": "Unown-P",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "Q",
+      "id": "unownq",
+      "kind": "cosmetic",
+      "name": "Unown-Q",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "Question",
+      "id": "unownquestion",
+      "kind": "cosmetic",
+      "name": "Unown-Question",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "R",
+      "id": "unownr",
+      "kind": "cosmetic",
+      "name": "Unown-R",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "S",
+      "id": "unowns",
+      "kind": "cosmetic",
+      "name": "Unown-S",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "T",
+      "id": "unownt",
+      "kind": "cosmetic",
+      "name": "Unown-T",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "U",
+      "id": "unownu",
+      "kind": "cosmetic",
+      "name": "Unown-U",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "V",
+      "id": "unownv",
+      "kind": "cosmetic",
+      "name": "Unown-V",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "W",
+      "id": "unownw",
+      "kind": "cosmetic",
+      "name": "Unown-W",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "X",
+      "id": "unownx",
+      "kind": "cosmetic",
+      "name": "Unown-X",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "Y",
+      "id": "unowny",
+      "kind": "cosmetic",
+      "name": "Unown-Y",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "unown",
+      "baseStats": {
+        "atk": 72,
+        "def": 48,
+        "hp": 48,
+        "spa": 72,
+        "spd": 48,
+        "spe": 48
+      },
+      "forme": "Z",
+      "id": "unownz",
+      "kind": "cosmetic",
+      "name": "Unown-Z",
+      "num": 201,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Shadow Tag"
+      ],
+      "baseSpeciesId": "wobbuffet",
+      "baseStats": {
+        "atk": 33,
+        "def": 58,
+        "hp": 190,
+        "spa": 33,
+        "spd": 58,
+        "spe": 33
+      },
+      "forme": "",
+      "id": "wobbuffet",
+      "kind": "base",
+      "name": "Wobbuffet",
+      "num": 202,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Inner Focus",
+        "Early Bird"
+      ],
+      "baseSpeciesId": "girafarig",
+      "baseStats": {
+        "atk": 80,
+        "def": 65,
+        "hp": 70,
+        "spa": 90,
+        "spd": 65,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "girafarig",
+      "kind": "base",
+      "name": "Girafarig",
+      "num": 203,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Sturdy"
+      ],
+      "baseSpeciesId": "pineco",
+      "baseStats": {
+        "atk": 65,
+        "def": 90,
+        "hp": 50,
+        "spa": 35,
+        "spd": 35,
+        "spe": 15
+      },
+      "forme": "",
+      "id": "pineco",
+      "kind": "base",
+      "name": "Pineco",
+      "num": 204,
+      "speciesGeneration": 2,
+      "types": [
+        "Bug"
+      ]
+    },
+    {
+      "abilities": [
+        "Sturdy"
+      ],
+      "baseSpeciesId": "forretress",
+      "baseStats": {
+        "atk": 90,
+        "def": 140,
+        "hp": 75,
+        "spa": 60,
+        "spd": 60,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "forretress",
+      "kind": "base",
+      "name": "Forretress",
+      "num": 205,
+      "speciesGeneration": 2,
+      "types": [
+        "Bug",
+        "Steel"
+      ]
+    },
+    {
+      "abilities": [
+        "Serene Grace",
+        "Run Away"
+      ],
+      "baseSpeciesId": "dunsparce",
+      "baseStats": {
+        "atk": 70,
+        "def": 70,
+        "hp": 100,
+        "spa": 65,
+        "spd": 65,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "dunsparce",
+      "kind": "base",
+      "name": "Dunsparce",
+      "num": 206,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Hyper Cutter",
+        "Sand Veil"
+      ],
+      "baseSpeciesId": "gligar",
+      "baseStats": {
+        "atk": 75,
+        "def": 105,
+        "hp": 65,
+        "spa": 35,
+        "spd": 65,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "gligar",
+      "kind": "base",
+      "name": "Gligar",
+      "num": 207,
+      "speciesGeneration": 2,
+      "types": [
+        "Ground",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Rock Head",
+        "Sturdy"
+      ],
+      "baseSpeciesId": "steelix",
+      "baseStats": {
+        "atk": 85,
+        "def": 200,
+        "hp": 75,
+        "spa": 55,
+        "spd": 65,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "steelix",
+      "kind": "base",
+      "name": "Steelix",
+      "num": 208,
+      "speciesGeneration": 2,
+      "types": [
+        "Steel",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Intimidate",
+        "Run Away"
+      ],
+      "baseSpeciesId": "snubbull",
+      "baseStats": {
+        "atk": 80,
+        "def": 50,
+        "hp": 60,
+        "spa": 40,
+        "spd": 40,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "snubbull",
+      "kind": "base",
+      "name": "Snubbull",
+      "num": 209,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Intimidate"
+      ],
+      "baseSpeciesId": "granbull",
+      "baseStats": {
+        "atk": 120,
+        "def": 75,
+        "hp": 90,
+        "spa": 60,
+        "spd": 60,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "granbull",
+      "kind": "base",
+      "name": "Granbull",
+      "num": 210,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Poison Point",
+        "Swift Swim"
+      ],
+      "baseSpeciesId": "qwilfish",
+      "baseStats": {
+        "atk": 95,
+        "def": 75,
+        "hp": 65,
+        "spa": 55,
+        "spd": 55,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "qwilfish",
+      "kind": "base",
+      "name": "Qwilfish",
+      "num": 211,
+      "speciesGeneration": 2,
+      "types": [
+        "Water",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Swarm"
+      ],
+      "baseSpeciesId": "scizor",
+      "baseStats": {
+        "atk": 130,
+        "def": 100,
+        "hp": 70,
+        "spa": 55,
+        "spd": 80,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "scizor",
+      "kind": "base",
+      "name": "Scizor",
+      "num": 212,
+      "speciesGeneration": 2,
+      "types": [
+        "Bug",
+        "Steel"
+      ]
+    },
+    {
+      "abilities": [
+        "Sturdy"
+      ],
+      "baseSpeciesId": "shuckle",
+      "baseStats": {
+        "atk": 10,
+        "def": 230,
+        "hp": 20,
+        "spa": 10,
+        "spd": 230,
+        "spe": 5
+      },
+      "forme": "",
+      "id": "shuckle",
+      "kind": "base",
+      "name": "Shuckle",
+      "num": 213,
+      "speciesGeneration": 2,
+      "types": [
+        "Bug",
+        "Rock"
+      ]
+    },
+    {
+      "abilities": [
+        "Swarm",
+        "Guts"
+      ],
+      "baseSpeciesId": "heracross",
+      "baseStats": {
+        "atk": 125,
+        "def": 75,
+        "hp": 80,
+        "spa": 40,
+        "spd": 95,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "heracross",
+      "kind": "base",
+      "name": "Heracross",
+      "num": 214,
+      "speciesGeneration": 2,
+      "types": [
+        "Bug",
+        "Fighting"
+      ]
+    },
+    {
+      "abilities": [
+        "Inner Focus",
+        "Keen Eye"
+      ],
+      "baseSpeciesId": "sneasel",
+      "baseStats": {
+        "atk": 95,
+        "def": 55,
+        "hp": 55,
+        "spa": 35,
+        "spd": 75,
+        "spe": 115
+      },
+      "forme": "",
+      "id": "sneasel",
+      "kind": "base",
+      "name": "Sneasel",
+      "num": 215,
+      "speciesGeneration": 2,
+      "types": [
+        "Dark",
+        "Ice"
+      ]
+    },
+    {
+      "abilities": [
+        "Pickup"
+      ],
+      "baseSpeciesId": "teddiursa",
+      "baseStats": {
+        "atk": 80,
+        "def": 50,
+        "hp": 60,
+        "spa": 50,
+        "spd": 50,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "teddiursa",
+      "kind": "base",
+      "name": "Teddiursa",
+      "num": 216,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Guts"
+      ],
+      "baseSpeciesId": "ursaring",
+      "baseStats": {
+        "atk": 130,
+        "def": 75,
+        "hp": 90,
+        "spa": 75,
+        "spd": 75,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "ursaring",
+      "kind": "base",
+      "name": "Ursaring",
+      "num": 217,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Magma Armor",
+        "Flame Body"
+      ],
+      "baseSpeciesId": "slugma",
+      "baseStats": {
+        "atk": 40,
+        "def": 40,
+        "hp": 40,
+        "spa": 70,
+        "spd": 40,
+        "spe": 20
+      },
+      "forme": "",
+      "id": "slugma",
+      "kind": "base",
+      "name": "Slugma",
+      "num": 218,
+      "speciesGeneration": 2,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Magma Armor",
+        "Flame Body"
+      ],
+      "baseSpeciesId": "magcargo",
+      "baseStats": {
+        "atk": 50,
+        "def": 120,
+        "hp": 50,
+        "spa": 80,
+        "spd": 80,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "magcargo",
+      "kind": "base",
+      "name": "Magcargo",
+      "num": 219,
+      "speciesGeneration": 2,
+      "types": [
+        "Fire",
+        "Rock"
+      ]
+    },
+    {
+      "abilities": [
+        "Oblivious"
+      ],
+      "baseSpeciesId": "swinub",
+      "baseStats": {
+        "atk": 50,
+        "def": 40,
+        "hp": 50,
+        "spa": 30,
+        "spd": 30,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "swinub",
+      "kind": "base",
+      "name": "Swinub",
+      "num": 220,
+      "speciesGeneration": 2,
+      "types": [
+        "Ice",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Oblivious"
+      ],
+      "baseSpeciesId": "piloswine",
+      "baseStats": {
+        "atk": 100,
+        "def": 80,
+        "hp": 100,
+        "spa": 60,
+        "spd": 60,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "piloswine",
+      "kind": "base",
+      "name": "Piloswine",
+      "num": 221,
+      "speciesGeneration": 2,
+      "types": [
+        "Ice",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Hustle",
+        "Natural Cure"
+      ],
+      "baseSpeciesId": "corsola",
+      "baseStats": {
+        "atk": 55,
+        "def": 85,
+        "hp": 55,
+        "spa": 65,
+        "spd": 85,
+        "spe": 35
+      },
+      "forme": "",
+      "id": "corsola",
+      "kind": "base",
+      "name": "Corsola",
+      "num": 222,
+      "speciesGeneration": 2,
+      "types": [
+        "Water",
+        "Rock"
+      ]
+    },
+    {
+      "abilities": [
+        "Hustle"
+      ],
+      "baseSpeciesId": "remoraid",
+      "baseStats": {
+        "atk": 65,
+        "def": 35,
+        "hp": 35,
+        "spa": 65,
+        "spd": 35,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "remoraid",
+      "kind": "base",
+      "name": "Remoraid",
+      "num": 223,
+      "speciesGeneration": 2,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Suction Cups"
+      ],
+      "baseSpeciesId": "octillery",
+      "baseStats": {
+        "atk": 105,
+        "def": 75,
+        "hp": 75,
+        "spa": 105,
+        "spd": 75,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "octillery",
+      "kind": "base",
+      "name": "Octillery",
+      "num": 224,
+      "speciesGeneration": 2,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Vital Spirit",
+        "Hustle"
+      ],
+      "baseSpeciesId": "delibird",
+      "baseStats": {
+        "atk": 55,
+        "def": 45,
+        "hp": 45,
+        "spa": 65,
+        "spd": 45,
+        "spe": 75
+      },
+      "forme": "",
+      "id": "delibird",
+      "kind": "base",
+      "name": "Delibird",
+      "num": 225,
+      "speciesGeneration": 2,
+      "types": [
+        "Ice",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim",
+        "Water Absorb"
+      ],
+      "baseSpeciesId": "mantine",
+      "baseStats": {
+        "atk": 40,
+        "def": 70,
+        "hp": 65,
+        "spa": 80,
+        "spd": 140,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "mantine",
+      "kind": "base",
+      "name": "Mantine",
+      "num": 226,
+      "speciesGeneration": 2,
+      "types": [
+        "Water",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Keen Eye",
+        "Sturdy"
+      ],
+      "baseSpeciesId": "skarmory",
+      "baseStats": {
+        "atk": 80,
+        "def": 140,
+        "hp": 65,
+        "spa": 40,
+        "spd": 70,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "skarmory",
+      "kind": "base",
+      "name": "Skarmory",
+      "num": 227,
+      "speciesGeneration": 2,
+      "types": [
+        "Steel",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Early Bird",
+        "Flash Fire"
+      ],
+      "baseSpeciesId": "houndour",
+      "baseStats": {
+        "atk": 60,
+        "def": 30,
+        "hp": 45,
+        "spa": 80,
+        "spd": 50,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "houndour",
+      "kind": "base",
+      "name": "Houndour",
+      "num": 228,
+      "speciesGeneration": 2,
+      "types": [
+        "Dark",
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Early Bird",
+        "Flash Fire"
+      ],
+      "baseSpeciesId": "houndoom",
+      "baseStats": {
+        "atk": 90,
+        "def": 50,
+        "hp": 75,
+        "spa": 110,
+        "spd": 80,
+        "spe": 95
+      },
+      "forme": "",
+      "id": "houndoom",
+      "kind": "base",
+      "name": "Houndoom",
+      "num": 229,
+      "speciesGeneration": 2,
+      "types": [
+        "Dark",
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim"
+      ],
+      "baseSpeciesId": "kingdra",
+      "baseStats": {
+        "atk": 95,
+        "def": 95,
+        "hp": 75,
+        "spa": 95,
+        "spd": 95,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "kingdra",
+      "kind": "base",
+      "name": "Kingdra",
+      "num": 230,
+      "speciesGeneration": 2,
+      "types": [
+        "Water",
+        "Dragon"
+      ]
+    },
+    {
+      "abilities": [
+        "Pickup"
+      ],
+      "baseSpeciesId": "phanpy",
+      "baseStats": {
+        "atk": 60,
+        "def": 60,
+        "hp": 90,
+        "spa": 40,
+        "spd": 40,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "phanpy",
+      "kind": "base",
+      "name": "Phanpy",
+      "num": 231,
+      "speciesGeneration": 2,
+      "types": [
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Sturdy"
+      ],
+      "baseSpeciesId": "donphan",
+      "baseStats": {
+        "atk": 120,
+        "def": 120,
+        "hp": 90,
+        "spa": 60,
+        "spd": 60,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "donphan",
+      "kind": "base",
+      "name": "Donphan",
+      "num": 232,
+      "speciesGeneration": 2,
+      "types": [
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Trace"
+      ],
+      "baseSpeciesId": "porygon2",
+      "baseStats": {
+        "atk": 80,
+        "def": 90,
+        "hp": 85,
+        "spa": 105,
+        "spd": 95,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "porygon2",
+      "kind": "base",
+      "name": "Porygon2",
+      "num": 233,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Intimidate"
+      ],
+      "baseSpeciesId": "stantler",
+      "baseStats": {
+        "atk": 95,
+        "def": 62,
+        "hp": 73,
+        "spa": 85,
+        "spd": 65,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "stantler",
+      "kind": "base",
+      "name": "Stantler",
+      "num": 234,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Own Tempo"
+      ],
+      "baseSpeciesId": "smeargle",
+      "baseStats": {
+        "atk": 20,
+        "def": 35,
+        "hp": 55,
+        "spa": 20,
+        "spd": 45,
+        "spe": 75
+      },
+      "forme": "",
+      "id": "smeargle",
+      "kind": "base",
+      "name": "Smeargle",
+      "num": 235,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Guts"
+      ],
+      "baseSpeciesId": "tyrogue",
+      "baseStats": {
+        "atk": 35,
+        "def": 35,
+        "hp": 35,
+        "spa": 35,
+        "spd": 35,
+        "spe": 35
+      },
+      "forme": "",
+      "id": "tyrogue",
+      "kind": "base",
+      "name": "Tyrogue",
+      "num": 236,
+      "speciesGeneration": 2,
+      "types": [
+        "Fighting"
+      ]
+    },
+    {
+      "abilities": [
+        "Intimidate"
+      ],
+      "baseSpeciesId": "hitmontop",
+      "baseStats": {
+        "atk": 95,
+        "def": 95,
+        "hp": 50,
+        "spa": 35,
+        "spd": 110,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "hitmontop",
+      "kind": "base",
+      "name": "Hitmontop",
+      "num": 237,
+      "speciesGeneration": 2,
+      "types": [
+        "Fighting"
+      ]
+    },
+    {
+      "abilities": [
+        "Oblivious"
+      ],
+      "baseSpeciesId": "smoochum",
+      "baseStats": {
+        "atk": 30,
+        "def": 15,
+        "hp": 45,
+        "spa": 85,
+        "spd": 65,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "smoochum",
+      "kind": "base",
+      "name": "Smoochum",
+      "num": 238,
+      "speciesGeneration": 2,
+      "types": [
+        "Ice",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Static"
+      ],
+      "baseSpeciesId": "elekid",
+      "baseStats": {
+        "atk": 63,
+        "def": 37,
+        "hp": 45,
+        "spa": 65,
+        "spd": 55,
+        "spe": 95
+      },
+      "forme": "",
+      "id": "elekid",
+      "kind": "base",
+      "name": "Elekid",
+      "num": 239,
+      "speciesGeneration": 2,
+      "types": [
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Flame Body"
+      ],
+      "baseSpeciesId": "magby",
+      "baseStats": {
+        "atk": 75,
+        "def": 37,
+        "hp": 45,
+        "spa": 70,
+        "spd": 55,
+        "spe": 83
+      },
+      "forme": "",
+      "id": "magby",
+      "kind": "base",
+      "name": "Magby",
+      "num": 240,
+      "speciesGeneration": 2,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Thick Fat"
+      ],
+      "baseSpeciesId": "miltank",
+      "baseStats": {
+        "atk": 80,
+        "def": 105,
+        "hp": 95,
+        "spa": 40,
+        "spd": 70,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "miltank",
+      "kind": "base",
+      "name": "Miltank",
+      "num": 241,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Natural Cure",
+        "Serene Grace"
+      ],
+      "baseSpeciesId": "blissey",
+      "baseStats": {
+        "atk": 10,
+        "def": 10,
+        "hp": 255,
+        "spa": 75,
+        "spd": 135,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "blissey",
+      "kind": "base",
+      "name": "Blissey",
+      "num": 242,
+      "speciesGeneration": 2,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Pressure"
+      ],
+      "baseSpeciesId": "raikou",
+      "baseStats": {
+        "atk": 85,
+        "def": 75,
+        "hp": 90,
+        "spa": 115,
+        "spd": 100,
+        "spe": 115
+      },
+      "forme": "",
+      "id": "raikou",
+      "kind": "base",
+      "name": "Raikou",
+      "num": 243,
+      "speciesGeneration": 2,
+      "types": [
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Pressure"
+      ],
+      "baseSpeciesId": "entei",
+      "baseStats": {
+        "atk": 115,
+        "def": 85,
+        "hp": 115,
+        "spa": 90,
+        "spd": 75,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "entei",
+      "kind": "base",
+      "name": "Entei",
+      "num": 244,
+      "speciesGeneration": 2,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Pressure"
+      ],
+      "baseSpeciesId": "suicune",
+      "baseStats": {
+        "atk": 75,
+        "def": 115,
+        "hp": 100,
+        "spa": 90,
+        "spd": 115,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "suicune",
+      "kind": "base",
+      "name": "Suicune",
+      "num": 245,
+      "speciesGeneration": 2,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Guts"
+      ],
+      "baseSpeciesId": "larvitar",
+      "baseStats": {
+        "atk": 64,
+        "def": 50,
+        "hp": 50,
+        "spa": 45,
+        "spd": 50,
+        "spe": 41
+      },
+      "forme": "",
+      "id": "larvitar",
+      "kind": "base",
+      "name": "Larvitar",
+      "num": 246,
+      "speciesGeneration": 2,
+      "types": [
+        "Rock",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Shed Skin"
+      ],
+      "baseSpeciesId": "pupitar",
+      "baseStats": {
+        "atk": 84,
+        "def": 70,
+        "hp": 70,
+        "spa": 65,
+        "spd": 70,
+        "spe": 51
+      },
+      "forme": "",
+      "id": "pupitar",
+      "kind": "base",
+      "name": "Pupitar",
+      "num": 247,
+      "speciesGeneration": 2,
+      "types": [
+        "Rock",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Sand Stream"
+      ],
+      "baseSpeciesId": "tyranitar",
+      "baseStats": {
+        "atk": 134,
+        "def": 110,
+        "hp": 100,
+        "spa": 95,
+        "spd": 100,
+        "spe": 61
+      },
+      "forme": "",
+      "id": "tyranitar",
+      "kind": "base",
+      "name": "Tyranitar",
+      "num": 248,
+      "speciesGeneration": 2,
+      "types": [
+        "Rock",
+        "Dark"
+      ]
+    },
+    {
+      "abilities": [
+        "Pressure"
+      ],
+      "baseSpeciesId": "lugia",
+      "baseStats": {
+        "atk": 90,
+        "def": 130,
+        "hp": 106,
+        "spa": 90,
+        "spd": 154,
+        "spe": 110
+      },
+      "forme": "",
+      "id": "lugia",
+      "kind": "base",
+      "name": "Lugia",
+      "num": 249,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Pressure"
+      ],
+      "baseSpeciesId": "hooh",
+      "baseStats": {
+        "atk": 130,
+        "def": 90,
+        "hp": 106,
+        "spa": 110,
+        "spd": 154,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "hooh",
+      "kind": "base",
+      "name": "Ho-Oh",
+      "num": 250,
+      "speciesGeneration": 2,
+      "types": [
+        "Fire",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Natural Cure"
+      ],
+      "baseSpeciesId": "celebi",
+      "baseStats": {
+        "atk": 100,
+        "def": 100,
+        "hp": 100,
+        "spa": 100,
+        "spd": 100,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "celebi",
+      "kind": "base",
+      "name": "Celebi",
+      "num": 251,
+      "speciesGeneration": 2,
+      "types": [
+        "Psychic",
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Overgrow"
+      ],
+      "baseSpeciesId": "treecko",
+      "baseStats": {
+        "atk": 45,
+        "def": 35,
+        "hp": 40,
+        "spa": 65,
+        "spd": 55,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "treecko",
+      "kind": "base",
+      "name": "Treecko",
+      "num": 252,
+      "speciesGeneration": 3,
+      "types": [
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Overgrow"
+      ],
+      "baseSpeciesId": "grovyle",
+      "baseStats": {
+        "atk": 65,
+        "def": 45,
+        "hp": 50,
+        "spa": 85,
+        "spd": 65,
+        "spe": 95
+      },
+      "forme": "",
+      "id": "grovyle",
+      "kind": "base",
+      "name": "Grovyle",
+      "num": 253,
+      "speciesGeneration": 3,
+      "types": [
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Overgrow"
+      ],
+      "baseSpeciesId": "sceptile",
+      "baseStats": {
+        "atk": 85,
+        "def": 65,
+        "hp": 70,
+        "spa": 105,
+        "spd": 85,
+        "spe": 120
+      },
+      "forme": "",
+      "id": "sceptile",
+      "kind": "base",
+      "name": "Sceptile",
+      "num": 254,
+      "speciesGeneration": 3,
+      "types": [
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Blaze"
+      ],
+      "baseSpeciesId": "torchic",
+      "baseStats": {
+        "atk": 60,
+        "def": 40,
+        "hp": 45,
+        "spa": 70,
+        "spd": 50,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "torchic",
+      "kind": "base",
+      "name": "Torchic",
+      "num": 255,
+      "speciesGeneration": 3,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Blaze"
+      ],
+      "baseSpeciesId": "combusken",
+      "baseStats": {
+        "atk": 85,
+        "def": 60,
+        "hp": 60,
+        "spa": 85,
+        "spd": 60,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "combusken",
+      "kind": "base",
+      "name": "Combusken",
+      "num": 256,
+      "speciesGeneration": 3,
+      "types": [
+        "Fire",
+        "Fighting"
+      ]
+    },
+    {
+      "abilities": [
+        "Blaze"
+      ],
+      "baseSpeciesId": "blaziken",
+      "baseStats": {
+        "atk": 120,
+        "def": 70,
+        "hp": 80,
+        "spa": 110,
+        "spd": 70,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "blaziken",
+      "kind": "base",
+      "name": "Blaziken",
+      "num": 257,
+      "speciesGeneration": 3,
+      "types": [
+        "Fire",
+        "Fighting"
+      ]
+    },
+    {
+      "abilities": [
+        "Torrent"
+      ],
+      "baseSpeciesId": "mudkip",
+      "baseStats": {
+        "atk": 70,
+        "def": 50,
+        "hp": 50,
+        "spa": 50,
+        "spd": 50,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "mudkip",
+      "kind": "base",
+      "name": "Mudkip",
+      "num": 258,
+      "speciesGeneration": 3,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Torrent"
+      ],
+      "baseSpeciesId": "marshtomp",
+      "baseStats": {
+        "atk": 85,
+        "def": 70,
+        "hp": 70,
+        "spa": 60,
+        "spd": 70,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "marshtomp",
+      "kind": "base",
+      "name": "Marshtomp",
+      "num": 259,
+      "speciesGeneration": 3,
+      "types": [
+        "Water",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Torrent"
+      ],
+      "baseSpeciesId": "swampert",
+      "baseStats": {
+        "atk": 110,
+        "def": 90,
+        "hp": 100,
+        "spa": 85,
+        "spd": 90,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "swampert",
+      "kind": "base",
+      "name": "Swampert",
+      "num": 260,
+      "speciesGeneration": 3,
+      "types": [
+        "Water",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Run Away"
+      ],
+      "baseSpeciesId": "poochyena",
+      "baseStats": {
+        "atk": 55,
+        "def": 35,
+        "hp": 35,
+        "spa": 30,
+        "spd": 30,
+        "spe": 35
+      },
+      "forme": "",
+      "id": "poochyena",
+      "kind": "base",
+      "name": "Poochyena",
+      "num": 261,
+      "speciesGeneration": 3,
+      "types": [
+        "Dark"
+      ]
+    },
+    {
+      "abilities": [
+        "Intimidate"
+      ],
+      "baseSpeciesId": "mightyena",
+      "baseStats": {
+        "atk": 90,
+        "def": 70,
+        "hp": 70,
+        "spa": 60,
+        "spd": 60,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "mightyena",
+      "kind": "base",
+      "name": "Mightyena",
+      "num": 262,
+      "speciesGeneration": 3,
+      "types": [
+        "Dark"
+      ]
+    },
+    {
+      "abilities": [
+        "Pickup"
+      ],
+      "baseSpeciesId": "zigzagoon",
+      "baseStats": {
+        "atk": 30,
+        "def": 41,
+        "hp": 38,
+        "spa": 30,
+        "spd": 41,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "zigzagoon",
+      "kind": "base",
+      "name": "Zigzagoon",
+      "num": 263,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Pickup"
+      ],
+      "baseSpeciesId": "linoone",
+      "baseStats": {
+        "atk": 70,
+        "def": 61,
+        "hp": 78,
+        "spa": 50,
+        "spd": 61,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "linoone",
+      "kind": "base",
+      "name": "Linoone",
+      "num": 264,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Shield Dust"
+      ],
+      "baseSpeciesId": "wurmple",
+      "baseStats": {
+        "atk": 45,
+        "def": 35,
+        "hp": 45,
+        "spa": 20,
+        "spd": 30,
+        "spe": 20
+      },
+      "forme": "",
+      "id": "wurmple",
+      "kind": "base",
+      "name": "Wurmple",
+      "num": 265,
+      "speciesGeneration": 3,
+      "types": [
+        "Bug"
+      ]
+    },
+    {
+      "abilities": [
+        "Shed Skin"
+      ],
+      "baseSpeciesId": "silcoon",
+      "baseStats": {
+        "atk": 35,
+        "def": 55,
+        "hp": 50,
+        "spa": 25,
+        "spd": 25,
+        "spe": 15
+      },
+      "forme": "",
+      "id": "silcoon",
+      "kind": "base",
+      "name": "Silcoon",
+      "num": 266,
+      "speciesGeneration": 3,
+      "types": [
+        "Bug"
+      ]
+    },
+    {
+      "abilities": [
+        "Swarm"
+      ],
+      "baseSpeciesId": "beautifly",
+      "baseStats": {
+        "atk": 70,
+        "def": 50,
+        "hp": 60,
+        "spa": 90,
+        "spd": 50,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "beautifly",
+      "kind": "base",
+      "name": "Beautifly",
+      "num": 267,
+      "speciesGeneration": 3,
+      "types": [
+        "Bug",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Shed Skin"
+      ],
+      "baseSpeciesId": "cascoon",
+      "baseStats": {
+        "atk": 35,
+        "def": 55,
+        "hp": 50,
+        "spa": 25,
+        "spd": 25,
+        "spe": 15
+      },
+      "forme": "",
+      "id": "cascoon",
+      "kind": "base",
+      "name": "Cascoon",
+      "num": 268,
+      "speciesGeneration": 3,
+      "types": [
+        "Bug"
+      ]
+    },
+    {
+      "abilities": [
+        "Shield Dust"
+      ],
+      "baseSpeciesId": "dustox",
+      "baseStats": {
+        "atk": 50,
+        "def": 70,
+        "hp": 60,
+        "spa": 50,
+        "spd": 90,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "dustox",
+      "kind": "base",
+      "name": "Dustox",
+      "num": 269,
+      "speciesGeneration": 3,
+      "types": [
+        "Bug",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim",
+        "Rain Dish"
+      ],
+      "baseSpeciesId": "lotad",
+      "baseStats": {
+        "atk": 30,
+        "def": 30,
+        "hp": 40,
+        "spa": 40,
+        "spd": 50,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "lotad",
+      "kind": "base",
+      "name": "Lotad",
+      "num": 270,
+      "speciesGeneration": 3,
+      "types": [
+        "Water",
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim",
+        "Rain Dish"
+      ],
+      "baseSpeciesId": "lombre",
+      "baseStats": {
+        "atk": 50,
+        "def": 50,
+        "hp": 60,
+        "spa": 60,
+        "spd": 70,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "lombre",
+      "kind": "base",
+      "name": "Lombre",
+      "num": 271,
+      "speciesGeneration": 3,
+      "types": [
+        "Water",
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim",
+        "Rain Dish"
+      ],
+      "baseSpeciesId": "ludicolo",
+      "baseStats": {
+        "atk": 70,
+        "def": 70,
+        "hp": 80,
+        "spa": 90,
+        "spd": 100,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "ludicolo",
+      "kind": "base",
+      "name": "Ludicolo",
+      "num": 272,
+      "speciesGeneration": 3,
+      "types": [
+        "Water",
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll",
+        "Early Bird"
+      ],
+      "baseSpeciesId": "seedot",
+      "baseStats": {
+        "atk": 40,
+        "def": 50,
+        "hp": 40,
+        "spa": 30,
+        "spd": 30,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "seedot",
+      "kind": "base",
+      "name": "Seedot",
+      "num": 273,
+      "speciesGeneration": 3,
+      "types": [
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll",
+        "Early Bird"
+      ],
+      "baseSpeciesId": "nuzleaf",
+      "baseStats": {
+        "atk": 70,
+        "def": 40,
+        "hp": 70,
+        "spa": 60,
+        "spd": 40,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "nuzleaf",
+      "kind": "base",
+      "name": "Nuzleaf",
+      "num": 274,
+      "speciesGeneration": 3,
+      "types": [
+        "Grass",
+        "Dark"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll",
+        "Early Bird"
+      ],
+      "baseSpeciesId": "shiftry",
+      "baseStats": {
+        "atk": 100,
+        "def": 60,
+        "hp": 90,
+        "spa": 90,
+        "spd": 60,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "shiftry",
+      "kind": "base",
+      "name": "Shiftry",
+      "num": 275,
+      "speciesGeneration": 3,
+      "types": [
+        "Grass",
+        "Dark"
+      ]
+    },
+    {
+      "abilities": [
+        "Guts"
+      ],
+      "baseSpeciesId": "taillow",
+      "baseStats": {
+        "atk": 55,
+        "def": 30,
+        "hp": 40,
+        "spa": 30,
+        "spd": 30,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "taillow",
+      "kind": "base",
+      "name": "Taillow",
+      "num": 276,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Guts"
+      ],
+      "baseSpeciesId": "swellow",
+      "baseStats": {
+        "atk": 85,
+        "def": 60,
+        "hp": 60,
+        "spa": 50,
+        "spd": 50,
+        "spe": 125
+      },
+      "forme": "",
+      "id": "swellow",
+      "kind": "base",
+      "name": "Swellow",
+      "num": 277,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Keen Eye"
+      ],
+      "baseSpeciesId": "wingull",
+      "baseStats": {
+        "atk": 30,
+        "def": 30,
+        "hp": 40,
+        "spa": 55,
+        "spd": 30,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "wingull",
+      "kind": "base",
+      "name": "Wingull",
+      "num": 278,
+      "speciesGeneration": 3,
+      "types": [
+        "Water",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Keen Eye"
+      ],
+      "baseSpeciesId": "pelipper",
+      "baseStats": {
+        "atk": 50,
+        "def": 100,
+        "hp": 60,
+        "spa": 85,
+        "spd": 70,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "pelipper",
+      "kind": "base",
+      "name": "Pelipper",
+      "num": 279,
+      "speciesGeneration": 3,
+      "types": [
+        "Water",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Synchronize",
+        "Trace"
+      ],
+      "baseSpeciesId": "ralts",
+      "baseStats": {
+        "atk": 25,
+        "def": 25,
+        "hp": 28,
+        "spa": 45,
+        "spd": 35,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "ralts",
+      "kind": "base",
+      "name": "Ralts",
+      "num": 280,
+      "speciesGeneration": 3,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Synchronize",
+        "Trace"
+      ],
+      "baseSpeciesId": "kirlia",
+      "baseStats": {
+        "atk": 35,
+        "def": 35,
+        "hp": 38,
+        "spa": 65,
+        "spd": 55,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "kirlia",
+      "kind": "base",
+      "name": "Kirlia",
+      "num": 281,
+      "speciesGeneration": 3,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Synchronize",
+        "Trace"
+      ],
+      "baseSpeciesId": "gardevoir",
+      "baseStats": {
+        "atk": 65,
+        "def": 65,
+        "hp": 68,
+        "spa": 125,
+        "spd": 115,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "gardevoir",
+      "kind": "base",
+      "name": "Gardevoir",
+      "num": 282,
+      "speciesGeneration": 3,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim"
+      ],
+      "baseSpeciesId": "surskit",
+      "baseStats": {
+        "atk": 30,
+        "def": 32,
+        "hp": 40,
+        "spa": 50,
+        "spd": 52,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "surskit",
+      "kind": "base",
+      "name": "Surskit",
+      "num": 283,
+      "speciesGeneration": 3,
+      "types": [
+        "Bug",
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Intimidate"
+      ],
+      "baseSpeciesId": "masquerain",
+      "baseStats": {
+        "atk": 60,
+        "def": 62,
+        "hp": 70,
+        "spa": 80,
+        "spd": 82,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "masquerain",
+      "kind": "base",
+      "name": "Masquerain",
+      "num": 284,
+      "speciesGeneration": 3,
+      "types": [
+        "Bug",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Effect Spore"
+      ],
+      "baseSpeciesId": "shroomish",
+      "baseStats": {
+        "atk": 40,
+        "def": 60,
+        "hp": 60,
+        "spa": 40,
+        "spd": 60,
+        "spe": 35
+      },
+      "forme": "",
+      "id": "shroomish",
+      "kind": "base",
+      "name": "Shroomish",
+      "num": 285,
+      "speciesGeneration": 3,
+      "types": [
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Effect Spore"
+      ],
+      "baseSpeciesId": "breloom",
+      "baseStats": {
+        "atk": 130,
+        "def": 80,
+        "hp": 60,
+        "spa": 60,
+        "spd": 60,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "breloom",
+      "kind": "base",
+      "name": "Breloom",
+      "num": 286,
+      "speciesGeneration": 3,
+      "types": [
+        "Grass",
+        "Fighting"
+      ]
+    },
+    {
+      "abilities": [
+        "Truant"
+      ],
+      "baseSpeciesId": "slakoth",
+      "baseStats": {
+        "atk": 60,
+        "def": 60,
+        "hp": 60,
+        "spa": 35,
+        "spd": 35,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "slakoth",
+      "kind": "base",
+      "name": "Slakoth",
+      "num": 287,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Vital Spirit"
+      ],
+      "baseSpeciesId": "vigoroth",
+      "baseStats": {
+        "atk": 80,
+        "def": 80,
+        "hp": 80,
+        "spa": 55,
+        "spd": 55,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "vigoroth",
+      "kind": "base",
+      "name": "Vigoroth",
+      "num": 288,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Truant"
+      ],
+      "baseSpeciesId": "slaking",
+      "baseStats": {
+        "atk": 160,
+        "def": 100,
+        "hp": 150,
+        "spa": 95,
+        "spd": 65,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "slaking",
+      "kind": "base",
+      "name": "Slaking",
+      "num": 289,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Compound Eyes"
+      ],
+      "baseSpeciesId": "nincada",
+      "baseStats": {
+        "atk": 45,
+        "def": 90,
+        "hp": 31,
+        "spa": 30,
+        "spd": 30,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "nincada",
+      "kind": "base",
+      "name": "Nincada",
+      "num": 290,
+      "speciesGeneration": 3,
+      "types": [
+        "Bug",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Speed Boost"
+      ],
+      "baseSpeciesId": "ninjask",
+      "baseStats": {
+        "atk": 90,
+        "def": 45,
+        "hp": 61,
+        "spa": 50,
+        "spd": 50,
+        "spe": 160
+      },
+      "forme": "",
+      "id": "ninjask",
+      "kind": "base",
+      "name": "Ninjask",
+      "num": 291,
+      "speciesGeneration": 3,
+      "types": [
+        "Bug",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Wonder Guard"
+      ],
+      "baseSpeciesId": "shedinja",
+      "baseStats": {
+        "atk": 90,
+        "def": 45,
+        "hp": 1,
+        "spa": 30,
+        "spd": 30,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "shedinja",
+      "kind": "base",
+      "name": "Shedinja",
+      "num": 292,
+      "speciesGeneration": 3,
+      "types": [
+        "Bug",
+        "Ghost"
+      ]
+    },
+    {
+      "abilities": [
+        "Soundproof"
+      ],
+      "baseSpeciesId": "whismur",
+      "baseStats": {
+        "atk": 51,
+        "def": 23,
+        "hp": 64,
+        "spa": 51,
+        "spd": 23,
+        "spe": 28
+      },
+      "forme": "",
+      "id": "whismur",
+      "kind": "base",
+      "name": "Whismur",
+      "num": 293,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Soundproof"
+      ],
+      "baseSpeciesId": "loudred",
+      "baseStats": {
+        "atk": 71,
+        "def": 43,
+        "hp": 84,
+        "spa": 71,
+        "spd": 43,
+        "spe": 48
+      },
+      "forme": "",
+      "id": "loudred",
+      "kind": "base",
+      "name": "Loudred",
+      "num": 294,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Soundproof"
+      ],
+      "baseSpeciesId": "exploud",
+      "baseStats": {
+        "atk": 91,
+        "def": 63,
+        "hp": 104,
+        "spa": 91,
+        "spd": 63,
+        "spe": 68
+      },
+      "forme": "",
+      "id": "exploud",
+      "kind": "base",
+      "name": "Exploud",
+      "num": 295,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Thick Fat",
+        "Guts"
+      ],
+      "baseSpeciesId": "makuhita",
+      "baseStats": {
+        "atk": 60,
+        "def": 30,
+        "hp": 72,
+        "spa": 20,
+        "spd": 30,
+        "spe": 25
+      },
+      "forme": "",
+      "id": "makuhita",
+      "kind": "base",
+      "name": "Makuhita",
+      "num": 296,
+      "speciesGeneration": 3,
+      "types": [
+        "Fighting"
+      ]
+    },
+    {
+      "abilities": [
+        "Thick Fat",
+        "Guts"
+      ],
+      "baseSpeciesId": "hariyama",
+      "baseStats": {
+        "atk": 120,
+        "def": 60,
+        "hp": 144,
+        "spa": 40,
+        "spd": 60,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "hariyama",
+      "kind": "base",
+      "name": "Hariyama",
+      "num": 297,
+      "speciesGeneration": 3,
+      "types": [
+        "Fighting"
+      ]
+    },
+    {
+      "abilities": [
+        "Thick Fat",
+        "Huge Power"
+      ],
+      "baseSpeciesId": "azurill",
+      "baseStats": {
+        "atk": 20,
+        "def": 40,
+        "hp": 50,
+        "spa": 20,
+        "spd": 40,
+        "spe": 20
+      },
+      "forme": "",
+      "id": "azurill",
+      "kind": "base",
+      "name": "Azurill",
+      "num": 298,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Sturdy",
+        "Magnet Pull"
+      ],
+      "baseSpeciesId": "nosepass",
+      "baseStats": {
+        "atk": 45,
+        "def": 135,
+        "hp": 30,
+        "spa": 45,
+        "spd": 90,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "nosepass",
+      "kind": "base",
+      "name": "Nosepass",
+      "num": 299,
+      "speciesGeneration": 3,
+      "types": [
+        "Rock"
+      ]
+    },
+    {
+      "abilities": [
+        "Cute Charm"
+      ],
+      "baseSpeciesId": "skitty",
+      "baseStats": {
+        "atk": 45,
+        "def": 45,
+        "hp": 50,
+        "spa": 35,
+        "spd": 35,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "skitty",
+      "kind": "base",
+      "name": "Skitty",
+      "num": 300,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Cute Charm"
+      ],
+      "baseSpeciesId": "delcatty",
+      "baseStats": {
+        "atk": 65,
+        "def": 65,
+        "hp": 70,
+        "spa": 55,
+        "spd": 55,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "delcatty",
+      "kind": "base",
+      "name": "Delcatty",
+      "num": 301,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Keen Eye"
+      ],
+      "baseSpeciesId": "sableye",
+      "baseStats": {
+        "atk": 75,
+        "def": 75,
+        "hp": 50,
+        "spa": 65,
+        "spd": 65,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "sableye",
+      "kind": "base",
+      "name": "Sableye",
+      "num": 302,
+      "speciesGeneration": 3,
+      "types": [
+        "Dark",
+        "Ghost"
+      ]
+    },
+    {
+      "abilities": [
+        "Hyper Cutter",
+        "Intimidate"
+      ],
+      "baseSpeciesId": "mawile",
+      "baseStats": {
+        "atk": 85,
+        "def": 85,
+        "hp": 50,
+        "spa": 55,
+        "spd": 55,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "mawile",
+      "kind": "base",
+      "name": "Mawile",
+      "num": 303,
+      "speciesGeneration": 3,
+      "types": [
+        "Steel"
+      ]
+    },
+    {
+      "abilities": [
+        "Sturdy",
+        "Rock Head"
+      ],
+      "baseSpeciesId": "aron",
+      "baseStats": {
+        "atk": 70,
+        "def": 100,
+        "hp": 50,
+        "spa": 40,
+        "spd": 40,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "aron",
+      "kind": "base",
+      "name": "Aron",
+      "num": 304,
+      "speciesGeneration": 3,
+      "types": [
+        "Steel",
+        "Rock"
+      ]
+    },
+    {
+      "abilities": [
+        "Sturdy",
+        "Rock Head"
+      ],
+      "baseSpeciesId": "lairon",
+      "baseStats": {
+        "atk": 90,
+        "def": 140,
+        "hp": 60,
+        "spa": 50,
+        "spd": 50,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "lairon",
+      "kind": "base",
+      "name": "Lairon",
+      "num": 305,
+      "speciesGeneration": 3,
+      "types": [
+        "Steel",
+        "Rock"
+      ]
+    },
+    {
+      "abilities": [
+        "Sturdy",
+        "Rock Head"
+      ],
+      "baseSpeciesId": "aggron",
+      "baseStats": {
+        "atk": 110,
+        "def": 180,
+        "hp": 70,
+        "spa": 60,
+        "spd": 60,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "aggron",
+      "kind": "base",
+      "name": "Aggron",
+      "num": 306,
+      "speciesGeneration": 3,
+      "types": [
+        "Steel",
+        "Rock"
+      ]
+    },
+    {
+      "abilities": [
+        "Pure Power"
+      ],
+      "baseSpeciesId": "meditite",
+      "baseStats": {
+        "atk": 40,
+        "def": 55,
+        "hp": 30,
+        "spa": 40,
+        "spd": 55,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "meditite",
+      "kind": "base",
+      "name": "Meditite",
+      "num": 307,
+      "speciesGeneration": 3,
+      "types": [
+        "Fighting",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Pure Power"
+      ],
+      "baseSpeciesId": "medicham",
+      "baseStats": {
+        "atk": 60,
+        "def": 75,
+        "hp": 60,
+        "spa": 60,
+        "spd": 75,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "medicham",
+      "kind": "base",
+      "name": "Medicham",
+      "num": 308,
+      "speciesGeneration": 3,
+      "types": [
+        "Fighting",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Static",
+        "Lightning Rod"
+      ],
+      "baseSpeciesId": "electrike",
+      "baseStats": {
+        "atk": 45,
+        "def": 40,
+        "hp": 40,
+        "spa": 65,
+        "spd": 40,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "electrike",
+      "kind": "base",
+      "name": "Electrike",
+      "num": 309,
+      "speciesGeneration": 3,
+      "types": [
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Static",
+        "Lightning Rod"
+      ],
+      "baseSpeciesId": "manectric",
+      "baseStats": {
+        "atk": 75,
+        "def": 60,
+        "hp": 70,
+        "spa": 105,
+        "spd": 60,
+        "spe": 105
+      },
+      "forme": "",
+      "id": "manectric",
+      "kind": "base",
+      "name": "Manectric",
+      "num": 310,
+      "speciesGeneration": 3,
+      "types": [
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Plus"
+      ],
+      "baseSpeciesId": "plusle",
+      "baseStats": {
+        "atk": 50,
+        "def": 40,
+        "hp": 60,
+        "spa": 85,
+        "spd": 75,
+        "spe": 95
+      },
+      "forme": "",
+      "id": "plusle",
+      "kind": "base",
+      "name": "Plusle",
+      "num": 311,
+      "speciesGeneration": 3,
+      "types": [
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Minus"
+      ],
+      "baseSpeciesId": "minun",
+      "baseStats": {
+        "atk": 40,
+        "def": 50,
+        "hp": 60,
+        "spa": 75,
+        "spd": 85,
+        "spe": 95
+      },
+      "forme": "",
+      "id": "minun",
+      "kind": "base",
+      "name": "Minun",
+      "num": 312,
+      "speciesGeneration": 3,
+      "types": [
+        "Electric"
+      ]
+    },
+    {
+      "abilities": [
+        "Illuminate",
+        "Swarm"
+      ],
+      "baseSpeciesId": "volbeat",
+      "baseStats": {
+        "atk": 73,
+        "def": 55,
+        "hp": 65,
+        "spa": 47,
+        "spd": 75,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "volbeat",
+      "kind": "base",
+      "name": "Volbeat",
+      "num": 313,
+      "speciesGeneration": 3,
+      "types": [
+        "Bug"
+      ]
+    },
+    {
+      "abilities": [
+        "Oblivious"
+      ],
+      "baseSpeciesId": "illumise",
+      "baseStats": {
+        "atk": 47,
+        "def": 55,
+        "hp": 65,
+        "spa": 73,
+        "spd": 75,
+        "spe": 85
+      },
+      "forme": "",
+      "id": "illumise",
+      "kind": "base",
+      "name": "Illumise",
+      "num": 314,
+      "speciesGeneration": 3,
+      "types": [
+        "Bug"
+      ]
+    },
+    {
+      "abilities": [
+        "Natural Cure",
+        "Poison Point"
+      ],
+      "baseSpeciesId": "roselia",
+      "baseStats": {
+        "atk": 60,
+        "def": 45,
+        "hp": 50,
+        "spa": 100,
+        "spd": 80,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "roselia",
+      "kind": "base",
+      "name": "Roselia",
+      "num": 315,
+      "speciesGeneration": 3,
+      "types": [
+        "Grass",
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Liquid Ooze",
+        "Sticky Hold"
+      ],
+      "baseSpeciesId": "gulpin",
+      "baseStats": {
+        "atk": 43,
+        "def": 53,
+        "hp": 70,
+        "spa": 43,
+        "spd": 53,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "gulpin",
+      "kind": "base",
+      "name": "Gulpin",
+      "num": 316,
+      "speciesGeneration": 3,
+      "types": [
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Liquid Ooze",
+        "Sticky Hold"
+      ],
+      "baseSpeciesId": "swalot",
+      "baseStats": {
+        "atk": 73,
+        "def": 83,
+        "hp": 100,
+        "spa": 73,
+        "spd": 83,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "swalot",
+      "kind": "base",
+      "name": "Swalot",
+      "num": 317,
+      "speciesGeneration": 3,
+      "types": [
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Rough Skin"
+      ],
+      "baseSpeciesId": "carvanha",
+      "baseStats": {
+        "atk": 90,
+        "def": 20,
+        "hp": 45,
+        "spa": 65,
+        "spd": 20,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "carvanha",
+      "kind": "base",
+      "name": "Carvanha",
+      "num": 318,
+      "speciesGeneration": 3,
+      "types": [
+        "Water",
+        "Dark"
+      ]
+    },
+    {
+      "abilities": [
+        "Rough Skin"
+      ],
+      "baseSpeciesId": "sharpedo",
+      "baseStats": {
+        "atk": 120,
+        "def": 40,
+        "hp": 70,
+        "spa": 95,
+        "spd": 40,
+        "spe": 95
+      },
+      "forme": "",
+      "id": "sharpedo",
+      "kind": "base",
+      "name": "Sharpedo",
+      "num": 319,
+      "speciesGeneration": 3,
+      "types": [
+        "Water",
+        "Dark"
+      ]
+    },
+    {
+      "abilities": [
+        "Water Veil",
+        "Oblivious"
+      ],
+      "baseSpeciesId": "wailmer",
+      "baseStats": {
+        "atk": 70,
+        "def": 35,
+        "hp": 130,
+        "spa": 70,
+        "spd": 35,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "wailmer",
+      "kind": "base",
+      "name": "Wailmer",
+      "num": 320,
+      "speciesGeneration": 3,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Water Veil",
+        "Oblivious"
+      ],
+      "baseSpeciesId": "wailord",
+      "baseStats": {
+        "atk": 90,
+        "def": 45,
+        "hp": 170,
+        "spa": 90,
+        "spd": 45,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "wailord",
+      "kind": "base",
+      "name": "Wailord",
+      "num": 321,
+      "speciesGeneration": 3,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Oblivious"
+      ],
+      "baseSpeciesId": "numel",
+      "baseStats": {
+        "atk": 60,
+        "def": 40,
+        "hp": 60,
+        "spa": 65,
+        "spd": 45,
+        "spe": 35
+      },
+      "forme": "",
+      "id": "numel",
+      "kind": "base",
+      "name": "Numel",
+      "num": 322,
+      "speciesGeneration": 3,
+      "types": [
+        "Fire",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Magma Armor"
+      ],
+      "baseSpeciesId": "camerupt",
+      "baseStats": {
+        "atk": 100,
+        "def": 70,
+        "hp": 70,
+        "spa": 105,
+        "spd": 75,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "camerupt",
+      "kind": "base",
+      "name": "Camerupt",
+      "num": 323,
+      "speciesGeneration": 3,
+      "types": [
+        "Fire",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "White Smoke"
+      ],
+      "baseSpeciesId": "torkoal",
+      "baseStats": {
+        "atk": 85,
+        "def": 140,
+        "hp": 70,
+        "spa": 85,
+        "spd": 70,
+        "spe": 20
+      },
+      "forme": "",
+      "id": "torkoal",
+      "kind": "base",
+      "name": "Torkoal",
+      "num": 324,
+      "speciesGeneration": 3,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Thick Fat",
+        "Own Tempo"
+      ],
+      "baseSpeciesId": "spoink",
+      "baseStats": {
+        "atk": 25,
+        "def": 35,
+        "hp": 60,
+        "spa": 70,
+        "spd": 80,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "spoink",
+      "kind": "base",
+      "name": "Spoink",
+      "num": 325,
+      "speciesGeneration": 3,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Thick Fat",
+        "Own Tempo"
+      ],
+      "baseSpeciesId": "grumpig",
+      "baseStats": {
+        "atk": 45,
+        "def": 65,
+        "hp": 80,
+        "spa": 90,
+        "spd": 110,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "grumpig",
+      "kind": "base",
+      "name": "Grumpig",
+      "num": 326,
+      "speciesGeneration": 3,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Own Tempo"
+      ],
+      "baseSpeciesId": "spinda",
+      "baseStats": {
+        "atk": 60,
+        "def": 60,
+        "hp": 60,
+        "spa": 60,
+        "spd": 60,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "spinda",
+      "kind": "base",
+      "name": "Spinda",
+      "num": 327,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Hyper Cutter",
+        "Arena Trap"
+      ],
+      "baseSpeciesId": "trapinch",
+      "baseStats": {
+        "atk": 100,
+        "def": 45,
+        "hp": 45,
+        "spa": 45,
+        "spd": 45,
+        "spe": 10
+      },
+      "forme": "",
+      "id": "trapinch",
+      "kind": "base",
+      "name": "Trapinch",
+      "num": 328,
+      "speciesGeneration": 3,
+      "types": [
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "vibrava",
+      "baseStats": {
+        "atk": 70,
+        "def": 50,
+        "hp": 50,
+        "spa": 50,
+        "spd": 50,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "vibrava",
+      "kind": "base",
+      "name": "Vibrava",
+      "num": 329,
+      "speciesGeneration": 3,
+      "types": [
+        "Ground",
+        "Dragon"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "flygon",
+      "baseStats": {
+        "atk": 100,
+        "def": 80,
+        "hp": 80,
+        "spa": 80,
+        "spd": 80,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "flygon",
+      "kind": "base",
+      "name": "Flygon",
+      "num": 330,
+      "speciesGeneration": 3,
+      "types": [
+        "Ground",
+        "Dragon"
+      ]
+    },
+    {
+      "abilities": [
+        "Sand Veil"
+      ],
+      "baseSpeciesId": "cacnea",
+      "baseStats": {
+        "atk": 85,
+        "def": 40,
+        "hp": 50,
+        "spa": 85,
+        "spd": 40,
+        "spe": 35
+      },
+      "forme": "",
+      "id": "cacnea",
+      "kind": "base",
+      "name": "Cacnea",
+      "num": 331,
+      "speciesGeneration": 3,
+      "types": [
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Sand Veil"
+      ],
+      "baseSpeciesId": "cacturne",
+      "baseStats": {
+        "atk": 115,
+        "def": 60,
+        "hp": 70,
+        "spa": 115,
+        "spd": 60,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "cacturne",
+      "kind": "base",
+      "name": "Cacturne",
+      "num": 332,
+      "speciesGeneration": 3,
+      "types": [
+        "Grass",
+        "Dark"
+      ]
+    },
+    {
+      "abilities": [
+        "Natural Cure"
+      ],
+      "baseSpeciesId": "swablu",
+      "baseStats": {
+        "atk": 40,
+        "def": 60,
+        "hp": 45,
+        "spa": 40,
+        "spd": 75,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "swablu",
+      "kind": "base",
+      "name": "Swablu",
+      "num": 333,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Natural Cure"
+      ],
+      "baseSpeciesId": "altaria",
+      "baseStats": {
+        "atk": 70,
+        "def": 90,
+        "hp": 75,
+        "spa": 70,
+        "spd": 105,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "altaria",
+      "kind": "base",
+      "name": "Altaria",
+      "num": 334,
+      "speciesGeneration": 3,
+      "types": [
+        "Dragon",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Immunity"
+      ],
+      "baseSpeciesId": "zangoose",
+      "baseStats": {
+        "atk": 115,
+        "def": 60,
+        "hp": 73,
+        "spa": 60,
+        "spd": 60,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "zangoose",
+      "kind": "base",
+      "name": "Zangoose",
+      "num": 335,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Shed Skin"
+      ],
+      "baseSpeciesId": "seviper",
+      "baseStats": {
+        "atk": 100,
+        "def": 60,
+        "hp": 73,
+        "spa": 100,
+        "spd": 60,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "seviper",
+      "kind": "base",
+      "name": "Seviper",
+      "num": 336,
+      "speciesGeneration": 3,
+      "types": [
+        "Poison"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "lunatone",
+      "baseStats": {
+        "atk": 55,
+        "def": 65,
+        "hp": 70,
+        "spa": 95,
+        "spd": 85,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "lunatone",
+      "kind": "base",
+      "name": "Lunatone",
+      "num": 337,
+      "speciesGeneration": 3,
+      "types": [
+        "Rock",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "solrock",
+      "baseStats": {
+        "atk": 95,
+        "def": 85,
+        "hp": 70,
+        "spa": 55,
+        "spd": 65,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "solrock",
+      "kind": "base",
+      "name": "Solrock",
+      "num": 338,
+      "speciesGeneration": 3,
+      "types": [
+        "Rock",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Oblivious"
+      ],
+      "baseSpeciesId": "barboach",
+      "baseStats": {
+        "atk": 48,
+        "def": 43,
+        "hp": 50,
+        "spa": 46,
+        "spd": 41,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "barboach",
+      "kind": "base",
+      "name": "Barboach",
+      "num": 339,
+      "speciesGeneration": 3,
+      "types": [
+        "Water",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Oblivious"
+      ],
+      "baseSpeciesId": "whiscash",
+      "baseStats": {
+        "atk": 78,
+        "def": 73,
+        "hp": 110,
+        "spa": 76,
+        "spd": 71,
+        "spe": 60
+      },
+      "forme": "",
+      "id": "whiscash",
+      "kind": "base",
+      "name": "Whiscash",
+      "num": 340,
+      "speciesGeneration": 3,
+      "types": [
+        "Water",
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Hyper Cutter",
+        "Shell Armor"
+      ],
+      "baseSpeciesId": "corphish",
+      "baseStats": {
+        "atk": 80,
+        "def": 65,
+        "hp": 43,
+        "spa": 50,
+        "spd": 35,
+        "spe": 35
+      },
+      "forme": "",
+      "id": "corphish",
+      "kind": "base",
+      "name": "Corphish",
+      "num": 341,
+      "speciesGeneration": 3,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Hyper Cutter",
+        "Shell Armor"
+      ],
+      "baseSpeciesId": "crawdaunt",
+      "baseStats": {
+        "atk": 120,
+        "def": 85,
+        "hp": 63,
+        "spa": 90,
+        "spd": 55,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "crawdaunt",
+      "kind": "base",
+      "name": "Crawdaunt",
+      "num": 342,
+      "speciesGeneration": 3,
+      "types": [
+        "Water",
+        "Dark"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "baltoy",
+      "baseStats": {
+        "atk": 40,
+        "def": 55,
+        "hp": 40,
+        "spa": 40,
+        "spd": 70,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "baltoy",
+      "kind": "base",
+      "name": "Baltoy",
+      "num": 343,
+      "speciesGeneration": 3,
+      "types": [
+        "Ground",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "claydol",
+      "baseStats": {
+        "atk": 70,
+        "def": 105,
+        "hp": 60,
+        "spa": 70,
+        "spd": 120,
+        "spe": 75
+      },
+      "forme": "",
+      "id": "claydol",
+      "kind": "base",
+      "name": "Claydol",
+      "num": 344,
+      "speciesGeneration": 3,
+      "types": [
+        "Ground",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Suction Cups"
+      ],
+      "baseSpeciesId": "lileep",
+      "baseStats": {
+        "atk": 41,
+        "def": 77,
+        "hp": 66,
+        "spa": 61,
+        "spd": 87,
+        "spe": 23
+      },
+      "forme": "",
+      "id": "lileep",
+      "kind": "base",
+      "name": "Lileep",
+      "num": 345,
+      "speciesGeneration": 3,
+      "types": [
+        "Rock",
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Suction Cups"
+      ],
+      "baseSpeciesId": "cradily",
+      "baseStats": {
+        "atk": 81,
+        "def": 97,
+        "hp": 86,
+        "spa": 81,
+        "spd": 107,
+        "spe": 43
+      },
+      "forme": "",
+      "id": "cradily",
+      "kind": "base",
+      "name": "Cradily",
+      "num": 346,
+      "speciesGeneration": 3,
+      "types": [
+        "Rock",
+        "Grass"
+      ]
+    },
+    {
+      "abilities": [
+        "Battle Armor"
+      ],
+      "baseSpeciesId": "anorith",
+      "baseStats": {
+        "atk": 95,
+        "def": 50,
+        "hp": 45,
+        "spa": 40,
+        "spd": 50,
+        "spe": 75
+      },
+      "forme": "",
+      "id": "anorith",
+      "kind": "base",
+      "name": "Anorith",
+      "num": 347,
+      "speciesGeneration": 3,
+      "types": [
+        "Rock",
+        "Bug"
+      ]
+    },
+    {
+      "abilities": [
+        "Battle Armor"
+      ],
+      "baseSpeciesId": "armaldo",
+      "baseStats": {
+        "atk": 125,
+        "def": 100,
+        "hp": 75,
+        "spa": 70,
+        "spd": 80,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "armaldo",
+      "kind": "base",
+      "name": "Armaldo",
+      "num": 348,
+      "speciesGeneration": 3,
+      "types": [
+        "Rock",
+        "Bug"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim"
+      ],
+      "baseSpeciesId": "feebas",
+      "baseStats": {
+        "atk": 15,
+        "def": 20,
+        "hp": 20,
+        "spa": 10,
+        "spd": 55,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "feebas",
+      "kind": "base",
+      "name": "Feebas",
+      "num": 349,
+      "speciesGeneration": 3,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Marvel Scale"
+      ],
+      "baseSpeciesId": "milotic",
+      "baseStats": {
+        "atk": 60,
+        "def": 79,
+        "hp": 95,
+        "spa": 100,
+        "spd": 125,
+        "spe": 81
+      },
+      "forme": "",
+      "id": "milotic",
+      "kind": "base",
+      "name": "Milotic",
+      "num": 350,
+      "speciesGeneration": 3,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Forecast"
+      ],
+      "baseSpeciesId": "castform",
+      "baseStats": {
+        "atk": 70,
+        "def": 70,
+        "hp": 70,
+        "spa": 70,
+        "spd": 70,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "castform",
+      "kind": "base",
+      "name": "Castform",
+      "num": 351,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Forecast"
+      ],
+      "baseSpeciesId": "castform",
+      "baseStats": {
+        "atk": 70,
+        "def": 70,
+        "hp": 70,
+        "spa": 70,
+        "spd": 70,
+        "spe": 70
+      },
+      "forme": "Rainy",
+      "id": "castformrainy",
+      "kind": "battle-only",
+      "name": "Castform-Rainy",
+      "num": 351,
+      "speciesGeneration": 3,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Forecast"
+      ],
+      "baseSpeciesId": "castform",
+      "baseStats": {
+        "atk": 70,
+        "def": 70,
+        "hp": 70,
+        "spa": 70,
+        "spd": 70,
+        "spe": 70
+      },
+      "forme": "Snowy",
+      "id": "castformsnowy",
+      "kind": "battle-only",
+      "name": "Castform-Snowy",
+      "num": 351,
+      "speciesGeneration": 3,
+      "types": [
+        "Ice"
+      ]
+    },
+    {
+      "abilities": [
+        "Forecast"
+      ],
+      "baseSpeciesId": "castform",
+      "baseStats": {
+        "atk": 70,
+        "def": 70,
+        "hp": 70,
+        "spa": 70,
+        "spd": 70,
+        "spe": 70
+      },
+      "forme": "Sunny",
+      "id": "castformsunny",
+      "kind": "battle-only",
+      "name": "Castform-Sunny",
+      "num": 351,
+      "speciesGeneration": 3,
+      "types": [
+        "Fire"
+      ]
+    },
+    {
+      "abilities": [
+        "Color Change"
+      ],
+      "baseSpeciesId": "kecleon",
+      "baseStats": {
+        "atk": 90,
+        "def": 70,
+        "hp": 60,
+        "spa": 60,
+        "spd": 120,
+        "spe": 40
+      },
+      "forme": "",
+      "id": "kecleon",
+      "kind": "base",
+      "name": "Kecleon",
+      "num": 352,
+      "speciesGeneration": 3,
+      "types": [
+        "Normal"
+      ]
+    },
+    {
+      "abilities": [
+        "Insomnia"
+      ],
+      "baseSpeciesId": "shuppet",
+      "baseStats": {
+        "atk": 75,
+        "def": 35,
+        "hp": 44,
+        "spa": 63,
+        "spd": 33,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "shuppet",
+      "kind": "base",
+      "name": "Shuppet",
+      "num": 353,
+      "speciesGeneration": 3,
+      "types": [
+        "Ghost"
+      ]
+    },
+    {
+      "abilities": [
+        "Insomnia"
+      ],
+      "baseSpeciesId": "banette",
+      "baseStats": {
+        "atk": 115,
+        "def": 65,
+        "hp": 64,
+        "spa": 83,
+        "spd": 63,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "banette",
+      "kind": "base",
+      "name": "Banette",
+      "num": 354,
+      "speciesGeneration": 3,
+      "types": [
+        "Ghost"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "duskull",
+      "baseStats": {
+        "atk": 40,
+        "def": 90,
+        "hp": 20,
+        "spa": 30,
+        "spd": 90,
+        "spe": 25
+      },
+      "forme": "",
+      "id": "duskull",
+      "kind": "base",
+      "name": "Duskull",
+      "num": 355,
+      "speciesGeneration": 3,
+      "types": [
+        "Ghost"
+      ]
+    },
+    {
+      "abilities": [
+        "Pressure"
+      ],
+      "baseSpeciesId": "dusclops",
+      "baseStats": {
+        "atk": 70,
+        "def": 130,
+        "hp": 40,
+        "spa": 60,
+        "spd": 130,
+        "spe": 25
+      },
+      "forme": "",
+      "id": "dusclops",
+      "kind": "base",
+      "name": "Dusclops",
+      "num": 356,
+      "speciesGeneration": 3,
+      "types": [
+        "Ghost"
+      ]
+    },
+    {
+      "abilities": [
+        "Chlorophyll"
+      ],
+      "baseSpeciesId": "tropius",
+      "baseStats": {
+        "atk": 68,
+        "def": 83,
+        "hp": 99,
+        "spa": 72,
+        "spd": 87,
+        "spe": 51
+      },
+      "forme": "",
+      "id": "tropius",
+      "kind": "base",
+      "name": "Tropius",
+      "num": 357,
+      "speciesGeneration": 3,
+      "types": [
+        "Grass",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "chimecho",
+      "baseStats": {
+        "atk": 50,
+        "def": 70,
+        "hp": 65,
+        "spa": 95,
+        "spd": 80,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "chimecho",
+      "kind": "base",
+      "name": "Chimecho",
+      "num": 358,
+      "speciesGeneration": 3,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Pressure"
+      ],
+      "baseSpeciesId": "absol",
+      "baseStats": {
+        "atk": 130,
+        "def": 60,
+        "hp": 65,
+        "spa": 75,
+        "spd": 60,
+        "spe": 75
+      },
+      "forme": "",
+      "id": "absol",
+      "kind": "base",
+      "name": "Absol",
+      "num": 359,
+      "speciesGeneration": 3,
+      "types": [
+        "Dark"
+      ]
+    },
+    {
+      "abilities": [
+        "Shadow Tag"
+      ],
+      "baseSpeciesId": "wynaut",
+      "baseStats": {
+        "atk": 23,
+        "def": 48,
+        "hp": 95,
+        "spa": 23,
+        "spd": 48,
+        "spe": 23
+      },
+      "forme": "",
+      "id": "wynaut",
+      "kind": "base",
+      "name": "Wynaut",
+      "num": 360,
+      "speciesGeneration": 3,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Inner Focus"
+      ],
+      "baseSpeciesId": "snorunt",
+      "baseStats": {
+        "atk": 50,
+        "def": 50,
+        "hp": 50,
+        "spa": 50,
+        "spd": 50,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "snorunt",
+      "kind": "base",
+      "name": "Snorunt",
+      "num": 361,
+      "speciesGeneration": 3,
+      "types": [
+        "Ice"
+      ]
+    },
+    {
+      "abilities": [
+        "Inner Focus"
+      ],
+      "baseSpeciesId": "glalie",
+      "baseStats": {
+        "atk": 80,
+        "def": 80,
+        "hp": 80,
+        "spa": 80,
+        "spd": 80,
+        "spe": 80
+      },
+      "forme": "",
+      "id": "glalie",
+      "kind": "base",
+      "name": "Glalie",
+      "num": 362,
+      "speciesGeneration": 3,
+      "types": [
+        "Ice"
+      ]
+    },
+    {
+      "abilities": [
+        "Thick Fat"
+      ],
+      "baseSpeciesId": "spheal",
+      "baseStats": {
+        "atk": 40,
+        "def": 50,
+        "hp": 70,
+        "spa": 55,
+        "spd": 50,
+        "spe": 25
+      },
+      "forme": "",
+      "id": "spheal",
+      "kind": "base",
+      "name": "Spheal",
+      "num": 363,
+      "speciesGeneration": 3,
+      "types": [
+        "Ice",
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Thick Fat"
+      ],
+      "baseSpeciesId": "sealeo",
+      "baseStats": {
+        "atk": 60,
+        "def": 70,
+        "hp": 90,
+        "spa": 75,
+        "spd": 70,
+        "spe": 45
+      },
+      "forme": "",
+      "id": "sealeo",
+      "kind": "base",
+      "name": "Sealeo",
+      "num": 364,
+      "speciesGeneration": 3,
+      "types": [
+        "Ice",
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Thick Fat"
+      ],
+      "baseSpeciesId": "walrein",
+      "baseStats": {
+        "atk": 80,
+        "def": 90,
+        "hp": 110,
+        "spa": 95,
+        "spd": 90,
+        "spe": 65
+      },
+      "forme": "",
+      "id": "walrein",
+      "kind": "base",
+      "name": "Walrein",
+      "num": 365,
+      "speciesGeneration": 3,
+      "types": [
+        "Ice",
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Shell Armor"
+      ],
+      "baseSpeciesId": "clamperl",
+      "baseStats": {
+        "atk": 64,
+        "def": 85,
+        "hp": 35,
+        "spa": 74,
+        "spd": 55,
+        "spe": 32
+      },
+      "forme": "",
+      "id": "clamperl",
+      "kind": "base",
+      "name": "Clamperl",
+      "num": 366,
+      "speciesGeneration": 3,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim"
+      ],
+      "baseSpeciesId": "huntail",
+      "baseStats": {
+        "atk": 104,
+        "def": 105,
+        "hp": 55,
+        "spa": 94,
+        "spd": 75,
+        "spe": 52
+      },
+      "forme": "",
+      "id": "huntail",
+      "kind": "base",
+      "name": "Huntail",
+      "num": 367,
+      "speciesGeneration": 3,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim"
+      ],
+      "baseSpeciesId": "gorebyss",
+      "baseStats": {
+        "atk": 84,
+        "def": 105,
+        "hp": 55,
+        "spa": 114,
+        "spd": 75,
+        "spe": 52
+      },
+      "forme": "",
+      "id": "gorebyss",
+      "kind": "base",
+      "name": "Gorebyss",
+      "num": 368,
+      "speciesGeneration": 3,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim",
+        "Rock Head"
+      ],
+      "baseSpeciesId": "relicanth",
+      "baseStats": {
+        "atk": 90,
+        "def": 130,
+        "hp": 100,
+        "spa": 45,
+        "spd": 65,
+        "spe": 55
+      },
+      "forme": "",
+      "id": "relicanth",
+      "kind": "base",
+      "name": "Relicanth",
+      "num": 369,
+      "speciesGeneration": 3,
+      "types": [
+        "Water",
+        "Rock"
+      ]
+    },
+    {
+      "abilities": [
+        "Swift Swim"
+      ],
+      "baseSpeciesId": "luvdisc",
+      "baseStats": {
+        "atk": 30,
+        "def": 55,
+        "hp": 43,
+        "spa": 40,
+        "spd": 65,
+        "spe": 97
+      },
+      "forme": "",
+      "id": "luvdisc",
+      "kind": "base",
+      "name": "Luvdisc",
+      "num": 370,
+      "speciesGeneration": 3,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Rock Head"
+      ],
+      "baseSpeciesId": "bagon",
+      "baseStats": {
+        "atk": 75,
+        "def": 60,
+        "hp": 45,
+        "spa": 40,
+        "spd": 30,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "bagon",
+      "kind": "base",
+      "name": "Bagon",
+      "num": 371,
+      "speciesGeneration": 3,
+      "types": [
+        "Dragon"
+      ]
+    },
+    {
+      "abilities": [
+        "Rock Head"
+      ],
+      "baseSpeciesId": "shelgon",
+      "baseStats": {
+        "atk": 95,
+        "def": 100,
+        "hp": 65,
+        "spa": 60,
+        "spd": 50,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "shelgon",
+      "kind": "base",
+      "name": "Shelgon",
+      "num": 372,
+      "speciesGeneration": 3,
+      "types": [
+        "Dragon"
+      ]
+    },
+    {
+      "abilities": [
+        "Intimidate"
+      ],
+      "baseSpeciesId": "salamence",
+      "baseStats": {
+        "atk": 135,
+        "def": 80,
+        "hp": 95,
+        "spa": 110,
+        "spd": 80,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "salamence",
+      "kind": "base",
+      "name": "Salamence",
+      "num": 373,
+      "speciesGeneration": 3,
+      "types": [
+        "Dragon",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Clear Body"
+      ],
+      "baseSpeciesId": "beldum",
+      "baseStats": {
+        "atk": 55,
+        "def": 80,
+        "hp": 40,
+        "spa": 35,
+        "spd": 60,
+        "spe": 30
+      },
+      "forme": "",
+      "id": "beldum",
+      "kind": "base",
+      "name": "Beldum",
+      "num": 374,
+      "speciesGeneration": 3,
+      "types": [
+        "Steel",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Clear Body"
+      ],
+      "baseSpeciesId": "metang",
+      "baseStats": {
+        "atk": 75,
+        "def": 100,
+        "hp": 60,
+        "spa": 55,
+        "spd": 80,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "metang",
+      "kind": "base",
+      "name": "Metang",
+      "num": 375,
+      "speciesGeneration": 3,
+      "types": [
+        "Steel",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Clear Body"
+      ],
+      "baseSpeciesId": "metagross",
+      "baseStats": {
+        "atk": 135,
+        "def": 130,
+        "hp": 80,
+        "spa": 95,
+        "spd": 90,
+        "spe": 70
+      },
+      "forme": "",
+      "id": "metagross",
+      "kind": "base",
+      "name": "Metagross",
+      "num": 376,
+      "speciesGeneration": 3,
+      "types": [
+        "Steel",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Clear Body"
+      ],
+      "baseSpeciesId": "regirock",
+      "baseStats": {
+        "atk": 100,
+        "def": 200,
+        "hp": 80,
+        "spa": 50,
+        "spd": 100,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "regirock",
+      "kind": "base",
+      "name": "Regirock",
+      "num": 377,
+      "speciesGeneration": 3,
+      "types": [
+        "Rock"
+      ]
+    },
+    {
+      "abilities": [
+        "Clear Body"
+      ],
+      "baseSpeciesId": "regice",
+      "baseStats": {
+        "atk": 50,
+        "def": 100,
+        "hp": 80,
+        "spa": 100,
+        "spd": 200,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "regice",
+      "kind": "base",
+      "name": "Regice",
+      "num": 378,
+      "speciesGeneration": 3,
+      "types": [
+        "Ice"
+      ]
+    },
+    {
+      "abilities": [
+        "Clear Body"
+      ],
+      "baseSpeciesId": "registeel",
+      "baseStats": {
+        "atk": 75,
+        "def": 150,
+        "hp": 80,
+        "spa": 75,
+        "spd": 150,
+        "spe": 50
+      },
+      "forme": "",
+      "id": "registeel",
+      "kind": "base",
+      "name": "Registeel",
+      "num": 379,
+      "speciesGeneration": 3,
+      "types": [
+        "Steel"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "latias",
+      "baseStats": {
+        "atk": 80,
+        "def": 90,
+        "hp": 80,
+        "spa": 110,
+        "spd": 130,
+        "spe": 110
+      },
+      "forme": "",
+      "id": "latias",
+      "kind": "base",
+      "name": "Latias",
+      "num": 380,
+      "speciesGeneration": 3,
+      "types": [
+        "Dragon",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Levitate"
+      ],
+      "baseSpeciesId": "latios",
+      "baseStats": {
+        "atk": 90,
+        "def": 80,
+        "hp": 80,
+        "spa": 130,
+        "spd": 110,
+        "spe": 110
+      },
+      "forme": "",
+      "id": "latios",
+      "kind": "base",
+      "name": "Latios",
+      "num": 381,
+      "speciesGeneration": 3,
+      "types": [
+        "Dragon",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Drizzle"
+      ],
+      "baseSpeciesId": "kyogre",
+      "baseStats": {
+        "atk": 100,
+        "def": 90,
+        "hp": 100,
+        "spa": 150,
+        "spd": 140,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "kyogre",
+      "kind": "base",
+      "name": "Kyogre",
+      "num": 382,
+      "speciesGeneration": 3,
+      "types": [
+        "Water"
+      ]
+    },
+    {
+      "abilities": [
+        "Drought"
+      ],
+      "baseSpeciesId": "groudon",
+      "baseStats": {
+        "atk": 150,
+        "def": 140,
+        "hp": 100,
+        "spa": 100,
+        "spd": 90,
+        "spe": 90
+      },
+      "forme": "",
+      "id": "groudon",
+      "kind": "base",
+      "name": "Groudon",
+      "num": 383,
+      "speciesGeneration": 3,
+      "types": [
+        "Ground"
+      ]
+    },
+    {
+      "abilities": [
+        "Air Lock"
+      ],
+      "baseSpeciesId": "rayquaza",
+      "baseStats": {
+        "atk": 150,
+        "def": 90,
+        "hp": 105,
+        "spa": 150,
+        "spd": 90,
+        "spe": 95
+      },
+      "forme": "",
+      "id": "rayquaza",
+      "kind": "base",
+      "name": "Rayquaza",
+      "num": 384,
+      "speciesGeneration": 3,
+      "types": [
+        "Dragon",
+        "Flying"
+      ]
+    },
+    {
+      "abilities": [
+        "Serene Grace"
+      ],
+      "baseSpeciesId": "jirachi",
+      "baseStats": {
+        "atk": 100,
+        "def": 100,
+        "hp": 100,
+        "spa": 100,
+        "spd": 100,
+        "spe": 100
+      },
+      "forme": "",
+      "id": "jirachi",
+      "kind": "base",
+      "name": "Jirachi",
+      "num": 385,
+      "speciesGeneration": 3,
+      "types": [
+        "Steel",
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Pressure"
+      ],
+      "baseSpeciesId": "deoxys",
+      "baseStats": {
+        "atk": 150,
+        "def": 50,
+        "hp": 50,
+        "spa": 150,
+        "spd": 50,
+        "spe": 150
+      },
+      "forme": "",
+      "id": "deoxys",
+      "kind": "base",
+      "name": "Deoxys",
+      "num": 386,
+      "speciesGeneration": 3,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Pressure"
+      ],
+      "baseSpeciesId": "deoxys",
+      "baseStats": {
+        "atk": 180,
+        "def": 20,
+        "hp": 50,
+        "spa": 180,
+        "spd": 20,
+        "spe": 150
+      },
+      "forme": "Attack",
+      "id": "deoxysattack",
+      "kind": "alternate",
+      "name": "Deoxys-Attack",
+      "num": 386,
+      "speciesGeneration": 3,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Pressure"
+      ],
+      "baseSpeciesId": "deoxys",
+      "baseStats": {
+        "atk": 70,
+        "def": 160,
+        "hp": 50,
+        "spa": 70,
+        "spd": 160,
+        "spe": 90
+      },
+      "forme": "Defense",
+      "id": "deoxysdefense",
+      "kind": "alternate",
+      "name": "Deoxys-Defense",
+      "num": 386,
+      "speciesGeneration": 3,
+      "types": [
+        "Psychic"
+      ]
+    },
+    {
+      "abilities": [
+        "Pressure"
+      ],
+      "baseSpeciesId": "deoxys",
+      "baseStats": {
+        "atk": 95,
+        "def": 90,
+        "hp": 50,
+        "spa": 95,
+        "spd": 90,
+        "spe": 180
+      },
+      "forme": "Speed",
+      "id": "deoxysspeed",
+      "kind": "alternate",
+      "name": "Deoxys-Speed",
+      "num": 386,
+      "speciesGeneration": 3,
+      "types": [
+        "Psychic"
+      ]
+    }
+  ]
+}

@@ -2,11 +2,12 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { Texture, TextureSource, Sprite } from 'pixi.js'
-import { PREVIEW_POKEMON, MIN_SPRITE_HEIGHT, previewSceneActors, previewSpriteHeight } from '../apps/game/src/scene/previewActors.js'
+import { MIN_SPRITE_HEIGHT, previewSceneActors, previewSpriteHeight } from '../apps/game/src/scene/previewActors.js'
+import { STARTER_SPRITES } from '../apps/game/src/scene/spriteViews.js'
 import { resolveSpriteProfile } from '../apps/game/src/scene/profiles.js'
 import { createSceneGraph } from '../apps/game/src/scene/index.js'
 
-const ids = Object.keys(PREVIEW_POKEMON)
+const ids = Object.keys(STARTER_SPRITES)
 const close = (a, b) => assert.ok(Math.abs(a - b) < .001, `${a} vs ${b}`)
 const texture = () => new Texture({ source: new TextureSource({ width: 96, height: 96 }) })
 const findSprite = node => node instanceof Sprite ? node : node.children?.map(findSprite).find(Boolean)

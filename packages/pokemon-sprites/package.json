@@ -1,0 +1,8 @@
+{
+  "name": "@battle/pokemon-sprites",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": { ".": "./src/index.js", "./manifest.json": "./data/manifest.json" },
+  "files": ["src", "data", "assets", "README.md", "NOTICE", "UPSTREAM-LICENCE.txt"],
+  "sideEffects": false
+}

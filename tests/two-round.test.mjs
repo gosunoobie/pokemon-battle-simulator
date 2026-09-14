@@ -8,7 +8,8 @@ import { MOVES } from '../apps/game/src/moveCatalog.js'
 import { createPreviewTransaction } from '../apps/game/src/previewState.js'
 import { createPresenter } from '../apps/game/src/presentation/presenter.js'
 import { createSceneGraph } from '../apps/game/src/scene/index.js'
-import { PREVIEW_POKEMON, previewSceneActors } from '../apps/game/src/scene/previewActors.js'
+import { previewSceneActors } from '../apps/game/src/scene/previewActors.js'
+import { STARTER_SPRITES } from '../apps/game/src/scene/spriteViews.js'
 
 const ids=['fly','bounce','dig','dive'],damages=[64,58,56,56]
 const tick=()=>new Promise(resolve=>setImmediate(resolve))
@@ -67,7 +68,7 @@ test('preparation routing survives FX off, skip, failure and stale cues without 
 })
 
 test('source-only preparation conceals then cleans up for either side, nine starters, reduced motion and cancellation',async()=>{
-  const roster=Object.keys(PREVIEW_POKEMON)
+  const roster=Object.keys(STARTER_SPRITES)
   for(const [i,near]of roster.entries())for(const sourceId of ['source','target']){
     const h=harness({actors:previewSceneActors(near,roster[(i+1)%roster.length])}),source=h.scene.actor(sourceId),other=h.scene.actor(sourceId==='source'?'target':'source')
     try{for(const id of ids)for(const reducedMotion of [false,true]){

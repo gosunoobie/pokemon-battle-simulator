@@ -1,3 +1,4 @@
+import './helpers/headless-pixi.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { Container, Texture, TextureSource } from 'pixi.js'
@@ -8,7 +9,8 @@ import { MOVE_EFFECTS } from '../packages/battle-fx/src/registry.js'
 import { createSceneGraph } from '../apps/game/src/scene/index.js'
 import { createActor } from '../apps/game/src/scene/actor.js'
 import { SPRITE_PROFILES } from '../apps/game/src/scene/profiles.js'
-import { PREVIEW_POKEMON, previewSceneActors, previewBattleActors } from '../apps/game/src/scene/previewActors.js'
+import { previewSceneActors, previewBattleActors } from '../apps/game/src/scene/previewActors.js'
+import { STARTER_SPRITES } from '../apps/game/src/scene/spriteViews.js'
 import { createPreviewTransaction, createPreviewState } from '../apps/game/src/previewState.js'
 import { createPresenter } from '../apps/game/src/presentation/presenter.js'
 const tick=()=>new Promise(r=>setImmediate(r))
@@ -30,7 +32,7 @@ function clean(h){
   }
 }
 
-test('all 309 previews route results, self effects, healing and recoil to either actor even with effects off',async()=>{
+test('all 335 previews route results, self effects, healing and recoil to either actor even with effects off',async()=>{
   for(const sourceId of ['source','target'])for(const move of MOVE_RULES){
     const targetId=sourceId==='source'?'target':'source',actors=previewBattleActors('bulbasaur','blastoise')
     const tx=createPreviewTransaction(move,{sourceId,targetId,actors}),affected=move.target==='self'?sourceId:targetId
@@ -50,8 +52,8 @@ test('all 309 previews route results, self effects, healing and recoil to either
   assert.throws(()=>createPreviewState(MOVE_RULES[0],{sourceId:'missing'}),/Unknown preview attacker/)
 })
 
-test('all 309 effects play from both field positions for all nine starters and their front/back artwork',async()=>{
-  const ids=Object.keys(PREVIEW_POKEMON),pairs=ids.map((id,i)=>[id,ids[(i+1)%ids.length]])
+test('all 335 effects play from both field positions for all nine starters and their front/back artwork',async()=>{
+  const ids=Object.keys(STARTER_SPRITES),pairs=ids.map((id,i)=>[id,ids[(i+1)%ids.length]])
   for(const [near,far] of pairs){
     const h=harness(near,far)
     try{for(const sourceId of ['source','target'])for(const [moveId,timing] of Object.entries(EFFECT_TIMINGS)){
@@ -116,7 +118,7 @@ test('opponent ground travel, spin centering, compact hops and contact depth ada
       close((source.anchor(socket).y-target.base('center').y)/unit,expected,moveId+' raised contact socket');run.cancel();await run.finished;clean(h)
     }
     const surf=h.fx.play({moveId:'surf',sourceId:'target',targetIds:['source']},{scene:h.scene});await tick();h.tl.time(.4,false)
-    const wave=h.scene.effects.getChildByLabel('surf-leading',true),y=wave.y;h.tl.time(1.12,false)
+    const wave=h.scene.effects.getChildByLabel('surf-leading',true),y=wave.y;h.tl.time(EFFECT_TIMINGS.surf.contact,false)
     assert.ok(wave.y>y,'opponent tide descends toward foreground');surf.cancel();await surf.finished;clean(h)
     for(const [moveId,label] of [['rapid-spin','rapid-spin-wind'],['rollout','rollout-shell'],['ice-ball','ice-ball-shell'],['flame-wheel','flame-wheel-ring']]){
       const run=h.fx.play({moveId,sourceId:'target',targetIds:['source']},{scene:h.scene});await tick();h.tl.time(EFFECT_TIMINGS[moveId].contact*.7,false)

@@ -1,0 +1,26 @@
+Generation 3 data provenance
+============================
+
+The generated reference-data snapshot is derived from the resolved Generation 3
+Dex of Pokémon Showdown, distributed as the npm package pokemon-showdown.
+
+Upstream project: https://github.com/smogon/pokemon-showdown
+Package version: 0.11.11
+Source git commit: 739a5e1fee432ad80ff7136d70cca993be358b59
+Dex mod: gen3
+
+The repository's tools/data-import/source-lock.json records the source tarball
+and integrity pin. The generated data/manifest.json accompanies the snapshot.
+The import process projects selected JSON metadata and preserves relevant
+Generation 3 learnset provenance. It does not ship the upstream battle simulator
+or its executable behavior callbacks in this package.
+
+LICENSE reproduces the upstream Pokémon Showdown software license and its
+copyright notice. Upstream source-code licensing and Pokémon franchise rights
+are separate matters; this notice does not represent a grant from the Pokémon
+rights holders for Pokémon names, underlying game content or other assets.
+
+This package includes no Pokémon sprites, illustrations, music or sound assets.
+No claim that such assets are licensed under Pokémon Showdown's software license
+is made here. Existing host-app sprite credits remain separate from this data
+package.

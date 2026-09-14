@@ -1,3 +1,4 @@
+import './helpers/headless-pixi.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { Container, Graphics, Texture, TextureSource } from 'pixi.js'
@@ -20,7 +21,7 @@ function harness(options={}) {
   }
   return{scene,fx,clean,get timeline(){return timeline},dispose(){fx.dispose();scene.dispose()}}
 }
-test('309 recipes complete in normal/reduced modes with ordered cosmetic cues and clean up all temporary state',async()=>{
+test('335 recipes complete in normal/reduced modes with ordered cosmetic cues and clean up all temporary state',async()=>{
   const h=harness()
   for(const reducedMotion of [false,true])for(const [moveId,timing]of Object.entries(EFFECT_TIMINGS)){
     const cues=[];const run=h.fx.play({moveId,sourceId:'source',targetIds:['target'],visualSeed:42},{scene:h.scene,reducedMotion,onCue:e=>cues.push(e)})

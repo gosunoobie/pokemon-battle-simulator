@@ -1,20 +1,11 @@
 import { resolveSpriteProfile } from './profiles.js'
+import { ROSTER } from '../roster/index.js'
 
 // Original 96px artwork was drawn at 265px near / 235px far on a 1000×450 field.
 // Preserve that pixel-art scale, raising only sprites below a readable visible height.
 export const ORIGINAL_SPRITE_SCALE = Object.freeze({ near: 265 / 96, far: 235 / 96 })
 export const MIN_SPRITE_HEIGHT = Object.freeze({ near: 150, far: 125 })
-export const PREVIEW_POKEMON = Object.freeze({
-  bulbasaur: { name: 'Bulbasaur', type: 'Grass' },
-  ivysaur: { name: 'Ivysaur', type: 'Grass' },
-  venusaur: { name: 'Venusaur', type: 'Grass' },
-  charmander: { name: 'Charmander', type: 'Fire' },
-  charmeleon: { name: 'Charmeleon', type: 'Fire' },
-  charizard: { name: 'Charizard', type: 'Fire' },
-  squirtle: { name: 'Squirtle', type: 'Water' },
-  wartortle: { name: 'Wartortle', type: 'Water' },
-  blastoise: { name: 'Blastoise', type: 'Water' },
-})
+export const PREVIEW_POKEMON = ROSTER
 
 // Native artwork proportions, transparent padding excluded, and no species multipliers.
 // Optional scale is a playground control; the minimum still keeps small actors readable.

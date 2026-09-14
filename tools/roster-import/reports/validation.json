@@ -1,0 +1,38 @@
+{
+  "checks": {
+    "completeFrontBackCoverage": true,
+    "gitBlobChecksums": 838,
+    "measuredAlphaBounds": 838,
+    "pngCrcAndDecode": 838,
+    "preservedStarterFiles": 18
+  },
+  "counts": {
+    "baseSpecies": 386,
+    "bytes": 600849,
+    "forms": 33,
+    "views": 838
+  },
+  "dataSource": {
+    "dataSha256": "1997623fda7c898ff8a4bdc5a5a158cadfdcf2d054a007c40d3c79180a9046fd",
+    "dexMod": "gen3",
+    "gitCommit": "739a5e1fee432ad80ff7136d70cca993be358b59",
+    "provider": "pokemon-showdown",
+    "version": "0.11.11"
+  },
+  "identicalFrontBackBytes": [],
+  "limitations": [
+    "Artwork uses the existing default PokeAPI static Gen 5 style collection. Battle reference data remains the resolved Gen 3 snapshot.",
+    "Alpha bounds are measured from actual PNG bytes. New species use generic host attachment sockets; species-specific mouths, hands, eyes and feet have not been manually calibrated.",
+    "The existing 18 starter images and their host-calibrated sockets are preserved. Every other identity has explicit front/back mappings; no base-form substitution is invented.",
+    "All forms are selectable for visual preview, including Castform battle-only forms. Selection does not establish competitive team legality or implement form-change mechanics.",
+    "Stats, types and ability names are display/reference data. Fixed preview HP and outcomes, the unfiltered move showcase, battle-core and FX recipes are not changed by this import."
+  ],
+  "source": {
+    "gitCommit": "2ecb4eeacd5a1718621fc30f12772e3f60d830b9",
+    "provider": "PokeAPI/sprites",
+    "rawBaseUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/2ecb4eeacd5a1718621fc30f12772e3f60d830b9/",
+    "repository": "https://github.com/PokeAPI/sprites",
+    "spriteCollection": "Default PokeAPI Gen 5 style PNG collection; artwork generation is independent of the Gen 3 battle-data ruleset."
+  },
+  "valid": true
+}
