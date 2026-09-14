@@ -26,18 +26,30 @@ const statPreview = computed(() => [
   ['specialDefenseChange', 'Special Defense'], ['speedChange', 'Speed'], ['evasionChange', 'Evasion'],
 ].filter(([key]) => selectedMove.value[key]).map(([key, label]) => `${label} ${selectedMove.value[key] > 0 ? '+' : '−'}${Math.abs(selectedMove.value[key])}`).join(' and '))
 const previewResult = computed(() => preparing.value ? 'preparation only, no HP damage'
+  : selectedMove.value.previewCaption ? selectedMove.value.previewCaption
+  : selectedMove.value.ghostCurse ? 'Ghost-style Curse · spends half maximum HP; no immediate target damage'
+  : selectedMove.value.requiresTargetSleep && selectedMove.value.drain ? `${selectedMove.value.damage} demo damage to the sleeping sample target · restores half the damage dealt`
+  : selectedMove.value.ohko ? 'successful one-hit knockout · removes all remaining target HP'
   : selectedMove.value.substitute ? 'spends ¼ of maximum HP to create a substitute'
   : selectedMove.value.recycle ? 'recovers the sample consumed Oran Berry'
   : selectedMove.value.copyStages ? 'copies the sample target’s stat stages and focus'
   : selectedMove.value.spikes ? 'adds one layer of Spikes; no immediate HP damage'
   : selectedMove.value.sportPreview ? `${selectedMove.value.name} field preview, no HP damage`
   : selectedMove.value.previewOnly ? 'casting preview, no HP damage'
+  : selectedMove.value.selfDestruct && statPreview.value ? `${statPreview.value} · user faints; target HP unchanged`
+  : selectedMove.value.sourceDefenseChange ? `${selectedMove.value.damage} demo damage · user Defense ${selectedMove.value.sourceDefenseChange > 0 ? '+' : '−'}${Math.abs(selectedMove.value.sourceDefenseChange)}`
+  : selectedMove.value.knockOff ? '69 demo damage · removes the sample target’s held item'
   : selectedMove.value.statusDamageBoost ? `${selectedMove.value.damage * 2} demo damage · sample user is burned`
   : selectedMove.value.paralysisDamageBoost ? `${selectedMove.value.damage * 2} demo damage · cures the sample target’s paralysis`
   : selectedMove.value.healFraction ? 'restores half the user’s maximum HP'
   : selectedMove.value.weatherHeal ? 'restores HP; the amount depends on weather'
   : selectedMove.value.bellyDrum ? 'spends half maximum HP to maximize Attack'
   : selectedMove.value.swapItems ? 'exchanges the sample held items'
+  : selectedMove.value.supportPreview === 'destinyBond' ? 'Destiny Bond badge on the user; no immediate damage'
+  : selectedMove.value.supportPreview === 'nightmare' ? 'Nightmare badge on the sleeping sample target; no immediate damage'
+  : selectedMove.value.supportPreview === 'grudge' ? 'Grudge badge on the user; no immediate damage'
+  : selectedMove.value.supportPreview === 'seeded' ? 'seeds the target; no immediate damage or healing'
+  : selectedMove.value.supportPreview === 'ingrained' ? 'roots the user; no immediate healing'
   : selectedMove.value.supportPreview ? selectedMove.value.id === 'wish' ? 'wish cast; later healing is not simulated' : `${selectedMove.value.name} preview, no HP damage`
   : selectedMove.value.perishSong ? 'marks all active Pokémon; no countdown or HP damage'
   : selectedMove.value.weather ? `${weatherLabels[selectedMove.value.weather].toLowerCase()}, no immediate HP damage`

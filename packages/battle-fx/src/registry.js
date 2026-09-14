@@ -1,3 +1,55 @@
+import followMe from './moves/restored/follow-me.js'
+import helpingHand from './moves/restored/helping-hand.js'
+import teeterDance from './moves/restored/teeter-dance.js'
+import splash from './moves/restored/splash.js'
+import falseSwipe from './moves/restored/false-swipe.js'
+import dizzyPunch from './moves/restored/dizzy-punch.js'
+import beatUp from './moves/restored/beat-up.js'
+import secretPower from './moves/restored/secret-power.js'
+import psywave from './moves/restored/psywave.js'
+import extrasensory from './moves/restored/extrasensory.js'
+import psychoBoost from './moves/restored/psycho-boost.js'
+import flail from './moves/restored/flail.js'
+import reversal from './moves/restored/reversal.js'
+import revenge from './moves/restored/revenge.js'
+import superpower from './moves/restored/superpower.js'
+import futureSight from './moves/restored/future-sight.js'
+import doomDesire from './moves/restored/doom-desire.js'
+import yawn from './moves/restored/yawn.js'
+import bide from './moves/restored/bide.js'
+import waterPulse from './moves/restored/water-pulse.js'
+import octazooka from './moves/restored/octazooka.js'
+import nightShade from './moves/restored/night-shade.js'
+import dreamEater from './moves/restored/dream-eater.js'
+import curse from './moves/restored/curse.js'
+import destinyBond from './moves/restored/destiny-bond.js'
+import nightmare from './moves/restored/nightmare.js'
+import spite from './moves/restored/spite.js'
+import grudge from './moves/restored/grudge.js'
+import memento from './moves/restored/memento.js'
+import sharpen from './moves/restored/sharpen.js'
+import tailGlow from './moves/restored/tail-glow.js'
+import flash from './moves/restored/flash.js'
+import detect from './moves/restored/detect.js'
+import feintAttack from './moves/restored/feint-attack.js'
+import aerialAce from './moves/restored/aerial-ace.js'
+import skullBash from './moves/restored/skull-bash.js'
+import skyAttack from './moves/restored/sky-attack.js'
+import leechSeed from './moves/restored/leech-seed.js'
+import ingrain from './moves/restored/ingrain.js'
+import frenzyPlant from './moves/restored/frenzy-plant.js'
+import crushClaw from './moves/restored/crush-claw.js'
+import knockOff from './moves/restored/knock-off.js'
+import needleArm from './moves/restored/needle-arm.js'
+import pound from './moves/restored/pound.js'
+import hornDrill from './moves/restored/horn-drill.js'
+import guillotine from './moves/restored/guillotine.js'
+import fissure from './moves/restored/fissure.js'
+import sheerCold from './moves/restored/sheer-cold.js'
+import gust from './moves/restored/gust.js'
+import icyWind from './moves/restored/icy-wind.js'
+import silverWind from './moves/restored/silver-wind.js'
+import twister from './moves/restored/twister.js'
 import magicalLeaf from './moves/restored/magical-leaf.js'
 import petalDance from './moves/restored/petal-dance.js'
 import razorWind from './moves/restored/razor-wind.js'
@@ -464,6 +516,58 @@ const entries = [
   ['charge', charge, 0.95, 2.1, 'source'],
   ['spark', spark, 0.64, 1.7],
   ['volt-tackle', voltTackle, 0.98, 2.45],
+  ['gust', gust, 0.62, 1.7],
+  ['icy-wind', icyWind, 0.88, 2.25],
+  ['silver-wind', silverWind, 0.9, 2.3],
+  ['twister', twister, 0.92, 2.5],
+  ['horn-drill', hornDrill, 1.04, 2.3],
+  ['guillotine', guillotine, 0.94, 2.15],
+  ['fissure', fissure, 1.04, 2.65],
+  ['sheer-cold', sheerCold, 1.16, 2.7],
+  ['feint-attack', feintAttack, 0.66, 1.85],
+  ['aerial-ace', aerialAce, 0.62, 1.8],
+  ['skull-bash', skullBash, 1.16, 2.55],
+  ['sky-attack', skyAttack, 1.28, 2.75],
+  ['leech-seed', leechSeed, 0.94, 2.3],
+  ['ingrain', ingrain, 1.04, 2.35, 'source'],
+  ['frenzy-plant', frenzyPlant, 1.2, 2.8],
+  ['crush-claw', crushClaw, 0.86, 2.1],
+  ['knock-off', knockOff, 0.72, 1.95],
+  ['needle-arm', needleArm, 0.82, 2.05],
+  ['pound', pound, 0.5, 1.45],
+  ['nightmare', nightmare, 1.02, 2.5],
+  ['spite', spite, 0.86, 2.15],
+  ['grudge', grudge, 0.9, 2.35, 'source'],
+  ['memento', memento, 1.12, 2.55],
+  ['sharpen', sharpen, 0.7, 1.8, 'source'],
+  ['tail-glow', tailGlow, 0.92, 2.3, 'source'],
+  ['flash', flash, 0.62, 1.8],
+  ['detect', detect, 0.54, 1.65, 'source'],
+  ['night-shade', nightShade, 0.82, 2.1],
+  ['dream-eater', dreamEater, 0.66, 2.65, undefined, 1.38],
+  ['curse', curse, 1.04, 2.45],
+  ['destiny-bond', destinyBond, 0.88, 2.25, 'source'],
+  ['water-pulse', waterPulse, 0.76, 2.15],
+  ['octazooka', octazooka, 0.72, 2.05],
+  ['future-sight', futureSight, 1.42, 2.85],
+  ['doom-desire', doomDesire, 1.54, 2.9],
+  ['yawn', yawn, 0.94, 2.3],
+  ['bide', bide, 1.58, 2.75],
+  ['follow-me', followMe, 0.72, 1.95, 'source'],
+  ['helping-hand', helpingHand, 0.66, 1.9, 'source'],
+  ['teeter-dance', teeterDance, 1.02, 2.4],
+  ['splash', splash, 0.76, 1.85, 'source'],
+  ['false-swipe', falseSwipe, 0.64, 1.75],
+  ['dizzy-punch', dizzyPunch, 0.7, 1.95],
+  ['beat-up', beatUp, 1.26, 2.35],
+  ['secret-power', secretPower, 0.84, 2.1],
+  ['psywave', psywave, 0.9, 2.15],
+  ['extrasensory', extrasensory, 1.04, 2.35],
+  ['psycho-boost', psychoBoost, 1.3, 2.65],
+  ['flail', flail, 0.82, 2.15],
+  ['reversal', reversal, 0.92, 2.2],
+  ['revenge', revenge, 1.04, 2.4],
+  ['superpower', superpower, 1.1, 2.65],
 ]
 const preparations = Object.freeze({
   'fly': Object.freeze({ build: flyPrepare, contact: 0.94, duration: 1.4, subject: 'source' }),

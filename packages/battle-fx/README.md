@@ -1,6 +1,6 @@
 # @battle/battle-fx
 
-Optional Vue-free battle effects for PixiJS 8 and GSAP 3. Contains 257 moves with independent recipes and package-relative effect assets. It imports neither battle-core nor host Pokémon artwork.
+Optional Vue-free battle effects for PixiJS 8 and GSAP 3. Contains 309 moves with independent recipes and package-relative effect assets. It imports neither battle-core nor host Pokémon artwork.
 
 ```js
 import { createBattleFx } from '@battle/battle-fx'

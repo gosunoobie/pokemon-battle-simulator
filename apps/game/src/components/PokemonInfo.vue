@@ -6,7 +6,7 @@ const badges = computed(() => {
   const a = props.actor
   const stages = [['attackStage', 'ATTACK'], ['defenseStage', 'DEFENSE'], ['specialAttackStage', 'SP. ATK'], ['specialDefenseStage', 'SP. DEF'], ['speedStage', 'SPEED'], ['evasionStage', 'EVASION'], ['accuracyStage', 'ACCURACY']]
   return [...stages.filter(([key]) => a[key]).map(([key, label]) => `${label} ${a[key] > 0 ? '+' : '−'}${Math.abs(a[key])}`),
-    a.focusEnergy && 'FOCUSED', a.trapped && 'TRAPPED · PREVIEW', a.confused && 'CONFUSED · PREVIEW',
+    a.attention && 'FOLLOW ME · PREVIEW', a.drowsy && 'DROWSY · PREVIEW', a.cursed && 'CURSED · PREVIEW', a.destinyBond && 'DESTINY BOND · PREVIEW', a.nightmare && 'NIGHTMARE · PREVIEW', a.grudge && 'GRUDGE · PREVIEW', a.seeded && 'SEEDED · PREVIEW', a.ingrained && 'ROOTED · PREVIEW', a.focusEnergy && 'FOCUSED', a.trapped && 'TRAPPED · PREVIEW', a.confused && 'CONFUSED · PREVIEW',
     a.disabled && 'DISABLE · PREVIEW', a.encored && 'ENCORE · PREVIEW', a.tormented && 'TORMENT · PREVIEW', a.imprisoning && 'IMPRISON · PREVIEW', a.taunted && 'TAUNT · PREVIEW',
     a.infatuated && 'ATTRACT · PREVIEW', a.wishPending && 'WISH PENDING', a.perishSong && 'PERISH SONG · PREVIEW',
     a.safeguard && 'SAFEGUARD', a.magicCoat && 'MAGIC COAT', a.enduring && 'ENDURE', a.heldItem && `ITEM: ${a.heldItem}`,

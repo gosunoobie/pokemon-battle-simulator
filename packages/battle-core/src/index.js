@@ -4,7 +4,7 @@ const CONDITION_TEXT = Object.freeze({ paralysis: 'paralyzed', poison: 'poisoned
 const GUARD_TEXT = Object.freeze({ protected: 'is protected! Guard preview only.', lightScreen: 'put up Light Screen! Own-side protection preview only.', reflect: 'put up Reflect! Own-side protection preview only.' })
 const WEATHER_TEXT = Object.freeze({ rain: 'Rain began to fall!', sun: 'The sunlight turned harsh!', sandstorm: 'A sandstorm kicked up!', hail: 'Hail began to fall!' })
 const RESTRICTION_TEXT = Object.freeze({ disabled: 'has a move disabled', encored: 'received an encore', tormented: 'is tormented', imprisoning: 'sealed shared moves with Imprison', taunted: 'was taunted' })
-const SUPPORT_TEXT = Object.freeze({ infatuated: 'became infatuated', wishPending: 'made a wish for later healing', safeguard: 'raised a Safeguard', magicCoat: 'put up a reflective Magic Coat', enduring: 'braced to endure', perishSong: 'heard the Perish Song', aimed: 'was marked for accurate aim', identified: 'was identified' })
+const SUPPORT_TEXT = Object.freeze({ infatuated: 'became infatuated', wishPending: 'made a wish for later healing', safeguard: 'raised a Safeguard', magicCoat: 'put up a reflective Magic Coat', enduring: 'braced to endure', perishSong: 'heard the Perish Song', aimed: 'was marked for accurate aim', identified: 'was identified', seeded: 'was seeded', ingrained: 'put down roots', nightmare: 'was caught in a nightmare', grudge: 'bore a grudge', cursed: 'was cursed', destinyBond: 'prepared a Destiny Bond', drowsy: 'became drowsy', attention: 'became the center of attention' })
 const SPORT_TEXT = Object.freeze({ mudSport: 'Mud Sport was scattered over the field', waterSport: 'Water Sport soaked the field' })
 const BOOST_FIELDS = Object.freeze([
   ['attackStage', 'attackChange', 'Attack'],
@@ -77,6 +77,31 @@ export function resolveMove(before, { moveId, sourceId, targetId, previousHit })
   const target = Object.hasOwn(before.actors, affectedId) ? before.actors[affectedId] : null
   if (!source || !target || (sourceId === affectedId && move.target !== 'self')) throw new Error('Invalid move participants.')
   if (source.hp <= 0 || target.hp <= 0) throw new Error('A fainted actor cannot participate.')
+  if (move.requiresTargetSleep && target.condition !== 'sleep') {
+    const after = freezeState({ ...before, revision: before.revision + 1 })
+    const id = `move-${after.revision}-${sourceId}-${moveId}`
+    const event = Object.freeze({ id, moveId, sourceId, targetIds: Object.freeze([affectedId]), outcome: 'failed',
+      beforeHp: target.hp, afterHp: target.hp, usedMessage: `${source.name} used ${move.name}!`,
+      resultMessage: `${target.name} must be asleep for ${move.name}.`,
+    })
+    return Object.freeze({ id, before, after, event })
+  }
+  // Explicit Ghost-style Curse sample; no type-dependent variant or residual-turn engine.
+  if (move.ghostCurse) {
+    const failed = target.cursed, cost = Math.min(source.hp, Math.max(1, Math.floor(source.maxHp / 2)))
+    const sourceHp = failed ? source.hp : source.hp - cost
+    const after = freezeState({ ...before, revision: before.revision + 1, actors: failed ? before.actors : {
+      ...before.actors, [sourceId]: { ...source, hp: sourceHp }, [affectedId]: { ...target, cursed: true },
+    } })
+    const id = `move-${after.revision}-${sourceId}-${moveId}`
+    const event = Object.freeze({ id, moveId, sourceId, targetIds: Object.freeze([affectedId]), outcome: failed ? 'failed' : 'hit',
+      beforeHp: target.hp, afterHp: target.hp, sourceBeforeHp: source.hp, sourceAfterHp: sourceHp,
+      usedMessage: `${source.name} used ${move.name}!`,
+      resultMessage: failed ? `${target.name} already has the Curse preview badge.`
+        : `${source.name} spent ${cost} HP and cursed ${target.name}!${sourceHp === 0 ? ` ${source.name} fainted!` : ''} Recurring damage is not simulated.`,
+    })
+    return Object.freeze({ id, before, after, event })
+  }
   // Bounded utility previews; no party, turn history, called moves or ability engine.
   if (move.previewOnly || move.substitute || move.recycle || move.spikes || move.copyStages) {
     let failed = false, resultMessage, changes = {}
@@ -126,9 +151,11 @@ export function resolveMove(before, { moveId, sourceId, targetId, previousHit })
       if (!failed) changes = { [sourceId]: { ...source, heldItem: target.heldItem }, [affectedId]: { ...target, heldItem: source.heldItem } }
       resultMessage = failed ? 'Trick failed: neither Pokémon holds an item.' : `${source.name} and ${target.name} exchanged held items! Item effects are not simulated.`
     } else if (move.supportPreview) {
-      const key = move.supportPreview; failed = target[key]
-      changes[affectedId] = { ...target, [key]: true }
-      resultMessage = failed ? `${target.name} already has the ${move.name} preview badge.` : `${target.name} ${SUPPORT_TEXT[key]}! Preview only.`
+      const key = move.supportPreview, hasCondition = move.requiresClearTargetCondition && target.condition !== null
+      failed = Boolean(hasCondition || target[key])
+      if (!failed) changes[affectedId] = { ...target, [key]: true }
+      resultMessage = hasCondition ? `${target.name} already has a major condition; ${move.name} failed.`
+        : failed ? `${target.name} already has the ${move.name} preview badge.` : `${target.name} ${SUPPORT_TEXT[key]}! Preview only.`
     } else {
       failed = true; resultMessage = `${source.name} must be asleep to use Snore.`
     }
@@ -182,15 +209,32 @@ export function resolveMove(before, { moveId, sourceId, targetId, previousHit })
   }
   const canCure = Boolean(move.cure && target.condition && (move.cure === 'all' || ['burn', 'poison', 'bad-poison', 'paralysis'].includes(target.condition)))
   const restFailed = move.rest && (source.hp === source.maxHp || source.condition === 'sleep')
+  const knockedItem = move.knockOff ? target.heldItem : null
+  const sourceBoosts = [
+    ['attackStage', 'sourceAttackChange', 'Attack'], ['defenseStage', 'sourceDefenseChange', 'Defense'],
+    ['specialAttackStage', 'sourceSpecialAttackChange', 'Special Attack'],
+  ].filter(([, change]) => move[change]).map(([key, change, label]) => ({
+    key, label, requested: move[change], before: source[key], after: Math.max(-6, Math.min(6, source[key] + move[change])),
+  }))
+  const sourceBoostMessage = sourceBoosts.map(b => `${b.label} ${b.after === b.before ? b.requested < 0 ? 'cannot fall further' : 'cannot rise further' : b.after < b.before ? b.after - b.before === -2 ? 'fell harshly' : 'fell' : 'rose'}`).join('; ')
+  // A caller supplies the current-turn hit; no turn history or hit records are stored here.
+  const revengeBoosted = Boolean(move.revengeBoost && previousHit && previousHit.sourceId === affectedId
+    && previousHit.targetId === sourceId && previousHit.thisTurn === true && ['physical', 'special'].includes(previousHit.category)
+    && Number.isSafeInteger(previousHit.damage) && previousHit.damage > 0)
+  const hpBand = Math.max(1, Math.floor(source.hp * 48 / source.maxHp))
+  const powerUsed = move.lowHpPower ? hpBand < 2 ? 200 : hpBand < 5 ? 150 : hpBand < 10 ? 100 : hpBand < 17 ? 80 : hpBand < 33 ? 40 : 20 : move.power
+  const baseDamage = move.lowHpPower ? Math.round(powerUsed * .7) : move.levelDamage ? source.level : move.damage
   const boostedDamage = (move.statusDamageBoost && ['burn', 'poison', 'bad-poison', 'paralysis'].includes(source.condition)) || (move.paralysisDamageBoost && target.condition === 'paralysis')
-  const damage = (move.levelDamage ? source.level : move.damage) * (boostedDamage ? 2 : 1)
-  const hp = move.rest && !restFailed ? source.maxHp : Math.max(0, target.hp - damage)
+  // OHKO entries preview an already-successful hit; eligibility and accuracy belong to a full battle engine.
+  const damage = move.ohko ? target.hp : baseDamage * (boostedDamage || revengeBoosted ? 2 : 1) * (knockedItem ? 1.5 : 1)
+  const hp = move.rest && !restFailed ? source.maxHp : Math.max(Math.min(target.hp, move.minimumTargetHp ?? 0), target.hp - damage)
   const healing = move.drain ? Math.min(source.maxHp - source.hp, Math.round((target.hp - hp) * move.drain)) : 0
   const hasRecoil = Boolean(move.recoilMaxHp || move.recoilDamage)
   const recoilBase = move.recoilMaxHp ? source.maxHp * move.recoilMaxHp : (target.hp - hp) * (move.recoilDamage ?? 0)
   const recoil = hasRecoil && recoilBase > 0 ? Math.min(source.hp, Math.max(1, Math.round(recoilBase))) : 0
   const sourceHp = move.selfDestruct ? 0 : source.hp + healing - recoil
-  const damageMessage = `${move.effective ? 'It’s super effective! ' : ''}${target.name} took ${target.hp - hp} damage.`
+  const damageMessage = move.ohko ? `${target.name} was knocked out in one hit!`
+    : `${move.effective ? 'It’s super effective! ' : ''}${target.name} took ${target.hp - hp} damage.`
   const conditionFailed = Boolean(move.requiresClearCondition && target.condition)
   const curedParalysis = move.cureParalysis && target.condition === 'paralysis' && hp > 0
   const inflictedCondition = move.conditionOnHit && hp > 0 && !target.condition ? move.conditionOnHit : null
@@ -206,18 +250,20 @@ export function resolveMove(before, { moveId, sourceId, targetId, previousHit })
   const boosts = boostFields.filter(([, change]) => move[change] && !(move.damage > 0 && hp === 0)).map(([key, change, label]) => ({
     key, label, requested: move[change], before: target[key] ?? 0, after: Math.max(-6, Math.min(6, (target[key] ?? 0) + move[change])),
   }))
-  const boostsFailed = move.damage === 0 && boosts.length > 0 && boosts.every(b => b.after === b.before)
+  const boostsFailed = !move.selfDestruct && move.damage === 0 && boosts.length > 0 && boosts.every(b => b.after === b.before)
   const boostMessage = boosts.map(b => {
     const delta = b.after - b.before
     const description = delta === 0 ? (b.requested < 0 ? 'cannot fall further' : 'cannot rise further')
-      : delta < 0 ? (delta === -2 ? 'fell harshly' : 'fell') : (delta === 2 ? 'rose sharply' : 'rose')
+      : delta < 0 ? (delta === -2 ? 'fell harshly' : 'fell') : (delta >= 3 ? 'rose drastically' : delta === 2 ? 'rose sharply' : 'rose')
     return `${b.label} ${description}`
   }).join('; ')
   const trapFailed = move.trapPreview && target.trapped
   const focusFailed = move.focusEnergy && target.focusEnergy
   const brokeScreens = move.breakScreens && (target.lightScreen || target.reflect)
   const after = freezeState({ ...before, revision: before.revision + 1,
-    actors: { ...before.actors, ...(move.drain || hasRecoil || move.selfDestruct ? { [sourceId]: { ...source, hp: sourceHp } } : {}), [affectedId]: { ...target, hp, condition, accuracyStage, defenseStage,
+    actors: { ...before.actors, ...(move.drain || hasRecoil || move.selfDestruct || sourceBoosts.length ? { [sourceId]: { ...source, hp: sourceHp, ...Object.fromEntries(sourceBoosts.map(b => [b.key, b.after])) } } : {}), [affectedId]: { ...target, hp, condition, accuracyStage, defenseStage,
+      ...(knockedItem ? { heldItem: null } : {}),
+      ...(target.nightmare && condition !== 'sleep' ? { nightmare: false } : {}),
       ...Object.fromEntries(boosts.map(b => [b.key, b.after])), ...(move.focusEnergy ? { focusEnergy: true } : {}),
       ...(move.trapPreview ? { trapped: true } : {}),
       ...(causedConfusion ? { confused: true } : {}),
@@ -225,12 +271,14 @@ export function resolveMove(before, { moveId, sourceId, targetId, previousHit })
     } } })
   const id = `move-${after.revision}-${sourceId}-${moveId}`
   const event = Object.freeze({ id, moveId, sourceId, targetIds: Object.freeze([affectedId]),
-    outcome: restFailed || (move.cure && !canCure) || (boostsFailed && !causedConfusion) || focusFailed || trapFailed || conditionFailed || (confusionFailed && !boosts.some(b => b.after !== b.before)) ? 'failed' : 'hit', beforeHp: target.hp, afterHp: hp, condition, accuracyStage,
+    outcome: (move.failAtAccuracyFloor && accuracyStage === previousAccuracy) || restFailed || (move.cure && !canCure) || (boostsFailed && !causedConfusion) || focusFailed || trapFailed || conditionFailed || (confusionFailed && !boosts.some(b => b.after !== b.before)) ? 'failed' : 'hit', beforeHp: target.hp, afterHp: hp, condition, accuracyStage,
+    ...(move.lowHpPower ? { powerUsed } : {}),
+    ...(move.revengeBoost ? { revengeBoosted } : {}),
     ...(move.drain ? { healing, sourceBeforeHp: source.hp, sourceAfterHp: sourceHp, impactMessage: damageMessage } : {}),
     ...(hasRecoil ? { recoil, sourceBeforeHp: source.hp, sourceAfterHp: sourceHp } : {}),
     ...(move.selfDestruct ? { selfDestruct: true, sourceBeforeHp: source.hp, sourceAfterHp: sourceHp } : {}),
     usedMessage: `${source.name} used ${move.name}!`,
-    resultMessage: boosts.length ? `${move.damage > 0 ? damageMessage + ' ' : ''}${target.name}’s ${boostMessage}! Stat preview only.${move.confuses ? causedConfusion ? ` ${target.name} became confused!` : ` ${target.name} is already confused.` : ''}`
+    resultMessage: boosts.length ? `${move.damage > 0 ? damageMessage + ' ' : ''}${target.name}’s ${boostMessage}!${move.selfDestruct ? ` ${source.name} fainted!` : ' Stat preview only.'}${move.confuses ? causedConfusion ? ` ${target.name} became confused!` : ` ${target.name} is already confused.` : ''}`
       : move.focusEnergy ? focusFailed ? `${source.name} is already focused! Focus Energy does not stack.`
       : `${source.name} is getting pumped! Critical-hit ratio +2; critical hits are not rolled in this preview.`
       : move.rest ? restFailed
@@ -250,7 +298,7 @@ export function resolveMove(before, { moveId, sourceId, targetId, previousHit })
       : move.drain ? `${damageMessage} ${source.name} restored ${healing} HP.`
       : move.selfDestruct ? `${damageMessage} ${source.name} fainted!`
       : hasRecoil ? `${damageMessage} ${source.name} took ${recoil} recoil damage.`
-      : `${damageMessage}${boostedDamage ? ' Condition-boosted preview.' : ''}${curedParalysis ? ` ${target.name} was cured of paralysis!` : ''}${inflictedCondition ? ` ${target.name} is ${CONDITION_TEXT[inflictedCondition]}!` : ''}${brokeScreens ? ' The target’s screens were broken!' : ''}${causedConfusion ? ` ${target.name} became confused! Confusion preview only.` : ''}`,
+      : `${damageMessage}${sourceBoosts.length ? ` ${source.name}’s ${sourceBoostMessage}!` : ''}${move.minimumTargetHp && hp <= move.minimumTargetHp ? ` ${target.name} held on!` : ''}${move.lowHpPower ? ` Remaining-HP power: ${powerUsed}; demo damage uses 70% of power.` : ''}${revengeBoosted ? ' Revenge was boosted by the supplied hit this turn!' : ''}${knockedItem ? ` ${target.name} lost its ${knockedItem}!` : ''}${boostedDamage ? ' Condition-boosted preview.' : ''}${curedParalysis ? ` ${target.name} was cured of paralysis!` : ''}${inflictedCondition ? ` ${target.name} is ${CONDITION_TEXT[inflictedCondition]}!` : ''}${brokeScreens ? ' The target’s screens were broken!' : ''}${causedConfusion ? ` ${target.name} became confused! Confusion preview only.` : ''}`,
   })
   return Object.freeze({ id, before, after, event })
 }

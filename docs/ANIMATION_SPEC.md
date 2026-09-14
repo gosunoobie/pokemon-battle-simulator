@@ -886,3 +886,178 @@ Metadata follows [Pokémon Showdown move definitions](https://raw.githubusercont
 
 
 Verification: all 160 tests and the two-page production build pass. Browser review inspected 96 deterministic frames across both directions and wide/portrait layouts, with 124 successful playback checks including source-only Charge. After the electric edge-contact correction, 32 Spark/Volt Tackle frames were regenerated and all 40 targeted normal/reduced playbacks passed. No previous move recipe changed.
+
+## Gust, Icy Wind, Silver Wind, Twister and the Steel Wing rework
+
+Four independent wind additions bring the catalog to 261. Steel Wing is an explicitly requested visual redesign; its existing 48 damage and 0.76/1.85 s timing remain unchanged. All other existing move recipes are preserved.
+
+| Move | Release | Contact / complete | Demo damage | Shape and movement |
+| --- | --- | --- | --- | --- |
+| Gust | 0.24 s | 0.62 / 1.70 s | 28 | Three compact open whorls, staggered by 0.09 s, followed by brisk air buffets and eighteen curling fragments. |
+| Icy Wind | 0.38 s | 0.88 / 2.25 s | 38 | Four translucent cold-air ribbons carry thirty-four crystalline flakes over a gently sagging route into frost and fourteen descending wisps. |
+| Silver Wind | 0.36 s | 0.90 / 2.30 s | 42 | Five separate air currents carry fifty-two fluttering silver/lavender scales into drifting dust and orbiting glints. |
+| Twister | 0.36 s | 0.92 / 2.50 s | 28 | A widening violet-gray funnel travels into the receiver with nine rotating bands, two helical threads and twenty-five circulating debris pieces. |
+| Steel Wing | Attached sweep | 0.76 / 1.85 s | 48 | A bent metallic spar unfolds eight layered primary feathers, with traveling bevel glints, a curved sweep trail and twenty impact sparks. |
+
+Gust emits from an explicit `wing` socket with `emission` fallback. Icy Wind, Silver Wind and Twister use the live emission socket. Wind fronts reach the posed target center before one cosmetic result cue. Icy Wind holds its source pose until the stream clears at 1.70 s; crystals and frost continue to descend through the aftermath. Silver Wind scales flutter on separate paths, and Twister debris continues circling while its funnel fades. Twister's modest target buffet is bounded using the target's full visible silhouette and settles before completion.
+
+Steel Wing has a real `steel-wing-root` container attached to the live optional `wing` socket, falling back to `hand`. Its visible `steel-wing-tip` is at local zero. Contact includes the wing's rotated length and the actor's pose; the attached fan sweeps into the receiver, then retracts with the user. Geometry fits the complete art contour and rotated actor silhouette to logical field bounds. Every recipe preserves actor scale and opacity, world-down gravity, and complete pose/temporary-object cleanup on completion or cancellation. FX never reads battle state.
+
+Reference types, power, accuracy and secondaries follow [Pokémon Showdown move definitions](https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/moves.ts): Gust is Flying/40/100, Icy Wind Ice/55/95, Silver Wind Bug/60/100 and Twister Dragon/40/100. Icy Wind reuses core `speedChange: -1`, alongside fixed damage: only a surviving receiver loses a stage, the floor is −6, and a capped drop does not prevent damage. Damage and Speed commit together and reveal at the ordinary impact cue. No resolver, presenter or shared FX API changed. Spread targeting, airborne-target interactions, flinching and random Silver Wind/Steel Wing stat boosts are outside these successful previews; the host descriptions state the relevant limitations.
+
+`tests/wind-steel.test.mjs` covers unique registration, immutable outcomes, Icy Wind survival and stage-floor behavior, optional presentation, exact release/contact before a single cue, wing attachment, custom sockets, continued particle flow, full rotated actor/art bounds in both directions and portrait/edge fields, reduced motion and cancellation. The prior Steel Wing strike tests remain active.
+
+Verification: all 167 tests and the two-page production build pass. Browser review inspected 80 deterministic frames across both directions and wide/portrait layouts. All 100 normal/reduced browser playbacks completed with one impact cue, empty effects and restored actors. Four new moves are selectable; the reworked Steel Wing preserves its original rule and timing.
+
+## Horn Drill, Guillotine, Fissure and Sheer Cold
+
+Four independent additions bring the catalog to 265. All preceding recipes, including the wind moves and Steel Wing rework, are unchanged. These clips illustrate successful one-hit knockouts; eligibility and accuracy rolls are outside this showcase.
+
+| Move | Release | Contact / complete | Shape and movement |
+| --- | --- | --- | --- |
+| Horn Drill | Attached horn | 1.04 / 2.30 s | An ivory/bronze conical horn spins up, drives forward through revolving bands and releases a pressure ring with bright chips. |
+| Guillotine | Attached pincers | 0.94 / 2.15 s | Two hooked insect pincers open around the target, close together at one contact and release crossing glints and a crisp flare. |
+| Fissure | 0.44 s | 1.04 / 2.65 s | A branching ground crack propagates into a dark amber chasm, lifting angular soil slabs before grit falls and the fissure closes. |
+| Sheer Cold | 0.58 s | 1.16 / 2.70 s | Gathered ice motes launch a freeze front that grows into a translucent faceted crown and frost veins, then breaks into falling shards. |
+
+Horn Drill uses an explicit `horn` socket with `emission` fallback; Guillotine uses `claw` with `hand` fallback. Root containers remain attached to the live source. The actual horn tip and both pincer tips meet the target center before their single impact cue. Per-recipe geometry includes the physical weapon length and posed actor rotation while fitting complete contours and actor silhouettes to the field. Actors retain full scale and opacity.
+
+Fissure launches from the live source `ground` socket and reaches the target's resting `floor`. Its crack follows the actual slope between those anchors; ground geometry stays fixed while the receiver jolts. Sheer Cold launches at the live emission and reaches the posed target center. Its translucent ice artwork preserves a readable target; no freeze condition enters the effect. Grit and ice shards keep moving through the aftermath with world-down gravity from either perspective. Each effect owns its geometry, particles and recovery; completion and cancellation restore actor poses, camera and temporary objects.
+
+Core adds only `ohko: true` to the four rules and selects the target's remaining HP as damage for these already-successful samples. The immutable result contains zero target HP, preserves every other actor field and reports a one-hit knockout. FX receives the same cosmetic hit request as ordinary attacks and never sees the OHKO rule or HP. The existing presenter reveals the committed knockout at impact and reconciles the same result after skip, missing cues, failure or effects-off playback. No new actor state, event field, battle RNG or presenter branch is required.
+
+Reference move data follows [Pokémon Showdown definitions](https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/moves.ts): Horn Drill and Guillotine are Normal, Fissure Ground and Sheer Cold Ice; all are OHKO moves without ordinary base power and have reference accuracy 30. The host displays `30% base` and explicitly labels successful knockout previews. Level restrictions, accuracy rolls/adjustments, type immunities, protective abilities/items and Sheer Cold's type-based accuracy differences are not simulated. The ice animation does not apply freeze. Existing self-target and fainted-participant validation remains active.
+
+`tests/ohko.test.mjs` covers immutable knockouts at varying current/maximum HP, both source IDs, condition and stat preservation, invalid participants, optional presentation, exact semantic contact, custom weapon sockets, full actor/art bounds at field edges and in portrait layouts, reduced motion and cancellation.
+
+Verification: all 175 tests and the two-page production build pass. Browser review inspected 64 deterministic frames across all four moves in both directions and wide/portrait layouts. All 80 normal/reduced playback checks passed with one cue and complete cleanup. Eight actual-game checks verified both attack directions, zero target HP, unchanged source HP, the fainted badge and one-hit knockout message. Every preceding move recipe remains unchanged.
+
+## Feint Attack through Pound
+
+Eleven independent additions bring the catalog to 276. All 265 preceding recipes remain unchanged.
+
+| Move | Release | Contact / complete | Shape and movement |
+| --- | --- | --- | --- |
+| Feint Attack | Attached palm | 0.66 / 1.85 s | Dark body echoes precede a sudden palm strike and violet splinters. |
+| Aerial Ace | Attached wing | 0.62 / 1.80 s | A sharp pale airfoil crosses diagonally with curved speed trails and an intersecting cut. |
+| Skull Bash | Attached head | 1.16 / 2.55 s | The user braces beneath a rounded pressure shell, then drives its head forward into expanding shock rings. |
+| Sky Attack | Attached wing | 1.28 / 2.75 s | Gold feathers gather around the user before an elevated dive, swept wing strike and feather burst. |
+| Leech Seed | 0.36 s | 0.94 / 2.30 s | Three seeds arc from emission to the target, followed by curling sprouts and rising motes at its resting floor. |
+| Ingrain | Source floor | 1.04 / 2.35 s | Seven branching roots spread under the user as gentle rings and leaves rise. |
+| Frenzy Plant | 0.48 s | 1.20 / 2.80 s | Thick thorned roots travel along the ground into an interlocking root crown, with dust and falling chips. |
+| Crush Claw | Attached claw | 0.86 / 2.10 s | Three broad hooked talons sweep inward, leaving curved scratch marks and hard chips. |
+| Knock Off | Attached hand | 0.72 / 1.95 s | A sideways palm knocks a symbolic gold item into a spinning, downward arc. |
+| Needle Arm | Attached claw | 0.82 / 2.05 s | Ribbed cactus pads grow from the wrist and swing their golden leading spine into a radial thorn burst. |
+| Pound | Attached palm | 0.50 / 1.45 s | A short, rounded palm slap produces soft rings and a few wisps. |
+
+Physical roots stay attached through approach, contact and recovery. Optional `palm`, `wing`, `head` and `claw` sockets use hand/emission fallbacks as appropriate; the true leading edge meets the target center before one cue. Full rotated actor silhouettes and complete art contours fit logical field bounds, including portrait and near-edge layouts. Actors retain full scale and opacity. Plant trails honor live source emission/ground and target resting-floor anchors; Ingrain works with a source alone. Particles keep moving through the aftermath, and loose chips/items fall in world-down coordinates from either perspective. Completion and cancellation restore poses and remove temporary artwork.
+
+Reference types, power and accuracy follow [Pokémon Showdown move definitions](https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/moves.ts). Feint Attack and Aerial Ace are always-hit references. Skull Bash raises the user's Defense during its charge; Knock Off has a held-item power boost and removes the item. The host labels fixed successful samples, combined charge/attack clips, and omitted charge/recharge turns, immunity/eligibility checks, critical hits and random secondaries.
+
+Core Leech Seed/Ingrain flags produce Seeded/Rooted preview badges without immediate HP changes or later-turn simulation. Skull Bash raises source Defense by one up to +6 alongside 91 fixed damage. Knock Off deals 46 fixed damage, or 69 against a held item, and removes that item atomically without marking it consumed. The game fixture supplies a labeled sample berry only to the living recipient. No battle flags, HP or items enter FX; ordinary impact reveals the committed outcome, and all presentation exits reconcile identically.
+
+`tests/plant-strike.test.mjs` covers catalog metadata, immutable state, repeated badge application, source Defense caps, item removal and fixtures, optional presentation, exact release/contact, custom sockets, full actor/art bounds, source-only Ingrain, reduced motion, particle flow and cancellation. All 187 tests and the two-page production build pass.
+
+Browser verification: 176 deterministic frames cover every addition from both sides in wide and portrait fields. All 224 normal/reduced playback checks passed, including four source-only Ingrain checks, with one impact cue, restored actors and empty effects. All eleven moves are selectable in both apps. Eight game checks verify Seeded/Rooted badges, Skull Bash Defense and Knock Off damage/item removal in both directions.
+
+## Nightmare, Spite, Grudge, Memento, Sharpen, Tail Glow, Flash and Detect
+
+Eight independently authored additions bring the catalog to 284. Every preceding move recipe is unchanged.
+
+| Move | Release / focus | Contact / complete | Shape and movement |
+| --- | --- | --- | --- |
+| Nightmare | 0.46 s, live eyes/emission | 1.02 / 2.50 s | Three crescent spirits follow drifting dream trails and unwind into ominous eyes, curling wisps and orbiting motes. |
+| Spite | 0.32 s, live emission | 0.86 / 2.15 s | A torn violet curse reaches the target, leaving jagged marks and four drifting sparks with trails. |
+| Grudge | Source center | 0.90 / 2.35 s | A hollow vow sigil gathers with purple flames and rising embers around the user. |
+| Memento | 0.54 s, live emission | 1.12 / 2.55 s | A dark parting sigil carries red-violet ribbons into two descending stat marks and scattered embers. |
+| Sharpen | Source center | 0.70 / 1.80 s | Angular facets polish inward around the user's silhouette, with sweeping edges and rising silver glints. |
+| Tail Glow | Live tail/body/center | 0.92 / 2.30 s | An organic lime-gold lantern blooms into soft rings and independently blinking, rising fireflies. |
+| Flash | 0.30 s, live emission | 0.62 / 1.80 s | A bright local glint sends a bounded fan of light to the target, followed by tapering optical afterimages. |
+| Detect | Live eyes/emission; source center | 0.54 / 1.65 s | A sharp eye glint opens angular guard corners, short scanning arcs and moving teal/gold streaks. |
+
+The four source-only effects accept solo scenes and resolve their own user regardless of requested target IDs. Tail Glow follows an explicit tail socket, with body/center fallbacks; Nightmare and Detect use explicit eyes with emission fallback. Emitters and auras follow live anatomy. Each cue runs after its local updater, and the endpoint or source focal point is already in place. Complete contours fit the logical field, including near-edge actors, custom sockets and portrait layouts. No sprite is scaled or faded. Memento's fainting is represented by committed core HP and the host badge; the animation preserves the actor artwork. Particles continue through the aftermath, with descending Memento stat marks retaining world-down motion from either perspective. Completion and cancellation reset poses and remove temporary art.
+
+Reference metadata follows [Pokémon Showdown move definitions](https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/moves.ts). All eight are status moves without base power. Nightmare requires sleep; Spite refers to the previous move's PP; Grudge prepares a later PP-removal effect. Sharpen raises Attack one stage, Tail Glow raises Special Attack three, Flash lowers accuracy one, and Detect provides protection. The current [Memento description](https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/text/moves.ts) confirms that the user still faints when the target's offensive stats cannot fall further.
+
+Core provides Nightmare/Grudge preview badges without residual turns or PP triggers, and Spite remains an explicit casting preview. Nightmare's sleep fixture respects the selected living recipient and existing conditions; cures remove its badge when sleep ends. Memento atomically faints its user and lowers the target's Attack/Special Attack by two to the −6 floor, preserving target HP. Sharpen/Tail Glow clamp at +6; Flash opts into failure at the accuracy floor; Detect shares Protect's badge. The host describes omitted PP/history, accuracy, ability, Substitute, priority and protection enforcement. FX receives none of this battle state.
+
+`tests/shadow-support.test.mjs` covers immutable outcomes, sleep and repeated-badge failure, wake/cure behavior, fixtures, Memento at partial/full stat floors, source boosts, accuracy caps, optional presentation, exact release/contact, all source-only recipes, custom live sockets, complete bounds, ongoing particle motion, reduced motion and cancellation. All 199 tests and the two-page production build pass.
+
+Browser review inspected 128 deterministic frames across all eight effects, both directions and wide/portrait layouts. All 176 normal/reduced playback checks passed, including 16 source-only checks, with one cue and complete cleanup. Sixteen game checks verified each move from both sides, including HP, Nightmare/Grudge/protection badges, offensive/accuracy stage changes, and Memento fainting.
+
+## Night Shade, Dream Eater, Curse and Destiny Bond additions
+
+These four independent recipes bring the catalog to 288. All preceding recipes remain unchanged.
+
+| Move | Attachment / arrival | Impact / completion | Choreography |
+| --- | --- | --- | --- |
+| Night Shade | Eyes, emission fallback → target center | 0.82 / 2.10 s | A pale-eyed indigo visage travels inside a rippling pressure front, followed by drifting rings and violet grains. |
+| Dream Eater | Emission → target center → source aura | 0.66 / 2.65 s; recovery 1.38 s | A crescent thought ribbon touches the sleeping target; rose-lavender motes flow back along two wavering paths into the user. |
+| Curse | Emission → target center; thorn seal surrounds visual center | 1.04 / 2.45 s | A floating ceremonial nail gathers a dark charm, releases an interlocked seal and leaves a thorn sigil with falling fragments. |
+| Destiny Bond | Source center; no opponent required | 0.88 / 2.25 s | Two spectral wisps orbit flowing interlinked chains, briefly knotting around the caster before drifting apart. |
+
+All live attachment and arrival artwork updates before its cue. Dream Eater emits one impact and one recovery when the first returning mote reaches the live source aura; the other moves emit one impact. Actors remain fully visible at their original scale. Complete artwork bounds, custom anatomy, normal/edge/portrait layouts, both directions, moving aftermath particles and normal/reduced/cancelled cleanup are checked. Destiny Bond also plays with only its source present.
+
+Reference type, power, accuracy and move mechanics follow [Pokémon Showdown move definitions](https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/moves.ts). Night Shade previews level-based damage; Dream Eater requires sleep and returns half actual removed HP, capped by missing HP. Curse explicitly previews the Ghost-style cost and target badge for any selected sprite, without residual turns or a non-Ghost stat variant. Destiny Bond previews preparation only, without a later automatic knockout. Core owns all outcomes; the host labels these limits and the sleep/healing fixture, and FX receives no battle state.
+
+Validation: all 199 existing tests and 13 focused addition tests pass (212 total), together with the two-page production build. Browser review inspected 72 deterministic frames across the four effects, both directions and wide/portrait fields. All 84 normal/reduced playback checks passed, covering all nine species and four solo Destiny Bond runs, including exact Dream Eater recovery arrival and complete cleanup. Eight game checks verified HP, sleep, Curse and Destiny Bond badges from both sides. The only browser console error was the existing missing favicon; no animation or game error occurred.
+
+## Water Pulse and Octazooka additions
+
+These two independent recipes bring the catalog to 290. All earlier animation artwork and timings remain unchanged.
+
+| Move | Release / impact / completion | Choreography |
+| --- | --- | --- |
+| Water Pulse | 0.28 / 0.76 / 2.15 s | Separated hollow blue liquid rings travel from live emission; the leading rim reaches the target center, followed by expanding ripples and falling droplets. |
+| Octazooka | 0.32 / 0.72 / 2.05 s | A glossy navy-violet ink projectile leaves a watery muzzle puff, then breaks into an irregular splash, translucent billows and falling ink droplets. |
+
+Source roots follow live emission sockets, and the actual leading artwork meets the live target center before one impact cue. Trailing rings and particles are cosmetic parts of a single hit. Full artwork stays inside the logical field, actors retain full scale and visibility, and particles continue moving during fades. Normal/reduced motion, cancellation, custom anatomy, both directions and edge/portrait layouts are verified.
+
+Reference metadata follows [Pokémon Showdown move definitions](https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/moves.ts): Water Pulse has 60 power and 100 accuracy; Octazooka has 65 power and 85 accuracy. These successful fixed-hit previews deal 42 and 46 damage respectively, preserving existing conditions and stat stages. Their random confusion and accuracy-lowering secondaries are described in the host without being forced onto the receiver. No battle engine, preview fixture or presenter API changes are needed.
+
+Validation: all 219 tests pass, including seven focused Water Pulse/Octazooka tests, and the two-page production build succeeds. Browser review inspected 32 deterministic frames across both moves, both directions and wide/portrait fields. All 40 normal/reduced playback checks passed across nine species, with one impact cue and full cleanup. Four game checks confirmed each move's fixed damage from both sides. No browser errors occurred. All 288 preceding move recipes and their four preparation modules are unchanged.
+
+## Future Sight, Doom Desire, Yawn and Bide additions
+
+These four independent recipes bring the catalog to 294. All earlier recipes and timings remain unchanged.
+
+| Move | Main release / impact / completion | Choreography |
+| --- | --- | --- |
+| Future Sight | 1.04 / 1.42 / 2.85 s | A violet eye seal establishes a premonition, pauses, then sends a faceted psychic packet into an imploding target halo. |
+| Doom Desire | 1.10 / 1.54 / 2.90 s | Silver-gold wish glints form suspended stars above the receiver, followed by descending metallic lances and falling sparks. |
+| Yawn | 0.30 / 0.94 / 2.30 s | A pearly breath bubble drifts from emission to the receiver, opening into soft, drooping wisps. |
+| Bide | 1.18 / 1.58 / 2.75 s | Two amber-red charge pulses tighten restraint bands around the user, then release a concentrated force wave. |
+
+Future Sight's root uses explicit eyes with emission fallback; the other roots use emission. The central Doom Desire lance starts at its target-relative overhead origin, capped by available headroom, and its leading point descends to the target center. Other projectile fronts launch from their live source socket. Contact artwork updates before exactly one impact cue. Actors retain their full scale and opacity, all artwork fits the logical field across edge/portrait layouts and both directions, and particles continue moving through fades with downward gravity preserved.
+
+Reference metadata and delayed mechanics follow [Pokémon Showdown move definitions](https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/moves.ts). Future Sight and Doom Desire have 120/140 reference power and 100 accuracy; the demo compresses setup and the later hit into one clip with 84/98 fixed damage. Bide's fixed 80-damage release illustrates twice an example 40 stored damage without simulating received hits or turns. Yawn applies a drowsy badge only to a target with no major condition and no existing badge, without immediate sleep or HP damage. The host explicitly describes scheduling, storage, expiry and other omitted mechanics. Core owns the results; FX receives only cosmetic requests.
+
+Validation: all 228 tests pass, including nine focused tests for these additions, and the two-page production build succeeds. Browser review inspected 80 deterministic frames across all four moves, both directions and wide/portrait fields. All 80 normal/reduced playback checks passed across nine species, with exactly one impact cue and full cleanup. Eight game checks verified fixed HP changes and Yawn's drowsy badge from both sides; Yawn preserves both HP values and never shows immediate sleep. No browser errors occurred. All 290 preceding move recipes and four preparation modules remain unchanged.
+
+## Fifteen support, psychic and physical additions
+
+The catalog now contains 309 independent moves. All 294 preceding recipes and four preparation modules remain unchanged.
+
+| Move | Impact / completion | Choreography |
+| --- | --- | --- |
+| Follow Me | 0.72 / 1.95 s | A beckoning finger and converging attention rays gather around the user. |
+| Helping Hand | 0.66 / 1.90 s | Two bright hands clap together, sending warm applause sparks around the user. |
+| Teeter Dance | 1.02 / 2.40 s | The user sways through crooked steps while colorful rhythm marks dance toward the opponent. |
+| Splash | 0.76 / 1.85 s | A few small, futile hops scatter tiny droplets and quiet ripples at the user’s feet. |
+| False Swipe | 0.64 / 1.75 s | A restrained pale blade sweeps across the opponent and peels away with a soft glint. |
+| Dizzy Punch | 0.70 / 1.95 s | A playful coral-gold fist lands amid rotating colored stars. |
+| Beat Up | 1.26 / 2.35 s | Four shadowy strike marks attack in quick succession, ending in a clustered final impact. |
+| Secret Power | 0.84 / 2.10 s | A pearl and sandstone energy knot bursts into an irregular neutral star. |
+| Psywave | 0.90 / 2.15 s | Broad violet wave sheets undulate toward the opponent and unravel into luminous ripples. |
+| Extrasensory | 1.04 / 2.35 s | A rose-gold sensory lens focuses into pinching psychic contours around the target. |
+| Psycho Boost | 1.30 / 2.65 s | Angular magenta energy gathers into a charged psychic burst, leaving fading shards. |
+| Flail | 0.82 / 2.15 s | The user wobbles erratically before stumbling into a desperate body strike. |
+| Reversal | 0.92 / 2.20 s | A low defensive coil springs upward into a rising heel kick and curved force wake. |
+| Revenge | 1.04 / 2.40 s | The user braces behind a tense guard, then answers with a heavy hammerfist. |
+| Superpower | 1.10 / 2.65 s | The user drives forward behind broad knuckles, sending expanding folds of force through the impact. |
+
+Follow Me, Helping Hand and Splash use source-only FX and core targeting, including solo playback. Other recipes aim at the opponent. Source roots follow live semantic sockets; real leading points arrive before one impact cue. Beat Up has four cosmetic strikes with one final result. Physical moves solve contact against the bounded actor poses. Every recipe preserves actor size and visibility, fits complete contours to logical scene bounds, restores poses, and keeps its particles moving through fades.
+
+Reference metadata and HP power bands follow [Pokémon Showdown move definitions](https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/moves.ts). False Swipe leaves at least 1 HP; Flail and Reversal use remaining-HP power bands; Psycho Boost and Superpower lower the user’s stats. Revenge uses a supplied current-turn hit to double demo damage. Psywave uses a labeled fixed roll. Follow Me marks attention; Helping Hand is a casting-only sample without an ally or boost. Teeter Dance confuses the opponent in this singles scene, while Splash changes no battle state. Party-dependent Beat Up power, random secondaries, redirection and turn mechanics remain outside the preview.
+
+Validation: all 252 tests pass, including 24 focused tests for these additions, and the two-page production build succeeds. Browser review covered 300 deterministic frames across all fifteen moves, both directions and wide/portrait fields, followed by 20 updated Teeter Dance frames after correcting mirrored sway. All 300 normal/reduced playback checks across nine species and 32 game outcome checks passed without browser errors. Focused real-Pixi tests additionally verify solo source effects, live custom sockets, full edge bounds, moving particles, cancellation and cleanup. All 294 preceding move recipes and four preparation modules remain byte-for-byte unchanged.

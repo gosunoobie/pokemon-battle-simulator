@@ -164,7 +164,7 @@ test('drain previews defer displayed healing and ignore early, repeated and stal
     stale.onCue({type:'impact'});stale.onCue({type:'recovery'});assert.equal(h.displays.at(-1).state,reset)
     h.p.destroy()
   }
-  for(const move of MOVE_RULES.filter(m=>!m.drain&&!m.rest&&!m.healFraction&&!m.weatherHeal&&!m.retaliates&&!m.splitsHp&&!m.endeavor))assert.equal(createPreviewState(move).actors.source.hp,156)
+  for(const move of MOVE_RULES.filter(m=>!m.drain&&!m.rest&&!m.healFraction&&!m.weatherHeal&&!m.retaliates&&!m.splitsHp&&!m.endeavor&&!m.lowHpPower&&!m.revengeBoost))assert.equal(createPreviewState(move).actors.source.hp,156)
 })
 test('drain healing survives effects off, failure, missing recovery and skipping between phases',async()=>{
   for(const move of MOVE_RULES.filter(m=>m.drain))for(const mode of ['off','failure','missing','skip']){

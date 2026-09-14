@@ -4,17 +4,17 @@ import { createBattleState, resolveMove, MOVE_RULES } from '@battle/battle-core'
 import { FX_CATALOG } from '@battle/battle-fx/catalog'
 import { readFileSync, readdirSync } from 'node:fs'
 
-export const EXPECTED_HP = [120,96,108,78,124,82,128,100,68,102,64,56,88,106,160,132,98,76,74,110,106,92,88,102,136,116,88,94,104,128,132,102,98,160,160,160,118,100,102,124,138,160,160,160,160,160,160,160,126,128,124,112,124,106,90,130,132,114,102,76,124,130,98,118,132,120,160,102,132,130,132,160,142,126,104,106,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,136,82,78,124,160,160,160,160,132,126,102,132,88,96,76,104,114,102,104,96,90,60,106,116,118,126,160,160,36,60,112,104,100,110,160,160,160,160,110,110,116,76,118,116,116,100,90,70,110,116,116,110,142,128,118,132,120,90,118,104,96,102,104,104,118,88,114,108,160,160,158,156,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,130,118,118,120,112,90,124,112,88,112,118,118,74,124,94,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,132,138,160,160,160,140,96,96,160,160,160,160,160,160,160,160,132,60,90,60,90,94,118,76,104,160,114,76]
-test('all 257 move results survive without renderer, window, FX playback or async work', () => {
+export const EXPECTED_HP = [120,96,108,78,124,82,128,100,68,102,64,56,88,106,160,132,98,76,74,110,106,92,88,102,136,116,88,94,104,128,132,102,98,160,160,160,118,100,102,124,138,160,160,160,160,160,160,160,126,128,124,112,124,106,90,130,132,114,102,76,124,130,98,118,132,120,160,102,132,130,132,160,142,126,104,106,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,136,82,78,124,160,160,160,160,132,126,102,132,88,96,76,104,114,102,104,96,90,60,106,116,118,126,160,160,36,60,112,104,100,110,160,160,160,160,110,110,116,76,118,116,116,100,90,70,110,116,116,110,142,128,118,132,120,90,118,104,96,102,104,104,118,88,114,108,160,160,158,156,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,130,118,118,120,112,90,124,112,88,112,118,118,74,124,94,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,160,132,138,160,160,160,140,96,96,160,160,160,160,160,160,160,160,132,60,90,60,90,94,118,76,104,160,114,76,132,122,118,132,0,0,0,0,118,118,69,62,160,160,60,108,114,118,132,160,160,160,160,160,160,160,160,110,160,160,160,118,114,76,62,160,80,160,160,160,160,132,110,104,110,110,104,62,146,146,118,76]
+test('all 309 move results survive without renderer, window, FX playback or async work', () => {
   assert.equal(typeof globalThis.window, 'undefined')
-  assert.equal(MOVE_RULES.length,257); assert.equal(new Set(MOVE_RULES.map(m=>m.id)).size,257)
+  assert.equal(MOVE_RULES.length,309); assert.equal(new Set(MOVE_RULES.map(m=>m.id)).size,309)
   assert.deepEqual(MOVE_RULES.map(m=>m.id), FX_CATALOG.map(m=>m.id))
   MOVE_RULES.forEach((move,i)=>{
     const before=createBattleState(), result=resolveMove(before,{moveId:move.id,sourceId:'source',targetId:'target'})
     assert.equal(result.after.actors.target.hp, EXPECTED_HP[i],move.id)
     assert.equal(result.after.actors.target.condition,({'zap-cannon':'paralysis','sing':'sleep','grass-whistle':'sleep','lovely-kiss':'sleep','hypnosis':'sleep','glare':'paralysis','thunder-wave':'paralysis','poison-powder':'poison','sleep-powder':'sleep','stun-spore':'paralysis','poison-gas':'poison','toxic':'bad-poison','will-o-wisp':'burn'})[move.id]??null)
     if(move.condition)assert.match(result.event.resultMessage,new RegExp(({paralysis:'paralyzed',poison:'poisoned',sleep:'asleep','bad-poison':'badly poisoned',burn:'burned'})[move.condition]))
-    assert.equal(result.after.actors.target.accuracyStage,move.id==='smokescreen'?-1:0)
+    assert.equal(result.after.actors.target.accuracyStage,['smokescreen','flash'].includes(move.id)?-1:0)
     assert.equal(before.actors.target.hp,160)
     assert.ok(Object.isFrozen(result.after.actors.target))
     if(move.target==='field'){

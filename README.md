@@ -1,6 +1,6 @@
 # Pokémon battle animation workspace
 
-Vue 3 + PixiJS 8 + GSAP 3, with **257 independently authored moves**, an optional effects package, previews from either side, and an independent animation playground.
+Vue 3 + PixiJS 8 + GSAP 3, with **309 independently authored moves**, an optional effects package, previews from either side, and an independent animation playground.
 
 Explosion builds into a broad source-centered blast with pressure rings and smoke; Self-Destruct uses a shorter shudder and sharper burst. Both send a narrow pressure wave toward the opponent. The user’s HP becomes zero alongside target damage, and the host shows a fainted badge even with effects off. Replay resets both actors.
 
@@ -71,7 +71,7 @@ Slam, Stomp and Strength add a blunt swinging strike, a focused foot impact and 
 
 Vital Throw, Submission, Sky Uppercut and Seismic Toss add bounded flips, grapples, rising fist contact and a high downward throw. Submission includes actual-damage recoil; Seismic Toss uses the source level (default 50), resolved in core even with FX disabled.
 
-See [Opponent previews](docs/OPPONENT_PREVIEW.md) for using all 257 moves from either side, adding artwork, supplying legal move IDs and the per-move verification coverage.
+See [Opponent previews](docs/OPPONENT_PREVIEW.md) for using all 309 moves from either side, adding artwork, supplying legal move IDs and the per-move verification coverage.
 
 
 Fly, Bounce, Dig and Dive have separate **Round 1 · Prepare** and **Round 2 · Attack** controls in the battle demo and FX playground. Each clip can be replayed independently and restores the Pokémon afterward. Preparation leaves HP unchanged; the attack uses the normal fixed preview result. No turn engine or semi-invulnerability state is added.
