@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { Texture, TextureSource, Sprite } from 'pixi.js'
-import { MIN_SPRITE_HEIGHT, previewSceneActors, previewSpriteHeight } from '../apps/game/src/scene/previewActors.js'
+import { MIN_SPRITE_EXTENT, previewSceneActors, previewSpriteHeight } from '../apps/game/src/scene/previewActors.js'
 import { STARTER_SPRITES } from '../apps/game/src/scene/spriteViews.js'
 import { resolveSpriteProfile } from '../apps/game/src/scene/profiles.js'
 import { createSceneGraph } from '../apps/game/src/scene/index.js'
@@ -35,7 +35,9 @@ test('original default dimensions are restored, with a readable minimum for smal
     assert.ok(height('charizard') > height('charmander') * 1.35, 'Charmander is visibly smaller')
     assert.ok(area('venusaur') < area('charizard') * 1.5, 'Venusaur has no oversized multiplier')
     for (const id of ['bulbasaur', 'charmander', 'squirtle']) {
-      assert.ok(height(id) >= MIN_SPRITE_HEIGHT[far ? 'far' : 'near'] - .001, id + ' meets the minimum')
+      const { bounds } = resolveSpriteProfile({ profile: id, view: far ? 'front' : 'back' })
+      const extent = height(id) * Math.max(1, bounds.width / bounds.height)
+      assert.ok(extent >= MIN_SPRITE_EXTENT[far ? 'far' : 'near'] - .001, id + ' meets the minimum')
       assert.ok(height(id) < height('charizard') * .85, id + ' remains a smaller starter')
     }
   }

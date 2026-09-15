@@ -11,7 +11,7 @@ import spriteManifest from '../../../packages/pokemon-sprites/data/manifest.json
 import { MOVE_RULES } from '@battle/battle-core'
 import { createBattleFx, EFFECT_TIMINGS } from '@battle/battle-fx'
 import { ROSTER, ROSTER_LIST } from '../../../apps/game/src/roster/index.js'
-import { PREVIEW_POKEMON, previewBattleActors, previewSceneActors, previewSpriteHeight } from '../../../apps/game/src/scene/previewActors.js'
+import { MIN_SPRITE_EXTENT, MIN_SPRITE_HEIGHT, PREVIEW_POKEMON, previewBattleActors, previewSceneActors, previewSpriteHeight } from '../../../apps/game/src/scene/previewActors.js'
 import { STARTER_SPRITES } from '../../../apps/game/src/scene/spriteViews.js'
 import { resolveSpriteProfile } from '../../../apps/game/src/scene/profiles.js'
 import { createSceneGraph } from '../../../apps/game/src/scene/index.js'
@@ -37,11 +37,12 @@ function inspectProfile(profile) {
   }
   return decoded.get(profile.url)
 }
-function makeScene(id, width = 1000, height = 450, mirror = false) {
+function makeScene(id, width = 1000, height = 450, mirror = false, { scale = 1, playground = false } = {}) {
   const actors = previewSceneActors(id, id).map((spec, i) => ({ ...spec,
-    x: mirror ? 1 - spec.x : spec.x,
+    x: mirror ? 1 - (playground ? [.25, .75][i] : spec.x) : (playground ? [.25, .75][i] : spec.x),
+    y: playground ? [.82, .63][i] : spec.y,
     facing: mirror ? -spec.facing : spec.facing,
-    height: previewSpriteHeight(id, { far: i === 1, width, height }),
+    height: previewSpriteHeight(id, { scale, far: i === 1, width, height }),
   }))
   const textures = Object.fromEntries(actors.map(spec => {
     const { width, height } = inspectProfile(resolveSpriteProfile(spec))
@@ -140,10 +141,11 @@ test('species metadata does not calculate battle stats or change the fixed previ
   }
 })
 
-test('all 419 species/forms fit both views in wide, square and portrait fields with fixed platforms', () => {
+test('all 419 species/forms stay readable at minimum/default/maximum playground scales and fit all layouts with fixed platforms', () => {
   const overflow = []
-  for (const [width, height] of [[1000, 450], [720, 600], [560, 700]]) for (const mirror of [false, true]) for (const id of ids) {
-    const h = makeScene(id, width, height, mirror)
+  const presentations = [{ scale: 1, playground: false }, ...[.8, 1, 1.2].map(scale => ({ scale, playground: true }))]
+  for (const [width, height] of [[1000, 450], [720, 600], [560, 700]]) for (const mirror of [false, true]) for (const presentation of presentations) for (const id of ids) {
+    const h = makeScene(id, width, height, mirror, presentation)
     try {
       const platformBounds = () => h.actors.map(spec => {
         const b = h.scene.terrain.getChildByLabel(`platform-${spec.id}`).getBounds()
@@ -152,11 +154,13 @@ test('all 419 species/forms fit both views in wide, square and portrait fields w
       const before = platformBounds()
       for (const [i, spec] of h.actors.entries()) {
         const actor = h.scene.actor(spec.id), profile = resolveSpriteProfile(spec), b = visibleBounds(actor, profile), platform = before[i]
-        const label = `${id}/${spec.view} ${width}×${height} mirror=${mirror}`
+        const label = `${id}/${spec.view} ${width}×${height} mirror=${mirror} ${JSON.stringify(presentation)}`
         if (b.x < -.001 || b.y < -.001 || b.x + b.width > width + .001 || b.y + b.height > height + .001) overflow.push({ label, bounds: b })
         assert.equal(findSprite(actor.root).texture, h.textures[spec.id], label + ' uses its actual view texture')
         close(b.width / b.height, profile.bounds.width / profile.bounds.height, label + ' preserves native proportions')
         close(b.height, spec.height * height, label + ' displayed height')
+        assert.ok(Math.max(b.width, b.height) >= MIN_SPRITE_EXTENT[i === 0 ? 'near' : 'far'] * h.scene.unit - .001, label + ' meets the visible-size minimum')
+        assert.ok(b.height >= MIN_SPRITE_HEIGHT[i === 0 ? 'near' : 'far'] * h.scene.unit - .001, label + ' short silhouettes remain readable')
         close(platform.x + platform.width / 2, b.x + b.width / 2, label + ' platform horizontal center')
         close(platform.y + platform.height / 2, b.y + b.height, label + ' platform ground')
         close(platform.width, ((i === 0 ? 346 : 286) + 1.5) * h.scene.unit, label + ' platform width')
@@ -182,9 +186,27 @@ test('all 419 species/forms fit both views in wide, square and portrait fields w
   assert.deepEqual(overflow, [], 'all visible sprite bounds remain inside the field')
 })
 
+test('short wide artwork uses the lower height guard, while tiny forms remain readable', () => {
+  const size = (id, far) => {
+    const h = makeScene(id)
+    try { return { ...h.scene.actor(far ? 'target' : 'source').metrics } }
+    finally { h.dispose() }
+  }
+  for (const far of [false, true]) {
+    const geodude = size('geodude', far), wailord = size('wailord', far), tiny = size('unownx', far)
+    assert.ok(geodude.width < wailord.width, 'Geodude stays narrower than Wailord in either view')
+    assert.ok(geodude.height < wailord.height * .55, 'Geodude retains its short silhouette')
+    close(geodude.height, far ? 75 : 90, 'short sprites meet the lower height guard')
+    close(tiny.width, far ? 125 : 150, 'the smallest square form remains readable')
+    close(tiny.height, far ? 125 : 150)
+  }
+  close(size('geodude', true).width, 175)
+  close(size('geodude', false).width, 183.214285714286)
+})
+
 test('representative new silhouettes use existing effects from either side and restore their actual front/back sprites', async () => {
   const tick = () => new Promise(resolve => setImmediate(resolve))
-  for (const id of ['wailord', 'onix', 'diglett', 'unown', 'deoxys', 'castform']) {
+  for (const id of ['wailord', 'onix', 'diglett', 'geodude', 'unown', 'unownx', 'deoxys', 'castform']) {
     const h = makeScene(id)
     let timeline
     const fx = createBattleFx({ glowTexture: Texture.WHITE, timelineEngine: { timeline(options) { return timeline = gsap.timeline({ ...options, paused: true }) } } })

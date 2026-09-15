@@ -1,6 +1,7 @@
 <script setup>
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import HealthCard from './HealthCard.vue'
+import BattleDetails from './BattleDetails.vue'
 import { createCommandId, simulationRequest } from './api.js'
 import { activeMembers, createSimulationScene, spriteUrl } from './scene.js'
 import { buildBattleLog, createSimulationPresenter } from './presentation.js'
@@ -8,6 +9,7 @@ import { buildBattleLog, createSimulationPresenter } from './presentation.js'
 const config = shallowRef(null), latest = shallowRef(null), displayed = shallowRef(null)
 const presetId = ref('kanto'), leadIndex = ref(0), busy = ref(true), playing = ref(false)
 const error = ref(''), effectsEnabled = ref(true), reducedMotion = ref(false)
+const pageVisible = ref(true)
 const sceneAvailable = ref(null), stage = ref(null), arena = ref(null), logHost = ref(null)
 const message = ref('Choose a team and a lead Pokémon to begin.'), log = ref([])
 const confirmingForfeit = ref(false), pendingChoice = shallowRef(null)
@@ -15,11 +17,17 @@ let generation = 0, controller = null, disposed = false
 
 const scene = createSimulationScene({ getHost: () => stage.value, onAvailability: value => { sceneAvailable.value = value } })
 const presenter = createSimulationPresenter({
-  getScene: scene.get, ensureScene: view => scene.ensure(view),
-  onDisplay: view => { displayed.value = view; scene.display(view) },
+  getScene: scene.get, ensureScene: (view, options) => scene.ensure(view, options),
+  faintScene: (view, options) => scene.faint(view, options),
+  onDisplay: (view, options) => { displayed.value = view; scene.display(view, options) },
   onMessage: text => { if (text) message.value = text },
   loadFx: async () => (await import('@battle/battle-fx')).createBattleFx(),
 })
+// Restore resting poses synchronously before presentation can borrow the actors.
+watch([effectsEnabled, reducedMotion, playing, pageVisible], ([enabled, reducedMotion, isPlaying, visible]) => {
+  scene.setIdleMotion({ enabled, reducedMotion, paused: isPlaying || !visible })
+}, { immediate: true, flush: 'sync' })
+const updateVisibility = () => { pageVisible.value = !document.hidden }
 
 const selectedPreset = computed(() => config.value?.presets.find(preset => preset.id === presetId.value) ?? config.value?.presets[0])
 const lead = computed(() => selectedPreset.value?.team[leadIndex.value])
@@ -75,19 +83,23 @@ async function acceptResponse(response, token, animate = true) {
   pendingChoice.value = null
   busy.value = false
   confirmingForfeit.value = false
-  if (!animate || !before || before.matchId !== response.matchId) {
+  if (!animate) {
     presenter.reset(response.view)
     displayed.value = response.view
     await nextTick()
+    if (!isCurrent(token)) return
     // Base rendering can load separately while all battle controls remain usable.
     void scene.ensure(response.view)
     message.value = response.view.result ? resultTitle.value : readyText()
   } else {
     playing.value = true
+    if (!before) displayed.value = response.view
+    await nextTick()
+    if (!isCurrent(token)) return
     if (effectsEnabled.value) showBattle()
     try {
       const presentation = await presenter.present({ before, after: response.view, events: response.events ?? [] }, { effectsEnabled: effectsEnabled.value, reducedMotion: reducedMotion.value })
-      if (isCurrent(token) && presentation.status !== 'completed') message.value = readyText()
+      if (isCurrent(token) && (!before || presentation.status !== 'completed')) message.value = readyText()
     } finally { if (isCurrent(token)) playing.value = false }
   }
   if (!isCurrent(token)) return
@@ -115,7 +127,7 @@ async function startBattle() {
     const response = await simulationRequest('match', { method: 'POST', body: { presetId: selectedPreset.value.id, leadIndex: leadIndex.value, expectedMatchId: latest.value?.matchId ?? null }, signal })
     if (!isCurrent(token)) return
     log.value = []; presenter.reset(null); scene.clear()
-    await acceptResponse(response, token, false)
+    await acceptResponse(response, token)
     if (isCurrent(token)) showBattle()
   } catch (cause) { if (isCurrent(token)) error.value = cause.message }
   finally { if (isCurrent(token)) busy.value = false }
@@ -165,8 +177,15 @@ async function newBattle() {
   finally { if (isCurrent(token)) busy.value = false }
 }
 
-onMounted(() => { reducedMotion.value = matchMedia('(prefers-reduced-motion: reduce)').matches; void initialize() })
-onBeforeUnmount(() => { disposed = true; generation++; controller?.abort(); presenter.destroy(); scene.destroy() })
+onMounted(() => {
+  reducedMotion.value = matchMedia('(prefers-reduced-motion: reduce)').matches
+  updateVisibility(); document.addEventListener('visibilitychange', updateVisibility)
+  void initialize()
+})
+onBeforeUnmount(() => {
+  document.removeEventListener('visibilitychange', updateVisibility)
+  disposed = true; generation++; controller?.abort(); presenter.destroy(); scene.destroy()
+})
 </script>
 
 <template>
@@ -216,25 +235,25 @@ onBeforeUnmount(() => { disposed = true; generation++; controller?.abort(); pres
       <div v-if="latest" class="sim-layout">
         <section ref="arena" class="sim-arena" aria-label="Battle and controls">
           <div class="sim-arena-bar"><span class="sim-round">TURN {{ displayed?.turn || 1 }}</span><span>{{ displayed?.result ? 'BATTLE COMPLETE' : `${remaining} OF 6 TEAMMATES REMAIN` }}</span><button :disabled="busy || playing" @click="syncBattle" title="Reload the current battle state">Sync battle ↻</button></div>
-          <div class="sim-hud"><HealthCard :member="members[0]"/><div class="sim-versus" aria-hidden="true">VS</div><HealthCard :member="members[1]" opponent/></div>
-          <div v-if="sideConditions.length" class="sim-side-conditions"><span v-for="condition in sideConditions" :key="condition">{{ condition }}</span></div>
-          <div class="sim-field" :aria-label="`${members[0]?.species || 'Your Pokémon'} versus ${members[1]?.species || 'opponent'}`" role="img">
+          <div class="sim-field">
             <div class="sim-field-grid" aria-hidden="true"></div>
-            <div ref="stage" class="sim-canvas"></div>
-            <div v-if="sceneAvailable !== true" class="sim-fallback" aria-hidden="true"><img v-if="members[0] && !members[0].fainted" class="sim-near-sprite" :src="spriteUrl(members[0].species, 'back')" alt=""><img v-if="members[1] && !members[1].fainted" class="sim-far-sprite" :src="spriteUrl(members[1].species)" alt=""></div>
+            <div ref="stage" class="sim-canvas" :aria-label="`${members[0]?.species || 'Your Pokémon'} versus ${members[1]?.species || 'opponent'}`" role="img"></div>
+            <div v-if="sceneAvailable === false" class="sim-fallback" aria-hidden="true"><img v-if="members[0] && !members[0].fainted" class="sim-near-sprite" :src="spriteUrl(members[0].species, 'back')" alt=""><img v-if="members[1] && !members[1].fainted" class="sim-far-sprite" :src="spriteUrl(members[1].species)" alt=""></div>
+            <div class="sim-hud"><HealthCard :member="members[0]"/><HealthCard :member="members[1]" opponent/></div>
             <span v-if="weather" class="sim-weather">{{ weather }}</span>
-            <span class="sim-field-label">GENERATION III <span>·</span> SINGLE BATTLE</span>
           </div>
-          <div class="sim-message" role="status" aria-live="polite"><span aria-hidden="true">›</span><p>{{ message }}</p><button v-if="playing" @click="presenter.skip()">Skip animations</button></div>
+          <p class="sim-announcement" role="status" aria-live="polite">{{ message }}</p>
+          <div v-if="sideConditions.length" class="sim-side-conditions"><span v-for="condition in sideConditions" :key="condition">{{ condition }}</span></div>
+          <div class="sim-battle-details"><BattleDetails :member="members[0]"/><BattleDetails :member="members[1]" opponent/></div>
           <p v-if="sceneAvailable === false" class="sim-render-note">Effects are unavailable on this device. Battle controls still work.</p>
-          <div class="sim-playback"><label><input v-model="effectsEnabled" type="checkbox" @change="!effectsEnabled && presenter.skip()">Move effects</label><label><input v-model="reducedMotion" type="checkbox">Reduced motion</label><span>Visuals never change a battle result.</span></div>
+          <div class="sim-playback"><label><input v-model="effectsEnabled" type="checkbox" @change="!effectsEnabled && presenter.skip()">Battle animations</label><label><input v-model="reducedMotion" type="checkbox">Reduced motion</label><button v-if="playing" class="sim-skip-animation" @click="presenter.skip()">Skip animations</button><span>Visuals never change a battle result.</span></div>
 
           <section v-if="latest.result && !playing" class="sim-result" aria-labelledby="result-title"><p class="sim-eyebrow">BATTLE COMPLETE</p><h2 id="result-title">{{ resultTitle }}</h2><p>{{ latest.result.reason === 'forfeit' ? 'The battle ended by forfeit.' : `Finished on turn ${latest.turn}. Your battle log is available alongside the field.` }}</p><button class="sim-primary" :disabled="busy" @click="newBattle">Choose a new team <span aria-hidden="true">↗</span></button></section>
           <div v-else class="sim-decisions">
             <div class="sim-decision-heading"><h2>{{ decisionPrompt }}</h2><span v-if="!locked && decision?.kind === 'move'">Choose one action</span></div>
             <div v-if="decision?.kind !== 'switch'" class="sim-move-grid">
               <button v-for="move in decision?.moves" :key="move.slot" class="sim-move" :class="`sim-type-${moveInfo(move).type?.toLowerCase()}`" :disabled="locked || decision?.kind !== 'move' || move.disabled" :title="moveInfo(move).shortDesc || move.name" @click="sendChoice({ kind: 'move', slot: move.slot })">
-                <div><span class="sim-move-type">{{ moveInfo(move).type || 'Move' }}</span><span>{{ move.pp === null ? '—' : move.pp }} / {{ move.maxpp === null ? '—' : move.maxpp }} PP</span></div><strong>{{ moveInfo(move).name || move.name }}</strong><small>{{ move.disabled ? 'Unavailable this turn' : moveInfo(move).category === 'Status' ? 'Status move' : `Power ${moveInfo(move).basePower || 'variable'}` }}</small>
+                <div><span class="sim-move-type">{{ moveInfo(move).type || 'Move' }}</span><span>{{ move.pp === null ? '—' : move.pp }} / {{ move.maxpp === null ? '—' : move.maxpp }} PP</span></div><strong>{{ moveInfo(move).name || move.name }}</strong><small v-if="move.disabled">Unavailable this turn</small>
               </button>
             </div>
             <div class="sim-party-heading"><h3>{{ decision?.kind === 'switch' ? 'Send out a teammate' : 'Or switch Pokémon' }}</h3><span v-if="!decision?.canSwitch && decision?.kind === 'move'">Switching unavailable this turn</span></div>

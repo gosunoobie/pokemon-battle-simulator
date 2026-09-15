@@ -14,6 +14,13 @@ const conditions = { brn: 'burned', par: 'paralyzed', slp: 'asleep', psn: 'poiso
 const weatherNames = { RainDance: 'Rain', SunnyDay: 'Harsh sunlight', Sandstorm: 'A sandstorm', Hail: 'Hail' }
 const members = view => [...(view?.own?.team ?? []), ...(view?.opponent?.known ?? [])]
 const memberFor = (view, id) => members(view).find(member => member.memberId === id)
+// The server already decided the knockout. These IDs only retain the outgoing
+// artwork long enough to present it, including a faint that clears active first.
+function newlyFaintedActors(before, after) {
+  return [['source', before?.own?.active], ['target', before?.opponent?.active]]
+    .filter(([, id]) => id && !memberFor(before, id)?.fainted && memberFor(after, id)?.fainted)
+    .map(([actorId]) => actorId)
+}
 const opcodeOf = event => event.args?.opcode
 const fieldsOf = event => event.args?.fields ?? []
 const append = (list, value) => { if (value && !list.includes(value)) list.push(value) }
@@ -212,8 +219,8 @@ function groupsFor(events) {
 
 /** Optional FX for a batch already committed by the authoritative server. */
 export function createSimulationPresenter({ getScene, ensureScene = async () => {}, onDisplay,
-  onMessage = () => {}, loadFx, timeoutMs = 7500 }) {
-  if (![getScene, ensureScene, onDisplay, onMessage, loadFx].every(value => typeof value === 'function')) throw new TypeError('Presenter callbacks are required')
+  onMessage = () => {}, faintScene = async () => {}, loadFx, timeoutMs = 7500 }) {
+  if (![getScene, ensureScene, onDisplay, onMessage, faintScene, loadFx].every(value => typeof value === 'function')) throw new TypeError('Presenter callbacks are required')
   if (!Number.isFinite(timeoutMs) || timeoutMs <= 0) throw new TypeError('A positive presentation timeout is required')
   let generation = 0, active = null, destroyed = false, fxPromise = null
   const safe = (callback, ...args) => { try { callback(...args) } catch {} }
@@ -241,7 +248,7 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
     } }
     active = current
     const valid = () => !destroyed && generation === token && active === current
-    const publish = view => { if (valid()) safe(onDisplay, view) }
+    const publish = (view, options) => { if (valid()) safe(onDisplay, view, options) }
     const message = text => { if (valid() && text) safe(onMessage, text) }
     const bounded = async (work, cancellable = true) => {
       let timer
@@ -252,8 +259,10 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
         return result.value
       } finally { clearTimeout(timer) }
     }
-    const prepareScene = async (view, cancellable = true) => {
-      try { await bounded(() => valid() ? ensureScene(view) : undefined, cancellable) }
+    const prepareScene = async (view, cancellable = true, entryActorIds = []) => {
+      try { await bounded(() => valid() ? ensureScene(view, {
+        entryActorIds, reducedMotion, signal: cancellable ? controller.signal : undefined,
+      }) : undefined, cancellable) }
       catch (error) {
         if (!['skipped', 'cancelled'].includes(error.presentationStatus)) sceneFailed = true
         throw error
@@ -263,7 +272,9 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
     try {
       if (!effectsEnabled || !before) {
         publish(after)
-        await prepareScene(after)
+        const entries = effectsEnabled && !before ? ['source', 'target'] : []
+        if (entries.length) message('The trainers are sending out their Pokémon!')
+        await prepareScene(after, true, entries)
         finalSceneReady = true
       } else {
         let displayed = clone(before)
@@ -272,6 +283,7 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
           const first = group[0]
           const next = clone(displayed)
           for (const event of group) applyFact(next, event)
+          const faintActorIds = newlyFaintedActors(displayed, next)
           const effect = opcodeOf(first) === 'move' ? effects.get(normalize(fieldsOf(first)[1])) : null
           const prepare = group.some(event => opcodeOf(event) === '-prepare')
           // A later kick can miss after an earlier hit. Only skip successful-hit
@@ -280,7 +292,10 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
           const failed = !landedDamage && group.some(event => failures.has(opcodeOf(event)))
           message(describeEvent(first, displayed, after))
           let revealed = false
-          const reveal = () => { if (!revealed && valid() && !stoppedStatus) { revealed = true; publish(next) } }
+          const reveal = () => { if (!revealed && valid() && !stoppedStatus) {
+            revealed = true
+            publish(next, { retainFaintedActorIds: faintActorIds })
+          } }
           if (effect && !failed && (!prepare || effect.phases?.includes('prepare'))) {
             await prepareScene(displayed)
             if (valid() && !stoppedStatus && getScene()) {
@@ -305,8 +320,24 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
             }
           }
           reveal()
+          if (faintActorIds.length && valid() && !stoppedStatus) {
+            // Let the attack recover first. Only then retire its defeated actor,
+            // before any switch, forced replacement, or result that follows.
+            const result = await bounded(() => faintScene(next, {
+              actorIds: faintActorIds, reducedMotion, signal: controller.signal,
+            }))
+            if (result?.status === 'failed' || result?.status === 'cancelled') {
+              throw Object.assign(new Error('Faint animation unavailable'), { presentationStatus: 'failed' })
+            }
+          }
           displayed = next
-          if (group.some(event => structural.has(opcodeOf(event)))) await prepareScene(next)
+          if (group.some(event => structural.has(opcodeOf(event)))) {
+            // Switches are server facts; wait for the new sprite's cosmetic entry
+            // before presenting the next action. Form/identity corrections aren't throws.
+            const entries = ['switch', 'drag'].includes(opcodeOf(first))
+              ? [fieldsOf(first)[0]?.startsWith(`${after.seat ?? 'p1'}:`) ? 'source' : 'target'] : []
+            await prepareScene(next, true, entries)
+          }
         }
         if (stoppedStatus) status = stoppedStatus
       }
@@ -319,8 +350,15 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
         publish(after)
         // A skipped attack may have been followed by a replacement. Reconcile
         // artwork too, while preserving the same deadline and reset guards.
-        if (!finalSceneReady && !sceneFailed) {
-          try { await prepareScene(after, false) } catch { if (status === 'completed') status = 'failed' }
+        if (!finalSceneReady) {
+          if (sceneFailed) {
+            // A timed-out intermediate lineup must not mount after the final view.
+            // An aborted signal disables entry/waiting while the coordinator
+            // invalidates that old load and restores the final artwork in the background.
+            try { Promise.resolve(ensureScene(after, { entryActorIds: [], reducedMotion, signal: controller.signal })).catch(() => {}) } catch {}
+          } else {
+            try { await prepareScene(after, false) } catch { if (status === 'completed') status = 'failed' }
+          }
         }
         if (valid()) active = null
       }

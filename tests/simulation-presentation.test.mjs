@@ -166,6 +166,93 @@ test('switches establish their new actor before subsequent attacks', async () =>
   assert.equal(h.requests[0].sourceId, 'target')
 })
 
+test('a fresh battle awaits both opening releases without loading move effects or changing the server view', async () => {
+  const entered = deferred(), released = deferred(), options = [], batch = { before: null, after: fixture().before }
+  const saved = clone(batch)
+  const h = harness({ ensureScene: async (view, config) => { options.push(config); entered.resolve(); await released.promise },
+    loadFx: () => { throw new Error('Opening is not a move') } })
+  let completed = false
+  const pending = h.presenter.present(batch, { reducedMotion: true }).then(result => { completed = true; return result })
+  await entered.promise
+  assert.equal(completed, false)
+  assert.deepEqual(options[0].entryActorIds, ['source', 'target'])
+  assert.equal(options[0].reducedMotion, true)
+  assert.equal(options[0].signal.aborted, false)
+  released.resolve()
+  assert.equal((await pending).status, 'completed')
+  assert.deepEqual(h.displays.at(-1), batch.after)
+  assert.deepEqual(batch, saved)
+  assert.equal(options.length, 1, 'final reconciliation does not repeat the opening')
+})
+
+test('switch and forced replacement releases finish before the next attack from either seat', async () => {
+  for (const [opcode, seat, expected] of [['switch', 'p1', 'source'], ['drag', 'p1', 'source'], ['switch', 'p2', 'target']]) {
+    const batch = fixture(), entered = deferred(), released = deferred(), phases = []
+    batch.before.seat = seat; batch.after.seat = seat
+    if (seat === 'p2') for (const view of [batch.before, batch.after]) {
+      const own = view.own, opponent = view.opponent
+      view.own = { active: opponent.active, team: opponent.known }
+      view.opponent = { active: own.active, known: own.team }
+    }
+    const switchedSide = seat === 'p1' ? batch.after.own : batch.after.opponent
+    switchedSide.active = 'p1:2'
+    for (const member of switchedSide.team ?? switchedSide.known) member.active = member.memberId === 'p1:2'
+    batch.events = [event(11, opcode, 'p1:2', 'Blastoise, L100', '320/320'),
+      event(12, 'move', 'p2:revealed:1', 'Razor Leaf', 'p1:2')]
+    const h = harness({ ensureScene: async (view, config) => {
+      if (config.entryActorIds.length) { phases.push('release'); assert.deepEqual(config.entryActorIds, [expected]); entered.resolve(); await released.promise; phases.push('released') }
+    }, loadFx: async () => ({ play() { phases.push('move'); return { finished: Promise.resolve({ status: 'completed' }) } } }) })
+    const pending = h.presenter.present(batch)
+    await entered.promise
+    assert.deepEqual(phases, ['release'], 'move cannot play while incoming sprite is inside the ball')
+    released.resolve(); await pending
+    assert.deepEqual(phases, ['release', 'released', 'move'])
+    assert.deepEqual(h.displays.at(-1), batch.after)
+  }
+})
+
+test('effects off and form/identity corrections never request a Poké Ball release', async () => {
+  const options = [], h = harness({ ensureScene: async (view, config) => options.push(config) })
+  const batch = fixture()
+  await h.presenter.present({ before: null, after: batch.after }, { effectsEnabled: false })
+  for (const opcode of ['detailschange', '-formechange', '-transform', 'replace']) {
+    batch.events = [event(11, opcode, 'p1:1', 'Blastoise, L100', '300/300')]
+    await h.presenter.present(batch)
+  }
+  assert.ok(options.length > 0)
+  assert.ok(options.every(config => config.entryActorIds.length === 0))
+})
+
+test('skip and timeout abort an entry and reconcile the final lineup without another release', async () => {
+  for (const stop of ['skip', 'timeout']) {
+    const entered = deferred(), calls = [], after = fixture().after
+    const h = harness({ timeoutMs: stop === 'timeout' ? 15 : 7500, ensureScene: async (view, config) => {
+      calls.push(config)
+      if (config.entryActorIds.length) { entered.resolve(); await new Promise(() => {}) }
+    } })
+    const pending = h.presenter.present({ before: null, after })
+    await entered.promise
+    if (stop === 'skip') h.presenter.skip()
+    assert.equal((await pending).status, stop === 'skip' ? 'skipped' : 'failed')
+    assert.equal(calls[0].signal.aborted, true)
+    assert.ok(calls.slice(1).every(config => config.entryActorIds.length === 0))
+    assert.deepEqual(h.displays.at(-1), after)
+  }
+})
+
+test('reset during opening aborts the release and prevents a late scene completion from repainting', async () => {
+  const entered = deferred(), finish = deferred(), batch = fixture()
+  let signal
+  const h = harness({ ensureScene: async (view, config) => { signal = config.signal; entered.resolve(); await finish.promise } })
+  const pending = h.presenter.present({ before: null, after: batch.after })
+  await entered.promise
+  h.presenter.reset(batch.before)
+  assert.equal(signal.aborted, true)
+  assert.equal((await pending).status, 'cancelled')
+  finish.resolve(); await tick()
+  assert.deepEqual(h.displays.at(-1), batch.before)
+})
+
 test('a knockout finishes before replacing its sprite, without showing future opponent details', async () => {
   const batch = fixture(), activeAtPlayback = []
   let currentScene
@@ -255,4 +342,115 @@ test('destroy disposes a late-loaded runtime and never repaints a detached page'
   assert.equal(disposed, 1)
   assert.equal(h.displays.length, 0)
   assert.equal((await h.presenter.present(fixture())).status, 'cancelled')
+})
+
+function knockoutBatch() {
+  const batch = fixture()
+  batch.after = clone(batch.before)
+  const defeated = batch.after.opponent.known[0]
+  defeated.hp.current = 0; defeated.fainted = true; defeated.active = false
+  batch.after.opponent.known.push(pokemon('p2:revealed:2', 'Gengar', 48))
+  batch.after.opponent.active = 'p2:revealed:2'; batch.after.cursor = 15
+  batch.events = [event(11, 'move', 'p1:1', 'Flamethrower', 'p2:revealed:1'),
+    event(12, '-damage', 'p2:revealed:1', '0 fnt'), event(13, 'faint', 'p2:revealed:1'),
+    event(14, 'switch', 'p2:revealed:2', 'Gengar, L100', '48/48'), event(15, 'turn', '2')]
+  batch.after.turn = 2
+  return batch
+}
+
+test('zero HP is revealed at impact, then faint waits for attack recovery and precedes replacement entry', async () => {
+  const attackReady = deferred(), attackDone = deferred(), faintReady = deferred(), faintDone = deferred()
+  const published = [], entries = [], faintRequests = [], batch = knockoutBatch(), saved = clone(batch)
+  const h = harness({
+    onDisplay: (view, options) => published.push({ view: clone(view), options }),
+    ensureScene: async (view, options) => entries.push({ view: clone(view), options }),
+    loadFx: async () => ({ play(request, options) {
+      options.onCue({ type: 'impact' }); attackReady.resolve()
+      return { finished: attackDone.promise }
+    } }),
+    faintScene: async (view, options) => { faintRequests.push({ view: clone(view), options }); faintReady.resolve(); return faintDone.promise },
+  })
+  const pending = h.presenter.present(batch, { reducedMotion: true })
+  await attackReady.promise
+  assert.equal(published.at(-1).view.opponent.known[0].hp.current, 0)
+  assert.deepEqual(published.at(-1).options.retainFaintedActorIds, ['target'])
+  assert.equal(faintRequests.length, 0, 'the attack still owns the posed actor')
+  attackDone.resolve({ status: 'completed' }); await faintReady.promise
+  assert.deepEqual(faintRequests[0].options.actorIds, ['target'])
+  assert.equal(faintRequests[0].options.reducedMotion, true)
+  assert.equal(faintRequests[0].view.opponent.active, 'p2:revealed:1')
+  assert.ok(published.every(({ view }) => view.opponent.known.length === 1), 'future opponent remains unrevealed during faint')
+  assert.ok(entries.every(({ options }) => !options.entryActorIds.length), 'replacement has not entered')
+  faintDone.resolve({ status: 'completed' })
+  assert.equal((await pending).status, 'completed')
+  assert.equal(faintRequests.length, 1, 'the following faint opcode does not repeat the clip')
+  assert.ok(entries.some(({ view, options }) => view.opponent.active === 'p2:revealed:2' && options.entryActorIds[0] === 'target'))
+  assert.deepEqual(published.at(-1).view, batch.after)
+  assert.equal(published.at(-1).options, undefined, 'final reconciliation never retains defeated artwork')
+  assert.deepEqual(batch, saved)
+})
+
+test('own-side residual damage, direct faint and simultaneous knockouts each retire the correct field actors once', async () => {
+  for (const kind of ['residual', 'direct', 'both', 'unregistered']) {
+    const batch = fixture(), retired = [], retained = []
+    batch.after = clone(batch.before)
+    const targets = kind === 'both' ? ['p1:1', 'p2:revealed:1'] : ['p1:1']
+    for (const id of targets) {
+      const side = id.startsWith('p1') ? batch.after.own : batch.after.opponent
+      const member = (side.team ?? side.known).find(member => member.memberId === id)
+      member.hp.current = 0; member.fainted = true; member.active = false; side.active = null
+    }
+    batch.events = kind === 'direct' ? [event(11, 'faint', 'p1:1')] : kind === 'residual'
+      ? [event(11, '-damage', 'p1:1', '0 fnt', '[from] psn'), event(12, 'faint', 'p1:1')]
+      : [event(11, 'move', 'p1:1', kind === 'both' ? 'Explosion' : 'Unregistered Move', 'p2:revealed:1'),
+        ...targets.map((id, i) => event(12 + i, '-damage', id, '0 fnt')),
+        ...targets.map((id, i) => event(14 + i, 'faint', id))]
+    batch.after.cursor = batch.events.at(-1).cursor
+    const h = harness({ faintScene: async (view, options) => { retired.push(options.actorIds); return { status: 'completed' } },
+      onDisplay: (view, options) => { if (options?.retainFaintedActorIds.length) retained.push(options.retainFaintedActorIds) } })
+    assert.equal((await h.presenter.present(batch)).status, 'completed', kind)
+    assert.deepEqual(retired, [kind === 'both' ? ['source', 'target'] : ['source']], kind)
+    assert.deepEqual(retained, retired, kind)
+  }
+})
+
+test('effects-off and initial sync do not replay old knockouts', async () => {
+  const batch = knockoutBatch(), h = harness({ faintScene: () => { throw new Error('No faint should play') } })
+  assert.equal((await h.presenter.present(batch, { effectsEnabled: false })).status, 'skipped')
+  assert.equal((await h.presenter.present({ before: null, after: batch.after })).status, 'completed')
+  assert.deepEqual(h.displays.at(-1), batch.after)
+})
+
+test('skip, timeout and transition failure reconcile the same final knockout and replacement', async () => {
+  for (const mode of ['skip', 'timeout', 'rejected', 'failed']) {
+    const started = deferred(), batch = knockoutBatch()
+    let faintSignal
+    const h = harness({ timeoutMs: 25, faintScene: async (view, options) => {
+      faintSignal = options.signal; started.resolve()
+      if (mode === 'rejected') throw new Error('Failed to load transition')
+      if (mode === 'failed') return { status: 'failed' }
+      return new Promise(() => {})
+    } })
+    const pending = h.presenter.present(batch)
+    await started.promise
+    if (mode === 'skip') h.presenter.skip()
+    assert.equal((await pending).status, mode === 'skip' ? 'skipped' : 'failed')
+    assert.equal(faintSignal.aborted, true)
+    assert.deepEqual(h.displays.at(-1), batch.after)
+    assert.deepEqual(h.ensured.at(-1), batch.after)
+  }
+})
+
+test('reset during faint cancels its signal and ignores the old completion', async () => {
+  const started = deferred(), finish = deferred(), batch = knockoutBatch()
+  let faintSignal
+  const h = harness({ faintScene: async (view, options) => { faintSignal = options.signal; started.resolve(); return finish.promise } })
+  const pending = h.presenter.present(batch)
+  await started.promise
+  h.presenter.reset(batch.before)
+  assert.equal(faintSignal.aborted, true)
+  assert.equal((await pending).status, 'cancelled')
+  finish.resolve({ status: 'completed' }); await tick()
+  assert.deepEqual(h.displays.at(-1), batch.before)
+  assert.ok(h.ensured.every(view => view.opponent.active !== 'p2:revealed:2'))
 })
