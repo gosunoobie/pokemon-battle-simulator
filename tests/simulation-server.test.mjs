@@ -1,6 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { once } from 'node:events'
+import { spawn } from 'node:child_process'
 import { mkdtemp, writeFile, symlink, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -12,13 +13,14 @@ async function start(t, options) {
   await once(server, 'listening')
   t.after(() => new Promise(resolve => { server.close(resolve); server.closeAllConnections() }))
   const origin = `http://127.0.0.1:${server.address().port}`
+  const requestOrigin = options?.serviceOptions?.publicOrigin ? new URL(options.serviceOptions.publicOrigin).origin : origin
   let cookie
   let matchId = null
   const call = async (path, { method = 'GET', body, headers = {}, useCookie = true, useOrigin = true } = {}) => {
     const response = await fetch(`${origin}/api/simulation${path}`, {
       method,
       headers: {
-        ...(useOrigin ? { Origin: origin } : {}), ...(useCookie && cookie ? { Cookie: cookie } : {}),
+        ...(useOrigin ? { Origin: requestOrigin } : {}), ...(useCookie && cookie ? { Cookie: cookie } : {}),
         ...(body === undefined ? {} : { 'Content-Type': 'application/json' }), ...headers,
       },
       ...(body === undefined ? {} : { body: typeof body === 'string' ? body : JSON.stringify(body) }),
@@ -92,6 +94,154 @@ test('HTTP session reload, choices and exact retries preserve private ownership 
   for (const forbidden of ['"seed"', '"checkpoint"', '"inputLog"', '"p2team"', '"initial"', 'p2-1', 'p2-6']) assert(!serialized.includes(forbidden), forbidden)
   assert.equal((await api.call('/match', { useCookie: false })).status, 401)
   assert.equal((await api.call('/match', { headers: { Cookie: 'battle_simulation_v1=0000000000000000000000000000000000000000000000000000000000000000' } })).status, 401)
+})
+
+test('configured HTTPS origin supports proxied battles, retries and reconnects with secure session cookies', async t => {
+  const publicOrigin = 'https://battle.example'
+  const api = await start(t, { serviceOptions: { publicOrigin: `${publicOrigin}/` } })
+  assert.notEqual(api.origin, publicOrigin, 'The backend connection must differ from the browser origin')
+  assert.equal((await api.call('/config', { useOrigin: false })).status, 200)
+  const created = await create(api)
+  assert.equal(created.status, 200)
+  assert.match(created.headers.get('set-cookie'), /; Secure(?:;|$)/)
+  const cookie = api.cookie()
+  const initial = created.data
+  const command = { matchId: initial.matchId, commandId: 'proxy-retry-1', decisionId: initial.view.decision.id, action: { kind: 'move', slot: 1 }, afterCursor: initial.view.cursor }
+  const first = await api.call('/choice', { method: 'POST', body: command, headers: { 'Sec-Fetch-Site': 'same-origin' } })
+  assert.equal(first.status, 200)
+  assert.equal(first.data.ack.accepted, true)
+  assert(first.data.view.cursor > initial.view.cursor)
+  assert.match(first.headers.get('set-cookie'), /; Secure(?:;|$)/)
+  const retry = await api.call('/choice', { method: 'POST', body: command })
+  assert.deepEqual(retry.data, first.data)
+  const resumed = await api.call(`/match?afterCursor=${first.data.view.cursor}`, { headers: { 'Sec-Fetch-Site': 'none' } })
+  assert.equal(resumed.status, 200)
+  assert.deepEqual(resumed.data.view, first.data.view)
+  assert.deepEqual(resumed.data.events, [])
+  assert.equal(api.cookie(), cookie)
+  assert.match(resumed.headers.get('set-cookie'), /; Secure(?:;|$)/)
+  const deleted = await api.call('/match', { method: 'DELETE', body: { matchId: initial.matchId } })
+  assert.equal(deleted.status, 200)
+  assert.match(deleted.headers.get('set-cookie'), /Max-Age=0(?:;|$)/)
+  assert.match(deleted.headers.get('set-cookie'), /; Secure(?:;|$)/)
+  assert.equal((await api.call('/match', { headers: { Cookie: cookie } })).status, 401)
+})
+
+test('proxy mode rejects foreign origins and forwarded-header spoofing before changing a battle', async t => {
+  const publicOrigin = 'https://battle.example'
+  const api = await start(t, { serviceOptions: { publicOrigin } })
+  const initial = (await create(api)).data
+  const cookie = api.cookie()
+  const command = { matchId: initial.matchId, commandId: 'proxy-rejected', decisionId: initial.view.decision.id, action: { kind: 'move', slot: 1 }, afterCursor: initial.view.cursor }
+  const spoofed = {
+    Forwarded: 'for=127.0.0.1;host=battle.example;proto=https',
+    'X-Forwarded-Host': 'battle.example',
+    'X-Forwarded-Proto': 'https',
+    'X-Forwarded-Port': '443',
+  }
+  const rejectedRequests = [
+    { useOrigin: false },
+    { headers: { Origin: 'null' } },
+    { headers: { Origin: 'https://other.example' } },
+    { headers: { Origin: api.origin } },
+    { headers: { Origin: 'http://battle.example' } },
+    { headers: { Origin: `${publicOrigin}:444` } },
+    { headers: { Origin: `${publicOrigin}/` } },
+    { headers: { 'Sec-Fetch-Site': 'cross-site' } },
+    { headers: { 'Sec-Fetch-Site': 'same-site' } },
+    { headers: { Origin: 'https://other.example', ...spoofed } },
+    { useOrigin: false, headers: spoofed },
+  ]
+  for (const request of rejectedRequests) {
+    const rejected = await api.call('/choice', { method: 'POST', body: command, ...request })
+    assert.equal(rejected.status, 403, JSON.stringify(request))
+    assert.equal(rejected.data.error.code, 'ORIGIN_REJECTED')
+    assert.equal(rejected.headers.get('set-cookie'), null)
+    assert.equal(api.cookie(), cookie)
+    assert.deepEqual((await api.call('/match')).data, initial)
+  }
+  const accepted = await api.call('/choice', { method: 'POST', body: command, headers: {
+    Forwarded: 'host=attacker.example;proto=http',
+    'X-Forwarded-Host': 'attacker.example',
+    'X-Forwarded-Proto': 'http',
+  } })
+  assert.equal(accepted.status, 200, 'Forwarded headers must not override the explicitly configured origin')
+  assert.equal(accepted.data.ack.accepted, true, 'Rejected commands must not consume their command identity')
+  assert.match(accepted.headers.get('set-cookie'), /; Secure(?:;|$)/)
+})
+
+test('HTTP local development and configured HTTP origins do not force Secure cookies', async t => {
+  for (const publicOrigin of [undefined, 'http://localhost:5173/']) {
+    const api = await start(t, { serviceOptions: { publicOrigin } })
+    const created = await create(api)
+    assert.equal(created.status, 200)
+    assert.doesNotMatch(created.headers.get('set-cookie'), /; Secure(?:;|$)/)
+    const refreshed = await api.call('/match')
+    assert.doesNotMatch(refreshed.headers.get('set-cookie'), /; Secure(?:;|$)/)
+    const deleted = await api.call('/match', { method: 'DELETE', body: { matchId: created.data.matchId } })
+    assert.equal(deleted.status, 200)
+    assert.doesNotMatch(deleted.headers.get('set-cookie'), /; Secure(?:;|$)/)
+  }
+})
+
+test('public origin configuration rejects malformed or non-origin values at startup', () => {
+  for (const publicOrigin of [
+    '', ' ', 'null', '*', 'battle.example', '//battle.example',
+    'ftp://battle.example', 'https://*.example', 'https://user:password@battle.example',
+    'https://battle.example/path', 'https://battle.example//',
+    'https://battle.example?token=x', 'https://battle.example#fragment',
+    ' https://battle.example', 'https://battle.example ', 'https://battle. example',
+    'https://battle.example\n',
+  ]) {
+    assert.throws(() => createSimulationHttpServer({ serviceOptions: { publicOrigin } }), undefined, JSON.stringify(publicOrigin))
+  }
+})
+
+test('standalone startup reads PUBLIC_ORIGIN for HTTPS frontend requests', { timeout: 20_000 }, async t => {
+  const publicOrigin = 'https://deployed-battle.example'
+  const child = spawn(process.execPath, ['apps/server/start.mjs'], {
+    cwd: new URL('../', import.meta.url),
+    env: { ...process.env, HOST: '127.0.0.1', PORT: '0', PUBLIC_ORIGIN: publicOrigin },
+    stdio: ['ignore', 'pipe', 'pipe'],
+  })
+  const exited = once(child, 'exit')
+  t.after(async () => {
+    if (child.exitCode !== null || child.signalCode !== null) return
+    const force = setTimeout(() => child.kill('SIGKILL'), 1000)
+    try { child.kill('SIGTERM'); await exited } finally { clearTimeout(force) }
+  })
+  let output = ''
+  let errors = ''
+  child.stderr.setEncoding('utf8').on('data', chunk => { errors += chunk })
+  const backendOrigin = await new Promise((resolve, reject) => {
+    const deadline = setTimeout(() => reject(new Error(`Server startup timed out: ${errors}`)), 10_000)
+    const finish = (error, value) => {
+      clearTimeout(deadline)
+      child.stdout.off('data', onData)
+      child.off('error', onError)
+      child.off('exit', onExit)
+      if (error) reject(error)
+      else resolve(value)
+    }
+    const onData = chunk => {
+      output += chunk
+      const address = output.match(/http:\/\/127\.0\.0\.1:\d+/)?.[0]
+      if (address) finish(null, address)
+    }
+    const onError = error => finish(error)
+    const onExit = code => finish(new Error(`Server exited ${code}: ${errors}`))
+    child.stdout.setEncoding('utf8').on('data', onData)
+    child.once('error', onError)
+    child.once('exit', onExit)
+  })
+  const created = await fetch(`${backendOrigin}/api/simulation/match`, {
+    method: 'POST', headers: { Origin: publicOrigin, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ presetId: 'kanto', leadIndex: 0, expectedMatchId: null }),
+  })
+  assert.equal(created.status, 200, await created.text())
+  assert.match(created.headers.get('set-cookie'), /; Secure(?:;|$)/)
+  const foreign = await fetch(`${backendOrigin}/api/simulation/config`, { headers: { Origin: backendOrigin } })
+  assert.equal(foreign.status, 403)
 })
 
 test('HTTP rejects cross-origin, client authority, malformed JSON and oversized requests safely', async t => {

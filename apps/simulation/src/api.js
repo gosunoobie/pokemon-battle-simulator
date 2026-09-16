@@ -23,7 +23,7 @@ export async function simulationRequest(path, { method = 'GET', body, signal, ti
     })
     let data
     try { data = await response.json() }
-    catch { throw new SimulationError('The battle server is unavailable. Start the app with npm run dev, or npm start after building.', 'SERVER_UNAVAILABLE', response.status) }
+    catch { throw new SimulationError('The battle server is unavailable. Wait a moment, then reconnect.', 'SERVER_UNAVAILABLE', response.status) }
     if (!response.ok) throw new SimulationError(data.error?.message || 'The battle request could not be completed.', data.error?.code, response.status)
     return data
   } catch (error) {

@@ -139,7 +139,7 @@ if (process.argv[1] && pathToFileURL(resolve(process.argv[1])).href === import.m
   if (!Number.isInteger(port) || port < 0 || port > 65535) {
     throw new Error('PORT must be an integer between 0 and 65535');
   }
-  const server = createSimulationHttpServer();
+  const server = createSimulationHttpServer({ serviceOptions: { publicOrigin: process.env.PUBLIC_ORIGIN } });
   server.on('error', error => {
     console.error(`Simulation server failed: ${error.message}`);
     process.exitCode = 1;

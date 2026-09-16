@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/api/simulation/:path*",
+      "destination": "https://pokemon-battle-simulator-r1p3.onrender.com/api/simulation/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/simulation/:path*",
+      "headers": [
+        { "key": "x-vercel-enable-rewrite-caching", "value": "0" }
+      ]
+    }
+  ]
+}

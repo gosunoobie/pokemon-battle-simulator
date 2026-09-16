@@ -28,10 +28,22 @@ function send(res, status, data) {
   res.end(JSON.stringify(data))
 }
 
-function checkOrigin(req, required) {
+function parsePublicOrigin(value) {
+  if (value === undefined) return null
+  const invalid = () => { throw new TypeError('PUBLIC_ORIGIN must be one HTTP(S) origin without credentials, a path, query, fragment or wildcard.') }
+  if (typeof value !== 'string' || !/^https?:\/\/[^/\\\s?#]+\/?$/.test(value)) invalid()
+  let url
+  try { url = new URL(value) } catch { invalid() }
+  if (url.username || url.password || url.hostname.includes('*')) invalid()
+  return url.origin
+}
+
+function checkOrigin(req, required, publicOrigin) {
   const host = req.headers.host
   if (typeof host !== 'string' || /[\s/\\,#]/.test(host)) throw new HttpError(403, 'ORIGIN_REJECTED', 'The request must come from this application.')
-  const expected = `${req.socket.encrypted ? 'https' : 'http'}://${host}`
+  // Deployment configuration is authoritative; never trust caller-supplied
+  // Forwarded/X-Forwarded-* headers to expand the allowed browser origin.
+  const expected = publicOrigin ?? `${req.socket.encrypted ? 'https' : 'http'}://${host}`
   if ((required && !req.headers.origin) || (req.headers.origin && req.headers.origin !== expected) ||
       (req.headers['sec-fetch-site'] && !['same-origin', 'none'].includes(req.headers['sec-fetch-site']))) {
     throw new HttpError(403, 'ORIGIN_REJECTED', 'The request must come from this application.')
@@ -74,10 +86,11 @@ function cookieToken(req) {
 }
 
 /** In-memory local simulation host. Sessions survive page reloads, not restarts. */
-export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 24, requestsPerMinute = 600 } = {}) {
+export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 24, requestsPerMinute = 600, publicOrigin } = {}) {
   for (const [name, value] of Object.entries({ ttlMs, maxSessions, requestsPerMinute })) {
     if (!Number.isSafeInteger(value) || value < 1) throw new TypeError(`Invalid ${name}`)
   }
+  publicOrigin = parsePublicOrigin(publicOrigin)
   const sessions = new Map()
   let factory
   let config
@@ -114,8 +127,9 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
   const cleanup = setInterval(expire, Math.max(10, Math.min(ttlMs, 60_000)))
   cleanup.unref()
 
-  function setCookie(req, res, token) {
-    res.setHeader('Set-Cookie', `${COOKIE}=${token}; Path=${PREFIX}; HttpOnly; SameSite=Strict; Max-Age=${Math.ceil(ttlMs / 1000)}${req.socket.encrypted ? '; Secure' : ''}`)
+  function setCookie(req, res, token, maxAge = Math.ceil(ttlMs / 1000)) {
+    const secure = publicOrigin?.startsWith('https://') || req.socket.encrypted
+    res.setHeader('Set-Cookie', `${COOKIE}=${token}; Path=${PREFIX}; HttpOnly; SameSite=Strict; Max-Age=${maxAge}${secure ? '; Secure' : ''}`)
   }
   function requireSession(req, res) {
     const token = cookieToken(req)
@@ -186,7 +200,7 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
 
   async function route(req, res, url) {
     if (closed) throw new HttpError(503, 'SERVICE_CLOSED', 'The simulation server is stopping.')
-    checkOrigin(req, !['GET', 'HEAD'].includes(req.method))
+    checkOrigin(req, !['GET', 'HEAD'].includes(req.method), publicOrigin)
     if (req.method === 'GET' && url.pathname === `${PREFIX}/config`) {
       if (url.search) badRequest('INVALID_QUERY', 'This endpoint does not accept query parameters.')
       initialize()
@@ -265,7 +279,7 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
       const session = requireSession(req, res)
       matchCheck(session, body.matchId)
       removeSession(session.token)
-      res.setHeader('Set-Cookie', `${COOKIE}=; Path=${PREFIX}; HttpOnly; SameSite=Strict; Max-Age=0`)
+      setCookie(req, res, '', 0)
       send(res, 200, { cleared: true })
       return
     }

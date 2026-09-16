@@ -2,6 +2,8 @@
 
 Vue 3 + PixiJS 8 + GSAP 3, with **335 independently authored moves**, an optional effects package, previews from either side, and a playable Generation 3 battle simulation.
 
+For a current source-backed walkthrough of the whole workspace, read the [project structure and working guide](docs/PROJECT_GUIDE.md). It covers both battle paths, data and sprites, engine and API contracts, presentation, development workflows and remaining multiplayer/deployment work. Older overview and verification documents include historical snapshots.
+
 For the production engine plan, read the [Gen 3 battle engine guide and architecture comparison](/Users/cdr/pokemon-battle-vue/docs/BATTLE_ENGINE_GUIDE.md), including a reproducible simulator diagnostic and staged implementation gates.
 
 The independent [headless Gen 3 engine](/Users/cdr/pokemon-battle-vue/packages/battle-engine/README.md) is now available. Run `npm run engine:demo` for a complete battle with checkpoint recovery and replay verification, or `npm run test:engine` for its integration suite. The visual showcase continues to use its existing preview core.
