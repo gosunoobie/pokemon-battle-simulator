@@ -377,12 +377,12 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
 }
 
 /** The Node service is created only when a dev/preview server receives an API request. */
-export function simulationPlugin() {
+export function simulationPlugin(options = {}) {
   const install = server => {
     let service
     server.middlewares.use((req, res, next) => {
       if (!req.url?.startsWith(PREFIX)) { next(); return }
-      service ??= createSimulationService()
+      service ??= createSimulationService(options)
       service.middleware(req, res, next)
     })
     server.httpServer?.once('close', () => service?.close())

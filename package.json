@@ -10,6 +10,7 @@
     "start": "node apps/server/start.mjs",
     "test": "node --test tests/*.test.mjs",
     "test:simulation": "node --test tests/simulation-*.test.mjs",
+    "test:multiplayer": "node --test tests/multiplayer-*.test.mjs",
     "test:engine": "node --test packages/battle-engine/tests/*.test.mjs",
     "engine:demo": "node packages/battle-engine/examples/headless.mjs",
     "data:setup": "npm ci --prefix tools/data-import --ignore-scripts --omit=optional --no-audit --no-fund",

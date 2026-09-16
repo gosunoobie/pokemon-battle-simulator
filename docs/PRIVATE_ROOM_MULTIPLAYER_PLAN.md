@@ -1,6 +1,6 @@
 # Private-room multiplayer: implementation plan and design review
 
-Date: 16 September 2026. Status: reviewed proposal; multiplayer has not been implemented by this document.
+Date: 16 September 2026. Status: implemented as the bounded RAM-only first slice. This document preserves the design review; see [the runtime guide](MULTIPLAYER.md) for the actual modules, commands, operating limits and verification results. Live Vercel/Render deployment verification remains a release step.
 
 ## Recommendation
 

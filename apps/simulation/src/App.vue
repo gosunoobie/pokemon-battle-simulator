@@ -1,15 +1,9 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
-import HealthCard from './HealthCard.vue'
-import BattleDetails from './BattleDetails.vue'
-import BattleOverlay from './BattleOverlay.vue'
-import ImpactFeedback from './ImpactFeedback.vue'
+import BattleView from '../../shared/battle/BattleView.vue'
 import TeamBuilder from './TeamBuilder.vue'
 import { createCommandId, simulationRequest } from './api.js'
-import { activeMembers, createSimulationScene, spriteUrl } from './scene.js'
-import { buildBattleLog, createSimulationPresenter } from './presentation.js'
-import { createBattleSequence } from './sequence.js'
-import { createImpactPlayback } from './impactPlayback.js'
+import { activeMembers, spriteUrl, buildBattleLog, viewerResultTitle } from '../../shared/battle/index.js'
 import { createTeamDraft, toTeamPayload, draftIssues, readTeamDraft, saveTeamDraft } from './teamDraft.js'
 
 const config = shallowRef(null), latest = shallowRef(null), displayed = shallowRef(null)
@@ -18,34 +12,11 @@ const presetId = ref('kanto'), leadIndex = ref(0), busy = ref(true), playing = r
 const teamMode = ref('preset'), customTeam = shallowRef(createTeamDraft()), teamCatalog = shallowRef(null)
 const catalogLoading = ref(false), catalogError = ref(''), teamErrors = shallowRef([]), teamValidation = shallowRef(null)
 const draftSaved = ref(false)
-const error = ref(''), effectsEnabled = ref(true), reducedMotion = ref(false)
-const pageVisible = ref(true)
-const sceneAvailable = ref(null), stage = ref(null), arena = ref(null), logHost = ref(null), setupTitle = ref(null)
+const error = ref(''), reducedMotion = ref(false)
+const battleView = ref(null), arena = ref(null), logHost = ref(null), setupTitle = ref(null)
 const message = ref('Choose a region, your team and a lead Pokémon to begin.'), log = ref([])
 const confirmingForfeit = ref(false), pendingChoice = shallowRef(null), pendingQuit = shallowRef(null)
-const battleOverlay = shallowRef(null), openingBattle = ref(false)
-const impactFeedback = shallowRef(null)
 let generation = 0, controller = null, catalogController = null, disposed = false
-
-const scene = createSimulationScene({ getHost: () => stage.value, onAvailability: value => { sceneAvailable.value = value } })
-const impactPlayer = createImpactPlayback({ getScene: scene.get, onFeedback: value => { impactFeedback.value = value } })
-const movePresenter = createSimulationPresenter({
-  getScene: scene.get, ensureScene: (view, options) => scene.ensure(view, options),
-  faintScene: (view, options) => scene.faint(view, options),
-  playImpact: impactPlayer.play,
-  onDisplay: (view, options) => { displayed.value = view; scene.display(view, options) },
-  onMessage: text => { if (text) message.value = text },
-  loadFx: async () => (await import('@battle/battle-fx')).createBattleFx(),
-})
-const presenter = createBattleSequence({ presenter: movePresenter, onOverlay: value => { battleOverlay.value = value } })
-// Restore resting poses synchronously before presentation can borrow the actors.
-watch([effectsEnabled, reducedMotion, playing, pageVisible], ([enabled, reducedMotion, isPlaying, visible]) => {
-  scene.setIdleMotion({ enabled, reducedMotion, paused: isPlaying || !visible })
-}, { immediate: true, flush: 'sync' })
-watch([effectsEnabled, reducedMotion, pageVisible], ([enabled, reduced, visible], [, previousReduced]) => {
-  if (!enabled || !visible || reduced !== previousReduced) presenter.skip()
-}, { flush: 'sync' })
-const updateVisibility = () => { pageVisible.value = !document.hidden }
 
 const selectedPreset = computed(() => config.value?.presets.find(preset => preset.id === presetId.value) ?? config.value?.presets[0])
 const selectedTeam = computed(() => teamMode.value === 'custom' ? customTeam.value : selectedPreset.value?.team ?? [])
@@ -63,9 +34,7 @@ const resultTitle = computed(() => {
   if (run.value?.status === 'won') return `You are the ${run.value.regionName} Champion!`
   if (run.value?.status === 'between-battles') return `${run.value.opponent.name} defeated.`
   if (run.value?.status === 'lost') return 'Your league challenge has ended.'
-  const result = latest.value?.result
-  if (result?.kind === 'win') return result.winnerSeat === 'p1' ? 'You won the battle.' : 'Your opponent won.'
-  return result?.kind === 'draw' ? 'The battle is a draw.' : 'Battle ended.'
+  return viewerResultTitle(latest.value)
 })
 const resultEyebrow = computed(() => ({ won: 'REGIONAL CHAMPION', 'between-battles': 'ONE STEP CLOSER', lost: 'CHALLENGE ENDED' }[run.value?.status] ?? 'BATTLE COMPLETE'))
 const resultDetail = computed(() => {
@@ -81,12 +50,8 @@ function trainerState(index) {
   return run.value.status === 'lost' ? 'lost' : 'current'
 }
 const trainerStateLabel = index => ({ cleared: 'Defeated', current: 'In battle', lost: 'Challenge ended', upcoming: 'Up next' }[trainerState(index)])
-const weather = computed(() => ({ RainDance: 'Rain', SunnyDay: 'Harsh sunlight', Sandstorm: 'Sandstorm', Hail: 'Hail' }[displayed.value?.weather] ?? displayed.value?.weather))
-const sideConditions = computed(() => Object.entries(displayed.value?.sideConditions ?? {}).flatMap(([seat, values]) => values.map(value => `${seat === 'p1' ? 'Your side' : 'Opponent'}: ${value.replace(/^move: /, '')}`)))
 const decisionPrompt = computed(() => {
   if (pendingQuit.value) return busy.value ? 'Quitting the battle…' : 'Retry quit or sync to confirm the battle was cleared.'
-  if (playing.value && battleOverlay.value?.kind === 'intro') return 'Let the battle begin…'
-  if (playing.value && battleOverlay.value) return resultTitle.value
   if (playing.value) return 'Playing the turn…'
   if (busy.value) return 'Waiting for the battle server…'
   if (pendingChoice.value) return 'Sync or retry to confirm your last action.'
@@ -135,8 +100,7 @@ async function validateCustomTeam() {
   finally { if (isCurrent(token)) busy.value = false }
 }
 function showBattle() {
-  const bounds = stage.value?.getBoundingClientRect()
-  if (bounds && (bounds.top < 0 || bounds.bottom > window.innerHeight)) arena.value?.scrollIntoView({ behavior: reducedMotion.value ? 'instant' : 'smooth', block: 'start' })
+  battleView.value?.showBattle()
 }
 
 function beginRequest() {
@@ -175,25 +139,22 @@ async function acceptResponse(response, token, animate = true) {
   busy.value = false
   confirmingForfeit.value = false
   if (!animate) {
-    openingBattle.value = false
-    presenter.reset(response.view, { run: response.run })
     displayed.value = response.view
     await nextTick()
     if (!isCurrent(token)) return
     // Base rendering can load separately while all battle controls remain usable.
-    void scene.ensure(response.view)
+    void battleView.value?.sync(response.view, { run: response.run })
     message.value = response.view.result ? resultTitle.value : readyText()
   } else {
     playing.value = true
-    openingBattle.value = !before && effectsEnabled.value && pageVisible.value
     if (!before) displayed.value = response.view
     await nextTick()
     if (!isCurrent(token)) return
-    if (effectsEnabled.value) showBattle()
+    showBattle()
     try {
-      const presentation = await presenter.present({ before, after: response.view, events: response.events ?? [], run: response.run, playerLabel: selectedTeamLabel.value }, { effectsEnabled: effectsEnabled.value && pageVisible.value, reducedMotion: reducedMotion.value })
+      const presentation = await battleView.value.present({ before, after: response.view, events: response.events ?? [], run: response.run, playerLabel: selectedTeamLabel.value })
       if (isCurrent(token) && (!before || presentation.status !== 'completed')) message.value = readyText()
-    } finally { if (isCurrent(token)) { playing.value = false; openingBattle.value = false } }
+    } finally { if (isCurrent(token)) playing.value = false }
   }
   if (!isCurrent(token)) return
   addLog(response.events, before, response.view)
@@ -221,7 +182,7 @@ async function startBattle() {
   try {
     const response = await simulationRequest('match', { method: 'POST', body: { ...selection, leadIndex: leadIndex.value, expectedMatchId: latest.value?.matchId ?? null, ...(selectedLeague.value ? { regionId: selectedLeague.value.id } : {}) }, signal })
     if (!isCurrent(token)) return
-    log.value = []; presenter.reset(null); scene.clear()
+    log.value = []; battleView.value?.clear()
     await acceptResponse(response, token)
     if (isCurrent(token)) showBattle()
   } catch (cause) { if (isCurrent(token)) {
@@ -240,7 +201,7 @@ async function advanceBattle() {
     const response = await simulationRequest('advance', { method: 'POST', body: command, signal })
     if (!isCurrent(token)) return
     if (!response.view?.complete) throw new Error('The next battle is not ready. Sync or retry to recover your challenge.')
-    presenter.reset(null); scene.clear()
+    battleView.value?.clear()
     await acceptResponse(response, token)
     if (isCurrent(token)) showBattle()
   } catch (cause) { if (isCurrent(token)) error.value = cause.message }
@@ -260,10 +221,9 @@ async function sendChoice(action, retry = false) {
 }
 async function syncBattle() {
   if (busy.value) return
-  presenter.skip()
+  battleView.value?.skip()
   const { token, signal } = beginRequest()
   playing.value = false
-  openingBattle.value = false
   // Full snapshots recover even if another tab replaced the browser's match.
   try { await acceptResponse(await simulationRequest('match', { signal }), token, false) }
   catch (cause) {
@@ -284,10 +244,10 @@ async function forfeit() {
 function clearBattleState() {
   // Invalidate presentation before removing its actors. Late imports, impact
   // cues and result timers cannot repopulate a battle that has been cleared.
-  presenter.reset(null); impactPlayer.clear(); scene.clear()
+  battleView.value?.clear()
   latest.value = null; displayed.value = null; run.value = null; log.value = []
   pendingChoice.value = null; pendingAdvance.value = null; pendingQuit.value = null
-  confirmingForfeit.value = false; playing.value = false; openingBattle.value = false
+  confirmingForfeit.value = false; playing.value = false
   message.value = 'Choose a region, your team and a lead Pokémon to begin.'
 }
 async function quitBattle() {
@@ -297,11 +257,9 @@ async function quitBattle() {
   const command = pendingQuit.value ?? { matchId: latest.value.matchId }
   pendingQuit.value = command
   const { token, signal } = beginRequest()
-  presenter.reset(latest.value, { run: run.value })
-  impactPlayer.clear()
+  void battleView.value?.sync(latest.value, { run: run.value })
   displayed.value = latest.value
-  playing.value = false; openingBattle.value = false
-  void scene.ensure(latest.value)
+  playing.value = false
   try {
     let response
     try { response = await simulationRequest('match', { method: 'DELETE', body: command, signal }) }
@@ -327,12 +285,10 @@ onMounted(() => {
     if (saved) { customTeam.value = saved; teamMode.value = 'custom' }
   } catch {}
   reducedMotion.value = matchMedia('(prefers-reduced-motion: reduce)').matches
-  updateVisibility(); document.addEventListener('visibilitychange', updateVisibility)
   void initialize()
 })
 onBeforeUnmount(() => {
-  document.removeEventListener('visibilitychange', updateVisibility)
-  disposed = true; generation++; controller?.abort(); catalogController?.abort(); presenter.destroy(); impactPlayer.destroy(); scene.destroy()
+  disposed = true; generation++; controller?.abort(); catalogController?.abort()
 })
 </script>
 
@@ -428,20 +384,7 @@ onBeforeUnmount(() => {
       <div v-if="latest" class="sim-layout">
         <section ref="arena" class="sim-arena" aria-label="Battle and controls">
           <div class="sim-arena-bar"><span class="sim-round">TURN {{ displayed?.turn || 1 }}</span><span>{{ displayed?.result ? 'BATTLE COMPLETE' : `${remaining} OF 6 TEAMMATES REMAIN` }}</span><button :disabled="busy || playing" @click="syncBattle" title="Reload the current battle state">Sync battle ↻</button></div>
-          <div class="sim-field" :class="{ 'sim-field-intro': battleOverlay?.kind === 'intro', 'sim-field-opening': openingBattle }">
-            <div class="sim-field-grid" aria-hidden="true"></div>
-            <div ref="stage" class="sim-canvas" :aria-label="`${members[0]?.species || 'Your Pokémon'} versus ${members[1]?.species || 'opponent'}`" role="img"></div>
-            <div v-if="sceneAvailable === false" class="sim-fallback" aria-hidden="true"><img v-if="members[0] && !members[0].fainted" class="sim-near-sprite" :src="spriteUrl(members[0].species, 'back')" alt=""><img v-if="members[1] && !members[1].fainted" class="sim-far-sprite" :src="spriteUrl(members[1].species)" alt=""></div>
-            <div class="sim-impact-surface"><div class="sim-impact-fit"><ImpactFeedback :feedback="impactFeedback"/></div></div>
-            <div class="sim-hud"><HealthCard :member="members[0]" :impact="impactFeedback?.actorId === 'source' ? impactFeedback : null"/><HealthCard :member="members[1]" :impact="impactFeedback?.actorId === 'target' ? impactFeedback : null" opponent/></div>
-            <span v-if="weather" class="sim-weather">{{ weather }}</span>
-            <BattleOverlay :overlay="battleOverlay"/>
-          </div>
-          <p class="sim-announcement" role="status" aria-live="polite">{{ message }}</p>
-          <div v-if="sideConditions.length" class="sim-side-conditions"><span v-for="condition in sideConditions" :key="condition">{{ condition }}</span></div>
-          <div class="sim-battle-details"><BattleDetails :member="members[0]"/><BattleDetails :member="members[1]" opponent/></div>
-          <p v-if="sceneAvailable === false" class="sim-render-note">Effects are unavailable on this device. Battle controls still work.</p>
-          <div class="sim-playback"><label><input v-model="effectsEnabled" type="checkbox">Battle animations</label><label><input v-model="reducedMotion" type="checkbox">Reduced motion</label><button v-if="playing" class="sim-skip-animation" @click="presenter.skip()">Skip animations</button><span>Visuals never change a battle result.</span></div>
+          <BattleView ref="battleView" :player-label="selectedTeamLabel" @display="displayed = $event" @playback="playing = $event" @message="message = $event"/>
 
           <section v-if="latest.result && !playing" class="sim-result" :class="{ 'sim-result-champion': run?.status === 'won' }" aria-labelledby="result-title">
             <p class="sim-eyebrow">{{ resultEyebrow }}</p><h2 id="result-title">{{ resultTitle }}</h2><p>{{ resultDetail }}</p>

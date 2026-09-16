@@ -39,7 +39,7 @@
 .home-section-heading { display: flex; justify-content: space-between; gap: 20px; align-items: baseline; padding: 0 2px 17px; }
 .home-section-heading h2 { font-family: 'Space Grotesk', sans-serif; margin: 0; font-size: 17px; font-weight: 500; letter-spacing: -.35px; }
 .home-section-heading > span { font-size: 12px; color: #8f9f90; }
-.home-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
+.home-card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; }
 .home-card { --card-accent: #eab388; display: flex; flex-direction: column; min-width: 0; padding: 25px 24px 0; border: 1px solid #3d4c403f; border-radius: 12px; background: linear-gradient(150deg, #26342a 0, #1c2822 42%, #1a2620); text-decoration: none; transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease; }
 .home-card-preview { --card-accent: #b9d394; background: linear-gradient(150deg, #293429 0, #1c2822 42%, #1a2620); }
 .home-card-playground { --card-accent: #a5c5ce; background: linear-gradient(150deg, #253334 0, #1c2825 42%, #1a2622); }

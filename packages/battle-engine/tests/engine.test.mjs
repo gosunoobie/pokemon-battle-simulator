@@ -105,7 +105,7 @@ test('checkpoint corruption, wrong engine identity and unsafe JSON are rejected'
 });
 
 test('forfeit, draw and no-contest are terminal, durable and replayable system decisions', t => {
-  for (const decision of [{ kind: 'forfeit', seat: 'p1', reason: 'timeout' }, { kind: 'draw', reason: 'agreement' }, { kind: 'no-contest', reason: 'infrastructure' }]) {
+  for (const decision of [{ kind: 'forfeit', seat: 'p1', reason: 'timeout' }, { kind: 'draw', reason: 'agreement' }, { kind: 'no-contest', reason: 'infrastructure' }, { kind: 'no-contest', reason: 'timeout' }]) {
     const engine = factory.create(options()); t.after(() => engine.dispose());
     engine.submitDecision('p1', command(engine, 'p1', 'pending-system'));
     const result = engine.adjudicate(decision);

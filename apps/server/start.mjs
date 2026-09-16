@@ -5,6 +5,8 @@ import { realpath, stat } from 'node:fs/promises';
 import { extname, isAbsolute, relative, resolve, sep } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createSimulationService } from './simulation.js';
+import { createMultiplayerService } from './rooms/routes.js';
+import { resolveHostCapacity } from './capacity.js';
 
 const DEFAULT_DIST = fileURLToPath(new URL('../../dist/', import.meta.url));
 const MIME_TYPES = Object.freeze({
@@ -113,12 +115,14 @@ function staticFallback(distDirectory) {
   };
 }
 
-export function createSimulationHttpServer({ distDirectory = DEFAULT_DIST, serviceOptions } = {}) {
-  const service = createSimulationService(serviceOptions);
+export function createSimulationHttpServer({ distDirectory = DEFAULT_DIST, serviceOptions, multiplayerOptions, maxActiveBattles } = {}) {
+  const configured = resolveHostCapacity({ serviceOptions, multiplayerOptions, maxActiveBattles });
+  const service = createSimulationService(configured.serviceOptions);
+  const multiplayer = createMultiplayerService({ publicOrigin: serviceOptions?.publicOrigin, ...configured.multiplayerOptions });
   const serveStatic = staticFallback(distDirectory);
   const server = createServer((req, res) => {
     const fail = () => reply(res, 500, 'Internal server error', req.method);
-    const next = () => serveStatic(req, res).catch(fail);
+    const next = () => multiplayer.middleware(req, res, () => serveStatic(req, res)).catch(fail);
     try {
       Promise.resolve(service.middleware(req, res, next)).catch(fail);
     } catch {
@@ -129,7 +133,7 @@ export function createSimulationHttpServer({ distDirectory = DEFAULT_DIST, servi
   server.headersTimeout = 10_000;
   server.maxHeadersCount = 64;
   server.keepAliveTimeout = 5_000;
-  server.once('close', () => service.close());
+  server.once('close', () => { service.close(); void multiplayer.close(); });
   return server;
 }
 

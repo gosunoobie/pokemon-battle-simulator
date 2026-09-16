@@ -314,7 +314,7 @@ function makeEngine({ initial, expectedIdentity, saved, profile }) {
     ensureAlive();
     if (!keysAre(decision, ['kind', 'seat', 'reason'])) throw new EngineError('INVALID_ADJUDICATION', 'Supply a structured system decision.');
     const reason = decision.reason ?? (decision.kind === 'forfeit' ? 'forfeit' : decision.kind === 'draw' ? 'agreement' : 'infrastructure');
-    const reasons = { forfeit: ['forfeit', 'timeout'], draw: ['agreement', 'turn-limit'], 'no-contest': ['infrastructure'] };
+    const reasons = { forfeit: ['forfeit', 'timeout'], draw: ['agreement', 'turn-limit'], 'no-contest': ['infrastructure', 'timeout'] };
     if (!Object.hasOwn(reasons, decision.kind) || !reasons[decision.kind].includes(reason)) throw new EngineError('INVALID_ADJUDICATION', 'Unsupported result or reason.');
     if (decision.kind === 'forfeit') seatCheck(decision.seat);
     else if (decision.seat !== undefined) throw new EngineError('INVALID_ADJUDICATION', 'Only forfeits have a losing seat.');

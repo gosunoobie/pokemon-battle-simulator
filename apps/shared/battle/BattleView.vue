@@ -1,0 +1,131 @@
+<script setup>
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
+import HealthCard from './HealthCard.vue'
+import BattleDetails from './BattleDetails.vue'
+import BattleOverlay from './BattleOverlay.vue'
+import ImpactFeedback from './ImpactFeedback.vue'
+import { activeMembers, createSimulationScene, spriteUrl } from './scene.js'
+import { createSimulationPresenter } from './presentation.js'
+import { createBattleSequence } from './sequence.js'
+import { createImpactPlayback } from './impactPlayback.js'
+import { sideConditionLabels, viewerResultTitle } from './viewLabels.js'
+
+const props = defineProps({
+  playerLabel: { type: String, default: 'Your team' },
+  opponentName: { type: String, default: 'Opponent' },
+  opponentTitle: { type: String, default: 'Battle trainer' },
+  inactive: Boolean,
+})
+const emit = defineEmits(['display', 'playback', 'message'])
+const displayed = shallowRef(null), stage = ref(null), sceneAvailable = ref(null)
+const playing = ref(false), openingBattle = ref(false), message = ref('')
+const effectsEnabled = ref(true), reducedMotion = ref(false), pageVisible = ref(true)
+const battleOverlay = shallowRef(null), impactFeedback = shallowRef(null)
+let generation = 0, disposed = false
+const scene = createSimulationScene({ getHost: () => stage.value, onAvailability: value => { sceneAvailable.value = value } })
+const impactPlayer = createImpactPlayback({ getScene: scene.get, onFeedback: value => { impactFeedback.value = value } })
+function publishMessage(text) {
+  if (!disposed && text) { message.value = text; emit('message', text) }
+}
+const movePresenter = createSimulationPresenter({
+  getScene: scene.get, ensureScene: (view, options) => scene.ensure(view, options),
+  faintScene: (view, options) => scene.faint(view, options), playImpact: impactPlayer.play,
+  onDisplay: (view, options) => { displayed.value = view; scene.display(view, options); emit('display', view) },
+  onMessage: publishMessage,
+  loadFx: async () => (await import('@battle/battle-fx')).createBattleFx(),
+})
+const presenter = createBattleSequence({ presenter: movePresenter, onOverlay: value => { battleOverlay.value = value } })
+const members = computed(() => activeMembers(displayed.value))
+const weather = computed(() => ({ RainDance: 'Rain', SunnyDay: 'Harsh sunlight', Sandstorm: 'Sandstorm', Hail: 'Hail' }[displayed.value?.weather] ?? displayed.value?.weather))
+const sideConditions = computed(() => sideConditionLabels(displayed.value))
+function playback(value) { playing.value = value; emit('playback', value) }
+// Idle relinquishes its transforms synchronously before any presenter borrows them.
+watch([effectsEnabled, reducedMotion, playing, pageVisible, () => props.inactive], ([enabled, reduced, active, visible, inactive]) => {
+  scene.setIdleMotion({ enabled, reducedMotion: reduced, paused: active || !visible || inactive })
+}, { immediate: true, flush: 'sync' })
+watch([effectsEnabled, reducedMotion, pageVisible], ([enabled, reduced, visible], [, previousReduced]) => {
+  if (!enabled || !visible || reduced !== previousReduced) presenter.skip()
+}, { flush: 'sync' })
+const updateVisibility = () => { pageVisible.value = !document.hidden }
+const current = token => !disposed && generation === token
+function readyMessage(view) {
+  if (view?.result) return viewerResultTitle(view)
+  if (view?.decision?.kind === 'wait') return 'Waiting for the next decision.'
+  return view?.decision?.kind === 'switch' ? 'Choose a Pokémon to send out.' : 'Choose your next move, or switch to a teammate.'
+}
+
+// Incoming network snapshots do not automatically touch presentation. The host
+// serializes committed batches and explicitly requests a sync when necessary.
+async function present(batch, options = {}) {
+  if (disposed) return { status: 'cancelled' }
+  if (!batch?.after) throw new TypeError('An authoritative after view is required.')
+  const token = ++generation
+  const enabled = (options.effectsEnabled ?? effectsEnabled.value) && pageVisible.value
+  playback(true)
+  openingBattle.value = !batch.before && enabled
+  if (!batch.before) displayed.value = batch.after
+  await nextTick()
+  if (!current(token)) return { status: 'cancelled' }
+  try {
+    return await presenter.present({ playerLabel: props.playerLabel, opponentName: props.opponentName,
+      opponentTitle: props.opponentTitle, ...batch }, {
+      effectsEnabled: enabled, reducedMotion: options.reducedMotion ?? reducedMotion.value,
+    })
+  } finally {
+    if (current(token)) {
+      playback(false); openingBattle.value = false
+      publishMessage(readyMessage(batch.after))
+    }
+  }
+}
+async function sync(view, { run = null } = {}) {
+  if (disposed) return
+  const token = ++generation
+  // Invalidate cues and transient overlays before waiting for Vue or textures.
+  presenter.reset(view, { run }); impactPlayer.clear()
+  openingBattle.value = false; playback(false)
+  if (!view) { displayed.value = null; scene.clear(); emit('display', null); return }
+  publishMessage(readyMessage(view))
+  await nextTick()
+  // Texture availability is optional; reconnect must not wait on a slow renderer.
+  if (current(token)) void scene.ensure(view).catch(() => {})
+}
+function clear() {
+  generation++; presenter.reset(null); impactPlayer.clear(); scene.clear()
+  displayed.value = null; openingBattle.value = false; message.value = ''; playback(false)
+  emit('display', null)
+}
+function showBattle() {
+  const bounds = stage.value?.getBoundingClientRect()
+  if (bounds && (bounds.top < 0 || bounds.bottom > window.innerHeight)) {
+    stage.value.closest('.sim-arena')?.scrollIntoView({ behavior: reducedMotion.value ? 'instant' : 'smooth', block: 'start' })
+  }
+}
+defineExpose({ present, sync, clear, showBattle, skip: () => presenter.skip(), getDisplayed: () => displayed.value })
+onMounted(() => {
+  reducedMotion.value = matchMedia('(prefers-reduced-motion: reduce)').matches
+  updateVisibility(); document.addEventListener('visibilitychange', updateVisibility)
+})
+onBeforeUnmount(() => {
+  disposed = true; generation++
+  document.removeEventListener('visibilitychange', updateVisibility)
+  presenter.destroy(); impactPlayer.destroy(); scene.destroy()
+})
+</script>
+
+<template>
+  <div class="sim-field" :class="{ 'sim-field-intro': battleOverlay?.kind === 'intro', 'sim-field-opening': openingBattle }">
+    <div class="sim-field-grid" aria-hidden="true"></div>
+    <div ref="stage" class="sim-canvas" :aria-label="`${members[0]?.species || 'Your Pokémon'} versus ${members[1]?.species || 'opponent'}`" role="img"></div>
+    <div v-if="sceneAvailable === false" class="sim-fallback" aria-hidden="true"><img v-if="members[0] && !members[0].fainted" class="sim-near-sprite" :src="spriteUrl(members[0].species, 'back')" alt=""><img v-if="members[1] && !members[1].fainted" class="sim-far-sprite" :src="spriteUrl(members[1].species)" alt=""></div>
+    <div class="sim-impact-surface"><div class="sim-impact-fit"><ImpactFeedback :feedback="impactFeedback"/></div></div>
+    <div class="sim-hud"><HealthCard :member="members[0]" :impact="impactFeedback?.actorId === 'source' ? impactFeedback : null"/><HealthCard :member="members[1]" :impact="impactFeedback?.actorId === 'target' ? impactFeedback : null" opponent/></div>
+    <span v-if="weather" class="sim-weather">{{ weather }}</span>
+    <BattleOverlay :overlay="battleOverlay"/>
+  </div>
+  <p class="sim-announcement" role="status" aria-live="polite">{{ message }}</p>
+  <div v-if="sideConditions.length" class="sim-side-conditions"><span v-for="condition in sideConditions" :key="condition">{{ condition }}</span></div>
+  <div class="sim-battle-details"><BattleDetails :member="members[0]"/><BattleDetails :member="members[1]" opponent/></div>
+  <p v-if="sceneAvailable === false" class="sim-render-note">Effects are unavailable on this device. Battle controls still work.</p>
+  <div class="sim-playback"><label><input v-model="effectsEnabled" type="checkbox">Battle animations</label><label><input v-model="reducedMotion" type="checkbox">Reduced motion</label><button v-if="playing" class="sim-skip-animation" @click="presenter.skip()">Skip animations</button><span>Visuals never change a battle result.</span></div>
+</template>
