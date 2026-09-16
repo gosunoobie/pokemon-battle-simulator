@@ -34,6 +34,23 @@ test('transport preserves match-conflict errors and detects an HTML-only static 
   await assert.rejects(simulationRequest('config'), error => error.code === 'SERVER_UNAVAILABLE')
 })
 
+test('custom-team validation failures preserve actionable set issues without changing the submitted team', async t => {
+  const issues = [{ code: 'GEN3_LEGALITY', message: 'Charizard cannot learn Surf.', setIndex: 0 }]
+  let submitted
+  t.mock.method(globalThis, 'fetch', async (url, options) => {
+    submitted = JSON.parse(options.body)
+    return new Response(JSON.stringify({ error: { code: 'INVALID_TEAM', message: 'Review your team.', errors: issues } }), { status: 400 })
+  })
+  const command = { team: [{ species: 'Charizard', moves: ['Surf'] }], leadIndex: 0, expectedMatchId: null }
+  await assert.rejects(simulationRequest('match', { method: 'POST', body: command }), error => {
+    assert.equal(error.code, 'INVALID_TEAM')
+    assert.equal(error.status, 400)
+    assert.deepEqual(error.issues, issues)
+    return true
+  })
+  assert.deepEqual(submitted, command)
+})
+
 test('requests abort at their deadline instead of leaving controls waiting indefinitely', async t => {
   let aborted = false
   t.mock.method(globalThis, 'fetch', (url, { signal }) => new Promise((resolve, reject) => {

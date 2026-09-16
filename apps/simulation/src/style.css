@@ -7,6 +7,23 @@
 
 /* Match the preview's 1000 × 450 stage; the HUD belongs to the field itself. */
 .sim-field { container-type: inline-size; }
+.sim-team-mode { display: flex; gap: 7px; margin-bottom: 20px; }
+.sim-team-mode button, .sim-team-validation-actions button { padding: 11px 17px; color: #bdccb2; background: #14251d; border: 1px solid #45593f; border-radius: 6px; font-size: 12px; }
+.sim-team-mode button[aria-pressed=true] { color: #edf2df; background: #34482e; border-color: #bed792; }
+.sim-team-mode button:disabled, .sim-team-validation-actions button:disabled { opacity: .5; }
+.sim-team-validation { padding: 18px 0 0; }
+.sim-team-validation-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 15px; }
+.sim-team-validation-actions button { color: #202b1d; background: #bed792; border-color: #bed792; font-weight: 600; }
+.sim-team-validation-actions span, .sim-builder-note { font-size: 11px; line-height: 1.7; color: #a8b89a; }
+.sim-builder-note { margin: 12px 0 0; }
+.sim-team-valid { margin-top: 14px; font-size: 12px; color: #c7e399; }
+.sim-team-errors { margin-top: 15px; padding: 14px 16px; border: 1px solid #ca8b7055; border-radius: 7px; background: #683d2226; color: #edc2aa; font-size: 12px; line-height: 1.8; }
+.sim-team-errors ul, .sim-team-adjustments ul { padding-left: 18px; margin: 8px 0 0; }
+.sim-team-adjustments { margin-top: 12px; font-size: 11px; line-height: 1.8; color: #c5cba4; }
+.sim-team-adjustments summary { cursor: pointer; }
+.sim-empty-lead { height: 84px; display: grid; place-items: center; font-size: 24px; color: #73876b; }
+.sim-battle-actions .sim-quit-battle { padding: 8px 12px; border: 1px solid #a77c6870; border-radius: 5px; background: #a56b4f12; color: #e1b7a1; text-decoration: none; }
+.sim-battle-actions .sim-quit-battle:hover:not(:disabled) { border-color: #d9a68b; background: #a56b4f26; }
 .sim-impact-surface { position: absolute; inset: 0; z-index: 2; container-type: size; pointer-events: none; }
 /* Match the renderer's uniform 1000 × 450 fit, including mobile letterboxing. */
 .sim-impact-fit { position: absolute; left: 50%; top: 50%; width: min(100cqw, 222.222222cqh); aspect-ratio: 1000 / 450; transform: translate(-50%, -50%); }

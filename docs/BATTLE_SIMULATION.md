@@ -6,13 +6,55 @@ The home page (`/`) links the live battle simulation (`/simulation.html`), exist
 
 Use the existing Node 24 workspace installation, then `npm run dev`. The Vite server hosts all pages and the simulation API. For a built local version, run `npm run build` followed by `npm start`, then open `http://127.0.0.1:3000`. `npm run preview` also provides the API. An HTML-only static host can serve home/preview/playground but cannot run the Node engine.
 
-Select a regional league, then any Kanto, Johto or Hoenn player preset and its lead. Kanto uses FireRed/LeafGreen's Lorelei → Bruno → Agatha → Lance → Blue (Blastoise variant); Johto uses Gold/Silver's Will → Koga → Bruno → Karen → Lance; Hoenn uses Ruby/Sapphire's Sidney → Phoebe → Glacia → Drake → Steven. Regions never mix within a run. All Pokémon are level 100. The existing six-member player presets retain their original sets, validated under Open Singles. Battles use the separate `gen3regionalleaguev1` profile so original NPC party sizes and repeated species work. [Roster provenance and explicit adaptations](LEAGUE_ROSTERS.md) document the pinned sources, generated stats and one NPC-only move exception.
+Select a regional league, then a Kanto, Johto or Hoenn player preset or **Build my team**, and choose its lead. Kanto uses FireRed/LeafGreen's Lorelei → Bruno → Agatha → Lance → Blue (Blastoise variant); Johto uses Gold/Silver's Will → Koga → Bruno → Karen → Lance; Hoenn uses Ruby/Sapphire's Sidney → Phoebe → Glacia → Drake → Steven. Regions never mix within a run. All Pokémon are level 100. Player teams are validated under Open Singles. Battles use the separate `gen3regionalleaguev1` profile so original NPC party sizes and repeated species work. [Roster provenance and explicit adaptations](LEAGUE_ROSTERS.md) document the pinned sources, generated stats and one NPC-only move exception.
 
 Win each battle to unlock the next trainer. Four Elite Four wins unlock the Champion; five wins complete the regional challenge. A loss, draw or forfeit ends the run. Before each opponent, the same starting team and selected lead are recreated with full HP and PP, clear statuses, original held items (including consumed berries), and fresh battle state. The team and region stay fixed for the run. There is no healing bag, cartridge trainer AI, ranked record, persistent trophy collection or cross-region tournament in this slice.
 
 Each match starts immediately without team preview. Choose one legal move or switch per decision; a faint or other forced replacement exposes the engine's replacement choices. A simple automated opponent chooses legal actions, preferring the first available damaging move. This is a mechanics demonstration, not a strategic AI benchmark.
 
 The interface shows regional progress, move PP and pinned Gen 3 metadata, exact own HP, public opponent HP, major conditions, stat changes, side conditions, revealed abilities/items and a battle log. Opponent HP is an approximate percentage of the public bar, never reconstructed as exact HP. Refreshing or navigating back resumes the browser's current match and league progress without replaying old animations. A completed round stays available until you choose the next trainer or start a new challenge.
+
+**Quit battle** below the team controls deletes the active server session and
+league run, stops presentation, clears the battlefield, log and pending choices,
+and returns to setup. It is also available during animations. Your setup selections
+and animation preferences stay available for the next challenge. Refreshing after
+quitting does not resume the deleted battle. **Forfeit battle** still records a
+defeat and shows the result instead. Starting a new challenge from the result
+screen uses the same complete cleanup as quitting.
+
+If deletion cannot be confirmed, controls offer **Retry quit** or **Sync battle**;
+the UI does not claim the server state was cleared. An already-expired or already
+deleted session returns safely to setup, and retries stay bound to the original
+match so a stale tab cannot delete a newer challenge.
+
+## Build a custom team
+
+**Build my team** opens six editable slots. Start from scratch or choose a preset
+and use **Copy preset** to replace all six slots with editable copies. The species
+picker covers all 386 Gen 1–3 species and 30 explicit starting forms; battle-only
+Castform weather forms are excluded. Search by species name, type or Pokédex
+number, then choose an ability, held item, nature and one to four moves. Each
+member remains level 100, and no two members may share a base species.
+
+Move lists come from the pinned Gen 3 learnset acquisition candidates. They do
+not establish that every combination is legal. **Check team** asks the engine to
+validate the complete team, including incompatible egg/event moves and event
+restrictions, and shows errors by slot. Starting a challenge repeats this server
+validation even if the team was checked earlier. Normalizations are shown after
+a successful check. Player teams never receive NPC-only roster exceptions.
+
+**Advanced settings** exposes EVs, IVs, gender and friendship. EVs range from
+0–255 per stat with a total cap of 510; IVs range from 0–31. A fresh slot starts
+with zero EVs, 31 IVs, Hardy nature and maximum friendship. Hidden Power's type
+is determined by the submitted IVs. The existing engine owns all stat and move
+calculations; the editor only collects settings and provides form checks.
+
+One custom draft is saved in this browser when storage is available. It is not
+an account-backed team library. Quitting a battle retains this draft while
+deleting the match and league session. Reconnecting to an active match restores
+the server's original team selection and lead. A separate starting-team copy
+restores HP, PP, statuses and held items between league rounds, so battle changes
+never overwrite the editable draft.
 
 ## Pokémon send-outs
 
@@ -83,6 +125,8 @@ flowchart LR
 ```
 
 - `apps/server/simulation.js` owns the engine factory and match sessions, validates HTTP input, drives the automated seat, and returns only the permitted p1 view/events. The engine, its rule seed, checkpoints, and private p2 requests never enter the browser bundle.
+- `apps/server/team-builder.js` derives the cached editor catalog from `@battle/game-data`. `GET /api/simulation/team-builder` serves only picker metadata; `POST /api/simulation/team/validate` checks a draft without creating or replacing a match. Match creation accepts exactly one of `presetId` or `team`. Snapshots include only the player's own starting selection for reconnect.
+- `apps/simulation/src/TeamBuilder.vue` owns the editor controls. `teamDraft.js` owns fresh draft copies, candidate/form checks and bounded local draft storage. Full team legality stays behind the server API.
 - `apps/server/league-rosters.js` owns immutable sourced trainer fixtures. `league-run.js` owns progression through an injected battle-creation port; it reads engine results and never calculates damage or changes an ongoing battle. Only trainer names/titles/specialties and progress enter public league metadata. Full NPC sets remain on the server.
 - `apps/simulation/src/api.js` handles bounded same-origin requests. The random HttpOnly session cookie remains browser-managed. Decision retries retain the same command ID; every mutation binds to the displayed match so a stale tab cannot alter a replacement battle.
 - `App.vue` keeps the latest authoritative view separate from the displayed snapshot. Buttons use legal options from the latest view and remain disabled while a request or presentation is active. Uncertain requests offer sync/retry rather than submitting a different command silently.
@@ -101,4 +145,6 @@ Faint tests cover both sides, varied sprite bounds and pivots, mask/filter owner
 
 Idle tests check continuous loops, custom pivots, fixed feet/platforms, complete sprite bounds and cancellation of stale callbacks. Scene and real-FX integration tests verify preference changes, late imports, replacement/faint lifecycle, exact Tackle contact after pausing idle, and recovery without reviving defeated actors.
 
-This is a single-process simulation interface. Sessions expire after 30 minutes without requests and are lost on server restart. The server defaults to 24 active sessions; that bound is not a measured production capacity target. Custom teams, invite rooms, human opponents, accounts, persistent match recovery, deadlines, deployment hardening and capacity testing remain future host-service work. The independent engine and data package support the full agreed species scope; this interface currently exposes three preset teams.
+Team-builder tests cover catalog provenance and candidate filtering, independent draft copies and storage recovery, form constraints, server legality and field errors, custom leads, Hidden Power, reconnect and rejection without replacing an existing match. Browser checks cover editing, validation, challenge creation, draft recovery and mobile layout.
+
+This is a single-process simulation interface. Sessions expire after 30 minutes without requests and are lost on server restart. The server defaults to 24 active sessions; that bound is not a measured production capacity target. Invite rooms, human opponents, accounts, a saved-team library, persistent match recovery, deadlines, deployment hardening and capacity testing remain future host-service work. The interface exposes three preset teams and custom teams across the full agreed species scope.

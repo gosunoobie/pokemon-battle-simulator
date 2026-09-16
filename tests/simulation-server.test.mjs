@@ -50,6 +50,204 @@ function damagingAction(view, moves) {
   return { kind: 'move', slot: move.slot }
 }
 
+test('HTTP team builder catalog is public, compact and independent of a live session', async t => {
+  const api = await start(t)
+  const response = await api.call('/team-builder', { useCookie: false, useOrigin: false })
+  assert.equal(response.status, 200)
+  assert.equal(response.data.generation, 3)
+  assert.equal(response.data.species.filter(species => species.kind === 'base').length, 386)
+  assert.equal(response.headers.get('set-cookie'), null)
+  assert.equal(response.headers.get('cache-control'), 'no-store')
+  assert.deepEqual(Object.keys(response.data).sort(), ['abilities', 'generation', 'items', 'moves', 'natures', 'rules', 'species'])
+  assert.equal((await api.call('/team-builder?private=true')).status, 400)
+  assert.equal((await api.call('/team-builder', { headers: { Origin: 'https://foreign.example' } })).status, 403)
+  const current = (await createLeague(api)).data
+  assert.deepEqual((await api.call('/team-builder')).data, response.data)
+  assert.deepEqual((await api.call('/match')).data, current)
+})
+
+test('HTTP team validation reports canonical changes without creating or modifying a session', async t => {
+  const api = await start(t)
+  const config = (await api.call('/config')).data
+  const team = structuredClone(config.presets[0].team)
+  delete team[0].level
+  delete team[0].happiness
+  const before = structuredClone(team)
+  const checked = await api.call('/team/validate', { method: 'POST', body: { team } })
+  assert.equal(checked.status, 200)
+  assert.equal(checked.data.valid, true)
+  assert.deepEqual(checked.data.errors, [])
+  assert.equal(checked.data.team[0].level, 100)
+  assert(checked.data.changes.some(change => change.setIndex === 0 && change.field === 'level'))
+  assert.equal(checked.headers.get('set-cookie'), null)
+  assert.deepEqual(team, before)
+  assert.equal((await api.call('/match')).data.error.code, 'NO_MATCH')
+  const current = (await createLeague(api)).data
+  const cookie = api.cookie()
+  for (const candidate of [team, [], null]) {
+    const validation = await api.call('/team/validate', { method: 'POST', body: { team: candidate } })
+    assert.equal(validation.status, 200)
+    assert.equal(validation.data.valid, candidate === team)
+    assert.equal(validation.headers.get('set-cookie'), null)
+    assert.equal(api.cookie(), cookie)
+    assert.deepEqual((await api.call('/match')).data, current)
+  }
+  for (const body of [{}, { team, profileId: 'gen3regionalleaguev1' }, { team, npc: true }]) {
+    assert.equal((await api.call('/team/validate', { method: 'POST', body })).status, 400)
+  }
+  assert.equal((await api.call('/team/validate?npc=true', { method: 'POST', body: { team } })).status, 400)
+  assert.equal((await api.call('/team/validate', { method: 'POST', body: { team }, useOrigin: false })).status, 403)
+  assert.deepEqual((await api.call('/match')).data, current)
+})
+
+test('HTTP custom teams keep their original canonical order, lead and training through battle and reload', async t => {
+  const api = await start(t)
+  const config = (await api.call('/config')).data
+  const team = structuredClone(config.presets[0].team)
+  team[4].name = 'Cedar'
+  team[4].nature = 'Timid'
+  team[4].item = 'Lum Berry'
+  team[4].moves = ['Psychic', 'Recover', 'Calm Mind', 'Reflect']
+  team[4].evs = { hp: 4, atk: 0, def: 0, spa: 252, spd: 0, spe: 252 }
+  team[4].ivs = { hp: 31, atk: 0, def: 31, spa: 30, spd: 31, spe: 31 }
+  const canonical = (await api.call('/team/validate', { method: 'POST', body: { team } })).data.team
+  assert(canonical)
+  for (const regionId of [undefined, 'johto']) {
+    const started = await api.call('/match', { method: 'POST', body: {
+      team, leadIndex: 4, expectedMatchId: api.matchId(), ...(regionId ? { regionId } : {}),
+    } })
+    assert.equal(started.status, 200, JSON.stringify(started.data))
+    const initial = started.data
+    assert.deepEqual(initial.teamSelection, { kind: 'custom', team: canonical, leadIndex: 4 })
+    assert.equal(initial.view.own.team[0].species, 'Alakazam')
+    assert.equal(initial.view.own.team[0].name, 'Cedar')
+    assert.equal(initial.view.own.team[0].item, 'lumberry')
+    assert.equal(initial.view.decision.moves[0].id, 'psychic')
+    assert.equal(initial.profileId, regionId ? 'gen3regionalleaguev1' : 'gen3opensinglesv1')
+    assert.equal(initial.run?.presetId ?? null, regionId ? 'custom' : null)
+    const cookie = api.cookie()
+    assert.deepEqual((await api.call('/match')).data, initial)
+    const played = await api.call('/choice', { method: 'POST', body: {
+      matchId: initial.matchId, commandId: `custom-${regionId ?? 'single'}`, decisionId: initial.view.decision.id,
+      action: { kind: 'move', slot: 1 }, afterCursor: initial.view.cursor,
+    } })
+    assert.equal(played.status, 200)
+    assert.equal(played.data.ack.accepted, true)
+    assert.deepEqual(played.data.teamSelection, initial.teamSelection)
+    const reloaded = await api.call(`/match?afterCursor=${played.data.view.cursor}`)
+    assert.deepEqual(reloaded.data.teamSelection, initial.teamSelection)
+    assert.deepEqual(reloaded.data.view, played.data.view)
+    assert.deepEqual(reloaded.data.events, [])
+    assert.equal(api.cookie(), cookie)
+  }
+})
+
+test('HTTP validated Hidden Power teams start without trusting a client-supplied derived type', async t => {
+  const api = await start(t)
+  const team = (await api.call('/config')).data.presets[0].team
+  team[0].moves = ['Hidden Power']
+  team[0].ivs = { hp: 31, atk: 30, def: 30, spa: 31, spd: 31, spe: 31 }
+  const validation = await api.call('/team/validate', { method: 'POST', body: { team } })
+  assert.equal(validation.data.valid, true)
+  assert.equal(validation.data.team[0].hpType, 'Ice')
+  for (const regionId of [undefined, 'kanto']) {
+    const started = await api.call('/match', { method: 'POST', body: {
+      team, leadIndex: 0, expectedMatchId: api.matchId(), ...(regionId ? { regionId } : {}),
+    } })
+    assert.equal(started.status, 200, JSON.stringify(started.data))
+    assert.equal(started.data.teamSelection.team[0].hpType, 'Ice')
+    assert.deepEqual(started.data.teamSelection.team[0].ivs, team[0].ivs)
+    assert.match(started.data.view.decision.moves[0].name, /Hidden Power Ice/)
+    assert.deepEqual((await api.call('/match')).data.teamSelection, started.data.teamSelection)
+  }
+  const rejected = await api.call('/match', { method: 'POST', body: {
+    team: validation.data.team, leadIndex: 0, expectedMatchId: api.matchId(), regionId: 'kanto',
+  } })
+  assert.equal(rejected.status, 400)
+  assert.equal(rejected.data.error.code, 'INVALID_TEAM')
+  assert(rejected.data.error.errors.some(error => error.code === 'UNKNOWN_FIELD' && error.message.includes('hpType')))
+})
+
+test('HTTP custom teams enforce full player legality and invalid replacements preserve the current run', async t => {
+  const api = await start(t)
+  const config = (await api.call('/config')).data
+  const current = (await createLeague(api)).data
+  const cookie = api.cookie()
+  const cases = [
+    [team => { team[0].moves = ['Roost'] }, 'GEN3_LEGALITY'],
+    [team => { team[0].ability = 'Solar Power' }, 'GEN3_LEGALITY'],
+    [team => { team[1] = structuredClone(team[0]) }, 'SPECIES_CLAUSE'],
+    [team => { team[0].evs = { hp: 255, atk: 255, spe: 1 } }, 'EV_TOTAL'],
+    [team => { team[0].evs = { hp: 256 } }, 'STATS'],
+    [team => { team[0].ivs = { atk: 32 } }, 'STATS'],
+    [team => { team[0].level = 50 }, 'LEVEL'],
+    [team => { team.pop() }, 'TEAM_SIZE'],
+    [team => { team[0] = { species: 'Pikachu', ability: 'Static', nature: 'Hardy', moves: ['Surf', 'Fly'] } }, 'GEN3_LEGALITY'],
+    [team => { team[0] = { species: 'Murkrow', ability: 'Insomnia', nature: 'Hardy', moves: ['Quick Attack', 'Whirlwind', 'Pursuit', 'Feint Attack'] } }, 'GEN3_LEGALITY'],
+  ]
+  for (const [mutate, expectedCode] of cases) {
+    const team = structuredClone(config.presets[0].team)
+    mutate(team)
+    const validation = await api.call('/team/validate', { method: 'POST', body: { team } })
+    assert.equal(validation.status, 200)
+    assert.equal(validation.data.valid, false)
+    assert(validation.data.errors.some(error => error.code === expectedCode), JSON.stringify(validation.data))
+    const rejected = await api.call('/match', { method: 'POST', body: {
+      team, leadIndex: 0, expectedMatchId: current.matchId, regionId: 'johto',
+    } })
+    assert.equal(rejected.status, 400)
+    assert.equal(rejected.data.error.code, 'INVALID_TEAM')
+    assert(rejected.data.error.errors.some(error => error.code === expectedCode))
+    assert(rejected.data.error.errors.length <= 32)
+    assert(rejected.data.error.errors.every(error => error.message.length <= 512))
+    assert.equal(rejected.headers.get('set-cookie'), null)
+    assert.equal(api.cookie(), cookie)
+    assert.deepEqual((await api.call('/match')).data, current)
+  }
+})
+
+test('HTTP custom team envelopes keep strict identity, origin, query and size boundaries', async t => {
+  const api = await start(t)
+  const team = (await api.call('/config')).data.presets[0].team
+  const current = (await createLeague(api)).data
+  const valid = { team, leadIndex: 0, expectedMatchId: current.matchId, regionId: 'kanto' }
+  for (const body of [
+    { ...valid, presetId: 'kanto' }, { ...valid, profileId: 'gen3regionalleaguev1' },
+    { ...valid, playerTeam: team }, { ...valid, run: { wins: 4 } },
+    { ...valid, leadIndex: 6 }, { ...valid, expectedMatchId: undefined },
+    { leadIndex: 0, expectedMatchId: current.matchId },
+  ]) {
+    const result = await api.call('/match', { method: 'POST', body })
+    assert.equal(result.status, 400)
+    assert.equal(result.data.error.code, 'INVALID_MATCH')
+  }
+  assert.equal((await api.call('/match', { method: 'POST', body: { ...valid, expectedMatchId: 'old-match' } })).data.error.code, 'MATCH_CHANGED')
+  assert.equal((await api.call('/match', { method: 'POST', body: valid, useOrigin: false })).status, 403)
+  assert.equal((await api.call('/match?team=true', { method: 'POST', body: valid })).data.error.code, 'INVALID_QUERY')
+  assert.equal((await api.call('/match', { method: 'POST', body: { presetId: 'missing', leadIndex: 0, expectedMatchId: current.matchId } })).data.error.code, 'INVALID_PRESET')
+  for (const [path, body] of [['/team/validate', { team }], ['/match', valid]]) {
+    const oversized = await api.call(path, { method: 'POST', body: JSON.stringify(body).padStart(20 * 1024 + 1, ' ') })
+    assert.equal(oversized.status, 413)
+    assert.equal(oversized.data.error.code, 'BODY_TOO_LARGE')
+  }
+  const paddedTeam = team.map(member => ({ ...member, ...Object.fromEntries(Array.from({ length: 12 }, (_, index) => [`padding${index}`, 'x'.repeat(220)])) }))
+  const paddedBody = JSON.stringify({ team: paddedTeam })
+  assert(Buffer.byteLength(paddedBody) > 16 * 1024 && Buffer.byteLength(paddedBody) < 20 * 1024)
+  const rejectedTeam = await api.call('/team/validate', { method: 'POST', body: paddedBody })
+  assert.equal(rejectedTeam.status, 200)
+  assert.equal(rejectedTeam.data.valid, false)
+  assert.match(rejectedTeam.data.errors[0].message, /16 KiB/)
+  const choiceTooLarge = await api.call('/choice', { method: 'POST', body: JSON.stringify({ matchId: current.matchId }).padStart(4097, ' ') })
+  assert.equal(choiceTooLarge.status, 413, 'ordinary battle commands retain the 4 KiB limit')
+  assert.deepEqual((await api.call('/match')).data, current)
+  const validated = await api.call('/team/validate', { method: 'POST', body: JSON.stringify({ team }).padStart(5000, ' ') })
+  assert.equal(validated.status, 200)
+  assert.equal(validated.data.valid, true)
+  const created = await api.call('/match', { method: 'POST', body: JSON.stringify(valid).padStart(5000, ' ') })
+  assert.equal(created.status, 200)
+  assert.equal(created.data.teamSelection.kind, 'custom')
+})
+
 test('HTTP config validates three six-member four-move presets and starts each selected lead', async t => {
   const api = await start(t)
   const config = await api.call('/config')
@@ -252,6 +450,64 @@ test('HTTP league run identities isolate replacement runs and stale tabs cannot 
   assert.equal(revoked.data.error.code, 'NO_MATCH')
 })
 
+test('HTTP quitting an active league revokes its saved session and starts a clean run without forfeiting', async t => {
+  const api = await start(t)
+  const config = (await api.call('/config')).data
+  const initial = (await createLeague(api)).data
+  const savedCookie = api.cookie()
+  const command = {
+    matchId: initial.matchId, commandId: 'before-active-quit', decisionId: initial.view.decision.id,
+    action: damagingAction(initial.view, config.moves), afterCursor: initial.view.cursor,
+  }
+  const played = await api.call('/choice', { method: 'POST', body: command })
+  assert.equal(played.status, 200)
+  assert.equal(played.data.ack.accepted, true)
+  assert.equal(played.data.run.status, 'active')
+  assert.equal(played.data.view.result, null)
+  assert(played.data.events.some(event => event.args.opcode === 'move'))
+  assert(played.data.view.cursor > initial.view.cursor)
+
+  const quit = await api.call('/match', { method: 'DELETE', body: { matchId: initial.matchId } })
+  assert.equal(quit.status, 200)
+  assert.deepEqual(quit.data, { cleared: true })
+  assert.match(quit.headers.get('set-cookie'), /^battle_simulation_v1=; Path=\/api\/simulation; HttpOnly; SameSite=Strict; Max-Age=0(?:;|$)/)
+  assert.equal(api.matchId(), null)
+  for (const [path, options] of [
+    ['/match', {}],
+    ['/match', { method: 'DELETE', body: { matchId: initial.matchId } }],
+    ['/choice', { method: 'POST', body: command }],
+    ['/advance', { method: 'POST', body: { matchId: initial.matchId, runId: initial.run.id } }],
+  ]) {
+    const revoked = await api.call(path, { ...options, useCookie: false, headers: { Cookie: savedCookie } })
+    assert.equal(revoked.status, 401)
+    assert.equal(revoked.data.error.code, 'NO_MATCH')
+  }
+
+  const restarted = await createLeague(api)
+  assert.equal(restarted.status, 200)
+  const fresh = restarted.data
+  assert.notEqual(api.cookie(), savedCookie)
+  assert.notEqual(fresh.matchId, initial.matchId)
+  assert.notEqual(fresh.run.id, initial.run.id)
+  assert.equal(fresh.run.stageIndex, 0)
+  assert.equal(fresh.run.wins, 0)
+  assert.equal(fresh.run.status, 'active')
+  assert.equal(fresh.run.opponent.id, 'lorelei')
+  assert.equal(fresh.run.nextOpponent, null)
+  assert.equal(fresh.view.turn, 1)
+  assert.equal(fresh.view.result, null)
+  assert.deepEqual(fresh.view.own, initial.view.own)
+  assert.deepEqual(fresh.view.decision.moves, initial.view.decision.moves)
+  assert(fresh.view.own.team.every(member => member.hp.current === member.hp.max && !member.fainted && member.condition === null))
+  assert.equal(fresh.view.cursor, initial.view.cursor)
+  assert(!fresh.events.some(event => ['move', '-damage', 'faint', 'win', 'tie'].includes(event.args.opcode)))
+  assert.equal(fresh.ack, undefined)
+  const stillRevoked = await api.call('/match', { useCookie: false, headers: { Cookie: savedCookie } })
+  assert.equal(stillRevoked.status, 401)
+  assert.equal(stillRevoked.data.error.code, 'NO_MATCH')
+  assert.deepEqual((await api.call('/match')).data, fresh)
+})
+
 test('HTTP session reload, choices and exact retries preserve private ownership and event cursors', async t => {
   const api = await start(t)
   const created = await create(api)
@@ -437,7 +693,7 @@ test('HTTP rejects cross-origin, client authority, malformed JSON and oversized 
   assert.equal((await create(api, 'kanto', 6)).status, 400)
   assert.equal((await api.call('/match', { method: 'POST', body: { presetId: 'kanto', leadIndex: 0, seed: [1, 2, 3, 4] } })).status, 400)
   assert.equal((await api.call('/match', { method: 'POST', body: '{broken' })).status, 400)
-  assert.equal((await api.call('/match', { method: 'POST', body: 'x'.repeat(4097) })).status, 413)
+  assert.equal((await api.call('/match', { method: 'POST', body: 'x'.repeat(20 * 1024 + 1) })).status, 413)
   assert.equal((await api.call('/match', { method: 'POST', body: '{}', headers: { 'Content-Type': 'text/plain' } })).status, 415)
   const initial = (await create(api)).data
   const command = { matchId: initial.matchId, commandId: 'invalid-authority', decisionId: initial.view.decision.id, action: { kind: 'move', slot: 1 } }

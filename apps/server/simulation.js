@@ -4,10 +4,12 @@ import { GEN3, getMove } from '@battle/game-data'
 import { PRESET_TEAMS } from './presets.js'
 import { REGIONAL_LEAGUES } from './league-rosters.js'
 import { createLeagueRun, LeagueRunError, publicLeague } from './league-run.js'
+import { getTeamBuilderCatalog } from './team-builder.js'
 
 const PREFIX = '/api/simulation'
 const COOKIE = 'battle_simulation_v1'
 const MAX_BODY = 4096
+const MAX_TEAM_BODY = 20 * 1024
 const TOKEN = /^[a-f0-9]{64}$/
 const ID = /^[a-zA-Z0-9:_-]{1,128}$/
 const DECISION_ID = /^[a-zA-Z0-9:_-]{1,160}$/
@@ -17,9 +19,13 @@ const keysAre = (value, keys) => plain(value) && Object.keys(value).every(key =>
 const moveId = value => value.toLowerCase().replace(/[^a-z0-9]/g, '')
 
 class HttpError extends Error {
-  constructor(status, code, message) { super(message); this.status = status; this.code = code }
+  constructor(status, code, message, errors) { super(message); this.status = status; this.code = code; this.errors = errors }
 }
 const badRequest = (code, message) => { throw new HttpError(400, code, message) }
+const publicTeamErrors = errors => errors.slice(0, 32).map(({ code, message, setIndex }) => ({
+  code: code.slice(0, 64), message: message.slice(0, 512),
+  ...(Number.isInteger(setIndex) && setIndex >= 0 && setIndex < 6 ? { setIndex } : {}),
+}))
 
 function send(res, status, data) {
   if (res.writableEnded || res.destroyed) return
@@ -52,14 +58,14 @@ function checkOrigin(req, required, publicOrigin) {
   }
 }
 
-async function readBody(req) {
+async function readBody(req, maxBody = MAX_BODY) {
   if (!/^application\/json(?:\s*;|$)/i.test(req.headers['content-type'] ?? '')) throw new HttpError(415, 'JSON_REQUIRED', 'Send application/json.')
-  if (Number(req.headers['content-length']) > MAX_BODY) throw new HttpError(413, 'BODY_TOO_LARGE', 'The request is too large.')
+  if (Number(req.headers['content-length']) > maxBody) throw new HttpError(413, 'BODY_TOO_LARGE', 'The request is too large.')
   let size = 0
   const chunks = []
   for await (const chunk of req) {
     size += chunk.length
-    if (size > MAX_BODY) throw new HttpError(413, 'BODY_TOO_LARGE', 'The request is too large.')
+    if (size > maxBody) throw new HttpError(413, 'BODY_TOO_LARGE', 'The request is too large.')
     chunks.push(chunk)
   }
   try {
@@ -174,6 +180,7 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
       matchId: session.matchId, view,
       events: session.engine.getEvents('p1', afterCursor), profileId: session.profileId,
       run: session.run?.summary() ?? null,
+      teamSelection: session.teamSelection,
       ...(ack === undefined ? {} : { ack }),
     }
   }
@@ -218,16 +225,37 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
       send(res, 200, config)
       return
     }
+    if (req.method === 'GET' && url.pathname === `${PREFIX}/team-builder`) {
+      if (url.search) badRequest('INVALID_QUERY', 'This endpoint does not accept query parameters.')
+      send(res, 200, getTeamBuilderCatalog())
+      return
+    }
+    if (req.method === 'POST' && url.pathname === `${PREFIX}/team/validate`) {
+      if (url.search) badRequest('INVALID_QUERY', 'This endpoint does not accept query parameters.')
+      const body = await readBody(req, MAX_TEAM_BODY)
+      if (!keysAre(body, ['team']) || !Object.hasOwn(body, 'team')) badRequest('INVALID_REQUEST', 'Send only the team to validate.')
+      initialize()
+      send(res, 200, factory.validateTeam(body.team))
+      return
+    }
     if (req.method === 'POST' && url.pathname === `${PREFIX}/match`) {
       if (url.search) badRequest('INVALID_QUERY', 'This endpoint does not accept query parameters.')
-      const body = await readBody(req)
-      if (!keysAre(body, ['presetId', 'leadIndex', 'expectedMatchId', 'regionId']) || (body.regionId !== undefined && typeof body.regionId !== 'string') || typeof body.presetId !== 'string' || !Number.isInteger(body.leadIndex) || body.leadIndex < 0 || body.leadIndex > 5 ||
+      const body = await readBody(req, MAX_TEAM_BODY)
+      if (!keysAre(body, ['presetId', 'team', 'leadIndex', 'expectedMatchId', 'regionId']) || Object.hasOwn(body, 'presetId') === Object.hasOwn(body, 'team') ||
+        (body.regionId !== undefined && typeof body.regionId !== 'string') || (Object.hasOwn(body, 'presetId') && typeof body.presetId !== 'string') || !Number.isInteger(body.leadIndex) || body.leadIndex < 0 || body.leadIndex > 5 ||
         !(body.expectedMatchId === null || typeof body.expectedMatchId === 'string' && ID.test(body.expectedMatchId))) {
-        badRequest('INVALID_MATCH', 'Choose a preset and a lead from its six Pokémon.')
+        badRequest('INVALID_MATCH', 'Choose one preset or custom team and a lead from its six Pokémon.')
       }
       initialize()
-      const preset = config.presets.find(candidate => candidate.id === body.presetId)
-      if (!preset) badRequest('INVALID_PRESET', 'Choose an available team preset.')
+      const custom = Object.hasOwn(body, 'team')
+      const preset = custom ? null : config.presets.find(candidate => candidate.id === body.presetId)
+      if (!custom && !preset) badRequest('INVALID_PRESET', 'Choose an available team preset.')
+      const checked = custom ? factory.validateTeam(body.team) : null
+      if (checked && !checked.valid) throw new HttpError(400, 'INVALID_TEAM', 'The custom team does not meet Gen 3 Open Singles rules.', publicTeamErrors(checked.errors))
+      const startingTeam = custom ? checked.team : preset.team
+      const teamSelection = custom
+        ? { kind: 'custom', team: clone(startingTeam), leadIndex: body.leadIndex }
+        : { kind: 'preset', presetId: preset.id, leadIndex: body.leadIndex }
       const league = body.regionId === undefined ? null : leagues.find(candidate => candidate.id === body.regionId)
       if (body.regionId !== undefined && !league) badRequest('INVALID_REGION', 'Choose Kanto, Johto or Hoenn.')
       expire()
@@ -237,16 +265,21 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
       if (!existing && sessions.size >= maxSessions) throw new HttpError(503, 'SESSION_LIMIT', 'This local server has reached its session limit. Try again later.')
       if (Date.now() - createWindow.started >= 60_000) createWindow = { started: Date.now(), count: 0 }
       if (++createWindow.count > 60) throw new HttpError(429, 'RATE_LIMITED', 'Too many new battles. Please wait a minute.')
-      const playerTeam = clone(preset.team)
+      const playerTeam = clone(startingTeam)
+      // The pinned validator adds this derived field, while engine creation
+      // accepts only editable set fields. Recompute it from the same IVs when
+      // the engine validates each round; never accept it from raw client input.
+      for (const set of playerTeam) delete set.hpType
       playerTeam.unshift(...playerTeam.splice(body.leadIndex, 1))
-      const run = league ? createLeagueRun({ league, playerTeam, presetId: preset.id, createBattle: leagueFactory.create }) : null
+      const presetId = custom ? 'custom' : preset.id
+      const run = league ? createLeagueRun({ league, playerTeam, presetId, createBattle: leagueFactory.create }) : null
       // Keep the earlier single-battle API compatible; the simulation UI now
       // always supplies a region and starts an independent league challenge.
-      const candidates = config.presets.filter(candidate => candidate.id !== preset.id)
+      const candidates = config.presets.filter(candidate => candidate.id !== presetId)
       const matchId = run?.current().matchId ?? randomUUID()
       const engine = run?.current().engine ?? factory.create({ matchId, teams: { p1: playerTeam, p2: candidates[randomInt(candidates.length)].team } })
       const token = existing ? existingToken : randomBytes(32).toString('hex')
-      const session = { token, matchId, engine, run, profileId: run ? config.leagueProfile.id : config.profile.id, botCommands: 0, expiresAt: Date.now() + ttlMs, window: { started: Date.now(), count: 0 } }
+      const session = { token, matchId, engine, run, teamSelection, profileId: run ? config.leagueProfile.id : config.profile.id, botCommands: 0, expiresAt: Date.now() + ttlMs, window: { started: Date.now(), count: 0 } }
       if (existing) removeSession(existingToken)
       sessions.set(token, session)
       setCookie(req, res, token)
@@ -324,11 +357,13 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
       try { url = new URL(req.url, 'http://simulation.local') } catch { send(res, 400, { error: { code: 'INVALID_URL', message: 'Invalid request address.' } }); return }
       if (url.pathname !== PREFIX && !url.pathname.startsWith(`${PREFIX}/`)) { next?.(); return }
       route(req, res, url).catch(error => {
-        // Engine internals, validation detail, teams and seeds never enter errors.
+        // Only bounded validation issues about the submitted player team are
+        // public. Engine internals, NPC teams and seeds never enter errors.
         const expected = error instanceof HttpError || error instanceof LeagueRunError
         send(res, expected ? error.status : 503, { error: {
           code: expected ? error.code : 'SIMULATION_UNAVAILABLE',
           message: expected ? error.message : 'The simulation could not continue. Please start a new battle.',
+          ...(error instanceof HttpError && error.errors ? { errors: error.errors } : {}),
         } })
       })
     },
