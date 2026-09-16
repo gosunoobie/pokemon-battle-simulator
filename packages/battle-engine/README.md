@@ -17,6 +17,22 @@ The `gen3opensinglesv1` profile adopts the architecture guide's first-build defa
 
 The first submitted member is the lead. Species/forms, nature, ability, IV/EV limits, event combinations and movesets are checked by the same format that runs the battle. Castform battle forms may normalize to base Castform; displayable forms are not automatically selectable initial battle forms.
 
+The optional `createEngineFactory({ profileId: 'gen3regionalleaguev1' })` selects
+a separate NPC league profile: one through six members and repeated species,
+with the same Gen 3 mechanics, level 100 and full-set validation. It does not
+change the default Open Singles profile. Both profiles can coexist in one process;
+their distinct identities prevent cross-profile checkpoint/replay restoration.
+Regional trainer rosters and tournament progress belong to the host, not this package.
+
+`factory.validateOpponentTeam(team)` validates the NPC seat. For the league
+profile only, Karen's sourced Gold/Silver Murkrow set (Quick Attack, Whirlwind,
+Pursuit, Feint Attack) has a narrowly pinned move exception. Its other moves and
+all remaining fields still undergo ordinary validation; the exact exception is
+part of the profile identity. `validateTeam()` and the p1 seat reject that move
+combination. `create()` uses the appropriate validator for each seat, including
+on replay. Default Open Singles opponent validation has no exceptions. See
+[provenance and discrepancy](../../docs/LEAGUE_ROSTERS.md).
+
 This package supplies the headless engine slice. Authentication, sockets, rooms, matchmaking, durable database commits, real-time deadlines and the live Vue presenter are separate server/client work. No client should construct or adjudicate an authoritative battle locally. Browser resolution exposes only an error stub, without the simulator dependency graph.
 
 ## Public port
@@ -51,6 +67,7 @@ The surrounding service derives `p1`/`p2` from authenticated seat ownership. The
 | `factory.getIdentity()` | Detached engine, adapter-build, format and reference-data fingerprints. |
 | `factory.getProfile()` | Detached explicit policy/defaults and format definition. |
 | `factory.validateTeam(team)` | `{valid, team, errors, changes}`; no caller mutation. |
+| `factory.validateOpponentTeam(team)` | Same contract, with only the selected profile's explicit NPC exceptions. |
 | `factory.create({teams, matchId?, seed?})` | Validates both teams and creates an engine at the first decision. |
 | `factory.restore(checkpoint)` | Restores private engine state, observations, request IDs, receipts and journal under identical code/data/rules identities. |
 | `factory.replay(record)` | Replays admitted player attempts and system decisions, including a pending first choice. |

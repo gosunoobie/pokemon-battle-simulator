@@ -8,7 +8,7 @@ For the production engine plan, read the [Gen 3 battle engine guide and architec
 
 The independent [headless Gen 3 engine](/Users/cdr/pokemon-battle-vue/packages/battle-engine/README.md) is now available. Run `npm run engine:demo` for a complete battle with checkpoint recovery and replay verification, or `npm run test:engine` for its integration suite. The visual showcase continues to use its existing preview core.
 
-The new [battle simulation interface](docs/BATTLE_SIMULATION.md) connects that engine to the existing sprite scene and optional effects. It runs against an automated opponent with three validated preset teams. The engine runs in Node; the browser receives only its permitted player view and events.
+The [battle simulation interface](docs/BATTLE_SIMULATION.md) connects that engine to the existing sprite scene and optional effects. Challenge the Elite Four and Champion of Kanto (FRLG), Johto (GS), or Hoenn (RS/Steven) with three existing player presets, level 100 and full recovery between five battles. [Trainer rosters](docs/LEAGUE_ROSTERS.md) have pinned provenance and explicit adaptations. The engine and league progress run in Node; the browser receives permitted player views, events and public challenge metadata.
 
 Explosion builds into a broad source-centered blast with pressure rings and smoke; Self-Destruct uses a shorter shudder and sharper burst. Both send a narrow pressure wave toward the opponent. The user’s HP becomes zero alongside target damage, and the host shows a fainted badge even with effects off. Replay resets both actors.
 
@@ -19,7 +19,7 @@ Rock Blast fires three small rocks; Ancient Power lifts glowing stones before la
 Mega Punch uses a heavy fist strike; Meteor Mash adds a steel fist and starry trail; Dynamic Punch bursts into fragments and dizzy stars; Focus Punch holds a longer charge before striking. Dynamic Punch displays a separate confusion badge without replacing other status conditions. Meteor Mash’s random Attack boost and Focus Punch’s interruption are not simulated.
 
 - Home: `/` — choose a battle simulation, move preview, or FX playground.
-- Simulation: `/simulation.html` — select a team and lead, choose moves or switches, finish a battle, and reconnect after a page reload.
+- Simulation: `/simulation.html` — select a region, team and lead, defeat five trainers, and reconnect to the current challenge after a page reload.
 - Move preview: `/preview.html` — choose Your side or Opponent side, choose either Pokémon, then preview a move. Effects toggle, skip, replay, and reset remain available. The selected move description and Use button stay above the move grid.
 - Playground: `/playground.html` — play any effect without importing battle logic; change actors, size, facing, stage proportions, and motion preference.
 

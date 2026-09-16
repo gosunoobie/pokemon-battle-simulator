@@ -2,7 +2,7 @@
 @media(min-width:1500px){.sim-shell{padding-top:15px}}
 @media(max-width:1100px){.sim-shell{padding:0 26px}.sim-layout{grid-template-columns:1fr;gap:16px}.sim-log-panel{position:static}.sim-log{height:250px}.sim-playback>span{display:none}.sim-decisions{padding:20px}.sim-party{grid-template-columns:repeat(3,minmax(0,1fr))}.sim-party button{display:grid;grid-template-columns:52px 1fr;grid-template-rows:1fr 1fr;column-gap:3px;padding:5px 5px 5px 0;text-align:left}.sim-party img{grid-row:1/3;width:52px;height:52px}.sim-party strong{align-self:end;font-size:10px}.sim-party span{align-self:start;margin-top:5px;font-size:9px}.sim-decision-heading>span{display:none}.sim-preset{padding:16px}.sim-preset h3{font-size:19px}.sim-preset p{min-height:62px}}
 @media(max-width:850px){.sim-header{flex-wrap:wrap;padding:23px 0;gap:18px}.sim-nav{gap:3px}.sim-nav a{padding:8px 10px;font-size:12px}.sim-heading{padding:26px 0}.sim-heading h1{font-size:35px}.sim-format{font-size:9px;padding:12px}.sim-format small{font-size:10px}.sim-layout{grid-template-columns:1fr}.sim-log-panel{position:static}.sim-log{height:250px}.sim-setup{padding:22px}.sim-soft-badge{display:none}.sim-setup h2{font-size:23px}.sim-preset h3{font-size:17px}.sim-preset p{font-size:11px;min-height:74px}.sim-lead-heading>span{font-size:10px;max-width:210px;text-align:right}.sim-lead-grid{grid-template-columns:repeat(3,1fr)}.sim-lead img{height:70px;width:70px}.sim-lead{gap:6px;padding:8px 6px 13px}.sim-lead>span:last-child{font-size:9px}.sim-party{grid-template-columns:repeat(6,minmax(0,1fr))}.sim-party button{display:flex;flex-direction:column;padding:6px 3px 9px;text-align:center}.sim-party strong,.sim-party span{align-self:center}.sim-party img{width:56px;height:56px}.sim-playback>span{display:block}}
-@media(max-width:600px){.sim-shell{padding:0 16px}.sim-header{gap:18px;padding:23px 0 19px}.sim-brand{font-size:21px}.sim-nav{width:100%;justify-content:space-between;gap:0}.sim-nav a{font-size:11px;padding:9px 8px}.sim-heading{display:block;padding:27px 0}.sim-heading h1{font-size:34px}.sim-eyebrow{font-size:9px}.sim-intro{font-size:12px;max-width:280px;line-height:1.8}.sim-format{display:inline-block;margin-top:19px;padding:9px 11px;font-size:9px}.sim-format small{display:inline;margin:0 0 0 10px;font-size:9px}.sim-setup{padding:20px 15px;border-radius:11px}.sim-setup-heading{margin-bottom:21px}.sim-setup h2{font-size:23px;line-height:1.3;max-width:260px}.sim-presets{grid-template-columns:1fr;gap:10px}.sim-preset{position:relative;padding:15px 14px 11px}.sim-preset h3{font-size:21px;margin:8px 0}.sim-preset p{font-size:11px;min-height:0;max-width:95%;line-height:1.7}.sim-preset-sprites{margin-top:5px;justify-content:flex-start}.sim-preset-sprites img{height:48px;max-width:48px}.sim-lead-heading{display:block;margin-top:26px}.sim-lead-heading>span{display:block;text-align:left;max-width:none;margin-top:9px;font-size:10px;line-height:1.7}.sim-lead-grid{gap:7px}.sim-lead strong{font-size:12px}.sim-team-summary{display:block;padding:18px 15px;margin-top:17px}.sim-team-summary h3{font-size:21px}.sim-team-summary .sim-primary{width:100%;margin-top:23px}.sim-setup-note{font-size:10px;margin-top:17px}.sim-arena-bar{padding:14px 14px;font-size:8px;gap:13px}.sim-arena-bar button{font-size:10px}.sim-playback{padding:12px 14px;font-size:10px;gap:18px}.sim-playback>span{display:none}.sim-decisions{padding:21px 14px 17px}.sim-decision-heading h2{font-size:18px;line-height:1.5}.sim-move-grid{gap:8px}.sim-move{padding:11px 10px;min-height:78px}.sim-move>div{font-size:9px;gap:3px}.sim-move strong{font-size:17px}.sim-move small{font-size:9px}.sim-party{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.sim-party img{width:60px;height:60px}.sim-party strong{font-size:11px}.sim-party span{font-size:9px}.sim-party-heading{margin-top:23px}.sim-battle-actions{gap:12px}.sim-battle-actions>span:first-child{max-width:195px;font-size:9px}.sim-log-heading{padding:20px}.sim-log{padding:15px 20px}.sim-footer{font-size:10px;gap:8px}.sim-footer>p{order:3;width:100%;font-size:9px}.sim-result h2{font-size:25px}.sim-result{padding:27px 18px}.sim-result p:not(.sim-eyebrow){font-size:12px}.sim-result .sim-primary{width:100%}}
+@media(max-width:600px){.sim-shell{padding:0 16px}.sim-header{gap:18px;padding:23px 0 19px}.sim-brand{font-size:21px}.sim-nav{width:100%;justify-content:space-between;gap:0}.sim-nav a{font-size:11px;padding:9px 8px}.sim-heading{display:block;padding:27px 0}.sim-heading h1{font-size:34px}.sim-eyebrow{font-size:9px}.sim-intro{font-size:12px;max-width:280px;line-height:1.8}.sim-format{display:inline-block;max-width:100%;white-space:normal;line-height:1.6;margin-top:19px;padding:9px 11px;font-size:9px}.sim-format small{display:block;margin:5px 0 0;font-size:9px}.sim-setup{padding:20px 15px;border-radius:11px}.sim-setup-heading{margin-bottom:21px}.sim-setup h2{font-size:23px;line-height:1.3;max-width:260px}.sim-presets{grid-template-columns:1fr;gap:10px}.sim-preset{position:relative;padding:15px 14px 11px}.sim-preset h3{font-size:21px;margin:8px 0}.sim-preset p{font-size:11px;min-height:0;max-width:95%;line-height:1.7}.sim-preset-sprites{margin-top:5px;justify-content:flex-start}.sim-preset-sprites img{height:48px;max-width:48px}.sim-lead-heading{display:block;margin-top:26px}.sim-lead-heading>span{display:block;text-align:left;max-width:none;margin-top:9px;font-size:10px;line-height:1.7}.sim-lead-grid{gap:7px}.sim-lead strong{font-size:12px}.sim-team-summary{display:block;padding:18px 15px;margin-top:17px}.sim-team-summary h3{font-size:21px}.sim-team-summary .sim-primary{width:100%;margin-top:23px}.sim-setup-note{font-size:10px;margin-top:17px}.sim-arena-bar{padding:14px 14px;font-size:8px;gap:13px}.sim-arena-bar button{font-size:10px}.sim-playback{padding:12px 14px;font-size:10px;gap:18px}.sim-playback>span{display:none}.sim-decisions{padding:21px 14px 17px}.sim-decision-heading h2{font-size:18px;line-height:1.5}.sim-move-grid{gap:8px}.sim-move{padding:11px 10px;min-height:78px}.sim-move>div{font-size:9px;gap:3px}.sim-move strong{font-size:17px}.sim-move small{font-size:9px}.sim-party{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.sim-party img{width:60px;height:60px}.sim-party strong{font-size:11px}.sim-party span{font-size:9px}.sim-party-heading{margin-top:23px}.sim-battle-actions{gap:12px}.sim-battle-actions>span:first-child{max-width:195px;font-size:9px}.sim-log-heading{padding:20px}.sim-log{padding:15px 20px}.sim-footer{font-size:10px;gap:8px}.sim-footer>p{order:3;width:100%;font-size:9px}.sim-result h2{font-size:25px}.sim-result{padding:27px 18px}.sim-result p:not(.sim-eyebrow){font-size:12px}.sim-result .sim-primary{width:100%}}
 .sim-known-details{margin-top:9px;font-size:10px;color:#9eb690}.sim-known-details summary{cursor:pointer;color:#bbcca9;min-height:20px;padding:3px 0}.sim-known-details p{margin:7px 0 0;line-height:1.8;overflow-wrap:anywhere}.sim-known-details summary:focus-visible{outline:2px solid #ecbe79;outline-offset:3px}.sim-side-conditions{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;background:#2b4031;padding:7px 15px}.sim-side-conditions span{color:#d0debc;border:1px solid #b1cb9550;border-radius:4px;background:#162c20a0;font-size:10px;padding:4px 7px}
 
 /* Match the preview's 1000 × 450 stage; the HUD belongs to the field itself. */
@@ -52,3 +52,70 @@
 .sim-announcement { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .sim-skip-animation { font-size: 11px; color: #e3edc7; background: transparent; border: 1px solid #a1bb8855; border-radius: 5px; padding: 6px 10px; white-space: nowrap; }
 .sim-skip-animation:hover { background: #a1bb8815; }
+
+/* League setup and progress sit outside the unchanged battlefield. */
+.sim-league-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.sim-league-heading .sim-eyebrow { margin: 0; }
+.sim-league-heading > span { color: #99a994; font-size: 12px; }
+.sim-regions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.sim-region { display: flex; flex-direction: column; align-items: stretch; text-align: left; padding: 21px; border: 1px solid #40543f; border-radius: 9px; background: #16251d; color: #e3ebd7; }
+.sim-region:hover:not(:disabled), .sim-region.selected { background: #2b3b28; border-color: #c3d793; }
+.sim-region:disabled { opacity: .6; }
+.sim-region-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.sim-region-top strong { font: 500 24px 'Space Grotesk', sans-serif; letter-spacing: -.5px; }
+.sim-region-top > span { color: #c3d793; font-size: 15px; }
+.sim-region-edition { color: #d3b591; font-size: 11px; margin-top: 8px; }
+.sim-region-trainers { margin-top: 18px; font-size: 12px; line-height: 1.8; color: #c1d1b2; }
+.sim-region-note { display: block; margin-top: 12px; padding-top: 12px; border-top: 1px solid #c1dba31b; font-size: 11px; line-height: 1.6; color: #8fa184; }
+.sim-league-rules { padding: 13px 16px; margin-top: 15px; border-left: 2px solid #b3ca88; background: #b2ca8810; color: #b7c6a8; font-size: 12px; line-height: 1.8; }
+.sim-league-progress { margin-bottom: 22px; padding: 23px 25px 17px; border: 1px solid #3c4e3c; border-radius: 12px; background: #17251d; }
+.sim-league-progress-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.sim-league-progress-heading .sim-eyebrow { margin-bottom: 7px; font-size: 9px; }
+.sim-league-progress-heading h2 { font: 500 24px 'Space Grotesk', sans-serif; letter-spacing: -.5px; }
+.sim-league-progress-heading > span { color: #c5d5af; font-size: 12px; white-space: nowrap; }
+.sim-trainer-path { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; padding: 0; margin: 0; list-style: none; }
+.sim-trainer-path li { display: flex; gap: 11px; min-width: 0; padding: 15px 12px; border: 1px solid #364934; border-radius: 7px; background: #1a2a20; }
+.sim-trainer-number { flex-shrink: 0; width: 25px; height: 25px; display: grid; place-items: center; border: 1px solid #4b5d44; border-radius: 50%; color: #9bad8e; font-size: 10px; }
+.sim-trainer-path li > div { min-width: 0; }
+.sim-trainer-title, .sim-trainer-specialty, .sim-trainer-state { display: block; font-size: 10px; line-height: 1.5; }
+.sim-trainer-title { color: #8da07f; }
+.sim-trainer-path strong { display: block; font: 500 17px 'Space Grotesk', sans-serif; color: #c9d7b9; margin: 3px 0 5px; overflow-wrap: anywhere; }
+.sim-trainer-specialty { color: #a1b391; }
+.sim-trainer-state { margin-top: 9px; color: #899b7b; }
+.sim-trainer-path .sim-trainer-current { border-color: #d5af75; background: #c6a3720b; }
+.sim-trainer-current .sim-trainer-number { color: #efc48a; border-color: #ad8755; }
+.sim-trainer-current .sim-trainer-state { color: #efc48a; }
+.sim-trainer-path .sim-trainer-cleared { border-color: #a9c77766; background: #a7c67b0b; }
+.sim-trainer-cleared .sim-trainer-number { color: #1e311b; background: #bdd795; border-color: #bdd795; }
+.sim-trainer-cleared .sim-trainer-state { color: #c0d79d; }
+.sim-trainer-lost .sim-trainer-state { color: #e4ab90; }
+.sim-league-progress-note { margin-top: 14px; font-size: 11px; line-height: 1.8; color: #95a88a; }
+.sim-result-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 15px 22px; }
+.sim-result-restart { background: transparent; border: 0; color: #adc09c; text-decoration: underline; text-underline-offset: 4px; padding: 10px 0; font-size: 12px; }
+.sim-result-restart:disabled { opacity: .5; }
+.sim-result-champion { background: radial-gradient(ellipse at 85% 50%, #c7b56d24, transparent 80%); }
+.sim-result-champion .sim-eyebrow { color: #ebc88d; }
+@media (max-width: 1000px) {
+  .sim-trainer-path li { flex-direction: column; gap: 9px; }
+  .sim-region { padding: 17px; }
+}
+@media (max-width: 600px) {
+  .sim-league-heading { display: block; }
+  .sim-league-heading > span { display: block; font-size: 10px; line-height: 1.7; margin-top: 8px; }
+  .sim-regions { grid-template-columns: 1fr; gap: 10px; }
+  .sim-region { padding: 16px; }
+  .sim-region-top strong { font-size: 22px; }
+  .sim-region-trainers { margin-top: 11px; font-size: 11px; }
+  .sim-region-note { margin-top: 8px; padding-top: 8px; font-size: 10px; }
+  .sim-league-rules { font-size: 10px; padding: 11px 12px; }
+  .sim-league-progress { padding: 19px 14px 14px; margin-bottom: 16px; }
+  .sim-league-progress-heading { gap: 12px; margin-bottom: 15px; }
+  .sim-league-progress-heading h2 { font-size: 22px; }
+  .sim-league-progress-heading > span { font-size: 10px; }
+  .sim-trainer-path { display: flex; overflow-x: auto; gap: 8px; padding-bottom: 8px; scrollbar-width: thin; scrollbar-color: #627650 #17251d; }
+  .sim-trainer-path li { flex: 0 0 116px; padding: 12px; }
+  .sim-trainer-path strong { font-size: 16px; }
+  .sim-league-progress-note { font-size: 10px; margin-top: 9px; }
+  .sim-result-actions { align-items: stretch; flex-direction: column; gap: 12px; }
+  .sim-result-restart { align-self: center; }
+}

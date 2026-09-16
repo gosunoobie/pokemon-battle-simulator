@@ -1,4 +1,4 @@
-import { ENGINE_PROFILE, getFormat } from './profile.js'
+import { getProfile, getFormat } from './profile.js'
 import { getVendor } from './vendor.js'
 
 const STATS = ['hp', 'atk', 'def', 'spa', 'spd', 'spe']
@@ -59,15 +59,18 @@ function changesBetween(before, after, setIndex, field = '', changes = []) {
   return changes
 }
 
-export function validateTeam(input) {
+export function validateTeam(input, profileId, { npc = false } = {}) {
+  const profile = getProfile(profileId)
   const errors = []
   const error = (code, message, setIndex) => errors.push({ code, message, ...(setIndex === undefined ? {} : { setIndex }) })
   let original
   try { original = boundedJson(input) } catch (cause) {
     return { valid: false, team: null, errors: [{ code: 'INVALID_JSON', message: cause.message }], changes: [] }
   }
-  if (!Array.isArray(original) || original.length !== 6) {
-    return { valid: false, team: null, errors: [{ code: 'TEAM_SIZE', message: 'Open Singles v1 requires exactly six Pokémon.' }], changes: [] }
+  const minSize = profile.team.size ?? profile.team.minSize
+  const maxSize = profile.team.size ?? profile.team.maxSize
+  if (!Array.isArray(original) || original.length < minSize || original.length > maxSize) {
+    return { valid: false, team: null, errors: [{ code: 'TEAM_SIZE', message: minSize === maxSize ? 'Open Singles v1 requires exactly six Pokémon.' : 'Regional League v1 requires one through six Pokémon.' }], changes: [] }
   }
   for (const [index, set] of original.entries()) {
     if (!set || Array.isArray(set) || typeof set !== 'object') {
@@ -108,7 +111,7 @@ export function validateTeam(input) {
   }
   if (errors.length) return { valid: false, team: null, errors, changes: [] }
   const { Dex, TeamValidator } = getVendor()
-  const format = getFormat()
+  const format = getFormat(profile.id)
   const dex = Dex.mod('gen3')
   const team = JSON.parse(JSON.stringify(original))
   const baseSpecies = new Set()
@@ -118,18 +121,31 @@ export function validateTeam(input) {
       error('ROSTER', 'Species must belong to National Dex #001–386 and the Gen 3 roster.', index)
     }
     const base = Dex.toID(species.baseSpecies)
-    if (baseSpecies.has(base)) error('SPECIES_CLAUSE', 'Team members must have six distinct base species.', index)
+    if (profile.team.distinctBaseSpecies && baseSpecies.has(base)) error('SPECIES_CLAUSE', 'Team members must have six distinct base species.', index)
     baseSpecies.add(base)
     const moves = set.moves.map(move => dex.moves.get(move).id)
     if (new Set(moves).size !== moves.length) error('DUPLICATE_MOVE', 'A move cannot appear twice in one moveset.', index)
-    set.level ??= ENGINE_PROFILE.defaults.level
-    set.item ??= ENGINE_PROFILE.defaults.item
-    set.happiness ??= ENGINE_PROFILE.defaults.happiness
-    set.shiny ??= ENGINE_PROFILE.defaults.shiny
-    set.evs = Object.fromEntries(STATS.map(stat => [stat, set.evs?.[stat] ?? ENGINE_PROFILE.defaults.ev]))
-    set.ivs = Object.fromEntries(STATS.map(stat => [stat, set.ivs?.[stat] ?? ENGINE_PROFILE.defaults.iv]))
+    set.level ??= profile.defaults.level
+    set.item ??= profile.defaults.item
+    set.happiness ??= profile.defaults.happiness
+    set.shiny ??= profile.defaults.shiny
+    set.evs = Object.fromEntries(STATS.map(stat => [stat, set.evs?.[stat] ?? profile.defaults.ev]))
+    set.ivs = Object.fromEntries(STATS.map(stat => [stat, set.ivs?.[stat] ?? profile.defaults.iv]))
   }
   if (errors.length) return { valid: false, team: null, errors, changes: [] }
+  // One sourced cartridge NPC set is unobtainable by ordinary players. Validate
+  // its remaining moves and every other field normally, then restore only the
+  // explicitly pinned move. Never suppress arbitrary validator error strings.
+  const npcRestores = []
+  if (npc) for (const [index, set] of team.entries()) {
+    const ids = set.moves.map(move => dex.moves.get(move).id)
+    const exception = profile.npcMoveExceptions?.find(entry => Dex.toID(set.species) === entry.species &&
+      ids.length === entry.exactMoves.length && entry.exactMoves.every(move => ids.includes(move)))
+    if (exception) {
+      npcRestores.push({ index, moves: ids.map(move => dex.moves.get(move).name) })
+      set.moves = set.moves.filter(move => dex.moves.get(move).id !== exception.move)
+    }
+  }
   const problems = new TeamValidator(format).validateTeam(team) || []
   for (const message of problems) {
     // This exact informational reminder rejects cartridge-legal untrained sets.
@@ -137,6 +153,7 @@ export function validateTeam(input) {
     if (!message.endsWith(ZERO_EV_ADVISORY)) error('GEN3_LEGALITY', message)
   }
   if (errors.length) return { valid: false, team: null, errors, changes: [] }
+  for (const { index, moves } of npcRestores) team[index].moves = moves
   const changes = team.flatMap((set, index) => changesBetween(original[index], set, index))
   return { valid: true, team, errors: [], changes }
 }

@@ -38,6 +38,9 @@ async function start(t, options) {
 }
 
 const create = (api, presetId = 'kanto', leadIndex = 0) => api.call('/match', { method: 'POST', body: { presetId, leadIndex, expectedMatchId: api.matchId() } })
+const createLeague = (api, regionId = 'kanto', presetId = 'kanto', leadIndex = 0) => api.call('/match', {
+  method: 'POST', body: { regionId, presetId, leadIndex, expectedMatchId: api.matchId() },
+})
 function damagingAction(view, moves) {
   const decision = view.decision
   if (decision.kind === 'switch') return { kind: 'switch', memberId: decision.switches[0].memberId }
@@ -66,6 +69,187 @@ test('HTTP config validates three six-member four-move presets and starts each s
     assert.equal(started.data.view.decision.kind, 'move')
     assert.match(started.headers.get('set-cookie'), /HttpOnly; SameSite=Strict/)
   }
+})
+
+test('HTTP league config exposes three regions and trainer identities without private NPC rosters', async t => {
+  const api = await start(t)
+  const response = await api.call('/config')
+  assert.equal(response.status, 200)
+  assert.equal(response.data.leagueProfile.id, 'gen3regionalleaguev1')
+  assert.equal(response.data.profile.id, 'gen3opensinglesv1')
+  assert.deepEqual(response.data.leagues.map(region => region.id), ['kanto', 'johto', 'hoenn'])
+  for (const region of response.data.leagues) {
+    assert.equal(region.trainers.length, 5)
+    assert.deepEqual(region.trainers.map(trainer => trainer.title), ['Elite Four', 'Elite Four', 'Elite Four', 'Elite Four', 'Champion'])
+    assert.equal(new Set(region.trainers.map(trainer => trainer.id)).size, 5)
+    for (const trainer of region.trainers) {
+      assert.deepEqual(Object.keys(trainer).sort(), ['id', 'name', 'specialty', 'title'])
+      assert(Object.values(trainer).every(value => typeof value === 'string' && value.length > 0))
+    }
+  }
+  const publicLeagues = JSON.stringify(response.data.leagues)
+  for (const privateField of ['team', 'moves', 'evs', 'ivs', 'originalLevels', 'sourceParty', 'seed']) {
+    assert(!publicLeagues.includes(`"${privateField}"`), `${privateField} leaked into regional configuration`)
+  }
+  assert.equal(response.headers.get('cache-control'), 'no-store')
+})
+
+test('HTTP league starts every region with the selected preset lead at level 100 and reconnects to the same run', async t => {
+  const api = await start(t)
+  const config = (await api.call('/config')).data
+  for (const [regionId, presetId, leadIndex, trainerId, species] of [
+    ['kanto', 'hoenn', 2, 'lorelei', 'Dewgong'],
+    ['johto', 'kanto', 4, 'will', 'Xatu'],
+    ['hoenn', 'johto', 1, 'sidney', 'Mightyena'],
+  ]) {
+    const created = await createLeague(api, regionId, presetId, leadIndex)
+    assert.equal(created.status, 200, JSON.stringify(created.data))
+    const { run, view, profileId } = created.data
+    const preset = config.presets.find(candidate => candidate.id === presetId)
+    assert.equal(profileId, 'gen3regionalleaguev1')
+    assert.equal(run.regionId, regionId)
+    assert.equal(run.presetId, presetId)
+    assert.equal(run.opponent.id, trainerId)
+    assert.equal(run.stageIndex, 0)
+    assert.equal(run.totalStages, 5)
+    assert.equal(run.wins, 0)
+    assert.equal(run.status, 'active')
+    assert.equal(run.nextOpponent, null)
+    assert.equal(view.own.team.length, 6)
+    assert.equal(view.own.team[0].species, preset.team[leadIndex].species)
+    assert.equal(view.own.active, view.own.team[0].memberId)
+    assert(preset.team.every(member => member.level === 100))
+    assert.equal(view.opponent.known.length, 1)
+    assert.equal(view.opponent.known[0].species, species)
+    for (const event of created.data.events.filter(event => event.args.opcode === 'switch')) {
+      const level = Number(event.args.fields[1].match(/(?:^|, )L(\d+)(?:,|$)/)?.[1] ?? 100)
+      assert.equal(level, 100, 'the simulator must start normalized level-100 battlers')
+    }
+    const cookie = api.cookie()
+    assert.deepEqual((await api.call('/match')).data, created.data)
+    const response = await api.call('/choice', { method: 'POST', body: {
+      matchId: created.data.matchId, commandId: `${regionId}-first-choice`, decisionId: view.decision.id,
+      action: { kind: 'move', slot: 1 }, afterCursor: view.cursor,
+    } })
+    assert.equal(response.status, 200, JSON.stringify(response.data))
+    assert.equal(response.data.ack.accepted, true)
+    assert.equal(response.data.run.id, run.id)
+    assert.equal(response.data.run.stageIndex, 0)
+    const reconnected = await api.call(`/match?afterCursor=${response.data.view.cursor}`)
+    assert.equal(reconnected.status, 200)
+    assert.deepEqual(reconnected.data.run, response.data.run)
+    assert.deepEqual(reconnected.data.view, response.data.view)
+    assert.deepEqual(reconnected.data.events, [])
+    assert.equal(api.cookie(), cookie)
+  }
+})
+
+test('HTTP league advancement requires a server win and rejects forfeit and legacy single battles', async t => {
+  const api = await start(t)
+  const created = (await createLeague(api)).data
+  const advance = () => api.call('/advance', { method: 'POST', body: { matchId: created.matchId, runId: created.run.id } })
+  const early = await advance()
+  assert.equal(early.status, 409)
+  assert.equal(early.data.error.code, 'ROUND_NOT_WON')
+  assert.deepEqual((await api.call('/match')).data, created)
+  const forfeited = await api.call('/forfeit', { method: 'POST', body: { matchId: created.matchId } })
+  assert.equal(forfeited.status, 200)
+  assert.equal(forfeited.data.run.status, 'lost')
+  assert.equal(forfeited.data.run.wins, 0)
+  assert.equal(forfeited.data.run.nextOpponent, null)
+  assert.deepEqual(forfeited.data.view.result, { kind: 'win', winnerSeat: 'p2', reason: 'forfeit' })
+  const afterLoss = await advance()
+  assert.equal(afterLoss.status, 409)
+  assert.equal(afterLoss.data.error.code, 'ROUND_NOT_WON')
+  assert.deepEqual((await api.call('/match')).data, forfeited.data)
+  const legacy = await create(api)
+  assert.equal(legacy.status, 200)
+  assert.equal(legacy.data.run, null)
+  assert.equal(legacy.data.profileId, 'gen3opensinglesv1')
+  const noLeague = await api.call('/advance', { method: 'POST', body: { matchId: legacy.data.matchId, runId: created.run.id } })
+  assert.equal(noLeague.status, 409)
+  assert.equal(noLeague.data.error.code, 'NO_LEAGUE')
+  assert.deepEqual((await api.call('/match')).data, legacy.data)
+})
+
+test('HTTP league payloads cannot supply progress, battle results, teams or target trainers', async t => {
+  const api = await start(t)
+  const initial = (await createLeague(api)).data
+  const validStart = { regionId: 'johto', presetId: 'kanto', leadIndex: 0, expectedMatchId: initial.matchId }
+  for (const addition of [
+    { stageIndex: 4 }, { wins: 5 }, { opponentId: 'lance' }, { playerTeam: [] },
+    { run: { status: 'won' } }, { result: { kind: 'win', winnerSeat: 'p1' } },
+  ]) {
+    const response = await api.call('/match', { method: 'POST', body: { ...validStart, ...addition } })
+    assert.equal(response.status, 400)
+    assert.equal(response.data.error.code, 'INVALID_MATCH')
+    assert.deepEqual((await api.call('/match')).data, initial)
+  }
+  for (const regionId of ['sinnoh', '', 'Kanto']) {
+    const response = await api.call('/match', { method: 'POST', body: { ...validStart, regionId } })
+    assert.equal(response.status, 400)
+    assert.equal(response.data.error.code, 'INVALID_REGION')
+  }
+  const ids = { matchId: initial.matchId, runId: initial.run.id }
+  for (const body of [
+    {}, { matchId: initial.matchId }, { runId: initial.run.id }, { ...ids, runId: null },
+    { ...ids, stageIndex: 4 }, { ...ids, wins: 1 }, { ...ids, nextOpponent: 'blue' },
+    { ...ids, result: { kind: 'win', winnerSeat: 'p1' } }, { ...ids, view: { result: { kind: 'win', winnerSeat: 'p1' } } },
+    { ...ids, playerTeam: [] }, { ...ids, afterCursor: 0 },
+  ]) {
+    const response = await api.call('/advance', { method: 'POST', body })
+    assert.equal(response.status, 400)
+    assert.equal(response.data.error.code, 'INVALID_ADVANCE')
+    assert.deepEqual((await api.call('/match')).data, initial)
+  }
+  const query = await api.call('/advance?stageIndex=4', { method: 'POST', body: ids })
+  assert.equal(query.status, 400)
+  assert.equal(query.data.error.code, 'INVALID_QUERY')
+  const anonymous = await api.call('/advance', { method: 'POST', body: ids, useCookie: false })
+  assert.equal(anonymous.status, 401)
+  assert.equal(anonymous.data.error.code, 'NO_MATCH')
+  assert.deepEqual((await api.call('/match')).data, initial)
+})
+
+test('HTTP league run identities isolate replacement runs and stale tabs cannot advance them', async t => {
+  const api = await start(t)
+  const previous = (await createLeague(api)).data
+  const cookie = api.cookie()
+  const replacement = (await createLeague(api, 'hoenn', 'johto', 3)).data
+  assert.notEqual(replacement.matchId, previous.matchId)
+  assert.notEqual(replacement.run.id, previous.run.id)
+  assert.equal(replacement.run.regionId, 'hoenn')
+  assert.equal(replacement.run.presetId, 'johto')
+  assert.equal(replacement.run.opponent.id, 'sidney')
+  assert.equal(replacement.run.status, 'active')
+  assert.equal(replacement.run.stageIndex, 0)
+  assert.equal(replacement.run.wins, 0)
+  assert.equal(replacement.view.turn, 1)
+  assert.equal(api.cookie(), cookie)
+  for (const [body, expectedCode] of [
+    [{ matchId: previous.matchId, runId: previous.run.id }, 'RUN_CHANGED'],
+    [{ matchId: replacement.matchId, runId: previous.run.id }, 'RUN_CHANGED'],
+    [{ matchId: replacement.matchId, runId: 'unknown-run' }, 'RUN_CHANGED'],
+    [{ matchId: previous.matchId, runId: replacement.run.id }, 'MATCH_CHANGED'],
+    [{ matchId: 'unknown-match', runId: replacement.run.id }, 'MATCH_CHANGED'],
+  ]) {
+    const response = await api.call('/advance', { method: 'POST', body })
+    assert.equal(response.status, 409)
+    assert.equal(response.data.error.code, expectedCode)
+    assert.deepEqual((await api.call('/match')).data, replacement)
+    assert.equal(api.cookie(), cookie)
+  }
+  const outdatedStart = await api.call('/match', { method: 'POST', body: {
+    regionId: 'johto', presetId: 'kanto', leadIndex: 0, expectedMatchId: previous.matchId,
+  } })
+  assert.equal(outdatedStart.status, 409)
+  assert.equal(outdatedStart.data.error.code, 'MATCH_CHANGED')
+  assert.deepEqual((await api.call('/match')).data, replacement)
+  const removed = await api.call('/match', { method: 'DELETE', body: { matchId: replacement.matchId } })
+  assert.equal(removed.status, 200)
+  const revoked = await api.call('/advance', { method: 'POST', body: { matchId: replacement.matchId, runId: replacement.run.id } })
+  assert.equal(revoked.status, 401)
+  assert.equal(revoked.data.error.code, 'NO_MATCH')
 })
 
 test('HTTP session reload, choices and exact retries preserve private ownership and event cursors', async t => {

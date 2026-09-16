@@ -13,6 +13,31 @@ The engine stays on the server. A random HttpOnly, SameSite=Strict cookie identi
 
 The automated opponent chooses the first available damaging move, then another legal move or switch when necessary. It does not evaluate strategy or inspect p1's secret state. Both automated decisions and player choices go through the engine's ordinary legal decision port. Reloading retrieves the same in-memory battle; retrying an admitted command keeps its original engine acknowledgment.
 
+The UI starts regional Elite Four challenges. `league-rosters.js` holds pinned
+FRLG Kanto, GS Johto and RS Hoenn (Steven) parties; `league-run.js` owns the
+five-round lifecycle through an injected engine factory. Team choices remain the
+three existing six-member presets. The server validates every NPC set at startup
+with `gen3regionalleaguev1`, which allows original party sizes/repeated species
+and a narrow NPC-only Karen/Murkrow exception. See
+[roster provenance](../../docs/LEAGUE_ROSTERS.md).
+
+`GET /config` includes public `leagues` and `leagueProfile` metadata. Create a run
+with `POST /match` containing `{regionId, presetId, leadIndex, expectedMatchId}`.
+Responses include `run` alongside the permitted battle view. Only a p1 engine
+win unlocks `POST /advance` with `{runId, matchId}`. It creates a fresh battle
+against the next trainer, fully restoring the original team, lead and held items.
+An exact retry for a previously advanced match in the same run returns the
+current battle without advancing again. Unknown/stale run IDs fail with 409;
+losses/draws and already completed challenges cannot advance. No client field can
+declare victory or choose an opponent/stage. Creating without `regionId` retains
+the old single-battle API for compatibility; the current UI supplies a region.
+
+The run and its current battle share one cookie, inactivity timeout and session
+capacity slot. Progress and Champion results survive reloads while that session
+exists, but are lost on restart, deployment, sleep or expiry. There is no durable
+save or trophy history. Deploy backend and frontend from the same revision; the
+existing Vercel wildcard proxy already forwards the new `/advance` endpoint.
+
 Every choice, forfeit and deletion includes the displayed `matchId` in its JSON body. Creating/replacing a battle includes `expectedMatchId` (the current match ID, or `null` when no session exists). Stale tabs receive `409 MATCH_CHANGED` before a battle mutation; they must fetch the current match before continuing. `GET /api/simulation/match` without a cursor returns a complete permitted snapshot for this synchronization.
 
 Default limits are 24 active sessions, 600 requests per session per minute, 60 new matches per minute, and 4 KiB JSON request bodies. Expired/replaced sessions and stopped servers dispose their engines. An unsupported protocol projection stops that session with a safe error. These limits are bounds for the local prototype, not measured production capacity.

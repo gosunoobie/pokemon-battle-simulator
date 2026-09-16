@@ -2,6 +2,8 @@ import { randomBytes, randomInt, randomUUID } from 'node:crypto'
 import { createEngineFactory } from '@battle/battle-engine'
 import { GEN3, getMove } from '@battle/game-data'
 import { PRESET_TEAMS } from './presets.js'
+import { REGIONAL_LEAGUES } from './league-rosters.js'
+import { createLeagueRun, LeagueRunError, publicLeague } from './league-run.js'
 
 const PREFIX = '/api/simulation'
 const COOKIE = 'battle_simulation_v1'
@@ -93,6 +95,8 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
   publicOrigin = parsePublicOrigin(publicOrigin)
   const sessions = new Map()
   let factory
+  let leagueFactory
+  let leagues
   let config
   let closed = false
   let createWindow = { started: Date.now(), count: 0 }
@@ -100,6 +104,12 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
   function initialize() {
     if (config) return
     factory = createEngineFactory()
+    leagueFactory = createEngineFactory({ profileId: 'gen3regionalleaguev1' })
+    leagues = REGIONAL_LEAGUES.map(league => ({ ...league, trainers: league.trainers.map(trainer => {
+      const checked = leagueFactory.validateOpponentTeam(trainer.team)
+      if (!checked.valid) throw new Error(`Invalid league trainer ${league.id}/${trainer.id}: ${JSON.stringify(checked.errors)}`)
+      return { ...trainer, team: checked.team }
+    }) }))
     const presets = PRESET_TEAMS.map(preset => {
       const checked = factory.validateTeam(preset.team)
       if (!checked.valid) throw new Error(`Invalid simulation preset ${preset.id}: ${JSON.stringify(checked.errors)}`)
@@ -107,6 +117,8 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
     })
     config = {
       presets,
+      leagues: leagues.map(publicLeague),
+      leagueProfile: { id: leagueFactory.getProfile().id, label: 'Gen 3 Regional League · level 100 · full recovery between battles' },
       moves: Object.fromEntries(GEN3.moves.map(move => [move.id, {
         id: move.id, name: move.name, type: move.type, category: move.category,
         basePower: move.basePower, accuracy: move.accuracy, pp: move.pp,
@@ -118,7 +130,7 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
 
   function removeSession(token) {
     const session = sessions.get(token)
-    if (session) { session.engine?.dispose(); sessions.delete(token) }
+    if (session) { if (session.run) session.run.dispose(); else session.engine?.dispose(); sessions.delete(token) }
   }
   function expire() {
     const now = Date.now()
@@ -149,8 +161,7 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
   function permittedView(session) {
     const view = session.engine.getPlayerView('p1')
     if (!view.complete) {
-      session.engine.dispose()
-      sessions.delete(session.token)
+      removeSession(session.token)
       throw new HttpError(503, 'PROJECTION_UNAVAILABLE', 'This battle produced an unsupported display update. Start a new battle.')
     }
     return view
@@ -161,7 +172,8 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
     if (afterCursor > view.cursor) badRequest('INVALID_CURSOR', 'The event cursor is ahead of this battle.')
     return {
       matchId: session.matchId, view,
-      events: session.engine.getEvents('p1', afterCursor), profileId: config.profile.id,
+      events: session.engine.getEvents('p1', afterCursor), profileId: session.profileId,
+      run: session.run?.summary() ?? null,
       ...(ack === undefined ? {} : { ack }),
     }
   }
@@ -193,8 +205,7 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
       })
       permittedView(session)
     }
-    session.engine.dispose()
-    sessions.delete(session.token)
+    removeSession(session.token)
     throw new HttpError(503, 'AUTOMATION_UNAVAILABLE', 'The automated opponent could not continue this battle. Start a new battle.')
   }
 
@@ -210,13 +221,15 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
     if (req.method === 'POST' && url.pathname === `${PREFIX}/match`) {
       if (url.search) badRequest('INVALID_QUERY', 'This endpoint does not accept query parameters.')
       const body = await readBody(req)
-      if (!keysAre(body, ['presetId', 'leadIndex', 'expectedMatchId']) || typeof body.presetId !== 'string' || !Number.isInteger(body.leadIndex) || body.leadIndex < 0 || body.leadIndex > 5 ||
+      if (!keysAre(body, ['presetId', 'leadIndex', 'expectedMatchId', 'regionId']) || (body.regionId !== undefined && typeof body.regionId !== 'string') || typeof body.presetId !== 'string' || !Number.isInteger(body.leadIndex) || body.leadIndex < 0 || body.leadIndex > 5 ||
         !(body.expectedMatchId === null || typeof body.expectedMatchId === 'string' && ID.test(body.expectedMatchId))) {
         badRequest('INVALID_MATCH', 'Choose a preset and a lead from its six Pokémon.')
       }
       initialize()
       const preset = config.presets.find(candidate => candidate.id === body.presetId)
       if (!preset) badRequest('INVALID_PRESET', 'Choose an available team preset.')
+      const league = body.regionId === undefined ? null : leagues.find(candidate => candidate.id === body.regionId)
+      if (body.regionId !== undefined && !league) badRequest('INVALID_REGION', 'Choose Kanto, Johto or Hoenn.')
       expire()
       const existingToken = cookieToken(req)
       const existing = existingToken && sessions.get(existingToken)
@@ -224,14 +237,16 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
       if (!existing && sessions.size >= maxSessions) throw new HttpError(503, 'SESSION_LIMIT', 'This local server has reached its session limit. Try again later.')
       if (Date.now() - createWindow.started >= 60_000) createWindow = { started: Date.now(), count: 0 }
       if (++createWindow.count > 60) throw new HttpError(429, 'RATE_LIMITED', 'Too many new battles. Please wait a minute.')
-      const candidates = config.presets.filter(candidate => candidate.id !== preset.id)
-      const opponent = candidates[randomInt(candidates.length)]
       const playerTeam = clone(preset.team)
       playerTeam.unshift(...playerTeam.splice(body.leadIndex, 1))
-      const matchId = randomUUID()
-      const engine = factory.create({ matchId, teams: { p1: playerTeam, p2: opponent.team } })
+      const run = league ? createLeagueRun({ league, playerTeam, presetId: preset.id, createBattle: leagueFactory.create }) : null
+      // Keep the earlier single-battle API compatible; the simulation UI now
+      // always supplies a region and starts an independent league challenge.
+      const candidates = config.presets.filter(candidate => candidate.id !== preset.id)
+      const matchId = run?.current().matchId ?? randomUUID()
+      const engine = run?.current().engine ?? factory.create({ matchId, teams: { p1: playerTeam, p2: candidates[randomInt(candidates.length)].team } })
       const token = existing ? existingToken : randomBytes(32).toString('hex')
-      const session = { token, matchId, engine, botCommands: 0, expiresAt: Date.now() + ttlMs, window: { started: Date.now(), count: 0 } }
+      const session = { token, matchId, engine, run, profileId: run ? config.leagueProfile.id : config.profile.id, botCommands: 0, expiresAt: Date.now() + ttlMs, window: { started: Date.now(), count: 0 } }
       if (existing) removeSession(existingToken)
       sessions.set(token, session)
       setCookie(req, res, token)
@@ -244,6 +259,23 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
       if (!/^\d{1,12}$/.test(raw)) badRequest('INVALID_CURSOR', 'Use a nonnegative integer event cursor.')
       const session = requireSession(req, res)
       send(res, 200, snapshot(session, cursorValue(Number(raw))))
+      return
+    }
+    if (req.method === 'POST' && url.pathname === `${PREFIX}/advance`) {
+      if (url.search) badRequest('INVALID_QUERY', 'This endpoint does not accept query parameters.')
+      const body = await readBody(req)
+      if (!keysAre(body, ['matchId', 'runId']) || typeof body.matchId !== 'string' || !ID.test(body.matchId) || typeof body.runId !== 'string' || !ID.test(body.runId)) {
+        badRequest('INVALID_ADVANCE', 'Send the current league and battle identities.')
+      }
+      const session = requireSession(req, res)
+      if (!session.run) throw new HttpError(409, 'NO_LEAGUE', 'Start a regional challenge first.')
+      const next = session.run.advance(body)
+      if (next.matchId !== session.matchId) {
+        session.matchId = next.matchId
+        session.engine = next.engine
+        session.botCommands = 0
+      }
+      send(res, 200, snapshot(session))
       return
     }
     if (req.method === 'POST' && [`${PREFIX}/choice`, `${PREFIX}/forfeit`].includes(url.pathname)) {
@@ -293,9 +325,10 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
       if (url.pathname !== PREFIX && !url.pathname.startsWith(`${PREFIX}/`)) { next?.(); return }
       route(req, res, url).catch(error => {
         // Engine internals, validation detail, teams and seeds never enter errors.
-        send(res, error instanceof HttpError ? error.status : 503, { error: {
-          code: error instanceof HttpError ? error.code : 'SIMULATION_UNAVAILABLE',
-          message: error instanceof HttpError ? error.message : 'The simulation could not continue. Please start a new battle.',
+        const expected = error instanceof HttpError || error instanceof LeagueRunError
+        send(res, expected ? error.status : 503, { error: {
+          code: expected ? error.code : 'SIMULATION_UNAVAILABLE',
+          message: expected ? error.message : 'The simulation could not continue. Please start a new battle.',
         } })
       })
     },

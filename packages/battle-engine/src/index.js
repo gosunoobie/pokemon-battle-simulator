@@ -2,7 +2,7 @@ import { createHash, randomBytes } from 'node:crypto';
 import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { getVendor } from './vendor.js';
-import { ENGINE_PROFILE, getFormat, getIdentity as profileIdentity } from './profile.js';
+import { getProfile, getFormat, getIdentity as profileIdentity } from './profile.js';
 import { validateTeam } from './teams.js';
 import { createProjection } from './projection.js';
 
@@ -63,24 +63,28 @@ function decodePrivate(value, description) {
   }
 }
 
-let identity;
-function buildIdentity() {
-  if (!identity) {
+const identities = new Map();
+function buildIdentity(profileId) {
+  if (!identities.has(profileId)) {
     const directory = fileURLToPath(new URL('.', import.meta.url));
     const files = readdirSync(directory).filter(name => name.endsWith('.js')).sort()
       .map(name => ({ name, sha256: hash(readFileSync(`${directory}/${name}`)) }));
-    const base = profileIdentity();
+    const base = profileIdentity(profileId);
     const value = { ...base, adapter: { name: '@battle/battle-engine', version: '0.1.0', checkpointSchemaVersion: 1, buildSha256: hash(canonical(files)) } };
     delete value.fingerprint;
-    identity = { ...value, fingerprint: hash(canonical(value)) };
+    identities.set(profileId, { ...value, fingerprint: hash(canonical(value)) });
   }
-  return clone(identity);
+  return clone(identities.get(profileId));
 }
 
 /** A synchronous server-only port. It performs no network, storage or timer work. */
-export function createEngineFactory() {
-  getFormat();
-  const expectedIdentity = buildIdentity();
+export function createEngineFactory(options = {}) {
+  if (!keysAre(options, ['profileId'])) throw new EngineError('INVALID_OPTIONS', 'Supply an optional allowlisted profileId.');
+  const profile = getProfile(options.profileId);
+  getFormat(profile.id);
+  const expectedIdentity = buildIdentity(profile.id);
+  const validateProfileTeam = team => validateTeam(team, profile.id);
+  const validateOpponentTeam = team => validateTeam(team, profile.id, { npc: true });
 
   function create(options = {}) {
     if (!keysAre(options, ['teams', 'seed', 'matchId']) || !keysAre(options.teams, SEATS)) {
@@ -90,11 +94,11 @@ export function createEngineFactory() {
     if (!validId(matchId)) throw new EngineError('INVALID_MATCH_ID', 'Match ID must be a bounded identifier.');
     const teams = {};
     for (const seat of SEATS) {
-      const validation = validateTeam(options.teams[seat]);
+      const validation = seat === 'p2' ? validateOpponentTeam(options.teams[seat]) : validateProfileTeam(options.teams[seat]);
       if (!validation.valid) throw new EngineError('INVALID_TEAM', `${seat} has an invalid team.`, validation.errors);
       teams[seat] = validation.team;
     }
-    return makeEngine({ initial: { matchId, teams, seed: seedValue(options.seed) }, expectedIdentity });
+    return makeEngine({ initial: { matchId, teams, seed: seedValue(options.seed) }, expectedIdentity, profile });
   }
 
   function restore(record) {
@@ -105,7 +109,7 @@ export function createEngineFactory() {
     }
     const saved = envelope.payload;
     if (canonical(saved.identity) !== canonical(expectedIdentity)) throw new EngineError('INCOMPATIBLE_CHECKPOINT', 'Engine, adapter, format or data identity changed.');
-    if (saved.battle?.formatid !== getFormat().id || !validId(saved.initial?.matchId) ||
+    if (saved.battle?.formatid !== getFormat(profile.id).id || !validId(saved.initial?.matchId) ||
       !Array.isArray(saved.journal) || saved.journal.length > MAX_COMMANDS + 1 ||
       !Array.isArray(saved.receipts) || saved.receipts.length > MAX_COMMANDS ||
       !plain(saved.decisionCounters)) {
@@ -116,7 +120,7 @@ export function createEngineFactory() {
       if (!Number.isSafeInteger(saved.decisionCounters[seat]) || saved.decisionCounters[seat] < 0) throw new EngineError('INVALID_CHECKPOINT', 'Invalid decision counters.');
     }
     // Checkpoints are private trusted storage artifacts, never client-supplied state.
-    return makeEngine({ initial: saved.initial, expectedIdentity, saved });
+    return makeEngine({ initial: saved.initial, expectedIdentity, saved, profile });
   }
 
   function replay(record) {
@@ -144,10 +148,10 @@ export function createEngineFactory() {
     }
   }
 
-  return Object.freeze({ create, restore, replay, validateTeam, getIdentity: () => clone(expectedIdentity), getProfile: () => clone(ENGINE_PROFILE) });
+  return Object.freeze({ create, restore, replay, validateTeam: validateProfileTeam, validateOpponentTeam, getIdentity: () => clone(expectedIdentity), getProfile: () => clone(profile) });
 }
 
-function makeEngine({ initial, expectedIdentity, saved }) {
+function makeEngine({ initial, expectedIdentity, saved, profile }) {
   const { Battle } = getVendor();
   let disposed = false;
   let faulted = false;
@@ -171,7 +175,7 @@ function makeEngine({ initial, expectedIdentity, saved }) {
       // The vendor requests turn 501 after resolving turn 500. The policy below
       // ends there; do not announce an unplayable extra turn to either viewer.
       if (type === 'update') message = message.split('\n').filter(line =>
-        !line.startsWith('|turn|') || Number(line.slice(6)) <= ENGINE_PROFILE.turnLimit).join('\n');
+        !line.startsWith('|turn|') || Number(line.slice(6)) <= profile.turnLimit).join('\n');
       projection.consume(type, message);
     }
     // Upstream end contains full teams and seeds. Results are constructed below.
@@ -201,7 +205,7 @@ function makeEngine({ initial, expectedIdentity, saved }) {
       battle.restart(receive);
       for (const seat of SEATS) requestRefs[seat] = battle.getSide(seat).activeRequest;
     } else {
-      battle = new Battle({ formatid: getFormat().id, seed: initial.seed, send: receive });
+      battle = new Battle({ formatid: getFormat(profile.id).id, seed: initial.seed, send: receive });
       for (const seat of SEATS) {
         const team = initial.teams[seat].map((set, index) => ({ ...clone(set), name: `${seat}-${index + 1}` }));
         battle.setPlayer(seat, { name: seat, team });
@@ -288,7 +292,7 @@ function makeEngine({ initial, expectedIdentity, saved }) {
         battle.sendUpdates();
         syncDecisions();
         // The cap is an explicit adapter policy, independent of animation and timers.
-        if (!battle.ended && battle.turn > ENGINE_PROFILE.turnLimit) {
+        if (!battle.ended && battle.turn > profile.turnLimit) {
           result = { kind: 'draw', reason: 'turn-limit' };
           battle.forceWin(null);
           battle.sendUpdates();
