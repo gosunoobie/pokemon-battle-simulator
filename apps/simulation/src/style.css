@@ -7,6 +7,17 @@
 
 /* Match the preview's 1000 × 450 stage; the HUD belongs to the field itself. */
 .sim-field { container-type: inline-size; }
+.sim-impact-surface { position: absolute; inset: 0; z-index: 2; container-type: size; pointer-events: none; }
+/* Match the renderer's uniform 1000 × 450 fit, including mobile letterboxing. */
+.sim-impact-fit { position: absolute; left: 50%; top: 50%; width: min(100cqw, 222.222222cqh); aspect-ratio: 1000 / 450; transform: translate(-50%, -50%); }
+.sim-hud, .sim-weather { z-index: 3; }
+.sim-health-impact { position: absolute; inset: -1px; border: 2px solid #ed4969; border-radius: inherit; box-shadow: 0 0 22px #dc143c66, inset 0 0 18px #dc143c33; pointer-events: none; animation: sim-health-impact var(--impact-duration, 1100ms) ease-out both; }
+.sim-health-impact-resisted { border-color: #a5c2d0; box-shadow: 0 0 10px #a5c2d026, inset 0 0 12px #a5c2d01c; }
+.sim-health-impact-immune { border-color: #bcb5df; box-shadow: inset 0 0 16px #bcb5df28; }
+.sim-health-impact-reduced { box-shadow: none; }
+@keyframes sim-health-impact { 0% { opacity: 0; } 10%, 35% { opacity: 1; } 100% { opacity: 0; } }
+.sim-field-intro .sim-canvas, .sim-field-intro .sim-hud, .sim-field-intro .sim-weather,
+.sim-field-intro .sim-fallback, .sim-field-opening .sim-fallback { visibility: hidden; }
 .sim-hud { position: absolute; inset: 6% 2.9% auto; display: flex; justify-content: space-between; align-items: flex-start; pointer-events: none; }
 .sim-health { position: relative; width: 26.3%; min-width: 0; padding: 14px 16px 12px; border: 1px solid #d4e3c52a; border-radius: 8px; background: #1d302ad9; }
 .sim-health-own { border-color: #a6c17b99; }
@@ -28,7 +39,7 @@
 .sim-battle-details .sim-stage-badges { margin: 0 0 5px; }
 @media (max-width: 700px) {
   .sim-field { aspect-ratio: 1.55; }
-  .sim-canvas, .sim-fallback { top: 24%; height: 76%; }
+  .sim-canvas, .sim-fallback, .sim-impact-surface { top: 24%; height: 76%; }
   .sim-hud { inset: 15px 15px auto; gap: 12px; }
   .sim-health { width: calc(50% - 6px); padding: 10px; }
   .sim-health-name { flex-wrap: wrap; gap: 4px 6px; }
@@ -40,7 +51,7 @@
 }
 @media (max-width: 380px) {
   .sim-field { aspect-ratio: 1.3; }
-  .sim-canvas, .sim-fallback { top: 32%; height: 68%; }
+  .sim-canvas, .sim-fallback, .sim-impact-surface { top: 32%; height: 68%; }
   .sim-health { padding: 8px; }
   .sim-health-name h2 { font-size: 13px; }
   .sim-health-name > span, .sim-health-bottom { font-size: 10px; }

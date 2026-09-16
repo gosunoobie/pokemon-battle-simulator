@@ -1,4 +1,5 @@
 import { FX_CATALOG } from '@battle/battle-fx/catalog'
+import { deriveMoveImpact } from './impact.js'
 
 // This is a display ledger of server facts, not a rules engine. Neither the
 // intermediate snapshots nor an animation cue can change a submitted decision.
@@ -219,8 +220,8 @@ function groupsFor(events) {
 
 /** Optional FX for a batch already committed by the authoritative server. */
 export function createSimulationPresenter({ getScene, ensureScene = async () => {}, onDisplay,
-  onMessage = () => {}, faintScene = async () => {}, loadFx, timeoutMs = 7500 }) {
-  if (![getScene, ensureScene, onDisplay, onMessage, faintScene, loadFx].every(value => typeof value === 'function')) throw new TypeError('Presenter callbacks are required')
+  onMessage = () => {}, faintScene = async () => {}, playImpact = () => null, loadFx, timeoutMs = 7500 }) {
+  if (![getScene, ensureScene, onDisplay, onMessage, faintScene, playImpact, loadFx].every(value => typeof value === 'function')) throw new TypeError('Presenter callbacks are required')
   if (!Number.isFinite(timeoutMs) || timeoutMs <= 0) throw new TypeError('A positive presentation timeout is required')
   let generation = 0, active = null, destroyed = false, fxPromise = null
   const safe = (callback, ...args) => { try { callback(...args) } catch {} }
@@ -232,18 +233,24 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
     active?.stop('cancelled')
     const token = ++generation
     const controller = new AbortController()
-    let playback = null, playbackCancelled = false, stopResolve, stoppedStatus = null, finalSceneReady = false, sceneFailed = false
+    let playback = null, impactPlayback = null, impactFinished = null, playbackCancelled = false, stopResolve, stoppedStatus = null, finalSceneReady = false, sceneFailed = false
     const stopped = new Promise(resolve => { stopResolve = resolve })
     const cancelPlayback = () => {
       if (!playback || playbackCancelled) return
       playbackCancelled = true
       try { playback.cancel?.() } catch {}
     }
+    const clearImpact = () => {
+      const previous = impactPlayback
+      impactPlayback = null; impactFinished = null
+      try { previous?.cancel?.() } catch {}
+    }
     const current = { stop(status) {
       if (stoppedStatus) return
       stoppedStatus = status
       controller.abort()
       cancelPlayback()
+      clearImpact()
       stopResolve({ stopped: status })
     } }
     active = current
@@ -290,11 +297,22 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
           // art when no opposing HP loss was reported for this move.
           const landedDamage = group.some(event => opcodeOf(event) === '-damage' && fieldsOf(event)[0] !== fieldsOf(first)[0])
           const failed = !landedDamage && group.some(event => failures.has(opcodeOf(event)))
+          const impact = deriveMoveImpact(group, displayed)
           message(describeEvent(first, displayed, after))
           let revealed = false
           const reveal = () => { if (!revealed && valid() && !stoppedStatus) {
             revealed = true
             publish(next, { retainFaintedActorIds: faintActorIds })
+            if (impact) {
+              // Only server-reported effectiveness and visible HP deltas enter
+              // this host overlay. Attack recipes still receive no battle data.
+              try {
+                impactPlayback = playImpact(impact, { reducedMotion, signal: controller.signal })
+                // Attach rejection handling immediately: a label can finish
+                // while the move is still recovering from its contact pose.
+                impactFinished = Promise.resolve(impactPlayback?.finished).catch(() => { clearImpact() })
+              } catch { clearImpact() }
+            }
           } }
           if (effect && !failed && (!prepare || effect.phases?.includes('prepare'))) {
             await prepareScene(displayed)
@@ -320,6 +338,11 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
             }
           }
           reveal()
+          // Usually this has already finished during attack recovery. A move
+          // with no hit animation (immunity, for example) still gets readable
+          // feedback before the next action, faint, switch or result.
+          if (impactFinished && valid() && !stoppedStatus) await bounded(() => impactFinished)
+          clearImpact()
           if (faintActorIds.length && valid() && !stoppedStatus) {
             // Let the attack recover first. Only then retire its defeated actor,
             // before any switch, forced replacement, or result that follows.
@@ -346,6 +369,7 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
     } finally {
       controller.abort()
       cancelPlayback()
+      clearImpact()
       if (valid()) {
         publish(after)
         // A skipped attack may have been followed by a replacement. Reconcile

@@ -16,6 +16,22 @@ The interface shows regional progress, move PP and pinned Gen 3 metadata, exact 
 
 ## Pokémon send-outs
 
+Each newly started league round opens with a short trainer-versus-team intro on
+the battlefield, followed by the existing Poké Ball releases. After the final
+attack and faint finish, a victory or defeat overlay appears on the field; the
+fifth league win receives a Champion treatment. Draws and no-contests have their
+own neutral text. Result text remains visible beside the existing continuation
+controls. It is derived from the server result, never inferred from visible HP.
+
+`apps/simulation/src/sequence.js` orders these host-only overlays around the
+existing battle presenter. `BattleOverlay.vue` renders their text and finite
+CSS animations without touching actor poses or rules. Skip, effects-off,
+backgrounding and motion preference changes settle the current sequence safely.
+Reduced motion uses a brief fade with no streaks, rotation or particles.
+Reconnect restores static result text without replaying an intro or celebration;
+late timers and older responses cannot cover a new battle. Overlays also work
+when the sprite renderer is unavailable.
+
 Starting a new battle releases both leads from Poké Balls. Voluntary switches and forced replacements release only the incoming Pokémon, and the presenter waits for the release before showing the next move. A larger ball tumbles twice along an arc with a tapered speed trail; its moving button and curved seam make the rotation visible. A bright opening flash, cyan/gold rings and sparks accompany a white Pokémon silhouette that quickly resolves into its normal colors and resting position. Sprite proportions, visible-size minimums and ground platforms remain the host's existing geometry.
 
 **Battle animations** controls send-outs, moves and fainting. **Skip animations** immediately reconciles the full server view and its final lineup. Reduced motion uses short fades without a thrown ball, flash or sinking motion. Reconnect/sync restores the current field without repeating old transitions; form changes and identity corrections also do not throw another ball.
@@ -23,6 +39,29 @@ Starting a new battle releases both leads from Poké Balls. Voluntary switches a
 The cosmetic transition is a separate `@battle/battle-fx/transitions` export, loaded on demand. It receives the scene and entering actor IDs, never species data, HP or battle rules. The scene coordinator hides incoming art before mounting it, owns cancellation and rejects stale loads. A renderer or transition failure must leave the final Pokémon visible and battle controls usable.
 
 When server facts report a new knockout, HP reaches zero at the hit's impact while the outgoing sprite remains for the attack's recovery. The presenter then waits for a 0.9-second faint: a brief desaturated dip and a full-size silhouette sinking behind its own ground line, with a subtle ripple and dust. Only an owned snapshot is masked; platforms and shared sprite textures remain untouched. Reduced motion uses a 0.22-second fade. Either side, simultaneous knockouts, recoil and residual damage follow the same ordering before a replacement enters. Skip, failure, timeout or reset clears the retained outgoing artwork and restores the authoritative lineup; reconnect never replays a prior faint.
+
+## Move effectiveness feedback
+
+At a move's impact cue, the battlefield shows a crimson burst for a confirmed
+super-effective hit, a smaller cool ripple for a resisted hit, or a shield and
+“No effect” for immunity. The target's HP card briefly highlights too. Popups
+show effectiveness text only, without HP deductions; HP remains on the health
+cards. Neutral
+hits, misses and residual damage do not receive effectiveness labels. No type
+matchup or damage multiplier is calculated in the browser.
+
+`impact.js` derives this presentation data from the move's protocol group.
+`presentation.js` reveals it alongside displayed HP, then lets its short lifetime
+finish before fainting or the next action. `impactPlayback.js` owns the timer and
+cancellation; `ImpactFeedback.vue` renders the overlay independently of Pokémon
+poses and move recipes. Multi-hit damage is totalled from the visible direct hits,
+excluding recoil, healing and attributed damage. A substitute hit can show an
+effectiveness label without inventing HP loss.
+
+The overlay uses the target's visible center at contact and the same uniform
+canvas fit on mobile and desktop. Reduced motion keeps a fading label; effects-off
+and reconnect do not replay feedback. Skip, reset, deadline, backgrounding and
+scene replacement clear old feedback before a new Pokémon can take its place.
 
 ## Idle motion
 
