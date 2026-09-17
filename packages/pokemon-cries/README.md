@@ -16,6 +16,6 @@ The workspace deploys audio from `public/audio/cries`; this package contains onl
 
 All shipped Ogg bytes match upstream. Form aliases have explicit pinned source evidence in `tools/cry-import/form-aliases.json`. The upstream `legacy` label does not establish authentic Gen 3 recording vintage.
 
-No battle integration is enabled yet. The future host audio player must handle user activation, decoding support, caching, volume/headroom, cancellation and reveal cues. The catalog has Ogg Vorbis only; older browsers without native Ogg decoding need a separately reviewed fallback before they can be promised support.
+Simulation and multiplayer compose this catalog with the independent `@battle/battle-audio` player in their shared host adapter. It handles user activation, decoding, caching, volume/headroom, cancellation and send-out reveal cues; the catalog itself remains pure. See [playback integration](../../docs/CRY_PLAYBACK.md). The catalog has Ogg Vorbis only; browsers without native Ogg decoding remain silent unless a separately reviewed fallback is added.
 
 See `tools/cry-import/README.md` for acquisition, validation and rebuild commands. Generated data is not edited by hand.

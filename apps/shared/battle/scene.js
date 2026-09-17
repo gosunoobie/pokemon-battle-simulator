@@ -216,7 +216,7 @@ export function createSimulationScene({ getHost, onAvailability = () => {},
     try { await ensureScene(view, options) }
     finally { idleBlocked--; syncIdle() }
   }
-  async function ensureScene(view, { entryActorIds = [], reducedMotion = false, signal } = {}) {
+  async function ensureScene(view, { entryActorIds = [], reducedMotion = false, signal, onEntryReveal } = {}) {
     display(view)
     const next = identity(view)
     if (pending?.key === next.key) { await waitFor(pending, signal); return }
@@ -275,8 +275,19 @@ export function createSimulationScene({ getHost, onAvailability = () => {},
           try {
             const release = await Promise.race([loadRelease(), operation.entryStopped])
             if (release && valid(operation) && !operation.skipEntry) {
+              const revealed = new Set()
               operation.playback = release.playPokeballRelease({ scene: nextScene, actorIds: operation.entries,
-                reducedMotion, signal: operation.controller.signal })
+                reducedMotion, signal: operation.controller.signal, onCue(cue) {
+                  const id = cue?.actorId, index = actorIds.indexOf(id)
+                  if (cue?.type !== 'reveal' || !operation.entries.includes(id) || revealed.has(id) ||
+                    !valid(operation) || pending !== operation || operation.skipEntry || operation.controller.signal.aborted ||
+                    signal?.aborted || scene !== nextScene || !entering.has(id)) return
+                  const displayed = identity(currentView)
+                  if (!sameActor(next, displayed, index) || displayed.members[index]?.fainted ||
+                    !nextScene.actor(id)?.root.visible) return
+                  revealed.add(id)
+                  try { onEntryReveal?.(id) } catch {}
+                } })
               // The clip synchronously hides its actor pose before returning.
               // Expose the root only now, so its expanding pose can be seen.
               const displayed = identity(currentView)

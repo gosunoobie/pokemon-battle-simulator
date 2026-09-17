@@ -64,6 +64,8 @@
 .sim-result-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 15px 22px; }
 .sim-result-restart { background: transparent; border: 0; color: #adc09c; text-decoration: underline; text-underline-offset: 4px; padding: 10px 0; font-size: 12px; }
 .sim-result-restart:disabled { opacity: .5; }
+.sim-audio-controls input[type="range"] { width: 90px; height: auto; }
+.sim-audio-controls output { min-width: 3ch; font-variant-numeric: tabular-nums; }
 .sim-result-champion { background: radial-gradient(ellipse at 85% 50%, #c7b56d24, transparent 80%); }
 .sim-result-champion .sim-eyebrow { color: #ebc88d; }
 @media (max-width: 600px) {

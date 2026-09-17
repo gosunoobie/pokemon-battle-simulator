@@ -15,12 +15,16 @@ const props = defineProps({
   opponentName: { type: String, default: 'Opponent' },
   opponentTitle: { type: String, default: 'Battle trainer' },
   inactive: Boolean,
+  audio: { type: Object, required: true },
 })
 const emit = defineEmits(['display', 'playback', 'message'])
 const displayed = shallowRef(null), stage = ref(null), sceneAvailable = ref(null)
 const playing = ref(false), openingBattle = ref(false), message = ref('')
 const effectsEnabled = ref(true), reducedMotion = ref(false), pageVisible = ref(true)
 const battleOverlay = shallowRef(null), impactFeedback = shallowRef(null)
+const audioState = shallowRef(props.audio.getState())
+const unsubscribeAudio = props.audio.subscribe(value => { audioState.value = value })
+let audioScope = null
 let generation = 0, disposed = false
 const scene = createSimulationScene({ getHost: () => stage.value, onAvailability: value => { sceneAvailable.value = value } })
 const impactPlayer = createImpactPlayback({ getScene: scene.get, onFeedback: value => { impactFeedback.value = value } })
@@ -32,6 +36,8 @@ const movePresenter = createSimulationPresenter({
   faintScene: (view, options) => scene.faint(view, options), playImpact: impactPlayer.play,
   onDisplay: (view, options) => { displayed.value = view; scene.display(view, options); emit('display', view) },
   onMessage: publishMessage,
+  onEntry: (view, actorId) => { if (!props.inactive) audioScope?.entry(view, actorId) },
+  onEntryCancel: () => audioScope?.cancel(),
   loadFx: async () => (await import('@battle/battle-fx')).createBattleFx(),
 })
 const presenter = createBattleSequence({ presenter: movePresenter, onOverlay: value => { battleOverlay.value = value } })
@@ -44,8 +50,9 @@ watch([effectsEnabled, reducedMotion, playing, pageVisible, () => props.inactive
   scene.setIdleMotion({ enabled, reducedMotion: reduced, paused: active || !visible || inactive })
 }, { immediate: true, flush: 'sync' })
 watch([effectsEnabled, reducedMotion, pageVisible], ([enabled, reduced, visible], [, previousReduced]) => {
-  if (!enabled || !visible || reduced !== previousReduced) presenter.skip()
+  if (!enabled || !visible || reduced !== previousReduced) skip()
 }, { flush: 'sync' })
+watch(() => props.inactive, inactive => { if (inactive) skip() }, { flush: 'sync' })
 const updateVisibility = () => { pageVisible.value = !document.hidden }
 const current = token => !disposed && generation === token
 function readyMessage(view) {
@@ -59,6 +66,11 @@ function readyMessage(view) {
 async function present(batch, options = {}) {
   if (disposed) return { status: 'cancelled' }
   if (!batch?.after) throw new TypeError('An authoritative after view is required.')
+  // Stop the old presenter before assigning a new sound scope. Its cancellation
+  // callback belongs to the previous batch, including during the intro overlay.
+  presenter.skip()
+  const scope = props.audio.begin(batch.after, batch.events)
+  audioScope = scope
   const token = ++generation
   const enabled = (options.effectsEnabled ?? effectsEnabled.value) && pageVisible.value
   playback(true)
@@ -67,10 +79,12 @@ async function present(batch, options = {}) {
   await nextTick()
   if (!current(token)) return { status: 'cancelled' }
   try {
-    return await presenter.present({ playerLabel: props.playerLabel, opponentName: props.opponentName,
+    const result = await presenter.present({ playerLabel: props.playerLabel, opponentName: props.opponentName,
       opponentTitle: props.opponentTitle, ...batch }, {
       effectsEnabled: enabled, reducedMotion: options.reducedMotion ?? reducedMotion.value,
     })
+    if (['failed', 'cancelled'].includes(result.status)) scope.cancel()
+    return result
   } finally {
     if (current(token)) {
       playback(false); openingBattle.value = false
@@ -82,6 +96,7 @@ async function sync(view, { run = null } = {}) {
   if (disposed) return
   const token = ++generation
   // Invalidate cues and transient overlays before waiting for Vue or textures.
+  audioScope?.cancel(); props.audio.sync(view)
   presenter.reset(view, { run }); impactPlayer.clear()
   openingBattle.value = false; playback(false)
   if (!view) { displayed.value = null; scene.clear(); emit('display', null); return }
@@ -91,23 +106,26 @@ async function sync(view, { run = null } = {}) {
   if (current(token)) void scene.ensure(view).catch(() => {})
 }
 function clear() {
+  audioScope?.cancel(); props.audio.stop()
   generation++; presenter.reset(null); impactPlayer.clear(); scene.clear()
   displayed.value = null; openingBattle.value = false; message.value = ''; playback(false)
   emit('display', null)
 }
+function skip() { audioScope?.cancel(); presenter.skip() }
 function showBattle() {
   const bounds = stage.value?.getBoundingClientRect()
   if (bounds && (bounds.top < 0 || bounds.bottom > window.innerHeight)) {
     stage.value.closest('.sim-arena')?.scrollIntoView({ behavior: reducedMotion.value ? 'instant' : 'smooth', block: 'start' })
   }
 }
-defineExpose({ present, sync, clear, showBattle, skip: () => presenter.skip(), getDisplayed: () => displayed.value })
+defineExpose({ present, sync, clear, showBattle, skip, getDisplayed: () => displayed.value })
 onMounted(() => {
   reducedMotion.value = matchMedia('(prefers-reduced-motion: reduce)').matches
   updateVisibility(); document.addEventListener('visibilitychange', updateVisibility)
 })
 onBeforeUnmount(() => {
   disposed = true; generation++
+  audioScope?.cancel(); props.audio.stop(); unsubscribeAudio()
   document.removeEventListener('visibilitychange', updateVisibility)
   presenter.destroy(); impactPlayer.destroy(); scene.destroy()
 })
@@ -127,5 +145,12 @@ onBeforeUnmount(() => {
   <div v-if="sideConditions.length" class="sim-side-conditions"><span v-for="condition in sideConditions" :key="condition">{{ condition }}</span></div>
   <div class="sim-battle-details"><BattleDetails :member="members[0]"/><BattleDetails :member="members[1]" opponent/></div>
   <p v-if="sceneAvailable === false" class="sim-render-note">Effects are unavailable on this device. Battle controls still work.</p>
-  <div class="sim-playback"><label><input v-model="effectsEnabled" type="checkbox">Battle animations</label><label><input v-model="reducedMotion" type="checkbox">Reduced motion</label><button v-if="playing" class="sim-skip-animation" @click="presenter.skip()">Skip animations</button><span>Visuals never change a battle result.</span></div>
+  <div class="sim-playback"><label><input v-model="effectsEnabled" type="checkbox">Battle animations</label><label><input v-model="reducedMotion" type="checkbox">Reduced motion</label><button v-if="playing" class="sim-skip-animation" @click="skip">Skip animations</button><span>Visuals never change a battle result.</span></div>
+  <div class="sim-playback sim-audio-controls">
+    <label><input type="checkbox" :checked="audioState.enabled" @change="audio.setEnabled($event.target.checked)">Pokémon cries</label>
+    <label>Volume <input type="range" min="0" max="100" step="5" :value="Math.round(audioState.volume * 100)" :disabled="!audioState.enabled" @input="audio.setVolume(Number($event.target.value) / 100)"><output>{{ Math.round(audioState.volume * 100) }}%</output></label>
+    <button v-if="audioState.enabled && audioState.status === 'locked'" class="sim-skip-animation" @click="audio.unlock()">Enable sound</button>
+    <span v-if="audioState.enabled && audioState.status === 'unavailable'" role="status">Sound is unavailable on this device. Battle controls still work.</span>
+    <span v-else-if="audioState.enabled && audioState.loadError" role="status">Some cries could not load or decode. Battle controls still work.</span>
+  </div>
 </template>

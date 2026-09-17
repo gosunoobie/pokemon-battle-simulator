@@ -40,6 +40,8 @@
     "gsap": "^3.13.0",
     "@battle/battle-core": "file:packages/battle-core",
     "@battle/battle-fx": "file:packages/battle-fx",
+    "@battle/battle-audio": "file:packages/battle-audio",
+    "@battle/pokemon-cries": "file:packages/pokemon-cries",
     "@battle/pokemon-sprites": "file:packages/pokemon-sprites"
   },
   "devDependencies": {

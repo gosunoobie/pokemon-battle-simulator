@@ -220,8 +220,8 @@ function groupsFor(events) {
 
 /** Optional FX for a batch already committed by the authoritative server. */
 export function createSimulationPresenter({ getScene, ensureScene = async () => {}, onDisplay,
-  onMessage = () => {}, faintScene = async () => {}, playImpact = () => null, loadFx, timeoutMs = 7500 }) {
-  if (![getScene, ensureScene, onDisplay, onMessage, faintScene, playImpact, loadFx].every(value => typeof value === 'function')) throw new TypeError('Presenter callbacks are required')
+  onMessage = () => {}, onEntry = () => {}, onEntryCancel = () => {}, faintScene = async () => {}, playImpact = () => null, loadFx, timeoutMs = 7500 }) {
+  if (![getScene, ensureScene, onDisplay, onMessage, onEntry, onEntryCancel, faintScene, playImpact, loadFx].every(value => typeof value === 'function')) throw new TypeError('Presenter callbacks are required')
   if (!Number.isFinite(timeoutMs) || timeoutMs <= 0) throw new TypeError('A positive presentation timeout is required')
   let generation = 0, active = null, destroyed = false, fxPromise = null
   const safe = (callback, ...args) => { try { callback(...args) } catch {} }
@@ -249,6 +249,7 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
       if (stoppedStatus) return
       stoppedStatus = status
       controller.abort()
+      safe(onEntryCancel)
       cancelPlayback()
       clearImpact()
       stopResolve({ stopped: status })
@@ -257,6 +258,11 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
     const valid = () => !destroyed && generation === token && active === current
     const publish = (view, options) => { if (valid()) safe(onDisplay, view, options) }
     const message = text => { if (valid() && text) safe(onMessage, text) }
+    const entry = (view, actorId) => {
+      const side = actorId === 'source' ? view?.own : actorId === 'target' ? view?.opponent : null
+      const member = memberFor(view, side?.active)
+      if (valid() && !stoppedStatus && member && !member.fainted && member.hp?.current !== 0) safe(onEntry, view, actorId)
+    }
     const bounded = async (work, cancellable = true) => {
       let timer
       const deadline = new Promise(resolve => { timer = setTimeout(() => resolve({ stopped: 'failed' }), timeoutMs) })
@@ -267,8 +273,13 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
       } finally { clearTimeout(timer) }
     }
     const prepareScene = async (view, cancellable = true, entryActorIds = []) => {
+      const revealed = new Set()
       try { await bounded(() => valid() ? ensureScene(view, {
         entryActorIds, reducedMotion, signal: cancellable ? controller.signal : undefined,
+        onEntryReveal(actorId) {
+          if (!entryActorIds.includes(actorId) || revealed.has(actorId) || controller.signal.aborted) return
+          revealed.add(actorId); entry(view, actorId)
+        },
       }) : undefined, cancellable) }
       catch (error) {
         if (!['skipped', 'cancelled'].includes(error.presentationStatus)) sceneFailed = true
@@ -282,6 +293,17 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
         const entries = effectsEnabled && !before ? ['source', 'target'] : []
         if (entries.length) message('The trainers are sending out their Pokémon!')
         await prepareScene(after, true, entries)
+        if (!effectsEnabled) {
+          // Instant presentation reveals only the final visible lineup. A form
+          // correction or reconnect snapshot is not a new send-out.
+          for (const actorId of ['source', 'target']) {
+            const side = actorId === 'source' ? after.own : after.opponent
+            const previous = actorId === 'source' ? before?.own : before?.opponent
+            const switched = side?.active !== previous?.active && eventList(events, before).some(event =>
+              ['switch', 'drag'].includes(opcodeOf(event)) && fieldsOf(event)[0] === side?.active)
+            if (!before || switched) entry(after, actorId)
+          }
+        }
         finalSceneReady = true
       } else {
         let displayed = clone(before)
@@ -366,6 +388,7 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
       }
     } catch (error) {
       status = stoppedStatus ?? error.presentationStatus ?? 'failed'
+      if (!stoppedStatus) safe(onEntryCancel)
     } finally {
       controller.abort()
       cancelPlayback()

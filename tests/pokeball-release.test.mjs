@@ -92,6 +92,67 @@ test('simultaneous initial entries stagger briefly, preserve both footprints, an
   } finally { run.cancel(); h.scene.dispose() }
 })
 
+test('release cues fire once per visible actor after its reveal pose, preserving the stagger', async () => {
+  const h = harness(), cues = []
+  const run = h.play(['source', 'target', 'source'], { onCue(cue) {
+    assert.ok(h.scene.actor(cue.actorId).pose.alpha > 0)
+    cues.push(cue)
+  } })
+  try {
+    assert.deepEqual(cues, [])
+    h.tl.time(.545, false); assert.deepEqual(cues, [])
+    h.tl.time(.546, false); assert.deepEqual(cues, [{ type: 'reveal', actorId: 'source' }])
+    h.tl.time(.64, false); assert.equal(cues.length, 1)
+    h.tl.time(.646, false)
+    assert.deepEqual(cues, [{ type: 'reveal', actorId: 'source' }, { type: 'reveal', actorId: 'target' }])
+    h.tl.time(.2, false); h.tl.time(.8, false)
+    assert.equal(cues.length, 2, 'revisited reveal frames do not replay cues')
+    h.tl.time(1.45, false)
+    assert.equal((await run.finished).status, 'completed')
+    assert.equal(cues.length, 2)
+  } finally { run.cancel(); h.scene.dispose() }
+})
+
+test('reduced-motion reveal cues follow the first positive fade frame and callback errors remain cosmetic', async () => {
+  const h = harness(), cues = []
+  const run = h.play(['source', 'target'], { reducedMotion: true, onCue(cue) {
+    cues.push({ ...cue, alpha: h.scene.actor(cue.actorId).pose.alpha })
+    throw new Error('Optional sound failed')
+  } })
+  try {
+    assert.deepEqual(cues, [])
+    h.tl.time(.001, false)
+    assert.deepEqual(cues.map(cue => cue.actorId), ['source', 'target'])
+    assert.ok(cues.every(cue => cue.alpha > 0 && cue.alpha < 1))
+    h.tl.time(.125, false); h.tl.time(.25, false)
+    assert.equal(cues.length, 2)
+    assert.equal((await run.finished).status, 'completed')
+    for (const actor of h.scene.actors.values()) normal(actor)
+  } finally { run.cancel(); h.scene.dispose() }
+})
+
+test('cancelled and aborted releases do not emit unreached reveal cues', async () => {
+  for (const mode of ['cancel', 'abort', 'pre-aborted', 'cancel-from-cue']) {
+    const h = harness(), cues = [], controller = new AbortController()
+    if (mode === 'pre-aborted') controller.abort()
+    const run = h.play(['source', 'target'], { signal: controller.signal, onCue(cue) {
+      cues.push(cue)
+      if (mode === 'cancel-from-cue') controller.abort()
+    } })
+    try {
+      if (mode !== 'pre-aborted') {
+        h.tl.time(mode === 'cancel-from-cue' ? .8 : .3, false)
+        if (mode === 'cancel') run.cancel()
+        else controller.abort()
+        h.tl.time(1.45, false)
+      }
+      assert.equal((await run.finished).status, 'cancelled')
+      assert.deepEqual(cues, mode === 'cancel-from-cue' ? [{ type: 'reveal', actorId: 'source' }] : [])
+      for (const actor of h.scene.actors.values()) normal(actor)
+    } finally { run.cancel(); h.scene.dispose() }
+  }
+})
+
 test('the ball has a visible tumble, projected button, changing seam and continuous opening rotation', async () => {
   for (const actorId of ['source', 'target']) {
     const h = harness(), run = h.play([actorId])

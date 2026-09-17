@@ -98,6 +98,75 @@ test('same-species teammate switch releases only the incoming stable field ID an
   h.coordinator.destroy()
 })
 
+test('scene forwards each actual entry reveal once and ignores unrelated or completed cues', async () => {
+  const h = harness({ holdRelease: true }), cues = []
+  const opening = h.coordinator.ensure(view(), { entryActorIds: ['source', 'target'], onEntryReveal: id => cues.push(id) })
+  await tick()
+  const release = h.releases[0]
+  assert.deepEqual(cues, [])
+  release.onCue({ type: 'impact', actorId: 'source' })
+  release.onCue({ type: 'reveal', actorId: 'missing' })
+  release.onCue({ type: 'reveal', actorId: 'source' })
+  release.onCue({ type: 'reveal', actorId: 'source' })
+  assert.deepEqual(cues, ['source'])
+  release.done.resolve({ status: 'completed' })
+  await opening
+  release.onCue({ type: 'reveal', actorId: 'target' })
+  assert.deepEqual(cues, ['source'])
+  await h.coordinator.ensure(view(), { entryActorIds: ['source', 'target'], onEntryReveal: id => cues.push(id) })
+  assert.equal(h.releases.length, 1)
+  assert.deepEqual(cues, ['source'])
+  h.coordinator.destroy()
+})
+
+test('form correction and unchanged opponents cannot emit entry reveals on a teammate switch', async () => {
+  const h = harness({ holdRelease: true }), initial = view(), next = clone(initial), cues = []
+  await h.coordinator.ensure(initial)
+  next.own.active = 'p1:2'
+  const switching = h.coordinator.ensure(next, { entryActorIds: ['source', 'target'], onEntryReveal(id) {
+    cues.push(id)
+    throw new Error('Optional sound failed')
+  } })
+  await tick()
+  h.releases[0].onCue({ type: 'reveal', actorId: 'target' })
+  h.releases[0].onCue({ type: 'reveal', actorId: 'source' })
+  assert.deepEqual(cues, ['source'])
+  h.releases[0].done.resolve({ status: 'completed' })
+  await switching
+  next.own.team[1].species = 'Blastoise'
+  await h.coordinator.ensure(next, { entryActorIds: ['source'], onEntryReveal: id => cues.push(id) })
+  assert.equal(h.releases.length, 1)
+  assert.deepEqual(cues, ['source'])
+  h.coordinator.destroy()
+})
+
+test('entry reveals cannot escape an aborted, replaced, cleared or no-longer-visible lineup', async () => {
+  for (const mode of ['abort', 'replace', 'clear', 'destroy', 'faint', 'form-correction']) {
+    const h = harness({ holdRelease: true }), controller = new AbortController(), initial = view(), cues = []
+    const opening = h.coordinator.ensure(initial, {
+      entryActorIds: ['source', 'target'], signal: controller.signal, onEntryReveal: id => cues.push(id),
+    })
+    await tick()
+    const release = h.releases[0]
+    if (mode === 'abort') controller.abort()
+    else if (mode === 'clear' || mode === 'destroy') h.coordinator[mode]()
+    else {
+      const next = clone(initial)
+      if (mode === 'replace') { next.own.active = 'p1:2'; await h.coordinator.ensure(next) }
+      else {
+        if (mode === 'faint') next.own.team[0].fainted = true
+        else next.own.team[0].species = 'Blastoise'
+        h.coordinator.display(next)
+      }
+    }
+    release.onCue({ type: 'reveal', actorId: 'source' })
+    assert.deepEqual(cues, [], mode)
+    release.done.resolve({ status: 'completed' })
+    await opening
+    h.coordinator.destroy()
+  }
+})
+
 test('HP updates, duplicate ensures, syncs and form changes never replay entry', async () => {
   const h = harness(), initial = view()
   await h.coordinator.ensure(initial, { entryActorIds: ['source', 'target'] })

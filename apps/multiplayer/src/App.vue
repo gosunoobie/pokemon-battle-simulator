@@ -1,11 +1,13 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef } from 'vue'
 import BattleView from '../../shared/battle/BattleView.vue'
+import { createBattleAudio } from '../../shared/battle/audio.js'
 import { activeMembers, spriteUrl, buildBattleLog } from '../../shared/battle/index.js'
 import { multiplayerRequest, createOperationId } from './api.js'
 import { createRoomSession } from './roomSession.js'
 
 const config = shallowRef(null), guest = shallowRef(null), state = shallowRef({ envelope: null, playing: false, pending: null })
+const battleAudio = createBattleAudio()
 const battle = ref(null), displayed = shallowRef(null), log = ref([]), logHost = ref(null)
 const name = ref(''), invitation = ref(''), busy = ref(false), connecting = ref(true), error = ref(''), notice = ref('')
 const pendingOperation = shallowRef(null), networkOkay = ref(true), confirming = ref(false), now = ref(Date.now())
@@ -158,6 +160,10 @@ async function initialize() {
 }
 async function execute(operation, payload = {}, retry = false) {
   if (busy.value || disposed || !retry && pendingOperation.value) return
+  if (['ready', 'choice'].includes(operation)) {
+    void battleAudio.unlock()
+    battleAudio.preload((selected.value?.team ?? []).map(member => member.species))
+  }
   const id = room.value?.id
   const request = retry ? pendingOperation.value : {
     path: operation === 'create' ? 'rooms' : operation === 'join' ? 'rooms/join' : `rooms/${encodeURIComponent(id)}/${operation}`,
@@ -220,6 +226,7 @@ onMounted(() => {
   void initialize()
 })
 onBeforeUnmount(() => {
+  battleAudio.dispose()
   disposed = true; lifetime++; clearTimeout(pollTimer); clearInterval(clockTimer)
   pollController?.abort(); commandController?.abort(); document.removeEventListener('visibilitychange', visible); session.dispose()
 })
@@ -261,7 +268,7 @@ onBeforeUnmount(() => {
         </section>
         <div v-if="latest" class="sim-layout">
           <section class="sim-arena" aria-label="Private battle and controls">
-            <BattleView ref="battle" :player-label="room.own.name" :opponent-name="room.opponent?.name" opponent-title="Guest trainer" :inactive="room.status === 'interrupted'" @display="displayed = $event"/>
+            <BattleView ref="battle" :audio="battleAudio" :player-label="room.own.name" :opponent-name="room.opponent?.name" opponent-title="Guest trainer" :inactive="room.status === 'interrupted'" @display="displayed = $event"/>
             <section v-if="terminal && !state.playing" class="sim-result" aria-labelledby="multiplayer-result"><p class="sim-eyebrow">{{ room.status === 'interrupted' ? 'CONNECTION TO THE BATTLE LOST' : 'BATTLE COMPLETE' }}</p><h2 id="multiplayer-result">{{ resultTitle }}</h2><p>{{ room.status === 'interrupted' ? 'The server could not continue this battle. No winner was awarded.' : latest.result?.reason === 'timeout' ? 'This battle ended when a decision timer expired.' : latest.result?.reason === 'forfeit' ? 'This battle ended by forfeit.' : `Finished on turn ${latest.turn}. Well played!` }}</p><button class="sim-primary" :disabled="busy || !!pendingOperation" @click="leave">Back to private rooms ↗</button></section>
             <div v-else class="sim-decisions">
               <div class="sim-decision-heading"><h2>{{ prompt }}</h2><span v-if="countdown">{{ countdown }}</span></div>

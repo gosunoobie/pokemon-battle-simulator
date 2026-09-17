@@ -17,7 +17,7 @@ function ballHalf(radius, upper, color) {
 }
 
 /** Cosmetic entry only. The host has already selected/committed these actors. */
-export function playPokeballRelease({ scene, actorIds = [], reducedMotion = false, signal, timelineEngine = gsap } = {}) {
+export function playPokeballRelease({ scene, actorIds = [], reducedMotion = false, signal, onCue, timelineEngine = gsap } = {}) {
   let settled = false, layer, timeline, timer, resolve
   const actors = [], entries = [], filters = []
   const finished = new Promise(done => { resolve = done })
@@ -123,6 +123,14 @@ export function playPokeballRelease({ scene, actorIds = [], reducedMotion = fals
             center.y + (silhouetteOrigin.y - center.y) * scale)
           silhouette.alpha = progress(local, OPEN + .025, .045) * (1 - progress(local, OPEN + .105, .23))
         }
+      }
+      // Publish only after poses/art are updated. Optional consumers cannot
+      // interrupt the clip, and seeking or revisiting a frame cannot replay it.
+      for (const entry of entries) {
+        if (settled) return
+        if (entry.revealed || entry.actor.pose.alpha <= 0) continue
+        entry.revealed = true
+        try { onCue?.({ type: 'reveal', actorId: entry.actor.id }) } catch {}
       }
     } catch (error) { finish('failed', error) }
   }

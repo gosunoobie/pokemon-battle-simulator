@@ -321,7 +321,7 @@ Preview and simulation lazy-load the FX runtime as a whole. The default registry
 | Human invite rooms and unranked queue | Not implemented |
 | Live push connections and decision deadlines | Not implemented |
 | Accounts/cross-device saves | Not implemented; current release contract proposes anonymous sessions first |
-| Independent audio package | Not implemented; sound-themed FX are visual recipes |
+| Independent audio package | `@battle/battle-audio` plays optional send-out cries in simulation/multiplayer; move sounds and music remain unconnected. See [cry playback](CRY_PLAYBACK.md). |
 | Standalone items service/package | Not present; item metadata lives in game-data and mechanics in the engine |
 | Production deployment/CI/load gates | Not supplied or demonstrated by current repository configuration |
 

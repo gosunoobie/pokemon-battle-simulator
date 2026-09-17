@@ -1,4 +1,75 @@
-# Pokémon cries: stage-one inventory
+# Pokémon cry asset pipeline
+
+Stages one and two provide the validated asset pipeline. Stage three now connects optional send-out cries to simulation and multiplayer; see [runtime ownership, controls and limits](../../docs/CRY_PLAYBACK.md). The importer remains independent of playback.
+
+## Stage-two results
+
+- **419 identities**: 386 species and 33 forms, with zero unresolved mappings.
+- **386 original recordings**, totaling **2,245,221 bytes** (about 2.25 MB).
+- Ogg Vorbis, mono, 10,512 Hz; durations **0.181–2.238 seconds**.
+- **No transformation**: deployed bytes exactly match pinned upstream originals. These compact files have no user comment fields or embedded covers to remove. Further lossy encoding, trimming, pitch changes and normalization were not justified.
+- Unown's 27 additional forms share its verified Pokémon identity. Six Castform/Deoxys variants use explicit aliases supported by pinned source evidence, never a generic fallback.
+
+Read [the asset report](reports/assets.md), [machine-readable audit](reports/assets.json), [form evidence](form-evidence/README.md) and [browser observations](reports/browser-validation.json). The historical inventory below describes provider-path availability before alias evidence; its six missing provider paths are resolved in the stage-two mapping.
+
+## Install, fetch, generate and check
+
+The decoder is an isolated build-time dependency, not part of the browser bundle:
+
+```sh
+npm run cries:setup
+npm run cries:check
+npm run test:cries
+```
+
+`cries:check` verifies all deployed bytes, re-inspects and decodes all files, and compares generated metadata. It is offline and read-only and does not require the original cache.
+
+```sh
+npm run cries:fetch
+npm run cries:import
+```
+
+Fetch uses six concurrent requests, timeouts, bounded retries and immutable URLs. It checks byte lengths and Git blob hashes, reuses only verified cached files and refuses changed originals. Import finishes validation and decoding before publishing. A clean checkout can rebuild from the unchanged deployed originals; missing source and output copies require a fetch.
+
+`asset-lock.json` pins evidence and decoder dependencies. The one-time `node tools/cry-import/assets.mjs --init` bootstrap requires no existing lock and an empty cry output directory. Normal commands never bless changed pins. Unknown public files, modified Ogg outputs and symlinked managed paths fail safely. Generated metadata can be regenerated. Each output is replaced atomically; an interruption between files can leave a mixed generation, caught by the check and repaired by rerunning import. Run one import at a time.
+
+## Outputs and modular boundaries
+
+| Location | Purpose |
+| --- | --- |
+| `.cache/originals/` | Verified originals; ignored and excluded from Heroku |
+| `.cache/staging/` | Temporary writes; ignored and excluded from Heroku |
+| `public/audio/cries/` | SHA-256-named Ogg files, audit manifest and upstream license |
+| `packages/pokemon-cries/` | Generated catalog and pure exact-ID lookup |
+| `form-aliases.json`, `form-evidence/` | Six explicit aliases and pinned source excerpts |
+| `reports/assets.json` | Per-stage totals, decoded-peak warnings and mapping decisions |
+| `preview.html` | Development-only listening and native decoder audit |
+
+The catalog imports no engine, rules, sprites, FX, Vue, browser API or decoder. Lookup never loads or plays audio. Unknown IDs return null. Its asset base URL can point to a CDN later; outside this workspace, consumers must publish the audio files separately. Runtime playback lives in `packages/battle-audio` and the shared battle host; it does not change this importer's inputs or outputs.
+
+Normal Vite/Heroku builds use the generated files and make no PokéAPI requests. The tool's decoder node_modules and source cache are excluded from the Heroku slug. Checked-in outputs retain original bytes and provide a durable source copy alongside the locks and notices; the ignored cache alone is not a backup.
+
+## Audio validation
+
+Every file passes actual length/Git blob verification, SHA-256, Ogg page CRC/structure/header checks and full decoding with pinned `@wasm-audio-decoders/ogg-vorbis@0.1.20`. Decoder errors, non-finite samples, header/sample-count disagreement and entirely silent files fail. Reports retain PCM hashes, peak/RMS and leading/trailing quiet-frame measurements. npm package integrity pins are in this tool's package-lock.json.
+
+Castform Rainy/Snowy/Sunny explicitly share legacy/351.ogg; Deoxys Attack/Defense/Speed share legacy/386.ogg. Emerald and FireRed/LeafGreen source traces establish shared cry selection. Excerpt bytes, source identities and line ranges are checked against evidence pins. Full upstream source lengths, SHA-256, Git blob hashes and URLs remain recorded. This establishes form mapping, not the recording vintage of the PokéAPI audio.
+
+## Listening and browser limitations
+
+Run `npm run dev` and open `/tools/cry-import/preview.html`. Select a Pokémon and use the native player; nothing autoplays. Preview volume defaults to 60% for headroom. The audit button downloads and natively decodes all 386 cries without playing them, checks their hashes/channels and reports timing separately.
+
+The development Chromium 152 browser decoded **386/386** successfully. **173** native durations were over 10 ms shorter than the catalog/reference decoder, with a maximum difference of **24.374 ms**. The cause and audible effect are not established. Preserve original files. Stage three should trigger at the actual reveal cue and use the player's decoded AudioBuffer duration, not a catalog duration as an exact native playback deadline.
+
+**284 recordings** have floating-point samples above full scale, with a maximum peak of **1.19033456**. Vorbis decoding can overshoot, so this alone does not establish clipping in the source. Preserve the originals and leave headroom in the future mixer. No gain is applied to the assets.
+
+Automated decoding is not a subjective listening review of every cry. Safari/iOS, Firefox and Android still need release-device checks. There is no MP3 fallback yet; older browsers without native Ogg support require a tested compatibility option before support is promised.
+
+The upstream legacy label still does not establish authentic Gen 3 cartridge recordings or unrestricted redistribution rights. Complete upstream notices are retained with the assets and catalog.
+
+---
+
+## Stage-one provider inventory (before the evidenced aliases)
 
 This dependency-free Node tool inventories the upstream **legacy** cry collection for the project's existing Gen 1–3 roster. It generates a mapping and discrepancy report. It does not download, decode, optimize, deploy or play any audio, and does not change battle data or mechanics.
 
@@ -19,18 +90,18 @@ From the workspace root, using the project's supported Node version:
 
 ```sh
 npm run cries:inventory
-npm run cries:check
+npm run cries:inventory:check
 npm run test:cries
 ```
 
-`cries:inventory` rebuilds the three reports deterministically from local pinned metadata. It performs no network requests. Input validation completes before it writes reports; each report is replaced atomically. A process interruption between reports can leave a mixed report set, detected by `cries:check` and repaired by rerunning generation.
+`cries:inventory` rebuilds the three reports deterministically from local pinned metadata. It performs no network requests. Input validation completes before it writes reports; each report is replaced atomically. A process interruption between reports can leave a mixed report set, detected by `cries:inventory:check` and repaired by rerunning generation.
 
-`cries:check` is entirely offline and read-only. It validates source snapshots, input hashes, source-tree integrity, identity coverage and exact generated report contents. Known, explicitly reported unresolved mappings do not fail this stage-one consistency check.
+`cries:inventory:check` is entirely offline and read-only. It validates source snapshots, input hashes, source-tree integrity, identity coverage and exact generated report contents. Known, explicitly reported unresolved mappings do not fail this stage-one consistency check.
 
 To require complete mapping coverage as well:
 
 ```sh
-npm run cries:check -- --require-resolved
+npm run cries:inventory:check -- --require-resolved
 ```
 
 This deliberately exits nonzero while the six form mappings remain unresolved. Neither command certifies playable audio; decoding and browser checks belong to stage two.

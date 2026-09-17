@@ -1,12 +1,14 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import BattleView from '../../shared/battle/BattleView.vue'
+import { createBattleAudio } from '../../shared/battle/audio.js'
 import TeamBuilder from './TeamBuilder.vue'
 import { createCommandId, simulationRequest } from './api.js'
 import { activeMembers, spriteUrl, buildBattleLog, viewerResultTitle } from '../../shared/battle/index.js'
 import { createTeamDraft, toTeamPayload, draftIssues, readTeamDraft, saveTeamDraft } from './teamDraft.js'
 
 const config = shallowRef(null), latest = shallowRef(null), displayed = shallowRef(null)
+const battleAudio = createBattleAudio()
 const run = shallowRef(null), regionId = ref('kanto'), pendingAdvance = shallowRef(null)
 const presetId = ref('kanto'), leadIndex = ref(0), busy = ref(true), playing = ref(false)
 const teamMode = ref('preset'), customTeam = shallowRef(createTeamDraft()), teamCatalog = shallowRef(null)
@@ -177,6 +179,8 @@ async function initialize() {
 async function startBattle() {
   if (busy.value || !lead.value?.species) return
   if (teamMode.value === 'custom' && !customReady.value) { teamErrors.value = customIssues.value; return }
+  void battleAudio.unlock()
+  battleAudio.preload(selectedTeam.value.map(member => member.species))
   const selection = teamMode.value === 'custom' ? { team: toTeamPayload(customTeam.value) } : { presetId: selectedPreset.value.id }
   const { token, signal } = beginRequest()
   try {
@@ -193,6 +197,7 @@ async function startBattle() {
 }
 async function advanceBattle() {
   if (busy.value || playing.value || pendingQuit.value || run.value?.status !== 'between-battles') return
+  void battleAudio.unlock()
   // Preserve the original IDs after a lost response so retries cannot skip a trainer.
   const command = pendingAdvance.value ?? { matchId: latest.value.matchId, runId: run.value.id }
   pendingAdvance.value = command
@@ -209,6 +214,7 @@ async function advanceBattle() {
 }
 async function sendChoice(action, retry = false) {
   if (busy.value || playing.value || pendingQuit.value || (!retry && locked.value)) return
+  void battleAudio.unlock()
   const command = retry ? pendingChoice.value : {
     commandId: createCommandId(), matchId: latest.value.matchId, decisionId: decision.value.id, action, afterCursor: latest.value.cursor,
   }
@@ -288,6 +294,7 @@ onMounted(() => {
   void initialize()
 })
 onBeforeUnmount(() => {
+  battleAudio.dispose()
   disposed = true; generation++; controller?.abort(); catalogController?.abort()
 })
 </script>
@@ -384,7 +391,7 @@ onBeforeUnmount(() => {
       <div v-if="latest" class="sim-layout">
         <section ref="arena" class="sim-arena" aria-label="Battle and controls">
           <div class="sim-arena-bar"><span class="sim-round">TURN {{ displayed?.turn || 1 }}</span><span>{{ displayed?.result ? 'BATTLE COMPLETE' : `${remaining} OF 6 TEAMMATES REMAIN` }}</span><button :disabled="busy || playing" @click="syncBattle" title="Reload the current battle state">Sync battle ↻</button></div>
-          <BattleView ref="battleView" :player-label="selectedTeamLabel" @display="displayed = $event" @playback="playing = $event" @message="message = $event"/>
+          <BattleView ref="battleView" :audio="battleAudio" :player-label="selectedTeamLabel" @display="displayed = $event" @playback="playing = $event" @message="message = $event"/>
 
           <section v-if="latest.result && !playing" class="sim-result" :class="{ 'sim-result-champion': run?.status === 'won' }" aria-labelledby="result-title">
             <p class="sim-eyebrow">{{ resultEyebrow }}</p><h2 id="result-title">{{ resultTitle }}</h2><p>{{ resultDetail }}</p>

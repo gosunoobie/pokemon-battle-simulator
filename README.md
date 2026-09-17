@@ -46,6 +46,12 @@ Build a six-Pokémon team with species, moves, abilities, held items, natures, E
 - Poké Ball releases, fainting, idle motion, effectiveness feedback, battle introductions and result overlays.
 - Optional effects, reduced motion and skip controls that preserve the authoritative result.
 
+### Pokémon cries
+
+Solo and multiplayer play optional cries at each Pokémon's send-out reveal. Sound has separate mute and volume controls, with preferences saved in this browser. Start/Ready activates browser audio; **Enable sound** retries if the browser blocks it. Reconnects and corrected snapshots do not replay cries. Late or unsupported recordings stay silent and never delay battle decisions.
+
+The pinned catalog covers 386 species and 33 explicit forms using 386 local recordings (2.25 MB total). Only relevant team and revealed-opponent cries load during play, with a bounded decoded cache. Heroku serves static files; playback and decoding happen in the browser. Move sounds and music are not connected yet. See [cry playback](docs/CRY_PLAYBACK.md) and the [asset pipeline](tools/cry-import/README.md).
+
 ## Application pages
 
 | Route | Purpose |
@@ -107,6 +113,7 @@ flowchart LR
     API -->|JSON updates| Presenter[Browser battle presenter]
     Presenter --> Scene[PixiJS scene]
     Presenter -. optional playback .-> FX[Battle FX package]
+    Presenter -. optional cries .-> Audio[Battle audio package]
 ```
 
 ### Workspace packages
@@ -118,6 +125,8 @@ flowchart LR
 | [`@battle/battle-fx`](packages/battle-fx/README.md) | Independent move animations, transitions, visual randomness, asset ownership and cleanup |
 | [`@battle/game-data`](packages/game-data/README.md) | Immutable Gen 3 reference records, lookups, manifests and provenance |
 | [`@battle/pokemon-sprites`](packages/pokemon-sprites/README.md) | Pinned front/back artwork, asset URLs and measured visible bounds |
+| [`@battle/pokemon-cries`](packages/pokemon-cries/README.md) | Pinned cry catalog, explicit form mappings and pure asset lookup |
+| [`@battle/battle-audio`](packages/battle-audio/README.md) | Optional browser audio, gesture activation, loading, bounded cache and voice cleanup |
 
 The two rule packages serve different purposes. The move preview is a controlled demonstration with guaranteed-hit, fixed-result examples. It does not attempt a complete battle. Solo and multiplayer use `battle-engine` for actual turn order, accuracy, PP, damage, conditions, switching and battle results. Preview behavior must not be used as competitive battle logic.
 
@@ -140,10 +149,12 @@ apps/
     league-*.js         Regional rosters and challenge progression
     team-builder.js     Team editor catalog from pinned reference data
     pageRoutes.js       Clean page URLs and legacy redirects
-packages/               Independent battle, FX, data and sprite packages
+packages/               Independent battle, FX, audio, data and sprite packages
 tools/
   data-import/          Reproducible Gen 3 reference-data importer
   roster-import/        Pinned sprite import and roster validation
+  audio-import/         Independent sound-effect asset optimization
+  cry-import/           Pinned cry sources, validation, import and listening audit
 tests/                  Application, transport, presentation and FX tests
 docs/                   Contracts, implementation guides and design reviews
 ```
@@ -276,6 +287,7 @@ Battle Lab is an unofficial fan project and is not affiliated with or endorsed b
 
 - **Pokémon Showdown:** battle simulation and Gen 3 reference data; see the [engine notice](packages/battle-engine/NOTICE), [data notice](packages/game-data/NOTICE) and [upstream software license](packages/game-data/LICENSE).
 - **PokeAPI sprites:** pinned Pokémon artwork; see the [sprite notice](packages/pokemon-sprites/NOTICE) and [upstream license notice](packages/pokemon-sprites/UPSTREAM-LICENCE.txt).
+- **PokeAPI cries:** pinned recordings and explicit form mapping evidence; see the [cry notice](packages/pokemon-cries/NOTICE) and [upstream license](packages/pokemon-cries/UPSTREAM-LICENSE.txt).
 - **Bootstrap Icons:** included artwork retains its [MIT license notice](packages/battle-fx/assets/bootstrap-icons-LICENSE.txt).
 - **Lorc / Game-icons.net:** rock artwork retains its [CC BY 3.0 attribution](packages/battle-fx/assets/rock-ATTRIBUTION.txt).
 
