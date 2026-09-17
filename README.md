@@ -1,94 +1,282 @@
-# Pokémon battle animation workspace
+# Battle Lab — Pokémon Battle Simulator
 
-Vue 3 + PixiJS 8 + GSAP 3, with **335 independently authored moves**, an optional effects package, previews from either side, and a playable Generation 3 battle simulation.
+A modular Pokémon battle application with authentic Generation 3 mechanics, private multiplayer rooms, regional League challenges, and independently authored battle animations.
 
-For a current source-backed walkthrough of the whole workspace, read the [project structure and working guide](docs/PROJECT_GUIDE.md). It covers both battle paths, data and sprites, engine and API contracts, presentation, development workflows and remaining multiplayer/deployment work. Older overview and verification documents include historical snapshots.
+Built with **Vue 3, JavaScript, PixiJS 8, GSAP 3, Vite, and Node.js 24**. Battle simulation, reference data, sprites, and visual effects live in separate workspace packages. The authoritative battle engine runs on the server; the browser presents its results.
 
-For the production engine plan, read the [Gen 3 battle engine guide and architecture comparison](/Users/cdr/pokemon-battle-vue/docs/BATTLE_ENGINE_GUIDE.md), including a reproducible simulator diagnostic and staged implementation gates.
+**[Play multiplayer](https://pokemon-battle-sim-f0414a78774c.herokuapp.com/multiplayer)** · **[Challenge a League](https://pokemon-battle-sim-f0414a78774c.herokuapp.com/simulation)** · **[Explore move effects](https://pokemon-battle-sim-f0414a78774c.herokuapp.com/preview)** · **[Home](https://pokemon-battle-sim-f0414a78774c.herokuapp.com/)**
 
-The independent [headless Gen 3 engine](/Users/cdr/pokemon-battle-vue/packages/battle-engine/README.md) is now available. Run `npm run engine:demo` for a complete battle with checkpoint recovery and replay verification, or `npm run test:engine` for its integration suite. The visual showcase continues to use its existing preview core.
+> **Project status:** active development. The frontend and Node API are hosted together on Heroku. Battles and guest sessions currently live in memory; accounts, durable match history, and recovery across server restarts are not implemented.
 
-The [battle simulation interface](docs/BATTLE_SIMULATION.md) connects that engine to the existing sprite scene and optional effects. Challenge the Elite Four and Champion of Kanto (FRLG), Johto (GS), or Hoenn (RS/Steven) with three existing player presets, level 100 and full recovery between five battles. [Trainer rosters](docs/LEAGUE_ROSTERS.md) have pinned provenance and explicit adaptations. The engine and league progress run in Node; the browser receives permitted player views, events and public challenge metadata.
+## Features
 
-Explosion builds into a broad source-centered blast with pressure rings and smoke; Self-Destruct uses a shorter shudder and sharper burst. Both send a narrow pressure wave toward the opponent. The user’s HP becomes zero alongside target damage, and the host shows a fainted badge even with effects off. Replay resets both actors.
+### Private multiplayer
 
-Confusion adds a compact psychic pulse; Hypnosis sends five sleep rings; Confuse Ray uses a wavering golden ray and spiraling glints. Hypnosis preserves an occupied major status, while Confuse Ray uses a separate confusion flag without HP damage. Confusion’s random secondary effect and sleep/confusion turns remain outside the preview.
+- Create a private room and invite another player with a shareable link.
+- Play as a guest without creating an account.
+- Select a Kanto, Johto, or Hoenn preset team and choose its lead.
+- Start when both players are ready, then submit moves and switches through server-issued decisions.
+- Receive a separate permitted view for each player, including exact own HP and public opponent HP.
+- Reconnect in the same browser while the room and guest session remain available.
+- Forfeit explicitly, with server-enforced decision deadlines and protection against duplicate commands.
 
-Rock Blast fires three small rocks; Ancient Power lifts glowing stones before launching them; Rock Tomb drops four boulders around the opponent and closes inward. Rock Tomb previews damage and Speed −1 together, with effects optional. Rock Blast’s random hit count and Ancient Power’s random stat boost are not simulated.
+Multiplayer uses HTTP commands and short polling. It currently supports preset teams only.
 
-Mega Punch uses a heavy fist strike; Meteor Mash adds a steel fist and starry trail; Dynamic Punch bursts into fragments and dizzy stars; Focus Punch holds a longer charge before striking. Dynamic Punch displays a separate confusion badge without replacing other status conditions. Meteor Mash’s random Attack boost and Focus Punch’s interruption are not simulated.
+### Regional League challenges
 
-- Home: `/` — choose multiplayer, battle simulation, move preview, or FX playground.
-- Multiplayer: `/multiplayer` — invite a friend, select preset teams and play a private battle.
-- Simulation: `/simulation` — select a region, team and lead, defeat five trainers, and reconnect to the current challenge after a page reload.
-- Move preview: `/preview` — choose Your side or Opponent side, choose either Pokémon, then preview a move. Effects toggle, skip, replay, and reset remain available. The selected move description and Use button stay above the move grid.
-- Playground: `/playground` — play any effect without importing battle logic; change actors, size, facing, stage proportions, and motion preference.
+Face four Elite Four members and a Champion in a single region:
 
-## Run
+| Region | Roster reference | Opponents |
+| --- | --- | --- |
+| Kanto | FireRed / LeafGreen | Lorelei → Bruno → Agatha → Lance → Blue |
+| Johto | Gold / Silver | Will → Koga → Bruno → Karen → Lance |
+| Hoenn | Ruby / Sapphire | Sidney → Phoebe → Glacia → Drake → Steven |
 
-Use Node 24 and the included lockfile:
+All teams battle at **level 100** using Generation 3 mechanics. Your original team is fully restored between opponents, including HP, PP, status and held items. Trainer parties are sourced adaptations; the automated opponent uses a simple legal-action policy rather than cartridge trainer AI. See [League roster provenance](docs/LEAGUE_ROSTERS.md) for the exact sets and adaptations.
+
+### Custom teams for solo play
+
+Build a six-Pokémon team with species, moves, abilities, held items, natures, EVs, IVs, gender and friendship settings. The server validates complete sets and move combinations before battle. One draft can be saved in browser storage; this is not an account-backed team library.
+
+### Animation tools
+
+- **335 registered move effects**, authored as individual recipes.
+- Move previews from either side of the battlefield.
+- A standalone FX playground for testing effects without battle rules.
+- Poké Ball releases, fainting, idle motion, effectiveness feedback, battle introductions and result overlays.
+- Optional effects, reduced motion and skip controls that preserve the authoritative result.
+
+## Application pages
+
+| Route | Purpose |
+| --- | --- |
+| `/` | Home and mode selection |
+| `/multiplayer` | Private rooms and guest battles |
+| `/simulation` | Regional Leagues and solo team building |
+| `/preview` | Individual move demonstrations |
+| `/playground` | Standalone effect authoring and playback |
+
+The frontend uses multiple Vue entry points with clean public URLs. Direct visits and refreshes are supported. Older `.html` links redirect to the corresponding clean path, preserving query strings and browser fragments such as invitation tokens.
+
+## Getting started
+
+### Requirements
+
+- **Node.js 24**; the local version is recorded in `.nvmrc`.
+- npm and the checked-in `package-lock.json`.
+- A modern browser with WebGL support for the full PixiJS presentation.
+
+### Local development
+
+From the repository root:
 
 ```bash
 npm ci
 npm run dev
-npm test
-npm run build
-npm run preview
 ```
 
-Vite builds all five HTML entries into `dist`, served at the clean URLs above. Old `.html` links redirect to the corresponding clean path, preserving query strings and browser fragments. Local development, Vite preview and the Node host share `apps/server/pageRoutes.js`; Vercel uses its native `cleanUrls` setting. Both `npm run dev` and `npm run preview` include the same-origin battle APIs. After building, `npm start` serves the pages and APIs together at `http://127.0.0.1:3000`. A static file host alone cannot run battles. The game can resolve and display moves when effects are disabled, missing, or broken. Battle results never wait for an animation to become authoritative.
+Open the address printed by Vite, normally `http://localhost:5173`. The development server hosts both the frontend and the local battle APIs. No database, API key, data import or sprite download is needed for normal application startup.
 
-Run `npm run test:simulation` for presentation, transport, and actual HTTP integration checks. The local server retains battles in memory for 30 minutes of inactivity; restarting it ends those sessions. This slice has preset teams and an automated opponent, with multiplayer rooms and persistent reconnect storage still separate work.
+To test multiplayer yourself, open the same local origin in two separate browser profiles, or a normal window and a private window. Two ordinary tabs sharing cookies represent the same guest.
 
-## Source layout
+### Run the production build locally
 
-| Path | Responsibility |
+```bash
+npm run build
+npm start
+```
+
+Open `http://127.0.0.1:3000`. The Node process serves the built `dist/` pages, static assets, and both API namespaces. `npm run preview` is also available after building and mounts the local API services through the Vite plugins.
+
+For access from another device on your network:
+
+```bash
+HOST=0.0.0.0 PORT=3000 npm start
+```
+
+## Architecture
+
+The application separates battle authority from presentation. The server validates an action, resolves it through the engine, and returns permitted observations and ordered events. The browser uses those facts to update the interface and play animations. Animation completion, failure, skipping and reduced motion never determine damage or battle outcomes.
+
+```mermaid
+flowchart LR
+    UI[Vue application] -->|HTTP commands| API[Node API]
+    API --> Services[Private rooms and solo Leagues]
+    Services --> Engine[Gen 3 battle engine]
+    Engine -->|Permitted views and events| API
+    API -->|JSON updates| Presenter[Browser battle presenter]
+    Presenter --> Scene[PixiJS scene]
+    Presenter -. optional playback .-> FX[Battle FX package]
+```
+
+### Workspace packages
+
+| Package | Responsibility |
 | --- | --- |
-| `packages/battle-core` | Pure state and rules; no Vue, PixiJS, GSAP, DOM, or FX imports |
-| `packages/battle-fx` | Vue-free PixiJS effects, seeded visual randomness, timelines, assets and cleanup |
-| `packages/battle-engine` | Headless authentic Gen 3 rules, legal decisions, private projections and recovery |
-| `apps/home` | Home page linking all three experiences |
-| `apps/server` | Same-origin simulation API, preset validation, automated opponent and local static host |
-| `apps/simulation` | Live engine controls, event presentation, party, result and reconnect interface |
-| `apps/game/src/presentation` | Ordered presentation of committed transactions; fallback and cancellation |
-| `apps/game/src/scene` | Host-owned actor artwork, semantic anchors, pose layers and camera |
-| `apps/game/src/components` | Vue controls and displayed battle state |
-| `apps/fx-playground` | Independent effect authoring page with no battle engine |
-| `tests` | Rules, isolation, geometry, playback and failure integration tests |
+| [`@battle/battle-engine`](packages/battle-engine/README.md) | Server-only Gen 3 mechanics, full-team validation, decisions, private observations, checkpoints and replay, backed by pinned Pokémon Showdown |
+| [`@battle/battle-core`](packages/battle-core/README.md) | Immutable, simplified rules and fixed results for the move preview |
+| [`@battle/battle-fx`](packages/battle-fx/README.md) | Independent move animations, transitions, visual randomness, asset ownership and cleanup |
+| [`@battle/game-data`](packages/game-data/README.md) | Immutable Gen 3 reference records, lookups, manifests and provenance |
+| [`@battle/pokemon-sprites`](packages/pokemon-sprites/README.md) | Pinned front/back artwork, asset URLs and measured visible bounds |
 
-The packages have their own manifests and can be packed independently with `npm pack --workspace @battle/battle-core` and `npm pack --workspace @battle/battle-fx`. They are local workspace packages, not published npm releases. FX peers are PixiJS and GSAP; battle-core has no dependencies.
+The two rule packages serve different purposes. The move preview is a controlled demonstration with guaranteed-hit, fixed-result examples. It does not attempt a complete battle. Solo and multiplayer use `battle-engine` for actual turn order, accuracy, PP, damage, conditions, switching and battle results. Preview behavior must not be used as competitive battle logic.
 
-Read [the project overview](docs/PROJECT_OVERVIEW.md), [migration contracts](docs/MIGRATION.md), [animation specification](docs/ANIMATION_SPEC.md), and [adding moves guide](docs/ADDING_MOVES.md). Future agents should start with [AGENTS.md](AGENTS.md).
+The FX package receives cosmetic requests and actor references. It does not own HP, teams, turn state or rule RNG, and a valid move can resolve even without a matching animation.
 
-The move preview remains a fixed-result, guaranteed-hit showcase, separate from the new simulation: it does not schedule turns or calculate move legality, PP, accuracy, types, or secondary-effect rolls. Thunder Wave and Stun Spore preview paralysis, Poison Powder and Poison Gas preview poison, Sleep Powder previews sleep, and Toxic previews bad poisoning. Smokescreen lowers a core-owned accuracy stage and shows a badge; preview hits stay guaranteed. Immunities and ongoing status effects are not simulated in that preview. The preview core supports arbitrary named actors and HP; its page uses the selected matchup and resets each replay.
+### Repository layout
 
-Sprites remain in `public/assets`; effect assets and attribution notices travel with `battle-fx/assets`. Preserve Pokémon credits and the Bootstrap leaf / Lorc rock notices. Browser visual verification of this migration is pending because the preview browser was blocked by the environment.
+```text
+apps/
+  home/                 Home page and navigation
+  multiplayer/          Private-room lobby, choices and update coordination
+  simulation/           Solo Leagues, team builder and battle controls
+  game/                 Move preview and shared scene foundations
+  fx-playground/        Standalone animation tools
+  shared/battle/        Reusable battle view, presenter and visual sequencing
+  server/
+    rooms/              Guest identity, room service, HTTP routes and RAM store
+    start.mjs           Production HTTP server and static file host
+    simulation.js       Solo battle API and session lifecycle
+    league-*.js         Regional rosters and challenge progression
+    team-builder.js     Team editor catalog from pinned reference data
+    pageRoutes.js       Clean page URLs and legacy redirects
+packages/               Independent battle, FX, data and sprite packages
+tools/
+  data-import/          Reproducible Gen 3 reference-data importer
+  roster-import/        Pinned sprite import and roster validation
+tests/                  Application, transport, presentation and FX tests
+docs/                   Contracts, implementation guides and design reviews
+```
 
-Barrier, Protect, Light Screen and Reflect appear around the move user. The core previews Defense +2 or a protection flag; badges appear on the user's panel and clear on reset/replay. These moves cause no HP loss. Blocking, damage reduction, side-wide team handling and turn expiry remain outside the showcase. They work with effects disabled, and the FX playground needs no battle rules to select the correct visual subject.
+The multiplayer room store is injected behind an asynchronous transaction interface. A future persistent adapter must preserve atomic ownership, checkpoints, deadlines, results and command receipts. Adding a database does not require moving battle calculations into the browser or coupling the FX package to storage.
 
-Absorb, Mega Drain, Giga Drain and Leech Life restore half the HP removed, rounded and capped at the user's maximum HP. Their previews start the user at 65% HP so recovery is visible. Core commits both HP changes immediately; the presenter reveals damage at contact and healing as energy returns. Disabling or skipping effects preserves the same result.
+## Data and artwork
 
-Refresh, Heal Bell and Aromatherapy preview status cures with distinct rings, bell waves and drifting herbs. Rest restores full HP and leaves the user asleep. These results resolve in core with effects off too. Bell/Aromatherapy are user-only previews; party targeting and sleep turn progression are not simulated.
+The checked-in reference snapshot is generated from **Pokémon Showdown `0.11.11`**, resolving its `gen3` data rather than filtering modern-generation values. The battle-engine dependency is pinned to the same version.
 
-Meditate raises Attack, Calm Mind raises both special stats, Amnesia raises Special Defense, and Focus Energy stores a non-stacking critical-hit-ratio boost. Their badges reflect core state even with effects disabled; the showcase still uses fixed damage and no critical-hit rolls.
+| Resource | Coverage |
+| --- | ---: |
+| Base species | 386 — National Dex #001–386 |
+| Explicit forms | 33 |
+| Reference moves | 354 |
+| Abilities | 76 |
+| Items | 106 |
+| Natures | 25 |
+| Front/back PNGs | 838 |
 
-Bulk Up, Howl, Swords Dance and Dragon Dance add compact bracing, sound-wave, circling-blade and ribbon-dance effects. Their Attack, Defense and Speed badges follow committed state; Howl previews only the user, and turn order remains outside this fixed-damage demo.
+Reference move coverage and animation coverage are separate: the data snapshot contains 354 moves, while the FX catalog registers 335 effects. Displayable forms are also distinct from legal starting forms; the engine validates battle eligibility.
 
-Agility, Double Team, Minimize and Acid Armor add quick footwork, actor-derived afterimages, a visible shrinking dodge and a flowing liquid coat. Speed/Evasion/Defense badges reflect core results; accuracy rolls and Minimize-specific damage interactions remain outside this preview.
+Sprites come from a pinned revision of the PokeAPI sprite repository. They use **Gen 5-style static artwork**, independently of the game's Gen 3 mechanics. Sprite sizing uses measured visible artwork, uniform scaling and minimum display sizes rather than Pokédex height values.
 
-Rage, Thrash, Outrage and Struggle add a tense body charge, three uneven strikes, a dragon-energy rush and an awkward tackle with recoil. Struggle commits quarter-maximum-HP recoil in core; Rage’s later Attack boost and multi-turn lock/confusion remain outside the single-use preview.
+Both import pipelines record source revisions, hashes, validation results and discrepancy reports. Normal builds consume the committed output without fetching Pokémon data at runtime.
 
-Leer, Scary Face, Glare and Mean Look add sharp pressure ripples, a looming face, a paralyzing gaze and a watchful violet eye. Opponent Defense/Speed and trapping badges show core results; Mean Look is a trapping preview without switching rules.
+For data maintenance, start with the [data importer guide](tools/data-import/README.md) and [sprite importer guide](tools/roster-import/README.md). Their dependencies are isolated from the application:
 
-Scratch, Metal Claw and Dragon Claw add a light claw rake, a polished steel sweep with sparks and charged energy talons. Each has separate artwork and timing, with optional claw anchors and a hand fallback. Metal Claw’s chance-based Attack boost is not simulated.
+```bash
+# Verify the reference-data snapshot.
+npm run data:setup
+npm run data:check
+npm run test:data
 
-Tackle, Return, Take Down and Double-Edge add a compact body check, a warm bounding strike and two heavier charges with recoil. Return uses maximum friendship for its power label. Take Down/Double-Edge calculate recoil from actual damage in core; animation playback remains optional.
+# Verify the sprite/roster output after preparing the pinned source cache.
+npm run roster:setup
+npm run roster:fetch
+npm run roster:check
+npm run test:roster
+```
 
-Slam, Stomp and Strength add a blunt swinging strike, a focused foot impact and a braced shove. Stomp limits its extra lift to available headroom; Strength keeps contact aligned through the push. Each keeps its own animation, with flinch and Minimize interactions outside the preview.
+The setup and fetch steps require network access. Review source-lock and generated artifact changes when updating upstream data; do not replace missing values or assets with guesses.
 
-Vital Throw, Submission, Sky Uppercut and Seismic Toss add bounded flips, grapples, rising fist contact and a high downward throw. Submission includes actual-damage recoil; Seismic Toss uses the source level (default 50), resolved in core even with FX disabled.
+## Testing and development
 
-See [Opponent previews](docs/OPPONENT_PREVIEW.md) for using all 335 moves from either side, adding artwork, supplying legal move IDs and the per-move verification coverage.
+| Command | Purpose |
+| --- | --- |
+| `npm test` | Root application and FX regression suites |
+| `npm run test:engine` | Headless engine mechanics, legality, projections, recovery and replay |
+| `npm run test:simulation` | Solo UI logic, presentation and HTTP integration |
+| `npm run test:multiplayer` | Room ownership, retries, deadlines, private views and presentation |
+| `node --test tests/clean-urls.test.mjs` | Clean routes, redirects, Vite and production host behavior |
+| `npm run engine:demo` | Complete a headless battle and verify checkpoint/replay behavior |
+| `npm run build` | Build all frontend entries and assets |
 
+Data and sprite suites use the setup steps above. HTTP integration tests bind temporary loopback ports. The root test command does not include every package's separate test suite.
 
-Fly, Bounce, Dig and Dive have separate **Round 1 · Prepare** and **Round 2 · Attack** controls in the battle demo and FX playground. Each clip can be replayed independently and restores the Pokémon afterward. Preparation leaves HP unchanged; the attack uses the normal fixed preview result. No turn engine or semi-invulnerability state is added.
+When contributing:
+
+1. Read the relevant package guide and [repository boundaries](AGENTS.md).
+2. Keep mechanics in the engine, room/session policy in the server, and cosmetic behavior in presentation or FX.
+3. Preserve each move's independent choreography and cleanup behavior.
+4. Verify changes with the relevant suites and a production build when application code changes.
+5. Include provenance and validation changes alongside generated data or artwork updates.
+
+See [Adding moves](docs/ADDING_MOVES.md) and [Opponent previews](docs/OPPONENT_PREVIEW.md) for animation development.
+
+## Heroku deployment
+
+The current deployment serves **both the frontend and backend from one Heroku application**:
+
+```text
+https://pokemon-battle-sim-f0414a78774c.herokuapp.com
+├── /multiplayer, /simulation, /preview, /playground
+├── /assets/*
+├── /api/multiplayer/*
+└── /api/simulation/*
+```
+
+Browser requests use relative API paths on the same origin. No separate frontend host, API proxy or browser API-base-URL variable is required.
+
+Deploy the **repository root**, including its workspace packages and lockfile, using Node.js 24 and the Node buildpack. Build with `npm run build`; run the web process with `npm start`. Vite's development dependencies must be available during the build and can be pruned afterward. The existing start script launches `apps/server/start.mjs`.
+
+To select the Node 24 release line explicitly on Heroku, add `"engines": { "node": "24.x" }` to the root `package.json` and update its lockfile. The current `.nvmrc` records the local version; it does not configure the Heroku buildpack's runtime selection.
+
+Configure these environment variables on Heroku:
+
+| Variable | Value / purpose |
+| --- | --- |
+| `HOST` | `0.0.0.0` — accept connections from Heroku's router |
+| `PORT` | Supplied by Heroku; do not override |
+| `NODE_ENV` | `production` |
+| `PUBLIC_ORIGIN` | `https://pokemon-battle-sim-f0414a78774c.herokuapp.com` |
+
+For another deployment or a custom domain, set `PUBLIC_ORIGIN` to that browser-facing origin, without a page path. It controls request-origin validation and secure-cookie behavior behind HTTPS termination. The current implementation accepts one configured public origin.
+
+After deploying, check both public configuration endpoints, then exercise an actual battle:
+
+- [`/api/simulation/config`](https://pokemon-battle-sim-f0414a78774c.herokuapp.com/api/simulation/config)
+- [`/api/multiplayer/config`](https://pokemon-battle-sim-f0414a78774c.herokuapp.com/api/multiplayer/config)
+
+A JSON response confirms API availability. Also verify solo battle creation, a private-room turn between isolated browser sessions, refresh/reconnect and forfeit on the deployed origin. Run **one web dyno with one Node process** until shared storage and multi-instance room coordination are implemented.
+
+## Current boundaries
+
+- **No database or accounts.** Active rooms, guest credentials, matches and League progress are process-local. Solo team drafts are browser-local.
+- **Restart recovery is not durable.** A deploy, crash or dyno restart clears server memory. Same-browser reconnect only works while the original server state remains available. Heroku's [dyno restart lifecycle](https://devcenter.heroku.com/articles/dyno-restarts) must be considered even on an always-on plan.
+- **Single-instance operation.** The default host allocation is 14 solo sessions and 10 active multiplayer matches. These are admission limits, not verified production throughput guarantees.
+- **Explicit expiry.** Solo sessions expire after 30 minutes of inactivity. Multiplayer defaults are a 15-minute idle lobby, a five-minute required-decision deadline, 15-minute terminal-result retention and a 24-hour guest credential lifetime.
+- **Singles first.** Doubles, ranked matchmaking, spectators, trading and an overworld are outside the current release.
+- **Preset-only PvP.** Custom teams are currently available for solo Leagues, not private multiplayer.
+- **No persistent player progression.** Cross-device teams, match history, achievements and account recovery remain future work.
+
+## Further documentation
+
+| Guide | Focus |
+| --- | --- |
+| [Battle engine](packages/battle-engine/README.md) | Engine API, formats, validation, privacy and replay |
+| [Visual simulation](docs/BATTLE_SIMULATION.md) | League flow, team builder and presentation behavior |
+| [Multiplayer runtime](docs/MULTIPLAYER.md) | Room protocol, transaction model, limits and local load observations |
+| [League rosters](docs/LEAGUE_ROSTERS.md) | Trainer sources and explicit adaptations |
+| [Project contract](docs/PROJECT_CONTRACT_V1.md) | First-release scope and acceptance criteria |
+| [Architecture guide](docs/PRODUCTION_ARCHITECTURE_GUIDE.md) | Modular design and longer-term production work |
+
+This README describes the current Heroku hosting arrangement. Detailed design and implementation documents may retain historical deployment notes; use the deployment instructions above for the current application.
+
+## Credits and licensing
+
+Battle Lab is an unofficial fan project and is not affiliated with or endorsed by Nintendo, Game Freak or The Pokémon Company. Pokémon names, characters and artwork belong to their respective rights holders.
+
+- **Pokémon Showdown:** battle simulation and Gen 3 reference data; see the [engine notice](packages/battle-engine/NOTICE), [data notice](packages/game-data/NOTICE) and [upstream software license](packages/game-data/LICENSE).
+- **PokeAPI sprites:** pinned Pokémon artwork; see the [sprite notice](packages/pokemon-sprites/NOTICE) and [upstream license notice](packages/pokemon-sprites/UPSTREAM-LICENCE.txt).
+- **Bootstrap Icons:** included artwork retains its [MIT license notice](packages/battle-fx/assets/bootstrap-icons-LICENSE.txt).
+- **Lorc / Game-icons.net:** rock artwork retains its [CC BY 3.0 attribution](packages/battle-fx/assets/rock-ATTRIBUTION.txt).
+
+No repository-wide license is currently declared. Third-party software licenses and asset notices apply to their respective material; they do not grant blanket rights to Pokémon artwork or franchise content.
