@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "stage": "inventory-only",
+  "source": {
+    "provider": "PokeAPI/cries",
+    "repository": "https://github.com/PokeAPI/cries",
+    "gitCommit": "ef687b18f0ce17169b4b4c09175819f7ade92f0f",
+    "gitTree": "f2d94d5cdf098bb1e01370a6aab12aa7cd6dbaef",
+    "collection": "legacy",
+    "rawBaseUrl": "https://raw.githubusercontent.com/PokeAPI/cries/ef687b18f0ce17169b4b4c09175819f7ade92f0f/",
+    "recordingVintage": "unverified; legacy is the upstream collection label"
+  },
+  "identitySource": {
+    "files": [
+      {
+        "bytes": 47082,
+        "gitBlobSha": "bb32b1763d2462160f49ce88b4a1d800e4f195e1",
+        "path": "data/v2/csv/pokemon.csv",
+        "sha256": "16c81c33188b0eac403aa2f759fcbe9e42c611f722d263f5b5a6a5bff9f8ce6b"
+      },
+      {
+        "bytes": 63721,
+        "gitBlobSha": "ee4bfff8d82bf4d6143d7ea2830e7e1c3fa1bd76",
+        "path": "data/v2/csv/pokemon_forms.csv",
+        "sha256": "99bf8f7ad4dc1f2e291357a090cef6a575623ec3cbf9030d0e33656e6e608ae2"
+      }
+    ],
+    "gitCommit": "4b82c204ddd19ecb8eda2ea044ccb59e222b721c",
+    "provider": "PokeAPI/pokeapi",
+    "repository": "https://github.com/PokeAPI/pokeapi",
+    "scope": "Pokemon/form identity mapping only; no battle rules or size scaling are imported from these CSVs."
+  },
+  "inputs": [
+    {
+      "path": "packages/game-data/data/gen3.json",
+      "bytes": 4479761,
+      "sha256": "1997623fda7c898ff8a4bdc5a5a158cadfdcf2d054a007c40d3c79180a9046fd"
+    },
+    {
+      "path": "packages/game-data/data/manifest.json",
+      "bytes": 2567,
+      "sha256": "0c4027634c1c79380f95785a51807f2b5b9a2e1ff72915335e5481a7ff6fed7d"
+    },
+    {
+      "path": "tools/roster-import/source-lock.json",
+      "bytes": 227589,
+      "sha256": "6ef8c40374b8bdcfca0e096f57bf349754533dc41cc3c46320edae2584daf1a6"
+    }
+  ],
+  "metadata": [
+    {
+      "path": "sources/commit.json",
+      "bytes": 268,
+      "sha256": "bf849d969a8bda3e876c33be6d93f7f111f32368d8794b2caad1750553c88790"
+    },
+    {
+      "path": "sources/tree.json",
+      "bytes": 364929,
+      "sha256": "90c086312751a9a7e86c807d7cff75958bca668806991cc0fb39c12620e06c94"
+    },
+    {
+      "path": "sources/README.upstream.md",
+      "bytes": 936,
+      "sha256": "83fe9c57f2ee26fb0a668ac680825481efaac5c740a6fc42ee4f145c314be14c"
+    },
+    {
+      "path": "sources/LICENSE.upstream.txt",
+      "bytes": 6661,
+      "sha256": "3bad26402acfeca5815384f903a4ad8528dea5bed20689a01f13fcba46f4c594"
+    }
+  ]
+}

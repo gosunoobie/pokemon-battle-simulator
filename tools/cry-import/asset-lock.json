@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "transform": "preserve-source-bytes",
+  "decoder": {
+    "package": "@wasm-audio-decoders/ogg-vorbis",
+    "version": "0.1.20",
+    "integrity": "sha512-zaQPasU5usRjUDXtXOHYED5tfkR4QMXd+EH3Nrz1+4+M5pCsdD+s9YxJqb0oqnTyRu/KUujOmu5Z/m/NT47vwg=="
+  },
+  "inputs": [
+    {
+      "path": "tools/cry-import/source-lock.json",
+      "bytes": 2470,
+      "sha256": "a470486a8d0a5ee42035e8a7022f011fcbc857baf6d5ae12a772715f68c53f23"
+    },
+    {
+      "path": "tools/cry-import/package.json",
+      "bytes": 177,
+      "sha256": "129876ce86b8aa8299d93a049d9872f3ac958d5b26116b1417178005eba57b2c"
+    },
+    {
+      "path": "tools/cry-import/package-lock.json",
+      "bytes": 2389,
+      "sha256": "6482a14ba606281dfaf145dcaa8fced1f877c28e914235a35c2c03c0b7e2a85d"
+    },
+    {
+      "path": "tools/cry-import/form-aliases.json",
+      "bytes": 15975,
+      "sha256": "ee04c953077e182e1a0d4c2d8fe93db7c6f21d691e891fb1c5017d131386b2ba"
+    },
+    {
+      "path": "tools/cry-import/form-evidence/pokeemerald/README.md.excerpts.json",
+      "bytes": 765,
+      "sha256": "d3f16639589885bbbddf4c12ac5ef26247105a1fbed44796ee81cf91b097257b"
+    },
+    {
+      "path": "tools/cry-import/form-evidence/pokeemerald/include/constants/species.h.excerpts.json",
+      "bytes": 760,
+      "sha256": "ae5408030e856b8337d1a2ecad8f55f63a48b932983394a324dd89f165ccfe77"
+    },
+    {
+      "path": "tools/cry-import/form-evidence/pokeemerald/src/battle_util.c.excerpts.json",
+      "bytes": 1831,
+      "sha256": "1a96e000bae301e8b40ddcaf19968bd255cfcf6849732ee0d68e45d1ca7ec33b"
+    },
+    {
+      "path": "tools/cry-import/form-evidence/pokeemerald/src/data/pokemon/cry_ids.h.excerpts.json",
+      "bytes": 1036,
+      "sha256": "7148d528e66aaaa8a94ef4bd690faf46d9b219b7ea593a48ec657bbfb87fc4f4"
+    },
+    {
+      "path": "tools/cry-import/form-evidence/pokeemerald/src/pokemon.c.excerpts.json",
+      "bytes": 1898,
+      "sha256": "33c61fdb17c7a1ef072c410c543a2419f706065dd0b8ee5b3673f2c9ae167baf"
+    },
+    {
+      "path": "tools/cry-import/form-evidence/pokeemerald/src/sound.c.excerpts.json",
+      "bytes": 1669,
+      "sha256": "f1e508f6e4a437f4a1abcd0331b2244338763fcab00e4bde6274cd7f46ec70ca"
+    },
+    {
+      "path": "tools/cry-import/form-evidence/pokefirered/README.md.excerpts.json",
+      "bytes": 662,
+      "sha256": "b001a16a17ca5abd9a6331684bce274e233f94af00a98c8e1cb8b73c4eab6959"
+    },
+    {
+      "path": "tools/cry-import/form-evidence/pokefirered/include/constants/species.h.excerpts.json",
+      "bytes": 760,
+      "sha256": "caf37a590a38f2fe94ebaaf5cdae6cd1fe10dad0d85613c998e2f81b4c358a81"
+    },
+    {
+      "path": "tools/cry-import/form-evidence/pokefirered/src/data/pokemon/cry_ids.h.excerpts.json",
+      "bytes": 1199,
+      "sha256": "1ee4ea7061cd1684e25910f51ba1321d4faac759199d5b33721b2cdca21d3f04"
+    },
+    {
+      "path": "tools/cry-import/form-evidence/pokefirered/src/pokemon.c.excerpts.json",
+      "bytes": 2635,
+      "sha256": "2b8ad6a9e3c34e2c2e247591576197e8e8cee3b3a64fa723e9e44ae7ad5e9b83"
+    },
+    {
+      "path": "tools/cry-import/form-evidence/pokefirered/src/sound.c.excerpts.json",
+      "bytes": 1673,
+      "sha256": "2267364833479438376d1e398faa767915a82fce731563ae3d97d22d296687c7"
+    }
+  ]
+}

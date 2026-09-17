@@ -1,0 +1,14 @@
+Audio source: https://github.com/PokeAPI/cries
+Pinned commit: ef687b18f0ce17169b4b4c09175819f7ade92f0f
+Collection: cries/pokemon/legacy
+
+The upstream LICENSE identifies the audio as Copyright The Pokémon Company.
+Its separate CC0 repository dedication is retained in UPSTREAM-LICENSE.txt.
+Availability does not establish unrestricted redistribution rights.
+
+Recordings are unchanged. Six explicit form aliases use pinned technical evidence
+from pret/pokeemerald and pret/pokefirered, retained in tools/cry-import/form-evidence.
+That evidence establishes shared cry selection, not recording vintage.
+
+The build-time decoder and its dependencies are isolated in tools/cry-import.
+Their package licenses apply independently; they are not bundled in this package.

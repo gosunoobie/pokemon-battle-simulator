@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/pret/pokefirered",
+  "gitCommit": "c75f352304d529f6ba92d4f74b9cf8b5c3810788",
+  "sourcePath": "src/pokemon.c",
+  "sourceBytes": 221865,
+  "sourceSha256": "116a470cd9ebfa226aa8d85c2eb63591e176d726837c67baaa1ac6260d50f2ec",
+  "sourceGitBlobSha": "66a5c3d233e8b1b85fe5045aeb6667332cd61d4c",
+  "excerpts": [
+    {
+      "startLine": 1640,
+      "endLine": 1662,
+      "text": "#if defined(FIRERED)\n// Attack forme\nstatic const u16 sDeoxysBaseStats[] = \n{\n    [STAT_HP]    = 50,\n    [STAT_ATK]   = 180,\n    [STAT_DEF]   = 20,\n    [STAT_SPEED] = 150,\n    [STAT_SPATK] = 180,\n    [STAT_SPDEF] = 20,\n};\n#elif defined(LEAFGREEN)\n// Defense forme\nstatic const u16 sDeoxysBaseStats[] =\n{\n    [STAT_HP]    = 50,\n    [STAT_ATK]   = 70,\n    [STAT_DEF]   = 160,\n    [STAT_SPEED] = 90,\n    [STAT_SPATK] = 70,\n    [STAT_SPDEF] = 160,\n};\n#endif\n",
+      "sha256": "2bc6b6d6cf3149dd6949813144e5073f990019f293484af6e20fe751fdf3a8e3"
+    },
+    {
+      "startLine": 5234,
+      "endLine": 5243,
+      "text": "u16 SpeciesToCryId(u16 species)\n{\n    if (species < SPECIES_OLD_UNOWN_B - 1)\n        return species;\n\n    if (species <= SPECIES_OLD_UNOWN_Z - 1)\n        return SPECIES_UNOWN - 1;\n\n    return sHoennSpeciesIdToCryId[species - ((SPECIES_OLD_UNOWN_Z + 1) - 1)];\n}\n",
+      "sha256": "27c3a940059bfd7af790f3dd2e0011a2629c19120fdfcd58aa7f37f5db63e89b"
+    },
+    {
+      "startLine": 6100,
+      "endLine": 6108,
+      "text": "// If FALSE, should load this game's Deoxys form. If TRUE, should load normal Deoxys form\nbool8 ShouldIgnoreDeoxysForm(u8 caseId, u8 battlerId)\n{\n    switch (caseId)\n    {\n    case 0:\n    default:\n        return FALSE;\n    case DEOXYS_CHECK_BATTLE_SPRITE:\n",
+      "sha256": "f30398deed935be498e0185a5c12fcac07df2fd315f7dff2f5c622c0bb26528f"
+    },
+    {
+      "startLine": 6157,
+      "endLine": 6172,
+      "text": "static u16 GetDeoxysStat(struct Pokemon *mon, s32 statId)\n{\n    s32 ivVal, evVal;\n    u16 statValue = 0;\n    u8 nature;\n\n    if (gBattleTypeFlags & BATTLE_TYPE_LINK_IN_BATTLE || GetMonData(mon, MON_DATA_SPECIES, NULL) != SPECIES_DEOXYS)\n        return 0;\n\n    ivVal = GetMonData(mon, MON_DATA_HP_IV + statId, NULL);\n    evVal = GetMonData(mon, MON_DATA_HP_EV + statId, NULL);\n    statValue = ((sDeoxysBaseStats[statId] * 2 + ivVal + evVal / 4) * mon->level) / 100 + 5;\n    nature = GetNature(mon);\n    statValue = ModifyStatByNature(nature, statValue, (u8)statId);\n    return statValue;\n}\n",
+      "sha256": "8fc39c7f002ae820e4585c544f8a92b0953b254040b7c61bb1e8d649ea75ad26"
+    }
+  ]
+}

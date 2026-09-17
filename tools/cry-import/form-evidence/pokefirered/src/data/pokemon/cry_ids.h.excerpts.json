@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/pret/pokefirered",
+  "gitCommit": "c75f352304d529f6ba92d4f74b9cf8b5c3810788",
+  "sourcePath": "src/data/pokemon/cry_ids.h",
+  "sourceBytes": 8627,
+  "sourceSha256": "443a74dda9401f4e171be53aa3a0f4afb13aad75f9dc0c675087637b4bb8ded9",
+  "sourceGitBlobSha": "2eef1eb88bb506b753c5c83e88248818c4a40454",
+  "excerpts": [
+    {
+      "startLine": 1,
+      "endLine": 6,
+      "text": "#define HOENN_MON_SPECIES_START 277\n\nstatic const u16 sHoennSpeciesIdToCryId[] =\n{\n    [SPECIES_TREECKO - HOENN_MON_SPECIES_START] = CRY_TREECKO,\n    [SPECIES_GROVYLE - HOENN_MON_SPECIES_START] = CRY_GROVYLE,\n",
+      "sha256": "16f38bc308837770bb0aec95b519790248e2dd3dbdf3283a2d9286c0caa51d6f"
+    },
+    {
+      "startLine": 113,
+      "endLine": 113,
+      "text": "    [SPECIES_CASTFORM - HOENN_MON_SPECIES_START] = CRY_CASTFORM,\n",
+      "sha256": "e521591230d8cd1e9ff321973789ab956a90d19882e9772e7ba4f50ea1ddccef"
+    },
+    {
+      "startLine": 138,
+      "endLine": 138,
+      "text": "    [SPECIES_DEOXYS - HOENN_MON_SPECIES_START] = CRY_DEOXYS,\n",
+      "sha256": "ec42ae9067def82115b2375330559dc3bc656e3ec119f2c82fcdac54182f05da"
+    }
+  ]
+}

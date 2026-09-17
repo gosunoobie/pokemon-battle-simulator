@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/pret/pokefirered",
+  "gitCommit": "c75f352304d529f6ba92d4f74b9cf8b5c3810788",
+  "sourcePath": "src/sound.c",
+  "sourceBytes": 15232,
+  "sourceSha256": "851313931ebdbf2f0933b52295707f82e948735813fac84fdba74c0446ada958",
+  "sourceGitBlobSha": "9060aa513d2946d5a59c34f24658da96e0ab6a8e",
+  "excerpts": [
+    {
+      "startLine": 374,
+      "endLine": 385,
+      "text": "void PlayCryInternal(u16 species, s8 pan, s8 volume, u8 priority, u8 mode)\n{\n    bool32 reverse;\n    u32 release;\n    u32 length;\n    u32 pitch;\n    u32 chorus;\n    u32 index;\n    u8 table;\n\n    species--;\n    \n",
+      "sha256": "7e6b9537f7766ce0aa570623e66019779e64f5810fb501f33a5fa6e366972228"
+    },
+    {
+      "startLine": 476,
+      "endLine": 500,
+      "text": "    species = SpeciesToCryId(species);\n    index = species % 128;\n    table = species / 128;\n\n    #define GET_CRY(speciesIndex, tableId, reversed) \\\n        ((reversed) ? &gCryTable_Reverse[(128 * (tableId)) + (speciesIndex)] : &gCryTable[(128 * (tableId)) + (speciesIndex)])\n\n    switch (table)\n    {\n    case 0:\n        gMPlay_PokemonCry = SetPokemonCryTone(GET_CRY(index, 0, reverse));\n        break;\n    case 1:\n        gMPlay_PokemonCry = SetPokemonCryTone(GET_CRY(index, 1, reverse));\n        break;\n    case 2:\n        gMPlay_PokemonCry = SetPokemonCryTone(GET_CRY(index, 2, reverse));\n        break;\n    case 3:\n        gMPlay_PokemonCry = SetPokemonCryTone(GET_CRY(index, 3, reverse));\n        break;\n    }\n\n    #undef GET_CRY\n}\n",
+      "sha256": "4580c6096a89691d9b5e10780992c0e8a16b86a7888e9fc2d20abec97702fcec"
+    }
+  ]
+}

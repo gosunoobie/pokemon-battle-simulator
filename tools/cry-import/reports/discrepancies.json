@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 1,
+  "stage": "inventory-only",
+  "sourceCommit": "ef687b18f0ce17169b4b4c09175819f7ade92f0f",
+  "counts": {
+    "baseSpecies": 386,
+    "forms": 33,
+    "identities": 419,
+    "direct": 386,
+    "sharedIdentity": 27,
+    "unresolved": 6,
+    "selectedSourceFiles": 386,
+    "uniqueGitBlobs": 386,
+    "listedSourceBytes": 2245221,
+    "listedUniqueBlobBytes": 2245221,
+    "downloadedAudioFiles": 0,
+    "decodedAudioFiles": 0
+  },
+  "allIdentitiesAccountedFor": true,
+  "allMappingsResolved": false,
+  "readyForPlayback": false,
+  "unresolved": [
+    {
+      "id": "castformrainy",
+      "expectedPath": "cries/pokemon/legacy/10014.ogg",
+      "code": "missing-legacy-pokemon-id",
+      "baseCandidate": {
+        "path": "cries/pokemon/legacy/351.ogg",
+        "gitBlobSha": "136fafb2147cd3dfa7a76ef70a8c26b76ab07ca6",
+        "bytes": 5054,
+        "url": "https://raw.githubusercontent.com/PokeAPI/cries/ef687b18f0ce17169b4b4c09175819f7ade92f0f/cries/pokemon/legacy/351.ogg"
+      },
+      "latestCandidate": {
+        "path": "cries/pokemon/latest/10014.ogg",
+        "gitBlobSha": "ae7b35b1c29a0ce300dd707289a9ce2c55e44a9e",
+        "bytes": 9144,
+        "url": "https://raw.githubusercontent.com/PokeAPI/cries/ef687b18f0ce17169b4b4c09175819f7ade92f0f/cries/pokemon/latest/10014.ogg"
+      },
+      "resolution": "Unresolved: candidates are evidence for review only. Neither a base-species alias nor a latest substitution is approved."
+    },
+    {
+      "id": "castformsnowy",
+      "expectedPath": "cries/pokemon/legacy/10015.ogg",
+      "code": "missing-legacy-pokemon-id",
+      "baseCandidate": {
+        "path": "cries/pokemon/legacy/351.ogg",
+        "gitBlobSha": "136fafb2147cd3dfa7a76ef70a8c26b76ab07ca6",
+        "bytes": 5054,
+        "url": "https://raw.githubusercontent.com/PokeAPI/cries/ef687b18f0ce17169b4b4c09175819f7ade92f0f/cries/pokemon/legacy/351.ogg"
+      },
+      "latestCandidate": {
+        "path": "cries/pokemon/latest/10015.ogg",
+        "gitBlobSha": "ae7b35b1c29a0ce300dd707289a9ce2c55e44a9e",
+        "bytes": 9144,
+        "url": "https://raw.githubusercontent.com/PokeAPI/cries/ef687b18f0ce17169b4b4c09175819f7ade92f0f/cries/pokemon/latest/10015.ogg"
+      },
+      "resolution": "Unresolved: candidates are evidence for review only. Neither a base-species alias nor a latest substitution is approved."
+    },
+    {
+      "id": "castformsunny",
+      "expectedPath": "cries/pokemon/legacy/10013.ogg",
+      "code": "missing-legacy-pokemon-id",
+      "baseCandidate": {
+        "path": "cries/pokemon/legacy/351.ogg",
+        "gitBlobSha": "136fafb2147cd3dfa7a76ef70a8c26b76ab07ca6",
+        "bytes": 5054,
+        "url": "https://raw.githubusercontent.com/PokeAPI/cries/ef687b18f0ce17169b4b4c09175819f7ade92f0f/cries/pokemon/legacy/351.ogg"
+      },
+      "latestCandidate": {
+        "path": "cries/pokemon/latest/10013.ogg",
+        "gitBlobSha": "ae7b35b1c29a0ce300dd707289a9ce2c55e44a9e",
+        "bytes": 9144,
+        "url": "https://raw.githubusercontent.com/PokeAPI/cries/ef687b18f0ce17169b4b4c09175819f7ade92f0f/cries/pokemon/latest/10013.ogg"
+      },
+      "resolution": "Unresolved: candidates are evidence for review only. Neither a base-species alias nor a latest substitution is approved."
+    },
+    {
+      "id": "deoxysattack",
+      "expectedPath": "cries/pokemon/legacy/10001.ogg",
+      "code": "missing-legacy-pokemon-id",
+      "baseCandidate": {
+        "path": "cries/pokemon/legacy/386.ogg",
+        "gitBlobSha": "d8e172e2826a1a48be221758073c9915903deaa3",
+        "bytes": 6183,
+        "url": "https://raw.githubusercontent.com/PokeAPI/cries/ef687b18f0ce17169b4b4c09175819f7ade92f0f/cries/pokemon/legacy/386.ogg"
+      },
+      "latestCandidate": {
+        "path": "cries/pokemon/latest/10001.ogg",
+        "gitBlobSha": "015b086b03c28473303e2d29b2cf26f9447124b2",
+        "bytes": 12908,
+        "url": "https://raw.githubusercontent.com/PokeAPI/cries/ef687b18f0ce17169b4b4c09175819f7ade92f0f/cries/pokemon/latest/10001.ogg"
+      },
+      "resolution": "Unresolved: candidates are evidence for review only. Neither a base-species alias nor a latest substitution is approved."
+    },
+    {
+      "id": "deoxysdefense",
+      "expectedPath": "cries/pokemon/legacy/10002.ogg",
+      "code": "missing-legacy-pokemon-id",
+      "baseCandidate": {
+        "path": "cries/pokemon/legacy/386.ogg",
+        "gitBlobSha": "d8e172e2826a1a48be221758073c9915903deaa3",
+        "bytes": 6183,
+        "url": "https://raw.githubusercontent.com/PokeAPI/cries/ef687b18f0ce17169b4b4c09175819f7ade92f0f/cries/pokemon/legacy/386.ogg"
+      },
+      "latestCandidate": {
+        "path": "cries/pokemon/latest/10002.ogg",
+        "gitBlobSha": "015b086b03c28473303e2d29b2cf26f9447124b2",
+        "bytes": 12908,
+        "url": "https://raw.githubusercontent.com/PokeAPI/cries/ef687b18f0ce17169b4b4c09175819f7ade92f0f/cries/pokemon/latest/10002.ogg"
+      },
+      "resolution": "Unresolved: candidates are evidence for review only. Neither a base-species alias nor a latest substitution is approved."
+    },
+    {
+      "id": "deoxysspeed",
+      "expectedPath": "cries/pokemon/legacy/10003.ogg",
+      "code": "missing-legacy-pokemon-id",
+      "baseCandidate": {
+        "path": "cries/pokemon/legacy/386.ogg",
+        "gitBlobSha": "d8e172e2826a1a48be221758073c9915903deaa3",
+        "bytes": 6183,
+        "url": "https://raw.githubusercontent.com/PokeAPI/cries/ef687b18f0ce17169b4b4c09175819f7ade92f0f/cries/pokemon/legacy/386.ogg"
+      },
+      "latestCandidate": {
+        "path": "cries/pokemon/latest/10003.ogg",
+        "gitBlobSha": "015b086b03c28473303e2d29b2cf26f9447124b2",
+        "bytes": 12908,
+        "url": "https://raw.githubusercontent.com/PokeAPI/cries/ef687b18f0ce17169b4b4c09175819f7ade92f0f/cries/pokemon/latest/10003.ogg"
+      },
+      "resolution": "Unresolved: candidates are evidence for review only. Neither a base-species alias nor a latest substitution is approved."
+    }
+  ],
+  "sharedIdentities": [
+    {
+      "id": "unownb",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownc",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownd",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unowne",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownexclamation",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownf",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unowng",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownh",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unowni",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownj",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownk",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownl",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownm",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownn",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unowno",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownp",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownq",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownquestion",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownr",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unowns",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownt",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownu",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownv",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownw",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownx",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unowny",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    },
+    {
+      "id": "unownz",
+      "sharedWith": "unown",
+      "pokeapiPokemonId": 201,
+      "path": "cries/pokemon/legacy/201.ogg"
+    }
+  ],
+  "identicalGitBlobGroups": [],
+  "pendingValidation": [
+    "Fetch pinned audio and verify byte size and Git blob hash; then record SHA-256.",
+    "Inspect container/codec and decode every selected file.",
+    "Review missing form mappings using additional evidence before publishing a complete catalog.",
+    "Review audible quality, timing and browser decoding.",
+    "Recording vintage and redistribution rights remain unverified; retain upstream notices."
+  ]
+}

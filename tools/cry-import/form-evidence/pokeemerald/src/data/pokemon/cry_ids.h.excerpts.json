@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/pret/pokeemerald",
+  "gitCommit": "5eff78649e7170a877b961ef0b3da13b81a16038",
+  "sourcePath": "src/data/pokemon/cry_ids.h",
+  "sourceBytes": 4780,
+  "sourceSha256": "67aea490fd7af8a6b4654fea2cb19c9d9126c9d7c40d00f81def38e28c52d657",
+  "sourceGitBlobSha": "e53ffd2a80320a96c3c698a6cd0182e9751911a4",
+  "excerpts": [
+    {
+      "startLine": 1,
+      "endLine": 4,
+      "text": "const u16 gSpeciesIdToCryId[] =\n{\n    [SPECIES_TREECKO - 277] = 273,\n    [SPECIES_GROVYLE - 277] = 274,\n",
+      "sha256": "1562112bc994fa55db9b3b20a255427438b5c591fb790d1c3b310b686ba73f2e"
+    },
+    {
+      "startLine": 111,
+      "endLine": 111,
+      "text": "    [SPECIES_CASTFORM - 277] = 356,\n",
+      "sha256": "326a1305b056038ae07fb34c3d3d703d5eaa99f82b269850f67bca208196bc4f"
+    },
+    {
+      "startLine": 136,
+      "endLine": 136,
+      "text": "    [SPECIES_DEOXYS - 277] = 386,\n",
+      "sha256": "8207d6550f850b20c357af82681adf7c26b4ca6244b759a94d49c2b09f320467"
+    }
+  ]
+}

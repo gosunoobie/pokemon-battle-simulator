@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/pret/pokeemerald",
+  "gitCommit": "5eff78649e7170a877b961ef0b3da13b81a16038",
+  "sourcePath": "src/battle_util.c",
+  "sourceBytes": 167309,
+  "sourceSha256": "01d08fc555c3d224e8e734edf089e9f09dd3dafcb5481393f94dcb9c708ed3ce",
+  "sourceGitBlobSha": "8949cdbe5b8936cd595d9048faeb67c587807f18",
+  "excerpts": [
+    {
+      "startLine": 2382,
+      "endLine": 2415,
+      "text": "u8 CastformDataTypeChange(u8 battler)\n{\n    u8 formChange = 0;\n    if (gBattleMons[battler].species != SPECIES_CASTFORM || gBattleMons[battler].ability != ABILITY_FORECAST || gBattleMons[battler].hp == 0)\n        return 0; // No change\n    if (!WEATHER_HAS_EFFECT && !IS_BATTLER_OF_TYPE(battler, TYPE_NORMAL))\n    {\n        SET_BATTLER_TYPE(battler, TYPE_NORMAL);\n        return CASTFORM_NORMAL + 1;\n    }\n    if (!WEATHER_HAS_EFFECT)\n        return 0; // No change\n    if (!(gBattleWeather & (B_WEATHER_RAIN | B_WEATHER_SUN | B_WEATHER_HAIL)) && !IS_BATTLER_OF_TYPE(battler, TYPE_NORMAL))\n    {\n        SET_BATTLER_TYPE(battler, TYPE_NORMAL);\n        formChange = CASTFORM_NORMAL + 1;\n    }\n    if (gBattleWeather & B_WEATHER_SUN && !IS_BATTLER_OF_TYPE(battler, TYPE_FIRE))\n    {\n        SET_BATTLER_TYPE(battler, TYPE_FIRE);\n        formChange = CASTFORM_FIRE + 1;\n    }\n    if (gBattleWeather & B_WEATHER_RAIN && !IS_BATTLER_OF_TYPE(battler, TYPE_WATER))\n    {\n        SET_BATTLER_TYPE(battler, TYPE_WATER);\n        formChange = CASTFORM_WATER + 1;\n    }\n    if (gBattleWeather & B_WEATHER_HAIL && !IS_BATTLER_OF_TYPE(battler, TYPE_ICE))\n    {\n        SET_BATTLER_TYPE(battler, TYPE_ICE);\n        formChange = CASTFORM_ICE + 1;\n    }\n    return formChange;\n}\n",
+      "sha256": "726c043a63c5d988ba2f6bf470b3a82e5a2cca13ecf2d30827ec9c137fcfd9f2"
+    }
+  ]
+}

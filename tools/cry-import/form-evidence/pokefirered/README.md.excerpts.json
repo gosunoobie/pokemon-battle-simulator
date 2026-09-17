@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/pret/pokefirered",
+  "gitCommit": "c75f352304d529f6ba92d4f74b9cf8b5c3810788",
+  "sourcePath": "README.md",
+  "sourceBytes": 1149,
+  "sourceSha256": "ab59004406fa7c682aed5f7d034e527ac9b9c8cf4a0257920b1340bc25e99f3d",
+  "sourceGitBlobSha": "819422657623aae0cb0d2d0d23893b2927fcf0d7",
+  "excerpts": [
+    {
+      "startLine": 1,
+      "endLine": 5,
+      "text": "# Pokémon FireRed and LeafGreen\n\nThis is a decompilation of English Pokémon FireRed and LeafGreen.\n\nIt builds the following ROM images:\n",
+      "sha256": "457fa7ee6dfae115fb3da35dcc91c123ceca6959609bbfa41df0c26cc44493bf"
+    }
+  ]
+}

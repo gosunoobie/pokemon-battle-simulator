@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "method": "Development preview button: fetch, byte length, SHA-256, native AudioContext.decodeAudioData, channel count and duration comparison",
+  "environment": "Codex in-app browser on this development Mac; not a complete supported-device test matrix",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+  "sourceCommit": "ef687b18f0ce17169b4b4c09175819f7ade92f0f",
+  "audioContextSampleRate": 48000,
+  "filesDecoded": 386,
+  "downloadIntegrityFailures": 0,
+  "decodeFailures": 0,
+  "channelCountFailures": 0,
+  "timing": {
+    "comparison": "Native decoded duration minus catalog Ogg-granule/reference-libvorbis duration",
+    "toleranceMs": 10,
+    "filesOutsideTolerance": 173,
+    "minimumDifferenceMs": -24.373858447488573,
+    "maximumDifferenceMs": 0,
+    "example": {
+      "pokemonId": "bulbasaur",
+      "assetSha256": "0dff41fa0a37c0cc5239fabbc8312710c6cf403a052707c6574db0aba84cb6e2",
+      "catalogSeconds": 0.7785388127853882,
+      "nativeDecodedSeconds": 0.7549375
+    }
+  },
+  "decision": "Preserve original files. Record timing differences separately from successful decoding; their cause and audible effect are not established. The future player must use its actual AudioBuffer duration, trigger at the reveal cue and avoid treating catalog duration as an exact native playback deadline.",
+  "unverified": ["Subjective listening quality of every recording", "Safari and iOS", "Firefox", "Android Chrome", "Sample-exact cross-browser timing", "MP3 fallback compatibility"]
+}

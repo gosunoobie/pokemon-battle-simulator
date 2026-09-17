@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/pret/pokeemerald",
+  "gitCommit": "5eff78649e7170a877b961ef0b3da13b81a16038",
+  "sourcePath": "include/constants/species.h",
+  "sourceBytes": 13045,
+  "sourceSha256": "a1867c83e78fb767b16a9c95c4c06d51d56c986fd48d713b98dbf01c8305089d",
+  "sourceGitBlobSha": "ec60c142ed72a80caa992991b4d456f500dc3a04",
+  "excerpts": [
+    {
+      "startLine": 391,
+      "endLine": 391,
+      "text": "#define SPECIES_CASTFORM 385\n",
+      "sha256": "662fd64a5fd88649432c425be65cdce933bd85c3fc5180c2cd380e4424b5995d"
+    },
+    {
+      "startLine": 416,
+      "endLine": 416,
+      "text": "#define SPECIES_DEOXYS 410\n",
+      "sha256": "33b43cf4c506483776b8541862a2ee4805b3690b10a64528639100537021afe8"
+    }
+  ]
+}

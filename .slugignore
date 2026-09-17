@@ -1,0 +1,5 @@
+# Original audio is backed up locally; only public/sound_effects is deployed.
+tools/audio-import/.cache/
+# Cry originals and the build-time decoder are not production dependencies.
+tools/cry-import/.cache/
+tools/cry-import/node_modules/

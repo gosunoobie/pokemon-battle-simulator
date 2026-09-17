@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "transform": "remove-leading-id3v2.3-only",
+  "fileCount": 530,
+  "originalBytes": 90366242,
+  "outputBytes": 43609096,
+  "removedBytes": 46757146,
+  "reductionPercent": 51.74,
+  "removedPicturePayloadBytes": 45470290,
+  "invariant": "Every byte after the leading ID3v2 tag is preserved, including all MPEG frames, Xing/LAME data and trailing ID3v1 tags. No re-encoding, trimming, resampling or gain changes."
+}

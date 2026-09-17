@@ -1,0 +1,1803 @@
+{
+  "schemaVersion": 1,
+  "stage": "validated-assets",
+  "counts": {
+    "identities": 419,
+    "baseSpecies": 386,
+    "forms": 33,
+    "direct": 386,
+    "sharedPokemonIdentity": 27,
+    "verifiedFormAliases": 6,
+    "unresolved": 0,
+    "sourceFiles": 386,
+    "deployedAudioFiles": 386,
+    "decodedFiles": 386
+  },
+  "sourceBytes": 2245221,
+  "deployedAudioBytes": 2245221,
+  "transform": "preserve-source-bytes",
+  "reencoded": false,
+  "trimmed": false,
+  "normalized": false,
+  "codec": "vorbis",
+  "sampleRates": [
+    10512
+  ],
+  "channels": [
+    1
+  ],
+  "durationSeconds": {
+    "min": 0.1811263318112633,
+    "max": 2.2378234398782344
+  },
+  "maximumDecodedPeak": 1.19033456,
+  "warnings": [
+    {
+      "path": "cries/pokemon/legacy/1.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03883052,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/10.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03550291,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/100.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00554061,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/101.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05877042,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/102.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03172386,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/103.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02121472,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/104.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01774478,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/107.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02668738,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/108.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01752758,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/109.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04221249,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/11.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01709974,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/110.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.07650197,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/111.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.07072389,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/112.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06943297,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/113.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04470849,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/114.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04420149,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/115.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.07041121,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/120.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00740552,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/121.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03308499,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/122.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04817486,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/123.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01843834,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/124.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03041148,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/125.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.17114484,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/126.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03245103,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/127.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.08331275,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/128.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06244266,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/129.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00561345,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/13.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.07973695,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/130.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04412186,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/131.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01408648,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/133.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04654193,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/135.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03378749,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/136.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04111516,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/139.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02314043,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/14.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0279088,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/140.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06127083,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/141.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06325519,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/142.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0658828,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/144.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05800474,
+      "samples": 9
+    },
+    {
+      "path": "cries/pokemon/legacy/145.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.08990538,
+      "samples": 6
+    },
+    {
+      "path": "cries/pokemon/legacy/146.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02533507,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/147.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03367877,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/148.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02783418,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/149.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04542267,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/15.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01256669,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/151.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03099477,
+      "samples": 6
+    },
+    {
+      "path": "cries/pokemon/legacy/153.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05212474,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/154.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.1772939,
+      "samples": 7
+    },
+    {
+      "path": "cries/pokemon/legacy/155.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0054853,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/156.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03129733,
+      "samples": 6
+    },
+    {
+      "path": "cries/pokemon/legacy/157.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02590144,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/158.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02347636,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/16.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02564907,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/160.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05674684,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/161.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0349983,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/164.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01525259,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/165.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02041733,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/166.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00263429,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/167.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0362736,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/168.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00504804,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/169.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0488447,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/17.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02262723,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/170.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02030861,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/171.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01943386,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/172.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02181256,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/173.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0134232,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/175.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04045677,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/177.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04231513,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/178.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.07135224,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/179.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00274718,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/18.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02847934,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/180.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02306974,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/182.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0516696,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/184.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.09095383,
+      "samples": 6
+    },
+    {
+      "path": "cries/pokemon/legacy/186.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00373554,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/187.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01050615,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/188.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02125609,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/192.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01924539,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/193.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03102136,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/194.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00669479,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/195.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01206446,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/196.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0185802,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/197.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01287532,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/198.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03312159,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/199.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05211306,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/2.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0547874,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/201.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0280726,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/202.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04488802,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/204.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00850153,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/205.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06677485,
+      "samples": 6
+    },
+    {
+      "path": "cries/pokemon/legacy/206.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00940537,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/207.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03120875,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/208.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01714611,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/209.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03693855,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/21.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05096984,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/210.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02403772,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/212.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05186343,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/213.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01447332,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/214.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0377996,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/217.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02965283,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/219.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01698613,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/22.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0382458,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/221.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02978778,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/222.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02918971,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/223.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01146507,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/224.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01507306,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/225.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06638074,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/226.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.07097816,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/227.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01463628,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/228.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06829369,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/229.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00711155,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/231.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02350807,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/234.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03146863,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/236.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0406667,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/237.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06044376,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/239.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01054847,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/24.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06262147,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/240.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00295722,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/242.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.07350612,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/243.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06731462,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/244.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00322819,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/245.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00752866,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/246.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01081884,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/247.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.08542418,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/248.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.08414519,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/249.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03794861,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/25.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01885009,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/250.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03847086,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/251.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04367447,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/252.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05273402,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/254.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.08827353,
+      "samples": 21
+    },
+    {
+      "path": "cries/pokemon/legacy/256.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01001918,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/257.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.07372284,
+      "samples": 7
+    },
+    {
+      "path": "cries/pokemon/legacy/259.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02964222,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/26.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01911461,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/260.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03381824,
+      "samples": 9
+    },
+    {
+      "path": "cries/pokemon/legacy/261.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05867636,
+      "samples": 8
+    },
+    {
+      "path": "cries/pokemon/legacy/262.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.11498547,
+      "samples": 30
+    },
+    {
+      "path": "cries/pokemon/legacy/265.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0238359,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/266.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01218951,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/268.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.09208679,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/269.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04551351,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/270.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03048515,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/271.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0412997,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/272.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02177,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/275.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03480327,
+      "samples": 7
+    },
+    {
+      "path": "cries/pokemon/legacy/278.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00404537,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/279.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.08030033,
+      "samples": 18
+    },
+    {
+      "path": "cries/pokemon/legacy/28.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02977169,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/283.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.12609422,
+      "samples": 14
+    },
+    {
+      "path": "cries/pokemon/legacy/284.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.13939071,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/286.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.19033456,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/288.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02491271,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/289.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02533472,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/290.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0101521,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/291.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.12327397,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/292.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04267693,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/293.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06821656,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/295.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06026721,
+      "samples": 13
+    },
+    {
+      "path": "cries/pokemon/legacy/297.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03373563,
+      "samples": 6
+    },
+    {
+      "path": "cries/pokemon/legacy/3.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0471108,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/30.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03239572,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/300.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03781497,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/303.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02905536,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/304.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06414139,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/305.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06314564,
+      "samples": 8
+    },
+    {
+      "path": "cries/pokemon/legacy/306.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01134145,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/307.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01020896,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/308.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02056277,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/309.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04033577,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/31.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03448284,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/310.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0386517,
+      "samples": 9
+    },
+    {
+      "path": "cries/pokemon/legacy/313.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.14170349,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/314.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0762527,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/315.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04444849,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/317.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.08127928,
+      "samples": 17
+    },
+    {
+      "path": "cries/pokemon/legacy/318.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.11844432,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/319.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.054968,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/32.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0488168,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/320.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05541623,
+      "samples": 8
+    },
+    {
+      "path": "cries/pokemon/legacy/321.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.07437575,
+      "samples": 21
+    },
+    {
+      "path": "cries/pokemon/legacy/322.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00819552,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/323.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.09699249,
+      "samples": 27
+    },
+    {
+      "path": "cries/pokemon/legacy/324.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01018989,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/325.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02763057,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/326.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03014088,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/329.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0111661,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/33.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03926587,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/330.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.1841259,
+      "samples": 15
+    },
+    {
+      "path": "cries/pokemon/legacy/331.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0157932,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/332.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.07397127,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/333.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02344716,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/334.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03173137,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/335.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03506398,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/336.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05649912,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/337.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01973534,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/338.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0857836,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/339.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04497492,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/34.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.09067059,
+      "samples": 14
+    },
+    {
+      "path": "cries/pokemon/legacy/340.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02566171,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/341.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00869727,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/342.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03692913,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/343.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03320313,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/344.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.07377982,
+      "samples": 6
+    },
+    {
+      "path": "cries/pokemon/legacy/345.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04000688,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/35.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01716173,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/350.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05255723,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/351.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03411663,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/352.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.08221269,
+      "samples": 6
+    },
+    {
+      "path": "cries/pokemon/legacy/354.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01027524,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/356.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03826511,
+      "samples": 8
+    },
+    {
+      "path": "cries/pokemon/legacy/357.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01308239,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/36.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00017393,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/360.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02219415,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/364.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02075744,
+      "samples": 10
+    },
+    {
+      "path": "cries/pokemon/legacy/365.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.09534836,
+      "samples": 13
+    },
+    {
+      "path": "cries/pokemon/legacy/367.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02044106,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/368.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01464808,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/369.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01349604,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/37.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0069865,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/370.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02914929,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/371.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00062454,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/372.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0319258,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/373.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0380882,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/376.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0480938,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/377.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04710484,
+      "samples": 19
+    },
+    {
+      "path": "cries/pokemon/legacy/378.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05689192,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/379.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.10616457,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/38.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04639602,
+      "samples": 12
+    },
+    {
+      "path": "cries/pokemon/legacy/380.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04642868,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/381.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06929934,
+      "samples": 10
+    },
+    {
+      "path": "cries/pokemon/legacy/382.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06268501,
+      "samples": 12
+    },
+    {
+      "path": "cries/pokemon/legacy/383.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05083811,
+      "samples": 7
+    },
+    {
+      "path": "cries/pokemon/legacy/384.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03592789,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/386.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02928734,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/4.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01444125,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/42.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06565917,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/44.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02795577,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/45.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05412388,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/46.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04606664,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/48.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06576979,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/49.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01860332,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/5.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02341747,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/50.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01676893,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/51.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06838799,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/52.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02508736,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/53.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01277626,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/54.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03111982,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/56.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00525963,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/57.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06348062,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/59.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.07432783,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/6.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0087322,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/60.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00769901,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/61.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00080717,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/62.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01648343,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/63.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03110719,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/64.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03891325,
+      "samples": 8
+    },
+    {
+      "path": "cries/pokemon/legacy/65.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.07413244,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/68.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.03977513,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/7.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00625825,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/72.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05978143,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/73.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02658391,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/74.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.07352948,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/75.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.06708646,
+      "samples": 7
+    },
+    {
+      "path": "cries/pokemon/legacy/76.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05289829,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/77.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01559436,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/8.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.04176104,
+      "samples": 6
+    },
+    {
+      "path": "cries/pokemon/legacy/80.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.046188,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/81.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00652587,
+      "samples": 3
+    },
+    {
+      "path": "cries/pokemon/legacy/82.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0100807,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/84.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01619816,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/85.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00965405,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/86.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01755595,
+      "samples": 4
+    },
+    {
+      "path": "cries/pokemon/legacy/87.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01598763,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/89.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01482713,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/9.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01178968,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/90.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02527714,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/91.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.01104832,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/93.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00617588,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/94.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0455389,
+      "samples": 2
+    },
+    {
+      "path": "cries/pokemon/legacy/95.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.02368164,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/97.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.05094051,
+      "samples": 5
+    },
+    {
+      "path": "cries/pokemon/legacy/98.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.0017004,
+      "samples": 1
+    },
+    {
+      "path": "cries/pokemon/legacy/99.ogg",
+      "code": "decoded-peaks-above-full-scale",
+      "peak": 1.00972831,
+      "samples": 1
+    }
+  ],
+  "warningInterpretation": "Vorbis float decoding can overshoot full scale. These are measurements, not a claim that the source recording clipped. Preserve source bytes; allow headroom in the future mixer. No gain is applied here.",
+  "resolvedDiscrepancies": [
+    {
+      "id": "castformrainy",
+      "baseId": "castform",
+      "sourcePath": "cries/pokemon/legacy/351.ogg",
+      "reason": "Verified species-level cry selection: Castform weather forms change type/form presentation while retaining the Castform species and its single cry entry.",
+      "evidenceIds": [
+        "emerald-species-cries"
+      ]
+    },
+    {
+      "id": "castformsnowy",
+      "baseId": "castform",
+      "sourcePath": "cries/pokemon/legacy/351.ogg",
+      "reason": "Verified species-level cry selection: Castform weather forms change type/form presentation while retaining the Castform species and its single cry entry.",
+      "evidenceIds": [
+        "emerald-species-cries"
+      ]
+    },
+    {
+      "id": "castformsunny",
+      "baseId": "castform",
+      "sourcePath": "cries/pokemon/legacy/351.ogg",
+      "reason": "Verified species-level cry selection: Castform weather forms change type/form presentation while retaining the Castform species and its single cry entry.",
+      "evidenceIds": [
+        "emerald-species-cries"
+      ]
+    },
+    {
+      "id": "deoxysattack",
+      "baseId": "deoxys",
+      "sourcePath": "cries/pokemon/legacy/386.ogg",
+      "reason": "Verified species-level cry selection: the game-specific Deoxys form retains the Deoxys species and its single cry entry.",
+      "evidenceIds": [
+        "firered-leafgreen-species-cries"
+      ]
+    },
+    {
+      "id": "deoxysdefense",
+      "baseId": "deoxys",
+      "sourcePath": "cries/pokemon/legacy/386.ogg",
+      "reason": "Verified species-level cry selection: the game-specific Deoxys form retains the Deoxys species and its single cry entry.",
+      "evidenceIds": [
+        "firered-leafgreen-species-cries"
+      ]
+    },
+    {
+      "id": "deoxysspeed",
+      "baseId": "deoxys",
+      "sourcePath": "cries/pokemon/legacy/386.ogg",
+      "reason": "Verified species-level cry selection: the game-specific Deoxys form retains the Deoxys species and its single cry entry.",
+      "evidenceIds": [
+        "emerald-species-cries"
+      ]
+    }
+  ],
+  "remainingLimitations": [
+    "Legacy recording vintage and redistribution rights remain unverified.",
+    "Automated decoding does not replace listening review.",
+    "Native browser/device compatibility is recorded separately; no MP3 fallback is generated.",
+    "Battle playback integration remains stage three."
+  ]
+}

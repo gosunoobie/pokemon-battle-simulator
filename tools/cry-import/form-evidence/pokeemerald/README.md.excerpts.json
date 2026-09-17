@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/pret/pokeemerald",
+  "gitCommit": "5eff78649e7170a877b961ef0b3da13b81a16038",
+  "sourcePath": "README.md",
+  "sourceBytes": 383,
+  "sourceSha256": "5ed60cb1aaa9ec6f7c01bea7f166a8208d287799d566dec550d2ed5d067426dd",
+  "sourceGitBlobSha": "d9148b32ecffeb596b70cc3510be4de5fea7ab33",
+  "excerpts": [
+    {
+      "startLine": 1,
+      "endLine": 7,
+      "text": "# Pokémon Emerald\n\nThis is a decompilation of Pokémon Emerald.\n\nIt builds the following ROM:\n\n* [**pokeemerald.gba**](https://datomatic.no-intro.org/index.php?page=show_record&s=23&n=1961) `sha1: f3ae088181bf583e55daf962a92bb46f4f1d07b7`\n",
+      "sha256": "4b0a3424c0f9ed9667d139db3ca6cd25fb55593f92ba3aad5227d188b680db45"
+    }
+  ]
+}

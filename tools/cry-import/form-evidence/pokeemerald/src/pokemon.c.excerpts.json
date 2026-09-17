@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/pret/pokeemerald",
+  "gitCommit": "5eff78649e7170a877b961ef0b3da13b81a16038",
+  "sourcePath": "src/pokemon.c",
+  "sourceBytes": 249311,
+  "sourceSha256": "6f474bb05a55e421504f442910ea2faf4e328cce0d0b451879c907e24bdbd797",
+  "sourceGitBlobSha": "df5ab2fb441b0682038e0600eab0f992efbe072c",
+  "excerpts": [
+    {
+      "startLine": 1885,
+      "endLine": 1893,
+      "text": "static const u16 sDeoxysBaseStats[] =\n{\n    [STAT_HP]    = 50,\n    [STAT_ATK]   = 95,\n    [STAT_DEF]   = 90,\n    [STAT_SPEED] = 180,\n    [STAT_SPATK] = 95,\n    [STAT_SPDEF] = 90,\n};\n",
+      "sha256": "41e812e62cc52e2ba22561b810f22c286fd6040fe62800985db47b119e4981e8"
+    },
+    {
+      "startLine": 2698,
+      "endLine": 2713,
+      "text": "static u16 GetDeoxysStat(struct Pokemon *mon, s32 statId)\n{\n    s32 ivVal, evVal;\n    u16 statValue = 0;\n    u8 nature;\n\n    if (gBattleTypeFlags & BATTLE_TYPE_LINK_IN_BATTLE || GetMonData(mon, MON_DATA_SPECIES, NULL) != SPECIES_DEOXYS)\n        return 0;\n\n    ivVal = GetMonData(mon, MON_DATA_HP_IV + statId, NULL);\n    evVal = GetMonData(mon, MON_DATA_HP_EV + statId, NULL);\n    statValue = ((sDeoxysBaseStats[statId] * 2 + ivVal + evVal / 4) * mon->level) / 100 + 5;\n    nature = GetNature(mon);\n    statValue = ModifyStatByNature(nature, statValue, (u8)statId);\n    return statValue;\n}\n",
+      "sha256": "8fc39c7f002ae820e4585c544f8a92b0953b254040b7c61bb1e8d649ea75ad26"
+    },
+    {
+      "startLine": 5701,
+      "endLine": 5710,
+      "text": "u16 SpeciesToCryId(u16 species)\n{\n    if (species <= SPECIES_CELEBI - 1)\n        return species;\n\n    if (species < SPECIES_TREECKO - 1)\n        return SPECIES_UNOWN - 1;\n\n    return gSpeciesIdToCryId[species - (SPECIES_TREECKO - 1)];\n}\n",
+      "sha256": "77f2d58ef132a73a84e0f3cf4095f6c398d4d601c100307b8b26e9452b8c760d"
+    }
+  ]
+}

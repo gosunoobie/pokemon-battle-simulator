@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/pret/pokefirered",
+  "gitCommit": "c75f352304d529f6ba92d4f74b9cf8b5c3810788",
+  "sourcePath": "include/constants/species.h",
+  "sourceBytes": 12982,
+  "sourceSha256": "ec3f9f9c2717dcd453aa7a27506c32e1e6ca067864534dee494695d74344c51a",
+  "sourceGitBlobSha": "7446cc1380995ab62deff8359bad813aa2b936e9",
+  "excerpts": [
+    {
+      "startLine": 394,
+      "endLine": 394,
+      "text": "#define SPECIES_CASTFORM 385\n",
+      "sha256": "662fd64a5fd88649432c425be65cdce933bd85c3fc5180c2cd380e4424b5995d"
+    },
+    {
+      "startLine": 419,
+      "endLine": 419,
+      "text": "#define SPECIES_DEOXYS 410\n",
+      "sha256": "33b43cf4c506483776b8541862a2ee4805b3690b10a64528639100537021afe8"
+    }
+  ]
+}

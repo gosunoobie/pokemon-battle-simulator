@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pokémon cry asset review</title>
+<style>
+  :root { color-scheme: dark; font: 16px/1.6 system-ui, sans-serif; background: #10201c; color: #e9eedf; }
+  body { max-width: 900px; margin: 3rem auto; padding: 0 1.5rem; }
+  h1 { line-height: 1.15; } p { color: #bfcbbd; }
+  select, button { font: inherit; padding: .65rem 1rem; border-radius: .5rem; border: 1px solid #607467; background: #21382f; color: inherit; }
+  select { max-width: 100%; } button { cursor: pointer; } button:disabled { opacity: .5; }
+  audio { display: block; width: min(100%, 550px); margin: 1.5rem 0; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #192e26; padding: 1rem; border-radius: .5rem; }
+  label { display: block; margin-bottom: .4rem; }
+</style>
+<h1>Pokémon cry asset review</h1>
+<p>Development tool · 386 original recordings · 419 species and forms. Select a cry to listen. Nothing autoplays; battle playback is separate.</p>
+<label for="species">Species or form</label>
+<select id="species" disabled><option>Loading catalog…</option></select>
+<audio id="player" controls preload="none"></audio>
+<pre id="details" aria-live="polite">Loading…</pre>
+<p>Preview volume defaults to 60% for headroom. Source files are unchanged.</p>
+<button id="audit" disabled>Check all files in this browser</button>
+<p>This downloads and natively decodes the collection without playing it. Results apply only to this browser and device.</p>
+<pre id="result" aria-live="polite">Not checked.</pre>
+<script type="module">
+  import { CRY_CATALOG, getPokemonCry } from '/packages/pokemon-cries/src/index.js'
+  const select = document.querySelector('#species'), audio = document.querySelector('#player')
+  const details = document.querySelector('#details'), button = document.querySelector('#audit'), result = document.querySelector('#result')
+  audio.volume = .6
+  select.replaceChildren(...Object.keys(CRY_CATALOG.pokemon).map(id => {
+    const option = document.createElement('option'); option.value = id; option.textContent = id; return option
+  }))
+  function choose() {
+    audio.pause()
+    const cry = getPokemonCry(select.value); audio.src = cry.url
+    details.textContent = `${cry.id}\n${cry.status}${cry.sharedWith ? ` · shares ${cry.sharedWith}` : ''}\n${cry.durationSeconds.toFixed(3)} seconds · ${cry.sampleRate} Hz · ${cry.channels} channel\n${cry.bytes.toLocaleString()} bytes\n${cry.sha256}`
+  }
+  select.addEventListener('change', choose); select.disabled = false; button.disabled = false; choose()
+  button.addEventListener('click', async () => {
+    button.disabled = true
+    const context = new AudioContext(), failures = [], timingDifferences = []
+    let passed = 0
+    const started = performance.now()
+    try {
+      for (const asset of Object.values(CRY_CATALOG.assets)) {
+        try {
+          const response = await fetch(`/audio/cries/${asset.file}`)
+          if (!response.ok) throw new Error(`HTTP ${response.status}`)
+          const bytes = await response.arrayBuffer()
+          if (bytes.byteLength !== asset.bytes) throw new Error('Byte length differs')
+          const hash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(x => x.toString(16).padStart(2, '0')).join('')
+          if (hash !== asset.sha256) throw new Error('SHA-256 differs')
+          const decoded = await context.decodeAudioData(bytes)
+          if (decoded.numberOfChannels !== asset.channels) throw new Error('Decoded channel count differs')
+          const deltaMs = (decoded.duration - asset.durationSeconds) * 1000
+          timingDifferences.push({ asset: asset.file, sourceSeconds: asset.durationSeconds, decodedSeconds: decoded.duration, deltaMs })
+          passed++
+        } catch (error) { failures.push({ asset: asset.file, error: error.message }) }
+        result.textContent = `Checked ${passed + failures.length}/${Object.keys(CRY_CATALOG.assets).length}; ${failures.length} failures…`
+      }
+      const differences = timingDifferences.filter(row => Math.abs(row.deltaMs) > 10)
+      const report = { userAgent: navigator.userAgent, sampleRate: context.sampleRate, passed, failures,
+        timingCheck: { toleranceMs: 10, mismatches: differences.length, minDeltaMs: Math.min(...timingDifferences.map(row => row.deltaMs)), maxDeltaMs: Math.max(...timingDifferences.map(row => row.deltaMs)), examples: differences.slice(0, 5) },
+        note: 'Decode success and duration agreement are separate checks. Timing differences require review before animation synchronization.', elapsedMs: Math.round(performance.now() - started) }
+      result.textContent = JSON.stringify(report, null, 2)
+    } finally { await context.close(); button.disabled = false }
+  })
+</script>
+</html>

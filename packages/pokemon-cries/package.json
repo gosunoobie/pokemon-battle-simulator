@@ -1,0 +1,8 @@
+{
+  "name": "@battle/pokemon-cries",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": { ".": "./src/index.js", "./catalog.json": "./data/catalog.json" },
+  "files": ["src", "data", "README.md", "NOTICE", "UPSTREAM-LICENSE.txt"],
+  "sideEffects": false
+}

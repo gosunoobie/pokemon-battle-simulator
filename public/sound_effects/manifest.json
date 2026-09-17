@@ -1,0 +1,6379 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "kind": "user-provided-local-files",
+    "reportedCollectionUrl": "https://downloads.khinsider.com/game-soundtracks/album/pokemon-sfx-gen-3-attack-moves-rse-fr-lg",
+    "rightsStatus": "unverified",
+    "note": "Embedded credits are retained as supplied, not independently verified. Download availability is not a game redistribution license."
+  },
+  "embeddedCredits": [
+    {
+      "TALB": "Pokemon SFX: Attack Moves Gen 3 Collection",
+      "TPE1": "Junichi Masuda; Go Ichinose; Morikazu Aoki",
+      "TPE2": "Nintendo",
+      "TYER": "2020"
+    }
+  ],
+  "files": [
+    {
+      "file": "Absorb part 1.mp3",
+      "url": "/sound_effects/Absorb%20part%201.mp3",
+      "bytes": 68045,
+      "sha256": "dfea3dc5b1b7c0a00857e4af306b898a92150bf6d01b55e4413498ae1fbd0d9c",
+      "format": {
+        "frameCount": 65,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Absorb part 2.mp3",
+      "url": "/sound_effects/Absorb%20part%202.mp3",
+      "bytes": 51327,
+      "sha256": "b7e24b83deadabf0bbefcd82dabbd98f35744cc44cb2c6e3baf2a61d1c0db1e9",
+      "format": {
+        "frameCount": 49,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Absorb.mp3",
+      "url": "/sound_effects/Absorb.mp3",
+      "bytes": 116110,
+      "sha256": "89cbc4c8189c8766793c06196c702e31f546459e7f68b6537a95874b92b7c386",
+      "format": {
+        "frameCount": 111,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Acid Armor.mp3",
+      "url": "/sound_effects/Acid%20Armor.mp3",
+      "bytes": 64910,
+      "sha256": "0b91fd1347fc5e3eb1cc9c07b475c53444902b1ce470dd3653d1c464eb468f4b",
+      "format": {
+        "frameCount": 62,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Acid.mp3",
+      "url": "/sound_effects/Acid.mp3",
+      "bytes": 82674,
+      "sha256": "c182db6e54c9c2c6a75c38406b91b24e127083fbc4f397a485e437739904f5bb",
+      "format": {
+        "frameCount": 79,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Aerial Ace.mp3",
+      "url": "/sound_effects/Aerial%20Ace.mp3",
+      "bytes": 35653,
+      "sha256": "448d2ea6cbdbdb4aefa42a82def691cfaadf84c1db9fa885a74f52e5f620cee1",
+      "format": {
+        "frameCount": 34,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Aeroblast.mp3",
+      "url": "/sound_effects/Aeroblast.mp3",
+      "bytes": 114021,
+      "sha256": "7ad466f25c59dba9d69b4d5a523024c7e596572becfae91873bd8228e4939468",
+      "format": {
+        "frameCount": 109,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Agility.mp3",
+      "url": "/sound_effects/Agility.mp3",
+      "bytes": 63865,
+      "sha256": "4682354a9c21395bcd46be086f8ec03dd22bdda0a9b49a996f0c18d1446f31de",
+      "format": {
+        "frameCount": 61,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Air Cutter.mp3",
+      "url": "/sound_effects/Air%20Cutter.mp3",
+      "bytes": 65955,
+      "sha256": "e482f751a2c23ebd5d827c3276db27fd7e0b1962ac692687e56fddb92648a0bf",
+      "format": {
+        "frameCount": 63,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Amnesia.mp3",
+      "url": "/sound_effects/Amnesia.mp3",
+      "bytes": 88943,
+      "sha256": "937fbfef59658b288540e1d1730db1197d1284a93fa93a581ad9264af6179dae",
+      "format": {
+        "frameCount": 85,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Ancient Power.mp3",
+      "url": "/sound_effects/Ancient%20Power.mp3",
+      "bytes": 80584,
+      "sha256": "022c18c84ae9860ebdd490aecb253507ac8c610522d38c1a6cc8f5975599d924",
+      "format": {
+        "frameCount": 77,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Arm Thrust 1hit.mp3",
+      "url": "/sound_effects/Arm%20Thrust%201hit.mp3",
+      "bytes": 34608,
+      "sha256": "4e64d360597270d06ab74a247a3b79eb172341da81c9ea2fac402f81f87a5f19",
+      "format": {
+        "frameCount": 33,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Arm Thrust 2hits.mp3",
+      "url": "/sound_effects/Arm%20Thrust%202hits.mp3",
+      "bytes": 67000,
+      "sha256": "d9e266722d2de3a062e3068c1ab5957a26657d078dc258a5c173c3fd5cbb965c",
+      "format": {
+        "frameCount": 64,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Aromatherapy part 1.mp3",
+      "url": "/sound_effects/Aromatherapy%20part%201.mp3",
+      "bytes": 109841,
+      "sha256": "97c40c83f2113ff88dfcaf6f8f7fb21c69d8e6e755fbe9b4f73dc5cfdaf4158a",
+      "format": {
+        "frameCount": 105,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Aromatherapy part 2.mp3",
+      "url": "/sound_effects/Aromatherapy%20part%202.mp3",
+      "bytes": 153727,
+      "sha256": "8a71dfe8d61761b16eb90047db8e2bc1b458ee339a95ac678a439666e398769f",
+      "format": {
+        "frameCount": 147,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Aromatherapy.mp3",
+      "url": "/sound_effects/Aromatherapy.mp3",
+      "bytes": 260306,
+      "sha256": "3e7f43941a40277080a81105dde7e846b4753fc7e5affa6b246fb403b79725b2",
+      "format": {
+        "frameCount": 249,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Assist.mp3",
+      "url": "/sound_effects/Assist.mp3",
+      "bytes": 35653,
+      "sha256": "296afa19095f21abbcd2b139a45da65db663debbc80e7c0df4f6020fb5ce6ba7",
+      "format": {
+        "frameCount": 34,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Astonish.mp3",
+      "url": "/sound_effects/Astonish.mp3",
+      "bytes": 42968,
+      "sha256": "3e21ecaa7262b2725e0f87e84fe9058496ce29e32165f72107671f329bf117df",
+      "format": {
+        "frameCount": 41,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Attract part 1.mp3",
+      "url": "/sound_effects/Attract%20part%201.mp3",
+      "bytes": 47147,
+      "sha256": "242d7341983ebc0568bbdc54312ea35356ff41e3a15e9451ee7b10b05aefa2d3",
+      "format": {
+        "frameCount": 45,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Attract part 2.mp3",
+      "url": "/sound_effects/Attract%20part%202.mp3",
+      "bytes": 198657,
+      "sha256": "58902ff465cd6295395cba4d0cb2258fdb4c9b476a6bdafe11ff7993ca8e0006",
+      "format": {
+        "frameCount": 190,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Attract.mp3",
+      "url": "/sound_effects/Attract.mp3",
+      "bytes": 243588,
+      "sha256": "37532f9a3c4aee069d1de83a78e8ec1c15e0805caedb8d83f37b08386ddb3633",
+      "format": {
+        "frameCount": 233,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Aurora Beam.mp3",
+      "url": "/sound_effects/Aurora%20Beam.mp3",
+      "bytes": 119245,
+      "sha256": "b29c67249e4f753e024b3726cea7704a0ff9f5c0605cd07c86e9bc43562fa3f9",
+      "format": {
+        "frameCount": 114,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Barrage 1hit.mp3",
+      "url": "/sound_effects/Barrage%201hit.mp3",
+      "bytes": 52372,
+      "sha256": "d56bbb880b68e5c92053a65b5ba930b8acba5babfe42b38f6066065e79252a15",
+      "format": {
+        "frameCount": 50,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Barrage 2hits.mp3",
+      "url": "/sound_effects/Barrage%202hits.mp3",
+      "bytes": 101482,
+      "sha256": "f3cb16072f007b8fd7a472f5dc4c66a6b0d35101c6c5cadc8fc513b84d1c30ac",
+      "format": {
+        "frameCount": 97,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Barrier.mp3",
+      "url": "/sound_effects/Barrier.mp3",
+      "bytes": 47147,
+      "sha256": "ad73f7eb9c7872693dff2917c9cd733dd4bbe5632449b3770921f066af25b25a",
+      "format": {
+        "frameCount": 45,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Baton Pass.mp3",
+      "url": "/sound_effects/Baton%20Pass.mp3",
+      "bytes": 47147,
+      "sha256": "b5af934c96ce5ae7ec5735696078a19efeedda522be59e1a22af8d379f946dbc",
+      "format": {
+        "frameCount": 45,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Beat Up.mp3",
+      "url": "/sound_effects/Beat%20Up.mp3",
+      "bytes": 27294,
+      "sha256": "afc82897e7549792c074a7fd9f2afc70ddaa46d06b08cdeb59a80f3e03a8594d",
+      "format": {
+        "frameCount": 26,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Belly Drum.mp3",
+      "url": "/sound_effects/Belly%20Drum.mp3",
+      "bytes": 74314,
+      "sha256": "bd06b3ed4b5c889bbcec5a1d6612ea924da5d34359121b2b0f0fbda54094314a",
+      "format": {
+        "frameCount": 71,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bide.mp3",
+      "url": "/sound_effects/Bide.mp3",
+      "bytes": 133874,
+      "sha256": "c8115a58c2aabda5aab3e7f2e191d093d26668d6b8dc1c0edbc93b1a649dd8c6",
+      "format": {
+        "frameCount": 128,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bind turn damage.mp3",
+      "url": "/sound_effects/Bind%20turn%20damage.mp3",
+      "bytes": 57596,
+      "sha256": "7cb5aa7cb73ffb1c6722f7b8b78a90272c530b7cb7210cb5094b88a7e3a080f0",
+      "format": {
+        "frameCount": 55,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bind.mp3",
+      "url": "/sound_effects/Bind.mp3",
+      "bytes": 31474,
+      "sha256": "d2fe6f99c14b46e8118ef0e20d06a45399adc6c8beb27c449be73ebf7daa1219",
+      "format": {
+        "frameCount": 30,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bite.mp3",
+      "url": "/sound_effects/Bite.mp3",
+      "bytes": 27294,
+      "sha256": "6a1599efd7181d8aea408e3cbdb2703fe3afa4b5e59d183d30daf8fc661e0c6b",
+      "format": {
+        "frameCount": 26,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Blast Burn.mp3",
+      "url": "/sound_effects/Blast%20Burn.mp3",
+      "bytes": 75359,
+      "sha256": "89a4f0d962f270a1b71c554e5666d5347bd9776d15a80c232aebe2891c6a628a",
+      "format": {
+        "frameCount": 72,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Blaze Kick.mp3",
+      "url": "/sound_effects/Blaze%20Kick.mp3",
+      "bytes": 62821,
+      "sha256": "a12eb746b56504398d1726f37b8a371bff9361159676ea22558a2f9fc7d1ee75",
+      "format": {
+        "frameCount": 60,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Blizzard part 1.mp3",
+      "url": "/sound_effects/Blizzard%20part%201.mp3",
+      "bytes": 79539,
+      "sha256": "5eb9578acbf901ca67f3f83ca558e72078bcfdf96da599a162c7831876e89db9",
+      "format": {
+        "frameCount": 76,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Blizzard part 2.mp3",
+      "url": "/sound_effects/Blizzard%20part%202.mp3",
+      "bytes": 71180,
+      "sha256": "6dc8e2270f4a8d5b90fd0a83860d5f47e0de6f842bd4b718b9ed1c7709fad82b",
+      "format": {
+        "frameCount": 68,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Blizzard.mp3",
+      "url": "/sound_effects/Blizzard.mp3",
+      "bytes": 147457,
+      "sha256": "5a1d9ce97eac773f3250686a44dea44da964423b40cc7e94e94715264f7032d2",
+      "format": {
+        "frameCount": 141,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Block.mp3",
+      "url": "/sound_effects/Block.mp3",
+      "bytes": 103572,
+      "sha256": "294dda7be9ff1bee4469e180d152a0850bb7ae4a29beea3a3e86e3224d27b28a",
+      "format": {
+        "frameCount": 99,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Body Slam.mp3",
+      "url": "/sound_effects/Body%20Slam.mp3",
+      "bytes": 63865,
+      "sha256": "7e6f0a7bd89556d3665290446be934dc718225493c02d98b349e2b4776d8e8cf",
+      "format": {
+        "frameCount": 61,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bone Club.mp3",
+      "url": "/sound_effects/Bone%20Club.mp3",
+      "bytes": 30429,
+      "sha256": "9e2ae56e2c87e60ede4c9b4aa4425a6cca9401339a714621223dd014044ed760",
+      "format": {
+        "frameCount": 29,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bone Rush 1hit.mp3",
+      "url": "/sound_effects/Bone%20Rush%201hit.mp3",
+      "bytes": 33563,
+      "sha256": "b918c7dcdb1096ad9f80a9a0149c5abe43b23e2e43f46b848c3568de675d1a53",
+      "format": {
+        "frameCount": 32,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bone Rush 2hits.mp3",
+      "url": "/sound_effects/Bone%20Rush%202hits.mp3",
+      "bytes": 63865,
+      "sha256": "cbe3adee8a2dab10af2a84c9504a8a2e8d5be79fc918b5883512440eae4ee415",
+      "format": {
+        "frameCount": 61,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bonemerang 1hit.mp3",
+      "url": "/sound_effects/Bonemerang%201hit.mp3",
+      "bytes": 81629,
+      "sha256": "be27049ee5e5077e5043ef499d0d7e2c532e58f909a0e8826781071538c187a1",
+      "format": {
+        "frameCount": 78,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bonemerang 2hits.mp3",
+      "url": "/sound_effects/Bonemerang%202hits.mp3",
+      "bytes": 159996,
+      "sha256": "b400a5b38fcb5c8671986d8944eed4224795e633f91dbb160aec013774670509",
+      "format": {
+        "frameCount": 153,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bounce.mp3",
+      "url": "/sound_effects/Bounce.mp3",
+      "bytes": 85808,
+      "sha256": "6e3096c430c080480786efc124c5ae7ffbde6ffb2b6b3c5bf4527c5c144c044b",
+      "format": {
+        "frameCount": 82,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Brick Break.mp3",
+      "url": "/sound_effects/Brick%20Break.mp3",
+      "bytes": 74314,
+      "sha256": "783018d980028ea015ecc4433e514816f632ed61b188aa7afe36ae1f38a8fc2b",
+      "format": {
+        "frameCount": 71,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bubble Beam part 1.mp3",
+      "url": "/sound_effects/Bubble%20Beam%20part%201.mp3",
+      "bytes": 86853,
+      "sha256": "0a657b76ba5fdbb9d9c226966cb284bc136c43738d686d2de6042c05d4ae8c86",
+      "format": {
+        "frameCount": 83,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bubble Beam part 2.mp3",
+      "url": "/sound_effects/Bubble%20Beam%20part%202.mp3",
+      "bytes": 51327,
+      "sha256": "d7ebf4f41345c303df6ed0d7d745f155d2b6f3c72fe95151c0c9c9814ae1959e",
+      "format": {
+        "frameCount": 49,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bubble Beam.mp3",
+      "url": "/sound_effects/Bubble%20Beam.mp3",
+      "bytes": 134919,
+      "sha256": "694203ef16850cf6243b49684f70cee3c0aef296ee81392d0bb3e20b43d213f6",
+      "format": {
+        "frameCount": 129,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bubble part 1.mp3",
+      "url": "/sound_effects/Bubble%20part%201.mp3",
+      "bytes": 56551,
+      "sha256": "779c0c5d2168003233aa6c8e15a12ded326e5c9b4c30abb7597b7938e98df1da",
+      "format": {
+        "frameCount": 54,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bubble part 2.mp3",
+      "url": "/sound_effects/Bubble%20part%202.mp3",
+      "bytes": 104616,
+      "sha256": "c47158b96a61cd40aeecec231c3d46678544346d4507eeb57ebb5928b46496e8",
+      "format": {
+        "frameCount": 100,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bubble.mp3",
+      "url": "/sound_effects/Bubble.mp3",
+      "bytes": 157906,
+      "sha256": "eb495c3e9b1d53dd2fc5dc68027e17e3761c7de1d25a415d7be3e3549c9d5e74",
+      "format": {
+        "frameCount": 151,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bulk Up.mp3",
+      "url": "/sound_effects/Bulk%20Up.mp3",
+      "bytes": 64910,
+      "sha256": "2af506825606627806619f31862bdca1439c649850676a5b5010a81fd4d9de8f",
+      "format": {
+        "frameCount": 62,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bullet Seed 1hit.mp3",
+      "url": "/sound_effects/Bullet%20Seed%201hit.mp3",
+      "bytes": 67000,
+      "sha256": "f793a80cac2d9b9b9d330fbbc700664556d28f54fc3fa65326ef8ee5edc5e88b",
+      "format": {
+        "frameCount": 64,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Bullet Seed 2hits.mp3",
+      "url": "/sound_effects/Bullet%20Seed%202hits.mp3",
+      "bytes": 131784,
+      "sha256": "318d5c7c94d6f8db9670cf7675cefc6536fae3f725ec20fbc3ca8bf2064ad147",
+      "format": {
+        "frameCount": 126,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Calm Mind.mp3",
+      "url": "/sound_effects/Calm%20Mind.mp3",
+      "bytes": 65955,
+      "sha256": "6bf615a4c725fbe5359e84c2a2f0243af63570928ceb745e0a343fca0c08edfb",
+      "format": {
+        "frameCount": 63,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Camouflage.mp3",
+      "url": "/sound_effects/Camouflage.mp3",
+      "bytes": 39833,
+      "sha256": "6e0914cb60f5b02318b1df49139e7855ce6945122521b65f44052731c255e78a",
+      "format": {
+        "frameCount": 38,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Charge.mp3",
+      "url": "/sound_effects/Charge.mp3",
+      "bytes": 197612,
+      "sha256": "d6c687d459e4b6f0c71b05cd322557061cbf31224582a147c590b2909b8a7e1b",
+      "format": {
+        "frameCount": 189,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Charm.mp3",
+      "url": "/sound_effects/Charm.mp3",
+      "bytes": 52372,
+      "sha256": "e5851c6f5a16630b3b9a9bac6fbbcda2f7928868f9812a4e781d493b03eb8482",
+      "format": {
+        "frameCount": 50,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Clamp.mp3",
+      "url": "/sound_effects/Clamp.mp3",
+      "bytes": 31474,
+      "sha256": "86b1917f17bf8a75e621a0f2f23205b31c84f155564b20def375235d10714622",
+      "format": {
+        "frameCount": 30,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Comet Punch 1hit.mp3",
+      "url": "/sound_effects/Comet%20Punch%201hit.mp3",
+      "bytes": 26249,
+      "sha256": "341ae2227a4e87fc25de6fe43f47f2f563758c8d3490f66b8bf4c3ef97b513a0",
+      "format": {
+        "frameCount": 25,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Comet Punch 2hits.mp3",
+      "url": "/sound_effects/Comet%20Punch%202hits.mp3",
+      "bytes": 45057,
+      "sha256": "28bda699d49da28ad1602adf627743d02f13634cbbf1a4a02fd2709c10a7a229",
+      "format": {
+        "frameCount": 43,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Confuse Ray part 1.mp3",
+      "url": "/sound_effects/Confuse%20Ray%20part%201.mp3",
+      "bytes": 75359,
+      "sha256": "6177171bc1127d47863be6c0868859b284f4e554f7832593f113e2e3e0f698a4",
+      "format": {
+        "frameCount": 72,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Confuse Ray part 2.mp3",
+      "url": "/sound_effects/Confuse%20Ray%20part%202.mp3",
+      "bytes": 57596,
+      "sha256": "aaecc0e21b60f160d195f027e1bc19b83b940f26a42e33c0013fc9585bff9bad",
+      "format": {
+        "frameCount": 55,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Confuse Ray.mp3",
+      "url": "/sound_effects/Confuse%20Ray.mp3",
+      "bytes": 129694,
+      "sha256": "85941556a8c1f1d5eb61ebd1659bf95d4a53c1eb756a9005463fe160320b31ad",
+      "format": {
+        "frameCount": 124,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Confusion.mp3",
+      "url": "/sound_effects/Confusion.mp3",
+      "bytes": 47147,
+      "sha256": "e16373996304bd13e09a4437dc37eb2153d6b93494fa57102f0eb26131b4a19b",
+      "format": {
+        "frameCount": 45,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Constrict.mp3",
+      "url": "/sound_effects/Constrict.mp3",
+      "bytes": 59686,
+      "sha256": "367896ba7f5d63a3b98bdebb9bd44139ac5e15baa5d22685c4c66114c1dd5cfa",
+      "format": {
+        "frameCount": 57,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Conversion 2.mp3",
+      "url": "/sound_effects/Conversion%202.mp3",
+      "bytes": 127604,
+      "sha256": "58ed75761789b1f021ba677551107c2a5b29408e8ebca0c015ae626e9e29f75b",
+      "format": {
+        "frameCount": 122,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Conversion.mp3",
+      "url": "/sound_effects/Conversion.mp3",
+      "bytes": 114021,
+      "sha256": "28c86dba78a650b27291c42f10ad74818463770b5a00ef5817811606d1ce82c0",
+      "format": {
+        "frameCount": 109,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Cosmic Power.mp3",
+      "url": "/sound_effects/Cosmic%20Power.mp3",
+      "bytes": 152682,
+      "sha256": "044ecdcf4bd4e0ea7e0283c9d9b9c2d622921b5c32ea8b927750496f2b73e3d9",
+      "format": {
+        "frameCount": 146,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Cotton Spore.mp3",
+      "url": "/sound_effects/Cotton%20Spore.mp3",
+      "bytes": 138053,
+      "sha256": "38813dcae1138e4803f8ff66a445c84aaa2460b3b2edb2b0cebe39d099c1d84e",
+      "format": {
+        "frameCount": 132,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Counter.mp3",
+      "url": "/sound_effects/Counter.mp3",
+      "bytes": 55506,
+      "sha256": "91df02f51c8ef5465d1166a4b7b96e2e9f74fea914dbf54b3e01997e48dfefd8",
+      "format": {
+        "frameCount": 53,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Covet part 1.mp3",
+      "url": "/sound_effects/Covet%20part%201.mp3",
+      "bytes": 52372,
+      "sha256": "f5c4684d699af0495010c58c6b6823c9f3d1707445ff5467e68b6df26f2025e1",
+      "format": {
+        "frameCount": 50,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Covet part 2.mp3",
+      "url": "/sound_effects/Covet%20part%202.mp3",
+      "bytes": 30429,
+      "sha256": "d4e6051053e7e84d63e6089b90123b193ab7e936f5cac44900ef866b4945c091",
+      "format": {
+        "frameCount": 29,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Covet.mp3",
+      "url": "/sound_effects/Covet.mp3",
+      "bytes": 79539,
+      "sha256": "b49c57b00a985fb107446bebb67270158f8455e28a4d51155bb736b2da7244c8",
+      "format": {
+        "frameCount": 76,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Crabhammer.mp3",
+      "url": "/sound_effects/Crabhammer.mp3",
+      "bytes": 71180,
+      "sha256": "2a9b16f265cdf1546bb404c8567b41a43a4fb29cdb5b47679c212ddbfebf1e47",
+      "format": {
+        "frameCount": 68,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Cross Chop.mp3",
+      "url": "/sound_effects/Cross%20Chop.mp3",
+      "bytes": 58641,
+      "sha256": "8e080a91035fc85d57488b8562d132615b6aaddcfa970f000afa0326cf6f375c",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Crunch.mp3",
+      "url": "/sound_effects/Crunch.mp3",
+      "bytes": 49237,
+      "sha256": "30018e382b19f90c7aefcc6598763342da0a51c070dfe473bb09adc0b5fce3ae",
+      "format": {
+        "frameCount": 47,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Crush Claw.mp3",
+      "url": "/sound_effects/Crush%20Claw.mp3",
+      "bytes": 40878,
+      "sha256": "963b66f0419437c8b646176673c679485653597eb39a3c5fe32b34044f92c7b6",
+      "format": {
+        "frameCount": 39,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Curse.mp3",
+      "url": "/sound_effects/Curse.mp3",
+      "bytes": 69090,
+      "sha256": "c4516a0821759c5e07e70b4ee1444ff1911a4756ef5ae182d19064e98489788d",
+      "format": {
+        "frameCount": 66,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Cut.mp3",
+      "url": "/sound_effects/Cut.mp3",
+      "bytes": 32519,
+      "sha256": "8ecc52676288378ba36616700b1250e1b3a40af7edacfbd23fa75f23501f3591",
+      "format": {
+        "frameCount": 31,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Defense Curl.mp3",
+      "url": "/sound_effects/Defense%20Curl.mp3",
+      "bytes": 55506,
+      "sha256": "8049a8342ab5a61c0781e2ef23e9d85ce0c35c0721218ab97709150c89443b06",
+      "format": {
+        "frameCount": 53,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Destiny Bond part 1.mp3",
+      "url": "/sound_effects/Destiny%20Bond%20part%201.mp3",
+      "bytes": 67000,
+      "sha256": "946a14128c1dfdd87ee70d6bb5685afd655a708b2f575012e2686995940c8481",
+      "format": {
+        "frameCount": 64,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Destiny Bond part 2.mp3",
+      "url": "/sound_effects/Destiny%20Bond%20part%202.mp3",
+      "bytes": 58641,
+      "sha256": "5c78b54f6c668b4dee46a63619c01d828fe49be497e8c761828116dc338a6ed7",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Destiny Bond.mp3",
+      "url": "/sound_effects/Destiny%20Bond.mp3",
+      "bytes": 123425,
+      "sha256": "4d7cce2a1b3cc5bec0b456bbe52192478364b927e9b1ffdb9e2323e33cb4f5b5",
+      "format": {
+        "frameCount": 118,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Detect.mp3",
+      "url": "/sound_effects/Detect.mp3",
+      "bytes": 38788,
+      "sha256": "d044f28c1e72ab140af4cfa9eaa24eb784016fc9438c58bf28c08ee7151e187f",
+      "format": {
+        "frameCount": 37,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dig part 1.mp3",
+      "url": "/sound_effects/Dig%20part%201.mp3",
+      "bytes": 121335,
+      "sha256": "c805f8bd6ffbfc3213e5473aa32af5092d04652d7a0e6526f47fdbcf7b4a7082",
+      "format": {
+        "frameCount": 116,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dig part 2.mp3",
+      "url": "/sound_effects/Dig%20part%202.mp3",
+      "bytes": 31474,
+      "sha256": "b2cf9c151f06b7662d42c841f300a0fe035c7c6af69eeae0eaaec337ab8d1c05",
+      "format": {
+        "frameCount": 30,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dig.mp3",
+      "url": "/sound_effects/Dig.mp3",
+      "bytes": 149547,
+      "sha256": "423441e7e1fc48d313bfcc32fe1cc88d25ee9c61179181fe7be9025ddc918940",
+      "format": {
+        "frameCount": 143,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Disable.mp3",
+      "url": "/sound_effects/Disable.mp3",
+      "bytes": 77449,
+      "sha256": "7e4a1b81568d30f14ee1b4b204eef6ca3cc7d21c97bb20ab371aaf76eeb73d83",
+      "format": {
+        "frameCount": 74,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dive part 1.mp3",
+      "url": "/sound_effects/Dive%20part%201.mp3",
+      "bytes": 79539,
+      "sha256": "e9650f66c8ab082f84114e49ae425b1c3a06a5c19d2075cab2bf8aea7e2ce3a6",
+      "format": {
+        "frameCount": 76,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dive part 2.mp3",
+      "url": "/sound_effects/Dive%20part%202.mp3",
+      "bytes": 58641,
+      "sha256": "88a491a06ac19552fd49873210022b79673c62a0254543f0e2f23c87c2cf6dac",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dive.mp3",
+      "url": "/sound_effects/Dive.mp3",
+      "bytes": 134919,
+      "sha256": "0325a5a9644350848878e061d02e1d1cebc92c8a8a9c632404ec888693923656",
+      "format": {
+        "frameCount": 129,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dizzy Punch.mp3",
+      "url": "/sound_effects/Dizzy%20Punch.mp3",
+      "bytes": 45057,
+      "sha256": "fc2d7683ff60cff7d011688987087fc0b6c9fd3b977ccda61db56911f3df3c46",
+      "format": {
+        "frameCount": 43,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Doom Desire.mp3",
+      "url": "/sound_effects/Doom%20Desire.mp3",
+      "bytes": 44012,
+      "sha256": "30c6c6fbb99bb3fa1c69d2dd04683da8731a0660dbf5bd4375d678c05bf6b579",
+      "format": {
+        "frameCount": 42,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Double Edge.mp3",
+      "url": "/sound_effects/Double%20Edge.mp3",
+      "bytes": 76404,
+      "sha256": "e4692017ab39056066d663c4571b103da7853c2a4a03aecb0268bb1176f68ce5",
+      "format": {
+        "frameCount": 73,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Double Kick 1hit.mp3",
+      "url": "/sound_effects/Double%20Kick%201hit.mp3",
+      "bytes": 24159,
+      "sha256": "1a88c398dd003b0fdd87645fffb543881706902f3dd231bbe181f5b67faf40f0",
+      "format": {
+        "frameCount": 23,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Double Kick 2hits.mp3",
+      "url": "/sound_effects/Double%20Kick%202hits.mp3",
+      "bytes": 46102,
+      "sha256": "f6a3d8bd2799a8c913220a644c9076b909bc69c1cca6994e7f219d2d2dea8c9c",
+      "format": {
+        "frameCount": 44,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Double Slap 1hit.mp3",
+      "url": "/sound_effects/Double%20Slap%201hit.mp3",
+      "bytes": 28339,
+      "sha256": "85fc718849ea126056c91859071d532c952a76d5e5e88128935d1965b22d5116",
+      "format": {
+        "frameCount": 27,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Double Slap 2hits.mp3",
+      "url": "/sound_effects/Double%20Slap%202hits.mp3",
+      "bytes": 50282,
+      "sha256": "5b9596329a7b4a9d9b540423466da82570e5acd4584ed18f71dea29792152bbd",
+      "format": {
+        "frameCount": 48,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Double Team.mp3",
+      "url": "/sound_effects/Double%20Team.mp3",
+      "bytes": 112976,
+      "sha256": "261a1b33bb30fb636d55574594b584581d5fc4d06e35d4219f086d9196ab4073",
+      "format": {
+        "frameCount": 108,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dragon Breath.mp3",
+      "url": "/sound_effects/Dragon%20Breath.mp3",
+      "bytes": 63865,
+      "sha256": "0a2f0468b6a9be06aa30b33c3d34122fcd2f59b5d7b45ec7890f6ca4a95b6d2c",
+      "format": {
+        "frameCount": 61,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dragon Claw.mp3",
+      "url": "/sound_effects/Dragon%20Claw.mp3",
+      "bytes": 82674,
+      "sha256": "ea17cc040768906bb775cbaef61d185e1c107c47b5aceac3734ba8a5d3996ea8",
+      "format": {
+        "frameCount": 79,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dragon Dance.mp3",
+      "url": "/sound_effects/Dragon%20Dance.mp3",
+      "bytes": 98347,
+      "sha256": "8cb2fe8eca3a415719fc2eaa651a0fb825bfa4f0a9f1def23f4892e6ca5f3900",
+      "format": {
+        "frameCount": 94,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dragon Rage part 1.mp3",
+      "url": "/sound_effects/Dragon%20Rage%20part%201.mp3",
+      "bytes": 67000,
+      "sha256": "b90ef42946628f626707328faa1afae3148587da907255bd1761467655418636",
+      "format": {
+        "frameCount": 64,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dragon Rage part 2.mp3",
+      "url": "/sound_effects/Dragon%20Rage%20part%202.mp3",
+      "bytes": 56551,
+      "sha256": "92e3d181f3260a4c41df392de07bff4c694fe6873422e7a51d9c94c8b2ff0dcf",
+      "format": {
+        "frameCount": 54,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dragon Rage.mp3",
+      "url": "/sound_effects/Dragon%20Rage.mp3",
+      "bytes": 121335,
+      "sha256": "50693418c386d08b4793b0b3d80abb4373f72eeb796c99c0f4e275e706c8a5d4",
+      "format": {
+        "frameCount": 116,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dream Eater part 1.mp3",
+      "url": "/sound_effects/Dream%20Eater%20part%201.mp3",
+      "bytes": 103572,
+      "sha256": "967f44e14a9a788b19e9ef880cc1e54ba0f31eafd90d116200e2a53fc6b2e6f9",
+      "format": {
+        "frameCount": 99,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dream Eater part 2.mp3",
+      "url": "/sound_effects/Dream%20Eater%20part%202.mp3",
+      "bytes": 53416,
+      "sha256": "c348259f3810ec699605ed203419889095f6b817c996abe1e834134c3782f5e3",
+      "format": {
+        "frameCount": 51,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dream Eater.mp3",
+      "url": "/sound_effects/Dream%20Eater.mp3",
+      "bytes": 154772,
+      "sha256": "b13a1437a71895e6514c49aa05e6334d4d47502f246a34220a936da6b1a2cd98",
+      "format": {
+        "frameCount": 148,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Drill Peck.mp3",
+      "url": "/sound_effects/Drill%20Peck.mp3",
+      "bytes": 59686,
+      "sha256": "874f1f5b17e79a68fcb08cb4ad993b11f59ee8645d4a2244f0dbfb42cbf96267",
+      "format": {
+        "frameCount": 57,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Dynamic Punch.mp3",
+      "url": "/sound_effects/Dynamic%20Punch.mp3",
+      "bytes": 72225,
+      "sha256": "1a5cc08a584cf84ad3eb0f49d93ebbca0fdfb267c7fe787e8a862eac94756f36",
+      "format": {
+        "frameCount": 69,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Earthquake.mp3",
+      "url": "/sound_effects/Earthquake.mp3",
+      "bytes": 146412,
+      "sha256": "8ffa1f0e7e6023610f3bba4de61921e3a7b8da97dfee0f15e77512db99efde51",
+      "format": {
+        "frameCount": 140,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Egg Bomb.mp3",
+      "url": "/sound_effects/Egg%20Bomb.mp3",
+      "bytes": 67000,
+      "sha256": "840c383c7b027bfadc1cd86887b2961aa26c15ef93e02f47a229c3805e80f21d",
+      "format": {
+        "frameCount": 64,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Ember.mp3",
+      "url": "/sound_effects/Ember.mp3",
+      "bytes": 51327,
+      "sha256": "849b40eeaa1d922b1c79c9e276657b55c1abe8a18d16a9f887faaf3f8c4b0456",
+      "format": {
+        "frameCount": 49,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Encore.mp3",
+      "url": "/sound_effects/Encore.mp3",
+      "bytes": 123425,
+      "sha256": "4f386755db1aac07620d765e35f85f3d78f58d1722fde2b18bf32edb07968929",
+      "format": {
+        "frameCount": 118,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Endeavor.mp3",
+      "url": "/sound_effects/Endeavor.mp3",
+      "bytes": 47147,
+      "sha256": "41704c2cc9c03b23853f7b29f87a8a035cfd3f8a85e3e74bbf39313528a2aff6",
+      "format": {
+        "frameCount": 45,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Endure.mp3",
+      "url": "/sound_effects/Endure.mp3",
+      "bytes": 69090,
+      "sha256": "e13574b81dd23f9b2734995ff99b02517882d9bc52821777a8b64e1d370f7bc7",
+      "format": {
+        "frameCount": 66,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Eruption part 1.mp3",
+      "url": "/sound_effects/Eruption%20part%201.mp3",
+      "bytes": 114021,
+      "sha256": "73f60eda6e23b69407f5f1acf631e11ab5fc136fcc18e2745c16d3190a374e24",
+      "format": {
+        "frameCount": 109,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Eruption part 2.mp3",
+      "url": "/sound_effects/Eruption%20part%202.mp3",
+      "bytes": 162086,
+      "sha256": "cd127a1808868f6b226ef5eedb94b26ef277f2e65f300626d51806aa7cb9837b",
+      "format": {
+        "frameCount": 155,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Eruption.mp3",
+      "url": "/sound_effects/Eruption.mp3",
+      "bytes": 273890,
+      "sha256": "8c94c4337eadfb6a62e82bfc3f4b6f1dda5a148e7a46fe200343ba352c99d2da",
+      "format": {
+        "frameCount": 262,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Explosion.mp3",
+      "url": "/sound_effects/Explosion.mp3",
+      "bytes": 108796,
+      "sha256": "0934d12649ef5e9679b7a2f150a439dff2b8e990185bc48d7711e7c36fe415ca",
+      "format": {
+        "frameCount": 104,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Extrasensory.mp3",
+      "url": "/sound_effects/Extrasensory.mp3",
+      "bytes": 85808,
+      "sha256": "c3fed2ec1ac1d9fb8ad46c441f7c522da4e28faedc1a45ae625ea053f726f804",
+      "format": {
+        "frameCount": 82,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Extreme Speed.mp3",
+      "url": "/sound_effects/Extreme%20Speed.mp3",
+      "bytes": 118200,
+      "sha256": "3a66009bc74d43bd34ac09585c27c7461c1dfa35b49157064e3750b0604c504c",
+      "format": {
+        "frameCount": 113,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Facade.mp3",
+      "url": "/sound_effects/Facade.mp3",
+      "bytes": 58641,
+      "sha256": "db2a602e13d35ba502926a48c04da3ad6889f03b8c460f112947ccc7f5c2594a",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Fake Out.mp3",
+      "url": "/sound_effects/Fake%20Out.mp3",
+      "bytes": 35653,
+      "sha256": "20dcc1a13733855a5198f204131b263f98d898a9489c5e3cb271abb7ff004073",
+      "format": {
+        "frameCount": 34,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Fake Tears.mp3",
+      "url": "/sound_effects/Fake%20Tears.mp3",
+      "bytes": 53416,
+      "sha256": "20f59a6a486c961b09ddd7df295ce1d0f4e522f729b9ac23a49cc3f11896a72d",
+      "format": {
+        "frameCount": 51,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "False Swipe.mp3",
+      "url": "/sound_effects/False%20Swipe.mp3",
+      "bytes": 63865,
+      "sha256": "a2809dbaca2a74d5d8739c19028b35a083913a260f9d865f3130c4e9ffcbde8e",
+      "format": {
+        "frameCount": 61,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Feather Dance.mp3",
+      "url": "/sound_effects/Feather%20Dance.mp3",
+      "bytes": 110886,
+      "sha256": "7f72b59d36519cdc7c519d52d60a0dfdb739ea699336de21c91032ea3c792bb3",
+      "format": {
+        "frameCount": 106,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Feint Attack.mp3",
+      "url": "/sound_effects/Feint%20Attack.mp3",
+      "bytes": 34608,
+      "sha256": "4a35c3fcac88236a552becd5b7be394f4be66d7e207455f79b36a8fd75890d95",
+      "format": {
+        "frameCount": 33,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Fire Blast.mp3",
+      "url": "/sound_effects/Fire%20Blast.mp3",
+      "bytes": 132829,
+      "sha256": "1304c343f8dd67c9215682d798a0fb5f4aec4f1701bbae9cad3744bfd3386f0c",
+      "format": {
+        "frameCount": 127,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Fire Punch.mp3",
+      "url": "/sound_effects/Fire%20Punch.mp3",
+      "bytes": 67000,
+      "sha256": "95e812a814a62e4de04d571a69c44e3317a173a3559ac85e00a3656897b8c9a6",
+      "format": {
+        "frameCount": 64,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Fire Spin turn damage.mp3",
+      "url": "/sound_effects/Fire%20Spin%20turn%20damage.mp3",
+      "bytes": 74314,
+      "sha256": "521efcbf25b505cca64198f37b2b6086f286cabe1d216b54641e99b58f06911a",
+      "format": {
+        "frameCount": 71,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Fire Spin.mp3",
+      "url": "/sound_effects/Fire%20Spin.mp3",
+      "bytes": 73270,
+      "sha256": "cde3206818dad5529b6bc2673ebf7d26341e3feaf88e8890c7e252773768aaef",
+      "format": {
+        "frameCount": 70,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Fissure.mp3",
+      "url": "/sound_effects/Fissure.mp3",
+      "bytes": 154772,
+      "sha256": "d344448a6f9c03925f58267208c51e21d7ac6890ed9c1be6b3d6a122b3de091c",
+      "format": {
+        "frameCount": 148,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Flail.mp3",
+      "url": "/sound_effects/Flail.mp3",
+      "bytes": 74314,
+      "sha256": "36ccbce2fb7ceeb87f83d3b499b258bc30b811ffc4acb3664d7c48d021982696",
+      "format": {
+        "frameCount": 71,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Flame Wheel part 1.mp3",
+      "url": "/sound_effects/Flame%20Wheel%20part%201.mp3",
+      "bytes": 51327,
+      "sha256": "00e77a9ea57d2e8bfa8934023e689b6d6f89a54815bef8a05fb0bd0336e060ba",
+      "format": {
+        "frameCount": 49,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Flame Wheel part 2.mp3",
+      "url": "/sound_effects/Flame%20Wheel%20part%202.mp3",
+      "bytes": 41923,
+      "sha256": "889b5ea082b0d2d9fc48ec8fa977a93280ec43543c07cada6d90b71f5fcca214",
+      "format": {
+        "frameCount": 40,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Flame Wheel.mp3",
+      "url": "/sound_effects/Flame%20Wheel.mp3",
+      "bytes": 91033,
+      "sha256": "6f5ff84f5edb465a8273a40e9867bb367179f3aae7dc012c3c79571fed1eb26e",
+      "format": {
+        "frameCount": 87,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Flamethrower.mp3",
+      "url": "/sound_effects/Flamethrower.mp3",
+      "bytes": 138053,
+      "sha256": "6dbe5f9c21bfbcea605bd4efac7b14ce87a00c2a6789f848e5685bc3902cd285",
+      "format": {
+        "frameCount": 132,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Flash.mp3",
+      "url": "/sound_effects/Flash.mp3",
+      "bytes": 52372,
+      "sha256": "7347be8c70d2d30b21ca65e83e1d796ed9154fa6950dff15b804050b99791526",
+      "format": {
+        "frameCount": 50,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Flatter.mp3",
+      "url": "/sound_effects/Flatter.mp3",
+      "bytes": 114021,
+      "sha256": "648f61a18bfe776df058ee49bf27442d5b0b7efaf9fa67fb511e5ff267f4c01b",
+      "format": {
+        "frameCount": 109,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Fly part 1.mp3",
+      "url": "/sound_effects/Fly%20part%201.mp3",
+      "bytes": 42968,
+      "sha256": "719738cedce329e2716a16b2ca281253ccb9a4ed34414ee5002f79fed45fc731",
+      "format": {
+        "frameCount": 41,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Fly part 2.mp3",
+      "url": "/sound_effects/Fly%20part%202.mp3",
+      "bytes": 45057,
+      "sha256": "22c279c46297ec9e4fd1fc9825d842c9cb4c445503db0baa9d141d892b3dab10",
+      "format": {
+        "frameCount": 43,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Fly.mp3",
+      "url": "/sound_effects/Fly.mp3",
+      "bytes": 85808,
+      "sha256": "bc01568f4e80a405657ec2c0d86952a16031c3c492487e8870e86c78d92b7877",
+      "format": {
+        "frameCount": 82,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Focus Energy.mp3",
+      "url": "/sound_effects/Focus%20Energy.mp3",
+      "bytes": 69090,
+      "sha256": "52c5b7eb15e04f181ac9f0fe15e7aab670682af7dfb907086c76722cfffec43e",
+      "format": {
+        "frameCount": 66,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Focus Punch.mp3",
+      "url": "/sound_effects/Focus%20Punch.mp3",
+      "bytes": 123425,
+      "sha256": "508de6d5dd9fb6651caf9010d5de54a93d5c24056cbf6f8ddecb39a2aa521850",
+      "format": {
+        "frameCount": 118,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Follow Me.mp3",
+      "url": "/sound_effects/Follow%20Me.mp3",
+      "bytes": 119245,
+      "sha256": "c6c49a6113f7fb4e8e0b0e39b2e0a1de8dbf099596dd972f2916556d36a4cb88",
+      "format": {
+        "frameCount": 114,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Foresight.mp3",
+      "url": "/sound_effects/Foresight.mp3",
+      "bytes": 98347,
+      "sha256": "fd73a5d542bc331c2c0b342879cf3f1f838df45071ed4ec30a586e33c4e0855b",
+      "format": {
+        "frameCount": 94,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Frenzy Plant.mp3",
+      "url": "/sound_effects/Frenzy%20Plant.mp3",
+      "bytes": 85808,
+      "sha256": "30dc83f2ffc155e0ce3f3f205b0ac9af19d962ee9ca8dd83d7185f349989eec1",
+      "format": {
+        "frameCount": 82,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Frustration.mp3",
+      "url": "/sound_effects/Frustration.mp3",
+      "bytes": 59686,
+      "sha256": "ac14d91ae9a628e45a2dec86626de7bef7bdd07e6d7ecc51b0215d3fe5bb39eb",
+      "format": {
+        "frameCount": 57,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Fury Attack 1hit.mp3",
+      "url": "/sound_effects/Fury%20Attack%201hit.mp3",
+      "bytes": 25204,
+      "sha256": "6467b698f5bcfa95fd1cf5f67ce4cdb4834d227c5606c8e9c93e0ee815096c53",
+      "format": {
+        "frameCount": 24,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Fury Attack 2hits.mp3",
+      "url": "/sound_effects/Fury%20Attack%202hits.mp3",
+      "bytes": 47147,
+      "sha256": "526c15b3c63883f5ee540c9782d03f9bd7f3e5a8412937db7221a266e0faf654",
+      "format": {
+        "frameCount": 45,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Fury Cutter.mp3",
+      "url": "/sound_effects/Fury%20Cutter.mp3",
+      "bytes": 31474,
+      "sha256": "92eb61f5fb2339fa44ce5e592940158cae7486fa884543b2017c91f67e5d69f7",
+      "format": {
+        "frameCount": 30,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Fury Swipes 1hit.mp3",
+      "url": "/sound_effects/Fury%20Swipes%201hit.mp3",
+      "bytes": 31474,
+      "sha256": "d4b276c40aeee0dab32a30589fe70e317f5d41bdc9c9767b8193484bbfa7c7e4",
+      "format": {
+        "frameCount": 30,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Fury Swipes 2hits.mp3",
+      "url": "/sound_effects/Fury%20Swipes%202hits.mp3",
+      "bytes": 61776,
+      "sha256": "6a4c7be0a492ab4717e59f7f3f65642ca0cfdcfdd739d838dc6392696968d223",
+      "format": {
+        "frameCount": 59,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Future Sight turn damage.mp3",
+      "url": "/sound_effects/Future%20Sight%20turn%20damage.mp3",
+      "bytes": 78494,
+      "sha256": "2e88bdaec3453d977bdb92d04d780b2888426ea32317892328ebcb76fb1165a3",
+      "format": {
+        "frameCount": 75,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Future Sight.mp3",
+      "url": "/sound_effects/Future%20Sight.mp3",
+      "bytes": 72225,
+      "sha256": "f755b420bfc85c5dfb2e05ad7cfc124c6515c39bcc0776015b260ec6c7096b93",
+      "format": {
+        "frameCount": 69,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Giga Drain part 1.mp3",
+      "url": "/sound_effects/Giga%20Drain%20part%201.mp3",
+      "bytes": 76404,
+      "sha256": "3281e5be2fd1c28ecb9d2a8608db0b669f4301957af9cbac94f1966112209987",
+      "format": {
+        "frameCount": 73,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Giga Drain part 2.mp3",
+      "url": "/sound_effects/Giga%20Drain%20part%202.mp3",
+      "bytes": 54461,
+      "sha256": "110fdfa49761f292e0cc88e8afa6728d07ceb6d0b56a1be5e7cec005d70e6203",
+      "format": {
+        "frameCount": 52,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Giga Drain.mp3",
+      "url": "/sound_effects/Giga%20Drain.mp3",
+      "bytes": 127604,
+      "sha256": "7d276b32bdbb98ad85d6cbed8eb319662a73ad5832400ef4f1d62ebadb6bd1a1",
+      "format": {
+        "frameCount": 122,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Glare part 1.mp3",
+      "url": "/sound_effects/Glare%20part%201.mp3",
+      "bytes": 47147,
+      "sha256": "ccc2c048fde24dc33eb45eb94de489f80c037e71bdf65b6d4b4468f91a5cc0d8",
+      "format": {
+        "frameCount": 45,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Glare part 2.mp3",
+      "url": "/sound_effects/Glare%20part%202.mp3",
+      "bytes": 55506,
+      "sha256": "125316a969e288f5bb322d526ae8a9325d26672ca6190a258599785ab6bbdbca",
+      "format": {
+        "frameCount": 53,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Glare.mp3",
+      "url": "/sound_effects/Glare.mp3",
+      "bytes": 100437,
+      "sha256": "7d63044e2be50d56c7e9ad75a4812f77151ccd31b5096a3253772ea85dea2584",
+      "format": {
+        "frameCount": 96,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Grass Whistle.mp3",
+      "url": "/sound_effects/Grass%20Whistle.mp3",
+      "bytes": 140143,
+      "sha256": "227951510cd731ab75119e9eb444da7069ae22f125d7f8b35763cff8aa13640b",
+      "format": {
+        "frameCount": 134,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Growl.mp3",
+      "url": "/sound_effects/Growl.mp3",
+      "bytes": 41923,
+      "sha256": "7a4d37b65cb8ea71cea64a1dcb54b929e73c307bdd1d6332a15c2a0c20aecd10",
+      "format": {
+        "frameCount": 40,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Growth.mp3",
+      "url": "/sound_effects/Growth.mp3",
+      "bytes": 64910,
+      "sha256": "2426fba501ca56278f70870055d227d6db3c573173973fcd7c8d1fa4f3f48d9c",
+      "format": {
+        "frameCount": 62,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Grudge part 1.mp3",
+      "url": "/sound_effects/Grudge%20part%201.mp3",
+      "bytes": 91033,
+      "sha256": "26bbe83a688696d70ca8407dc4cab88dabb3c3436d6b959ef7be4ca02cffd441",
+      "format": {
+        "frameCount": 87,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Grudge part 2.mp3",
+      "url": "/sound_effects/Grudge%20part%202.mp3",
+      "bytes": 58641,
+      "sha256": "6057291a0e572ca39f181a73c8613defe6597c4fe2ee089e696dcd180bca298e",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Grudge.mp3",
+      "url": "/sound_effects/Grudge.mp3",
+      "bytes": 147457,
+      "sha256": "eb0f0ff8ae702744e392516341cb53c09102abb66ebef5522faca491fabd7968",
+      "format": {
+        "frameCount": 141,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Guillotine.mp3",
+      "url": "/sound_effects/Guillotine.mp3",
+      "bytes": 51327,
+      "sha256": "e1fd4149015351c5b6b546cfba9808cbe3baca434d94550571da9faa1223aa49",
+      "format": {
+        "frameCount": 49,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Gust.mp3",
+      "url": "/sound_effects/Gust.mp3",
+      "bytes": 78494,
+      "sha256": "d05018fa67a1044f0306730afed6f5fa1d4a0004d6a2978c7ac194dddefad905",
+      "format": {
+        "frameCount": 75,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Hail turn damage.mp3",
+      "url": "/sound_effects/Hail%20turn%20damage.mp3",
+      "bytes": 40878,
+      "sha256": "89d81b57c43314c105704413356715330f13cb42ebc4489c349d2e56e24fc46c",
+      "format": {
+        "frameCount": 39,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Hail.mp3",
+      "url": "/sound_effects/Hail.mp3",
+      "bytes": 92078,
+      "sha256": "0f1605e0781a7934fb72e073ad1bdd8eaf8768e00efb874101cbb7a524b82379",
+      "format": {
+        "frameCount": 88,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Harden part 1.mp3",
+      "url": "/sound_effects/Harden%20part%201.mp3",
+      "bytes": 53416,
+      "sha256": "01afa28aa730ed06d027dd3077efa0b4b0be687e60be5b28a84b6571dea9984d",
+      "format": {
+        "frameCount": 51,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Harden part 2.mp3",
+      "url": "/sound_effects/Harden%20part%202.mp3",
+      "bytes": 63865,
+      "sha256": "f3cb92b956def70886ca4ce570d41501a9f5861890511a0853683f7b5db490f9",
+      "format": {
+        "frameCount": 61,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Harden.mp3",
+      "url": "/sound_effects/Harden.mp3",
+      "bytes": 115065,
+      "sha256": "6e4c206584a81c02012e7b5d9ec42d848e784e5f3864d02368cbf203c1967644",
+      "format": {
+        "frameCount": 110,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Haze.mp3",
+      "url": "/sound_effects/Haze.mp3",
+      "bytes": 125514,
+      "sha256": "d832d717e6ea7361637d6b3022939d3476e1d12f5d27ec3b39ea692e83abcab8",
+      "format": {
+        "frameCount": 120,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Headbutt.mp3",
+      "url": "/sound_effects/Headbutt.mp3",
+      "bytes": 36698,
+      "sha256": "ffc7b112ff8e2841e9f24b5b3ea0084eb20b1935b0b102b8c4763e25b3dff85b",
+      "format": {
+        "frameCount": 35,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Heal Bell part 1.mp3",
+      "url": "/sound_effects/Heal%20Bell%20part%201.mp3",
+      "bytes": 74314,
+      "sha256": "a0f2ec5b7353965a24674cf9b561ea17dabfe50caa4e78c5b11b6d2bc9782b84",
+      "format": {
+        "frameCount": 71,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Heal Bell part 2.mp3",
+      "url": "/sound_effects/Heal%20Bell%20part%202.mp3",
+      "bytes": 93123,
+      "sha256": "db32b4d9bbc0b9f02deca5d92440f04036ffc9ba8b2c302037a954556ccb73e5",
+      "format": {
+        "frameCount": 89,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Heal Bell.mp3",
+      "url": "/sound_effects/Heal%20Bell.mp3",
+      "bytes": 165221,
+      "sha256": "7031ed70ac73f3f00a8e33987de72c573922452a2886b9dec82cebc57c3e89f5",
+      "format": {
+        "frameCount": 158,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Heat Wave.mp3",
+      "url": "/sound_effects/Heat%20Wave.mp3",
+      "bytes": 106706,
+      "sha256": "4b39eae0f2d4612c625d058074d474c62c1e3139cb5c48b72bf2d9b22cdd3b56",
+      "format": {
+        "frameCount": 102,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Helping Hand.mp3",
+      "url": "/sound_effects/Helping%20Hand.mp3",
+      "bytes": 51327,
+      "sha256": "48647dcc79dc087da9eabc48170de92b9bc47d2916a33d2e2eea9651e87144c3",
+      "format": {
+        "frameCount": 49,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Hidden Power.mp3",
+      "url": "/sound_effects/Hidden%20Power.mp3",
+      "bytes": 123425,
+      "sha256": "0cc9488f79f690a171145afa8bf2d12c933a7dcfb751b4d488b84abcb831bdfe",
+      "format": {
+        "frameCount": 118,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "High Jump Kick.mp3",
+      "url": "/sound_effects/High%20Jump%20Kick.mp3",
+      "bytes": 39833,
+      "sha256": "c2397e5967fafef690da74bf79972c2cdf58052ff2263a757321592de6d26430",
+      "format": {
+        "frameCount": 38,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Hit Normal Damage.mp3",
+      "url": "/sound_effects/Hit%20Normal%20Damage.mp3",
+      "bytes": 38788,
+      "sha256": "57c483e134fb4c47550b401019672f902e265d51e98dd8f1c32f2f73b3bafea2",
+      "format": {
+        "frameCount": 37,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Hit Super Effective.mp3",
+      "url": "/sound_effects/Hit%20Super%20Effective.mp3",
+      "bytes": 71180,
+      "sha256": "78652aa7b163ef73a0fcb37af61068a12d83a0a298e64ef447e792e58b34150e",
+      "format": {
+        "frameCount": 68,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Hit Weak Not Very Effective.mp3",
+      "url": "/sound_effects/Hit%20Weak%20Not%20Very%20Effective.mp3",
+      "bytes": 30429,
+      "sha256": "cfaa3e077c7a8451a6a6d325755eee10b95db9081196fd7cd8eacde4996bdeb1",
+      "format": {
+        "frameCount": 29,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Horn Attack.mp3",
+      "url": "/sound_effects/Horn%20Attack.mp3",
+      "bytes": 42968,
+      "sha256": "79281a8c45f387cf5c3fea3888c5d876d7d7c93baa2448605c7a6c7c4203dd17",
+      "format": {
+        "frameCount": 41,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Horn Drill.mp3",
+      "url": "/sound_effects/Horn%20Drill.mp3",
+      "bytes": 85808,
+      "sha256": "aed1190a3f9473faa5f212afab3cbdd26d012ac8055c0066a8e000338b576331",
+      "format": {
+        "frameCount": 82,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Howl.mp3",
+      "url": "/sound_effects/Howl.mp3",
+      "bytes": 32519,
+      "sha256": "3748cecc6a3444d4deff75442fc5116f104895b130069052f602b725b5a6c640",
+      "format": {
+        "frameCount": 31,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Hydro Cannon.mp3",
+      "url": "/sound_effects/Hydro%20Cannon.mp3",
+      "bytes": 118200,
+      "sha256": "44f0c8a814b3978d9380dcbc8cd0022610900c4221d4264d45d101fb0a8723e7",
+      "format": {
+        "frameCount": 113,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Hydro Pump.mp3",
+      "url": "/sound_effects/Hydro%20Pump.mp3",
+      "bytes": 88943,
+      "sha256": "89533f7c8aec1582dda6f89874511c954654749c4804d27f828f70b4d5cdeaeb",
+      "format": {
+        "frameCount": 85,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Hyper Beam.mp3",
+      "url": "/sound_effects/Hyper%20Beam.mp3",
+      "bytes": 114021,
+      "sha256": "1a4b9cae9740daa18765c28dee544f1ee3f2ce92d31dd8305a070aa8f4eb85c2",
+      "format": {
+        "frameCount": 109,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Hyper Fang.mp3",
+      "url": "/sound_effects/Hyper%20Fang.mp3",
+      "bytes": 78494,
+      "sha256": "a257401a0169afecf700bc92b2a4216eb4eff75954d4d5d5dc1c1ce18eef1192",
+      "format": {
+        "frameCount": 75,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Hyper Voice.mp3",
+      "url": "/sound_effects/Hyper%20Voice.mp3",
+      "bytes": 73270,
+      "sha256": "c81aa645edad79a8740c06d33df5ed598cc8eaa8c24a6374079fe14082164a77",
+      "format": {
+        "frameCount": 70,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Hypnosis.mp3",
+      "url": "/sound_effects/Hypnosis.mp3",
+      "bytes": 57596,
+      "sha256": "8ad4e75847d24b0cf9b92fa2898f43b5e7fa76d90602351665ebccb315b99453",
+      "format": {
+        "frameCount": 55,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Ice Ball.mp3",
+      "url": "/sound_effects/Ice%20Ball.mp3",
+      "bytes": 53416,
+      "sha256": "b7e66c7f31f53e20eaf093fe69a194bea22a569ab2a96cbdead432716642871a",
+      "format": {
+        "frameCount": 51,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Ice Beam part 1.mp3",
+      "url": "/sound_effects/Ice%20Beam%20part%201.mp3",
+      "bytes": 57596,
+      "sha256": "0783414285a3101683a8cb80b0964e67b84687d10b6fcfc570b374837adec32f",
+      "format": {
+        "frameCount": 55,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Ice Beam part 2.mp3",
+      "url": "/sound_effects/Ice%20Beam%20part%202.mp3",
+      "bytes": 55506,
+      "sha256": "b7597a97e921cb099decd51ea46d621bc745252b330527886eb868d7c21c7938",
+      "format": {
+        "frameCount": 53,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Ice Beam.mp3",
+      "url": "/sound_effects/Ice%20Beam.mp3",
+      "bytes": 109841,
+      "sha256": "b33270bc0ba8116a2bc425cc119b0d03b04f1913286a55e1979a6fc771101c0a",
+      "format": {
+        "frameCount": 105,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Ice Punch.mp3",
+      "url": "/sound_effects/Ice%20Punch.mp3",
+      "bytes": 91033,
+      "sha256": "c3cedacd0d6afbb700ef63a3948776fac23e1005fde1b92ffec04b1a2caa52cb",
+      "format": {
+        "frameCount": 87,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Icicle Spear 1hit.mp3",
+      "url": "/sound_effects/Icicle%20Spear%201hit.mp3",
+      "bytes": 59686,
+      "sha256": "80b15af38c2cfdd775c17e68790bf397d52760ef5eef090d60d2d3a168629a5f",
+      "format": {
+        "frameCount": 57,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Icicle Spear 2hits.mp3",
+      "url": "/sound_effects/Icicle%20Spear%202hits.mp3",
+      "bytes": 119245,
+      "sha256": "4241f6f35b67b196ae8ac6b88a936dd8e17b63ae347eafeed90e7778480c5440",
+      "format": {
+        "frameCount": 114,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Icy Wind part 1.mp3",
+      "url": "/sound_effects/Icy%20Wind%20part%201.mp3",
+      "bytes": 86853,
+      "sha256": "6d4ddedd90401d90f69cbcd941cf86028ecc79c0cddb3656430d3b703bd41de3",
+      "format": {
+        "frameCount": 83,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Icy Wind part 2.mp3",
+      "url": "/sound_effects/Icy%20Wind%20part%202.mp3",
+      "bytes": 44012,
+      "sha256": "c582104f53657eac5aae190190741ed2251e3de15fea39f77caae13a2325071f",
+      "format": {
+        "frameCount": 42,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Icy Wind.mp3",
+      "url": "/sound_effects/Icy%20Wind.mp3",
+      "bytes": 128649,
+      "sha256": "1730219d7c2ba337f66cf62119f215d4db7faf92498f12d730b12f2f4ddcf8c7",
+      "format": {
+        "frameCount": 123,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Imprison.mp3",
+      "url": "/sound_effects/Imprison.mp3",
+      "bytes": 84763,
+      "sha256": "08e6418ed9ca8f52e59f2f958be301612fe4eaf95ff69e76095412bb18b78a5c",
+      "format": {
+        "frameCount": 81,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "In-Battle Faint No Health.mp3",
+      "url": "/sound_effects/In-Battle%20Faint%20No%20Health.mp3",
+      "bytes": 42968,
+      "sha256": "c71721da6cc02d8dbe5b5d77bf68879b561551efb9173c1bec77066a95ae76d4",
+      "format": {
+        "frameCount": 41,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "In-Battle Heal HP Restore.mp3",
+      "url": "/sound_effects/In-Battle%20Heal%20HP%20Restore.mp3",
+      "bytes": 53416,
+      "sha256": "d4494b21979c541ac3d22f68692c6f26da4a6ae3137739059a7594e1fd60fa7e",
+      "format": {
+        "frameCount": 51,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "In-Battle Health Low Loop.mp3",
+      "url": "/sound_effects/In-Battle%20Health%20Low%20Loop.mp3",
+      "bytes": 200747,
+      "sha256": "7caf19a11c4b24c2400a72bad86f9929b530fe767d4745e69d2458a71cc5d492",
+      "format": {
+        "frameCount": 192,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "In-Battle Health Low.mp3",
+      "url": "/sound_effects/In-Battle%20Health%20Low.mp3",
+      "bytes": 101482,
+      "sha256": "de1f92fb26a2153334f70d1e4a3622377c53bc8fb1c8f1e16270f96851fd8edf",
+      "format": {
+        "frameCount": 97,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "In-Battle Held Item Activate.mp3",
+      "url": "/sound_effects/In-Battle%20Held%20Item%20Activate.mp3",
+      "bytes": 154772,
+      "sha256": "afd289326df6b00eecae56367e29d29609bb0eda8c16d0754c3f69ccec551a7c",
+      "format": {
+        "frameCount": 148,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "In-Battle Recall Switch Flee Run.mp3",
+      "url": "/sound_effects/In-Battle%20Recall%20Switch%20Flee%20Run.mp3",
+      "bytes": 36698,
+      "sha256": "22d16d440642fe78256dab5d30ba2a7b63182c56c335bc89cf259af17931e6d7",
+      "format": {
+        "frameCount": 35,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "In-Battle Recall Switch Pokeball.mp3",
+      "url": "/sound_effects/In-Battle%20Recall%20Switch%20Pokeball.mp3",
+      "bytes": 35653,
+      "sha256": "a078ff0a5695ddc6ce41a2499b0b2ea1d429d182dc1452bc1723833efe0031a4",
+      "format": {
+        "frameCount": 34,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Ingrain turn heal.mp3",
+      "url": "/sound_effects/Ingrain%20turn%20heal.mp3",
+      "bytes": 117155,
+      "sha256": "a1ed12c8296ca1ef66578b3ec6ca1d18e39d351b1a11c9f766f2e75b0ff017f5",
+      "format": {
+        "frameCount": 112,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Ingrain.mp3",
+      "url": "/sound_effects/Ingrain.mp3",
+      "bytes": 104616,
+      "sha256": "976d1a60f7fcd6354f1f399496d0125c092c315ceb15e164728689beb9fb4194",
+      "format": {
+        "frameCount": 100,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Iron Defense.mp3",
+      "url": "/sound_effects/Iron%20Defense.mp3",
+      "bytes": 62821,
+      "sha256": "080f43b7720d00ca82fa5c38a6e86f160700f1ed00d25f2f1388cd91d1ad849a",
+      "format": {
+        "frameCount": 60,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Iron Tail part 1.mp3",
+      "url": "/sound_effects/Iron%20Tail%20part%201.mp3",
+      "bytes": 53416,
+      "sha256": "a11b51c78a40e905dd43bfcf82e7b5a99f993eee9a3c7663f5c17afed34e6fd4",
+      "format": {
+        "frameCount": 51,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Iron Tail part 2.mp3",
+      "url": "/sound_effects/Iron%20Tail%20part%202.mp3",
+      "bytes": 52372,
+      "sha256": "2e4cc9da0fa25885fc3ab853dbca3e67b966fe182dbbe223dc9a1789d57e8450",
+      "format": {
+        "frameCount": 50,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Iron Tail.mp3",
+      "url": "/sound_effects/Iron%20Tail.mp3",
+      "bytes": 103572,
+      "sha256": "40463a95a3ea750ae180fa69f8c077c95c9531ed6bf26c0a6a4bc1d8f083f5f8",
+      "format": {
+        "frameCount": 99,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Jump Kick.mp3",
+      "url": "/sound_effects/Jump%20Kick.mp3",
+      "bytes": 32519,
+      "sha256": "a87b55ffeaf20dd1f72c7c43e16934c9a2251735c258c0d1b87daa419f0d9c53",
+      "format": {
+        "frameCount": 31,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Karate Chop.mp3",
+      "url": "/sound_effects/Karate%20Chop.mp3",
+      "bytes": 34608,
+      "sha256": "7d954dfcaffb5f23ff1b0056e9bc1268b4154dcdba6b60b61f7af00fb03a72bc",
+      "format": {
+        "frameCount": 33,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Kinesis.mp3",
+      "url": "/sound_effects/Kinesis.mp3",
+      "bytes": 164176,
+      "sha256": "94355939ab242b669314e5896c44bab7c4a44b91b83738f43cc3baf62b98f04c",
+      "format": {
+        "frameCount": 157,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Knock Off.mp3",
+      "url": "/sound_effects/Knock%20Off.mp3",
+      "bytes": 30429,
+      "sha256": "0ed5eac866dd69169f1466a784ba98c7f9d4cf80e8e5af1342975283330f00b5",
+      "format": {
+        "frameCount": 29,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Leaf Blade.mp3",
+      "url": "/sound_effects/Leaf%20Blade.mp3",
+      "bytes": 149547,
+      "sha256": "7470d0046d85a0b09268dc324e2a79bca1a4549b6fcf2c81cd82ceabfc463b2b",
+      "format": {
+        "frameCount": 143,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Leech Life part 1.mp3",
+      "url": "/sound_effects/Leech%20Life%20part%201.mp3",
+      "bytes": 76404,
+      "sha256": "a84a2a187c051cc8b9e56690fe239799cd5e15993f8f8cecd57f14a0b4563c9f",
+      "format": {
+        "frameCount": 73,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Leech Life part 2.mp3",
+      "url": "/sound_effects/Leech%20Life%20part%202.mp3",
+      "bytes": 52372,
+      "sha256": "1f3f5fca54f7ffa13826b537c673a535ce9da16da6cabf508d84c1f5c4bbed67",
+      "format": {
+        "frameCount": 50,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Leech Life.mp3",
+      "url": "/sound_effects/Leech%20Life.mp3",
+      "bytes": 125514,
+      "sha256": "29a08152231111a497a9aed70bca95dc7576370e2be8b2fdb9d8227323dda519",
+      "format": {
+        "frameCount": 120,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Leech Seed turn damage.mp3",
+      "url": "/sound_effects/Leech%20Seed%20turn%20damage.mp3",
+      "bytes": 128649,
+      "sha256": "891bbbb6e1c77b252ba690f779b429f5c08aedc77d8b24068c13919a94ea6a03",
+      "format": {
+        "frameCount": 123,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Leech Seed.mp3",
+      "url": "/sound_effects/Leech%20Seed.mp3",
+      "bytes": 100437,
+      "sha256": "2e1b3f9e308664456ca4bd0d99b20bcbdc179923f0c3d27d05b3bf43aee23720",
+      "format": {
+        "frameCount": 96,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Leer.mp3",
+      "url": "/sound_effects/Leer.mp3",
+      "bytes": 51327,
+      "sha256": "27658f0887ea81723b09fa2cfb3cf03cc5066a480d4cd7cde3e8f71509b5d25e",
+      "format": {
+        "frameCount": 49,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Lick.mp3",
+      "url": "/sound_effects/Lick.mp3",
+      "bytes": 38788,
+      "sha256": "26f6e9b5f29954f3c2a555f5f51973d9a8f8cf3d64c395a65be28313ce408862",
+      "format": {
+        "frameCount": 37,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Light Screen.mp3",
+      "url": "/sound_effects/Light%20Screen.mp3",
+      "bytes": 49237,
+      "sha256": "9bf2cc96ff51c33e469a5fa5496608be2b1928345663b214c4b040b2e2d1f38b",
+      "format": {
+        "frameCount": 47,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Lock On.mp3",
+      "url": "/sound_effects/Lock%20On.mp3",
+      "bytes": 104616,
+      "sha256": "fb7202231c88fdde13f4a9218a4875b22d1069bc0afe79aa01ab6e659b3d26d3",
+      "format": {
+        "frameCount": 100,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Lovely Kiss.mp3",
+      "url": "/sound_effects/Lovely%20Kiss.mp3",
+      "bytes": 88943,
+      "sha256": "6cf8f97764acaedffa5f564bb5523aa256a974a1c9413c4f022191fb2179e14c",
+      "format": {
+        "frameCount": 85,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Low Kick.mp3",
+      "url": "/sound_effects/Low%20Kick.mp3",
+      "bytes": 21025,
+      "sha256": "b3439d1b2d1a6f86f02909b4dcf0a75c572bc0baed5d163039cc7340a12d87d8",
+      "format": {
+        "frameCount": 20,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Luster Purge.mp3",
+      "url": "/sound_effects/Luster%20Purge.mp3",
+      "bytes": 142233,
+      "sha256": "8404a6da5b18379d3d53e7aeb30de252009915ec563abd8f33fe6ad8cf0bc784",
+      "format": {
+        "frameCount": 136,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Mach Punch.mp3",
+      "url": "/sound_effects/Mach%20Punch.mp3",
+      "bytes": 31474,
+      "sha256": "2eecb715ad732de1dc2ab3e4fb76e97c364b9d79437f7c233da65031d7d0fb0a",
+      "format": {
+        "frameCount": 30,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Magic Coat.mp3",
+      "url": "/sound_effects/Magic%20Coat.mp3",
+      "bytes": 48192,
+      "sha256": "3811fbca38967164e8389b2297bfdf3ad798713d6af55c06aa4453126d3cdaed",
+      "format": {
+        "frameCount": 46,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Magical Leaf part 1.mp3",
+      "url": "/sound_effects/Magical%20Leaf%20part%201.mp3",
+      "bytes": 52372,
+      "sha256": "79c79984190c788b6dbaf325a681e09e993fa4c2239bf184194d0bace2263a7c",
+      "format": {
+        "frameCount": 50,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Magical Leaf part 2.mp3",
+      "url": "/sound_effects/Magical%20Leaf%20part%202.mp3",
+      "bytes": 102527,
+      "sha256": "33106a22d8bc623e00236a0092a625954f3fc8e8b2e929624ed32f5b2889112f",
+      "format": {
+        "frameCount": 98,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Magical Leaf.mp3",
+      "url": "/sound_effects/Magical%20Leaf.mp3",
+      "bytes": 102527,
+      "sha256": "ea65508fbd21554aa85ec127f910b0792306fc5b752d911f1d3850dd23f4e0ad",
+      "format": {
+        "frameCount": 98,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Magnitude.mp3",
+      "url": "/sound_effects/Magnitude.mp3",
+      "bytes": 92078,
+      "sha256": "e6c99c863af3ecf32506c4e324fcac2d0ec0dd868f45363fc34bbe17f709bc63",
+      "format": {
+        "frameCount": 88,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Mean Look.mp3",
+      "url": "/sound_effects/Mean%20Look.mp3",
+      "bytes": 111931,
+      "sha256": "f12c35a92e29c394b728371bc9ade773abe11e941872bac5620e8b423fe46952",
+      "format": {
+        "frameCount": 107,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Meditate.mp3",
+      "url": "/sound_effects/Meditate.mp3",
+      "bytes": 58641,
+      "sha256": "7683ed0e208aaf8014ca677cddbf4e66d3b502d0e8986c2e1bf6c37a73368f1c",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Mega Drain part 1.mp3",
+      "url": "/sound_effects/Mega%20Drain%20part%201.mp3",
+      "bytes": 73270,
+      "sha256": "3f777c6989727e77bb5eb87aabda44a0083ec094bf742cf1abb136800fd1c5a5",
+      "format": {
+        "frameCount": 70,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Mega Drain part 2.mp3",
+      "url": "/sound_effects/Mega%20Drain%20part%202.mp3",
+      "bytes": 52372,
+      "sha256": "4aa777a8bb23241b86ff08f7d983b0014a84aff696a7e4d95177119d3b6f3ce7",
+      "format": {
+        "frameCount": 50,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Mega Drain.mp3",
+      "url": "/sound_effects/Mega%20Drain.mp3",
+      "bytes": 123425,
+      "sha256": "dbe8d3e5b6479100066af9e71dd67d530b73fae9c19833f1dfab2635e55f14a4",
+      "format": {
+        "frameCount": 118,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Mega Kick.mp3",
+      "url": "/sound_effects/Mega%20Kick.mp3",
+      "bytes": 67000,
+      "sha256": "fead5249be852fbf578ebe73d8db6585595f7badb6dae6abb783ed1d0f282efc",
+      "format": {
+        "frameCount": 64,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Mega Punch.mp3",
+      "url": "/sound_effects/Mega%20Punch.mp3",
+      "bytes": 69090,
+      "sha256": "4552cfc70f91e30dff25690d644f74e470fad64e0079026be2b1cd0f4bcadc00",
+      "format": {
+        "frameCount": 66,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Megahorn.mp3",
+      "url": "/sound_effects/Megahorn.mp3",
+      "bytes": 91033,
+      "sha256": "1f4827b496b431299776cd8864522e0c2e04e6e11237ab649d9eed9403c15dd3",
+      "format": {
+        "frameCount": 87,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Memento.mp3",
+      "url": "/sound_effects/Memento.mp3",
+      "bytes": 100437,
+      "sha256": "c86fb012355548d448de0fe14ba7890dbc3f5a93a8e8dc1327d3c2c0fdf6aef6",
+      "format": {
+        "frameCount": 96,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Metal Claw part 1.mp3",
+      "url": "/sound_effects/Metal%20Claw%20part%201.mp3",
+      "bytes": 53416,
+      "sha256": "27e0c6de127248d483df5d801ec3d5f26c3f6f69f614bbca5de8f19c30aea333",
+      "format": {
+        "frameCount": 51,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Metal Claw part 2.mp3",
+      "url": "/sound_effects/Metal%20Claw%20part%202.mp3",
+      "bytes": 40878,
+      "sha256": "61f6410e596194e27c28443b874524596ab3867979daf8f1edcb36d459af94cc",
+      "format": {
+        "frameCount": 39,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Metal Claw.mp3",
+      "url": "/sound_effects/Metal%20Claw.mp3",
+      "bytes": 92078,
+      "sha256": "f4c3f72cf0a3a90cb814223e4f2864fa81328b8ed1a3c47bd32467468e90a2b2",
+      "format": {
+        "frameCount": 88,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Metal Sound.mp3",
+      "url": "/sound_effects/Metal%20Sound.mp3",
+      "bytes": 41923,
+      "sha256": "5e017f3ad66c6a478ef060b96d8ed50c5c6c1a05e03850d8b43516b5ef07dcd2",
+      "format": {
+        "frameCount": 40,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Meteor Mash part 1.mp3",
+      "url": "/sound_effects/Meteor%20Mash%20part%201.mp3",
+      "bytes": 49237,
+      "sha256": "2085c8baf5f37aa14a8ed50faa35c25192c6e3b5fafe4e56dc6724ef6987324b",
+      "format": {
+        "frameCount": 47,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Meteor Mash part 2.mp3",
+      "url": "/sound_effects/Meteor%20Mash%20part%202.mp3",
+      "bytes": 31474,
+      "sha256": "be527e2df4a936793179c83d0fdd990500705fed905609440108c5001bb69c1b",
+      "format": {
+        "frameCount": 30,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Meteor Mash.mp3",
+      "url": "/sound_effects/Meteor%20Mash.mp3",
+      "bytes": 77449,
+      "sha256": "1a905afa713277016e83a32e5091f75aa6f7555e1478aa5be47ca6792034d0fe",
+      "format": {
+        "frameCount": 74,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Metronome.mp3",
+      "url": "/sound_effects/Metronome.mp3",
+      "bytes": 80584,
+      "sha256": "ffbc04e092274799a7fb03517706854dbb1271aa4a05e08576dd4dd06ca3ee2b",
+      "format": {
+        "frameCount": 77,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Milk Drink part 1.mp3",
+      "url": "/sound_effects/Milk%20Drink%20part%201.mp3",
+      "bytes": 68045,
+      "sha256": "9cfaaa85f1df882ef217647887b3f0382369152ba507aa1c3e6d46f1759108f7",
+      "format": {
+        "frameCount": 65,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Milk Drink part 2.mp3",
+      "url": "/sound_effects/Milk%20Drink%20part%202.mp3",
+      "bytes": 50282,
+      "sha256": "57b0723f7dc1e5211333e48c068808f54c5b43514bce7998c64eb97da35a1e40",
+      "format": {
+        "frameCount": 48,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Milk Drink.mp3",
+      "url": "/sound_effects/Milk%20Drink.mp3",
+      "bytes": 116110,
+      "sha256": "4e9fa01eb44a6cb8ac621a19a59417bb5abb9659968d9dee8811126ac23e160b",
+      "format": {
+        "frameCount": 111,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Mimic.mp3",
+      "url": "/sound_effects/Mimic.mp3",
+      "bytes": 86853,
+      "sha256": "e3eb2d9c10a2e9ad00d03f3191d32c0de0fd6676470cf485ecd18ae985ebd5db",
+      "format": {
+        "frameCount": 83,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Mind Reader.mp3",
+      "url": "/sound_effects/Mind%20Reader.mp3",
+      "bytes": 83719,
+      "sha256": "b9bce5ed8b834623f91a04d263f55a7191907f2638821d75c847d086af758e15",
+      "format": {
+        "frameCount": 80,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Minimize.mp3",
+      "url": "/sound_effects/Minimize.mp3",
+      "bytes": 98347,
+      "sha256": "7448761c19766c5b4dc6d144234b117ed20708358591b21625b862cc7e16c2d8",
+      "format": {
+        "frameCount": 94,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Mirror Coat.mp3",
+      "url": "/sound_effects/Mirror%20Coat.mp3",
+      "bytes": 48192,
+      "sha256": "de7e9182d6d4e2c6f0a5f54e397e3c891caf3cd6e68ab8195e750631972d74b2",
+      "format": {
+        "frameCount": 46,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Mist Ball.mp3",
+      "url": "/sound_effects/Mist%20Ball.mp3",
+      "bytes": 143278,
+      "sha256": "64df83dcb08f09c9e0e4f0f64f08b67bc0ea145d0c8e5890f0a8467533e54cdc",
+      "format": {
+        "frameCount": 137,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Mist.mp3",
+      "url": "/sound_effects/Mist.mp3",
+      "bytes": 223735,
+      "sha256": "cf87f4955424788a1da2730e279d40da0277062171e5ed47f23f24f30b68ddd2",
+      "format": {
+        "frameCount": 214,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Moonlight part 1.mp3",
+      "url": "/sound_effects/Moonlight%20part%201.mp3",
+      "bytes": 177759,
+      "sha256": "fd19d9a4fcda843ded000e497e6b53700fe9cb21a07db8f375bc5aad5f57a4f3",
+      "format": {
+        "frameCount": 170,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Moonlight part 2.mp3",
+      "url": "/sound_effects/Moonlight%20part%202.mp3",
+      "bytes": 50282,
+      "sha256": "1b2e1f1430212b966fb6d0514e4f2556026682a1f620dccd425164b810c3b9ca",
+      "format": {
+        "frameCount": 48,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Moonlight.mp3",
+      "url": "/sound_effects/Moonlight.mp3",
+      "bytes": 225825,
+      "sha256": "00597446bd8f766b9eab2e1afe1d5021a6addbbff4b8de6236eee3c88a1ad0ef",
+      "format": {
+        "frameCount": 216,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Morning Sun part 1.mp3",
+      "url": "/sound_effects/Morning%20Sun%20part%201.mp3",
+      "bytes": 137008,
+      "sha256": "da7dd95b5359db09a37eb456e748da3550a58a3fd0fe97974b7c9e667db937e0",
+      "format": {
+        "frameCount": 131,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Morning Sun part 2.mp3",
+      "url": "/sound_effects/Morning%20Sun%20part%202.mp3",
+      "bytes": 50282,
+      "sha256": "77140d4253ca5d3431247d78d985d801e5dfd9d5ff72fdb8951a1481ca84fbac",
+      "format": {
+        "frameCount": 48,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Morning Sun.mp3",
+      "url": "/sound_effects/Morning%20Sun.mp3",
+      "bytes": 185074,
+      "sha256": "17cd08b3375620bb2463fb9d3aa469512fc865dadb3233bd843a428d0240a05d",
+      "format": {
+        "frameCount": 177,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Mud Shot.mp3",
+      "url": "/sound_effects/Mud%20Shot.mp3",
+      "bytes": 93123,
+      "sha256": "a4c394058d168e73140a01256038fef60f18455fd429649a4dde6f75038cf380",
+      "format": {
+        "frameCount": 89,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Mud Slap.mp3",
+      "url": "/sound_effects/Mud%20Slap.mp3",
+      "bytes": 31474,
+      "sha256": "d1b48228068e2eabeadde39390836c2d502459ab4a2177c978bd8a5cf33f290c",
+      "format": {
+        "frameCount": 30,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Mud Sport.mp3",
+      "url": "/sound_effects/Mud%20Sport.mp3",
+      "bytes": 114021,
+      "sha256": "9df5ee4f3d0cf2c422f91666455813bb5c863a529c638dfa0f216bd5fd953bd2",
+      "format": {
+        "frameCount": 109,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Muddy Water.mp3",
+      "url": "/sound_effects/Muddy%20Water.mp3",
+      "bytes": 94168,
+      "sha256": "a9f0f832425ef68476ba8276250d1137ba7fc102a3c0a9f134e089651f6ec32b",
+      "format": {
+        "frameCount": 90,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Needle Arm.mp3",
+      "url": "/sound_effects/Needle%20Arm.mp3",
+      "bytes": 69090,
+      "sha256": "3d61754209eb6771fe720c4f7deab9440ceee59cbeaee13505118f606301a962",
+      "format": {
+        "frameCount": 66,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Night Shade.mp3",
+      "url": "/sound_effects/Night%20Shade.mp3",
+      "bytes": 89988,
+      "sha256": "222abab299fe9334423b9534238a31ac5bd2663fdf12429b13b2a08c2aafaba0",
+      "format": {
+        "frameCount": 86,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Nightmare.mp3",
+      "url": "/sound_effects/Nightmare.mp3",
+      "bytes": 58641,
+      "sha256": "2b03c3def133db67fbf207db92b3cdcac536c8542034ea7f3b44d831ef1788a1",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Octazooka.mp3",
+      "url": "/sound_effects/Octazooka.mp3",
+      "bytes": 22070,
+      "sha256": "09a72713757832bac55ea442fd5c739872dde22107ad3ba65d4e3364d74b13a5",
+      "format": {
+        "frameCount": 21,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Odor Sleuth.mp3",
+      "url": "/sound_effects/Odor%20Sleuth.mp3",
+      "bytes": 89988,
+      "sha256": "c464f3844b353298689ce19ec18d74677be501470cae0f0693726bdeb2832dfc",
+      "format": {
+        "frameCount": 86,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Outrage.mp3",
+      "url": "/sound_effects/Outrage.mp3",
+      "bytes": 80584,
+      "sha256": "a76cb03a28c86fd8044ad8c705c9433079fb939e8041aa1f1b1319ba97a8b1fe",
+      "format": {
+        "frameCount": 77,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Overheat.mp3",
+      "url": "/sound_effects/Overheat.mp3",
+      "bytes": 118200,
+      "sha256": "39bcb3ca889dfaecccd75f2c5c10a7881815e0eabbc4d84b402d2e8f6354a76a",
+      "format": {
+        "frameCount": 113,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Pain Split.mp3",
+      "url": "/sound_effects/Pain%20Split.mp3",
+      "bytes": 59686,
+      "sha256": "0b92a0612f0bb2f27f886d4eb0f55423497a85de8b7891b0962b4c87a8f5af07",
+      "format": {
+        "frameCount": 57,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Pay Day.mp3",
+      "url": "/sound_effects/Pay%20Day.mp3",
+      "bytes": 53416,
+      "sha256": "552f74fdfeec2b71b2099a9c4ea1d1e821ae74f8e8cecf8979c83ff379843825",
+      "format": {
+        "frameCount": 51,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Peck.mp3",
+      "url": "/sound_effects/Peck.mp3",
+      "bytes": 25204,
+      "sha256": "71777da440535413479596028f5d6e0729a54a069120ab6dc4503456ca77e018",
+      "format": {
+        "frameCount": 24,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Perish Song.mp3",
+      "url": "/sound_effects/Perish%20Song.mp3",
+      "bytes": 140143,
+      "sha256": "9f8ac0ca5bb8fe4378cf64962418005cb1f45aa26176e0dd09d96c1287309cf1",
+      "format": {
+        "frameCount": 134,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Petal Dance part 1.mp3",
+      "url": "/sound_effects/Petal%20Dance%20part%201.mp3",
+      "bytes": 110886,
+      "sha256": "5594e735a15682e09ac101db6b5457bf3a74d0ce4cc20423463ff1d17baf32ff",
+      "format": {
+        "frameCount": 106,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Petal Dance part 2.mp3",
+      "url": "/sound_effects/Petal%20Dance%20part%202.mp3",
+      "bytes": 31474,
+      "sha256": "27446b62417d3f04902a4f7aa869dbc4d6c8be4d9d2f4c71d6421f65dacd0fb0",
+      "format": {
+        "frameCount": 30,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Petal Dance.mp3",
+      "url": "/sound_effects/Petal%20Dance.mp3",
+      "bytes": 140143,
+      "sha256": "cbe788aeeae2e9c34c2afec63eeacc4b4dbe558115b8410c25402ace09271526",
+      "format": {
+        "frameCount": 134,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Pin Missile 1hit.mp3",
+      "url": "/sound_effects/Pin%20Missile%201hit.mp3",
+      "bytes": 58641,
+      "sha256": "c2ac0cce958240d2292874ac785a3eecdebd1e06b728d3908dfb905c6f576f6d",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Pin Missile 2hits.mp3",
+      "url": "/sound_effects/Pin%20Missile%202hits.mp3",
+      "bytes": 118200,
+      "sha256": "b82e69efc543fff264d2586a1c19d07f91bb2f3b73f4c339b2b276d605b86af4",
+      "format": {
+        "frameCount": 113,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Poison Fang.mp3",
+      "url": "/sound_effects/Poison%20Fang.mp3",
+      "bytes": 77449,
+      "sha256": "02f1b640b23fa2cae0107066dd87ba314291214451c6de1d0402b70f4279ab2c",
+      "format": {
+        "frameCount": 74,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Poison Gas part 1.mp3",
+      "url": "/sound_effects/Poison%20Gas%20part%201.mp3",
+      "bytes": 148502,
+      "sha256": "a2556827dce18bc8b511cb1e61a8bb8af87906d021d70838c6ebf810f4bedcbc",
+      "format": {
+        "frameCount": 142,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Poison Gas part 2.mp3",
+      "url": "/sound_effects/Poison%20Gas%20part%202.mp3",
+      "bytes": 100437,
+      "sha256": "013e859a29535cd87066a9e1b77e91781e74b031b08157aee3163cd54b70572a",
+      "format": {
+        "frameCount": 96,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Poison Gas.mp3",
+      "url": "/sound_effects/Poison%20Gas.mp3",
+      "bytes": 246723,
+      "sha256": "d22685ac48ef1177a4160e21745755f5d0cef1dd6881caa0d4665baadb3b64ba",
+      "format": {
+        "frameCount": 236,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Poison Powder part 1.mp3",
+      "url": "/sound_effects/Poison%20Powder%20part%201.mp3",
+      "bytes": 60731,
+      "sha256": "112f1f67402517e0ea508be23cb310d8498a4845280be359276dc0ffa7f64b58",
+      "format": {
+        "frameCount": 58,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Poison Powder part 2.mp3",
+      "url": "/sound_effects/Poison%20Powder%20part%202.mp3",
+      "bytes": 80584,
+      "sha256": "263c044cbea87abdc68c8d2a8bff4482994e057950c1695e1714d494753f4e23",
+      "format": {
+        "frameCount": 77,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Poison Powder.mp3",
+      "url": "/sound_effects/Poison%20Powder.mp3",
+      "bytes": 138053,
+      "sha256": "b45bf7e954c311d43f824a0eeb639543741a65c6c4b0daaf1e2974295f876a1e",
+      "format": {
+        "frameCount": 132,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Poison Sting.mp3",
+      "url": "/sound_effects/Poison%20Sting.mp3",
+      "bytes": 74314,
+      "sha256": "6bed5fabfb135dc9bd5d3fd983768ba799636d94715d1823fb0685324b89e748",
+      "format": {
+        "frameCount": 71,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Poison Tail.mp3",
+      "url": "/sound_effects/Poison%20Tail.mp3",
+      "bytes": 56551,
+      "sha256": "8e244a93e6de80f3c78b663480204acb0865f2c091db954d298e120a75032d28",
+      "format": {
+        "frameCount": 54,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Pound.mp3",
+      "url": "/sound_effects/Pound.mp3",
+      "bytes": 28339,
+      "sha256": "c8d1c30cca51072c803edd98ec1b819793ce02f2c0e1b2b750a5c5d1e4f2b2cd",
+      "format": {
+        "frameCount": 27,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Powder Snow part 1.mp3",
+      "url": "/sound_effects/Powder%20Snow%20part%201.mp3",
+      "bytes": 78494,
+      "sha256": "399d636baf2bc142ea82963877b3b7baacdd9116f44f329e2a3405606780b1f5",
+      "format": {
+        "frameCount": 75,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Powder Snow part 2.mp3",
+      "url": "/sound_effects/Powder%20Snow%20part%202.mp3",
+      "bytes": 71180,
+      "sha256": "6ca874b0e27dd209cc6d743d2ec0320561f3ad84afeac38f0849ce9a86453ac5",
+      "format": {
+        "frameCount": 68,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Powder Snow.mp3",
+      "url": "/sound_effects/Powder%20Snow.mp3",
+      "bytes": 147457,
+      "sha256": "8c7a3318770f9502dbb42e2349d3b00179c9717c35d879ae101d9107c2c19e34",
+      "format": {
+        "frameCount": 141,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Present damage.mp3",
+      "url": "/sound_effects/Present%20damage.mp3",
+      "bytes": 115065,
+      "sha256": "c08565628e42e6c76ea06567e8e87c6abc156c6b9a669f201e85954bee7bd3a1",
+      "format": {
+        "frameCount": 110,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Present heal.mp3",
+      "url": "/sound_effects/Present%20heal.mp3",
+      "bytes": 184029,
+      "sha256": "2ff448c49c132085e65ef5bb1aa83387e6dd919db89ee68412d3c8fc49bcb4f3",
+      "format": {
+        "frameCount": 176,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Present part 1.mp3",
+      "url": "/sound_effects/Present%20part%201.mp3",
+      "bytes": 58641,
+      "sha256": "ccf81f430f47caf7c21d8fbccc2a8adbbc1b87e66a31c1fe35b5ca829fce9850",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Present part 2.mp3",
+      "url": "/sound_effects/Present%20part%202.mp3",
+      "bytes": 58641,
+      "sha256": "538617652b000d33148ad9535ce60c51b042b3dd78fc879e76120cd434f0fc0a",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Protect.mp3",
+      "url": "/sound_effects/Protect.mp3",
+      "bytes": 50282,
+      "sha256": "5e759f62b7d7737c662d2c41ee70424068a02429bb9588b5d5016a8c31cba25e",
+      "format": {
+        "frameCount": 48,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Psybeam.mp3",
+      "url": "/sound_effects/Psybeam.mp3",
+      "bytes": 103572,
+      "sha256": "f77a33af39a4eea0b935fd28ed8ad115d0ef23ac6113cfab12cf4979b1b8d20b",
+      "format": {
+        "frameCount": 99,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Psych Up part 1.mp3",
+      "url": "/sound_effects/Psych%20Up%20part%201.mp3",
+      "bytes": 81629,
+      "sha256": "199cd1b136c35089860ef4a658eed0960407716b3af66629e0a7256d51725119",
+      "format": {
+        "frameCount": 78,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Psych Up part 2.mp3",
+      "url": "/sound_effects/Psych%20Up%20part%202.mp3",
+      "bytes": 44012,
+      "sha256": "e0111db3b865d42e35294b3620b69e691cb7d4f238d41bd4d1eb172258307444",
+      "format": {
+        "frameCount": 42,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Psych Up.mp3",
+      "url": "/sound_effects/Psych%20Up.mp3",
+      "bytes": 122380,
+      "sha256": "5628012efaad262c9fc6213e8b58204df8de02942a8d5ad84c53c98b4cfc207d",
+      "format": {
+        "frameCount": 117,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Psychic.mp3",
+      "url": "/sound_effects/Psychic.mp3",
+      "bytes": 56551,
+      "sha256": "5a6a1e05b16ff7596d893fc22ac9cc32d01d8f4e3c7bd28abaa1c4d4d0b28b12",
+      "format": {
+        "frameCount": 54,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Psycho Boost.mp3",
+      "url": "/sound_effects/Psycho%20Boost.mp3",
+      "bytes": 215376,
+      "sha256": "f5febef428793fc74a7bd8e2ccbffff07e40e33b1914fb0ab80acbf426300f8d",
+      "format": {
+        "frameCount": 206,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Psywave.mp3",
+      "url": "/sound_effects/Psywave.mp3",
+      "bytes": 135963,
+      "sha256": "c714dc510fdac438273c5e25bb037d5cb0cdf7b967699ed4f5aa71c956041c09",
+      "format": {
+        "frameCount": 130,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Pursuit.mp3",
+      "url": "/sound_effects/Pursuit.mp3",
+      "bytes": 26249,
+      "sha256": "9ec53d3caa07ec48ee3db4c657dc13bf7a7818dcdd441b9de0120460899a7162",
+      "format": {
+        "frameCount": 25,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Quick Attack.mp3",
+      "url": "/sound_effects/Quick%20Attack.mp3",
+      "bytes": 24159,
+      "sha256": "fd7f2fe5e21946ae3a6ec312fc77a3f6286244b3d797948f8a9dea9f04db3fb2",
+      "format": {
+        "frameCount": 23,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Rage.mp3",
+      "url": "/sound_effects/Rage.mp3",
+      "bytes": 54461,
+      "sha256": "077733cf7792c23b4419c43d76055697326f24b2fa9694469ef006a836d42c63",
+      "format": {
+        "frameCount": 52,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Rain Dance.mp3",
+      "url": "/sound_effects/Rain%20Dance.mp3",
+      "bytes": 89988,
+      "sha256": "b2c40f605d8758230d357cf9d836bcdaa09236e9009a209ba2c10c001ee1b98b",
+      "format": {
+        "frameCount": 86,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Rapid Spin.mp3",
+      "url": "/sound_effects/Rapid%20Spin.mp3",
+      "bytes": 86853,
+      "sha256": "fa52b65f7a80d19875366ddc615160d315ecb42201e28caad9b3fe78a8c84945",
+      "format": {
+        "frameCount": 83,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Razor Leaf part 1.mp3",
+      "url": "/sound_effects/Razor%20Leaf%20part%201.mp3",
+      "bytes": 52372,
+      "sha256": "af0b3741bf25faab5cb072eeb5cbd0b4be1df07b7c65616ed873bd82ebca662f",
+      "format": {
+        "frameCount": 50,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Razor Leaf part 2.mp3",
+      "url": "/sound_effects/Razor%20Leaf%20part%202.mp3",
+      "bytes": 45057,
+      "sha256": "4c7e59266764882bd2a82f16bcac8c767cf7d1280df83ad01f426bcee2f695c9",
+      "format": {
+        "frameCount": 43,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Razor Leaf.mp3",
+      "url": "/sound_effects/Razor%20Leaf.mp3",
+      "bytes": 95212,
+      "sha256": "8e99515ca5264bed0718dc51c367613e079305ffe78bc9925db822cc3e7d57c8",
+      "format": {
+        "frameCount": 91,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Razor Wind.mp3",
+      "url": "/sound_effects/Razor%20Wind.mp3",
+      "bytes": 58641,
+      "sha256": "2a57a1645297b5c63e265ad2c8a5aebe4990142696b1fac43dbfaaab94796e21",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Recover part 1.mp3",
+      "url": "/sound_effects/Recover%20part%201.mp3",
+      "bytes": 80584,
+      "sha256": "6a0da045b680968d7f33a0df3cc50cf74da7e5e218853faa6479846502da30b6",
+      "format": {
+        "frameCount": 77,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Recover part 2.mp3",
+      "url": "/sound_effects/Recover%20part%202.mp3",
+      "bytes": 53416,
+      "sha256": "cfdcb3b06b51d9d8b0ae836f7f2b64fbe710ce4fa37aaaa468f7d3e49a7e09af",
+      "format": {
+        "frameCount": 51,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Recover.mp3",
+      "url": "/sound_effects/Recover.mp3",
+      "bytes": 131784,
+      "sha256": "49dee648f32de5244e110d4dbe89118cdc796bd0499c2ca0199ea48222a75c39",
+      "format": {
+        "frameCount": 126,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Recycle part 1.mp3",
+      "url": "/sound_effects/Recycle%20part%201.mp3",
+      "bytes": 79539,
+      "sha256": "2d63f7ac87b995d4fa0f046a309cc2342828dc398e20547580aa062927ab9c0d",
+      "format": {
+        "frameCount": 76,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Recycle part 2.mp3",
+      "url": "/sound_effects/Recycle%20part%202.mp3",
+      "bytes": 46102,
+      "sha256": "4e120cdc2590eb172ec86dd93c18e4b51ff5406d078453ab546068f58b0a3212",
+      "format": {
+        "frameCount": 44,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Recycle.mp3",
+      "url": "/sound_effects/Recycle.mp3",
+      "bytes": 122380,
+      "sha256": "f7d038c6ffbafb10b0ad6e4cc3a8a6dbd4c5263b333a88132ad515ba9bbec286",
+      "format": {
+        "frameCount": 117,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Reflect.mp3",
+      "url": "/sound_effects/Reflect.mp3",
+      "bytes": 49237,
+      "sha256": "b8e715d0b6e0333b099f683b406d82bdc4e3ab2b40cbed1b4732dac3dfc58bce",
+      "format": {
+        "frameCount": 47,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Refresh.mp3",
+      "url": "/sound_effects/Refresh.mp3",
+      "bytes": 153727,
+      "sha256": "65b410a5644f780bb0e67705a22e5b92f97b37dc54b8dd2f111ebc3828712c3d",
+      "format": {
+        "frameCount": 147,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Rest.mp3",
+      "url": "/sound_effects/Rest.mp3",
+      "bytes": 36698,
+      "sha256": "5eb2b0be363099d260f966b81ce8fe5613d923d34fb5d90e7b169c641b6e1fb7",
+      "format": {
+        "frameCount": 35,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Return part 1.mp3",
+      "url": "/sound_effects/Return%20part%201.mp3",
+      "bytes": 47147,
+      "sha256": "058613c9a53238dab2bc90b55bff338e563954ec009d43f07d122f429fed6a7d",
+      "format": {
+        "frameCount": 45,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Return part 2.mp3",
+      "url": "/sound_effects/Return%20part%202.mp3",
+      "bytes": 38788,
+      "sha256": "09928a163e4f36c09f5a2cd735a575286b75aa60d94a9f23fba511d1f84ab10f",
+      "format": {
+        "frameCount": 37,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Return.mp3",
+      "url": "/sound_effects/Return.mp3",
+      "bytes": 83719,
+      "sha256": "67064660b8bc7d9ba979ab4242d8dffd020b9956f41e6539c56e201f403b15a3",
+      "format": {
+        "frameCount": 80,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Revenge.mp3",
+      "url": "/sound_effects/Revenge.mp3",
+      "bytes": 92078,
+      "sha256": "60ec1890d83b99810972bd62b959828971865dfd0e6b16b2f6eb988733fa9ca9",
+      "format": {
+        "frameCount": 88,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Reversal.mp3",
+      "url": "/sound_effects/Reversal.mp3",
+      "bytes": 111931,
+      "sha256": "037e890d28b229a990db5e058650397150a800bfd7d72d93ed45993e2ca9eb7a",
+      "format": {
+        "frameCount": 107,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Roar.mp3",
+      "url": "/sound_effects/Roar.mp3",
+      "bytes": 39833,
+      "sha256": "783944c37ec55bfa9ae9aa2853e27c4e61dea71e0250b3c718c424f386177a9c",
+      "format": {
+        "frameCount": 38,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Rock Blast 1hit.mp3",
+      "url": "/sound_effects/Rock%20Blast%201hit.mp3",
+      "bytes": 55506,
+      "sha256": "e9d6d4aa2989376c2994956c9c8ae03bc47fc836550256188a6df546911e8d68",
+      "format": {
+        "frameCount": 53,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Rock Blast 2hits.mp3",
+      "url": "/sound_effects/Rock%20Blast%202hits.mp3",
+      "bytes": 108796,
+      "sha256": "38737bc80a2fcb5008c915147fa99d24c5c952c6cc46cb09def859c6acd082f7",
+      "format": {
+        "frameCount": 104,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Rock Slide.mp3",
+      "url": "/sound_effects/Rock%20Slide.mp3",
+      "bytes": 88943,
+      "sha256": "37ea23ade49dfee2f1a0502ecc9af6cd2dfc0856377b4e8ddfaf6fbc59c9f496",
+      "format": {
+        "frameCount": 85,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Rock Smash.mp3",
+      "url": "/sound_effects/Rock%20Smash.mp3",
+      "bytes": 45057,
+      "sha256": "1b01d49292a33c81a0651649307dcbf622cb3a2b6134a2a2c23502e3485b4be7",
+      "format": {
+        "frameCount": 43,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Rock Throw.mp3",
+      "url": "/sound_effects/Rock%20Throw.mp3",
+      "bytes": 58641,
+      "sha256": "139e5ee7d527f916396d8ed9c4e44d1b1235fb73636b31a5adb2b5a5f93c959c",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Rock Tomb.mp3",
+      "url": "/sound_effects/Rock%20Tomb.mp3",
+      "bytes": 96257,
+      "sha256": "bb2fd5358ee1f33f2935ca2ba188995c06eb71519ca8273f531f41f53a5b357d",
+      "format": {
+        "frameCount": 92,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Role Play.mp3",
+      "url": "/sound_effects/Role%20Play.mp3",
+      "bytes": 59686,
+      "sha256": "6d1b7efb198cad954b57695c985a150d558bc10ba53a4789e2a0816a9476406c",
+      "format": {
+        "frameCount": 57,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Rolling Kick.mp3",
+      "url": "/sound_effects/Rolling%20Kick.mp3",
+      "bytes": 36698,
+      "sha256": "34f08df4340d39993c24a5dd23001d7d73d69f71c86725ad3db1e5f3d9a4bd7a",
+      "format": {
+        "frameCount": 35,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Rollout part 1.mp3",
+      "url": "/sound_effects/Rollout%20part%201.mp3",
+      "bytes": 33563,
+      "sha256": "d6e82f34675c7f844e96663310f756496202f452080dce070cc2c6987942df28",
+      "format": {
+        "frameCount": 32,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Rollout part 2.mp3",
+      "url": "/sound_effects/Rollout%20part%202.mp3",
+      "bytes": 60731,
+      "sha256": "72dea7f779cf59433706b96626adb20ce497125e498834b4e822b4c7e23523ce",
+      "format": {
+        "frameCount": 58,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Rollout.mp3",
+      "url": "/sound_effects/Rollout.mp3",
+      "bytes": 91033,
+      "sha256": "5289bc0b6c5b9cb94c9a6bf14a0f9fc872365bdf22fdb993fb421b7a4a1a13c1",
+      "format": {
+        "frameCount": 87,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sacred Fire part 1.mp3",
+      "url": "/sound_effects/Sacred%20Fire%20part%201.mp3",
+      "bytes": 53416,
+      "sha256": "69376aa71fe2fa2fa03fd2e83fcfdd23a57a871a781c31d4b949769c2668d694",
+      "format": {
+        "frameCount": 51,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sacred Fire part 2.mp3",
+      "url": "/sound_effects/Sacred%20Fire%20part%202.mp3",
+      "bytes": 112976,
+      "sha256": "158f0349e6da72dc7136218ee307d24bea3eb2dee9cd7dd8467a7d011fc4a5d8",
+      "format": {
+        "frameCount": 108,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sacred Fire.mp3",
+      "url": "/sound_effects/Sacred%20Fire.mp3",
+      "bytes": 163131,
+      "sha256": "4a988106c19f8cd964fc17f086632cc7014a3787c71fabaa98db105f7bfce25e",
+      "format": {
+        "frameCount": 156,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Safeguard.mp3",
+      "url": "/sound_effects/Safeguard.mp3",
+      "bytes": 60731,
+      "sha256": "4e0ab1167aec0d802fef80e332d8c55fc9d9b124ba5348f3bce314d9a51397f6",
+      "format": {
+        "frameCount": 58,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sand Attack.mp3",
+      "url": "/sound_effects/Sand%20Attack.mp3",
+      "bytes": 31474,
+      "sha256": "f2511d792e78849617bb2b47d7d3f2e3ed5c55a047fc8d0fded0bfefc93b7dc2",
+      "format": {
+        "frameCount": 30,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sand Tomb turn damage.mp3",
+      "url": "/sound_effects/Sand%20Tomb%20turn%20damage.mp3",
+      "bytes": 81629,
+      "sha256": "1e1bb0bd1677e2d8edead6405dc51c79b664e0a89a29e6d6e1f08e99a1caae2d",
+      "format": {
+        "frameCount": 78,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sand Tomb.mp3",
+      "url": "/sound_effects/Sand%20Tomb.mp3",
+      "bytes": 81629,
+      "sha256": "0c7d78798fd8dbfbc0d240724328ce4c301dbabffcc799f0e972b24fdafdea70",
+      "format": {
+        "frameCount": 78,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sandstorm.mp3",
+      "url": "/sound_effects/Sandstorm.mp3",
+      "bytes": 111931,
+      "sha256": "30c8baaae21b0a83a03f369e06233fabadf78383f09fa3c19f9fef60556b27f8",
+      "format": {
+        "frameCount": 107,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Scary Face.mp3",
+      "url": "/sound_effects/Scary%20Face.mp3",
+      "bytes": 143278,
+      "sha256": "098e4e2d54066ba9059d3531bb09b2d5fd78bca86badb9a86078c16dd76197ca",
+      "format": {
+        "frameCount": 137,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Scratch.mp3",
+      "url": "/sound_effects/Scratch.mp3",
+      "bytes": 23114,
+      "sha256": "fb0df2e63bcfa033a90b3a72d9c9d65ec2894db27023ed9361ee44ff4dd00372",
+      "format": {
+        "frameCount": 22,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Screech.mp3",
+      "url": "/sound_effects/Screech.mp3",
+      "bytes": 36698,
+      "sha256": "a56f50ceaab21f9ed7e80136e9ebd34249dd891ee1aff862e955fcf7aaff75d1",
+      "format": {
+        "frameCount": 35,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Secret Power.mp3",
+      "url": "/sound_effects/Secret%20Power.mp3",
+      "bytes": 69090,
+      "sha256": "bb2b3b69b3117f9f9cf6c2f5c592aec01ed5bf3302937303a895cc6c13edce36",
+      "format": {
+        "frameCount": 66,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Seismic Toss part 1.mp3",
+      "url": "/sound_effects/Seismic%20Toss%20part%201.mp3",
+      "bytes": 35653,
+      "sha256": "2320d9fbcf702e301997a6ac6e9ed8c8538736737f9b4fd2239dd97b5f367764",
+      "format": {
+        "frameCount": 34,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Seismic Toss part 2.mp3",
+      "url": "/sound_effects/Seismic%20Toss%20part%202.mp3",
+      "bytes": 50282,
+      "sha256": "9cfa55adcdb75b301319e13d8a1b92488778373876e33f7ad42d73de627b0d3a",
+      "format": {
+        "frameCount": 48,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Seismic Toss.mp3",
+      "url": "/sound_effects/Seismic%20Toss.mp3",
+      "bytes": 82674,
+      "sha256": "3e1dc9fbd64924562f0ddc22957c385ec8930c81470daf6ce1ce337320bd6f87",
+      "format": {
+        "frameCount": 79,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Self Destruct.mp3",
+      "url": "/sound_effects/Self%20Destruct.mp3",
+      "bytes": 84763,
+      "sha256": "08fddb87eab3b93ce1ec9efa5ed9afb14f9f92a8c687f79f0ef2a30f474ac831",
+      "format": {
+        "frameCount": 81,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Shadow Ball.mp3",
+      "url": "/sound_effects/Shadow%20Ball.mp3",
+      "bytes": 58641,
+      "sha256": "f2e76d1a1259ec53bb4b6cfbf7e3ce77584315cc04f4f22d389a1bbd0430588d",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Shadow Punch.mp3",
+      "url": "/sound_effects/Shadow%20Punch.mp3",
+      "bytes": 31474,
+      "sha256": "504ca820663f72410285108dd3f6fc6983e81122e9689103d606b5392b894f43",
+      "format": {
+        "frameCount": 30,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sharpen.mp3",
+      "url": "/sound_effects/Sharpen.mp3",
+      "bytes": 178804,
+      "sha256": "f3f7eaac3d538ba442e883c4828767ba9c984ea8725c740d4050c9f709cdb03f",
+      "format": {
+        "frameCount": 171,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sheer Cold.mp3",
+      "url": "/sound_effects/Sheer%20Cold.mp3",
+      "bytes": 67000,
+      "sha256": "5234411386a40d5f2ed0da6bedb2f232fad863dec9318b33ebf9d3f35dda8033",
+      "format": {
+        "frameCount": 64,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Shock Wave.mp3",
+      "url": "/sound_effects/Shock%20Wave.mp3",
+      "bytes": 147457,
+      "sha256": "f82138e35a2d897f77b9f83f9e618f0f4096bc416d7be8f2dcbe29ab3af2c290",
+      "format": {
+        "frameCount": 141,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Signal Beam.mp3",
+      "url": "/sound_effects/Signal%20Beam.mp3",
+      "bytes": 68045,
+      "sha256": "446ec38f915a308576294ac29dbcd5538b47f02ca2c8a17dfb8d3b6b6b793736",
+      "format": {
+        "frameCount": 65,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Silver Wind.mp3",
+      "url": "/sound_effects/Silver%20Wind.mp3",
+      "bytes": 124470,
+      "sha256": "2ae59fbcad9417688078b88e872dd5d92f52a25e30efd8906713cb8561394664",
+      "format": {
+        "frameCount": 119,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sing.mp3",
+      "url": "/sound_effects/Sing.mp3",
+      "bytes": 170445,
+      "sha256": "f2461de519a56444f258b062fe498d070283dad2a2486eb0d5316ea220c4d3c0",
+      "format": {
+        "frameCount": 163,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sketch.mp3",
+      "url": "/sound_effects/Sketch.mp3",
+      "bytes": 151637,
+      "sha256": "8826f0880aa0f78441889946a72b5002184eac09b1a74d4568a51b1c9c6eec97",
+      "format": {
+        "frameCount": 145,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Skill Swap.mp3",
+      "url": "/sound_effects/Skill%20Swap.mp3",
+      "bytes": 91033,
+      "sha256": "9a2b9910d51706ebd4929afde0cf720d4ceffec6d2da488b152cef3dcbf791a2",
+      "format": {
+        "frameCount": 87,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Skull Bash part 1.mp3",
+      "url": "/sound_effects/Skull%20Bash%20part%201.mp3",
+      "bytes": 82674,
+      "sha256": "5a7e373dc4b012ab83ce9f43f0ff0b554212a26f5d2e6eb677592d6c6cb4251c",
+      "format": {
+        "frameCount": 79,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Skull Bash part 2.mp3",
+      "url": "/sound_effects/Skull%20Bash%20part%202.mp3",
+      "bytes": 78494,
+      "sha256": "9e618dd33be4b9efdfdb72b28f49b22aabe63f4a7ec51ba0bec17495c56e59d6",
+      "format": {
+        "frameCount": 75,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Skull Bash.mp3",
+      "url": "/sound_effects/Skull%20Bash.mp3",
+      "bytes": 157906,
+      "sha256": "b587e5b2e269a880e8f643de958fafefae7a3be02e85f9bcee8af7297dc565c2",
+      "format": {
+        "frameCount": 151,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sky Attack part 1.mp3",
+      "url": "/sound_effects/Sky%20Attack%20part%201.mp3",
+      "bytes": 85808,
+      "sha256": "ff2e4faa56d64a21fb20d103ea200ea6c2a6a2c6a153ad89f45f22e0d0463a46",
+      "format": {
+        "frameCount": 82,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sky Attack part 2.mp3",
+      "url": "/sound_effects/Sky%20Attack%20part%202.mp3",
+      "bytes": 44012,
+      "sha256": "af8c03cd18315ceb93cd8d8ffbe53a53f53abc24a11cc2d8fe796fd12a21b2c5",
+      "format": {
+        "frameCount": 42,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sky Attack.mp3",
+      "url": "/sound_effects/Sky%20Attack.mp3",
+      "bytes": 127604,
+      "sha256": "541ca865b64019f27fd1346e980cdb4723059cdf60888f03a2ebac753cc4ae9b",
+      "format": {
+        "frameCount": 122,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sky Uppercut.mp3",
+      "url": "/sound_effects/Sky%20Uppercut.mp3",
+      "bytes": 73270,
+      "sha256": "a6818d076d4da22ab29e0e81ed5dec60325dbccabfd57d73b96fd3edad7e7fac",
+      "format": {
+        "frameCount": 70,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Slack Off.mp3",
+      "url": "/sound_effects/Slack%20Off.mp3",
+      "bytes": 92078,
+      "sha256": "bdbc84a0adadf10993e0fd7d1eaaf1070ca6dd1b77b21dc53965d49c820fd870",
+      "format": {
+        "frameCount": 88,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Slam.mp3",
+      "url": "/sound_effects/Slam.mp3",
+      "bytes": 36698,
+      "sha256": "25e737c9b04ac6fb4e9a462ff71fc6ec6fcf7a9716494e0900dcff32964dc0f9",
+      "format": {
+        "frameCount": 35,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Slash.mp3",
+      "url": "/sound_effects/Slash.mp3",
+      "bytes": 35653,
+      "sha256": "3a6f3ddd78dd8f9836d61edf087e65276276a1e33df644e0a1792cb7bf32eb1d",
+      "format": {
+        "frameCount": 34,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sleep Powder part 1.mp3",
+      "url": "/sound_effects/Sleep%20Powder%20part%201.mp3",
+      "bytes": 60731,
+      "sha256": "687a811b4e4ea55ae0724414516f7a695d9ada8f7a1515f8cd449f274cd78a7c",
+      "format": {
+        "frameCount": 58,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sleep Powder part 2.mp3",
+      "url": "/sound_effects/Sleep%20Powder%20part%202.mp3",
+      "bytes": 36698,
+      "sha256": "584b66e30e67eaed4a1bf30e0197a606ecc2af2f8f3ccb7691a91d8541feb6fe",
+      "format": {
+        "frameCount": 35,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sleep Powder.mp3",
+      "url": "/sound_effects/Sleep%20Powder.mp3",
+      "bytes": 95212,
+      "sha256": "6e021285ee460ff9e88991731fec156a67930bc20a65911bbe56851d914cb36a",
+      "format": {
+        "frameCount": 91,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sleep Talk.mp3",
+      "url": "/sound_effects/Sleep%20Talk.mp3",
+      "bytes": 87898,
+      "sha256": "16302763672703b892a79bc5ccfbcdf38ac74f1bfe8083c9976d740f941c717c",
+      "format": {
+        "frameCount": 84,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sludge Bomb part 1.mp3",
+      "url": "/sound_effects/Sludge%20Bomb%20part%201.mp3",
+      "bytes": 69090,
+      "sha256": "71b1183adb03215752314d0176a8b7189361a7e79a2e919f8d4b76119107ce84",
+      "format": {
+        "frameCount": 66,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sludge Bomb part 2.mp3",
+      "url": "/sound_effects/Sludge%20Bomb%20part%202.mp3",
+      "bytes": 50282,
+      "sha256": "adbbfba1dbd2b67499a0bd6a10d9fe61e6bf590f8d71dede12a2239c23925aad",
+      "format": {
+        "frameCount": 48,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sludge Bomb.mp3",
+      "url": "/sound_effects/Sludge%20Bomb.mp3",
+      "bytes": 117155,
+      "sha256": "5ef0cc0ca6e350864668cb188b0576a6c79b40e0a954d6c6d30f061ea03aeb28",
+      "format": {
+        "frameCount": 112,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sludge.mp3",
+      "url": "/sound_effects/Sludge.mp3",
+      "bytes": 78494,
+      "sha256": "d7a93c51221e5fb31d7c2e395af8d6fba795095177e774c7c2d786f8a2bb4a71",
+      "format": {
+        "frameCount": 75,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Smelling Salts.mp3",
+      "url": "/sound_effects/Smelling%20Salts.mp3",
+      "bytes": 60731,
+      "sha256": "58dc751afd42c9d30303dc6169daceef3a598f72c53a6aef20c4d1e7b0199c8c",
+      "format": {
+        "frameCount": 58,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Smog.mp3",
+      "url": "/sound_effects/Smog.mp3",
+      "bytes": 169400,
+      "sha256": "9841a79ae14b8f9850451dcfc250d09c8731229e77b563059152c4d7a5a9afa7",
+      "format": {
+        "frameCount": 162,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Smokescreen part 1.mp3",
+      "url": "/sound_effects/Smokescreen%20part%201.mp3",
+      "bytes": 28339,
+      "sha256": "decf63fadbd24cfd3ddbf1106b4c681eff48f3bd8d8fa3fa71fc57349bbf0103",
+      "format": {
+        "frameCount": 27,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Smokescreen part 2.mp3",
+      "url": "/sound_effects/Smokescreen%20part%202.mp3",
+      "bytes": 31474,
+      "sha256": "d71ac892786a180608727b40a87d43896aeeaae75a43096277938fcf5f282abd",
+      "format": {
+        "frameCount": 30,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Smokescreen.mp3",
+      "url": "/sound_effects/Smokescreen.mp3",
+      "bytes": 57596,
+      "sha256": "eecfe7864632880e2c3b7fa64a47573dd0cdf9176e9bdc6c02b026eab1ea4598",
+      "format": {
+        "frameCount": 55,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Snatch.mp3",
+      "url": "/sound_effects/Snatch.mp3",
+      "bytes": 46102,
+      "sha256": "79e0ebc145bf9660291ce1664e004c1670b763c58fd4de930cdb199f370752ae",
+      "format": {
+        "frameCount": 44,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Snore.mp3",
+      "url": "/sound_effects/Snore.mp3",
+      "bytes": 49237,
+      "sha256": "41be4fb274f4efe68d214f212fc479f7f4979b7f144965fd1194ab1d104e0252",
+      "format": {
+        "frameCount": 47,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Soft Boiled part 1.mp3",
+      "url": "/sound_effects/Soft%20Boiled%20part%201.mp3",
+      "bytes": 49237,
+      "sha256": "57e66be44edaac5170e79e31c4feafb2c36e4fcb65e8b974b7d684c214cccf5c",
+      "format": {
+        "frameCount": 47,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Soft Boiled part 2.mp3",
+      "url": "/sound_effects/Soft%20Boiled%20part%202.mp3",
+      "bytes": 53416,
+      "sha256": "fbfcacf5f77b32a293315917825625836690a2f35608b5f0c8f388f218bd660d",
+      "format": {
+        "frameCount": 51,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Soft Boiled.mp3",
+      "url": "/sound_effects/Soft%20Boiled.mp3",
+      "bytes": 100437,
+      "sha256": "b8270489c349dc5e91ce415a01e1d2159a74c1e38c04000b70e77670df6f151a",
+      "format": {
+        "frameCount": 96,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Solar Beam part 1.mp3",
+      "url": "/sound_effects/Solar%20Beam%20part%201.mp3",
+      "bytes": 62821,
+      "sha256": "9ce527ba0373d18e38272a10dccace59abaf1fd5d6d34e58fc7f8d92bd73bd11",
+      "format": {
+        "frameCount": 60,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Solar Beam part 2.mp3",
+      "url": "/sound_effects/Solar%20Beam%20part%202.mp3",
+      "bytes": 138053,
+      "sha256": "2047b93a0b0c434dcc46cda6bb310f05853ea707a2e227f01b3d5341c1f17a96",
+      "format": {
+        "frameCount": 132,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Solar Beam.mp3",
+      "url": "/sound_effects/Solar%20Beam.mp3",
+      "bytes": 199702,
+      "sha256": "d9967097e1070e85934bf2ef5c64d62d43ab12c4a4c59bf9f52fcd4a51fd08e0",
+      "format": {
+        "frameCount": 191,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sonic Boom.mp3",
+      "url": "/sound_effects/Sonic%20Boom.mp3",
+      "bytes": 33563,
+      "sha256": "a026ad7922d056ea07d40efd4a2ceef863eae39173d957769e0f7bba3d9df028",
+      "format": {
+        "frameCount": 32,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Spark.mp3",
+      "url": "/sound_effects/Spark.mp3",
+      "bytes": 85808,
+      "sha256": "ccb4bbd3f4461220c7ca0e232eb965c434d8fb7b573f15442922814a3c161506",
+      "format": {
+        "frameCount": 82,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Spider Web.mp3",
+      "url": "/sound_effects/Spider%20Web.mp3",
+      "bytes": 111931,
+      "sha256": "cc1a049458a6072c19f43dfe450f89ed45a3dd646c359ffea12776dd2549dddc",
+      "format": {
+        "frameCount": 107,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Spike Cannon 1hit.mp3",
+      "url": "/sound_effects/Spike%20Cannon%201hit.mp3",
+      "bytes": 47147,
+      "sha256": "5e3292bdc6fd880ad5897a05b4bbebabd843640b59259de64fcda1daa75b4c90",
+      "format": {
+        "frameCount": 45,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Spike Cannon 2hits.mp3",
+      "url": "/sound_effects/Spike%20Cannon%202hits.mp3",
+      "bytes": 91033,
+      "sha256": "54898ea2d1a4e9ec951b15b039c2991e58f3eeef2af64051f4a9cfba528035bc",
+      "format": {
+        "frameCount": 87,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Spikes.mp3",
+      "url": "/sound_effects/Spikes.mp3",
+      "bytes": 60731,
+      "sha256": "9bfa61c2234ef920f8202d91cd0b06e3e6f9ada6a3533c2e36d62f5053cd3739",
+      "format": {
+        "frameCount": 58,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Spit Up.mp3",
+      "url": "/sound_effects/Spit%20Up.mp3",
+      "bytes": 75359,
+      "sha256": "8395a093598be55bfcc7be5a401a8477a9452d22fc793a34030c762a4ba5a469",
+      "format": {
+        "frameCount": 72,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Spite.mp3",
+      "url": "/sound_effects/Spite.mp3",
+      "bytes": 98347,
+      "sha256": "9abf5cfc3f4d16e999e72a143c61cd06f819e6dc1d10b2451f0dffc9ab0b38f4",
+      "format": {
+        "frameCount": 94,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Splash.mp3",
+      "url": "/sound_effects/Splash.mp3",
+      "bytes": 78494,
+      "sha256": "1869879c04dbc336a3b5f3b97a0a638264a24055895f50d93a7c75d29283ea32",
+      "format": {
+        "frameCount": 75,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Spore part 1.mp3",
+      "url": "/sound_effects/Spore%20part%201.mp3",
+      "bytes": 137008,
+      "sha256": "14c61c1bb27cb392ac31915ccf79f78684a73794db9d730b24d2fbd6b2f13bd9",
+      "format": {
+        "frameCount": 131,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Spore part 2.mp3",
+      "url": "/sound_effects/Spore%20part%202.mp3",
+      "bytes": 36698,
+      "sha256": "4943ae9963e609521cbfcbc22bd830221aba40decc245ac8fdf8f364457c6c16",
+      "format": {
+        "frameCount": 35,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Spore.mp3",
+      "url": "/sound_effects/Spore.mp3",
+      "bytes": 170445,
+      "sha256": "50ee0c62c7b4cfe362f8ed62fc55669822ac511117c51d8a51ffcb0f8123e838",
+      "format": {
+        "frameCount": 163,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Stat Fall Down.mp3",
+      "url": "/sound_effects/Stat%20Fall%20Down.mp3",
+      "bytes": 64910,
+      "sha256": "1c07a32c73f7fcdecc2fd9f9f77af00e95face61c5ba38f4299ff88940b9aa43",
+      "format": {
+        "frameCount": 62,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Stat Rise Up.mp3",
+      "url": "/sound_effects/Stat%20Rise%20Up.mp3",
+      "bytes": 63865,
+      "sha256": "8a17b3424394b88404927aa933df4c56acedfc984fa30f455f46edce8873d9e0",
+      "format": {
+        "frameCount": 61,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Status Burned.mp3",
+      "url": "/sound_effects/Status%20Burned.mp3",
+      "bytes": 35653,
+      "sha256": "cfcd5aef50ca02ce36f71a01123ef758459c77bf0cee69cede9b03e96675bd00",
+      "format": {
+        "frameCount": 34,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Status Confused.mp3",
+      "url": "/sound_effects/Status%20Confused.mp3",
+      "bytes": 74314,
+      "sha256": "37f32ec8afbe4d92cc47625225afc35dfe9ad090a4cfedc3e8b7c14ad9dba6a3",
+      "format": {
+        "frameCount": 71,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Status Frozen.mp3",
+      "url": "/sound_effects/Status%20Frozen.mp3",
+      "bytes": 54461,
+      "sha256": "0b052213979b094e846b177bf68a9a4d9684a6464fe393c7b10ce9cbd28e99a9",
+      "format": {
+        "frameCount": 52,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Status Paralyzed.mp3",
+      "url": "/sound_effects/Status%20Paralyzed.mp3",
+      "bytes": 36698,
+      "sha256": "2032045f990ecf72821c157fed8fb0b453e8f94a3cca8667058a5384e36eb902",
+      "format": {
+        "frameCount": 35,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Status Poisoned.mp3",
+      "url": "/sound_effects/Status%20Poisoned.mp3",
+      "bytes": 80584,
+      "sha256": "bbd29159422f5c2848d66288fc9d72d8b83b7e0ddc7e89e2dfa1f75449a2d96b",
+      "format": {
+        "frameCount": 77,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Status Sleep.mp3",
+      "url": "/sound_effects/Status%20Sleep.mp3",
+      "bytes": 36698,
+      "sha256": "8caea3cf7f679c5c2e0249514c2337de4869f543d78414443092195eede01b1e",
+      "format": {
+        "frameCount": 35,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Steel Wing.mp3",
+      "url": "/sound_effects/Steel%20Wing.mp3",
+      "bytes": 114021,
+      "sha256": "5d54c5a9d211116969990d4f61933779f9f44e139f0a2d33dd04edd220ca711e",
+      "format": {
+        "frameCount": 109,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Stockpile.mp3",
+      "url": "/sound_effects/Stockpile.mp3",
+      "bytes": 62821,
+      "sha256": "c5f6166b6a5e044df689212a309f147e5a42cb0b0762878977f415b7aa22efa1",
+      "format": {
+        "frameCount": 60,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Stomp.mp3",
+      "url": "/sound_effects/Stomp.mp3",
+      "bytes": 45057,
+      "sha256": "4f4d18c29e110a4ac45858a349c3bd8b9c56b13c9525a14ba5f61a80220fc51a",
+      "format": {
+        "frameCount": 43,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Strength.mp3",
+      "url": "/sound_effects/Strength.mp3",
+      "bytes": 70135,
+      "sha256": "f6f82146516adf72a244629348b791f5cbd4520735a4f9c7982b96f7732cb660",
+      "format": {
+        "frameCount": 67,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "String Shot.mp3",
+      "url": "/sound_effects/String%20Shot.mp3",
+      "bytes": 120290,
+      "sha256": "336af031550eac346c9e8a0401fffe15bfe0ae3a5f0aa6241ac4bc1259179d56",
+      "format": {
+        "frameCount": 115,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Struggle.mp3",
+      "url": "/sound_effects/Struggle.mp3",
+      "bytes": 75359,
+      "sha256": "e8a4ebe21a6128c64dbbe43cd307701c9ea33686f5bd22b5f0931b3a62dd20b1",
+      "format": {
+        "frameCount": 72,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Stun Spore part 1.mp3",
+      "url": "/sound_effects/Stun%20Spore%20part%201.mp3",
+      "bytes": 60731,
+      "sha256": "960e34a64e2f834b4f1c0de9b33671f453658c115853180982f8617ca4a03533",
+      "format": {
+        "frameCount": 58,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Stun Spore part 2.mp3",
+      "url": "/sound_effects/Stun%20Spore%20part%202.mp3",
+      "bytes": 36698,
+      "sha256": "87d2f77e9c8ce3c715736592ef289a81feee66cca3b6a7d5a91aac199679ee49",
+      "format": {
+        "frameCount": 35,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Stun Spore.mp3",
+      "url": "/sound_effects/Stun%20Spore.mp3",
+      "bytes": 94168,
+      "sha256": "700eb8c5003012d049896e2ebe4f7a91e2d8d093ddcdc21baea6fb5cc9c9c8d5",
+      "format": {
+        "frameCount": 90,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Submission.mp3",
+      "url": "/sound_effects/Submission.mp3",
+      "bytes": 84763,
+      "sha256": "5dfb88a8c38bc3a5681be256bcf0b5df859490ba563222fdec31959bee692d52",
+      "format": {
+        "frameCount": 81,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Substitute.mp3",
+      "url": "/sound_effects/Substitute.mp3",
+      "bytes": 68045,
+      "sha256": "b3774bf9a1df78726985b1bb045c7e008161ec8643758be8bbd4932b5481dc19",
+      "format": {
+        "frameCount": 65,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sunny Day.mp3",
+      "url": "/sound_effects/Sunny%20Day.mp3",
+      "bytes": 110886,
+      "sha256": "7805c26543591540ef5061ea3251a860b7cc695d4c7faef6688bd432359ed672",
+      "format": {
+        "frameCount": 106,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Super Fang part 1.mp3",
+      "url": "/sound_effects/Super%20Fang%20part%201.mp3",
+      "bytes": 69090,
+      "sha256": "817292590dc7086ea0100f8188d22516ddf6780db4096c7b4481cabea89b6b5d",
+      "format": {
+        "frameCount": 66,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Super Fang part 2.mp3",
+      "url": "/sound_effects/Super%20Fang%20part%202.mp3",
+      "bytes": 29384,
+      "sha256": "2c9ab719421f2ebd026186de47d6012c4aa7772553df10b9adb6b95d5691fd9c",
+      "format": {
+        "frameCount": 28,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Super Fang.mp3",
+      "url": "/sound_effects/Super%20Fang.mp3",
+      "bytes": 96257,
+      "sha256": "b8db62903b980d63640ec45a8f64a595bbd62951a6037e63fbd52664a4339dd9",
+      "format": {
+        "frameCount": 92,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Superpower.mp3",
+      "url": "/sound_effects/Superpower.mp3",
+      "bytes": 164176,
+      "sha256": "6baaa0a3d7f81f5e1de2dccb401cdbc88efc57038c91dd6a92a4f883c7702ccf",
+      "format": {
+        "frameCount": 157,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Supersonic part 1.mp3",
+      "url": "/sound_effects/Supersonic%20part%201.mp3",
+      "bytes": 55506,
+      "sha256": "e8ddfc1c36a88e88854a9498a6e75d1de4e90597b45c86dbdbeba0f333e39bf8",
+      "format": {
+        "frameCount": 53,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Supersonic part 2.mp3",
+      "url": "/sound_effects/Supersonic%20part%202.mp3",
+      "bytes": 70135,
+      "sha256": "92d82af85c3b48ea798f79f325e5adc615efcd2fea532e8d9ca09e24051e1245",
+      "format": {
+        "frameCount": 67,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Supersonic.mp3",
+      "url": "/sound_effects/Supersonic.mp3",
+      "bytes": 122380,
+      "sha256": "d2b7aa5c7bf831ce5986e1821f2eaa0c3cff8a57b7f4d99d11e9d9d25427165a",
+      "format": {
+        "frameCount": 117,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Surf.mp3",
+      "url": "/sound_effects/Surf.mp3",
+      "bytes": 77449,
+      "sha256": "e1e9183e09c274b666bfd7e139d2e2a4f280260e4b6fa1e03fe119271bd45e5d",
+      "format": {
+        "frameCount": 74,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Swagger.mp3",
+      "url": "/sound_effects/Swagger.mp3",
+      "bytes": 120290,
+      "sha256": "ebf625bbb3fc5c8b9cd907388e93aebfb66f933bbc52cc6e7b441c2f8e97c7b7",
+      "format": {
+        "frameCount": 115,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Swallow.mp3",
+      "url": "/sound_effects/Swallow.mp3",
+      "bytes": 58641,
+      "sha256": "7f6f0d01e5c51df8f18c3803fb9f07e9f40ed996be9cb8a519f6f6fed4b42c67",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sweet Kiss part 1.mp3",
+      "url": "/sound_effects/Sweet%20Kiss%20part%201.mp3",
+      "bytes": 63865,
+      "sha256": "ab8de15f10bea1d287504ed4e84618571a18f79cde139ff0b08a25b1602c46f5",
+      "format": {
+        "frameCount": 61,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sweet Kiss part 2.mp3",
+      "url": "/sound_effects/Sweet%20Kiss%20part%202.mp3",
+      "bytes": 46102,
+      "sha256": "4d28234a79848bc1267a8c5514d161a9c4cdf01676260e4ddc1c09415a44e8d9",
+      "format": {
+        "frameCount": 44,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sweet Kiss.mp3",
+      "url": "/sound_effects/Sweet%20Kiss.mp3",
+      "bytes": 107751,
+      "sha256": "781c72a0d6b815e9e6d8a498db8957c69aa6098fadeec6b9536392f94d825e95",
+      "format": {
+        "frameCount": 103,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Sweet Scent.mp3",
+      "url": "/sound_effects/Sweet%20Scent.mp3",
+      "bytes": 124470,
+      "sha256": "fb4fba0f88eae8ea7fc7a3c87c52b9b4d40d1470c818069a51d3f846c8fdb7bb",
+      "format": {
+        "frameCount": 119,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Swift.mp3",
+      "url": "/sound_effects/Swift.mp3",
+      "bytes": 48192,
+      "sha256": "63febf7c36f3c43961aaa28c6360e8c3b26b0108d164429377db29a59e0ee5a8",
+      "format": {
+        "frameCount": 46,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Swords Dance.mp3",
+      "url": "/sound_effects/Swords%20Dance.mp3",
+      "bytes": 52372,
+      "sha256": "d629ddcc09c92259aebfa2e9ec4c0c80bdee30960d784d62dd4bcd9bb014cd80",
+      "format": {
+        "frameCount": 50,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Synthesis part 1.mp3",
+      "url": "/sound_effects/Synthesis%20part%201.mp3",
+      "bytes": 58641,
+      "sha256": "839d82d9cb1a68547ebdfdc96e5efb7030992f658498c75b462192cc1f514b40",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Synthesis part 2.mp3",
+      "url": "/sound_effects/Synthesis%20part%202.mp3",
+      "bytes": 52372,
+      "sha256": "94d8e5f1f375ae5ef762156d1b7da13477fd36e65e75f2304752e0c38674eaad",
+      "format": {
+        "frameCount": 50,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Synthesis.mp3",
+      "url": "/sound_effects/Synthesis.mp3",
+      "bytes": 107751,
+      "sha256": "32b2ec2cbd5d837d65eac84c960be78bb223572845746cc909bf19a35466cff9",
+      "format": {
+        "frameCount": 103,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Tackle.mp3",
+      "url": "/sound_effects/Tackle.mp3",
+      "bytes": 25204,
+      "sha256": "c28368a1d96929c975689f90f423d65d138114ad73b09e2e060276d34d59cf3f",
+      "format": {
+        "frameCount": 24,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Tail Glow.mp3",
+      "url": "/sound_effects/Tail%20Glow.mp3",
+      "bytes": 120290,
+      "sha256": "0f70c82e1853399984c693863c0c64ae491a3a7f298c198015a940b24ad06958",
+      "format": {
+        "frameCount": 115,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Tail Whip.mp3",
+      "url": "/sound_effects/Tail%20Whip.mp3",
+      "bytes": 57596,
+      "sha256": "f84fea1b1e413c0715521598a86565a39e2318704629c22175bd7097616355cc",
+      "format": {
+        "frameCount": 55,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Take Down.mp3",
+      "url": "/sound_effects/Take%20Down.mp3",
+      "bytes": 32519,
+      "sha256": "2f0c7b4af2a42be9f4d8e8c952f93cb6cd5b097798c058ffe3e3687205f0184e",
+      "format": {
+        "frameCount": 31,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Taunt.mp3",
+      "url": "/sound_effects/Taunt.mp3",
+      "bytes": 97302,
+      "sha256": "6ed7e9f629e14e5e67d19d3f5dfe9497e42a37e4de1def64784883b6f4faa3b9",
+      "format": {
+        "frameCount": 93,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Teeter Dance.mp3",
+      "url": "/sound_effects/Teeter%20Dance.mp3",
+      "bytes": 119245,
+      "sha256": "ce96cdc5e35c947ef321bf4413c53b134d0719e59b759c762b4a190cbb4612f1",
+      "format": {
+        "frameCount": 114,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Teleport.mp3",
+      "url": "/sound_effects/Teleport.mp3",
+      "bytes": 52372,
+      "sha256": "a88eaad8abf319347f3a21043ec5023eda0883956e74461d97e8c3dca4b2a38a",
+      "format": {
+        "frameCount": 50,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Thief.mp3",
+      "url": "/sound_effects/Thief.mp3",
+      "bytes": 29384,
+      "sha256": "099999de0f10ffca9c95715c09cf6886ddc4309aa6acfe56f45443fc96dd16ad",
+      "format": {
+        "frameCount": 28,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Thrash.mp3",
+      "url": "/sound_effects/Thrash.mp3",
+      "bytes": 105661,
+      "sha256": "0349d3605ffa2b010bd54f20af07796180a84f366740cb29357f62b516c69bbb",
+      "format": {
+        "frameCount": 101,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Thunder Punch.mp3",
+      "url": "/sound_effects/Thunder%20Punch.mp3",
+      "bytes": 63865,
+      "sha256": "d17f5d116b9b76ae84657e706f753ae070b480432df2264d8e066539c7d5b0e1",
+      "format": {
+        "frameCount": 61,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Thunder Shock part 1.mp3",
+      "url": "/sound_effects/Thunder%20Shock%20part%201.mp3",
+      "bytes": 36698,
+      "sha256": "334bbc8eb5cfba289baa2385af513972a11cc5d65d8f7d8c0208b627b0295edb",
+      "format": {
+        "frameCount": 35,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Thunder Shock part 2.mp3",
+      "url": "/sound_effects/Thunder%20Shock%20part%202.mp3",
+      "bytes": 36698,
+      "sha256": "15bbfa2f1844f45502556a87a6fca95d9512908f67b446233c07494a20977fa8",
+      "format": {
+        "frameCount": 35,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Thunder Shock.mp3",
+      "url": "/sound_effects/Thunder%20Shock.mp3",
+      "bytes": 71180,
+      "sha256": "4c367c5417dca8c095784835fec40eb237803e1e5035421fe9755f138065edc8",
+      "format": {
+        "frameCount": 68,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Thunder Wave part 1.mp3",
+      "url": "/sound_effects/Thunder%20Wave%20part%201.mp3",
+      "bytes": 69090,
+      "sha256": "005421edc652b9e2be9d3068c4323654509babc8fc43948ff1b7ce257fead861",
+      "format": {
+        "frameCount": 66,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Thunder Wave part 2.mp3",
+      "url": "/sound_effects/Thunder%20Wave%20part%202.mp3",
+      "bytes": 36698,
+      "sha256": "81c3725b0c5005bfdbe25adde074bc2834cdd9c7e914c6b3071b9b441704e12e",
+      "format": {
+        "frameCount": 35,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Thunder Wave.mp3",
+      "url": "/sound_effects/Thunder%20Wave.mp3",
+      "bytes": 102527,
+      "sha256": "d4f9c88ab35c7cf357feedba43ce93662cbbdcf7d4d3dd9d20491a05d5b266d5",
+      "format": {
+        "frameCount": 98,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Thunder part 1.mp3",
+      "url": "/sound_effects/Thunder%20part%201.mp3",
+      "bytes": 62821,
+      "sha256": "74e861ce35aabe5897fd835b0c6f690d922aa7fd26aa052477d63a23fe8b65f1",
+      "format": {
+        "frameCount": 60,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Thunder part 2.mp3",
+      "url": "/sound_effects/Thunder%20part%202.mp3",
+      "bytes": 62821,
+      "sha256": "a7c534ccd7fb9e9400c12f59cb13f49b6e25be0769ba43206a91e81428a149fd",
+      "format": {
+        "frameCount": 60,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Thunder.mp3",
+      "url": "/sound_effects/Thunder.mp3",
+      "bytes": 122380,
+      "sha256": "3141d72de39197af8f56f4140b0ce40cbea47f24cf17052d3369b87cd364f8a5",
+      "format": {
+        "frameCount": 117,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Thunderbolt part 1.mp3",
+      "url": "/sound_effects/Thunderbolt%20part%201.mp3",
+      "bytes": 49237,
+      "sha256": "4acaf1daeea6eaac8d2c44968aa7db659ec1240d44d65009c6c7181e60a04851",
+      "format": {
+        "frameCount": 47,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Thunderbolt part 2.mp3",
+      "url": "/sound_effects/Thunderbolt%20part%202.mp3",
+      "bytes": 79539,
+      "sha256": "829b758f7a94c0456c488b05cd36229d5a45a05e02e45c23ee6880fd4b0f896d",
+      "format": {
+        "frameCount": 76,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Thunderbolt.mp3",
+      "url": "/sound_effects/Thunderbolt.mp3",
+      "bytes": 125514,
+      "sha256": "0148a58c0e367c6e08b32bb80fddf6d9cede885c4e01ed57f2f94a04a32ed255",
+      "format": {
+        "frameCount": 120,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Tickle part 1.mp3",
+      "url": "/sound_effects/Tickle%20part%201.mp3",
+      "bytes": 38788,
+      "sha256": "e964d6eb91a8c7a9449f36d4a03e8a7361ef519ccc2b0d5b4f1de54c271b902c",
+      "format": {
+        "frameCount": 37,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Tickle part 2.mp3",
+      "url": "/sound_effects/Tickle%20part%202.mp3",
+      "bytes": 71180,
+      "sha256": "0c0d9eb64bc7ae0191914a8c0e4d3491c2b4b3b1896c0447bd4a6fd3ffdba2da",
+      "format": {
+        "frameCount": 68,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Tickle.mp3",
+      "url": "/sound_effects/Tickle.mp3",
+      "bytes": 107751,
+      "sha256": "b104672adbbabb2920d004521e39508f2b855f5beec4f524bb4fe6ce7fa69ec3",
+      "format": {
+        "frameCount": 103,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Torment.mp3",
+      "url": "/sound_effects/Torment.mp3",
+      "bytes": 127604,
+      "sha256": "17c00e847da2127da31fa4d90a79ad46a45985854e4328d0e513ad348f601f3f",
+      "format": {
+        "frameCount": 122,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Toxic.mp3",
+      "url": "/sound_effects/Toxic.mp3",
+      "bytes": 233139,
+      "sha256": "d915e42d7312b05f972f0ae644491a272d9a105e542cdf54887557c102b11cd8",
+      "format": {
+        "frameCount": 223,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Transform.mp3",
+      "url": "/sound_effects/Transform.mp3",
+      "bytes": 83719,
+      "sha256": "af03dd1a2a0bd833ca332b4aac6cf1610c2ba72424a0e0b5e2331179fafba4a6",
+      "format": {
+        "frameCount": 80,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Tri Attack.mp3",
+      "url": "/sound_effects/Tri%20Attack.mp3",
+      "bytes": 191343,
+      "sha256": "f50e1cd0c25dd3957f777d4490e25b134d1ee296612ebef69c721c8785f618a6",
+      "format": {
+        "frameCount": 183,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Trick.mp3",
+      "url": "/sound_effects/Trick.mp3",
+      "bytes": 146412,
+      "sha256": "1c51acc23496dc779042e2a7347ad00ddbcadda920ae28729d97c925ed5d5ea3",
+      "format": {
+        "frameCount": 140,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Triple Kick 1hit.mp3",
+      "url": "/sound_effects/Triple%20Kick%201hit.mp3",
+      "bytes": 25204,
+      "sha256": "9dcf7ecf3a28a5c8756eee1d408c817110530f98c947bbbf17ef3d3daf95fe05",
+      "format": {
+        "frameCount": 24,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Triple Kick 2hits.mp3",
+      "url": "/sound_effects/Triple%20Kick%202hits.mp3",
+      "bytes": 47147,
+      "sha256": "3f6a8f50660f658c1968363dabaf2db727eaa3c01826246f2c95bc16e2af1601",
+      "format": {
+        "frameCount": 45,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Twineedle 1hit.mp3",
+      "url": "/sound_effects/Twineedle%201hit.mp3",
+      "bytes": 42968,
+      "sha256": "7da0d40905163c837e88edd0f249c43017834db9b7b3835c45575e36b850776f",
+      "format": {
+        "frameCount": 41,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Twineedle 2hits.mp3",
+      "url": "/sound_effects/Twineedle%202hits.mp3",
+      "bytes": 82674,
+      "sha256": "6391cad26e284a1656985ede188015361bf1634f894103981cc09c13a3ef930c",
+      "format": {
+        "frameCount": 79,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Twister.mp3",
+      "url": "/sound_effects/Twister.mp3",
+      "bytes": 130739,
+      "sha256": "0056865e5586bcbb27cc1bdd2cd7a446080c38f402a63f56af12d3ed160a7162",
+      "format": {
+        "frameCount": 125,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Uproar.mp3",
+      "url": "/sound_effects/Uproar.mp3",
+      "bytes": 49237,
+      "sha256": "7e07dc69a6c9715c57c2ad0ae5261bf91a96c44e5acc510879b3fb12b6c120b3",
+      "format": {
+        "frameCount": 47,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Vice Grip.mp3",
+      "url": "/sound_effects/Vice%20Grip.mp3",
+      "bytes": 28339,
+      "sha256": "18489e53ce81588e2b89e6722aa405486d2ca5bd14004436b1c9a32e9d80635c",
+      "format": {
+        "frameCount": 27,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Vine Whip.mp3",
+      "url": "/sound_effects/Vine%20Whip.mp3",
+      "bytes": 25204,
+      "sha256": "021a80e83ff33e361667778c8d74a8ed1d7939a1adca140b0cb68858d09f4083",
+      "format": {
+        "frameCount": 24,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Vital Throw.mp3",
+      "url": "/sound_effects/Vital%20Throw.mp3",
+      "bytes": 58641,
+      "sha256": "0da18ad108eadca23847f2afa39c4daaf60aa963dc39c26e108412cade48a3c2",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Volt Tackle part 1.mp3",
+      "url": "/sound_effects/Volt%20Tackle%20part%201.mp3",
+      "bytes": 146412,
+      "sha256": "7d917c37770118fd3a66d07985c893d44f500497032eea5a8a1f56ecfc095c19",
+      "format": {
+        "frameCount": 140,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Volt Tackle part 2.mp3",
+      "url": "/sound_effects/Volt%20Tackle%20part%202.mp3",
+      "bytes": 31474,
+      "sha256": "17e97a75197a3d86142741a08de9410d5f7a7afdadf491250826410c06931a0b",
+      "format": {
+        "frameCount": 30,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Volt Tackle.mp3",
+      "url": "/sound_effects/Volt%20Tackle.mp3",
+      "bytes": 174625,
+      "sha256": "f1fd1c8ad9209e1182a332aa0f8f0f037d05a00d412ee8c05f46995143d5962b",
+      "format": {
+        "frameCount": 167,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Water Gun.mp3",
+      "url": "/sound_effects/Water%20Gun.mp3",
+      "bytes": 71180,
+      "sha256": "1b261b2cd81fa02aa4730c4af1c508175e4b37635566b5ccb598e743e52f2dde",
+      "format": {
+        "frameCount": 68,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Water Pulse.mp3",
+      "url": "/sound_effects/Water%20Pulse.mp3",
+      "bytes": 86853,
+      "sha256": "3a83ca89bbe3cb1c0adcf608b42f5cae5e57d8418d28552fff9e311606ac7658",
+      "format": {
+        "frameCount": 83,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Water Sport.mp3",
+      "url": "/sound_effects/Water%20Sport.mp3",
+      "bytes": 169400,
+      "sha256": "2391e36d793c83272fd16244317298c582814111cfe3e8c390e3f2abcfda29cc",
+      "format": {
+        "frameCount": 162,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Water Spout part 1.mp3",
+      "url": "/sound_effects/Water%20Spout%20part%201.mp3",
+      "bytes": 33563,
+      "sha256": "242ed139b07685930f5537392fff335764a868f348561badcfe0df23aa9c508e",
+      "format": {
+        "frameCount": 32,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Water Spout part 2.mp3",
+      "url": "/sound_effects/Water%20Spout%20part%202.mp3",
+      "bytes": 109841,
+      "sha256": "b374332e247b4d58dc2179ea109f8a8c7c68d1a888935f991bf37d6225ff516e",
+      "format": {
+        "frameCount": 105,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Water Spout.mp3",
+      "url": "/sound_effects/Water%20Spout.mp3",
+      "bytes": 141188,
+      "sha256": "48c97f49ce603b608cda88757e07807b41eb86eb291d1a8bbaf842f4d45cccfb",
+      "format": {
+        "frameCount": 135,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Waterfall part 1.mp3",
+      "url": "/sound_effects/Waterfall%20part%201.mp3",
+      "bytes": 55506,
+      "sha256": "4d3e48ad647b0530d14e68dad8e05a788c5a752bd7a8b6dc2e7a6a1ec3ac0099",
+      "format": {
+        "frameCount": 53,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Waterfall part 2.mp3",
+      "url": "/sound_effects/Waterfall%20part%202.mp3",
+      "bytes": 49237,
+      "sha256": "a94ed076e661be2cfaa5ee2b820890d919f2bec3e4702fafce41907decff678e",
+      "format": {
+        "frameCount": 47,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Waterfall.mp3",
+      "url": "/sound_effects/Waterfall.mp3",
+      "bytes": 101482,
+      "sha256": "3433f208caf59e33ba0f020d6523243567103afae92e8f382bbe54464a6e634f",
+      "format": {
+        "frameCount": 97,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Weather Ball.mp3",
+      "url": "/sound_effects/Weather%20Ball.mp3",
+      "bytes": 87898,
+      "sha256": "dc63b648d260353c789210c11c1da605c65bbfe4684e07f8b91891d6ce4ce167",
+      "format": {
+        "frameCount": 84,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Whirlpool turn damage.mp3",
+      "url": "/sound_effects/Whirlpool%20turn%20damage.mp3",
+      "bytes": 86853,
+      "sha256": "037e6b0da423fecc16fae12d864c6ce07266b01031a09e891d9c108c4897cd71",
+      "format": {
+        "frameCount": 83,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Whirlpool.mp3",
+      "url": "/sound_effects/Whirlpool.mp3",
+      "bytes": 88943,
+      "sha256": "c48d5d60b230eb44d52e0e3893df1e9874713794cb89174996ddbfc99412805d",
+      "format": {
+        "frameCount": 85,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Whirlwind.mp3",
+      "url": "/sound_effects/Whirlwind.mp3",
+      "bytes": 62821,
+      "sha256": "a09419d2152024ef2203768aae33e745bcca80cce3562731fbc899ec3c6ee0ef",
+      "format": {
+        "frameCount": 60,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Will O Wisp.mp3",
+      "url": "/sound_effects/Will%20O%20Wisp.mp3",
+      "bytes": 176714,
+      "sha256": "d0f9f0de07bf083f7643cea247a37077a43449cc1c4df6662edd582d08c4d2d8",
+      "format": {
+        "frameCount": 169,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Wing Attack.mp3",
+      "url": "/sound_effects/Wing%20Attack.mp3",
+      "bytes": 61776,
+      "sha256": "eb4a9247d6a2a85825e77815b0aef49ee537aae160d2c98b90c9c58e51a0b777",
+      "format": {
+        "frameCount": 59,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Wish part 1.mp3",
+      "url": "/sound_effects/Wish%20part%201.mp3",
+      "bytes": 99392,
+      "sha256": "7bf8301c1392c631364080c2f4ef0464929d874e55e444ca0dbea5c5b5dc4211",
+      "format": {
+        "frameCount": 95,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Wish part 2.mp3",
+      "url": "/sound_effects/Wish%20part%202.mp3",
+      "bytes": 103572,
+      "sha256": "6e6dc394d3d6968a90e5685863db0388207f4655911bae40cf9c48424157af76",
+      "format": {
+        "frameCount": 99,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Wish.mp3",
+      "url": "/sound_effects/Wish.mp3",
+      "bytes": 200747,
+      "sha256": "d563d4bbc4c2e9704e49bcc0334e7920042415cf360923d145e1a5900d38d9a5",
+      "format": {
+        "frameCount": 192,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Withdraw.mp3",
+      "url": "/sound_effects/Withdraw.mp3",
+      "bytes": 33563,
+      "sha256": "76c07705faab90a93b06c4f8478a57e4ac517ed67836348703076fa75cba8cc4",
+      "format": {
+        "frameCount": 32,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Wrap turn damage.mp3",
+      "url": "/sound_effects/Wrap%20turn%20damage.mp3",
+      "bytes": 58641,
+      "sha256": "0fb750c346df15f24717eafa3a991e1acf55740dd681b41d338ca0950d98e703",
+      "format": {
+        "frameCount": 56,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Wrap.mp3",
+      "url": "/sound_effects/Wrap.mp3",
+      "bytes": 31474,
+      "sha256": "792cee2154899e891ce111b8fba0018081e3e653fc583049d1fd40efa716538d",
+      "format": {
+        "frameCount": 30,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Yawn.mp3",
+      "url": "/sound_effects/Yawn.mp3",
+      "bytes": 145368,
+      "sha256": "53dc2fb50953296b550b616013e4ac87b014634c38ff0a36d3186dd47f3325f8",
+      "format": {
+        "frameCount": 139,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    },
+    {
+      "file": "Zap Cannon.mp3",
+      "url": "/sound_effects/Zap%20Cannon.mp3",
+      "bytes": 77449,
+      "sha256": "5d1f99d0971fd6661d94e16968f50f561b291b164ee20304a830e7e3061f8052",
+      "format": {
+        "frameCount": 74,
+        "sampleRate": 44100,
+        "channels": 2,
+        "bitrateKbps": 320
+      }
+    }
+  ]
+}

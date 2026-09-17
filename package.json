@@ -21,7 +21,18 @@
     "roster:fetch": "node tools/roster-import/import.mjs --fetch",
     "roster:import": "node tools/roster-import/import.mjs",
     "roster:check": "node tools/roster-import/import.mjs --check",
-    "test:roster": "node --test tools/roster-import/tests/*.test.mjs"
+    "test:roster": "node --test tools/roster-import/tests/*.test.mjs",
+    "audio:optimize": "node tools/audio-import/import.mjs",
+    "audio:check": "node tools/audio-import/import.mjs --check",
+    "test:audio": "node --test tools/audio-import/tests/*.test.mjs",
+    "cries:inventory": "node tools/cry-import/inventory.mjs",
+    "cries:inventory:check": "node tools/cry-import/inventory.mjs --check",
+    "cries:check": "node tools/cry-import/assets.mjs --check",
+    "cries:setup": "npm ci --prefix tools/cry-import --ignore-scripts --no-audit --no-fund",
+    "cries:fetch": "node tools/cry-import/fetch.mjs",
+    "cries:import": "node tools/cry-import/assets.mjs",
+    "cries:verify-source": "node tools/cry-import/inventory.mjs --verify-remote",
+    "test:cries": "node --test tools/cry-import/tests/*.test.mjs"
   },
   "dependencies": {
     "vue": "^3.5.0",

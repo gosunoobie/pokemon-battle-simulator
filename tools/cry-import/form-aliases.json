@@ -1,0 +1,389 @@
+{
+  "schemaVersion": 1,
+  "policy": "Only these six explicitly evidenced aliases are allowed. Missing files alone never authorize an alias. No latest-collection fallback is permitted.",
+  "recordingVintage": "unverified; evidence establishes shared cry identity, not that the PokeAPI legacy recordings were captured from Generation 3 cartridges",
+  "evidence": [
+    {
+      "id": "emerald-species-cries",
+      "provider": "pret/pokeemerald",
+      "repository": "https://github.com/pret/pokeemerald",
+      "gitCommit": "5eff78649e7170a877b961ef0b3da13b81a16038",
+      "gitTree": "e96007575f0fdb7da4cae8f55d1b36f1b2c8a6c9",
+      "committedAt": "2026-09-01T06:36:56Z",
+      "scope": "Evidence of species/form cry identity in the original game implementation, as reconstructed by the pret decompilation; not evidence of the recording vintage of PokeAPI audio.",
+      "notices": "Upstream root has no LICENSE file. Small source excerpts are retained for technical provenance and review; no upstream code is executed or incorporated into game runtime.",
+      "files": [
+        {
+          "path": "src/sound.c",
+          "bytes": 15244,
+          "sha256": "019216d13566c805071255eadc83de2f4d64c458b1e3c9c3af9fa4ae427323a6",
+          "gitBlobSha": "171678cddbf9ef41a725fc8b4c7f4cdc3be1fa18",
+          "url": "https://raw.githubusercontent.com/pret/pokeemerald/5eff78649e7170a877b961ef0b3da13b81a16038/src/sound.c",
+          "localPath": "form-evidence/pokeemerald/src/sound.c.excerpts.json",
+          "localFormat": "numbered-excerpts-json",
+          "localBytes": 1669,
+          "localSha256": "f1e508f6e4a437f4a1abcd0331b2244338763fcab00e4bde6274cd7f46ec70ca"
+        },
+        {
+          "path": "src/pokemon.c",
+          "bytes": 249311,
+          "sha256": "6f474bb05a55e421504f442910ea2faf4e328cce0d0b451879c907e24bdbd797",
+          "gitBlobSha": "df5ab2fb441b0682038e0600eab0f992efbe072c",
+          "url": "https://raw.githubusercontent.com/pret/pokeemerald/5eff78649e7170a877b961ef0b3da13b81a16038/src/pokemon.c",
+          "localPath": "form-evidence/pokeemerald/src/pokemon.c.excerpts.json",
+          "localFormat": "numbered-excerpts-json",
+          "localBytes": 1898,
+          "localSha256": "33c61fdb17c7a1ef072c410c543a2419f706065dd0b8ee5b3673f2c9ae167baf"
+        },
+        {
+          "path": "src/battle_util.c",
+          "bytes": 167309,
+          "sha256": "01d08fc555c3d224e8e734edf089e9f09dd3dafcb5481393f94dcb9c708ed3ce",
+          "gitBlobSha": "8949cdbe5b8936cd595d9048faeb67c587807f18",
+          "url": "https://raw.githubusercontent.com/pret/pokeemerald/5eff78649e7170a877b961ef0b3da13b81a16038/src/battle_util.c",
+          "localPath": "form-evidence/pokeemerald/src/battle_util.c.excerpts.json",
+          "localFormat": "numbered-excerpts-json",
+          "localBytes": 1831,
+          "localSha256": "1a96e000bae301e8b40ddcaf19968bd255cfcf6849732ee0d68e45d1ca7ec33b"
+        },
+        {
+          "path": "src/data/pokemon/cry_ids.h",
+          "bytes": 4780,
+          "sha256": "67aea490fd7af8a6b4654fea2cb19c9d9126c9d7c40d00f81def38e28c52d657",
+          "gitBlobSha": "e53ffd2a80320a96c3c698a6cd0182e9751911a4",
+          "url": "https://raw.githubusercontent.com/pret/pokeemerald/5eff78649e7170a877b961ef0b3da13b81a16038/src/data/pokemon/cry_ids.h",
+          "localPath": "form-evidence/pokeemerald/src/data/pokemon/cry_ids.h.excerpts.json",
+          "localFormat": "numbered-excerpts-json",
+          "localBytes": 1036,
+          "localSha256": "7148d528e66aaaa8a94ef4bd690faf46d9b219b7ea593a48ec657bbfb87fc4f4"
+        },
+        {
+          "path": "include/constants/species.h",
+          "bytes": 13045,
+          "sha256": "a1867c83e78fb767b16a9c95c4c06d51d56c986fd48d713b98dbf01c8305089d",
+          "gitBlobSha": "ec60c142ed72a80caa992991b4d456f500dc3a04",
+          "url": "https://raw.githubusercontent.com/pret/pokeemerald/5eff78649e7170a877b961ef0b3da13b81a16038/include/constants/species.h",
+          "localPath": "form-evidence/pokeemerald/include/constants/species.h.excerpts.json",
+          "localFormat": "numbered-excerpts-json",
+          "localBytes": 760,
+          "localSha256": "ae5408030e856b8337d1a2ecad8f55f63a48b932983394a324dd89f165ccfe77"
+        },
+        {
+          "path": "README.md",
+          "bytes": 383,
+          "sha256": "5ed60cb1aaa9ec6f7c01bea7f166a8208d287799d566dec550d2ed5d067426dd",
+          "gitBlobSha": "d9148b32ecffeb596b70cc3510be4de5fea7ab33",
+          "url": "https://raw.githubusercontent.com/pret/pokeemerald/5eff78649e7170a877b961ef0b3da13b81a16038/README.md",
+          "localPath": "form-evidence/pokeemerald/README.md.excerpts.json",
+          "localFormat": "numbered-excerpts-json",
+          "localBytes": 765,
+          "localSha256": "d3f16639589885bbbddf4c12ac5ef26247105a1fbed44796ee81cf91b097257b"
+        }
+      ],
+      "claims": [
+        {
+          "id": "cry-selection",
+          "text": "PlayCryInternal receives species and sound-mode parameters, not a form index. It decrements species, resolves SpeciesToCryId, then chooses gCryTable/gCryTable_Reverse by the resolved cry ID. The table has one Castform entry and one Deoxys entry.",
+          "references": [
+            {
+              "path": "src/sound.c",
+              "ranges": [
+                [
+                  369,
+                  380
+                ],
+                [
+                  471,
+                  495
+                ]
+              ],
+              "symbols": [
+                "PlayCryInternal"
+              ]
+            },
+            {
+              "path": "src/pokemon.c",
+              "ranges": [
+                [
+                  5701,
+                  5710
+                ]
+              ],
+              "symbols": [
+                "SpeciesToCryId"
+              ]
+            },
+            {
+              "path": "src/data/pokemon/cry_ids.h",
+              "ranges": [
+                [
+                  111,
+                  111
+                ],
+                [
+                  136,
+                  136
+                ]
+              ],
+              "symbols": [
+                "gSpeciesIdToCryId"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "castform-forms",
+          "text": "CastformDataTypeChange requires SPECIES_CASTFORM, changes battle types, and returns normal/fire/water/ice form indices without replacing the species field. All four forms therefore use the one species cry selection.",
+          "references": [
+            {
+              "path": "src/battle_util.c",
+              "ranges": [
+                [
+                  2382,
+                  2415
+                ]
+              ],
+              "symbols": [
+                "CastformDataTypeChange"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "deoxys-speed",
+          "text": "The Emerald Deoxys stat override has Speed 180 with Attack/Special Attack 95 and Defense/Special Defense 90, and applies to the same SPECIES_DEOXYS identity. Cry lookup remains the single Deoxys entry and has no form argument.",
+          "references": [
+            {
+              "path": "src/pokemon.c",
+              "ranges": [
+                [
+                  1885,
+                  1893
+                ],
+                [
+                  2698,
+                  2713
+                ]
+              ],
+              "symbols": [
+                "sDeoxysBaseStats",
+                "GetDeoxysStat"
+              ]
+            },
+            {
+              "path": "include/constants/species.h",
+              "ranges": [
+                [
+                  416,
+                  416
+                ]
+              ],
+              "symbols": [
+                "SPECIES_DEOXYS"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "firered-leafgreen-species-cries",
+      "provider": "pret/pokefirered",
+      "repository": "https://github.com/pret/pokefirered",
+      "gitCommit": "c75f352304d529f6ba92d4f74b9cf8b5c3810788",
+      "gitTree": "1ef8b16945a2d611e2077c0a413f0fca41714d87",
+      "committedAt": "2026-08-04T03:21:32Z",
+      "scope": "Evidence of species/form cry identity in the original game implementation, as reconstructed by the pret decompilation; not evidence of the recording vintage of PokeAPI audio.",
+      "notices": "Upstream root has no LICENSE file. Small source excerpts are retained for technical provenance and review; no upstream code is executed or incorporated into game runtime.",
+      "files": [
+        {
+          "path": "src/sound.c",
+          "bytes": 15232,
+          "sha256": "851313931ebdbf2f0933b52295707f82e948735813fac84fdba74c0446ada958",
+          "gitBlobSha": "9060aa513d2946d5a59c34f24658da96e0ab6a8e",
+          "url": "https://raw.githubusercontent.com/pret/pokefirered/c75f352304d529f6ba92d4f74b9cf8b5c3810788/src/sound.c",
+          "localPath": "form-evidence/pokefirered/src/sound.c.excerpts.json",
+          "localFormat": "numbered-excerpts-json",
+          "localBytes": 1673,
+          "localSha256": "2267364833479438376d1e398faa767915a82fce731563ae3d97d22d296687c7"
+        },
+        {
+          "path": "src/pokemon.c",
+          "bytes": 221865,
+          "sha256": "116a470cd9ebfa226aa8d85c2eb63591e176d726837c67baaa1ac6260d50f2ec",
+          "gitBlobSha": "66a5c3d233e8b1b85fe5045aeb6667332cd61d4c",
+          "url": "https://raw.githubusercontent.com/pret/pokefirered/c75f352304d529f6ba92d4f74b9cf8b5c3810788/src/pokemon.c",
+          "localPath": "form-evidence/pokefirered/src/pokemon.c.excerpts.json",
+          "localFormat": "numbered-excerpts-json",
+          "localBytes": 2635,
+          "localSha256": "2b8ad6a9e3c34e2c2e247591576197e8e8cee3b3a64fa723e9e44ae7ad5e9b83"
+        },
+        {
+          "path": "src/data/pokemon/cry_ids.h",
+          "bytes": 8627,
+          "sha256": "443a74dda9401f4e171be53aa3a0f4afb13aad75f9dc0c675087637b4bb8ded9",
+          "gitBlobSha": "2eef1eb88bb506b753c5c83e88248818c4a40454",
+          "url": "https://raw.githubusercontent.com/pret/pokefirered/c75f352304d529f6ba92d4f74b9cf8b5c3810788/src/data/pokemon/cry_ids.h",
+          "localPath": "form-evidence/pokefirered/src/data/pokemon/cry_ids.h.excerpts.json",
+          "localFormat": "numbered-excerpts-json",
+          "localBytes": 1199,
+          "localSha256": "1ee4ea7061cd1684e25910f51ba1321d4faac759199d5b33721b2cdca21d3f04"
+        },
+        {
+          "path": "include/constants/species.h",
+          "bytes": 12982,
+          "sha256": "ec3f9f9c2717dcd453aa7a27506c32e1e6ca067864534dee494695d74344c51a",
+          "gitBlobSha": "7446cc1380995ab62deff8359bad813aa2b936e9",
+          "url": "https://raw.githubusercontent.com/pret/pokefirered/c75f352304d529f6ba92d4f74b9cf8b5c3810788/include/constants/species.h",
+          "localPath": "form-evidence/pokefirered/include/constants/species.h.excerpts.json",
+          "localFormat": "numbered-excerpts-json",
+          "localBytes": 760,
+          "localSha256": "caf37a590a38f2fe94ebaaf5cdae6cd1fe10dad0d85613c998e2f81b4c358a81"
+        },
+        {
+          "path": "README.md",
+          "bytes": 1149,
+          "sha256": "ab59004406fa7c682aed5f7d034e527ac9b9c8cf4a0257920b1340bc25e99f3d",
+          "gitBlobSha": "819422657623aae0cb0d2d0d23893b2927fcf0d7",
+          "url": "https://raw.githubusercontent.com/pret/pokefirered/c75f352304d529f6ba92d4f74b9cf8b5c3810788/README.md",
+          "localPath": "form-evidence/pokefirered/README.md.excerpts.json",
+          "localFormat": "numbered-excerpts-json",
+          "localBytes": 662,
+          "localSha256": "b001a16a17ca5abd9a6331684bce274e233f94af00a98c8e1cb8b73c4eab6959"
+        }
+      ],
+      "claims": [
+        {
+          "id": "deoxys-attack-defense",
+          "text": "The same source explicitly selects Deoxys Attack-form stats for FIRERED and Defense-form stats for LEAFGREEN. GetDeoxysStat still checks only SPECIES_DEOXYS. ShouldIgnoreDeoxysForm selects this game's form versus normal form without introducing a separate species identity.",
+          "references": [
+            {
+              "path": "src/pokemon.c",
+              "ranges": [
+                [
+                  1640,
+                  1662
+                ],
+                [
+                  6100,
+                  6108
+                ],
+                [
+                  6157,
+                  6172
+                ]
+              ],
+              "symbols": [
+                "sDeoxysBaseStats",
+                "ShouldIgnoreDeoxysForm",
+                "GetDeoxysStat"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cry-selection",
+          "text": "FireRed and LeafGreen share PlayCryInternal and SpeciesToCryId, with one SPECIES_DEOXYS -> CRY_DEOXYS entry. Cry selection takes species and sound-mode parameters, not the form selected by the game version.",
+          "references": [
+            {
+              "path": "src/sound.c",
+              "ranges": [
+                [
+                  374,
+                  385
+                ],
+                [
+                  476,
+                  500
+                ]
+              ],
+              "symbols": [
+                "PlayCryInternal"
+              ]
+            },
+            {
+              "path": "src/pokemon.c",
+              "ranges": [
+                [
+                  5234,
+                  5243
+                ]
+              ],
+              "symbols": [
+                "SpeciesToCryId"
+              ]
+            },
+            {
+              "path": "src/data/pokemon/cry_ids.h",
+              "ranges": [
+                [
+                  138,
+                  138
+                ]
+              ],
+              "symbols": [
+                "sHoennSpeciesIdToCryId"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "aliases": [
+    {
+      "id": "castformrainy",
+      "baseId": "castform",
+      "sourcePath": "cries/pokemon/legacy/351.ogg",
+      "reason": "Verified species-level cry selection: Castform weather forms change type/form presentation while retaining the Castform species and its single cry entry.",
+      "evidenceIds": [
+        "emerald-species-cries"
+      ]
+    },
+    {
+      "id": "castformsnowy",
+      "baseId": "castform",
+      "sourcePath": "cries/pokemon/legacy/351.ogg",
+      "reason": "Verified species-level cry selection: Castform weather forms change type/form presentation while retaining the Castform species and its single cry entry.",
+      "evidenceIds": [
+        "emerald-species-cries"
+      ]
+    },
+    {
+      "id": "castformsunny",
+      "baseId": "castform",
+      "sourcePath": "cries/pokemon/legacy/351.ogg",
+      "reason": "Verified species-level cry selection: Castform weather forms change type/form presentation while retaining the Castform species and its single cry entry.",
+      "evidenceIds": [
+        "emerald-species-cries"
+      ]
+    },
+    {
+      "id": "deoxysattack",
+      "baseId": "deoxys",
+      "sourcePath": "cries/pokemon/legacy/386.ogg",
+      "reason": "Verified species-level cry selection: the game-specific Deoxys form retains the Deoxys species and its single cry entry.",
+      "evidenceIds": [
+        "firered-leafgreen-species-cries"
+      ]
+    },
+    {
+      "id": "deoxysdefense",
+      "baseId": "deoxys",
+      "sourcePath": "cries/pokemon/legacy/386.ogg",
+      "reason": "Verified species-level cry selection: the game-specific Deoxys form retains the Deoxys species and its single cry entry.",
+      "evidenceIds": [
+        "firered-leafgreen-species-cries"
+      ]
+    },
+    {
+      "id": "deoxysspeed",
+      "baseId": "deoxys",
+      "sourcePath": "cries/pokemon/legacy/386.ogg",
+      "reason": "Verified species-level cry selection: the game-specific Deoxys form retains the Deoxys species and its single cry entry.",
+      "evidenceIds": [
+        "emerald-species-cries"
+      ]
+    }
+  ]
+}
