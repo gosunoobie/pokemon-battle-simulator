@@ -297,7 +297,7 @@ onBeforeUnmount(() => {
     <a class="sim-skip-link" href="#simulation">Skip to battle</a>
     <header class="sim-header">
       <a class="sim-brand" href="/"><span class="ball-mark" aria-hidden="true"></span>Battle Lab<span class="sim-brand-dot">.</span></a>
-      <nav class="sim-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/simulation.html" aria-current="page">Simulation</a><a href="/preview.html">Move preview</a><a href="/playground.html">FX playground</a></nav>
+      <nav class="sim-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/simulation" aria-current="page">Simulation</a><a href="/preview">Move preview</a><a href="/playground">FX playground</a></nav>
     </header>
     <main id="simulation">
       <div class="sim-heading">

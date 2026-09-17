@@ -3,25 +3,25 @@ import { SPRITE_URLS } from '@battle/pokemon-sprites'
 
 const experiences = [
   {
-    id: 'multiplayer', number: '01', href: '/multiplayer.html', label: 'CHALLENGE A FRIEND',
+    id: 'multiplayer', number: '01', href: '/multiplayer', label: 'CHALLENGE A FRIEND',
     title: 'Private battle', tag: 'TWO PLAYERS', action: 'Create or join a room',
     description: 'Invite a friend to a private Generation 3 battle. Pick a preset team, ready up, and face each other on the battlefield.',
     details: ['Guest players', 'Private invitation'],
   },
   {
-    id: 'simulation', number: '02', href: '/simulation.html', label: 'PLAY A BATTLE',
+    id: 'simulation', number: '02', href: '/simulation', label: 'PLAY A BATTLE',
     title: 'Battle simulation', tag: 'GENERATION 3', action: 'Enter the battle',
     description: 'Play a full Generation 3 singles battle with ready-made teams. Choose moves and switches as the battle unfolds.',
     details: ['6-Pokémon teams', 'Turn-by-turn play'],
   },
   {
-    id: 'preview', number: '03', href: '/preview.html', label: 'TAKE A CLOSER LOOK',
+    id: 'preview', number: '03', href: '/preview', label: 'TAKE A CLOSER LOOK',
     title: 'Move preview', tag: '335 MOVES', action: 'Choose a move',
     description: 'Choose from 335 moves and a roster of 386 Pokémon. See each animation with a fixed sample battle result.',
     details: ['Either perspective', 'Replay any move'],
   },
   {
-    id: 'playground', number: '04', href: '/playground.html', label: 'EXPLORE THE EFFECTS',
+    id: 'playground', number: '04', href: '/playground', label: 'EXPLORE THE EFFECTS',
     title: 'FX playground', tag: 'EFFECTS ONLY', action: 'Open the playground',
     description: 'Explore the animation on its own. Adjust the Pokémon, scale and battlefield, then play it from either side.',
     details: ['Layout controls', 'Reduced motion'],
@@ -36,10 +36,10 @@ const experiences = [
       <a class="home-brand" href="/" aria-label="Battle Lab home"><span class="ball-mark" aria-hidden="true"></span><span>Battle Lab<span class="home-brand-dot">.</span></span></a>
       <nav class="home-navigation" aria-label="Main navigation">
         <a href="/" aria-current="page">Home</a>
-        <a href="/multiplayer.html">Multiplayer</a>
-        <a href="/simulation.html">Simulation</a>
-        <a href="/preview.html">Move preview</a>
-        <a href="/playground.html">FX playground</a>
+        <a href="/multiplayer">Multiplayer</a>
+        <a href="/simulation">Simulation</a>
+        <a href="/preview">Move preview</a>
+        <a href="/playground">FX playground</a>
       </nav>
     </header>
 

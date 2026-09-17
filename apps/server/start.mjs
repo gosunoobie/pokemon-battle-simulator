@@ -7,6 +7,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createSimulationService } from './simulation.js';
 import { createMultiplayerService } from './rooms/routes.js';
 import { resolveHostCapacity } from './capacity.js';
+import { resolvePageRoute, redirectPage } from './pageRoutes.js';
 
 const DEFAULT_DIST = fileURLToPath(new URL('../../dist/', import.meta.url));
 const MIME_TYPES = Object.freeze({
@@ -83,15 +84,17 @@ function staticFallback(distDirectory) {
       res.setHeader('Allow', 'GET, HEAD');
       return reply(res, 405, 'Method not allowed', req.method);
     }
+    const page = resolvePageRoute(pathname);
+    if (page?.redirect) return redirectPage(req, res, page.path);
     const root = await realpath(directory).catch(error => {
       if (error.code === 'ENOENT') return null;
       throw error;
     });
     if (!root) return reply(res, 404, 'Build output not found; run npm run build first', req.method);
-    const candidate = resolve(root, `.${pathname}`);
+    const candidate = resolve(root, page ? page.file : `.${pathname}`);
     if (!isWithin(root, candidate)) return reply(res, 403, 'Forbidden', req.method);
     let file = await findFile(root, candidate);
-    let extension = extname(pathname).toLowerCase();
+    let extension = page ? '.html' : extname(pathname).toLowerCase();
     if (file?.forbidden) return reply(res, 403, 'Forbidden', req.method);
     // HTML history fallback is limited to navigation paths, never missing assets.
     if (!file && !extension && (pathname === '/' || req.headers.accept?.includes('text/html'))) {

@@ -6,8 +6,8 @@ The existing solo simulation, regional leagues, custom-team builder, move previe
 
 ## Play locally
 
-1. Run `npm run dev`, or run `npm run build` followed by `npm start` to serve the production build with both APIs. `npm run preview` is a static preview and does not supply the battle server.
-2. Open **Private battle** on the home page, or `/multiplayer.html`.
+1. Run `npm run dev`, or run `npm run build` followed by `npm start` to serve the production build with both APIs. `npm run preview` also mounts the local battle APIs through the Vite plugins.
+2. Open **Private battle** on the home page, or `/multiplayer`.
 3. Optionally enter a trainer name, create a private room, and copy its invitation link.
 4. Open that link in another browser profile/private window or send it to a friend using the same reachable frontend host. Two ordinary tabs in one browser profile share one guest identity.
 5. Each guest chooses a preset and lead, then presses **Ready to battle**. Both players must be ready. Changing a selection cancels that guest's readiness.

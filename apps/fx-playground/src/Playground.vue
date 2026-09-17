@@ -48,7 +48,7 @@ onBeforeUnmount(() => { disposed = true; generation++; fx.dispose(); scene?.disp
 
 <template>
   <main class="app-shell">
-    <header class="playground-heading"><h1>Battle FX playground</h1><nav class="playground-project-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/simulation.html">Simulation</a><a href="/preview.html">Move preview</a><a href="/playground.html" aria-current="page">FX playground</a></nav></header>
+    <header class="playground-heading"><h1>Battle FX playground</h1><nav class="playground-project-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/simulation">Simulation</a><a href="/preview">Move preview</a><a href="/playground" aria-current="page">FX playground</a></nav></header>
     <section class="battle-panel">
       <div ref="host" class="playground-stage" role="img" aria-label="Independent battle effect preview"></div>
       <p class="playground-status" role="status">{{ message }}</p>

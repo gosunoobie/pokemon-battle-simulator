@@ -21,7 +21,7 @@ const decision = computed(() => latest.value?.decision)
 const locked = computed(() => busy.value || !!pendingOperation.value || state.value.playing || !active.value || !networkOkay.value)
 const members = computed(() => activeMembers(displayed.value ?? latest.value))
 const switches = computed(() => new Set(decision.value?.switches?.map(m => m.memberId) ?? []))
-const inviteUrl = computed(() => room.value?.inviteToken ? `${location.origin}/multiplayer.html#join=${room.value.inviteToken}` : '')
+const inviteUrl = computed(() => room.value?.inviteToken ? `${location.origin}/multiplayer#join=${room.value.inviteToken}` : '')
 const countdown = computed(() => {
   const deadline = state.value.envelope?.deadlineAt
   if (!deadline || !active.value) return ''
@@ -230,7 +230,7 @@ onBeforeUnmount(() => {
     <a class="sim-skip-link" href="#multiplayer">Skip to multiplayer</a>
     <header class="sim-header">
       <a class="sim-brand" href="/"><span class="ball-mark" aria-hidden="true"></span>Battle Lab<span class="sim-brand-dot">.</span></a>
-      <nav class="sim-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/multiplayer.html" aria-current="page">Multiplayer</a><a href="/simulation.html">Simulation</a><a href="/preview.html">Move preview</a><a href="/playground.html">FX playground</a></nav>
+      <nav class="sim-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/multiplayer" aria-current="page">Multiplayer</a><a href="/simulation">Simulation</a><a href="/preview">Move preview</a><a href="/playground">FX playground</a></nav>
     </header>
     <main id="multiplayer">
       <div class="sim-heading"><div><p class="sim-eyebrow">A FRIEND. A TEAM. A CHALLENGE.</p><h1>Private battle<span>.</span></h1><p class="sim-intro">Choose your team. Invite a friend. Make every turn count.</p></div><div class="sim-format"><span class="sim-dot"></span> GENERATION 3 SINGLES <small>Two players · Preset teams · Level 100</small></div></div>

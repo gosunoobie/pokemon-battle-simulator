@@ -18,10 +18,11 @@ Rock Blast fires three small rocks; Ancient Power lifts glowing stones before la
 
 Mega Punch uses a heavy fist strike; Meteor Mash adds a steel fist and starry trail; Dynamic Punch bursts into fragments and dizzy stars; Focus Punch holds a longer charge before striking. Dynamic Punch displays a separate confusion badge without replacing other status conditions. Meteor Mash’s random Attack boost and Focus Punch’s interruption are not simulated.
 
-- Home: `/` — choose a battle simulation, move preview, or FX playground.
-- Simulation: `/simulation.html` — select a region, team and lead, defeat five trainers, and reconnect to the current challenge after a page reload.
-- Move preview: `/preview.html` — choose Your side or Opponent side, choose either Pokémon, then preview a move. Effects toggle, skip, replay, and reset remain available. The selected move description and Use button stay above the move grid.
-- Playground: `/playground.html` — play any effect without importing battle logic; change actors, size, facing, stage proportions, and motion preference.
+- Home: `/` — choose multiplayer, battle simulation, move preview, or FX playground.
+- Multiplayer: `/multiplayer` — invite a friend, select preset teams and play a private battle.
+- Simulation: `/simulation` — select a region, team and lead, defeat five trainers, and reconnect to the current challenge after a page reload.
+- Move preview: `/preview` — choose Your side or Opponent side, choose either Pokémon, then preview a move. Effects toggle, skip, replay, and reset remain available. The selected move description and Use button stay above the move grid.
+- Playground: `/playground` — play any effect without importing battle logic; change actors, size, facing, stage proportions, and motion preference.
 
 ## Run
 
@@ -35,7 +36,7 @@ npm run build
 npm run preview
 ```
 
-Vite builds all four HTML entries into `dist`. Both `npm run dev` and `npm run preview` include the same-origin simulation API. After building, `npm start` serves the pages and API together at `http://127.0.0.1:3000`. A static file host alone cannot run the simulation. The game can resolve and display moves when effects are disabled, missing, or broken. Battle results never wait for an animation to become authoritative.
+Vite builds all five HTML entries into `dist`, served at the clean URLs above. Old `.html` links redirect to the corresponding clean path, preserving query strings and browser fragments. Local development, Vite preview and the Node host share `apps/server/pageRoutes.js`; Vercel uses its native `cleanUrls` setting. Both `npm run dev` and `npm run preview` include the same-origin battle APIs. After building, `npm start` serves the pages and APIs together at `http://127.0.0.1:3000`. A static file host alone cannot run battles. The game can resolve and display moves when effects are disabled, missing, or broken. Battle results never wait for an animation to become authoritative.
 
 Run `npm run test:simulation` for presentation, transport, and actual HTTP integration checks. The local server retains battles in memory for 30 minutes of inactivity; restarting it ends those sessions. This slice has preset teams and an automated opponent, with multiplayer rooms and persistent reconnect storage still separate work.
 

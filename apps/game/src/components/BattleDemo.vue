@@ -136,7 +136,7 @@ onBeforeUnmount(() => { disposed = true; sceneGeneration++; playGeneration++; pr
   <main class="app-shell">
     <header class="page-header preview-page-header">
       <div class="brand"><span class="ball-mark" aria-hidden="true"></span> Battle Demo</div>
-      <nav class="preview-project-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/simulation.html">Simulation</a><a href="/preview.html" aria-current="page">Move preview</a><a href="/playground.html">FX playground</a></nav>
+      <nav class="preview-project-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/simulation">Simulation</a><a href="/preview" aria-current="page">Move preview</a><a href="/playground">FX playground</a></nav>
     </header>
 
     <section class="battle-panel" aria-labelledby="battle-title">

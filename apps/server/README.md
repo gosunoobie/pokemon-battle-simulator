@@ -44,6 +44,15 @@ Default limits are 24 active sessions, 600 requests per session per minute, 60 n
 
 ## Vercel frontend and Render backend
 
+Public pages use `/simulation`, `/multiplayer`, `/preview` and `/playground`.
+Vite development/preview and the built Node host resolve these to the existing
+HTML entries and redirect old `.html` links with HTTP 308. Query strings are
+preserved; browsers retain fragments such as multiplayer invitations. Vercel
+uses [`cleanUrls`](https://vercel.com/docs/project-configuration/vercel-json#cleanurls)
+with `trailingSlash: false` for the same public paths. API routes keep their
+existing paths. Redeploy Vercel for the new navigation and hosting configuration;
+redeploy the Node host to use clean page URLs when accessing it directly.
+
 The repository-root `vercel.json` forwards `/api/simulation/*` to
 `https://pokemon-battle-simulator-r1p3.onrender.com/api/simulation/*` and disables
 rewrite caching. The browser continues using relative API URLs and same-origin
@@ -64,7 +73,7 @@ exact runtime version before relying on persisted engine checkpoints.
 `npm start` reads `PUBLIC_ORIGIN` once at startup. It must be one HTTP(S) origin,
 with no credentials, path, query, fragment or wildcard; a trailing slash is
 accepted. Use HTTPS in production. The origin must be the actual browser-facing
-Vercel domain, not the Render hostname or a page such as `/simulation.html`.
+Vercel domain, not the Render hostname or a page such as `/simulation`.
 With an HTTPS public origin, session creation, refresh and deletion all use
 Secure, HttpOnly, SameSite=Strict host-only cookies, even when Render forwards
 HTTP internally. Origin and Fetch Metadata checks remain enabled. Forwarded
@@ -79,7 +88,7 @@ Render domains.
 Push these changes to the connected deployment branch. Redeploy Render with the
 variables above, then redeploy Vercel from the same revision (`npm run build`,
 output `dist`). First check `/api/simulation/config` on the **Vercel** domain,
-then start a battle, choose a move and reload `/simulation.html` to verify the
+then start a battle, choose a move and reload `/simulation` to verify the
 session. A direct Render config response alone does not verify mutation origins
 or cookie forwarding.
 
