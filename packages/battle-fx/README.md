@@ -65,3 +65,16 @@ const attack = fx.play({
 ```
 
 `PHASE_TIMINGS.dive.prepare` and `.attack` contain `{ contact, duration }`; preparation's `contact` is the `prepared` cue time. `FX_CATALOG` marks these four moves with `phases: ['prepare', 'attack']`. Each file owns its visuals; phase selection adds no shared visual template and no battle rules. Dig/Dive use an owned masked snapshot when available, with a fade fallback for external adapters lacking `snapshot()`.
+
+## Accepted presentation variants
+
+`@battle/battle-fx/accepted-effects` exports `createAcceptedBattleFx(options)`.
+It retains all 335 registered recipes and wraps Thunder Punch with the approved
+white-yellow impact flash and branching lightning at its existing 0.52 s cue.
+The original recipe and default package entry stay available. The accent owns
+its graphics under the same timeline and cleanup, and requires no sound player,
+battle state, Vue or app imports. Explicit `options.effects` remains supported.
+
+The shared game host supplies this factory to the optional
+`@battle/battle-fx/presentation-clock` adapter, which applies reviewed visual
+pacing. Muting sound does not disable the accepted visual variant.

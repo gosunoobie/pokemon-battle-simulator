@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "batchId": "sync-005",
+  "reviewedRevision": "52a990c1bc3c460c345d25f3f27b885f5d424a48973db9e1b8e87cace64c2228",
+  "moves": [
+    {
+      "id": "fireblast",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.18,
+            "cueSeconds": 2.0225,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "A larger fire orb begins charging early, then launches into the same timed impact. Five moving flame streams replace the straight blast arms."
+      ]
+    },
+    {
+      "id": "solarbeam",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.08,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "Kept exactly as reviewed: the long connected beam, receiving glow and late sparks retain their approved timing."
+      ]
+    },
+    {
+      "id": "razorleaf",
+      "plan": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 1.67,
+            "soundAnchorSeconds": 0.31,
+            "cueSeconds": 0.28,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The last impact sound has been removed. The recording ends in the quiet gap at 1.67 s, with a brief fade inside the cut; the earlier leaf sounds and animation are unchanged."
+      ]
+    },
+    {
+      "id": "sludgebomb",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.83,
+            "soundAnchorSeconds": 1.19,
+            "cueSeconds": 1.02,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The correctly timed orb hit now spreads into a fuller wet splash, with late droplets and splashes following the remaining sound."
+      ]
+    },
+    {
+      "id": "overheat",
+      "plan": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.86,
+            "soundAnchorSeconds": 0.96,
+            "cueSeconds": 0.98,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "Three additional fire waves follow the original three. The last two arrive slightly later with the recording’s later impact crests."
+      ]
+    },
+    {
+      "id": "eruption",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 2.86,
+            "endSeconds": 6.67,
+            "soundAnchorSeconds": 3.08,
+            "cueSeconds": 0.94,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "Lava now flows continuously, with extra balls clustered around the nine sound crests. The sound region and its timing are unchanged."
+      ]
+    },
+    {
+      "id": "earthquake",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.7,
+            "soundAnchorSeconds": 1.5,
+            "cueSeconds": 1.2,
+            "gainDb": -2.15
+          }
+        ]
+      },
+      "notes": [
+        "Moving shock waves continue across the ground through the rumbling sound, followed by a short settling finish."
+      ]
+    },
+    {
+      "id": "thunder",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.72,
+            "cueSeconds": 0.84,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The second explosion keeps its reviewed timing. A glowing half-dome of uneven branching bolts and sparks stays above the target’s ground line."
+      ]
+    },
+    {
+      "id": "blizzard",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.53,
+            "cueSeconds": 1.929,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "Small incoming crystals visibly lodge on the opponent, stop, then grow into the larger crystals before shattering. The reviewed sound timing is preserved."
+      ]
+    },
+    {
+      "id": "bubblebeam",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 3.063333333333333,
+            "soundAnchorSeconds": 0.53,
+            "cueSeconds": 0.4,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The moving bubble stream and target pops continue through the sound ending, followed by a brief clear finish."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,392 @@
+{
+  "schemaVersion": 1,
+  "id": "sync-004",
+  "title": "Flames, falling water and spectral strikes",
+  "status": "unreviewed-comparison",
+  "moves": [
+    {
+      "id": "ember",
+      "assetId": "source.ember",
+      "sourceSha256": "849b40eeaa1d922b1c79c9e276657b55c1abe8a18d16a9f887faaf3f8c4b0456",
+      "sourcePcmSha256": "be27c655d3b112067b7151f974b57b461ba16fac8a0ff50035b410891a12f964",
+      "visualRevision": "9215c8576e6e14ae9dfd6002128b04bbfa8a89ce47e7c709a2c2e3f30e48a0ae",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.24,
+            "cueSeconds": 0.7,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "strongest-energy-window",
+          "startFrame": 10584
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "launch",
+          "label": "Cosmetic first small flame launches",
+          "timeSeconds": 0.26,
+          "evidence": "const start=.26+i*.085,flight=.44+(i%2)*.03"
+        },
+        {
+          "id": "final-launch",
+          "label": "Cosmetic fifth small flame launches",
+          "timeSeconds": 0.6,
+          "evidence": "const start=.26+i*.085,flight=.44+(i%2)*.03"
+        },
+        {
+          "id": "return",
+          "label": "Cosmetic return to the resting position begins",
+          "timeSeconds": 0.68,
+          "evidence": ".to(attacker,{x:home.x,y:home.y,rotation:0,duration:.34,ease:'power2.inOut'},.68)"
+        }
+      ],
+      "notes": [
+        "Candidate keeps the original animation pace and delays the complete recording by 0.46 s. Its measured 0.24 s strongest-energy window meets the first flame contact and existing result cue at 0.70 s.",
+        "The five separate flames retain their 0.085 s launch spacing, beginning at 0.26 s and ending at 0.60 s. Their later arrivals remain cosmetic within the existing single result.",
+        "The whole 1.2026984127 s recording ends at about 1.6627 s within the 1.70 s animation. Compare the firing sequence, first contact and brief sparks; native audio speed, full source boundaries and 0 dB gain are retained."
+      ]
+    },
+    {
+      "id": "waterfall",
+      "assetId": "source.waterfall",
+      "sourceSha256": "3433f208caf59e33ba0f020d6523243567103afae92e8f382bbe54464a6e634f",
+      "sourcePcmSha256": "f5cae7b13734073bcbfa9607f7a84b0da7e2b08f909b35aaf2da079534664094",
+      "visualRevision": "2111fc91b26b3bec071e56efb34bcb6acdab694b71659bfc2328ce9b3ee75b3f",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.71,
+            "cueSeconds": 0.78,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 31311
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "curtain",
+          "label": "Cosmetic water curtain begins appearing",
+          "timeSeconds": 0.32,
+          "evidence": "tl.to(curtain, { alpha: 1, duration: 0.08 }, 0.32)"
+        },
+        {
+          "id": "descent",
+          "label": "Cosmetic falling front starts descending",
+          "timeSeconds": 0.36,
+          "evidence": ".to(flow, { front: focus.y, duration: 0.42, ease: 'power1.in', onUpdate: drawClip }, 0.36)"
+        },
+        {
+          "id": "drain",
+          "label": "Cosmetic falling stream starts draining",
+          "timeSeconds": 1.92,
+          "evidence": ".to(flow, { tail: bottom, duration: 0.38, ease: 'power1.in', onUpdate: drawClip }, 1.92)"
+        },
+        {
+          "id": "pool-fade",
+          "label": "Cosmetic whitewater pool fade begins",
+          "timeSeconds": 2.3,
+          "evidence": ".to(pool, { alpha: 0, duration: 0.62 }, 2.3)"
+        }
+      ],
+      "notes": [
+        "Candidate keeps the original animation pace and delays the complete Waterfall recording by 0.07 s. Its measured 0.71 s energy rise meets the descending front and existing result cue at 0.78 s.",
+        "The later strongest-energy window at source 1.88 s occurs at elapsed 1.95 s, shortly after the authored stream drain begins at 1.92 s. These are numeric landmarks for comparison, without assigning the recording separate phase roles.",
+        "The whole 2.4780045351 s recording ends at about 2.5480 s during the spreading whitewater, before the pool finishes fading at 2.92 s and the visual ends at 3.15 s. Retain the full original, including its active ending, at native speed and 0 dB gain."
+      ]
+    },
+    {
+      "id": "dragonclaw",
+      "assetId": "source.dragon-claw",
+      "sourceSha256": "ea17cc040768906bb775cbaef61d185e1c107c47b5aceac3734ba8a5d3996ea8",
+      "sourcePcmSha256": "933be9875eb387645420a04e59542a5cd8af08f1ee5138d568b93ea6d92c90cd",
+      "visualRevision": "c54b981be46c4428ad726f4c1e329584dc76885026ca02767353fe91819ad271",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": -0.55
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.78,
+            "cueSeconds": 0.82,
+            "gainDb": -0.55
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 34398
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "charge",
+          "label": "Cosmetic claw charge begins appearing",
+          "timeSeconds": 0.08,
+          "evidence": ".to(charge,{alpha:.85,duration:.18},.08)"
+        },
+        {
+          "id": "swing",
+          "label": "Cosmetic talon sweep begins",
+          "timeSeconds": 0.48,
+          "evidence": ".to(swing,{angle,duration:.34,ease:'power2.in'},.48)"
+        },
+        {
+          "id": "return",
+          "label": "Cosmetic return to the resting position begins",
+          "timeSeconds": 1.07,
+          "evidence": ".to(attacker,{x:home.x,y:home.y,rotation:0,duration:.56,ease:'power2.inOut'},1.07)"
+        }
+      ],
+      "notes": [
+        "Candidate runs this audition animation at 90% pace. The measured 0.78 s energy rise meets the claw-tip contact and existing 0.82 s result cue at elapsed 0.9111 s, so the complete recording begins at about 0.1311 s.",
+        "The charged sweep starts at elapsed 0.5333 s and the return begins at about 1.1889 s. This small pacing comparison gives the full natural recording more room through recovery while preserving the talons, attached claw tip and their relative timing.",
+        "The whole 1.99 s recording ends at about 2.1211 s within the 2.2778 s paced visual. The later source energy maximum at 1.33 s remains later in the recovery; the chosen earlier rise is a listening hypothesis. Native audio speed and the existing -0.55 dB attenuation are retained."
+      ]
+    },
+    {
+      "id": "ancientpower",
+      "assetId": "source.ancient-power",
+      "sourceSha256": "022c18c84ae9860ebdd490aecb253507ac8c610522d38c1a6cc8f5975599d924",
+      "sourcePcmSha256": "8f77da4179ca92cf7d7718038afab949ea7eee905041240ebfce2d97a2cd36a5",
+      "visualRevision": "13681e6bf0c3443b2c6d81d30a17d44646720f8b1abbeeef5b19eec4ee3077b2",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.24,
+            "cueSeconds": 1.34,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "strongest-energy-window",
+          "startFrame": 54684
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "lift",
+          "label": "Cosmetic first rune-marked stone begins rising",
+          "timeSeconds": 0.16,
+          "evidence": "stones.push({stone,trail,start:.16+i*.06,launch,flight,origin,end,bow:(i-2)*r*.35})"
+        },
+        {
+          "id": "launch",
+          "label": "Cosmetic first rune-marked stone launches",
+          "timeSeconds": 0.86,
+          "evidence": "const angle=-Math.PI*.9+i*Math.PI*.45,launch=.86+i*.055,flight=.48"
+        },
+        {
+          "id": "field-fade",
+          "label": "Cosmetic source field fade begins",
+          "timeSeconds": 1.02,
+          "evidence": ".to(field,{alpha:0,duration:.3},1.02)"
+        }
+      ],
+      "notes": [
+        "Candidate keeps the original animation pace and delays the complete recording by 0.10 s. Its measured 1.24 s strongest-energy window meets the first stone arrival, visible pulse and existing result cue at 1.34 s.",
+        "Five rune-marked stones lift independently, then launch from 0.86 s at the original 0.055 s spacing. Their 0.48 s flights and following fragments remain cosmetic within one result.",
+        "The whole 1.95 s recording ends at 2.05 s within the 2.40 s animation. Compare the lift, accelerating stones and final fragments together; the natural pitch, complete source boundaries and 0 dB gain are retained."
+      ]
+    },
+    {
+      "id": "shadowpunch",
+      "assetId": "source.shadow-punch",
+      "sourceSha256": "504ca820663f72410285108dd3f6fc6983e81122e9689103d606b5392b894f43",
+      "sourcePcmSha256": "9c1b5233d9ea160e5197dc022fa5c32bab4e6e467a0eca56cc59d90e16a9a5b6",
+      "visualRevision": "d1cf2382aa0029f850f46c961d1f4ea0ac594109144feaf28fee15f6257bd078",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 0.74,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "strongest-energy-window",
+          "startFrame": 11466
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "fist",
+          "label": "Cosmetic spectral fist begins appearing",
+          "timeSeconds": 0.06,
+          "evidence": "tl.to(fist, { alpha: 1, duration: .25 }, .06)"
+        },
+        {
+          "id": "launch",
+          "label": "Cosmetic spectral fist launches",
+          "timeSeconds": 0.32,
+          "evidence": ".to(flight, { progress: 1, duration: .42, ease: 'power2.in' }, .32)"
+        },
+        {
+          "id": "impact-fade",
+          "label": "Cosmetic contact crescent fade begins",
+          "timeSeconds": 0.86,
+          "evidence": ".to(crescent, { alpha: 0, rotation: .65, duration: .32 }, .86)"
+        }
+      ],
+      "notes": [
+        "Candidate keeps the original animation pace and delays the complete recording by 0.48 s. Its measured 0.26 s strongest-energy window meets the spectral fist knuckle, crescent and existing result cue at 0.74 s.",
+        "The fist launches from the live hand or fist attachment at 0.32 s and crosses the field in 0.42 s with its three afterimages. The user stays at its resting slot throughout.",
+        "The whole 0.71 s recording ends at 1.19 s, alongside the contact crescent fading out at 1.18 s and before the 1.85 s visual ends. Compare the flight and short contact tail at native audio speed and 0 dB gain."
+      ]
+    },
+    {
+      "id": "swordsdance",
+      "assetId": "source.swords-dance",
+      "sourceSha256": "d629ddcc09c92259aebfa2e9ec4c0c80bdee30960d784d62dd4bcd9bb014cd80",
+      "sourcePcmSha256": "f0e02d82540d7733b5a7517191b6da3ff07e81092ffa4c2458e59d5cadca13d4",
+      "visualRevision": "dee5f534825d994802a8b972164c14ec3249e178d8907c70d5a186aa03093612",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.87,
+            "cueSeconds": 0.95,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "strongest-energy-window",
+          "startFrame": 38367
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "aura",
+          "label": "Cosmetic sword aura begins appearing",
+          "timeSeconds": 0.12,
+          "evidence": "tl.to(aura,{alpha:1,duration:.28},.12)"
+        },
+        {
+          "id": "orbit",
+          "label": "Cosmetic swords begin orbiting",
+          "timeSeconds": 0.2,
+          "evidence": "const phase=Math.max(0,Math.min(1,(time-.2)/1.35)),turn=phase*4.8"
+        },
+        {
+          "id": "orbit-end",
+          "label": "Cosmetic sword orbit reaches its final angle",
+          "timeSeconds": 1.55,
+          "evidence": "const phase=Math.max(0,Math.min(1,(time-.2)/1.35)),turn=phase*4.8"
+        },
+        {
+          "id": "aura-fade",
+          "label": "Cosmetic sword aura fade begins",
+          "timeSeconds": 1.72,
+          "evidence": ".to(aura,{alpha:0,duration:.42},1.72)"
+        }
+      ],
+      "notes": [
+        "Candidate keeps the original animation pace and delays the complete recording by 0.08 s. Its measured 0.87 s strongest-energy window meets the existing source-only result cue at 0.95 s while the four swords continue orbiting.",
+        "The orbit starts at 0.20 s and reaches its authored final angle at 1.55 s; the sword aura fades from 1.72 to 2.14 s. No opponent contact or extra result cue is introduced.",
+        "The whole 1.2414285714 s recording ends at about 1.3214 s within the 2.45 s animation, preserving its active natural ending. Compare the buildup, orbit and quiet fade at the original visual pace, native audio speed and 0 dB gain."
+      ]
+    }
+  ]
+}

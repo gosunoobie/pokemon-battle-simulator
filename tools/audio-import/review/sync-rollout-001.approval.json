@@ -1,0 +1,340 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-approved-rollout",
+  "approval": {
+    "source": "user-message",
+    "date": "2026-09-18",
+    "text": "The final versions of batch 7 looks and sounds perfect and let's use all of the latest version of the all movesets in these 7 batches and use them in the battle simulater , move preview and private battle simulator"
+  },
+  "batches": [
+    {
+      "id": "sync-004",
+      "manifest": {
+        "path": "tools/audio-import/review/sync-batch-004.rollout-manifest.json",
+        "sha256": "8e36e20ffe085e4554395ff925d399b1a0fe3e96153f7ef9ea0ffa1fb06dace1"
+      },
+      "reviewedRevision": "387d552224a56d2c074816adcbd65318c9d193f3da55a5b20726337f043a7dc1"
+    },
+    {
+      "id": "sync-005",
+      "manifest": {
+        "path": "tools/audio-import/review/sync-batch-005.rollout-manifest.json",
+        "sha256": "446df17dddb983cbbacb97c37a683b6c52a0feaeeaef34de4dc2f322a0b422c5"
+      },
+      "reviewedRevision": "0a285d0707e08e254f2461ab06e381f188a5690f5bbdceb2bd9365f6cccb0657"
+    },
+    {
+      "id": "sync-006",
+      "manifest": {
+        "path": "tools/audio-import/review/sync-batch-006.rollout-manifest.json",
+        "sha256": "62c4c732b46a3156f2cbaf491928fabcf14b23e9b72b28848a50d7e2198acf11"
+      },
+      "reviewedRevision": "7d767591d06745ce9e4fad5ef3ecc29f441de0d17d3ca0a681c6d49e76e71e8f"
+    },
+    {
+      "id": "sync-007",
+      "manifest": {
+        "path": "tools/audio-import/review/sync-batch-007.rollout-manifest.json",
+        "sha256": "05ce672148619471d48bf68733c6172d840c3f1e011cce900ee213cbe1a2e17a"
+      },
+      "reviewedRevision": "3e579872dcf811b8d818a903d3e281ad13a66d1036abaac17c54764cf0876f07"
+    }
+  ],
+  "feedback": {
+    "path": "tools/audio-import/review/sync-batch-007.feedback-01.json",
+    "sha256": "163e8d80a61cae276ccc3c738253f39eb305a10b25ee9aebbf88436825ff776a"
+  },
+  "supersedes": [
+    {
+      "moveId": "ancientpower",
+      "previousBatch": "sync-004",
+      "selectedBatch": "sync-006"
+    }
+  ],
+  "playbackPins": [
+    {
+      "path": "apps/sfx-bench/src/audio.js",
+      "sha256": "9a6e0f27b0ae5ba1a3688a3f61cdf61de448354c5a4fb25649efa8345cb38cc2"
+    },
+    {
+      "path": "apps/sfx-bench/src/batchFiveAudio.js",
+      "sha256": "9bc63398a83fc50d9b6738519a26b065469ad020c84367e8ebe4cb74b9ca48d0"
+    },
+    {
+      "path": "apps/sfx-bench/src/batchFiveVisual.js",
+      "sha256": "6c62e7a97d8553f614905ff91d1fe334d2075d7ecaafd5d9011bc755d0abefe2"
+    },
+    {
+      "path": "apps/sfx-bench/src/batchFiveVisualV2.js",
+      "sha256": "92d25cedb2d0ce7512538bebb381efa9590d37808d211dce04cbaeb719a4db46"
+    },
+    {
+      "path": "apps/sfx-bench/src/batchFiveVisualV3.js",
+      "sha256": "33afab5e4047a789e3cbb6c31f11a5063cc5e405c893a88c8722acdfe5e62282"
+    },
+    {
+      "path": "apps/sfx-bench/src/batchFiveVisualV4.js",
+      "sha256": "5d7f9fa11bd116de0b8415c210a4a9f438a0f3b1888e39f67c35ef7e15abd003"
+    },
+    {
+      "path": "apps/sfx-bench/src/batchSevenVisual.js",
+      "sha256": "b2fdc61c426aeb554a463cf3377a155f6a5fa67c01d3bd691c33ee81ca4fcae8"
+    },
+    {
+      "path": "apps/sfx-bench/src/batchSixVisual.js",
+      "sha256": "f98f057590d75d2ac177f50aeca826799b6cc17d6d8223617a2be6dc74dda7cc"
+    },
+    {
+      "path": "apps/sfx-bench/src/batchSixVisualV2.js",
+      "sha256": "2527221679ff011062944a4b4bae882b89d50f4e3b5845d124afe93a56a81ac9"
+    },
+    {
+      "path": "apps/sfx-bench/src/sync.js",
+      "sha256": "f49a75a1b14fb882d9ac948165017ba5e9c9e089e3d4ad252b15bcc387fc8645"
+    },
+    {
+      "path": "apps/sfx-bench/src/syncFeedback.js",
+      "sha256": "1c80a2dac82fae4c721e18777cbc2410e2c7c7304beb72f299ddc1dc520e8c5c"
+    },
+    {
+      "path": "apps/sfx-bench/src/syncVisual.js",
+      "sha256": "a80878868a33642ee1bb490ebeb4aeb9f2bd9b94c937ba40971422ea1babb627"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/ancient-power.js",
+      "sha256": "6a4aa4e6fb112b7c759be265b5f494bda060e469a0e21805d45fe4397c859bf0"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/attract.js",
+      "sha256": "3ce408eaca94dcbc44530fc86cbf0793efe346bf1548c230fa902e7bbd00bb89"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/blizzard.js",
+      "sha256": "747b631c51e127ce0374333c9d5fbd40e6dbf0511db7c6dbe5b792c106a37804"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/bubble-beam.js",
+      "sha256": "879c287c4dd698a69fd84f8bc7184f3e43f99fc0ca4f38ae983aa78cfc469837"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/confuse-ray.js",
+      "sha256": "446d9689c48aaddca0b34657ae85985d55496aab05473bd540095f9f0923a181"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/dragon-claw.js",
+      "sha256": "1875f355543e67f95518bffc2811736c90755f2cc12dd9742380b983011ca703"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/earthquake.js",
+      "sha256": "9b3851db9ee99029f43f5b0a61bef3704f1bc85c95a4ea1691430272794f9a8c"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/ember.js",
+      "sha256": "19dfa59b8613084c8016afc6a88f51b834e3ed7cd3d9d544d7e3eedcd9b8814f"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/eruption.js",
+      "sha256": "5e3c469b3a6e9ea91455972cbad03a8c5732e560aa9bf339a497caed0f424de6"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/fire-blast.js",
+      "sha256": "ee06a2c2ea10c3fc0ede3a7e0f3f1d5a0531e87b1109ee6cab11868594c0648a"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/grass-whistle.js",
+      "sha256": "b237197709592953cdc1299cf946bb2d0f0a2fb92100bc4b244b038131b9aacd"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/leaf-blade.js",
+      "sha256": "ba54a9b0f5a451a7b4eff01c76846ad6d52614750b81506c861509a747ee918a"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/meteor-mash.js",
+      "sha256": "ea8b7805fb9afb6c6e386d0723b65f75112409879c72a407ce3118b0b5d7b6f7"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/moonlight.js",
+      "sha256": "45c34cb991ea4b336c45317b1b7db806727fd635129f71a358e44ea5b7333d07"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/morning-sun.js",
+      "sha256": "96164d0bb71f3d1fe12a749ca05522229735b5ed29c9eaf08fe53630267efb07"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/overheat.js",
+      "sha256": "a67b794361b919ab9d486237eecdfc22023d7ccadfe71da61204a659a470173d"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/razor-leaf.js",
+      "sha256": "34c5e9d20b8644ddf8c64176ddb7907f50a4eae008eea7247bdd11801f03bdfe"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/sacred-fire.js",
+      "sha256": "cc7cc19310c21cb699bf64a4f79600a7cd35a2c67480af92c3025b5e8580aea2"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/shadow-punch.js",
+      "sha256": "8c9cfc9fabdb5d47a286b4bb1507332cabf4034baeda6cdcd60a0940f47bcd7f"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/sing.js",
+      "sha256": "6d9e6f6da33d835b76f32d43ac78fe46f240f7638a7f400347827cf37a934d04"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/sludge-bomb.js",
+      "sha256": "c71fba9a43c285203c1a0df26e338d46e0d0df5e93ae4c4cb24de41970b986a5"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/solar-beam.js",
+      "sha256": "1547c39448227ce9aed90f2c1b523ec29c86fa6f7c886a0fbe25242c2569c601"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/swords-dance.js",
+      "sha256": "6d0fa61357d1b64fbaa545449c23cfd10a2c8a16b5559fa7046ac495cdfbb60c"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/thunder.js",
+      "sha256": "a427ecf393fb26874b8e2c9cf0e794ff28f4fe4a27977c9542f782408d764824"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/tri-attack.js",
+      "sha256": "86847af40f6c3829eacf2c4bbc419dbe0eb2bdecfa180d21619f48aa962bffa1"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/waterfall.js",
+      "sha256": "afe0763d37594dc9401bdc3701c30f26f88ec4fd3e1cfb6ca6c33dcf19d7fee3"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v2/blizzard.js",
+      "sha256": "f26b7ddf1e80126300d9a30398693fec66402620d8c988d50a3cc9d23f44dabb"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v2/bubble-beam.js",
+      "sha256": "9beb3e57489d5da9e1dd21d58d1e33e1b40fa0517753b2328358eb0fd44ebb23"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v2/earthquake.js",
+      "sha256": "629fb4cd20f700462b2bb4f3a3a605fbfe24667c7379266679b8215fc15bf0e3"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v2/eruption.js",
+      "sha256": "f7dd0071bcb408d35ca0d7746c5bec8ab86c0852f70344e6c0238479609b5c7f"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v2/fire-blast.js",
+      "sha256": "a294761b953beb2ee9eb94ad66141cc99d8bdb39b613dc2fa977c23b91c48c09"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v2/overheat.js",
+      "sha256": "ba8a2d3a2f0e802fd1e10df3a0c5949cfff0aff7f696426a84efb338ab8b031e"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v2/sludge-bomb.js",
+      "sha256": "700be9a0ad59475258246696e8f626781daede6662a1f012c898b78da8dda7c6"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v2/thunder.js",
+      "sha256": "955252e5d30ce2ebe885a3bef92c42cb58a3ea64d2d577f98262bd9db0f466d2"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v3/blizzard.js",
+      "sha256": "d71506e837c54bd057986b10490db59ed507f4c398ef926bce8e05f701c4cf89"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v3/earthquake.js",
+      "sha256": "4a4870e87a7cbec21f562a5f5401a9be918f3f48fd0f1b9597fd3143bdb11d69"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v3/fire-blast.js",
+      "sha256": "e7c9868702d1042041295fcab38402f4865da13a4cde5975a10b6b73610584f3"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v3/thunder.js",
+      "sha256": "3fa5431391b75a139a9e43acca7447bb68d0958256ca450a6dcc62d67fba9b89"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v4/blizzard.js",
+      "sha256": "6b9bebf21f744183dfe7b93b6ccd1347fa9a25198b14c971328a9b54097d4244"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v4/eruption.js",
+      "sha256": "211601ab1e7c1b06c9549696c89d7f76e69b7858ce45c30aca37caf839468be9"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five/blizzard.js",
+      "sha256": "ff8059e51d0995b069d622288707902598b038853e4ba20da82f85cdca175adf"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five/eruption.js",
+      "sha256": "99a153cf5cb042e316268ac08dd103da25844ecdf56d1126c96e9ddd77bda141"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five/fire-blast.js",
+      "sha256": "90c5fda92f01f319830b60a19d454d324b0ccda04c215f64e9dee759e6617e24"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five/solar-beam.js",
+      "sha256": "fb4690238b27748697c8193316fc1cc4b55035474f7fd5c2369d96f677bc90ba"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five/thunder.js",
+      "sha256": "f2dc6223818ef9a819f8a0ed8b77b0997a2af89b420480e2ef7e9cb88f7daf94"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-seven/attract.js",
+      "sha256": "fd328d23c5f40f1e27f65d36e4033520737c4c67cadbfc9c56046a7418b35e66"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-seven/confuse-ray.js",
+      "sha256": "b07b10c0fcba04a218b96dba87f29e8bd8e806f40d9e01a45a2b20fadfddf733"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-seven/grass-whistle.js",
+      "sha256": "e3356f55dbb941852fcc7b9c1554245f6aacdcdb3a5e9e29f7a3b07b97a9d3f8"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-seven/moonlight.js",
+      "sha256": "c42cbff7514cd0ea434c705d0af72a63a30c48dccc7403a01594e32be2138210"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-seven/morning-sun.js",
+      "sha256": "647f19016217bb183b8318cf8efb440505c2575e82e79c10508a779c6958a03d"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-seven/sing.js",
+      "sha256": "2381b88d32b262fcb668b3ec21a2ba986b849c636f9adde6d75addd309a547b1"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-six-v2/ancient-power.js",
+      "sha256": "398b3ae387d611769c66b72f79aa290cee9f702a1862f283dcd0055afd2d1555"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-six-v2/leaf-blade.js",
+      "sha256": "86413d1e44cc5b79ab05478139720512d74f2cd6f4039f1a35757d50ea6f8f6a"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-six-v2/sacred-fire.js",
+      "sha256": "1edeb33ec1d66698c078298945b3e138a08a48670ec8ea8d4d4fd578fd2ab1d9"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-six/ancient-power.js",
+      "sha256": "7ee1992be736ef6f921d8ccc6d51f3bcc8a8bd2f21e25199e806e6d05095d838"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-six/leaf-blade.js",
+      "sha256": "0ffe1e4b36ab9d1f9dfbd3c144df791c034ff981352024f294909f8afc058d7f"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-six/meteor-mash.js",
+      "sha256": "e1137286a6d3cf5b7eb66dc914867cfad53001ae86fcc02fd0ba9e920c6375a9"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-six/sacred-fire.js",
+      "sha256": "2f99c121a693c4376880c68d52403c2f00ee0b536fc96d356323f45fbd4ea6e2"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-six/tri-attack.js",
+      "sha256": "7e860222f4969f139157758656321792f7101f2c35025a016472a1437cecac7f"
+    }
+  ]
+}

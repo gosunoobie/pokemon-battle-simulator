@@ -1,0 +1,1040 @@
+{
+  "schemaVersion": 1,
+  "id": "sync-006",
+  "title": "Blades, elemental aftermath and sacred flames",
+  "status": "unreviewed-comparison",
+  "revision": "6e8c0107147cef09802a73458c80e20832dbf05eefbc3403794234257c513ba4",
+  "moves": [
+    {
+      "id": "leafblade",
+      "fxId": "leaf-blade",
+      "name": "Leaf Blade",
+      "asset": {
+        "id": "source.leaf-blade",
+        "url": "/sound_effects/Leaf%20Blade.mp3",
+        "bytes": 149547,
+        "sha256": "7470d0046d85a0b09268dc324e2a79bca1a4549b6fcf2c81cd82ceabfc463b2b",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 162289,
+          "durationSeconds": 3.68002268,
+          "decodedBytes": 1298312,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "d2817018f72da2233378ef95764db44438c3c769455cc7cabd5f0119bf3e9f3e",
+          "peak": 0.32212868,
+          "peakDbfs": -9.83941205,
+          "rmsDbfs": -26.5282709,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4282,
+          "trailingQuietFrames": 0,
+          "stereoCorrelation": 0.99999216,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 4.2,
+        "visualRevision": "8feef9e26536d7693e676f25791608d3cbab42a62c08788dcb3c908ed6b5aa46",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 2.56
+          },
+          {
+            "id": "first-blade-contact",
+            "label": "First physical contact · right-inclined slash",
+            "timeSeconds": 0.81
+          },
+          {
+            "id": "second-blade-contact",
+            "label": "Second physical contact · left-inclined slash",
+            "timeSeconds": 1.69
+          },
+          {
+            "id": "cross-finish",
+            "label": "Both slashes form the cross · result cue",
+            "timeSeconds": 2.56
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.41,
+            "cueSeconds": 0.81,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "Only the upper curved green blade remains, with its white edge. The two strikes, opposite cuts, cross finish and sound timing are unchanged."
+      ],
+      "originalVisual": {
+        "durationSeconds": 1.95,
+        "visualRevision": "e071a01a8d31429f02387ccdaeaf3db877bf7109c1509d6d8c1153c3776ab869",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.82
+          }
+        ]
+      },
+      "visualAccent": {
+        "id": "batch-six-leafblade-v2",
+        "revision": "8feef9e26536d7693e676f25791608d3cbab42a62c08788dcb3c908ed6b5aa46"
+      },
+      "previousVisual": {
+        "visualRevision": "531eadff8d49fd6f57732297e3a576c9d779efd6199dbf87a10e066612bd4416",
+        "durationSeconds": 4.2,
+        "markers": [
+          {
+            "id": "first-blade-contact",
+            "label": "First physical contact · right-inclined slash",
+            "timeSeconds": 0.81
+          },
+          {
+            "id": "second-blade-contact",
+            "label": "Second physical contact · left-inclined slash",
+            "timeSeconds": 1.69
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 2.56
+          },
+          {
+            "id": "cross-finish",
+            "label": "Both slashes form the cross · result cue",
+            "timeSeconds": 2.56
+          }
+        ]
+      },
+      "previousVisualAccent": {
+        "id": "batch-six-leafblade-v1",
+        "revision": "531eadff8d49fd6f57732297e3a576c9d779efd6199dbf87a10e066612bd4416"
+      },
+      "previousPlayback": "batch-six-v1",
+      "previousReview": {
+        "verdict": "adjust-animation",
+        "notes": "Everything looks good the animation, sound frames and all just change the curved green blade, where the curved green blade is only the top half , remove the bottom half of the curved green blade. And keep everything else the same",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.41,
+              "cueSeconds": 0.81,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": true,
+        "revision": "1494b2d4f74885194ef3a95e13e0ea3e6cbd49e99d7b1c37ebcfcf6ba8a2e1af"
+      }
+    },
+    {
+      "id": "triattack",
+      "fxId": "tri-attack",
+      "name": "Tri Attack",
+      "asset": {
+        "id": "source.tri-attack",
+        "url": "/sound_effects/Tri%20Attack.mp3",
+        "bytes": 191343,
+        "sha256": "f50e1cd0c25dd3957f777d4490e25b134d1ee296612ebef69c721c8785f618a6",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 208152,
+          "durationSeconds": 4.72,
+          "decodedBytes": 1665216,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "443f8766ff4e4f0c9fb498de237d594ec9bfef8417ed6e9ba81473ea63e8301d",
+          "peak": 0.35402602,
+          "peakDbfs": -9.01929636,
+          "rmsDbfs": -22.87594799,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4227,
+          "trailingQuietFrames": 4906,
+          "stereoCorrelation": 0.99999951,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "visualRevision": "f44616a3ec9f7836b2efae8abf4feec227f88b2511949faa4ed6990dedaf46b3",
+        "durationSeconds": 4.9,
+        "markers": [
+          {
+            "id": "formation",
+            "label": "Three elemental orbs form",
+            "timeSeconds": 0.1
+          },
+          {
+            "id": "launch",
+            "label": "Triangle launches",
+            "timeSeconds": 0.48
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.06
+          },
+          {
+            "id": "burn",
+            "label": "Burning aftermath begins",
+            "timeSeconds": 1.06
+          },
+          {
+            "id": "burn-crest",
+            "label": "Flames flare at the first sound accent",
+            "timeSeconds": 1.42
+          },
+          {
+            "id": "spark",
+            "label": "Electrical aftermath begins",
+            "timeSeconds": 1.84
+          },
+          {
+            "id": "spark-crest",
+            "label": "Electrical impact crest",
+            "timeSeconds": 1.96
+          },
+          {
+            "id": "crackle",
+            "label": "Later electrical crackle",
+            "timeSeconds": 2.17
+          },
+          {
+            "id": "freeze",
+            "label": "Upright ice begins growing",
+            "timeSeconds": 2.67
+          },
+          {
+            "id": "ice-shatter",
+            "label": "First ice shatter accent",
+            "timeSeconds": 3.73
+          },
+          {
+            "id": "last-shatter",
+            "label": "Final crystal breaks",
+            "timeSeconds": 4.39
+          },
+          {
+            "id": "aftermath-end",
+            "label": "Last ice fragments clear",
+            "timeSeconds": 4.8
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.96,
+            "cueSeconds": 1.96,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The original elemental triangle is followed by burning flames, electrical sparks and upright growing ice crystals on the recording’s successive accents."
+      ],
+      "originalVisual": {
+        "durationSeconds": 2,
+        "visualRevision": "b93ba0de28549015952e1b9334fbc5a22724e05c834e90c9537526b1bd96b396",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.06
+          }
+        ]
+      },
+      "visualAccent": {
+        "id": "batch-six-triattack-v1",
+        "revision": "f44616a3ec9f7836b2efae8abf4feec227f88b2511949faa4ed6990dedaf46b3"
+      },
+      "previousVisual": {
+        "visualRevision": "f44616a3ec9f7836b2efae8abf4feec227f88b2511949faa4ed6990dedaf46b3",
+        "durationSeconds": 4.9,
+        "markers": [
+          {
+            "id": "formation",
+            "label": "Three elemental orbs form",
+            "timeSeconds": 0.1
+          },
+          {
+            "id": "launch",
+            "label": "Triangle launches",
+            "timeSeconds": 0.48
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.06
+          },
+          {
+            "id": "burn",
+            "label": "Burning aftermath begins",
+            "timeSeconds": 1.06
+          },
+          {
+            "id": "burn-crest",
+            "label": "Flames flare at the first sound accent",
+            "timeSeconds": 1.42
+          },
+          {
+            "id": "spark",
+            "label": "Electrical aftermath begins",
+            "timeSeconds": 1.84
+          },
+          {
+            "id": "spark-crest",
+            "label": "Electrical impact crest",
+            "timeSeconds": 1.96
+          },
+          {
+            "id": "crackle",
+            "label": "Later electrical crackle",
+            "timeSeconds": 2.17
+          },
+          {
+            "id": "freeze",
+            "label": "Upright ice begins growing",
+            "timeSeconds": 2.67
+          },
+          {
+            "id": "ice-shatter",
+            "label": "First ice shatter accent",
+            "timeSeconds": 3.73
+          },
+          {
+            "id": "last-shatter",
+            "label": "Final crystal breaks",
+            "timeSeconds": 4.39
+          },
+          {
+            "id": "aftermath-end",
+            "label": "Last ice fragments clear",
+            "timeSeconds": 4.8
+          }
+        ]
+      },
+      "previousVisualAccent": {
+        "id": "batch-six-triattack-v1",
+        "revision": "f44616a3ec9f7836b2efae8abf4feec227f88b2511949faa4ed6990dedaf46b3"
+      },
+      "previousPlayback": "batch-six-v1",
+      "previousReview": {
+        "verdict": "keep",
+        "notes": "Looks good enough",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 1.96,
+              "cueSeconds": 1.96,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": false,
+        "revision": "1494b2d4f74885194ef3a95e13e0ea3e6cbd49e99d7b1c37ebcfcf6ba8a2e1af"
+      }
+    },
+    {
+      "id": "meteormash",
+      "fxId": "meteor-mash",
+      "name": "Meteor Mash",
+      "asset": {
+        "id": "source.meteor-mash",
+        "url": "/sound_effects/Meteor%20Mash.mp3",
+        "bytes": 77449,
+        "sha256": "1a905afa713277016e83a32e5091f75aa6f7555e1478aa5be47ca6792034d0fe",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 82908,
+          "durationSeconds": 1.88,
+          "decodedBytes": 663264,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "01a936a01ed88c25f4fe51ba6365c6d2ce139eb7fd365f8655111a6a22954499",
+          "peak": 0.33062255,
+          "peakDbfs": -9.61335048,
+          "rmsDbfs": -26.74845398,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4040,
+          "trailingQuietFrames": 5096,
+          "stereoCorrelation": 0.99999851,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "visualRevision": "957981d9f9cc7889530b0e6f9beef95a89007a60905757cfcbe761c280f84ed1",
+        "durationSeconds": 2.5,
+        "markers": [
+          {
+            "id": "comet",
+            "label": "Comet fist approaches",
+            "timeSeconds": 0.42
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.34
+          },
+          {
+            "id": "star-crest",
+            "label": "Cosmic star impact crest",
+            "timeSeconds": 1.49
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.24,
+            "cueSeconds": 1.34,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "A larger star-shaped impact and scattered stars glow against a dark violet space cloud. The fist contact meets the late impact accent."
+      ],
+      "originalVisual": {
+        "durationSeconds": 1.95,
+        "visualRevision": "6cf11c72205a680052eed2e3bb0256307a1e21f1789aed2fa5b00927c61a2a53",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.78
+          }
+        ]
+      },
+      "visualAccent": {
+        "id": "batch-six-meteormash-v1",
+        "revision": "957981d9f9cc7889530b0e6f9beef95a89007a60905757cfcbe761c280f84ed1"
+      },
+      "previousVisual": {
+        "visualRevision": "957981d9f9cc7889530b0e6f9beef95a89007a60905757cfcbe761c280f84ed1",
+        "durationSeconds": 2.5,
+        "markers": [
+          {
+            "id": "comet",
+            "label": "Comet fist approaches",
+            "timeSeconds": 0.42
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.34
+          },
+          {
+            "id": "star-crest",
+            "label": "Cosmic star impact crest",
+            "timeSeconds": 1.49
+          }
+        ]
+      },
+      "previousVisualAccent": {
+        "id": "batch-six-meteormash-v1",
+        "revision": "957981d9f9cc7889530b0e6f9beef95a89007a60905757cfcbe761c280f84ed1"
+      },
+      "previousPlayback": "batch-six-v1",
+      "previousReview": {
+        "verdict": "keep",
+        "notes": "looks good enough",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 1.24,
+              "cueSeconds": 1.34,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": false,
+        "revision": "1494b2d4f74885194ef3a95e13e0ea3e6cbd49e99d7b1c37ebcfcf6ba8a2e1af"
+      }
+    },
+    {
+      "id": "ancientpower",
+      "fxId": "ancient-power",
+      "name": "Ancient Power",
+      "asset": {
+        "id": "source.ancient-power",
+        "url": "/sound_effects/Ancient%20Power.mp3",
+        "bytes": 80584,
+        "sha256": "022c18c84ae9860ebdd490aecb253507ac8c610522d38c1a6cc8f5975599d924",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 85995,
+          "durationSeconds": 1.95,
+          "decodedBytes": 687960,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "8f77da4179ca92cf7d7718038afab949ea7eee905041240ebfce2d97a2cd36a5",
+          "peak": 0.38498023,
+          "peakDbfs": -8.29123141,
+          "rmsDbfs": -23.17556693,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4193,
+          "trailingQuietFrames": 5260,
+          "stereoCorrelation": 0.99999956,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.4,
+        "visualRevision": "dba3e27d5c7b9355dc09bac31858058e2db7525e6afe3e177ace360ff6296e54",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.34
+          },
+          {
+            "id": "lift",
+            "label": "Five rendered rocks rise into orbit",
+            "timeSeconds": 0.16
+          },
+          {
+            "id": "launch",
+            "label": "First orbiting rock launches",
+            "timeSeconds": 0.86
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.24,
+            "cueSeconds": 1.34,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "Five rocks use the same rendered texture as Rock Slide at twice the previous size. A wider, evenly spaced orbit passes behind and in front of the user before the original five launches and impacts."
+      ],
+      "originalVisual": {
+        "durationSeconds": 2.4,
+        "visualRevision": "13681e6bf0c3443b2c6d81d30a17d44646720f8b1abbeeef5b19eec4ee3077b2",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.34
+          }
+        ]
+      },
+      "visualAccent": {
+        "id": "batch-six-ancientpower-v2",
+        "revision": "dba3e27d5c7b9355dc09bac31858058e2db7525e6afe3e177ace360ff6296e54"
+      },
+      "previousVisual": {
+        "visualRevision": "dd4fcefbbe1d83b03382dfef5ef0d1103be92999691398d7b642b1fb721321ef",
+        "durationSeconds": 2.4,
+        "markers": [
+          {
+            "id": "lift",
+            "label": "Stones begin rising",
+            "timeSeconds": 0.16
+          },
+          {
+            "id": "launch",
+            "label": "First stone launches",
+            "timeSeconds": 0.86
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.34
+          }
+        ]
+      },
+      "previousVisualAccent": {
+        "id": "batch-six-ancientpower-v1",
+        "revision": "dd4fcefbbe1d83b03382dfef5ef0d1103be92999691398d7b642b1fb721321ef"
+      },
+      "previousPlayback": "batch-six-v1",
+      "previousReview": {
+        "verdict": "adjust-animation",
+        "notes": "Use the final rendered rock slide's rock not the silhouette ones, show the actual renders and increase the sizes of the rocks by 100% and also make them appear infront and behind the user pokemon in a circle which gives a 3d kind of effect keep the number of rocks the same just increase the size and increase the radius of their orbit to surround the user pokemon and keep the spacings between them even. Keep the sound frames and impact timings the same",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 1.24,
+              "cueSeconds": 1.34,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": true,
+        "revision": "1494b2d4f74885194ef3a95e13e0ea3e6cbd49e99d7b1c37ebcfcf6ba8a2e1af"
+      }
+    },
+    {
+      "id": "sacredfire",
+      "fxId": "sacred-fire",
+      "name": "Sacred Fire",
+      "asset": {
+        "id": "source.sacred-fire",
+        "url": "/sound_effects/Sacred%20Fire.mp3",
+        "bytes": 163131,
+        "sha256": "4a988106c19f8cd964fc17f086632cc7014a3787c71fabaa98db105f7bfce25e",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 177391,
+          "durationSeconds": 4.02247166,
+          "decodedBytes": 1419128,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "71f5ac985a250dcbc2667e28b9e2941ad3559f53f51c56feaf70b2eb64c5c4d5",
+          "peak": 0.42022666,
+          "peakDbfs": -7.5303279,
+          "rmsDbfs": -20.91125909,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4198,
+          "trailingQuietFrames": 72,
+          "stereoCorrelation": 0.99999973,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 4.5,
+        "visualRevision": "e3bdfe18b7640edbf34ea0ea6ce8a4f4e1fe7a9f0cec2f6b454794bd6a89be79",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.42
+          },
+          {
+            "id": "charge",
+            "label": "Purple body flames gather",
+            "timeSeconds": 0.08
+          },
+          {
+            "id": "charge-rise",
+            "label": "Purple charge swells",
+            "timeSeconds": 0.18
+          },
+          {
+            "id": "launch",
+            "label": "Purple flame stream starts",
+            "timeSeconds": 0.84
+          },
+          {
+            "id": "final-launch",
+            "label": "Purple flame stream cuts off",
+            "timeSeconds": 1.54
+          },
+          {
+            "id": "stream-clear",
+            "label": "Last released flames clear",
+            "timeSeconds": 2.24
+          },
+          {
+            "id": "crown-rise",
+            "label": "Purple flame crown rises",
+            "timeSeconds": 1.56
+          },
+          {
+            "id": "crown-surge",
+            "label": "Purple flame crown surges",
+            "timeSeconds": 3.44
+          },
+          {
+            "id": "crown-fade",
+            "label": "Flowing crown begins fading",
+            "timeSeconds": 3.85
+          },
+          {
+            "id": "flames-clear",
+            "label": "Crown flames clear",
+            "timeSeconds": 4.32
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": -0.46
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.12,
+            "cueSeconds": 0.18,
+            "gainDb": -0.46
+          }
+        ]
+      },
+      "notes": [
+        "The approved purple charging flames stay intact. A Dragon Breath-style stream releases toward the opponent, then the same purple flame material forms a larger crown with doubled flame dimensions and even spacing."
+      ],
+      "originalVisual": {
+        "durationSeconds": 2.2,
+        "visualRevision": "cf290374861c8955c3b090edce446d8b8e7ef203be454c4ac5d31c5daa44141f",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.94
+          }
+        ]
+      },
+      "visualAccent": {
+        "id": "batch-six-sacredfire-v2",
+        "revision": "e3bdfe18b7640edbf34ea0ea6ce8a4f4e1fe7a9f0cec2f6b454794bd6a89be79"
+      },
+      "previousVisual": {
+        "visualRevision": "da339bbe6348d32984a45804b1594700a2baf18257007d317e9c86af0ffbee12",
+        "durationSeconds": 4.5,
+        "markers": [
+          {
+            "id": "charge",
+            "label": "Purple body flames gather",
+            "timeSeconds": 0.08
+          },
+          {
+            "id": "charge-rise",
+            "label": "Purple charge swells",
+            "timeSeconds": 0.18
+          },
+          {
+            "id": "launch",
+            "label": "First sacred ember launches",
+            "timeSeconds": 0.84
+          },
+          {
+            "id": "final-launch",
+            "label": "Last sacred ember launches",
+            "timeSeconds": 0.99
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.42
+          },
+          {
+            "id": "crown-rise",
+            "label": "Rainbow flame crown rises",
+            "timeSeconds": 1.56
+          },
+          {
+            "id": "crown-surge",
+            "label": "Rainbow crown surges",
+            "timeSeconds": 3.44
+          },
+          {
+            "id": "crown-fade",
+            "label": "Flowing crown begins fading",
+            "timeSeconds": 3.85
+          },
+          {
+            "id": "flames-clear",
+            "label": "Crown flames clear",
+            "timeSeconds": 4.32
+          }
+        ]
+      },
+      "previousVisualAccent": {
+        "id": "batch-six-sacredfire-v1",
+        "revision": "da339bbe6348d32984a45804b1594700a2baf18257007d317e9c86af0ffbee12"
+      },
+      "previousPlayback": "batch-six-v1",
+      "previousReview": {
+        "verdict": "adjust-animation",
+        "notes": "The initial purple ember flames that surrounds the user pokemon looks perfect when releasing the release should be the flames just like in dragon breath and on impact the final explosion should have the same flames as in the initial flames at the start but in crown formation and the sizes of the flames should be double in height and width and spacings should be well maintained where they form a crown like structure.",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.12,
+              "cueSeconds": 0.18,
+              "gainDb": -0.46
+            }
+          ]
+        },
+        "changed": true,
+        "revision": "1494b2d4f74885194ef3a95e13e0ea3e6cbd49e99d7b1c37ebcfcf6ba8a2e1af"
+      }
+    }
+  ],
+  "defaultMoveId": "leafblade",
+  "reviewPlayback": "batch-six-feedback-v2",
+  "feedbackRecords": [
+    {
+      "moveId": "leafblade",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.41,
+            "cueSeconds": 0.81,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "unreviewed",
+      "notes": "Everything looks good the animation, sound frames and all just change the curved green blade, where the curved green blade is only the top half , remove the bottom half of the curved green blade. And keep everything else the same",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 176641,
+        "durationSeconds": 3.6800208333333333,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-six-leafblade-v2",
+        "revision": "8feef9e26536d7693e676f25791608d3cbab42a62c08788dcb3c908ed6b5aa46"
+      }
+    },
+    {
+      "moveId": "triattack",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.96,
+            "cueSeconds": 1.96,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 226560,
+        "durationSeconds": 4.72,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-six-triattack-v1",
+        "revision": "f44616a3ec9f7836b2efae8abf4feec227f88b2511949faa4ed6990dedaf46b3"
+      }
+    },
+    {
+      "moveId": "meteormash",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.24,
+            "cueSeconds": 1.34,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 90240,
+        "durationSeconds": 1.88,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-six-meteormash-v1",
+        "revision": "957981d9f9cc7889530b0e6f9beef95a89007a60905757cfcbe761c280f84ed1"
+      }
+    },
+    {
+      "moveId": "ancientpower",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.24,
+            "cueSeconds": 1.34,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "unreviewed",
+      "notes": "Use the final rendered rock slide's rock not the silhouette ones, show the actual renders and increase the sizes of the rocks by 100% and also make them appear infront and behind the user pokemon in a circle which gives a 3d kind of effect keep the number of rocks the same just increase the size and increase the radius of their orbit to surround the user pokemon and keep the spacings between them even. Keep the sound frames and impact timings the same",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 93600,
+        "durationSeconds": 1.95,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-six-ancientpower-v2",
+        "revision": "dba3e27d5c7b9355dc09bac31858058e2db7525e6afe3e177ace360ff6296e54"
+      }
+    },
+    {
+      "moveId": "sacredfire",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.12,
+            "cueSeconds": 0.18,
+            "gainDb": -0.46
+          }
+        ]
+      },
+      "verdict": "unreviewed",
+      "notes": "The initial purple ember flames that surrounds the user pokemon looks perfect when releasing the release should be the flames just like in dragon breath and on impact the final explosion should have the same flames as in the initial flames at the start but in crown formation and the sizes of the flames should be double in height and width and spacings should be well maintained where they form a crown like structure.",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 193078,
+        "durationSeconds": 4.022458333333334,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-six-sacredfire-v2",
+        "revision": "e3bdfe18b7640edbf34ea0ea6ce8a4f4e1fe7a9f0cec2f6b454794bd6a89be79"
+      }
+    }
+  ],
+  "batches": [
+    {
+      "id": "sync-001",
+      "label": "Batch 1 · Accepted",
+      "status": "accepted"
+    },
+    {
+      "id": "sync-002",
+      "label": "Batch 2 · Accepted",
+      "status": "accepted"
+    },
+    {
+      "id": "sync-003",
+      "label": "Batch 3 · Accepted",
+      "status": "accepted"
+    },
+    {
+      "id": "sync-004",
+      "label": "Batch 4 · Review",
+      "status": "unreviewed-comparison"
+    },
+    {
+      "id": "sync-005",
+      "label": "Batch 5 · Odd ones out",
+      "status": "unreviewed-comparison"
+    },
+    {
+      "id": "sync-006",
+      "label": "Batch 6 · Blades and sacred flames",
+      "status": "unreviewed-comparison"
+    }
+  ]
+}

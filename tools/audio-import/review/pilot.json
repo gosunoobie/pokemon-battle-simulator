@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "status": "unreviewed-pilot",
+  "moves": ["tackle", "flamethrower", "hyperbeam", "doublekick", "bulletseed", "absorb", "protect", "willowisp", "raindance", "fly", "mirrormove", "present"],
+  "prepare": ["fly"],
+  "events": ["battle.hit.normal", "battle.hit.super-effective", "battle.hit.resisted", "battle.heal", "battle.faint"],
+  "authoredMarkers": {
+    "doublekick:attack": [
+      { "id": "contact-1", "label": "First kick contact", "timeSeconds": 0.52, "evidence": "times=[.52,.94]" }
+    ],
+    "bulletseed:attack": [
+      { "id": "contact-1", "label": "Seed contact 1", "timeSeconds": 0.61, "evidence": "start:.25+i*.105,flight:.36" },
+      { "id": "contact-2", "label": "Seed contact 2", "timeSeconds": 0.715, "evidence": "start:.25+i*.105,flight:.36" },
+      { "id": "contact-3", "label": "Seed contact 3", "timeSeconds": 0.82, "evidence": "start:.25+i*.105,flight:.36" },
+      { "id": "contact-4", "label": "Seed contact 4", "timeSeconds": 0.925, "evidence": "start:.25+i*.105,flight:.36" }
+    ],
+    "present:attack": [
+      { "id": "arrival", "label": "Gift arrival (before opening)", "timeSeconds": 1.14, "evidence": "update(1.14)},[],1.14)" }
+    ]
+  }
+}

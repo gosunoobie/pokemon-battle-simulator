@@ -1,0 +1,480 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-reviews",
+  "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "status": "approved",
+      "subject": {
+        "kind": "move",
+        "id": "tackle",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.tackle",
+        "sha256": "c28368a1d96929c975689f90f423d65d138114ad73b09e2e060276d34d59cf3f",
+        "pcmSha256": "f210742ca66889b3ecb062367a5795d91504c1fd5fd5c14a2acea04f2877e5b7",
+        "sampleRate": 44100,
+        "sampleFrames": 24758,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "5e29d33ff362331684c39ecddddd2496722332e9b453d173d0d20c38eafa584d",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 24758,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "Dong",
+        "notes": "Sounds good",
+        "near": true,
+        "far": true,
+        "native": {
+          "browser": "Chrome",
+          "version": "152.0.0.0",
+          "sampleRate": 48000,
+          "sampleFrames": 26947,
+          "alignmentConfirmed": true,
+          "notes": "Sounds good"
+        }
+      },
+      "approvalFingerprint": "{\"review\":{\"far\":true,\"native\":{\"alignmentConfirmed\":true,\"browser\":\"Chrome\",\"notes\":\"Sounds good\",\"sampleFrames\":26947,\"sampleRate\":48000,\"version\":\"152.0.0.0\"},\"near\":true,\"notes\":\"Sounds good\",\"reviewer\":\"Dong\"},\"schemaVersion\":1,\"segments\":[{\"endFrame\":24758,\"gainDb\":0,\"nativeOffsetSeconds\":0,\"sourceAnchorFrame\":0,\"startFrame\":0,\"visualAnchorSeconds\":0}],\"source\":{\"assetId\":\"source.tackle\",\"auditLockSha256\":\"614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887\",\"pcmSha256\":\"f210742ca66889b3ecb062367a5795d91504c1fd5fd5c14a2acea04f2877e5b7\",\"sampleFrames\":24758,\"sampleRate\":44100,\"sha256\":\"c28368a1d96929c975689f90f423d65d138114ad73b09e2e060276d34d59cf3f\"},\"subject\":{\"id\":\"tackle\",\"kind\":\"move\",\"phase\":\"attack\"},\"visualRevision\":\"5e29d33ff362331684c39ecddddd2496722332e9b453d173d0d20c38eafa584d\"}"
+    },
+    {
+      "schemaVersion": 1,
+      "status": "approved",
+      "subject": {
+        "kind": "move",
+        "id": "flamethrower",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.flamethrower",
+        "sha256": "6dbe5f9c21bfbcea605bd4efac7b14ce87a00c2a6789f848e5685bc3902cd285",
+        "pcmSha256": "6ff948373f4c3bdc29681d66f645aa235083cbb39ef652acaf13d4bec9d84ce5",
+        "sampleRate": 44100,
+        "sampleFrames": 149299,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "2decf3e49a5cdb4ff66f9ebe5d9bab5020350804810ae3264481c65b77e377e4",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 149299,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "Dong",
+        "notes": "Perfect",
+        "near": true,
+        "far": true,
+        "native": {
+          "browser": "Chrome",
+          "version": "152.0.0.0",
+          "sampleRate": 48000,
+          "sampleFrames": 162502,
+          "alignmentConfirmed": true,
+          "notes": "Perfect"
+        }
+      },
+      "approvalFingerprint": "{\"review\":{\"far\":true,\"native\":{\"alignmentConfirmed\":true,\"browser\":\"Chrome\",\"notes\":\"Perfect\",\"sampleFrames\":162502,\"sampleRate\":48000,\"version\":\"152.0.0.0\"},\"near\":true,\"notes\":\"Perfect\",\"reviewer\":\"Dong\"},\"schemaVersion\":1,\"segments\":[{\"endFrame\":149299,\"gainDb\":0,\"nativeOffsetSeconds\":0,\"sourceAnchorFrame\":0,\"startFrame\":0,\"visualAnchorSeconds\":0}],\"source\":{\"assetId\":\"source.flamethrower\",\"auditLockSha256\":\"614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887\",\"pcmSha256\":\"6ff948373f4c3bdc29681d66f645aa235083cbb39ef652acaf13d4bec9d84ce5\",\"sampleFrames\":149299,\"sampleRate\":44100,\"sha256\":\"6dbe5f9c21bfbcea605bd4efac7b14ce87a00c2a6789f848e5685bc3902cd285\"},\"subject\":{\"id\":\"flamethrower\",\"kind\":\"move\",\"phase\":\"attack\"},\"visualRevision\":\"2decf3e49a5cdb4ff66f9ebe5d9bab5020350804810ae3264481c65b77e377e4\"}"
+    },
+    {
+      "schemaVersion": 1,
+      "status": "approved",
+      "subject": {
+        "kind": "move",
+        "id": "hyperbeam",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.hyper-beam",
+        "sha256": "1a4b9cae9740daa18765c28dee544f1ee3f2ce92d31dd8305a070aa8f4eb85c2",
+        "pcmSha256": "400cca4d3fc2dab34bb8dee2f50d32a86dda7a4d4ca30019fde2dfb0abd19894",
+        "sampleRate": 44100,
+        "sampleFrames": 123039,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "c253d662a8e99470b83e2a7d4ad40dcfa83c7d5a6732a0329b174b6278f3404e",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 123039,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "Dong",
+        "notes": "User confirmed in conversation on 2026-09-18: \"Yes, I checked the remaining playable move sounds too\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.",
+        "near": true,
+        "far": true,
+        "native": {
+          "browser": "Chrome",
+          "version": "152.0.0.0",
+          "sampleRate": 48000,
+          "sampleFrames": 133920,
+          "alignmentConfirmed": true,
+          "notes": "Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim."
+        }
+      },
+      "approvalFingerprint": "{\"review\":{\"far\":true,\"native\":{\"alignmentConfirmed\":true,\"browser\":\"Chrome\",\"notes\":\"Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim.\",\"sampleFrames\":133920,\"sampleRate\":48000,\"version\":\"152.0.0.0\"},\"near\":true,\"notes\":\"User confirmed in conversation on 2026-09-18: \\\"Yes, I checked the remaining playable move sounds too\\\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.\",\"reviewer\":\"Dong\"},\"schemaVersion\":1,\"segments\":[{\"endFrame\":123039,\"gainDb\":0,\"nativeOffsetSeconds\":0,\"sourceAnchorFrame\":0,\"startFrame\":0,\"visualAnchorSeconds\":0}],\"source\":{\"assetId\":\"source.hyper-beam\",\"auditLockSha256\":\"614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887\",\"pcmSha256\":\"400cca4d3fc2dab34bb8dee2f50d32a86dda7a4d4ca30019fde2dfb0abd19894\",\"sampleFrames\":123039,\"sampleRate\":44100,\"sha256\":\"1a4b9cae9740daa18765c28dee544f1ee3f2ce92d31dd8305a070aa8f4eb85c2\"},\"subject\":{\"id\":\"hyperbeam\",\"kind\":\"move\",\"phase\":\"attack\"},\"visualRevision\":\"c253d662a8e99470b83e2a7d4ad40dcfa83c7d5a6732a0329b174b6278f3404e\"}"
+    },
+    {
+      "schemaVersion": 1,
+      "status": "approved",
+      "subject": {
+        "kind": "move",
+        "id": "doublekick",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.double-kick-1hit",
+        "sha256": "1a88c398dd003b0fdd87645fffb543881706902f3dd231bbe181f5b67faf40f0",
+        "pcmSha256": "f0f3d0cac6a11d26d5df20a0c96d3408c0b80ebea9e9014eac1eec96fd554876",
+        "sampleRate": 44100,
+        "sampleFrames": 23933,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "efc57baea475999f20048a1bab938529e26700abbb9769932133a9f0634160d1",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 23933,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "Dong",
+        "notes": "User confirmed in conversation on 2026-09-18: \"Yes, I checked the remaining playable move sounds too\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.",
+        "near": true,
+        "far": true,
+        "native": {
+          "browser": "Chrome",
+          "version": "152.0.0.0",
+          "sampleRate": 48000,
+          "sampleFrames": 26049,
+          "alignmentConfirmed": true,
+          "notes": "Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim."
+        }
+      },
+      "approvalFingerprint": "{\"review\":{\"far\":true,\"native\":{\"alignmentConfirmed\":true,\"browser\":\"Chrome\",\"notes\":\"Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim.\",\"sampleFrames\":26049,\"sampleRate\":48000,\"version\":\"152.0.0.0\"},\"near\":true,\"notes\":\"User confirmed in conversation on 2026-09-18: \\\"Yes, I checked the remaining playable move sounds too\\\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.\",\"reviewer\":\"Dong\"},\"schemaVersion\":1,\"segments\":[{\"endFrame\":23933,\"gainDb\":0,\"nativeOffsetSeconds\":0,\"sourceAnchorFrame\":0,\"startFrame\":0,\"visualAnchorSeconds\":0}],\"source\":{\"assetId\":\"source.double-kick-1hit\",\"auditLockSha256\":\"614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887\",\"pcmSha256\":\"f0f3d0cac6a11d26d5df20a0c96d3408c0b80ebea9e9014eac1eec96fd554876\",\"sampleFrames\":23933,\"sampleRate\":44100,\"sha256\":\"1a88c398dd003b0fdd87645fffb543881706902f3dd231bbe181f5b67faf40f0\"},\"subject\":{\"id\":\"doublekick\",\"kind\":\"move\",\"phase\":\"attack\"},\"visualRevision\":\"efc57baea475999f20048a1bab938529e26700abbb9769932133a9f0634160d1\"}"
+    },
+    {
+      "schemaVersion": 1,
+      "status": "approved",
+      "subject": {
+        "kind": "move",
+        "id": "bulletseed",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.bullet-seed-1hit",
+        "sha256": "f793a80cac2d9b9b9d330fbbc700664556d28f54fc3fa65326ef8ee5edc5e88b",
+        "pcmSha256": "547c38c0951e51246d72cacc807fbb55448df97ad6740505e3a00beeac59d975",
+        "sampleRate": 44100,
+        "sampleFrames": 70921,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "5db3b83fb0ea65d7c5928dd3d0e92d995226c5b2cb9c6eae16698034231a1d88",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 70921,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "Dong",
+        "notes": "User confirmed in conversation on 2026-09-18: \"Yes, I checked the remaining playable move sounds too\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.",
+        "near": true,
+        "far": true,
+        "native": {
+          "browser": "Chrome",
+          "version": "152.0.0.0",
+          "sampleRate": 48000,
+          "sampleFrames": 77192,
+          "alignmentConfirmed": true,
+          "notes": "Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim."
+        }
+      },
+      "approvalFingerprint": "{\"review\":{\"far\":true,\"native\":{\"alignmentConfirmed\":true,\"browser\":\"Chrome\",\"notes\":\"Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim.\",\"sampleFrames\":77192,\"sampleRate\":48000,\"version\":\"152.0.0.0\"},\"near\":true,\"notes\":\"User confirmed in conversation on 2026-09-18: \\\"Yes, I checked the remaining playable move sounds too\\\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.\",\"reviewer\":\"Dong\"},\"schemaVersion\":1,\"segments\":[{\"endFrame\":70921,\"gainDb\":0,\"nativeOffsetSeconds\":0,\"sourceAnchorFrame\":0,\"startFrame\":0,\"visualAnchorSeconds\":0}],\"source\":{\"assetId\":\"source.bullet-seed-1hit\",\"auditLockSha256\":\"614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887\",\"pcmSha256\":\"547c38c0951e51246d72cacc807fbb55448df97ad6740505e3a00beeac59d975\",\"sampleFrames\":70921,\"sampleRate\":44100,\"sha256\":\"f793a80cac2d9b9b9d330fbbc700664556d28f54fc3fa65326ef8ee5edc5e88b\"},\"subject\":{\"id\":\"bulletseed\",\"kind\":\"move\",\"phase\":\"attack\"},\"visualRevision\":\"5db3b83fb0ea65d7c5928dd3d0e92d995226c5b2cb9c6eae16698034231a1d88\"}"
+    },
+    {
+      "schemaVersion": 1,
+      "status": "approved",
+      "subject": {
+        "kind": "move",
+        "id": "absorb",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.absorb",
+        "sha256": "89cbc4c8189c8766793c06196c702e31f546459e7f68b6537a95874b92b7c386",
+        "pcmSha256": "ac5b11054583799e2ecda7c9bb7758c2bec4f477a716f82dde33902842eb5243",
+        "sampleRate": 44100,
+        "sampleFrames": 124830,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "4fe6f8d9d95e23c011ab5b498ecbc2f18152ca48ee5207698186119df20a51c7",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 124830,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "Dong",
+        "notes": "User confirmed in conversation on 2026-09-18: \"Yes, I checked the remaining playable move sounds too\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.",
+        "near": true,
+        "far": true,
+        "native": {
+          "browser": "Chrome",
+          "version": "152.0.0.0",
+          "sampleRate": 48000,
+          "sampleFrames": 135869,
+          "alignmentConfirmed": true,
+          "notes": "Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim."
+        }
+      },
+      "approvalFingerprint": "{\"review\":{\"far\":true,\"native\":{\"alignmentConfirmed\":true,\"browser\":\"Chrome\",\"notes\":\"Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim.\",\"sampleFrames\":135869,\"sampleRate\":48000,\"version\":\"152.0.0.0\"},\"near\":true,\"notes\":\"User confirmed in conversation on 2026-09-18: \\\"Yes, I checked the remaining playable move sounds too\\\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.\",\"reviewer\":\"Dong\"},\"schemaVersion\":1,\"segments\":[{\"endFrame\":124830,\"gainDb\":0,\"nativeOffsetSeconds\":0,\"sourceAnchorFrame\":0,\"startFrame\":0,\"visualAnchorSeconds\":0}],\"source\":{\"assetId\":\"source.absorb\",\"auditLockSha256\":\"614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887\",\"pcmSha256\":\"ac5b11054583799e2ecda7c9bb7758c2bec4f477a716f82dde33902842eb5243\",\"sampleFrames\":124830,\"sampleRate\":44100,\"sha256\":\"89cbc4c8189c8766793c06196c702e31f546459e7f68b6537a95874b92b7c386\"},\"subject\":{\"id\":\"absorb\",\"kind\":\"move\",\"phase\":\"attack\"},\"visualRevision\":\"4fe6f8d9d95e23c011ab5b498ecbc2f18152ca48ee5207698186119df20a51c7\"}"
+    },
+    {
+      "schemaVersion": 1,
+      "status": "approved",
+      "subject": {
+        "kind": "move",
+        "id": "absorb",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.absorb-part-1",
+        "sha256": "dfea3dc5b1b7c0a00857e4af306b898a92150bf6d01b55e4413498ae1fbd0d9c",
+        "pcmSha256": "00a515a048dffa36a0c287d872c09804209f48b1e5259a85fe3e98ed33526a58",
+        "sampleRate": 44100,
+        "sampleFrames": 71442,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "4fe6f8d9d95e23c011ab5b498ecbc2f18152ca48ee5207698186119df20a51c7",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 71442,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "Dong",
+        "notes": "User confirmed in conversation on 2026-09-18: \"Yes, I checked the remaining playable move sounds too\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.",
+        "near": true,
+        "far": true,
+        "native": {
+          "browser": "Chrome",
+          "version": "152.0.0.0",
+          "sampleRate": 48000,
+          "sampleFrames": 77760,
+          "alignmentConfirmed": true,
+          "notes": "Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim."
+        }
+      },
+      "approvalFingerprint": "{\"review\":{\"far\":true,\"native\":{\"alignmentConfirmed\":true,\"browser\":\"Chrome\",\"notes\":\"Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim.\",\"sampleFrames\":77760,\"sampleRate\":48000,\"version\":\"152.0.0.0\"},\"near\":true,\"notes\":\"User confirmed in conversation on 2026-09-18: \\\"Yes, I checked the remaining playable move sounds too\\\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.\",\"reviewer\":\"Dong\"},\"schemaVersion\":1,\"segments\":[{\"endFrame\":71442,\"gainDb\":0,\"nativeOffsetSeconds\":0,\"sourceAnchorFrame\":0,\"startFrame\":0,\"visualAnchorSeconds\":0}],\"source\":{\"assetId\":\"source.absorb-part-1\",\"auditLockSha256\":\"614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887\",\"pcmSha256\":\"00a515a048dffa36a0c287d872c09804209f48b1e5259a85fe3e98ed33526a58\",\"sampleFrames\":71442,\"sampleRate\":44100,\"sha256\":\"dfea3dc5b1b7c0a00857e4af306b898a92150bf6d01b55e4413498ae1fbd0d9c\"},\"subject\":{\"id\":\"absorb\",\"kind\":\"move\",\"phase\":\"attack\"},\"visualRevision\":\"4fe6f8d9d95e23c011ab5b498ecbc2f18152ca48ee5207698186119df20a51c7\"}"
+    },
+    {
+      "schemaVersion": 1,
+      "status": "approved",
+      "subject": {
+        "kind": "move",
+        "id": "protect",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.protect",
+        "sha256": "5e759f62b7d7737c662d2c41ee70424068a02429bb9588b5d5016a8c31cba25e",
+        "pcmSha256": "c5d251010e2705ac23e768dacef9fbc9640ee124dd16694a043794d9c0d13a3c",
+        "sampleRate": 44100,
+        "sampleFrames": 52038,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "bacbc4270b65e8f01c060db271bdb769377a8eb2355e04dcea1444f6752764d6",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 52038,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "Dong",
+        "notes": "User confirmed in conversation on 2026-09-18: \"Yes, I checked the remaining playable move sounds too\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.",
+        "near": true,
+        "far": true,
+        "native": {
+          "browser": "Chrome",
+          "version": "152.0.0.0",
+          "sampleRate": 48000,
+          "sampleFrames": 56640,
+          "alignmentConfirmed": true,
+          "notes": "Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim."
+        }
+      },
+      "approvalFingerprint": "{\"review\":{\"far\":true,\"native\":{\"alignmentConfirmed\":true,\"browser\":\"Chrome\",\"notes\":\"Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim.\",\"sampleFrames\":56640,\"sampleRate\":48000,\"version\":\"152.0.0.0\"},\"near\":true,\"notes\":\"User confirmed in conversation on 2026-09-18: \\\"Yes, I checked the remaining playable move sounds too\\\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.\",\"reviewer\":\"Dong\"},\"schemaVersion\":1,\"segments\":[{\"endFrame\":52038,\"gainDb\":0,\"nativeOffsetSeconds\":0,\"sourceAnchorFrame\":0,\"startFrame\":0,\"visualAnchorSeconds\":0}],\"source\":{\"assetId\":\"source.protect\",\"auditLockSha256\":\"614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887\",\"pcmSha256\":\"c5d251010e2705ac23e768dacef9fbc9640ee124dd16694a043794d9c0d13a3c\",\"sampleFrames\":52038,\"sampleRate\":44100,\"sha256\":\"5e759f62b7d7737c662d2c41ee70424068a02429bb9588b5d5016a8c31cba25e\"},\"subject\":{\"id\":\"protect\",\"kind\":\"move\",\"phase\":\"attack\"},\"visualRevision\":\"bacbc4270b65e8f01c060db271bdb769377a8eb2355e04dcea1444f6752764d6\"}"
+    },
+    {
+      "schemaVersion": 1,
+      "status": "approved",
+      "subject": {
+        "kind": "move",
+        "id": "willowisp",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.will-o-wisp",
+        "sha256": "d0f9f0de07bf083f7643cea247a37077a43449cc1c4df6662edd582d08c4d2d8",
+        "pcmSha256": "e48546899cedc4567394b815ddb0ffa5fcd1d3df9f240df225472ddceeb100ba",
+        "sampleRate": 44100,
+        "sampleFrames": 191835,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "7715ba5ce243620cf786a2dfff67bd1fb0e66e05d9448a1f0d96546b77d0808d",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 191835,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "Dong",
+        "notes": "User confirmed in conversation on 2026-09-18: \"Yes, I checked the remaining playable move sounds too\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.",
+        "near": true,
+        "far": true,
+        "native": {
+          "browser": "Chrome",
+          "version": "152.0.0.0",
+          "sampleRate": 48000,
+          "sampleFrames": 208800,
+          "alignmentConfirmed": true,
+          "notes": "Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim."
+        }
+      },
+      "approvalFingerprint": "{\"review\":{\"far\":true,\"native\":{\"alignmentConfirmed\":true,\"browser\":\"Chrome\",\"notes\":\"Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim.\",\"sampleFrames\":208800,\"sampleRate\":48000,\"version\":\"152.0.0.0\"},\"near\":true,\"notes\":\"User confirmed in conversation on 2026-09-18: \\\"Yes, I checked the remaining playable move sounds too\\\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.\",\"reviewer\":\"Dong\"},\"schemaVersion\":1,\"segments\":[{\"endFrame\":191835,\"gainDb\":0,\"nativeOffsetSeconds\":0,\"sourceAnchorFrame\":0,\"startFrame\":0,\"visualAnchorSeconds\":0}],\"source\":{\"assetId\":\"source.will-o-wisp\",\"auditLockSha256\":\"614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887\",\"pcmSha256\":\"e48546899cedc4567394b815ddb0ffa5fcd1d3df9f240df225472ddceeb100ba\",\"sampleFrames\":191835,\"sampleRate\":44100,\"sha256\":\"d0f9f0de07bf083f7643cea247a37077a43449cc1c4df6662edd582d08c4d2d8\"},\"subject\":{\"id\":\"willowisp\",\"kind\":\"move\",\"phase\":\"attack\"},\"visualRevision\":\"7715ba5ce243620cf786a2dfff67bd1fb0e66e05d9448a1f0d96546b77d0808d\"}"
+    },
+    {
+      "schemaVersion": 1,
+      "status": "approved",
+      "subject": {
+        "kind": "move",
+        "id": "raindance",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.rain-dance",
+        "sha256": "b2c40f605d8758230d357cf9d836bcdaa09236e9009a209ba2c10c001ee1b98b",
+        "pcmSha256": "5f55130724d5878fde5226234639552cb08e6ed73ba0b6940db47123b87d7d0d",
+        "sampleRate": 44100,
+        "sampleFrames": 96579,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "03cc2ec0c75f664428d5e8e1bb299e7135f4a98c3d7b43ebfe125dbcc2f35be7",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 96579,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "Dong",
+        "notes": "User confirmed in conversation on 2026-09-18: \"Yes, I checked the remaining playable move sounds too\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.",
+        "near": true,
+        "far": true,
+        "native": {
+          "browser": "Chrome",
+          "version": "152.0.0.0",
+          "sampleRate": 48000,
+          "sampleFrames": 105120,
+          "alignmentConfirmed": true,
+          "notes": "Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim."
+        }
+      },
+      "approvalFingerprint": "{\"review\":{\"far\":true,\"native\":{\"alignmentConfirmed\":true,\"browser\":\"Chrome\",\"notes\":\"Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim.\",\"sampleFrames\":105120,\"sampleRate\":48000,\"version\":\"152.0.0.0\"},\"near\":true,\"notes\":\"User confirmed in conversation on 2026-09-18: \\\"Yes, I checked the remaining playable move sounds too\\\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.\",\"reviewer\":\"Dong\"},\"schemaVersion\":1,\"segments\":[{\"endFrame\":96579,\"gainDb\":0,\"nativeOffsetSeconds\":0,\"sourceAnchorFrame\":0,\"startFrame\":0,\"visualAnchorSeconds\":0}],\"source\":{\"assetId\":\"source.rain-dance\",\"auditLockSha256\":\"614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887\",\"pcmSha256\":\"5f55130724d5878fde5226234639552cb08e6ed73ba0b6940db47123b87d7d0d\",\"sampleFrames\":96579,\"sampleRate\":44100,\"sha256\":\"b2c40f605d8758230d357cf9d836bcdaa09236e9009a209ba2c10c001ee1b98b\"},\"subject\":{\"id\":\"raindance\",\"kind\":\"move\",\"phase\":\"attack\"},\"visualRevision\":\"03cc2ec0c75f664428d5e8e1bb299e7135f4a98c3d7b43ebfe125dbcc2f35be7\"}"
+    },
+    {
+      "schemaVersion": 1,
+      "status": "approved",
+      "subject": {
+        "kind": "move",
+        "id": "fly",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.fly",
+        "sha256": "bc01568f4e80a405657ec2c0d86952a16031c3c492487e8870e86c78d92b7877",
+        "pcmSha256": "7359ac51cd818186c4ce5b8419f48b6c7434b5792cedbb408664835b7dc42066",
+        "sampleRate": 44100,
+        "sampleFrames": 91628,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "a9665b45e77ee572ab88c32891c125e7527b7ad7f701cd93a8735dc8d292c8ce",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 91628,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "Dong",
+        "notes": "User confirmed in conversation on 2026-09-18: \"Yes, I checked the remaining playable move sounds too\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.",
+        "near": true,
+        "far": true,
+        "native": {
+          "browser": "Chrome",
+          "version": "152.0.0.0",
+          "sampleRate": 48000,
+          "sampleFrames": 99731,
+          "alignmentConfirmed": true,
+          "notes": "Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim."
+        }
+      },
+      "approvalFingerprint": "{\"review\":{\"far\":true,\"native\":{\"alignmentConfirmed\":true,\"browser\":\"Chrome\",\"notes\":\"Timing and alignment confirmation supplied by the user in conversation on 2026-09-18. Native sample rate and frame count rechecked in the live audition bench. Output device was not specified; this is not a measured latency claim.\",\"sampleFrames\":99731,\"sampleRate\":48000,\"version\":\"152.0.0.0\"},\"near\":true,\"notes\":\"User confirmed in conversation on 2026-09-18: \\\"Yes, I checked the remaining playable move sounds too\\\", in response to checking both animation perspectives, timing and volume. Approval applies to this saved configuration.\",\"reviewer\":\"Dong\"},\"schemaVersion\":1,\"segments\":[{\"endFrame\":91628,\"gainDb\":0,\"nativeOffsetSeconds\":0,\"sourceAnchorFrame\":0,\"startFrame\":0,\"visualAnchorSeconds\":0}],\"source\":{\"assetId\":\"source.fly\",\"auditLockSha256\":\"614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887\",\"pcmSha256\":\"7359ac51cd818186c4ce5b8419f48b6c7434b5792cedbb408664835b7dc42066\",\"sampleFrames\":91628,\"sampleRate\":44100,\"sha256\":\"bc01568f4e80a405657ec2c0d86952a16031c3c492487e8870e86c78d92b7877\"},\"subject\":{\"id\":\"fly\",\"kind\":\"move\",\"phase\":\"attack\"},\"visualRevision\":\"a9665b45e77ee572ab88c32891c125e7527b7ad7f701cd93a8735dc8d292c8ce\"}"
+    }
+  ]
+}

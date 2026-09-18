@@ -220,11 +220,12 @@ function groupsFor(events) {
 
 /** Optional FX for a batch already committed by the authoritative server. */
 export function createSimulationPresenter({ getScene, ensureScene = async () => {}, onDisplay,
-  onMessage = () => {}, onEntry = () => {}, onEntryCancel = () => {}, faintScene = async () => {}, playImpact = () => null, loadFx, timeoutMs = 7500 }) {
-  if (![getScene, ensureScene, onDisplay, onMessage, onEntry, onEntryCancel, faintScene, playImpact, loadFx].every(value => typeof value === 'function')) throw new TypeError('Presenter callbacks are required')
-  if (!Number.isFinite(timeoutMs) || timeoutMs <= 0) throw new TypeError('A positive presentation timeout is required')
+  onMessage = () => {}, onEntry = () => {}, onEntryCancel = () => {}, onMove = () => null,
+  faintScene = async () => {}, playImpact = () => null, loadFx, timeoutMs }) {
+  if (![getScene, ensureScene, onDisplay, onMessage, onEntry, onEntryCancel, onMove, faintScene, playImpact, loadFx].every(value => typeof value === 'function')) throw new TypeError('Presenter callbacks are required')
+  if (timeoutMs !== undefined && (!Number.isFinite(timeoutMs) || timeoutMs <= 0)) throw new TypeError('A positive presentation timeout is required')
   let generation = 0, active = null, destroyed = false, fxPromise = null
-  const safe = (callback, ...args) => { try { callback(...args) } catch {} }
+  const safe = (callback, ...args) => { try { return callback(...args) } catch {} }
   const disposeFx = pending => pending?.then(fx => { try { fx?.dispose?.() } catch {} }).catch(() => {})
 
   async function present({ before, after, events = [] }, { effectsEnabled = true, reducedMotion = false } = {}) {
@@ -233,7 +234,7 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
     active?.stop('cancelled')
     const token = ++generation
     const controller = new AbortController()
-    let playback = null, impactPlayback = null, impactFinished = null, playbackCancelled = false, stopResolve, stoppedStatus = null, finalSceneReady = false, sceneFailed = false
+    let playback = null, soundPlayback = null, impactPlayback = null, impactFinished = null, playbackCancelled = false, stopResolve, stoppedStatus = null, finalSceneReady = false, sceneFailed = false
     const stopped = new Promise(resolve => { stopResolve = resolve })
     const cancelPlayback = () => {
       if (!playback || playbackCancelled) return
@@ -250,6 +251,8 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
       stoppedStatus = status
       controller.abort()
       safe(onEntryCancel)
+      safe(() => soundPlayback?.cancel())
+      soundPlayback = null
       cancelPlayback()
       clearImpact()
       stopResolve({ stopped: status })
@@ -263,9 +266,9 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
       const member = memberFor(view, side?.active)
       if (valid() && !stoppedStatus && member && !member.fainted && member.hp?.current !== 0) safe(onEntry, view, actorId)
     }
-    const bounded = async (work, cancellable = true) => {
+    const bounded = async (work, cancellable = true, milliseconds = timeoutMs ?? 7500) => {
       let timer
-      const deadline = new Promise(resolve => { timer = setTimeout(() => resolve({ stopped: 'failed' }), timeoutMs) })
+      const deadline = new Promise(resolve => { timer = setTimeout(() => resolve({ stopped: 'failed' }), milliseconds) })
       try {
         const result = await Promise.race([Promise.resolve().then(work).then(value => ({ value })), deadline, ...(cancellable ? [stopped] : [])])
         if (result.stopped) { if (result.stopped === 'failed') current.stop('failed'); throw Object.assign(new Error('Presentation stopped'), { presentationStatus: result.stopped }) }
@@ -345,16 +348,30 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
               }
               const fx = await bounded(() => fxPromise)
               if (!valid() || stoppedStatus) break
+              if (typeof fx?.play !== 'function') throw new Error('Effect unavailable')
               const sourceId = fieldsOf(first)[0]?.startsWith(`${after.seat ?? 'p1'}:`) ? 'source' : 'target'
               const targetId = fieldsOf(first)[2]?.startsWith(`${after.seat ?? 'p1'}:`) ? 'source' : 'target'
-              playback = fx.play({ moveId: effect.id, sourceId,
+              // Present has a damage-only recording. Use the server's reported
+              // outcome; its healing variant must not borrow the damage sound.
+              const soundOutcome = effect.id === 'present' && !landedDamage ? 'heal' : 'hit'
+              const sound = safe(onMove, { moveId: effect.id, cursor: first.cursor,
+                phase: prepare ? 'prepare' : 'attack', outcome: soundOutcome, mode: reducedMotion ? 'reduced' : 'normal' })
+              soundPlayback = sound
+              const request = { moveId: effect.id, sourceId,
                 targetIds: fieldsOf(first)[2] && fieldsOf(first)[2] !== '[notarget]' ? [targetId] : [],
-                outcome: 'hit', phase: prepare ? 'prepare' : 'attack', visualSeed: first.cursor }, {
+                outcome: 'hit', phase: prepare ? 'prepare' : 'attack', visualSeed: first.cursor }
+              const fxDeadline = safe(() => fx.getPresentationDeadlineMs?.(request, { reducedMotion }))
+              const playbackDeadline = timeoutMs ?? (Number.isFinite(fxDeadline) && fxDeadline > 0 ? Math.max(7500, fxDeadline + 500) : 7500)
+              playback = fx.play(request, {
                 scene: getScene(), signal: controller.signal, reducedMotion,
+                onPresentation(cue) { if (valid() && !stoppedStatus && soundPlayback === sound) safe(() => sound?.onPresentation(cue)) },
                 onCue(cue) { if (cue?.type === (prepare ? 'prepared' : 'impact')) reveal() },
               })
               playbackCancelled = false
-              const result = await bounded(() => playback.finished)
+              const result = await bounded(() => playback.finished, true, playbackDeadline)
+              if (result?.status === 'completed') safe(() => sound?.finish(result))
+              else safe(() => sound?.cancel())
+              soundPlayback = null
               if (result?.status === 'failed' || result?.status === 'cancelled') throw Object.assign(new Error('Effect unavailable'), { presentationStatus: 'failed' })
               playback = null
             }
@@ -388,8 +405,9 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
       }
     } catch (error) {
       status = stoppedStatus ?? error.presentationStatus ?? 'failed'
-      if (!stoppedStatus) safe(onEntryCancel)
+      if (!stoppedStatus && valid()) safe(onEntryCancel)
     } finally {
+      safe(() => soundPlayback?.cancel()); soundPlayback = null
       controller.abort()
       cancelPlayback()
       clearImpact()

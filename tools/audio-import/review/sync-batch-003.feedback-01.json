@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-sync-feedback",
+  "batchId": "sync-003",
+  "revision": "4f42a1b0e602b20f05e970a264eee12f55f1296608dc245fa2dd288c4e83c3e7",
+  "records": [
+    {
+      "moveId": "surf",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.67,
+            "cueSeconds": 1,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks and sounds good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 89280,
+        "durationSeconds": 1.86,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "watergun",
+      "plan": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.1,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks and sounds good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 81600,
+        "durationSeconds": 1.7,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "crunch",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 0.64,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks and sounds good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 55200,
+        "durationSeconds": 1.15,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "thunderpunch",
+      "plan": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.34,
+            "cueSeconds": 0.52,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "The effects sounds good and impact timing is perfect but we could add some lighting effect when the punch impact happens to the opponent something like a spark or something to show the impact",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 73357,
+        "durationSeconds": 1.5282708333333332,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "swift",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.55,
+            "cueSeconds": 0.94,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks and sounds good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 54240,
+        "durationSeconds": 1.13,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "calmmind",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.15,
+            "cueSeconds": 0.9,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks and sounds good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 75711,
+        "durationSeconds": 1.5773125,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    }
+  ]
+}

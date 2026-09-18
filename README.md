@@ -50,7 +50,23 @@ Build a six-Pokémon team with species, moves, abilities, held items, natures, E
 
 Solo and multiplayer play optional cries at each Pokémon's send-out reveal. Sound has separate mute and volume controls, with preferences saved in this browser. Start/Ready activates browser audio; **Enable sound** retries if the browser blocks it. Reconnects and corrected snapshots do not replay cries. Late or unsupported recordings stay silent and never delay battle decisions.
 
-The pinned catalog covers 386 species and 33 explicit forms using 386 local recordings (2.25 MB total). Only relevant team and revealed-opponent cries load during play, with a bounded decoded cache. Heroku serves static files; playback and decoding happen in the browser. Move sounds and music are not connected yet. See [cry playback](docs/CRY_PLAYBACK.md) and the [asset pipeline](tools/cry-import/README.md).
+The pinned catalog covers 386 species and 33 explicit forms using 386 local recordings (2.25 MB total). Only relevant team and revealed-opponent cries load during play, with a bounded decoded cache. Heroku serves static files; playback and decoding happen in the browser. See [cry playback](docs/CRY_PLAYBACK.md) and the [asset pipeline](tools/cry-import/README.md).
+
+Battle SFX Stage A adds an independent candidate catalog and reproducible decoded audit of 530 supplied recordings. It accounts for all 354 game moves, with 352 filename candidates and explicit unresolved policies for Mirror Move and Nature Power. Candidate lookup alone does not enable playback. See the [measured audit](tools/audio-import/reports/sfx-audit.md), [pipeline commands](tools/audio-import/README.md) and [integration plan](docs/BATTLE_SFX_PLAN.md).
+
+Stage B's local [SFX audition bench](docs/SFX_AUDITION_BENCH.md) is available at `/sfx-bench` during `npm run dev`, after `npm run audio:setup`. Compare pinned/browser waveforms with real move animations, author frame regions and export listening reviews. It is excluded from production. [User-approved pilot reviews](tools/audio-import/review/PILOT_REVIEW.md) cover 11 saved configurations across 10 moves.
+
+Stage C connects ten selected move recordings to preview, solo and multiplayer through the shared audio player and actual visual-start clock. Sound, cries, move sounds and volume have separate controls. The pilot requires Chrome 152 and matching reviewed 48 kHz decode measurements; other profiles, unreviewed moves and reduced-motion/effects-off presentations remain silent for move SFX. The hashed additions total 867 KiB; existing audio and animations remain unchanged. Run `npm run sfx:runtime:check` to verify the selected outputs, and set `VITE_BATTLE_SFX_ENABLED=false` before building to disable the pilot. See the [runtime guide and remaining release gates](docs/SFX_RUNTIME_PILOT.md). Music remains deferred.
+
+The [remaining-collection audition pass](docs/SFX_REMAINING_REVIEW.md) measures all 530 recordings and supplies 502 technical drafts in eight batches at `/sfx-bench?collection=remaining`. It offers frame-region and cue-alignment comparisons plus attenuation-only volume proposals. Reproduce them with `npm run sfx:analyze-remaining` and verify with `npm run sfx:remaining:check`.
+
+The [simulation and move-preview draft integration](docs/SFX_SIMULATION_DRAFTS.md) enables 323 additional whole-recording defaults, for 333 covered attack animations including the pilot. These remain technical drafts, with no invented listening approval. They use actual native buffers at visual start, with measured attenuation and on-demand loading; optional trims and energy-alignment comparisons remain in the bench. Both pages share the same 27.0 MiB of hashed assets. Multiplayer uses the pilot plus accepted review batches. Run `npm run sfx:simulation:check` to verify the shared pack; set `VITE_SIMULATION_DRAFT_SFX_ENABLED=false` or `VITE_PREVIEW_DRAFT_SFX_ENABLED=false` before building to disable the additions on the corresponding page.
+
+[Sound/animation batch 1](docs/SFX_SYNC_BATCH_01.md), [batch 2](docs/SFX_SYNC_BATCH_02.md) and [batch 3](docs/SFX_SYNC_BATCH_03.md) are accepted: their 18 final timing plans override the historical defaults in simulation, move preview and multiplayer, including Psychic's sound accent and Thunder Punch's impact spark. Their local pages replay only the final versions. Verify with `npm run sfx:accepted:check`. [Batch 4](docs/SFX_SYNC_BATCH_04.md) retains its six saved keep decisions. [Batch 5](docs/SFX_SYNC_BATCH_05.md) contains feedback revisions for the ten requested odd ones out at `/sfx-bench?batch=sync-005`, with eight approved proposals kept, doubled Eruption lava balls and smaller Blizzard crystals that grow upright and fade; the exact previous proposals remain available, and these reviews stay separate from game playback.
+
+[Batch 6](docs/SFX_SYNC_BATCH_06.md) contains five accepted final versions at `/sfx-bench?batch=sync-006`: Leaf Blade's upper crescent, Tri Attack's elemental aftermath, Meteor Mash's cosmic impact, Ancient Power's doubled rendered rocks in a surrounding orbit, and Sacred Fire's purple release and flame crown. Exact sounds, timings and artwork are pinned to the user's final approval; earlier comparisons remain archived.
+
+[Batch 7](docs/SFX_SYNC_BATCH_07.md) reviews Sing, Grass Whistle, Attract, Morning Sun, Moonlight and Confuse Ray at `/sfx-bench?batch=sync-007`. Existing motion extends through the full recordings, with healing finishes for the light moves and circling ducks for Confuse Ray.
 
 ## Application pages
 
@@ -127,6 +143,7 @@ flowchart LR
 | [`@battle/pokemon-sprites`](packages/pokemon-sprites/README.md) | Pinned front/back artwork, asset URLs and measured visible bounds |
 | [`@battle/pokemon-cries`](packages/pokemon-cries/README.md) | Pinned cry catalog, explicit form mappings and pure asset lookup |
 | [`@battle/battle-audio`](packages/battle-audio/README.md) | Optional browser audio, gesture activation, loading, bounded cache and voice cleanup |
+| [`@battle/battle-sfx`](packages/battle-sfx/README.md) | Independent sound candidates, decoded metadata and explicit unreviewed move/event policies; no playback |
 
 The two rule packages serve different purposes. The move preview is a controlled demonstration with guaranteed-hit, fixed-result examples. It does not attempt a complete battle. Solo and multiplayer use `battle-engine` for actual turn order, accuracy, PP, damage, conditions, switching and battle results. Preview behavior must not be used as competitive battle logic.
 
@@ -153,7 +170,7 @@ packages/               Independent battle, FX, audio, data and sprite packages
 tools/
   data-import/          Reproducible Gen 3 reference-data importer
   roster-import/        Pinned sprite import and roster validation
-  audio-import/         Independent sound-effect asset optimization
+  audio-import/         Sound optimization, pinned decoded audit and SFX catalog generation
   cry-import/           Pinned cry sources, validation, import and listening audit
 tests/                  Application, transport, presentation and FX tests
 docs/                   Contracts, implementation guides and design reviews
@@ -206,6 +223,12 @@ The setup and fetch steps require network access. Review source-lock and generat
 | `npm run test:engine` | Headless engine mechanics, legality, projections, recovery and replay |
 | `npm run test:simulation` | Solo UI logic, presentation and HTTP integration |
 | `npm run test:multiplayer` | Room ownership, retries, deadlines, private views and presentation |
+| `npm run audio:setup` | Install the isolated pinned SFX audit decoder |
+| `npm run sfx:check` | Re-decode all sound effects and verify committed catalogs/reports without writes |
+| `npm run sfx:simulation:check` | Verify simulation/preview technical drafts, provenance and hashed assets |
+| `npm run sfx:accepted:check` | Verify accepted final timing plans and existing hashed assets |
+| `npm run test:sfx` | SFX source integrity, decoding, mapping, catalog and pipeline failure tests; requires audio setup |
+| `npm run test:sfx-bench` | Authoring schema, native audio, visual timing, dev routes and production exclusions; requires audio setup |
 | `node --test tests/clean-urls.test.mjs` | Clean routes, redirects, Vite and production host behavior |
 | `npm run engine:demo` | Complete a headless battle and verify checkpoint/replay behavior |
 | `npm run build` | Build all frontend entries and assets |

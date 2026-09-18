@@ -1,0 +1,6339 @@
+{
+  "schemaVersion": 1,
+  "stage": "A",
+  "counts": {
+    "files": 530,
+    "decoded": 530,
+    "moves": 354,
+    "movesWithCandidates": 352,
+    "movesWithFx": 335,
+    "approvedPlaybackMappings": 0,
+    "eventsWithCandidates": 18
+  },
+  "assetCategories": {
+    "part": 134,
+    "whole": 335,
+    "hit-count": 32,
+    "turn-effect": 9,
+    "generic": 18,
+    "outcome": 2
+  },
+  "moveStatuses": {
+    "candidate": 352,
+    "called-move": 2
+  },
+  "eventStatuses": {
+    "deferred": 10,
+    "candidate": 18
+  },
+  "movesWithoutNamedAssets": [
+    "mirrormove",
+    "naturepower"
+  ],
+  "movesWithoutFx": [
+    "acid",
+    "camouflage",
+    "conversion",
+    "conversion2",
+    "covet",
+    "growth",
+    "haze",
+    "heatwave",
+    "mist",
+    "powdersnow",
+    "pursuit",
+    "shockwave",
+    "sludge",
+    "snatch",
+    "spore",
+    "stockpile",
+    "swallow",
+    "thief",
+    "waterspout"
+  ],
+  "moves": {
+    "absorb": {
+      "id": "absorb",
+      "name": "Absorb",
+      "fxId": "absorb",
+      "status": "candidate",
+      "assetIds": [
+        "source.absorb-part-1",
+        "source.absorb-part-2",
+        "source.absorb"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "acid": {
+      "id": "acid",
+      "name": "Acid",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.acid"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "acidarmor": {
+      "id": "acidarmor",
+      "name": "Acid Armor",
+      "fxId": "acid-armor",
+      "status": "candidate",
+      "assetIds": [
+        "source.acid-armor"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "aerialace": {
+      "id": "aerialace",
+      "name": "Aerial Ace",
+      "fxId": "aerial-ace",
+      "status": "candidate",
+      "assetIds": [
+        "source.aerial-ace"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "aeroblast": {
+      "id": "aeroblast",
+      "name": "Aeroblast",
+      "fxId": "aeroblast",
+      "status": "candidate",
+      "assetIds": [
+        "source.aeroblast"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "agility": {
+      "id": "agility",
+      "name": "Agility",
+      "fxId": "agility",
+      "status": "candidate",
+      "assetIds": [
+        "source.agility"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "aircutter": {
+      "id": "aircutter",
+      "name": "Air Cutter",
+      "fxId": "air-cutter",
+      "status": "candidate",
+      "assetIds": [
+        "source.air-cutter"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "amnesia": {
+      "id": "amnesia",
+      "name": "Amnesia",
+      "fxId": "amnesia",
+      "status": "candidate",
+      "assetIds": [
+        "source.amnesia"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "ancientpower": {
+      "id": "ancientpower",
+      "name": "Ancient Power",
+      "fxId": "ancient-power",
+      "status": "candidate",
+      "assetIds": [
+        "source.ancient-power"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "armthrust": {
+      "id": "armthrust",
+      "name": "Arm Thrust",
+      "fxId": "arm-thrust",
+      "status": "candidate",
+      "assetIds": [
+        "source.arm-thrust-1hit",
+        "source.arm-thrust-2hits"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "aromatherapy": {
+      "id": "aromatherapy",
+      "name": "Aromatherapy",
+      "fxId": "aromatherapy",
+      "status": "candidate",
+      "assetIds": [
+        "source.aromatherapy-part-1",
+        "source.aromatherapy-part-2",
+        "source.aromatherapy"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "assist": {
+      "id": "assist",
+      "name": "Assist",
+      "fxId": "assist",
+      "status": "candidate",
+      "assetIds": [
+        "source.assist"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "astonish": {
+      "id": "astonish",
+      "name": "Astonish",
+      "fxId": "astonish",
+      "status": "candidate",
+      "assetIds": [
+        "source.astonish"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "attract": {
+      "id": "attract",
+      "name": "Attract",
+      "fxId": "attract",
+      "status": "candidate",
+      "assetIds": [
+        "source.attract-part-1",
+        "source.attract-part-2",
+        "source.attract"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "aurorabeam": {
+      "id": "aurorabeam",
+      "name": "Aurora Beam",
+      "fxId": "aurora-beam",
+      "status": "candidate",
+      "assetIds": [
+        "source.aurora-beam"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "barrage": {
+      "id": "barrage",
+      "name": "Barrage",
+      "fxId": "barrage",
+      "status": "candidate",
+      "assetIds": [
+        "source.barrage-1hit",
+        "source.barrage-2hits"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "barrier": {
+      "id": "barrier",
+      "name": "Barrier",
+      "fxId": "barrier",
+      "status": "candidate",
+      "assetIds": [
+        "source.barrier"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "batonpass": {
+      "id": "batonpass",
+      "name": "Baton Pass",
+      "fxId": "baton-pass",
+      "status": "candidate",
+      "assetIds": [
+        "source.baton-pass"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "beatup": {
+      "id": "beatup",
+      "name": "Beat Up",
+      "fxId": "beat-up",
+      "status": "candidate",
+      "assetIds": [
+        "source.beat-up"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "bellydrum": {
+      "id": "bellydrum",
+      "name": "Belly Drum",
+      "fxId": "belly-drum",
+      "status": "candidate",
+      "assetIds": [
+        "source.belly-drum"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "bide": {
+      "id": "bide",
+      "name": "Bide",
+      "fxId": "bide",
+      "status": "candidate",
+      "assetIds": [
+        "source.bide"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "bind": {
+      "id": "bind",
+      "name": "Bind",
+      "fxId": "bind",
+      "status": "candidate",
+      "assetIds": [
+        "source.bind-turn-damage",
+        "source.bind"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "bite": {
+      "id": "bite",
+      "name": "Bite",
+      "fxId": "bite",
+      "status": "candidate",
+      "assetIds": [
+        "source.bite"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "blastburn": {
+      "id": "blastburn",
+      "name": "Blast Burn",
+      "fxId": "blast-burn",
+      "status": "candidate",
+      "assetIds": [
+        "source.blast-burn"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "blazekick": {
+      "id": "blazekick",
+      "name": "Blaze Kick",
+      "fxId": "blaze-kick",
+      "status": "candidate",
+      "assetIds": [
+        "source.blaze-kick"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "blizzard": {
+      "id": "blizzard",
+      "name": "Blizzard",
+      "fxId": "blizzard",
+      "status": "candidate",
+      "assetIds": [
+        "source.blizzard-part-1",
+        "source.blizzard-part-2",
+        "source.blizzard"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "block": {
+      "id": "block",
+      "name": "Block",
+      "fxId": "block",
+      "status": "candidate",
+      "assetIds": [
+        "source.block"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "bodyslam": {
+      "id": "bodyslam",
+      "name": "Body Slam",
+      "fxId": "body-slam",
+      "status": "candidate",
+      "assetIds": [
+        "source.body-slam"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "boneclub": {
+      "id": "boneclub",
+      "name": "Bone Club",
+      "fxId": "bone-club",
+      "status": "candidate",
+      "assetIds": [
+        "source.bone-club"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "bonemerang": {
+      "id": "bonemerang",
+      "name": "Bonemerang",
+      "fxId": "bonemerang",
+      "status": "candidate",
+      "assetIds": [
+        "source.bonemerang-1hit",
+        "source.bonemerang-2hits"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "bonerush": {
+      "id": "bonerush",
+      "name": "Bone Rush",
+      "fxId": "bone-rush",
+      "status": "candidate",
+      "assetIds": [
+        "source.bone-rush-1hit",
+        "source.bone-rush-2hits"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "bounce": {
+      "id": "bounce",
+      "name": "Bounce",
+      "fxId": "bounce",
+      "status": "candidate",
+      "assetIds": [
+        "source.bounce"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "brickbreak": {
+      "id": "brickbreak",
+      "name": "Brick Break",
+      "fxId": "brick-break",
+      "status": "candidate",
+      "assetIds": [
+        "source.brick-break"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "bubble": {
+      "id": "bubble",
+      "name": "Bubble",
+      "fxId": "bubble",
+      "status": "candidate",
+      "assetIds": [
+        "source.bubble-part-1",
+        "source.bubble-part-2",
+        "source.bubble"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "bubblebeam": {
+      "id": "bubblebeam",
+      "name": "Bubble Beam",
+      "fxId": "bubble-beam",
+      "status": "candidate",
+      "assetIds": [
+        "source.bubble-beam-part-1",
+        "source.bubble-beam-part-2",
+        "source.bubble-beam"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "bulkup": {
+      "id": "bulkup",
+      "name": "Bulk Up",
+      "fxId": "bulk-up",
+      "status": "candidate",
+      "assetIds": [
+        "source.bulk-up"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "bulletseed": {
+      "id": "bulletseed",
+      "name": "Bullet Seed",
+      "fxId": "bullet-seed",
+      "status": "candidate",
+      "assetIds": [
+        "source.bullet-seed-1hit",
+        "source.bullet-seed-2hits"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "calmmind": {
+      "id": "calmmind",
+      "name": "Calm Mind",
+      "fxId": "calm-mind",
+      "status": "candidate",
+      "assetIds": [
+        "source.calm-mind"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "camouflage": {
+      "id": "camouflage",
+      "name": "Camouflage",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.camouflage"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "charge": {
+      "id": "charge",
+      "name": "Charge",
+      "fxId": "charge",
+      "status": "candidate",
+      "assetIds": [
+        "source.charge"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "charm": {
+      "id": "charm",
+      "name": "Charm",
+      "fxId": "charm",
+      "status": "candidate",
+      "assetIds": [
+        "source.charm"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "clamp": {
+      "id": "clamp",
+      "name": "Clamp",
+      "fxId": "clamp",
+      "status": "candidate",
+      "assetIds": [
+        "source.clamp"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "cometpunch": {
+      "id": "cometpunch",
+      "name": "Comet Punch",
+      "fxId": "comet-punch",
+      "status": "candidate",
+      "assetIds": [
+        "source.comet-punch-1hit",
+        "source.comet-punch-2hits"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "confuseray": {
+      "id": "confuseray",
+      "name": "Confuse Ray",
+      "fxId": "confuse-ray",
+      "status": "candidate",
+      "assetIds": [
+        "source.confuse-ray-part-1",
+        "source.confuse-ray-part-2",
+        "source.confuse-ray"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "confusion": {
+      "id": "confusion",
+      "name": "Confusion",
+      "fxId": "confusion",
+      "status": "candidate",
+      "assetIds": [
+        "source.confusion"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "constrict": {
+      "id": "constrict",
+      "name": "Constrict",
+      "fxId": "constrict",
+      "status": "candidate",
+      "assetIds": [
+        "source.constrict"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "conversion": {
+      "id": "conversion",
+      "name": "Conversion",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.conversion"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "conversion2": {
+      "id": "conversion2",
+      "name": "Conversion 2",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.conversion-2"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "cosmicpower": {
+      "id": "cosmicpower",
+      "name": "Cosmic Power",
+      "fxId": "cosmic-power",
+      "status": "candidate",
+      "assetIds": [
+        "source.cosmic-power"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "cottonspore": {
+      "id": "cottonspore",
+      "name": "Cotton Spore",
+      "fxId": "cotton-spore",
+      "status": "candidate",
+      "assetIds": [
+        "source.cotton-spore"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "counter": {
+      "id": "counter",
+      "name": "Counter",
+      "fxId": "counter",
+      "status": "candidate",
+      "assetIds": [
+        "source.counter"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "covet": {
+      "id": "covet",
+      "name": "Covet",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.covet-part-1",
+        "source.covet-part-2",
+        "source.covet"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "crabhammer": {
+      "id": "crabhammer",
+      "name": "Crabhammer",
+      "fxId": "crabhammer",
+      "status": "candidate",
+      "assetIds": [
+        "source.crabhammer"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "crosschop": {
+      "id": "crosschop",
+      "name": "Cross Chop",
+      "fxId": "cross-chop",
+      "status": "candidate",
+      "assetIds": [
+        "source.cross-chop"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "crunch": {
+      "id": "crunch",
+      "name": "Crunch",
+      "fxId": "crunch",
+      "status": "candidate",
+      "assetIds": [
+        "source.crunch"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "crushclaw": {
+      "id": "crushclaw",
+      "name": "Crush Claw",
+      "fxId": "crush-claw",
+      "status": "candidate",
+      "assetIds": [
+        "source.crush-claw"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "curse": {
+      "id": "curse",
+      "name": "Curse",
+      "fxId": "curse",
+      "status": "candidate",
+      "assetIds": [
+        "source.curse"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "cut": {
+      "id": "cut",
+      "name": "Cut",
+      "fxId": "cut",
+      "status": "candidate",
+      "assetIds": [
+        "source.cut"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "defensecurl": {
+      "id": "defensecurl",
+      "name": "Defense Curl",
+      "fxId": "defense-curl",
+      "status": "candidate",
+      "assetIds": [
+        "source.defense-curl"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "destinybond": {
+      "id": "destinybond",
+      "name": "Destiny Bond",
+      "fxId": "destiny-bond",
+      "status": "candidate",
+      "assetIds": [
+        "source.destiny-bond-part-1",
+        "source.destiny-bond-part-2",
+        "source.destiny-bond"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "detect": {
+      "id": "detect",
+      "name": "Detect",
+      "fxId": "detect",
+      "status": "candidate",
+      "assetIds": [
+        "source.detect"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "dig": {
+      "id": "dig",
+      "name": "Dig",
+      "fxId": "dig",
+      "status": "candidate",
+      "assetIds": [
+        "source.dig-part-1",
+        "source.dig-part-2",
+        "source.dig"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "disable": {
+      "id": "disable",
+      "name": "Disable",
+      "fxId": "disable",
+      "status": "candidate",
+      "assetIds": [
+        "source.disable"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "dive": {
+      "id": "dive",
+      "name": "Dive",
+      "fxId": "dive",
+      "status": "candidate",
+      "assetIds": [
+        "source.dive-part-1",
+        "source.dive-part-2",
+        "source.dive"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "dizzypunch": {
+      "id": "dizzypunch",
+      "name": "Dizzy Punch",
+      "fxId": "dizzy-punch",
+      "status": "candidate",
+      "assetIds": [
+        "source.dizzy-punch"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "doomdesire": {
+      "id": "doomdesire",
+      "name": "Doom Desire",
+      "fxId": "doom-desire",
+      "status": "candidate",
+      "assetIds": [
+        "source.doom-desire"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "doubleedge": {
+      "id": "doubleedge",
+      "name": "Double-Edge",
+      "fxId": "double-edge",
+      "status": "candidate",
+      "assetIds": [
+        "source.double-edge"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "doublekick": {
+      "id": "doublekick",
+      "name": "Double Kick",
+      "fxId": "double-kick",
+      "status": "candidate",
+      "assetIds": [
+        "source.double-kick-1hit",
+        "source.double-kick-2hits"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "doubleslap": {
+      "id": "doubleslap",
+      "name": "Double Slap",
+      "fxId": "double-slap",
+      "status": "candidate",
+      "assetIds": [
+        "source.double-slap-1hit",
+        "source.double-slap-2hits"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "doubleteam": {
+      "id": "doubleteam",
+      "name": "Double Team",
+      "fxId": "double-team",
+      "status": "candidate",
+      "assetIds": [
+        "source.double-team"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "dragonbreath": {
+      "id": "dragonbreath",
+      "name": "Dragon Breath",
+      "fxId": "dragon-breath",
+      "status": "candidate",
+      "assetIds": [
+        "source.dragon-breath"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "dragonclaw": {
+      "id": "dragonclaw",
+      "name": "Dragon Claw",
+      "fxId": "dragon-claw",
+      "status": "candidate",
+      "assetIds": [
+        "source.dragon-claw"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "dragondance": {
+      "id": "dragondance",
+      "name": "Dragon Dance",
+      "fxId": "dragon-dance",
+      "status": "candidate",
+      "assetIds": [
+        "source.dragon-dance"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "dragonrage": {
+      "id": "dragonrage",
+      "name": "Dragon Rage",
+      "fxId": "dragon-rage",
+      "status": "candidate",
+      "assetIds": [
+        "source.dragon-rage-part-1",
+        "source.dragon-rage-part-2",
+        "source.dragon-rage"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "dreameater": {
+      "id": "dreameater",
+      "name": "Dream Eater",
+      "fxId": "dream-eater",
+      "status": "candidate",
+      "assetIds": [
+        "source.dream-eater-part-1",
+        "source.dream-eater-part-2",
+        "source.dream-eater"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "drillpeck": {
+      "id": "drillpeck",
+      "name": "Drill Peck",
+      "fxId": "drill-peck",
+      "status": "candidate",
+      "assetIds": [
+        "source.drill-peck"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "dynamicpunch": {
+      "id": "dynamicpunch",
+      "name": "Dynamic Punch",
+      "fxId": "dynamic-punch",
+      "status": "candidate",
+      "assetIds": [
+        "source.dynamic-punch"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "earthquake": {
+      "id": "earthquake",
+      "name": "Earthquake",
+      "fxId": "earthquake",
+      "status": "candidate",
+      "assetIds": [
+        "source.earthquake"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "eggbomb": {
+      "id": "eggbomb",
+      "name": "Egg Bomb",
+      "fxId": "egg-bomb",
+      "status": "candidate",
+      "assetIds": [
+        "source.egg-bomb"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "ember": {
+      "id": "ember",
+      "name": "Ember",
+      "fxId": "ember",
+      "status": "candidate",
+      "assetIds": [
+        "source.ember"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "encore": {
+      "id": "encore",
+      "name": "Encore",
+      "fxId": "encore",
+      "status": "candidate",
+      "assetIds": [
+        "source.encore"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "endeavor": {
+      "id": "endeavor",
+      "name": "Endeavor",
+      "fxId": "endeavor",
+      "status": "candidate",
+      "assetIds": [
+        "source.endeavor"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "endure": {
+      "id": "endure",
+      "name": "Endure",
+      "fxId": "endure",
+      "status": "candidate",
+      "assetIds": [
+        "source.endure"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "eruption": {
+      "id": "eruption",
+      "name": "Eruption",
+      "fxId": "eruption",
+      "status": "candidate",
+      "assetIds": [
+        "source.eruption-part-1",
+        "source.eruption-part-2",
+        "source.eruption"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "explosion": {
+      "id": "explosion",
+      "name": "Explosion",
+      "fxId": "explosion",
+      "status": "candidate",
+      "assetIds": [
+        "source.explosion"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "extrasensory": {
+      "id": "extrasensory",
+      "name": "Extrasensory",
+      "fxId": "extrasensory",
+      "status": "candidate",
+      "assetIds": [
+        "source.extrasensory"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "extremespeed": {
+      "id": "extremespeed",
+      "name": "Extreme Speed",
+      "fxId": "extreme-speed",
+      "status": "candidate",
+      "assetIds": [
+        "source.extreme-speed"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "facade": {
+      "id": "facade",
+      "name": "Facade",
+      "fxId": "facade",
+      "status": "candidate",
+      "assetIds": [
+        "source.facade"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "fakeout": {
+      "id": "fakeout",
+      "name": "Fake Out",
+      "fxId": "fake-out",
+      "status": "candidate",
+      "assetIds": [
+        "source.fake-out"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "faketears": {
+      "id": "faketears",
+      "name": "Fake Tears",
+      "fxId": "fake-tears",
+      "status": "candidate",
+      "assetIds": [
+        "source.fake-tears"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "falseswipe": {
+      "id": "falseswipe",
+      "name": "False Swipe",
+      "fxId": "false-swipe",
+      "status": "candidate",
+      "assetIds": [
+        "source.false-swipe"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "featherdance": {
+      "id": "featherdance",
+      "name": "Feather Dance",
+      "fxId": "feather-dance",
+      "status": "candidate",
+      "assetIds": [
+        "source.feather-dance"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "feintattack": {
+      "id": "feintattack",
+      "name": "Feint Attack",
+      "fxId": "feint-attack",
+      "status": "candidate",
+      "assetIds": [
+        "source.feint-attack"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "fireblast": {
+      "id": "fireblast",
+      "name": "Fire Blast",
+      "fxId": "fire-blast",
+      "status": "candidate",
+      "assetIds": [
+        "source.fire-blast"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "firepunch": {
+      "id": "firepunch",
+      "name": "Fire Punch",
+      "fxId": "fire-punch",
+      "status": "candidate",
+      "assetIds": [
+        "source.fire-punch"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "firespin": {
+      "id": "firespin",
+      "name": "Fire Spin",
+      "fxId": "fire-spin",
+      "status": "candidate",
+      "assetIds": [
+        "source.fire-spin-turn-damage",
+        "source.fire-spin"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "fissure": {
+      "id": "fissure",
+      "name": "Fissure",
+      "fxId": "fissure",
+      "status": "candidate",
+      "assetIds": [
+        "source.fissure"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "flail": {
+      "id": "flail",
+      "name": "Flail",
+      "fxId": "flail",
+      "status": "candidate",
+      "assetIds": [
+        "source.flail"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "flamethrower": {
+      "id": "flamethrower",
+      "name": "Flamethrower",
+      "fxId": "flamethrower",
+      "status": "candidate",
+      "assetIds": [
+        "source.flamethrower"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "flamewheel": {
+      "id": "flamewheel",
+      "name": "Flame Wheel",
+      "fxId": "flame-wheel",
+      "status": "candidate",
+      "assetIds": [
+        "source.flame-wheel-part-1",
+        "source.flame-wheel-part-2",
+        "source.flame-wheel"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "flash": {
+      "id": "flash",
+      "name": "Flash",
+      "fxId": "flash",
+      "status": "candidate",
+      "assetIds": [
+        "source.flash"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "flatter": {
+      "id": "flatter",
+      "name": "Flatter",
+      "fxId": "flatter",
+      "status": "candidate",
+      "assetIds": [
+        "source.flatter"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "fly": {
+      "id": "fly",
+      "name": "Fly",
+      "fxId": "fly",
+      "status": "candidate",
+      "assetIds": [
+        "source.fly-part-1",
+        "source.fly-part-2",
+        "source.fly"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "focusenergy": {
+      "id": "focusenergy",
+      "name": "Focus Energy",
+      "fxId": "focus-energy",
+      "status": "candidate",
+      "assetIds": [
+        "source.focus-energy"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "focuspunch": {
+      "id": "focuspunch",
+      "name": "Focus Punch",
+      "fxId": "focus-punch",
+      "status": "candidate",
+      "assetIds": [
+        "source.focus-punch"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "followme": {
+      "id": "followme",
+      "name": "Follow Me",
+      "fxId": "follow-me",
+      "status": "candidate",
+      "assetIds": [
+        "source.follow-me"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "foresight": {
+      "id": "foresight",
+      "name": "Foresight",
+      "fxId": "foresight",
+      "status": "candidate",
+      "assetIds": [
+        "source.foresight"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "frenzyplant": {
+      "id": "frenzyplant",
+      "name": "Frenzy Plant",
+      "fxId": "frenzy-plant",
+      "status": "candidate",
+      "assetIds": [
+        "source.frenzy-plant"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "frustration": {
+      "id": "frustration",
+      "name": "Frustration",
+      "fxId": "frustration",
+      "status": "candidate",
+      "assetIds": [
+        "source.frustration"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "furyattack": {
+      "id": "furyattack",
+      "name": "Fury Attack",
+      "fxId": "fury-attack",
+      "status": "candidate",
+      "assetIds": [
+        "source.fury-attack-1hit",
+        "source.fury-attack-2hits"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "furycutter": {
+      "id": "furycutter",
+      "name": "Fury Cutter",
+      "fxId": "fury-cutter",
+      "status": "candidate",
+      "assetIds": [
+        "source.fury-cutter"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "furyswipes": {
+      "id": "furyswipes",
+      "name": "Fury Swipes",
+      "fxId": "fury-swipes",
+      "status": "candidate",
+      "assetIds": [
+        "source.fury-swipes-1hit",
+        "source.fury-swipes-2hits"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "futuresight": {
+      "id": "futuresight",
+      "name": "Future Sight",
+      "fxId": "future-sight",
+      "status": "candidate",
+      "assetIds": [
+        "source.future-sight-turn-damage",
+        "source.future-sight"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "gigadrain": {
+      "id": "gigadrain",
+      "name": "Giga Drain",
+      "fxId": "giga-drain",
+      "status": "candidate",
+      "assetIds": [
+        "source.giga-drain-part-1",
+        "source.giga-drain-part-2",
+        "source.giga-drain"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "glare": {
+      "id": "glare",
+      "name": "Glare",
+      "fxId": "glare",
+      "status": "candidate",
+      "assetIds": [
+        "source.glare-part-1",
+        "source.glare-part-2",
+        "source.glare"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "grasswhistle": {
+      "id": "grasswhistle",
+      "name": "Grass Whistle",
+      "fxId": "grass-whistle",
+      "status": "candidate",
+      "assetIds": [
+        "source.grass-whistle"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "growl": {
+      "id": "growl",
+      "name": "Growl",
+      "fxId": "growl",
+      "status": "candidate",
+      "assetIds": [
+        "source.growl"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "growth": {
+      "id": "growth",
+      "name": "Growth",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.growth"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "grudge": {
+      "id": "grudge",
+      "name": "Grudge",
+      "fxId": "grudge",
+      "status": "candidate",
+      "assetIds": [
+        "source.grudge-part-1",
+        "source.grudge-part-2",
+        "source.grudge"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "guillotine": {
+      "id": "guillotine",
+      "name": "Guillotine",
+      "fxId": "guillotine",
+      "status": "candidate",
+      "assetIds": [
+        "source.guillotine"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "gust": {
+      "id": "gust",
+      "name": "Gust",
+      "fxId": "gust",
+      "status": "candidate",
+      "assetIds": [
+        "source.gust"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "hail": {
+      "id": "hail",
+      "name": "Hail",
+      "fxId": "hail",
+      "status": "candidate",
+      "assetIds": [
+        "source.hail-turn-damage",
+        "source.hail"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "harden": {
+      "id": "harden",
+      "name": "Harden",
+      "fxId": "harden",
+      "status": "candidate",
+      "assetIds": [
+        "source.harden-part-1",
+        "source.harden-part-2",
+        "source.harden"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "haze": {
+      "id": "haze",
+      "name": "Haze",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.haze"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "headbutt": {
+      "id": "headbutt",
+      "name": "Headbutt",
+      "fxId": "headbutt",
+      "status": "candidate",
+      "assetIds": [
+        "source.headbutt"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "healbell": {
+      "id": "healbell",
+      "name": "Heal Bell",
+      "fxId": "heal-bell",
+      "status": "candidate",
+      "assetIds": [
+        "source.heal-bell-part-1",
+        "source.heal-bell-part-2",
+        "source.heal-bell"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "heatwave": {
+      "id": "heatwave",
+      "name": "Heat Wave",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.heat-wave"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "helpinghand": {
+      "id": "helpinghand",
+      "name": "Helping Hand",
+      "fxId": "helping-hand",
+      "status": "candidate",
+      "assetIds": [
+        "source.helping-hand"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "hiddenpower": {
+      "id": "hiddenpower",
+      "name": "Hidden Power",
+      "fxId": "hidden-power",
+      "status": "candidate",
+      "assetIds": [
+        "source.hidden-power"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "highjumpkick": {
+      "id": "highjumpkick",
+      "name": "High Jump Kick",
+      "fxId": "high-jump-kick",
+      "status": "candidate",
+      "assetIds": [
+        "source.high-jump-kick"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "hornattack": {
+      "id": "hornattack",
+      "name": "Horn Attack",
+      "fxId": "horn-attack",
+      "status": "candidate",
+      "assetIds": [
+        "source.horn-attack"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "horndrill": {
+      "id": "horndrill",
+      "name": "Horn Drill",
+      "fxId": "horn-drill",
+      "status": "candidate",
+      "assetIds": [
+        "source.horn-drill"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "howl": {
+      "id": "howl",
+      "name": "Howl",
+      "fxId": "howl",
+      "status": "candidate",
+      "assetIds": [
+        "source.howl"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "hydrocannon": {
+      "id": "hydrocannon",
+      "name": "Hydro Cannon",
+      "fxId": "hydro-cannon",
+      "status": "candidate",
+      "assetIds": [
+        "source.hydro-cannon"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "hydropump": {
+      "id": "hydropump",
+      "name": "Hydro Pump",
+      "fxId": "hydro-pump",
+      "status": "candidate",
+      "assetIds": [
+        "source.hydro-pump"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "hyperbeam": {
+      "id": "hyperbeam",
+      "name": "Hyper Beam",
+      "fxId": "hyper-beam",
+      "status": "candidate",
+      "assetIds": [
+        "source.hyper-beam"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "hyperfang": {
+      "id": "hyperfang",
+      "name": "Hyper Fang",
+      "fxId": "hyper-fang",
+      "status": "candidate",
+      "assetIds": [
+        "source.hyper-fang"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "hypervoice": {
+      "id": "hypervoice",
+      "name": "Hyper Voice",
+      "fxId": "hyper-voice",
+      "status": "candidate",
+      "assetIds": [
+        "source.hyper-voice"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "hypnosis": {
+      "id": "hypnosis",
+      "name": "Hypnosis",
+      "fxId": "hypnosis",
+      "status": "candidate",
+      "assetIds": [
+        "source.hypnosis"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "iceball": {
+      "id": "iceball",
+      "name": "Ice Ball",
+      "fxId": "ice-ball",
+      "status": "candidate",
+      "assetIds": [
+        "source.ice-ball"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "icebeam": {
+      "id": "icebeam",
+      "name": "Ice Beam",
+      "fxId": "ice-beam",
+      "status": "candidate",
+      "assetIds": [
+        "source.ice-beam-part-1",
+        "source.ice-beam-part-2",
+        "source.ice-beam"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "icepunch": {
+      "id": "icepunch",
+      "name": "Ice Punch",
+      "fxId": "ice-punch",
+      "status": "candidate",
+      "assetIds": [
+        "source.ice-punch"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "iciclespear": {
+      "id": "iciclespear",
+      "name": "Icicle Spear",
+      "fxId": "icicle-spear",
+      "status": "candidate",
+      "assetIds": [
+        "source.icicle-spear-1hit",
+        "source.icicle-spear-2hits"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "icywind": {
+      "id": "icywind",
+      "name": "Icy Wind",
+      "fxId": "icy-wind",
+      "status": "candidate",
+      "assetIds": [
+        "source.icy-wind-part-1",
+        "source.icy-wind-part-2",
+        "source.icy-wind"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "imprison": {
+      "id": "imprison",
+      "name": "Imprison",
+      "fxId": "imprison",
+      "status": "candidate",
+      "assetIds": [
+        "source.imprison"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "ingrain": {
+      "id": "ingrain",
+      "name": "Ingrain",
+      "fxId": "ingrain",
+      "status": "candidate",
+      "assetIds": [
+        "source.ingrain-turn-heal",
+        "source.ingrain"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "irondefense": {
+      "id": "irondefense",
+      "name": "Iron Defense",
+      "fxId": "iron-defense",
+      "status": "candidate",
+      "assetIds": [
+        "source.iron-defense"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "irontail": {
+      "id": "irontail",
+      "name": "Iron Tail",
+      "fxId": "iron-tail",
+      "status": "candidate",
+      "assetIds": [
+        "source.iron-tail-part-1",
+        "source.iron-tail-part-2",
+        "source.iron-tail"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "jumpkick": {
+      "id": "jumpkick",
+      "name": "Jump Kick",
+      "fxId": "jump-kick",
+      "status": "candidate",
+      "assetIds": [
+        "source.jump-kick"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "karatechop": {
+      "id": "karatechop",
+      "name": "Karate Chop",
+      "fxId": "karate-chop",
+      "status": "candidate",
+      "assetIds": [
+        "source.karate-chop"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "kinesis": {
+      "id": "kinesis",
+      "name": "Kinesis",
+      "fxId": "kinesis",
+      "status": "candidate",
+      "assetIds": [
+        "source.kinesis"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "knockoff": {
+      "id": "knockoff",
+      "name": "Knock Off",
+      "fxId": "knock-off",
+      "status": "candidate",
+      "assetIds": [
+        "source.knock-off"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "leafblade": {
+      "id": "leafblade",
+      "name": "Leaf Blade",
+      "fxId": "leaf-blade",
+      "status": "candidate",
+      "assetIds": [
+        "source.leaf-blade"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "leechlife": {
+      "id": "leechlife",
+      "name": "Leech Life",
+      "fxId": "leech-life",
+      "status": "candidate",
+      "assetIds": [
+        "source.leech-life-part-1",
+        "source.leech-life-part-2",
+        "source.leech-life"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "leechseed": {
+      "id": "leechseed",
+      "name": "Leech Seed",
+      "fxId": "leech-seed",
+      "status": "candidate",
+      "assetIds": [
+        "source.leech-seed-turn-damage",
+        "source.leech-seed"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "leer": {
+      "id": "leer",
+      "name": "Leer",
+      "fxId": "leer",
+      "status": "candidate",
+      "assetIds": [
+        "source.leer"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "lick": {
+      "id": "lick",
+      "name": "Lick",
+      "fxId": "lick",
+      "status": "candidate",
+      "assetIds": [
+        "source.lick"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "lightscreen": {
+      "id": "lightscreen",
+      "name": "Light Screen",
+      "fxId": "light-screen",
+      "status": "candidate",
+      "assetIds": [
+        "source.light-screen"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "lockon": {
+      "id": "lockon",
+      "name": "Lock-On",
+      "fxId": "lock-on",
+      "status": "candidate",
+      "assetIds": [
+        "source.lock-on"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "lovelykiss": {
+      "id": "lovelykiss",
+      "name": "Lovely Kiss",
+      "fxId": "lovely-kiss",
+      "status": "candidate",
+      "assetIds": [
+        "source.lovely-kiss"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "lowkick": {
+      "id": "lowkick",
+      "name": "Low Kick",
+      "fxId": "low-kick",
+      "status": "candidate",
+      "assetIds": [
+        "source.low-kick"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "lusterpurge": {
+      "id": "lusterpurge",
+      "name": "Luster Purge",
+      "fxId": "luster-purge",
+      "status": "candidate",
+      "assetIds": [
+        "source.luster-purge"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "machpunch": {
+      "id": "machpunch",
+      "name": "Mach Punch",
+      "fxId": "mach-punch",
+      "status": "candidate",
+      "assetIds": [
+        "source.mach-punch"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "magicalleaf": {
+      "id": "magicalleaf",
+      "name": "Magical Leaf",
+      "fxId": "magical-leaf",
+      "status": "candidate",
+      "assetIds": [
+        "source.magical-leaf-part-1",
+        "source.magical-leaf-part-2",
+        "source.magical-leaf"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "magiccoat": {
+      "id": "magiccoat",
+      "name": "Magic Coat",
+      "fxId": "magic-coat",
+      "status": "candidate",
+      "assetIds": [
+        "source.magic-coat"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "magnitude": {
+      "id": "magnitude",
+      "name": "Magnitude",
+      "fxId": "magnitude",
+      "status": "candidate",
+      "assetIds": [
+        "source.magnitude"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "meanlook": {
+      "id": "meanlook",
+      "name": "Mean Look",
+      "fxId": "mean-look",
+      "status": "candidate",
+      "assetIds": [
+        "source.mean-look"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "meditate": {
+      "id": "meditate",
+      "name": "Meditate",
+      "fxId": "meditate",
+      "status": "candidate",
+      "assetIds": [
+        "source.meditate"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "megadrain": {
+      "id": "megadrain",
+      "name": "Mega Drain",
+      "fxId": "mega-drain",
+      "status": "candidate",
+      "assetIds": [
+        "source.mega-drain-part-1",
+        "source.mega-drain-part-2",
+        "source.mega-drain"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "megahorn": {
+      "id": "megahorn",
+      "name": "Megahorn",
+      "fxId": "megahorn",
+      "status": "candidate",
+      "assetIds": [
+        "source.megahorn"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "megakick": {
+      "id": "megakick",
+      "name": "Mega Kick",
+      "fxId": "mega-kick",
+      "status": "candidate",
+      "assetIds": [
+        "source.mega-kick"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "megapunch": {
+      "id": "megapunch",
+      "name": "Mega Punch",
+      "fxId": "mega-punch",
+      "status": "candidate",
+      "assetIds": [
+        "source.mega-punch"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "memento": {
+      "id": "memento",
+      "name": "Memento",
+      "fxId": "memento",
+      "status": "candidate",
+      "assetIds": [
+        "source.memento"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "metalclaw": {
+      "id": "metalclaw",
+      "name": "Metal Claw",
+      "fxId": "metal-claw",
+      "status": "candidate",
+      "assetIds": [
+        "source.metal-claw-part-1",
+        "source.metal-claw-part-2",
+        "source.metal-claw"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "metalsound": {
+      "id": "metalsound",
+      "name": "Metal Sound",
+      "fxId": "metal-sound",
+      "status": "candidate",
+      "assetIds": [
+        "source.metal-sound"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "meteormash": {
+      "id": "meteormash",
+      "name": "Meteor Mash",
+      "fxId": "meteor-mash",
+      "status": "candidate",
+      "assetIds": [
+        "source.meteor-mash-part-1",
+        "source.meteor-mash-part-2",
+        "source.meteor-mash"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "metronome": {
+      "id": "metronome",
+      "name": "Metronome",
+      "fxId": "metronome",
+      "status": "candidate",
+      "assetIds": [
+        "source.metronome"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "milkdrink": {
+      "id": "milkdrink",
+      "name": "Milk Drink",
+      "fxId": "milk-drink",
+      "status": "candidate",
+      "assetIds": [
+        "source.milk-drink-part-1",
+        "source.milk-drink-part-2",
+        "source.milk-drink"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "mimic": {
+      "id": "mimic",
+      "name": "Mimic",
+      "fxId": "mimic",
+      "status": "candidate",
+      "assetIds": [
+        "source.mimic"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "mindreader": {
+      "id": "mindreader",
+      "name": "Mind Reader",
+      "fxId": "mind-reader",
+      "status": "candidate",
+      "assetIds": [
+        "source.mind-reader"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "minimize": {
+      "id": "minimize",
+      "name": "Minimize",
+      "fxId": "minimize",
+      "status": "candidate",
+      "assetIds": [
+        "source.minimize"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "mirrorcoat": {
+      "id": "mirrorcoat",
+      "name": "Mirror Coat",
+      "fxId": "mirror-coat",
+      "status": "candidate",
+      "assetIds": [
+        "source.mirror-coat"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "mirrormove": {
+      "id": "mirrormove",
+      "name": "Mirror Move",
+      "fxId": "mirror-move",
+      "status": "called-move",
+      "assetIds": [],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": [
+        "No named recording exists in this source pack. A later reviewed policy may use the executed move only when authoritative events expose it; do not infer it from client rules."
+      ]
+    },
+    "mist": {
+      "id": "mist",
+      "name": "Mist",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.mist"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "mistball": {
+      "id": "mistball",
+      "name": "Mist Ball",
+      "fxId": "mist-ball",
+      "status": "candidate",
+      "assetIds": [
+        "source.mist-ball"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "moonlight": {
+      "id": "moonlight",
+      "name": "Moonlight",
+      "fxId": "moonlight",
+      "status": "candidate",
+      "assetIds": [
+        "source.moonlight-part-1",
+        "source.moonlight-part-2",
+        "source.moonlight"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "morningsun": {
+      "id": "morningsun",
+      "name": "Morning Sun",
+      "fxId": "morning-sun",
+      "status": "candidate",
+      "assetIds": [
+        "source.morning-sun-part-1",
+        "source.morning-sun-part-2",
+        "source.morning-sun"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "muddywater": {
+      "id": "muddywater",
+      "name": "Muddy Water",
+      "fxId": "muddy-water",
+      "status": "candidate",
+      "assetIds": [
+        "source.muddy-water"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "mudshot": {
+      "id": "mudshot",
+      "name": "Mud Shot",
+      "fxId": "mud-shot",
+      "status": "candidate",
+      "assetIds": [
+        "source.mud-shot"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "mudslap": {
+      "id": "mudslap",
+      "name": "Mud-Slap",
+      "fxId": "mud-slap",
+      "status": "candidate",
+      "assetIds": [
+        "source.mud-slap"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "mudsport": {
+      "id": "mudsport",
+      "name": "Mud Sport",
+      "fxId": "mud-sport",
+      "status": "candidate",
+      "assetIds": [
+        "source.mud-sport"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "naturepower": {
+      "id": "naturepower",
+      "name": "Nature Power",
+      "fxId": "nature-power",
+      "status": "called-move",
+      "assetIds": [],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": [
+        "No named recording exists in this source pack. A later reviewed policy may use the executed move only when authoritative events expose it; do not infer it from terrain or client rules."
+      ]
+    },
+    "needlearm": {
+      "id": "needlearm",
+      "name": "Needle Arm",
+      "fxId": "needle-arm",
+      "status": "candidate",
+      "assetIds": [
+        "source.needle-arm"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "nightmare": {
+      "id": "nightmare",
+      "name": "Nightmare",
+      "fxId": "nightmare",
+      "status": "candidate",
+      "assetIds": [
+        "source.nightmare"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "nightshade": {
+      "id": "nightshade",
+      "name": "Night Shade",
+      "fxId": "night-shade",
+      "status": "candidate",
+      "assetIds": [
+        "source.night-shade"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "octazooka": {
+      "id": "octazooka",
+      "name": "Octazooka",
+      "fxId": "octazooka",
+      "status": "candidate",
+      "assetIds": [
+        "source.octazooka"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "odorsleuth": {
+      "id": "odorsleuth",
+      "name": "Odor Sleuth",
+      "fxId": "odor-sleuth",
+      "status": "candidate",
+      "assetIds": [
+        "source.odor-sleuth"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "outrage": {
+      "id": "outrage",
+      "name": "Outrage",
+      "fxId": "outrage",
+      "status": "candidate",
+      "assetIds": [
+        "source.outrage"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "overheat": {
+      "id": "overheat",
+      "name": "Overheat",
+      "fxId": "overheat",
+      "status": "candidate",
+      "assetIds": [
+        "source.overheat"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "painsplit": {
+      "id": "painsplit",
+      "name": "Pain Split",
+      "fxId": "pain-split",
+      "status": "candidate",
+      "assetIds": [
+        "source.pain-split"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "payday": {
+      "id": "payday",
+      "name": "Pay Day",
+      "fxId": "pay-day",
+      "status": "candidate",
+      "assetIds": [
+        "source.pay-day"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "peck": {
+      "id": "peck",
+      "name": "Peck",
+      "fxId": "peck",
+      "status": "candidate",
+      "assetIds": [
+        "source.peck"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "perishsong": {
+      "id": "perishsong",
+      "name": "Perish Song",
+      "fxId": "perish-song",
+      "status": "candidate",
+      "assetIds": [
+        "source.perish-song"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "petaldance": {
+      "id": "petaldance",
+      "name": "Petal Dance",
+      "fxId": "petal-dance",
+      "status": "candidate",
+      "assetIds": [
+        "source.petal-dance-part-1",
+        "source.petal-dance-part-2",
+        "source.petal-dance"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "pinmissile": {
+      "id": "pinmissile",
+      "name": "Pin Missile",
+      "fxId": "pin-missile",
+      "status": "candidate",
+      "assetIds": [
+        "source.pin-missile-1hit",
+        "source.pin-missile-2hits"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "poisonfang": {
+      "id": "poisonfang",
+      "name": "Poison Fang",
+      "fxId": "poison-fang",
+      "status": "candidate",
+      "assetIds": [
+        "source.poison-fang"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "poisongas": {
+      "id": "poisongas",
+      "name": "Poison Gas",
+      "fxId": "poison-gas",
+      "status": "candidate",
+      "assetIds": [
+        "source.poison-gas-part-1",
+        "source.poison-gas-part-2",
+        "source.poison-gas"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "poisonpowder": {
+      "id": "poisonpowder",
+      "name": "Poison Powder",
+      "fxId": "poison-powder",
+      "status": "candidate",
+      "assetIds": [
+        "source.poison-powder-part-1",
+        "source.poison-powder-part-2",
+        "source.poison-powder"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "poisonsting": {
+      "id": "poisonsting",
+      "name": "Poison Sting",
+      "fxId": "poison-sting",
+      "status": "candidate",
+      "assetIds": [
+        "source.poison-sting"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "poisontail": {
+      "id": "poisontail",
+      "name": "Poison Tail",
+      "fxId": "poison-tail",
+      "status": "candidate",
+      "assetIds": [
+        "source.poison-tail"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "pound": {
+      "id": "pound",
+      "name": "Pound",
+      "fxId": "pound",
+      "status": "candidate",
+      "assetIds": [
+        "source.pound"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "powdersnow": {
+      "id": "powdersnow",
+      "name": "Powder Snow",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.powder-snow-part-1",
+        "source.powder-snow-part-2",
+        "source.powder-snow"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "present": {
+      "id": "present",
+      "name": "Present",
+      "fxId": "present",
+      "status": "candidate",
+      "assetIds": [
+        "source.present-damage",
+        "source.present-heal",
+        "source.present-part-1",
+        "source.present-part-2"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "protect": {
+      "id": "protect",
+      "name": "Protect",
+      "fxId": "protect",
+      "status": "candidate",
+      "assetIds": [
+        "source.protect"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "psybeam": {
+      "id": "psybeam",
+      "name": "Psybeam",
+      "fxId": "psybeam",
+      "status": "candidate",
+      "assetIds": [
+        "source.psybeam"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "psychic": {
+      "id": "psychic",
+      "name": "Psychic",
+      "fxId": "psychic",
+      "status": "candidate",
+      "assetIds": [
+        "source.psychic"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "psychoboost": {
+      "id": "psychoboost",
+      "name": "Psycho Boost",
+      "fxId": "psycho-boost",
+      "status": "candidate",
+      "assetIds": [
+        "source.psycho-boost"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "psychup": {
+      "id": "psychup",
+      "name": "Psych Up",
+      "fxId": "psych-up",
+      "status": "candidate",
+      "assetIds": [
+        "source.psych-up-part-1",
+        "source.psych-up-part-2",
+        "source.psych-up"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "psywave": {
+      "id": "psywave",
+      "name": "Psywave",
+      "fxId": "psywave",
+      "status": "candidate",
+      "assetIds": [
+        "source.psywave"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "pursuit": {
+      "id": "pursuit",
+      "name": "Pursuit",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.pursuit"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "quickattack": {
+      "id": "quickattack",
+      "name": "Quick Attack",
+      "fxId": "quick-attack",
+      "status": "candidate",
+      "assetIds": [
+        "source.quick-attack"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "rage": {
+      "id": "rage",
+      "name": "Rage",
+      "fxId": "rage",
+      "status": "candidate",
+      "assetIds": [
+        "source.rage"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "raindance": {
+      "id": "raindance",
+      "name": "Rain Dance",
+      "fxId": "rain-dance",
+      "status": "candidate",
+      "assetIds": [
+        "source.rain-dance"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "rapidspin": {
+      "id": "rapidspin",
+      "name": "Rapid Spin",
+      "fxId": "rapid-spin",
+      "status": "candidate",
+      "assetIds": [
+        "source.rapid-spin"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "razorleaf": {
+      "id": "razorleaf",
+      "name": "Razor Leaf",
+      "fxId": "razor-leaf",
+      "status": "candidate",
+      "assetIds": [
+        "source.razor-leaf-part-1",
+        "source.razor-leaf-part-2",
+        "source.razor-leaf"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "razorwind": {
+      "id": "razorwind",
+      "name": "Razor Wind",
+      "fxId": "razor-wind",
+      "status": "candidate",
+      "assetIds": [
+        "source.razor-wind"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "recover": {
+      "id": "recover",
+      "name": "Recover",
+      "fxId": "recover",
+      "status": "candidate",
+      "assetIds": [
+        "source.recover-part-1",
+        "source.recover-part-2",
+        "source.recover"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "recycle": {
+      "id": "recycle",
+      "name": "Recycle",
+      "fxId": "recycle",
+      "status": "candidate",
+      "assetIds": [
+        "source.recycle-part-1",
+        "source.recycle-part-2",
+        "source.recycle"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "reflect": {
+      "id": "reflect",
+      "name": "Reflect",
+      "fxId": "reflect",
+      "status": "candidate",
+      "assetIds": [
+        "source.reflect"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "refresh": {
+      "id": "refresh",
+      "name": "Refresh",
+      "fxId": "refresh",
+      "status": "candidate",
+      "assetIds": [
+        "source.refresh"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "rest": {
+      "id": "rest",
+      "name": "Rest",
+      "fxId": "rest",
+      "status": "candidate",
+      "assetIds": [
+        "source.rest"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "return": {
+      "id": "return",
+      "name": "Return",
+      "fxId": "return",
+      "status": "candidate",
+      "assetIds": [
+        "source.return-part-1",
+        "source.return-part-2",
+        "source.return"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "revenge": {
+      "id": "revenge",
+      "name": "Revenge",
+      "fxId": "revenge",
+      "status": "candidate",
+      "assetIds": [
+        "source.revenge"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "reversal": {
+      "id": "reversal",
+      "name": "Reversal",
+      "fxId": "reversal",
+      "status": "candidate",
+      "assetIds": [
+        "source.reversal"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "roar": {
+      "id": "roar",
+      "name": "Roar",
+      "fxId": "roar",
+      "status": "candidate",
+      "assetIds": [
+        "source.roar"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "rockblast": {
+      "id": "rockblast",
+      "name": "Rock Blast",
+      "fxId": "rock-blast",
+      "status": "candidate",
+      "assetIds": [
+        "source.rock-blast-1hit",
+        "source.rock-blast-2hits"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "rockslide": {
+      "id": "rockslide",
+      "name": "Rock Slide",
+      "fxId": "rock-slide",
+      "status": "candidate",
+      "assetIds": [
+        "source.rock-slide"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "rocksmash": {
+      "id": "rocksmash",
+      "name": "Rock Smash",
+      "fxId": "rock-smash",
+      "status": "candidate",
+      "assetIds": [
+        "source.rock-smash"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "rockthrow": {
+      "id": "rockthrow",
+      "name": "Rock Throw",
+      "fxId": "rock-throw",
+      "status": "candidate",
+      "assetIds": [
+        "source.rock-throw"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "rocktomb": {
+      "id": "rocktomb",
+      "name": "Rock Tomb",
+      "fxId": "rock-tomb",
+      "status": "candidate",
+      "assetIds": [
+        "source.rock-tomb"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "roleplay": {
+      "id": "roleplay",
+      "name": "Role Play",
+      "fxId": "role-play",
+      "status": "candidate",
+      "assetIds": [
+        "source.role-play"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "rollingkick": {
+      "id": "rollingkick",
+      "name": "Rolling Kick",
+      "fxId": "rolling-kick",
+      "status": "candidate",
+      "assetIds": [
+        "source.rolling-kick"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "rollout": {
+      "id": "rollout",
+      "name": "Rollout",
+      "fxId": "rollout",
+      "status": "candidate",
+      "assetIds": [
+        "source.rollout-part-1",
+        "source.rollout-part-2",
+        "source.rollout"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "sacredfire": {
+      "id": "sacredfire",
+      "name": "Sacred Fire",
+      "fxId": "sacred-fire",
+      "status": "candidate",
+      "assetIds": [
+        "source.sacred-fire-part-1",
+        "source.sacred-fire-part-2",
+        "source.sacred-fire"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "safeguard": {
+      "id": "safeguard",
+      "name": "Safeguard",
+      "fxId": "safeguard",
+      "status": "candidate",
+      "assetIds": [
+        "source.safeguard"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "sandattack": {
+      "id": "sandattack",
+      "name": "Sand Attack",
+      "fxId": "sand-attack",
+      "status": "candidate",
+      "assetIds": [
+        "source.sand-attack"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "sandstorm": {
+      "id": "sandstorm",
+      "name": "Sandstorm",
+      "fxId": "sandstorm",
+      "status": "candidate",
+      "assetIds": [
+        "source.sandstorm"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "sandtomb": {
+      "id": "sandtomb",
+      "name": "Sand Tomb",
+      "fxId": "sand-tomb",
+      "status": "candidate",
+      "assetIds": [
+        "source.sand-tomb-turn-damage",
+        "source.sand-tomb"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "scaryface": {
+      "id": "scaryface",
+      "name": "Scary Face",
+      "fxId": "scary-face",
+      "status": "candidate",
+      "assetIds": [
+        "source.scary-face"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "scratch": {
+      "id": "scratch",
+      "name": "Scratch",
+      "fxId": "scratch",
+      "status": "candidate",
+      "assetIds": [
+        "source.scratch"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "screech": {
+      "id": "screech",
+      "name": "Screech",
+      "fxId": "screech",
+      "status": "candidate",
+      "assetIds": [
+        "source.screech"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "secretpower": {
+      "id": "secretpower",
+      "name": "Secret Power",
+      "fxId": "secret-power",
+      "status": "candidate",
+      "assetIds": [
+        "source.secret-power"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "seismictoss": {
+      "id": "seismictoss",
+      "name": "Seismic Toss",
+      "fxId": "seismic-toss",
+      "status": "candidate",
+      "assetIds": [
+        "source.seismic-toss-part-1",
+        "source.seismic-toss-part-2",
+        "source.seismic-toss"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "selfdestruct": {
+      "id": "selfdestruct",
+      "name": "Self-Destruct",
+      "fxId": "self-destruct",
+      "status": "candidate",
+      "assetIds": [
+        "source.self-destruct"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "shadowball": {
+      "id": "shadowball",
+      "name": "Shadow Ball",
+      "fxId": "shadow-ball",
+      "status": "candidate",
+      "assetIds": [
+        "source.shadow-ball"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "shadowpunch": {
+      "id": "shadowpunch",
+      "name": "Shadow Punch",
+      "fxId": "shadow-punch",
+      "status": "candidate",
+      "assetIds": [
+        "source.shadow-punch"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "sharpen": {
+      "id": "sharpen",
+      "name": "Sharpen",
+      "fxId": "sharpen",
+      "status": "candidate",
+      "assetIds": [
+        "source.sharpen"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "sheercold": {
+      "id": "sheercold",
+      "name": "Sheer Cold",
+      "fxId": "sheer-cold",
+      "status": "candidate",
+      "assetIds": [
+        "source.sheer-cold"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "shockwave": {
+      "id": "shockwave",
+      "name": "Shock Wave",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.shock-wave"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "signalbeam": {
+      "id": "signalbeam",
+      "name": "Signal Beam",
+      "fxId": "signal-beam",
+      "status": "candidate",
+      "assetIds": [
+        "source.signal-beam"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "silverwind": {
+      "id": "silverwind",
+      "name": "Silver Wind",
+      "fxId": "silver-wind",
+      "status": "candidate",
+      "assetIds": [
+        "source.silver-wind"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "sing": {
+      "id": "sing",
+      "name": "Sing",
+      "fxId": "sing",
+      "status": "candidate",
+      "assetIds": [
+        "source.sing"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "sketch": {
+      "id": "sketch",
+      "name": "Sketch",
+      "fxId": "sketch",
+      "status": "candidate",
+      "assetIds": [
+        "source.sketch"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "skillswap": {
+      "id": "skillswap",
+      "name": "Skill Swap",
+      "fxId": "skill-swap",
+      "status": "candidate",
+      "assetIds": [
+        "source.skill-swap"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "skullbash": {
+      "id": "skullbash",
+      "name": "Skull Bash",
+      "fxId": "skull-bash",
+      "status": "candidate",
+      "assetIds": [
+        "source.skull-bash-part-1",
+        "source.skull-bash-part-2",
+        "source.skull-bash"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "skyattack": {
+      "id": "skyattack",
+      "name": "Sky Attack",
+      "fxId": "sky-attack",
+      "status": "candidate",
+      "assetIds": [
+        "source.sky-attack-part-1",
+        "source.sky-attack-part-2",
+        "source.sky-attack"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "skyuppercut": {
+      "id": "skyuppercut",
+      "name": "Sky Uppercut",
+      "fxId": "sky-uppercut",
+      "status": "candidate",
+      "assetIds": [
+        "source.sky-uppercut"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "slackoff": {
+      "id": "slackoff",
+      "name": "Slack Off",
+      "fxId": "slack-off",
+      "status": "candidate",
+      "assetIds": [
+        "source.slack-off"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "slam": {
+      "id": "slam",
+      "name": "Slam",
+      "fxId": "slam",
+      "status": "candidate",
+      "assetIds": [
+        "source.slam"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "slash": {
+      "id": "slash",
+      "name": "Slash",
+      "fxId": "slash",
+      "status": "candidate",
+      "assetIds": [
+        "source.slash"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "sleeppowder": {
+      "id": "sleeppowder",
+      "name": "Sleep Powder",
+      "fxId": "sleep-powder",
+      "status": "candidate",
+      "assetIds": [
+        "source.sleep-powder-part-1",
+        "source.sleep-powder-part-2",
+        "source.sleep-powder"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "sleeptalk": {
+      "id": "sleeptalk",
+      "name": "Sleep Talk",
+      "fxId": "sleep-talk",
+      "status": "candidate",
+      "assetIds": [
+        "source.sleep-talk"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "sludge": {
+      "id": "sludge",
+      "name": "Sludge",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.sludge"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "sludgebomb": {
+      "id": "sludgebomb",
+      "name": "Sludge Bomb",
+      "fxId": "sludge-bomb",
+      "status": "candidate",
+      "assetIds": [
+        "source.sludge-bomb-part-1",
+        "source.sludge-bomb-part-2",
+        "source.sludge-bomb"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "smellingsalts": {
+      "id": "smellingsalts",
+      "name": "Smelling Salts",
+      "fxId": "smelling-salts",
+      "status": "candidate",
+      "assetIds": [
+        "source.smelling-salts"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "smog": {
+      "id": "smog",
+      "name": "Smog",
+      "fxId": "smog",
+      "status": "candidate",
+      "assetIds": [
+        "source.smog"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "smokescreen": {
+      "id": "smokescreen",
+      "name": "Smokescreen",
+      "fxId": "smokescreen",
+      "status": "candidate",
+      "assetIds": [
+        "source.smokescreen-part-1",
+        "source.smokescreen-part-2",
+        "source.smokescreen"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "snatch": {
+      "id": "snatch",
+      "name": "Snatch",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.snatch"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "snore": {
+      "id": "snore",
+      "name": "Snore",
+      "fxId": "snore",
+      "status": "candidate",
+      "assetIds": [
+        "source.snore"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "softboiled": {
+      "id": "softboiled",
+      "name": "Soft-Boiled",
+      "fxId": "soft-boiled",
+      "status": "candidate",
+      "assetIds": [
+        "source.soft-boiled-part-1",
+        "source.soft-boiled-part-2",
+        "source.soft-boiled"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "solarbeam": {
+      "id": "solarbeam",
+      "name": "Solar Beam",
+      "fxId": "solar-beam",
+      "status": "candidate",
+      "assetIds": [
+        "source.solar-beam-part-1",
+        "source.solar-beam-part-2",
+        "source.solar-beam"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "sonicboom": {
+      "id": "sonicboom",
+      "name": "Sonic Boom",
+      "fxId": "sonic-boom",
+      "status": "candidate",
+      "assetIds": [
+        "source.sonic-boom"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "spark": {
+      "id": "spark",
+      "name": "Spark",
+      "fxId": "spark",
+      "status": "candidate",
+      "assetIds": [
+        "source.spark"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "spiderweb": {
+      "id": "spiderweb",
+      "name": "Spider Web",
+      "fxId": "spider-web",
+      "status": "candidate",
+      "assetIds": [
+        "source.spider-web"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "spikecannon": {
+      "id": "spikecannon",
+      "name": "Spike Cannon",
+      "fxId": "spike-cannon",
+      "status": "candidate",
+      "assetIds": [
+        "source.spike-cannon-1hit",
+        "source.spike-cannon-2hits"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "spikes": {
+      "id": "spikes",
+      "name": "Spikes",
+      "fxId": "spikes",
+      "status": "candidate",
+      "assetIds": [
+        "source.spikes"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "spite": {
+      "id": "spite",
+      "name": "Spite",
+      "fxId": "spite",
+      "status": "candidate",
+      "assetIds": [
+        "source.spite"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "spitup": {
+      "id": "spitup",
+      "name": "Spit Up",
+      "fxId": "spit-up",
+      "status": "candidate",
+      "assetIds": [
+        "source.spit-up"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "splash": {
+      "id": "splash",
+      "name": "Splash",
+      "fxId": "splash",
+      "status": "candidate",
+      "assetIds": [
+        "source.splash"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "spore": {
+      "id": "spore",
+      "name": "Spore",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.spore-part-1",
+        "source.spore-part-2",
+        "source.spore"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "steelwing": {
+      "id": "steelwing",
+      "name": "Steel Wing",
+      "fxId": "steel-wing",
+      "status": "candidate",
+      "assetIds": [
+        "source.steel-wing"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "stockpile": {
+      "id": "stockpile",
+      "name": "Stockpile",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.stockpile"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "stomp": {
+      "id": "stomp",
+      "name": "Stomp",
+      "fxId": "stomp",
+      "status": "candidate",
+      "assetIds": [
+        "source.stomp"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "strength": {
+      "id": "strength",
+      "name": "Strength",
+      "fxId": "strength",
+      "status": "candidate",
+      "assetIds": [
+        "source.strength"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "stringshot": {
+      "id": "stringshot",
+      "name": "String Shot",
+      "fxId": "string-shot",
+      "status": "candidate",
+      "assetIds": [
+        "source.string-shot"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "struggle": {
+      "id": "struggle",
+      "name": "Struggle",
+      "fxId": "struggle",
+      "status": "candidate",
+      "assetIds": [
+        "source.struggle"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "stunspore": {
+      "id": "stunspore",
+      "name": "Stun Spore",
+      "fxId": "stun-spore",
+      "status": "candidate",
+      "assetIds": [
+        "source.stun-spore-part-1",
+        "source.stun-spore-part-2",
+        "source.stun-spore"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "submission": {
+      "id": "submission",
+      "name": "Submission",
+      "fxId": "submission",
+      "status": "candidate",
+      "assetIds": [
+        "source.submission"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "substitute": {
+      "id": "substitute",
+      "name": "Substitute",
+      "fxId": "substitute",
+      "status": "candidate",
+      "assetIds": [
+        "source.substitute"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "sunnyday": {
+      "id": "sunnyday",
+      "name": "Sunny Day",
+      "fxId": "sunny-day",
+      "status": "candidate",
+      "assetIds": [
+        "source.sunny-day"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "superfang": {
+      "id": "superfang",
+      "name": "Super Fang",
+      "fxId": "super-fang",
+      "status": "candidate",
+      "assetIds": [
+        "source.super-fang-part-1",
+        "source.super-fang-part-2",
+        "source.super-fang"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "superpower": {
+      "id": "superpower",
+      "name": "Superpower",
+      "fxId": "superpower",
+      "status": "candidate",
+      "assetIds": [
+        "source.superpower"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "supersonic": {
+      "id": "supersonic",
+      "name": "Supersonic",
+      "fxId": "supersonic",
+      "status": "candidate",
+      "assetIds": [
+        "source.supersonic-part-1",
+        "source.supersonic-part-2",
+        "source.supersonic"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "surf": {
+      "id": "surf",
+      "name": "Surf",
+      "fxId": "surf",
+      "status": "candidate",
+      "assetIds": [
+        "source.surf"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "swagger": {
+      "id": "swagger",
+      "name": "Swagger",
+      "fxId": "swagger",
+      "status": "candidate",
+      "assetIds": [
+        "source.swagger"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "swallow": {
+      "id": "swallow",
+      "name": "Swallow",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.swallow"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "sweetkiss": {
+      "id": "sweetkiss",
+      "name": "Sweet Kiss",
+      "fxId": "sweet-kiss",
+      "status": "candidate",
+      "assetIds": [
+        "source.sweet-kiss-part-1",
+        "source.sweet-kiss-part-2",
+        "source.sweet-kiss"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "sweetscent": {
+      "id": "sweetscent",
+      "name": "Sweet Scent",
+      "fxId": "sweet-scent",
+      "status": "candidate",
+      "assetIds": [
+        "source.sweet-scent"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "swift": {
+      "id": "swift",
+      "name": "Swift",
+      "fxId": "swift",
+      "status": "candidate",
+      "assetIds": [
+        "source.swift"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "swordsdance": {
+      "id": "swordsdance",
+      "name": "Swords Dance",
+      "fxId": "swords-dance",
+      "status": "candidate",
+      "assetIds": [
+        "source.swords-dance"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "synthesis": {
+      "id": "synthesis",
+      "name": "Synthesis",
+      "fxId": "synthesis",
+      "status": "candidate",
+      "assetIds": [
+        "source.synthesis-part-1",
+        "source.synthesis-part-2",
+        "source.synthesis"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "tackle": {
+      "id": "tackle",
+      "name": "Tackle",
+      "fxId": "tackle",
+      "status": "candidate",
+      "assetIds": [
+        "source.tackle"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "tailglow": {
+      "id": "tailglow",
+      "name": "Tail Glow",
+      "fxId": "tail-glow",
+      "status": "candidate",
+      "assetIds": [
+        "source.tail-glow"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "tailwhip": {
+      "id": "tailwhip",
+      "name": "Tail Whip",
+      "fxId": "tail-whip",
+      "status": "candidate",
+      "assetIds": [
+        "source.tail-whip"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "takedown": {
+      "id": "takedown",
+      "name": "Take Down",
+      "fxId": "take-down",
+      "status": "candidate",
+      "assetIds": [
+        "source.take-down"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "taunt": {
+      "id": "taunt",
+      "name": "Taunt",
+      "fxId": "taunt",
+      "status": "candidate",
+      "assetIds": [
+        "source.taunt"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "teeterdance": {
+      "id": "teeterdance",
+      "name": "Teeter Dance",
+      "fxId": "teeter-dance",
+      "status": "candidate",
+      "assetIds": [
+        "source.teeter-dance"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "teleport": {
+      "id": "teleport",
+      "name": "Teleport",
+      "fxId": "teleport",
+      "status": "candidate",
+      "assetIds": [
+        "source.teleport"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "thief": {
+      "id": "thief",
+      "name": "Thief",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.thief"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "thrash": {
+      "id": "thrash",
+      "name": "Thrash",
+      "fxId": "thrash",
+      "status": "candidate",
+      "assetIds": [
+        "source.thrash"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "thunder": {
+      "id": "thunder",
+      "name": "Thunder",
+      "fxId": "thunder",
+      "status": "candidate",
+      "assetIds": [
+        "source.thunder-part-1",
+        "source.thunder-part-2",
+        "source.thunder"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "thunderbolt": {
+      "id": "thunderbolt",
+      "name": "Thunderbolt",
+      "fxId": "thunderbolt",
+      "status": "candidate",
+      "assetIds": [
+        "source.thunderbolt-part-1",
+        "source.thunderbolt-part-2",
+        "source.thunderbolt"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "thunderpunch": {
+      "id": "thunderpunch",
+      "name": "Thunder Punch",
+      "fxId": "thunder-punch",
+      "status": "candidate",
+      "assetIds": [
+        "source.thunder-punch"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "thundershock": {
+      "id": "thundershock",
+      "name": "Thunder Shock",
+      "fxId": "thunder-shock",
+      "status": "candidate",
+      "assetIds": [
+        "source.thunder-shock-part-1",
+        "source.thunder-shock-part-2",
+        "source.thunder-shock"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "thunderwave": {
+      "id": "thunderwave",
+      "name": "Thunder Wave",
+      "fxId": "thunder-wave",
+      "status": "candidate",
+      "assetIds": [
+        "source.thunder-wave-part-1",
+        "source.thunder-wave-part-2",
+        "source.thunder-wave"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "tickle": {
+      "id": "tickle",
+      "name": "Tickle",
+      "fxId": "tickle",
+      "status": "candidate",
+      "assetIds": [
+        "source.tickle-part-1",
+        "source.tickle-part-2",
+        "source.tickle"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "torment": {
+      "id": "torment",
+      "name": "Torment",
+      "fxId": "torment",
+      "status": "candidate",
+      "assetIds": [
+        "source.torment"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "toxic": {
+      "id": "toxic",
+      "name": "Toxic",
+      "fxId": "toxic",
+      "status": "candidate",
+      "assetIds": [
+        "source.toxic"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "transform": {
+      "id": "transform",
+      "name": "Transform",
+      "fxId": "transform",
+      "status": "candidate",
+      "assetIds": [
+        "source.transform"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "triattack": {
+      "id": "triattack",
+      "name": "Tri Attack",
+      "fxId": "tri-attack",
+      "status": "candidate",
+      "assetIds": [
+        "source.tri-attack"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "trick": {
+      "id": "trick",
+      "name": "Trick",
+      "fxId": "trick",
+      "status": "candidate",
+      "assetIds": [
+        "source.trick"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "triplekick": {
+      "id": "triplekick",
+      "name": "Triple Kick",
+      "fxId": "triple-kick",
+      "status": "candidate",
+      "assetIds": [
+        "source.triple-kick-1hit",
+        "source.triple-kick-2hits"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "twineedle": {
+      "id": "twineedle",
+      "name": "Twineedle",
+      "fxId": "twineedle",
+      "status": "candidate",
+      "assetIds": [
+        "source.twineedle-1hit",
+        "source.twineedle-2hits"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "twister": {
+      "id": "twister",
+      "name": "Twister",
+      "fxId": "twister",
+      "status": "candidate",
+      "assetIds": [
+        "source.twister"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "uproar": {
+      "id": "uproar",
+      "name": "Uproar",
+      "fxId": "uproar",
+      "status": "candidate",
+      "assetIds": [
+        "source.uproar"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "vinewhip": {
+      "id": "vinewhip",
+      "name": "Vine Whip",
+      "fxId": "vine-whip",
+      "status": "candidate",
+      "assetIds": [
+        "source.vine-whip"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "visegrip": {
+      "id": "visegrip",
+      "name": "Vise Grip",
+      "fxId": "vice-grip",
+      "status": "candidate",
+      "assetIds": [
+        "source.vice-grip"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "vitalthrow": {
+      "id": "vitalthrow",
+      "name": "Vital Throw",
+      "fxId": "vital-throw",
+      "status": "candidate",
+      "assetIds": [
+        "source.vital-throw"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "volttackle": {
+      "id": "volttackle",
+      "name": "Volt Tackle",
+      "fxId": "volt-tackle",
+      "status": "candidate",
+      "assetIds": [
+        "source.volt-tackle-part-1",
+        "source.volt-tackle-part-2",
+        "source.volt-tackle"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "waterfall": {
+      "id": "waterfall",
+      "name": "Waterfall",
+      "fxId": "waterfall",
+      "status": "candidate",
+      "assetIds": [
+        "source.waterfall-part-1",
+        "source.waterfall-part-2",
+        "source.waterfall"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "watergun": {
+      "id": "watergun",
+      "name": "Water Gun",
+      "fxId": "water-gun",
+      "status": "candidate",
+      "assetIds": [
+        "source.water-gun"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "waterpulse": {
+      "id": "waterpulse",
+      "name": "Water Pulse",
+      "fxId": "water-pulse",
+      "status": "candidate",
+      "assetIds": [
+        "source.water-pulse"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "watersport": {
+      "id": "watersport",
+      "name": "Water Sport",
+      "fxId": "water-sport",
+      "status": "candidate",
+      "assetIds": [
+        "source.water-sport"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "waterspout": {
+      "id": "waterspout",
+      "name": "Water Spout",
+      "fxId": null,
+      "status": "candidate",
+      "assetIds": [
+        "source.water-spout-part-1",
+        "source.water-spout-part-2",
+        "source.water-spout"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "weatherball": {
+      "id": "weatherball",
+      "name": "Weather Ball",
+      "fxId": "weather-ball",
+      "status": "candidate",
+      "assetIds": [
+        "source.weather-ball"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "whirlpool": {
+      "id": "whirlpool",
+      "name": "Whirlpool",
+      "fxId": "whirlpool",
+      "status": "candidate",
+      "assetIds": [
+        "source.whirlpool-turn-damage",
+        "source.whirlpool"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "whirlwind": {
+      "id": "whirlwind",
+      "name": "Whirlwind",
+      "fxId": "whirlwind",
+      "status": "candidate",
+      "assetIds": [
+        "source.whirlwind"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "willowisp": {
+      "id": "willowisp",
+      "name": "Will-O-Wisp",
+      "fxId": "will-o-wisp",
+      "status": "candidate",
+      "assetIds": [
+        "source.will-o-wisp"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "wingattack": {
+      "id": "wingattack",
+      "name": "Wing Attack",
+      "fxId": "wing-attack",
+      "status": "candidate",
+      "assetIds": [
+        "source.wing-attack"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "wish": {
+      "id": "wish",
+      "name": "Wish",
+      "fxId": "wish",
+      "status": "candidate",
+      "assetIds": [
+        "source.wish-part-1",
+        "source.wish-part-2",
+        "source.wish"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "withdraw": {
+      "id": "withdraw",
+      "name": "Withdraw",
+      "fxId": "withdraw",
+      "status": "candidate",
+      "assetIds": [
+        "source.withdraw"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "wrap": {
+      "id": "wrap",
+      "name": "Wrap",
+      "fxId": "wrap",
+      "status": "candidate",
+      "assetIds": [
+        "source.wrap-turn-damage",
+        "source.wrap"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "yawn": {
+      "id": "yawn",
+      "name": "Yawn",
+      "fxId": "yawn",
+      "status": "candidate",
+      "assetIds": [
+        "source.yawn"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    },
+    "zapcannon": {
+      "id": "zapcannon",
+      "name": "Zap Cannon",
+      "fxId": "zap-cannon",
+      "status": "candidate",
+      "assetIds": [
+        "source.zap-cannon"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "notes": []
+    }
+  },
+  "events": {
+    "battle.failure": {
+      "id": "battle.failure",
+      "status": "deferred",
+      "assetIds": [],
+      "reviewStatus": "needs-source-review",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "deferred",
+      "notes": [
+        "No dedicated failed-action recording is identified in this pack."
+      ]
+    },
+    "battle.faint": {
+      "id": "battle.faint",
+      "status": "candidate",
+      "assetIds": [
+        "source.in-battle-faint-no-health"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "unreviewed",
+      "notes": [
+        "Filename proposes faint feedback; it is not a Pokemon cry or a reviewed result sound."
+      ]
+    },
+    "battle.heal": {
+      "id": "battle.heal",
+      "status": "candidate",
+      "assetIds": [
+        "source.in-battle-heal-hp-restore"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "unreviewed",
+      "notes": [
+        "Filename proposes HP-restoration feedback; timing and suitable uses need listening review."
+      ]
+    },
+    "battle.hit.normal": {
+      "id": "battle.hit.normal",
+      "status": "candidate",
+      "assetIds": [
+        "source.hit-normal-damage"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "unreviewed",
+      "notes": [
+        "Filename proposes normal damage feedback; its audible onset and interaction with move recordings remain unreviewed."
+      ]
+    },
+    "battle.hit.resisted": {
+      "id": "battle.hit.resisted",
+      "status": "candidate",
+      "assetIds": [
+        "source.hit-weak-not-very-effective"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "unreviewed",
+      "notes": [
+        "Filename proposes resisted-hit feedback, not immunity."
+      ]
+    },
+    "battle.hit.super-effective": {
+      "id": "battle.hit.super-effective",
+      "status": "candidate",
+      "assetIds": [
+        "source.hit-super-effective"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "unreviewed",
+      "notes": [
+        "Filename proposes super-effective feedback; use would require a confirmed battle event and listening review."
+      ]
+    },
+    "battle.immune": {
+      "id": "battle.immune",
+      "status": "deferred",
+      "assetIds": [],
+      "reviewStatus": "needs-source-review",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "deferred",
+      "notes": [
+        "No dedicated immunity recording is identified; resisted damage does not mean immunity."
+      ]
+    },
+    "battle.intro": {
+      "id": "battle.intro",
+      "status": "deferred",
+      "assetIds": [],
+      "reviewStatus": "needs-source-review",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "deferred",
+      "notes": [
+        "No dedicated intro recording is identified in this pack."
+      ]
+    },
+    "battle.item.activate": {
+      "id": "battle.item.activate",
+      "status": "candidate",
+      "assetIds": [
+        "source.in-battle-held-item-activate"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "unreviewed",
+      "notes": [
+        "Filename proposes held-item activation feedback; do not infer activation from HP snapshots."
+      ]
+    },
+    "battle.low-health.loop": {
+      "id": "battle.low-health.loop",
+      "status": "candidate",
+      "assetIds": [
+        "source.in-battle-health-low-loop"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "deferred",
+      "notes": [
+        "The filename contains Loop; seamless loop boundaries have not been measured or approved. Persistent alarms are deferred."
+      ]
+    },
+    "battle.low-health.notice": {
+      "id": "battle.low-health.notice",
+      "status": "candidate",
+      "assetIds": [
+        "source.in-battle-health-low"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "deferred",
+      "notes": [
+        "Filename proposes a low-health notification. Repetition, fatigue and lifecycle policy are deferred."
+      ]
+    },
+    "battle.miss": {
+      "id": "battle.miss",
+      "status": "deferred",
+      "assetIds": [],
+      "reviewStatus": "needs-source-review",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "deferred",
+      "notes": [
+        "No dedicated miss recording is identified; do not reuse damaging-hit feedback by default."
+      ]
+    },
+    "battle.recall.flee": {
+      "id": "battle.recall.flee",
+      "status": "candidate",
+      "assetIds": [
+        "source.in-battle-recall-switch-flee-run"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "unreviewed",
+      "notes": [
+        "Filename groups recall, switching and fleeing; its correct audible role needs review and is not a release cue."
+      ]
+    },
+    "battle.recall.pokeball": {
+      "id": "battle.recall.pokeball",
+      "status": "candidate",
+      "assetIds": [
+        "source.in-battle-recall-switch-pokeball"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "unreviewed",
+      "notes": [
+        "Filename proposes recall into a Poke Ball; do not automatically reuse it for release."
+      ]
+    },
+    "battle.release.pokeball": {
+      "id": "battle.release.pokeball",
+      "status": "deferred",
+      "assetIds": [],
+      "reviewStatus": "needs-source-review",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "deferred",
+      "notes": [
+        "No dedicated release recording is identified; recall is not automatically a release sound."
+      ]
+    },
+    "battle.result.defeat": {
+      "id": "battle.result.defeat",
+      "status": "deferred",
+      "assetIds": [],
+      "reviewStatus": "needs-source-review",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "deferred",
+      "notes": [
+        "No dedicated defeat recording is identified in this pack."
+      ]
+    },
+    "battle.result.victory": {
+      "id": "battle.result.victory",
+      "status": "deferred",
+      "assetIds": [],
+      "reviewStatus": "needs-source-review",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "deferred",
+      "notes": [
+        "No dedicated victory recording is identified in this pack."
+      ]
+    },
+    "battle.stat.fall": {
+      "id": "battle.stat.fall",
+      "status": "candidate",
+      "assetIds": [
+        "source.stat-fall-down"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "unreviewed",
+      "notes": [
+        "Filename proposes a stat decrease; stage and event deduplication policies remain unreviewed."
+      ]
+    },
+    "battle.stat.rise": {
+      "id": "battle.stat.rise",
+      "status": "candidate",
+      "assetIds": [
+        "source.stat-rise-up"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "unreviewed",
+      "notes": [
+        "Filename proposes a stat increase; stage and event deduplication policies remain unreviewed."
+      ]
+    },
+    "battle.status.burn": {
+      "id": "battle.status.burn",
+      "status": "candidate",
+      "assetIds": [
+        "source.status-burned"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "unreviewed",
+      "notes": [
+        "Filename proposes burn feedback; application versus residual-damage use needs listening review."
+      ]
+    },
+    "battle.status.confusion": {
+      "id": "battle.status.confusion",
+      "status": "candidate",
+      "assetIds": [
+        "source.status-confused"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "unreviewed",
+      "notes": [
+        "Filename proposes confusion feedback; application versus action feedback needs listening review."
+      ]
+    },
+    "battle.status.freeze": {
+      "id": "battle.status.freeze",
+      "status": "candidate",
+      "assetIds": [
+        "source.status-frozen"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "unreviewed",
+      "notes": [
+        "Filename proposes freeze feedback; application versus prevented-action use needs listening review."
+      ]
+    },
+    "battle.status.paralysis": {
+      "id": "battle.status.paralysis",
+      "status": "candidate",
+      "assetIds": [
+        "source.status-paralyzed"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "unreviewed",
+      "notes": [
+        "Filename proposes paralysis feedback; application versus prevented-action use needs listening review."
+      ]
+    },
+    "battle.status.poison": {
+      "id": "battle.status.poison",
+      "status": "candidate",
+      "assetIds": [
+        "source.status-poisoned"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "unreviewed",
+      "notes": [
+        "Filename proposes poison feedback; do not assume separate ordinary and toxic recordings."
+      ]
+    },
+    "battle.status.sleep": {
+      "id": "battle.status.sleep",
+      "status": "candidate",
+      "assetIds": [
+        "source.status-sleep"
+      ],
+      "reviewStatus": "needs-listening",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "unreviewed",
+      "notes": [
+        "Filename proposes sleep feedback; application versus sleeping-action use needs listening review."
+      ]
+    },
+    "battle.ui.cancel": {
+      "id": "battle.ui.cancel",
+      "status": "deferred",
+      "assetIds": [],
+      "reviewStatus": "needs-source-review",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "deferred",
+      "notes": [
+        "No dedicated menu cancellation recording is identified in this pack."
+      ]
+    },
+    "battle.ui.confirm": {
+      "id": "battle.ui.confirm",
+      "status": "deferred",
+      "assetIds": [],
+      "reviewStatus": "needs-source-review",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "deferred",
+      "notes": [
+        "No dedicated menu confirmation recording is identified in this pack."
+      ]
+    },
+    "battle.weather.ambience": {
+      "id": "battle.weather.ambience",
+      "status": "deferred",
+      "assetIds": [],
+      "reviewStatus": "needs-source-review",
+      "playback": {
+        "normal": "unreviewed",
+        "reduced": "unreviewed",
+        "instant": "unreviewed"
+      },
+      "initialRelease": "deferred",
+      "notes": [
+        "Persistent weather ambience has no reviewed asset or lifecycle policy and is deferred."
+      ]
+    }
+  },
+  "interpretation": "Candidate coverage is filename evidence only. No cue region, gain or playback mapping is approved by Stage A."
+}

@@ -1,0 +1,305 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "name": "sync-001-feedback.json",
+    "sha256": "100fc074b6786588e639226882c2e2d79e603e0af50be29317410113d0a46c61"
+  },
+  "feedback": {
+    "schemaVersion": 1,
+    "kind": "battle-sfx-sync-feedback",
+    "batchId": "sync-001",
+    "revision": "47f87e8df32ab9b3e9411ff9fec5fd9e11b6082e4646afd75e5a34ecc9c3e4dd",
+    "records": [
+      {
+        "moveId": "bodyslam",
+        "plan": {
+          "visualRate": 0.9,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.88,
+              "cueSeconds": 0.82,
+              "gainDb": -0.8
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Sounds perfect",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 73440,
+          "durationSeconds": 1.53,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "aerialace",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.35,
+              "cueSeconds": 0.62,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Sounds good",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 39072,
+          "durationSeconds": 0.814,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "hydropump",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.23,
+              "cueSeconds": 0.72,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Sounds perfect",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 103145,
+          "durationSeconds": 2.1488541666666667,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "thunderbolt",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.43,
+              "cueSeconds": 0.52,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "adjust-sound",
+        "notes": "The sound exceeds the animation frame , the sound effect is good till the animation so in my opinion the sound sound not exceed the animation frames",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 147360,
+          "durationSeconds": 3.07,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "triplekick",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.26,
+              "cueSeconds": 0.5,
+              "gainDb": 0
+            },
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.26,
+              "cueSeconds": 0.84,
+              "gainDb": 0
+            },
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.26,
+              "cueSeconds": 1.2,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Sounds perfect",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 26731,
+          "durationSeconds": 0.5568958333333334,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "absorb",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.1,
+              "cueSeconds": 0.4,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Sounds perfect",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 135869,
+          "durationSeconds": 2.830604166666667,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      }
+    ]
+  },
+  "playbackPins": [
+    {
+      "path": "apps/sfx-bench/src/audio.js",
+      "sha256": "9a6e0f27b0ae5ba1a3688a3f61cdf61de448354c5a4fb25649efa8345cb38cc2"
+    },
+    {
+      "path": "apps/sfx-bench/src/sync.js",
+      "sha256": "f49a75a1b14fb882d9ac948165017ba5e9c9e089e3d4ad252b15bcc387fc8645"
+    },
+    {
+      "path": "apps/sfx-bench/src/syncVisual.js",
+      "sha256": "a80878868a33642ee1bb490ebeb4aeb9f2bd9b94c937ba40971422ea1babb627"
+    }
+  ],
+  "moves": [
+    {
+      "id": "bodyslam",
+      "sourceSha256": "7e6f0a7bd89556d3665290446be934dc718225493c02d98b349e2b4776d8e8cf",
+      "sourcePcmSha256": "b04883b9a30d18104cda75fe62b9d46278d4b281a138ca17633643e6f2451921",
+      "visualRevision": "0252f8faa25be75879d1b9d851f616c3b1c51b515382ac8e1129693845035d22",
+      "plan": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.88,
+            "cueSeconds": 0.82,
+            "gainDb": -0.8
+          }
+        ]
+      }
+    },
+    {
+      "id": "aerialace",
+      "sourceSha256": "448d2ea6cbdbdb4aefa42a82def691cfaadf84c1db9fa885a74f52e5f620cee1",
+      "sourcePcmSha256": "9958aed588f128bbc0ce8f8f0a112a3e2bf2321647d3c0c59c8fdc003001cfc2",
+      "visualRevision": "3a554e785fff1e4301db4de1224e38b3f9d65368f4b26e8c07093641b3d9a0f6",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.35,
+            "cueSeconds": 0.62,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "hydropump",
+      "sourceSha256": "89533f7c8aec1582dda6f89874511c954654749c4804d27f828f70b4d5cdeaeb",
+      "sourcePcmSha256": "228d48409ca6e24b8b75de56cf7cb7a03639760c9c75a6e40dfd7f9c8e64493e",
+      "visualRevision": "99fcefe5e683fd45fba0e6ea9412259efee9c1cb417a7c32ac5f02fe40fd49c4",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.23,
+            "cueSeconds": 0.72,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "thunderbolt",
+      "sourceSha256": "0148a58c0e367c6e08b32bb80fddf6d9cede885c4e01ed57f2f94a04a32ed255",
+      "sourcePcmSha256": "d05defbc31909c03ac2aa45a4aae5d1f530a0d66f4ff3125f7682512aa078782",
+      "visualRevision": "4cc069ed1425e46ef1e7ccfae66f7381f2d4681da1162b77f57ac328e2e0d33b",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.43,
+            "cueSeconds": 0.52,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "triplekick",
+      "sourceSha256": "9dcf7ecf3a28a5c8756eee1d408c817110530f98c947bbbf17ef3d3daf95fe05",
+      "sourcePcmSha256": "09087b4ede6981c5353f913106984a9b9d2eeebdc3e1e70fecab0ae87ed5ac3b",
+      "visualRevision": "9f05d2e3650d7882a84c28fd7f3182a4ce2b25ea2de5ab6bee779033e25204f9",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 0.5,
+            "gainDb": 0
+          },
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 0.84,
+            "gainDb": 0
+          },
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 1.2,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "absorb",
+      "sourceSha256": "89cbc4c8189c8766793c06196c702e31f546459e7f68b6537a95874b92b7c386",
+      "sourcePcmSha256": "ac5b11054583799e2ecda7c9bb7758c2bec4f477a716f82dde33902842eb5243",
+      "visualRevision": "4fe6f8d9d95e23c011ab5b498ecbc2f18152ca48ee5207698186119df20a51c7",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.1,
+            "cueSeconds": 0.4,
+            "gainDb": 0
+          }
+        ]
+      }
+    }
+  ]
+}

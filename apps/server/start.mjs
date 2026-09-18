@@ -80,6 +80,12 @@ function staticFallback(distDirectory) {
     if (pathname === '/api' || pathname.startsWith('/api/')) {
       return reply(res, 404, 'API route not found', req.method);
     }
+    // Authoring tools have no deployed routes, even if a stray bench HTML file
+    // is copied to dist. Keep the navigation fallback from disguising this.
+    if (pathname === '/sfx-bench' || pathname.startsWith('/sfx-bench/') || pathname === '/sfx-bench.html'
+      || pathname === '/__sfx-bench' || pathname.startsWith('/__sfx-bench/') || pathname.startsWith('/apps/sfx-bench/')) {
+      return reply(res, 404, 'Not found', req.method);
+    }
     if (req.method !== 'GET' && req.method !== 'HEAD') {
       res.setHeader('Allow', 'GET, HEAD');
       return reply(res, 405, 'Method not allowed', req.method);
@@ -109,6 +115,10 @@ function staticFallback(distDirectory) {
       'Content-Type': MIME_TYPES[extension],
       'Content-Length': file.size,
       'X-Content-Type-Options': 'nosniff',
+      ...(/^\/audio\/sfx\/[a-f0-9]{64}\.mp3$/.test(pathname) ? {
+        'Cache-Control': 'public, max-age=31536000, immutable',
+        'ETag': `"${pathname.split('/').at(-1).slice(0, -4)}"`,
+      } : {}),
     });
     if (req.method === 'HEAD') return res.end();
     const stream = createReadStream(file.path);

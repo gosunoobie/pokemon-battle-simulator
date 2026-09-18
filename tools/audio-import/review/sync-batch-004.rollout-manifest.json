@@ -1,0 +1,827 @@
+{
+  "schemaVersion": 1,
+  "id": "sync-004",
+  "title": "Flames, falling water and spectral strikes",
+  "status": "unreviewed-comparison",
+  "revision": "387d552224a56d2c074816adcbd65318c9d193f3da55a5b20726337f043a7dc1",
+  "moves": [
+    {
+      "id": "ember",
+      "fxId": "ember",
+      "name": "Ember",
+      "asset": {
+        "id": "source.ember",
+        "url": "/sound_effects/Ember.mp3",
+        "bytes": 51327,
+        "sha256": "849b40eeaa1d922b1c79c9e276657b55c1abe8a18d16a9f887faaf3f8c4b0456",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 53039,
+          "durationSeconds": 1.20269841,
+          "decodedBytes": 424312,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "be27c655d3b112067b7151f974b57b461ba16fac8a0ff50035b410891a12f964",
+          "peak": 0.27107784,
+          "peakDbfs": -11.33811962,
+          "rmsDbfs": -24.41415343,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4198,
+          "trailingQuietFrames": 147,
+          "stereoCorrelation": 0.9999994,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 1.7,
+        "visualRevision": "9215c8576e6e14ae9dfd6002128b04bbfa8a89ce47e7c709a2c2e3f30e48a0ae",
+        "markers": [
+          {
+            "id": "launch",
+            "label": "Cosmetic first small flame launches",
+            "timeSeconds": 0.26
+          },
+          {
+            "id": "final-launch",
+            "label": "Cosmetic fifth small flame launches",
+            "timeSeconds": 0.6
+          },
+          {
+            "id": "return",
+            "label": "Cosmetic return to the resting position begins",
+            "timeSeconds": 0.68
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.7
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.24,
+            "cueSeconds": 0.7,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "Candidate keeps the original animation pace and delays the complete recording by 0.46 s. Its measured 0.24 s strongest-energy window meets the first flame contact and existing result cue at 0.70 s.",
+        "The five separate flames retain their 0.085 s launch spacing, beginning at 0.26 s and ending at 0.60 s. Their later arrivals remain cosmetic within the existing single result.",
+        "The whole 1.2026984127 s recording ends at about 1.6627 s within the 1.70 s animation. Compare the firing sequence, first contact and brief sparks; native audio speed, full source boundaries and 0 dB gain are retained."
+      ],
+      "previousReview": {
+        "verdict": "keep",
+        "notes": "Looks good enough",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.24,
+              "cueSeconds": 0.7,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": false,
+        "revision": "e9d4bb3eacf649fdbd333ab108eabf1a9785a350ddd3cd2947cd75b3547a14ea"
+      }
+    },
+    {
+      "id": "waterfall",
+      "fxId": "waterfall",
+      "name": "Waterfall",
+      "asset": {
+        "id": "source.waterfall",
+        "url": "/sound_effects/Waterfall.mp3",
+        "bytes": 101482,
+        "sha256": "3433f208caf59e33ba0f020d6523243567103afae92e8f382bbe54464a6e634f",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 109280,
+          "durationSeconds": 2.47800454,
+          "decodedBytes": 874240,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "f5cae7b13734073bcbfa9607f7a84b0da7e2b08f909b35aaf2da079534664094",
+          "peak": 0.37933838,
+          "peakDbfs": -8.41946421,
+          "rmsDbfs": -22.66974486,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 3978,
+          "trailingQuietFrames": 8,
+          "stereoCorrelation": 0.99999961,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 3.15,
+        "visualRevision": "2111fc91b26b3bec071e56efb34bcb6acdab694b71659bfc2328ce9b3ee75b3f",
+        "markers": [
+          {
+            "id": "curtain",
+            "label": "Cosmetic water curtain begins appearing",
+            "timeSeconds": 0.32
+          },
+          {
+            "id": "descent",
+            "label": "Cosmetic falling front starts descending",
+            "timeSeconds": 0.36
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.78
+          },
+          {
+            "id": "drain",
+            "label": "Cosmetic falling stream starts draining",
+            "timeSeconds": 1.92
+          },
+          {
+            "id": "pool-fade",
+            "label": "Cosmetic whitewater pool fade begins",
+            "timeSeconds": 2.3
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.71,
+            "cueSeconds": 0.78,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "Candidate keeps the original animation pace and delays the complete Waterfall recording by 0.07 s. Its measured 0.71 s energy rise meets the descending front and existing result cue at 0.78 s.",
+        "The later strongest-energy window at source 1.88 s occurs at elapsed 1.95 s, shortly after the authored stream drain begins at 1.92 s. These are numeric landmarks for comparison, without assigning the recording separate phase roles.",
+        "The whole 2.4780045351 s recording ends at about 2.5480 s during the spreading whitewater, before the pool finishes fading at 2.92 s and the visual ends at 3.15 s. Retain the full original, including its active ending, at native speed and 0 dB gain."
+      ],
+      "previousReview": {
+        "verdict": "keep",
+        "notes": "Looks good enough",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.71,
+              "cueSeconds": 0.78,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": false,
+        "revision": "e9d4bb3eacf649fdbd333ab108eabf1a9785a350ddd3cd2947cd75b3547a14ea"
+      }
+    },
+    {
+      "id": "dragonclaw",
+      "fxId": "dragon-claw",
+      "name": "Dragon Claw",
+      "asset": {
+        "id": "source.dragon-claw",
+        "url": "/sound_effects/Dragon%20Claw.mp3",
+        "bytes": 82674,
+        "sha256": "ea17cc040768906bb775cbaef61d185e1c107c47b5aceac3734ba8a5d3996ea8",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 87759,
+          "durationSeconds": 1.99,
+          "decodedBytes": 702072,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "933be9875eb387645420a04e59542a5cd8af08f1ee5138d568b93ea6d92c90cd",
+          "peak": 0.42465556,
+          "peakDbfs": -7.43926377,
+          "rmsDbfs": -21.51914114,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4254,
+          "trailingQuietFrames": 4955,
+          "stereoCorrelation": 0.99999969,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.05,
+        "visualRevision": "c54b981be46c4428ad726f4c1e329584dc76885026ca02767353fe91819ad271",
+        "markers": [
+          {
+            "id": "charge",
+            "label": "Cosmetic claw charge begins appearing",
+            "timeSeconds": 0.08
+          },
+          {
+            "id": "swing",
+            "label": "Cosmetic talon sweep begins",
+            "timeSeconds": 0.48
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.82
+          },
+          {
+            "id": "return",
+            "label": "Cosmetic return to the resting position begins",
+            "timeSeconds": 1.07
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": -0.55
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.78,
+            "cueSeconds": 0.82,
+            "gainDb": -0.55
+          }
+        ]
+      },
+      "notes": [
+        "Candidate runs this audition animation at 90% pace. The measured 0.78 s energy rise meets the claw-tip contact and existing 0.82 s result cue at elapsed 0.9111 s, so the complete recording begins at about 0.1311 s.",
+        "The charged sweep starts at elapsed 0.5333 s and the return begins at about 1.1889 s. This small pacing comparison gives the full natural recording more room through recovery while preserving the talons, attached claw tip and their relative timing.",
+        "The whole 1.99 s recording ends at about 2.1211 s within the 2.2778 s paced visual. The later source energy maximum at 1.33 s remains later in the recovery; the chosen earlier rise is a listening hypothesis. Native audio speed and the existing -0.55 dB attenuation are retained."
+      ],
+      "previousReview": {
+        "verdict": "keep",
+        "notes": "Looks good enough",
+        "plan": {
+          "visualRate": 0.9,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.78,
+              "cueSeconds": 0.82,
+              "gainDb": -0.55
+            }
+          ]
+        },
+        "changed": false,
+        "revision": "e9d4bb3eacf649fdbd333ab108eabf1a9785a350ddd3cd2947cd75b3547a14ea"
+      }
+    },
+    {
+      "id": "ancientpower",
+      "fxId": "ancient-power",
+      "name": "Ancient Power",
+      "asset": {
+        "id": "source.ancient-power",
+        "url": "/sound_effects/Ancient%20Power.mp3",
+        "bytes": 80584,
+        "sha256": "022c18c84ae9860ebdd490aecb253507ac8c610522d38c1a6cc8f5975599d924",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 85995,
+          "durationSeconds": 1.95,
+          "decodedBytes": 687960,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "8f77da4179ca92cf7d7718038afab949ea7eee905041240ebfce2d97a2cd36a5",
+          "peak": 0.38498023,
+          "peakDbfs": -8.29123141,
+          "rmsDbfs": -23.17556693,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4193,
+          "trailingQuietFrames": 5260,
+          "stereoCorrelation": 0.99999956,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.4,
+        "visualRevision": "13681e6bf0c3443b2c6d81d30a17d44646720f8b1abbeeef5b19eec4ee3077b2",
+        "markers": [
+          {
+            "id": "lift",
+            "label": "Cosmetic first rune-marked stone begins rising",
+            "timeSeconds": 0.16
+          },
+          {
+            "id": "launch",
+            "label": "Cosmetic first rune-marked stone launches",
+            "timeSeconds": 0.86
+          },
+          {
+            "id": "field-fade",
+            "label": "Cosmetic source field fade begins",
+            "timeSeconds": 1.02
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.34
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.24,
+            "cueSeconds": 1.34,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "Candidate keeps the original animation pace and delays the complete recording by 0.10 s. Its measured 1.24 s strongest-energy window meets the first stone arrival, visible pulse and existing result cue at 1.34 s.",
+        "Five rune-marked stones lift independently, then launch from 0.86 s at the original 0.055 s spacing. Their 0.48 s flights and following fragments remain cosmetic within one result.",
+        "The whole 1.95 s recording ends at 2.05 s within the 2.40 s animation. Compare the lift, accelerating stones and final fragments together; the natural pitch, complete source boundaries and 0 dB gain are retained."
+      ],
+      "previousReview": {
+        "verdict": "keep",
+        "notes": "Looks good enough",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 1.24,
+              "cueSeconds": 1.34,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": false,
+        "revision": "e9d4bb3eacf649fdbd333ab108eabf1a9785a350ddd3cd2947cd75b3547a14ea"
+      }
+    },
+    {
+      "id": "shadowpunch",
+      "fxId": "shadow-punch",
+      "name": "Shadow Punch",
+      "asset": {
+        "id": "source.shadow-punch",
+        "url": "/sound_effects/Shadow%20Punch.mp3",
+        "bytes": 31474,
+        "sha256": "504ca820663f72410285108dd3f6fc6983e81122e9689103d606b5392b894f43",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 31311,
+          "durationSeconds": 0.71,
+          "decodedBytes": 250488,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "9c1b5233d9ea160e5197dc022fa5c32bab4e6e467a0eca56cc59d90e16a9a5b6",
+          "peak": 0.35375261,
+          "peakDbfs": -9.02600687,
+          "rmsDbfs": -25.63459064,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4020,
+          "trailingQuietFrames": 5081,
+          "stereoCorrelation": 0.99999919,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 1.85,
+        "visualRevision": "d1cf2382aa0029f850f46c961d1f4ea0ac594109144feaf28fee15f6257bd078",
+        "markers": [
+          {
+            "id": "fist",
+            "label": "Cosmetic spectral fist begins appearing",
+            "timeSeconds": 0.06
+          },
+          {
+            "id": "launch",
+            "label": "Cosmetic spectral fist launches",
+            "timeSeconds": 0.32
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.74
+          },
+          {
+            "id": "impact-fade",
+            "label": "Cosmetic contact crescent fade begins",
+            "timeSeconds": 0.86
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 0.74,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "Candidate keeps the original animation pace and delays the complete recording by 0.48 s. Its measured 0.26 s strongest-energy window meets the spectral fist knuckle, crescent and existing result cue at 0.74 s.",
+        "The fist launches from the live hand or fist attachment at 0.32 s and crosses the field in 0.42 s with its three afterimages. The user stays at its resting slot throughout.",
+        "The whole 0.71 s recording ends at 1.19 s, alongside the contact crescent fading out at 1.18 s and before the 1.85 s visual ends. Compare the flight and short contact tail at native audio speed and 0 dB gain."
+      ],
+      "previousReview": {
+        "verdict": "keep",
+        "notes": "Looks perfect",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.26,
+              "cueSeconds": 0.74,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": false,
+        "revision": "e9d4bb3eacf649fdbd333ab108eabf1a9785a350ddd3cd2947cd75b3547a14ea"
+      }
+    },
+    {
+      "id": "swordsdance",
+      "fxId": "swords-dance",
+      "name": "Swords Dance",
+      "asset": {
+        "id": "source.swords-dance",
+        "url": "/sound_effects/Swords%20Dance.mp3",
+        "bytes": 52372,
+        "sha256": "d629ddcc09c92259aebfa2e9ec4c0c80bdee30960d784d62dd4bcd9bb014cd80",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 54747,
+          "durationSeconds": 1.24142857,
+          "decodedBytes": 437976,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "f0e02d82540d7733b5a7517191b6da3ff07e81092ffa4c2458e59d5cadca13d4",
+          "peak": 0.24658152,
+          "peakDbfs": -12.16078933,
+          "rmsDbfs": -23.44052333,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4033,
+          "trailingQuietFrames": 0,
+          "stereoCorrelation": 0.99993032,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.45,
+        "visualRevision": "dee5f534825d994802a8b972164c14ec3249e178d8907c70d5a186aa03093612",
+        "markers": [
+          {
+            "id": "aura",
+            "label": "Cosmetic sword aura begins appearing",
+            "timeSeconds": 0.12
+          },
+          {
+            "id": "orbit",
+            "label": "Cosmetic swords begin orbiting",
+            "timeSeconds": 0.2
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.95
+          },
+          {
+            "id": "orbit-end",
+            "label": "Cosmetic sword orbit reaches its final angle",
+            "timeSeconds": 1.55
+          },
+          {
+            "id": "aura-fade",
+            "label": "Cosmetic sword aura fade begins",
+            "timeSeconds": 1.72
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.87,
+            "cueSeconds": 0.95,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "Candidate keeps the original animation pace and delays the complete recording by 0.08 s. Its measured 0.87 s strongest-energy window meets the existing source-only result cue at 0.95 s while the four swords continue orbiting.",
+        "The orbit starts at 0.20 s and reaches its authored final angle at 1.55 s; the sword aura fades from 1.72 to 2.14 s. No opponent contact or extra result cue is introduced.",
+        "The whole 1.2414285714 s recording ends at about 1.3214 s within the 2.45 s animation, preserving its active natural ending. Compare the buildup, orbit and quiet fade at the original visual pace, native audio speed and 0 dB gain."
+      ],
+      "previousReview": {
+        "verdict": "keep",
+        "notes": "Looks good enough",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.87,
+              "cueSeconds": 0.95,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": false,
+        "revision": "e9d4bb3eacf649fdbd333ab108eabf1a9785a350ddd3cd2947cd75b3547a14ea"
+      }
+    }
+  ],
+  "feedbackRecords": [
+    {
+      "moveId": "ember",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.24,
+            "cueSeconds": 0.7,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 57729,
+        "durationSeconds": 1.2026875,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "waterfall",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.71,
+            "cueSeconds": 0.78,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 118944,
+        "durationSeconds": 2.478,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "dragonclaw",
+      "plan": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.78,
+            "cueSeconds": 0.82,
+            "gainDb": -0.55
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 95520,
+        "durationSeconds": 1.99,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "ancientpower",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.24,
+            "cueSeconds": 1.34,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 93600,
+        "durationSeconds": 1.95,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "shadowpunch",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 0.74,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks perfect",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 34080,
+        "durationSeconds": 0.71,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "swordsdance",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.87,
+            "cueSeconds": 0.95,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 59588,
+        "durationSeconds": 1.2414166666666666,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    }
+  ],
+  "defaultMoveId": "ember",
+  "batches": [
+    {
+      "id": "sync-001",
+      "label": "Batch 1 · Accepted",
+      "status": "accepted"
+    },
+    {
+      "id": "sync-002",
+      "label": "Batch 2 · Accepted",
+      "status": "accepted"
+    },
+    {
+      "id": "sync-003",
+      "label": "Batch 3 · Accepted",
+      "status": "accepted"
+    },
+    {
+      "id": "sync-004",
+      "label": "Batch 4 · Review",
+      "status": "unreviewed-comparison"
+    },
+    {
+      "id": "sync-005",
+      "label": "Batch 5 · Odd ones out",
+      "status": "unreviewed-comparison"
+    },
+    {
+      "id": "sync-006",
+      "label": "Batch 6 · Accepted",
+      "status": "accepted"
+    },
+    {
+      "id": "sync-007",
+      "label": "Batch 7 · Songs and healing",
+      "status": "unreviewed-comparison"
+    }
+  ]
+}

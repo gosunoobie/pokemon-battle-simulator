@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-original-visual-pins",
+  "playbackPins": [
+    {
+      "path": "packages/battle-fx/src/moves/restored/sing.js",
+      "sha256": "6d9e6f6da33d835b76f32d43ac78fe46f240f7638a7f400347827cf37a934d04"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/grass-whistle.js",
+      "sha256": "b237197709592953cdc1299cf946bb2d0f0a2fb92100bc4b244b038131b9aacd"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/attract.js",
+      "sha256": "3ce408eaca94dcbc44530fc86cbf0793efe346bf1548c230fa902e7bbd00bb89"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/morning-sun.js",
+      "sha256": "96164d0bb71f3d1fe12a749ca05522229735b5ed29c9eaf08fe53630267efb07"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/moonlight.js",
+      "sha256": "45c34cb991ea4b336c45317b1b7db806727fd635129f71a358e44ea5b7333d07"
+    },
+    {
+      "path": "packages/battle-fx/src/moves/restored/confuse-ray.js",
+      "sha256": "446d9689c48aaddca0b34657ae85985d55496aab05473bd540095f9f0923a181"
+    }
+  ]
+}

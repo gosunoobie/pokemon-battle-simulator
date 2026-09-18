@@ -1,0 +1,523 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-final-batch",
+  "batchId": "sync-002",
+  "reviewedRevision": "86cfaf6037e6fb7f0d8a10c3a2f27991459098de1bb032c6fc6abba631e8fa5e",
+  "approval": {
+    "source": "user-message",
+    "text": "This batch of animations and sound looks perfect now let's go ahead with another batch",
+    "date": "2026-09-18"
+  },
+  "nativeEvidence": {
+    "path": "tools/audio-import/review/sync-batch-002.native-01.json",
+    "sha256": "a40d0aa19c53da26bd845a9863ab03b603934a306039f28534ff28c19f4481af"
+  },
+  "moves": [
+    {
+      "id": "icebeam",
+      "fxId": "ice-beam",
+      "name": "Ice Beam",
+      "asset": {
+        "id": "source.ice-beam",
+        "url": "/sound_effects/Ice%20Beam.mp3",
+        "bytes": 109841,
+        "sha256": "b33270bc0ba8116a2bc425cc119b0d03b04f1913286a55e1979a6fc771101c0a",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 118188,
+          "durationSeconds": 2.68,
+          "decodedBytes": 945504,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "6505da128e723fcf35b9c8400810b439c651397f0c32daff3b1fb80cd7287eca",
+          "peak": 0.35583034,
+          "peakDbfs": -8.97514045,
+          "rmsDbfs": -27.29521187,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4171,
+          "trailingQuietFrames": 5202,
+          "stereoCorrelation": 0.99999189,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.4,
+        "visualRevision": "5426670ca359bf9f54f21032c67fa9f45e3ac7aff526009e6fb52fd49ce7880d",
+        "markers": [
+          {
+            "id": "launch",
+            "label": "Cosmetic beam launch",
+            "timeSeconds": 0.5
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.68
+          },
+          {
+            "id": "sustain-end",
+            "label": "Cosmetic beam fade begins",
+            "timeSeconds": 1.4
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.6,
+            "soundAnchorSeconds": 0.23,
+            "cueSeconds": 0.5,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 128640,
+        "durationSeconds": 2.68,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Candidate runs this audition animation at 80% pace and starts the recording at 0.395 s. The measured 0.23 s strongest-energy window meets the beam launch at elapsed 0.625 s; result impact remains the separate authored 0.68 s cue, at elapsed 0.85 s.",
+        "Only the final 80 ms of the reference recording is excluded: its proposed source end is 2.60 s, inside the measured below -60 dBFS tail from 2.5620 to 2.68 s. Sound ends at elapsed 2.995 s alongside the 3.00 s paced animation.",
+        "Compare beam sustain and the later crystal breakup as well as launch. This is a numerical timing proposal, not a listening approval; the source recording and pitch are unchanged."
+      ]
+    },
+    {
+      "id": "psychic",
+      "fxId": "psychic",
+      "name": "Psychic",
+      "asset": {
+        "id": "source.psychic",
+        "url": "/sound_effects/Psychic.mp3",
+        "bytes": 56551,
+        "sha256": "5a6a1e05b16ff7596d893fc22ac9cc32d01d8f4e3c7bd28abaa1c4d4d0b28b12",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 59314,
+          "durationSeconds": 1.34498866,
+          "decodedBytes": 474512,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "aa3bc352c06209c08e62ba7a7695c53176202eb5d93f8ccbccfbda393d4302ca",
+          "peak": 0.27217737,
+          "peakDbfs": -11.30295979,
+          "rmsDbfs": -29.06921535,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4331,
+          "trailingQuietFrames": 222,
+          "stereoCorrelation": 0.99999821,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.15,
+        "visualRevision": "254db5fab94b359553cb80fec739e55b7ecce96a49a8680bf2b39365690e6fdc",
+        "markers": [
+          {
+            "id": "lift",
+            "label": "Cosmetic target lift begins",
+            "timeSeconds": 0.4
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.95
+          },
+          {
+            "id": "field-expansion",
+            "label": "Cosmetic psychic field expands",
+            "timeSeconds": 1.03
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.97,
+            "cueSeconds": 1.03,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 64559,
+        "durationSeconds": 1.3449791666666666,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Candidate keeps the original animation pace and delays the complete recording by 0.06 s. Its measured 0.97 s strongest-energy window meets the field expansion at 1.03 s.",
+        "The result cue stays at 0.95 s. Aligning the whole recording's strongest window directly to that earlier cue would require starting before the animation, so the nearby cosmetic expansion is used instead.",
+        "This is a subtle timing comparison. Check whether the lift, compression and expansion feel connected without needing to slow the animation. The whole original recording and 0 dB gain are retained.",
+        "Your reviewed Psychic animation and original sound timing are unchanged. A separate Hit Normal Damage recording adds an impact accent at the existing 0.95 s burst.",
+        "The whole impact recording starts at 0.85 s: its measured 0.10 s energy rise aligns with the burst. The accent is attenuated by 6 dB; no sound is stretched, trimmed or re-encoded.",
+        "This additional layer is a new listening proposal. Previous proposal plays the version you reviewed without the impact accent."
+      ],
+      "accent": {
+        "asset": {
+          "id": "source.hit-normal-damage",
+          "url": "/sound_effects/Hit%20Normal%20Damage.mp3",
+          "bytes": 38788,
+          "sha256": "57c483e134fb4c47550b401019672f902e265d51e98dd8f1c32f2f73b3bafea2",
+          "decoded": {
+            "sampleRate": 44100,
+            "channels": 2,
+            "sampleFrames": 39826,
+            "durationSeconds": 0.9030839,
+            "decodedBytes": 318608,
+            "pcmFormat": "interleaved-float32-le",
+            "pcmSha256": "93d2d7d43330e88b6888db9a21d9c599bf6dd7477f1fe55ed3a144e18606f1ff",
+            "peak": 0.49263582,
+            "peakDbfs": -6.14948033,
+            "rmsDbfs": -22.66408396,
+            "samplesAboveFullScale": 0,
+            "quietThresholdDbfs": -60,
+            "leadingQuietFrames": 4388,
+            "trailingQuietFrames": 3616,
+            "stereoCorrelation": 0.99999126,
+            "allBelowThreshold": false,
+            "truePeakDbfs": null,
+            "truePeakStatus": "not-measured",
+            "warnings": []
+          }
+        },
+        "segment": {
+          "startSeconds": 0,
+          "endSeconds": null,
+          "soundAnchorSeconds": 0.1,
+          "cueSeconds": 0.95,
+          "gainDb": -6
+        },
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 43348,
+          "durationSeconds": 0.9030833333333333,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      }
+    },
+    {
+      "id": "flamethrower",
+      "fxId": "flamethrower",
+      "name": "Flamethrower",
+      "asset": {
+        "id": "source.flamethrower",
+        "url": "/sound_effects/Flamethrower.mp3",
+        "bytes": 138053,
+        "sha256": "6dbe5f9c21bfbcea605bd4efac7b14ce87a00c2a6789f848e5685bc3902cd285",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 149299,
+          "durationSeconds": 3.38546485,
+          "decodedBytes": 1194392,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "6ff948373f4c3bdc29681d66f645aa235083cbb39ef652acaf13d4bec9d84ce5",
+          "peak": 0.39878166,
+          "peakDbfs": -7.98529652,
+          "rmsDbfs": -20.01280666,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4022,
+          "trailingQuietFrames": 407,
+          "stereoCorrelation": 0.9999924,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.65,
+        "visualRevision": "2decf3e49a5cdb4ff66f9ebe5d9bab5020350804810ae3264481c65b77e377e4",
+        "markers": [
+          {
+            "id": "charge",
+            "label": "Cosmetic mouth glow begins",
+            "timeSeconds": 0.1
+          },
+          {
+            "id": "launch",
+            "label": "Cosmetic fire emitter starts",
+            "timeSeconds": 0.36
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.9
+          },
+          {
+            "id": "sustain-end",
+            "label": "Cosmetic fire emitter cutoff begins",
+            "timeSeconds": 1.6
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.1,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 162502,
+        "durationSeconds": 3.3854583333333332,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Candidate runs this audition animation at 75% pace while keeping the approved original recording at normal speed and its existing 0 dB gain. The early measured 0.09 s energy rise meets the mouth glow at elapsed 0.1333 s, so the recording starts at about 0.0433 s.",
+        "The paced emitter starts at 0.48 s, result impact occurs at 1.20 s and emission fades from 2.1333 to 2.4267 s. The whole recording ends at about 3.4288 s within the 3.5333 s paced animation, preserving its sustained character without cutting active audio.",
+        "The visual change is deliberately audible and visible for review: compare the longer fire sustain and recovery against the quicker current version. No claim is made that an energy rise identifies the recording's semantic attack onset."
+      ]
+    },
+    {
+      "id": "shadowball",
+      "fxId": "shadow-ball",
+      "name": "Shadow Ball",
+      "asset": {
+        "id": "source.shadow-ball",
+        "url": "/sound_effects/Shadow%20Ball.mp3",
+        "bytes": 58641,
+        "sha256": "f2e76d1a1259ec53bb4b6cfbf7e3ce77584315cc04f4f22d389a1bbd0430588d",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 61740,
+          "durationSeconds": 1.4,
+          "decodedBytes": 493920,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "612a68020b8c3ab2b2d6aae939564726c0562c61b73d1b22796c795283e16e9f",
+          "peak": 0.26537773,
+          "peakDbfs": -11.5227105,
+          "rmsDbfs": -31.71325998,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4253,
+          "trailingQuietFrames": 5108,
+          "stereoCorrelation": 0.99981368,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.35,
+        "visualRevision": "c6bf829a02ef2ec51d977d90bc8c1211e4a17af15facd3aef0e4f4defa8e2a02",
+        "markers": [
+          {
+            "id": "launch",
+            "label": "Cosmetic orb flight begins",
+            "timeSeconds": 0.55
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.1
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.81,
+            "cueSeconds": 1.1,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 67200,
+        "durationSeconds": 1.4,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Candidate delays the complete recording by 0.29 s so the measured 0.81 s strongest-energy window meets the existing 1.10 s result impact.",
+        "Animation pace, orb geometry and its 0.55 s launch are unchanged. Sound ends at 1.69 s during the visual aftermath; the recording keeps its complete natural tail and 0 dB gain.",
+        "Compare the buildup, travelling orb and burst. The energy-window anchor is a review hypothesis, not a semantic impact identification."
+      ]
+    },
+    {
+      "id": "rockslide",
+      "fxId": "rock-slide",
+      "name": "Rock Slide",
+      "asset": {
+        "id": "source.rock-slide",
+        "url": "/sound_effects/Rock%20Slide.mp3",
+        "bytes": 88943,
+        "sha256": "37ea23ade49dfee2f1a0502ecc9af6cd2dfc0856377b4e8ddfaf6fbc59c9f496",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 94815,
+          "durationSeconds": 2.15,
+          "decodedBytes": 758520,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "9719091dfff56f62fe9be7d74e82a9004955197f2ebe99671d78cd9cd1336b88",
+          "peak": 0.28149113,
+          "peakDbfs": -11.01070569,
+          "rmsDbfs": -22.27376562,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4061,
+          "trailingQuietFrames": 5079,
+          "stereoCorrelation": 0.99999964,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.35,
+        "visualRevision": "1afed24bc00202d08c30b3b527a4d5d851c4051e86b05ffa2952589b31870dbb",
+        "markers": [
+          {
+            "id": "launch",
+            "label": "Cosmetic first boulder starts falling",
+            "timeSeconds": 0.32
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.87
+          },
+          {
+            "id": "last-contact",
+            "label": "Cosmetic last boulder lands",
+            "timeSeconds": 1.41
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.68,
+            "cueSeconds": 0.87,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 103200,
+        "durationSeconds": 2.15,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Candidate delays the complete recording by 0.19 s so the measured 0.68 s energy rise meets the first boulder contact and single result cue at 0.87 s. Its strongest-energy window then occurs at 1.07 s during the following falling rocks.",
+        "The strongest window at source time 0.88 s cannot align to the first 0.87 s contact without a negative start, so the earlier measured rise is used. The animation keeps its original pace and all seven cosmetic boulders.",
+        "The whole 2.15 s recording ends at 2.34 s, just before the 2.35 s visual completes. Check the initial drop, successive impacts and settling tail; gain stays at 0 dB."
+      ]
+    },
+    {
+      "id": "gigadrain",
+      "fxId": "giga-drain",
+      "name": "Giga Drain",
+      "asset": {
+        "id": "source.giga-drain",
+        "url": "/sound_effects/Giga%20Drain.mp3",
+        "bytes": 127604,
+        "sha256": "7d276b32bdbb98ad85d6cbed8eb319662a73ad5832400ef4f1d62ebadb6bd1a1",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 137592,
+          "durationSeconds": 3.12,
+          "decodedBytes": 1100736,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "8553321e993b2809006a187eaadf44c622d5392e1d51dd1c5da7e9ac5b91df01",
+          "peak": 0.31469449,
+          "peakDbfs": -10.04221711,
+          "rmsDbfs": -24.02520956,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4009,
+          "trailingQuietFrames": 5258,
+          "stereoCorrelation": 0.99999946,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.75,
+        "visualRevision": "ee79f222f993974f08ac557f47eb94d959ec0b99e0efa7b59a5aeebda564fcd0",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.68
+          },
+          {
+            "id": "leaf-launch",
+            "label": "Cosmetic first leaf leaves target",
+            "timeSeconds": 0.68
+          },
+          {
+            "id": "recovery",
+            "label": "Recovery result cue",
+            "timeSeconds": 1.46
+          },
+          {
+            "id": "ribbon-fade",
+            "label": "Cosmetic ribbon fade begins",
+            "timeSeconds": 1.9
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.6,
+            "cueSeconds": 0.68,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 149760,
+        "durationSeconds": 3.12,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Candidate runs this audition animation at 80% pace and delays the complete recording by 0.25 s. Its measured 0.60 s energy rise meets the first leaf launch and impact at elapsed 0.85 s.",
+        "The authored recovery cue remains independent at 1.46 s, now elapsed 1.825 s. The whole 3.12 s recording ends at 3.37 s within the 3.4375 s paced visual; no drain or receiving sound is cut or repeated.",
+        "Compare the target gathering, leaf travel and receiving aura as separate moments. Keeping the whole recording avoids assigning unreviewed roles to the separate part files; 0 dB gain and native audio speed remain unchanged."
+      ]
+    }
+  ]
+}

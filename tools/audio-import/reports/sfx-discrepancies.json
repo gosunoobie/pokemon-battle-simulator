@@ -1,0 +1,787 @@
+{
+  "schemaVersion": 1,
+  "stage": "A",
+  "approvedPlaybackMappings": 0,
+  "issues": [
+    {
+      "code": "CALLED_MOVE_WITHOUT_RECORDING",
+      "severity": "warning",
+      "subject": "mirrormove",
+      "message": "No named recording exists in this source pack. A later reviewed policy may use the executed move only when authoritative events expose it; do not infer it from client rules."
+    },
+    {
+      "code": "CALLED_MOVE_WITHOUT_RECORDING",
+      "severity": "warning",
+      "subject": "naturepower",
+      "message": "No named recording exists in this source pack. A later reviewed policy may use the executed move only when authoritative events expose it; do not infer it from terrain or client rules."
+    },
+    {
+      "code": "DEFERRED_EVENT",
+      "severity": "info",
+      "subject": "battle.failure",
+      "message": "No dedicated failed-action recording is identified in this pack."
+    },
+    {
+      "code": "DEFERRED_EVENT",
+      "severity": "info",
+      "subject": "battle.immune",
+      "message": "No dedicated immunity recording is identified; resisted damage does not mean immunity."
+    },
+    {
+      "code": "DEFERRED_EVENT",
+      "severity": "info",
+      "subject": "battle.intro",
+      "message": "No dedicated intro recording is identified in this pack."
+    },
+    {
+      "code": "DEFERRED_EVENT",
+      "severity": "info",
+      "subject": "battle.miss",
+      "message": "No dedicated miss recording is identified; do not reuse damaging-hit feedback by default."
+    },
+    {
+      "code": "DEFERRED_EVENT",
+      "severity": "info",
+      "subject": "battle.release.pokeball",
+      "message": "No dedicated release recording is identified; recall is not automatically a release sound."
+    },
+    {
+      "code": "DEFERRED_EVENT",
+      "severity": "info",
+      "subject": "battle.result.defeat",
+      "message": "No dedicated defeat recording is identified in this pack."
+    },
+    {
+      "code": "DEFERRED_EVENT",
+      "severity": "info",
+      "subject": "battle.result.victory",
+      "message": "No dedicated victory recording is identified in this pack."
+    },
+    {
+      "code": "DEFERRED_EVENT",
+      "severity": "info",
+      "subject": "battle.ui.cancel",
+      "message": "No dedicated menu cancellation recording is identified in this pack."
+    },
+    {
+      "code": "DEFERRED_EVENT",
+      "severity": "info",
+      "subject": "battle.ui.confirm",
+      "message": "No dedicated menu confirmation recording is identified in this pack."
+    },
+    {
+      "code": "DEFERRED_EVENT",
+      "severity": "info",
+      "subject": "battle.weather.ambience",
+      "message": "Persistent weather ambience has no reviewed asset or lifecycle policy and is deferred."
+    },
+    {
+      "code": "FILENAME_CANDIDATES_REQUIRE_LISTENING",
+      "severity": "warning",
+      "subject": "pack",
+      "message": "Every mapping is based on source filenames. Decoding does not approve identity, cue roles, hit counts, loop points, audible fit, gain or playback in any mode."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "acid",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "camouflage",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "conversion",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "conversion2",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "covet",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "growth",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "haze",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "heatwave",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "mist",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "powdersnow",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "pursuit",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "shockwave",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "sludge",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "snatch",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "spore",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "stockpile",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "swallow",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "thief",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MOVE_WITHOUT_FX",
+      "severity": "info",
+      "subject": "waterspout",
+      "message": "No FX recipe is registered; sound candidates remain valid for later host-policy review."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "absorb",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "armthrust",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "aromatherapy",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "attract",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "barrage",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "bind",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "blizzard",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "bonemerang",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "bonerush",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "bubble",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "bubblebeam",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "bulletseed",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "cometpunch",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "confuseray",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "covet",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "destinybond",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "dig",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "dive",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "doublekick",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "doubleslap",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "dragonrage",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "dreameater",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "eruption",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "firespin",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "flamewheel",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "fly",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "furyattack",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "furyswipes",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "futuresight",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "gigadrain",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "glare",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "grudge",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "hail",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "harden",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "healbell",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "icebeam",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "iciclespear",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "icywind",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "ingrain",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "irontail",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "leechlife",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "leechseed",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "magicalleaf",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "megadrain",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "metalclaw",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "meteormash",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "milkdrink",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "moonlight",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "morningsun",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "petaldance",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "pinmissile",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "poisongas",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "poisonpowder",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "powdersnow",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "present",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "psychup",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "razorleaf",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "recover",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "recycle",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "return",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "rockblast",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "rollout",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "sacredfire",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "sandtomb",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "seismictoss",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "skullbash",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "skyattack",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "sleeppowder",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "sludgebomb",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "smokescreen",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "softboiled",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "solarbeam",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "spikecannon",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "spore",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "stunspore",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "superfang",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "supersonic",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "sweetkiss",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "synthesis",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "thunder",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "thunderbolt",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "thundershock",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "thunderwave",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "tickle",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "triplekick",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "twineedle",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "volttackle",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "waterfall",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "waterspout",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "whirlpool",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "wish",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "MULTIPLE_UNREVIEWED_CANDIDATES",
+      "severity": "info",
+      "subject": "wrap",
+      "message": "Several whole/variant recordings exist; no file order, cue role, region or layering choice has been approved."
+    },
+    {
+      "code": "all-mappings-await-listening",
+      "severity": "review",
+      "subject": "collection",
+      "message": "All candidate mappings require listening, region annotation and visual synchronization review."
+    },
+    {
+      "code": "source-rights-unverified",
+      "severity": "review",
+      "subject": "collection",
+      "message": "Preserve the supplied provenance; no redistribution authorization is established by this audit."
+    },
+    {
+      "code": "durable-original-archive-unverified",
+      "severity": "review",
+      "subject": "collection",
+      "message": "The ignored original cache is not a durable cross-device backup. Original hashes remain in the source lock."
+    },
+    {
+      "code": "native-browser-alignment-unverified",
+      "severity": "review",
+      "subject": "collection",
+      "message": "The pinned decoder is a reference only. Native MP3 onset/region alignment requires Stage B browser measurements."
+    },
+    {
+      "code": "true-peak-and-loudness-not-measured",
+      "severity": "info",
+      "subject": "collection",
+      "message": "Sample peak/RMS are measured. Oversampled true peak and integrated loudness are not measured by this decoder pipeline."
+    },
+    {
+      "code": "decoded-audio-warning",
+      "severity": "review",
+      "subject": "Present heal.mp3",
+      "message": "sample-peak-above-full-scale"
+    }
+  ]
+}

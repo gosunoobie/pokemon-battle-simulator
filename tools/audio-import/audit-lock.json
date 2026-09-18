@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "stage": "A",
+  "decoder": {
+    "name": "mpg123-decoder",
+    "version": "1.0.3",
+    "enableGapless": true,
+    "referenceConvention": "Native-rate mpg123 Float32 output with Xing/LAME gapless handling enabled; no resampling, normalization, trimming or fades are added by this tool. This is a reference measurement, not a guarantee of browser-decoder sample alignment.",
+    "packageLockSha256": "23770b6023dbaeeab4916223564d6e2bfe598d1c1f0a4c23fd95222fb686ba5a",
+    "dependencies": [
+      {
+        "name": "mpg123-decoder",
+        "version": "1.0.3",
+        "integrity": "sha512-+fjxnWigodWJm3+4pndi+KUg9TBojgn31DPk85zEsim7C6s0X5Ztc/hQYdytXkwuGXH+aB0/aEkG40Emukv6oQ=="
+      },
+      {
+        "name": "@wasm-audio-decoders/common",
+        "version": "9.0.7",
+        "integrity": "sha512-WRaUuWSKV7pkttBygml/a6dIEpatq2nnZGFIoPTc5yPLkxL6Wk4YaslPM98OPQvWacvNZ+Py9xROGDtrFBDzag=="
+      },
+      {
+        "name": "@eshaz/web-worker",
+        "version": "1.2.2",
+        "integrity": "sha512-WxXiHFmD9u/owrzempiDlBB1ZYqiLnm9s6aPc8AlFQalq2tKmqdmMr9GXOupDgzXtqnBipj8Un0gkIm7Sjf8mw=="
+      },
+      {
+        "name": "simple-yenc",
+        "version": "1.0.4",
+        "integrity": "sha512-5gvxpSd79e9a3V4QDYUqnqxeD4HGlhCakVpb6gMnDD7lexJggSBJRBO5h52y/iJrdXRilX9UCuDaIJhSWm5OWw=="
+      }
+    ],
+    "files": [
+      {
+        "path": "@eshaz/web-worker/browser.js",
+        "bytes": 619,
+        "sha256": "86b00ba91cde877ab9848a72dfb0c89c928109b229ae4824493a5ef353c46d6a"
+      },
+      {
+        "path": "@eshaz/web-worker/cjs/browser.js",
+        "bytes": 619,
+        "sha256": "fae7f25c99a02fddfdd4311f4ad992c59d3b811bf412a4a7a443bbc1027932ab"
+      },
+      {
+        "path": "@eshaz/web-worker/cjs/node.js",
+        "bytes": 6441,
+        "sha256": "30149794786e04cf32cebf710b1f3d3b808253c5fbd8f9f8574cc7ac78c69df4"
+      },
+      {
+        "path": "@eshaz/web-worker/node.js",
+        "bytes": 6027,
+        "sha256": "30b10beb96daf6cc501ae6b46ed06ff11abb21de75ccc803518b61b099adbd06"
+      },
+      {
+        "path": "@eshaz/web-worker/package.json",
+        "bytes": 1364,
+        "sha256": "c6535df9fc0ea9721ca56fad306ad892460a81e798b7d43052425a6b74967807"
+      },
+      {
+        "path": "@wasm-audio-decoders/common/index.js",
+        "bytes": 263,
+        "sha256": "f84a3f7a02dcc1e1df8a2131237afd3e39cc90362c4eea8ebf3c3ac2d505253a"
+      },
+      {
+        "path": "@wasm-audio-decoders/common/package.json",
+        "bytes": 841,
+        "sha256": "75cef10e6d06a5b85b2fd8483be92616c6c3b7d3374867df0bdaaf471c6b89c0"
+      },
+      {
+        "path": "@wasm-audio-decoders/common/src/WASMAudioDecoderCommon.js",
+        "bytes": 9172,
+        "sha256": "9eb713858e7c98dcb2da9a3121ba10b2f0e69bf9f32151eb705569c68e1f33ce"
+      },
+      {
+        "path": "@wasm-audio-decoders/common/src/WASMAudioDecoderWorker.js",
+        "bytes": 4235,
+        "sha256": "172b0fea07eeffd60119fa6f40d462f40138355f4fbd630812ee1a53aae1c50d"
+      },
+      {
+        "path": "@wasm-audio-decoders/common/src/puff/build_puff.js",
+        "bytes": 976,
+        "sha256": "e3209060843a8e89f18c01ab0c2b92667a5817e78122f52571496a25bc7a0aed"
+      },
+      {
+        "path": "@wasm-audio-decoders/common/src/utilities.js",
+        "bytes": 106,
+        "sha256": "f2eb6ad9212e6519b03fb9b04d5e93011caaf03f625195ece77e7045445b71b8"
+      },
+      {
+        "path": "mpg123-decoder/dist/mpg123-decoder.min.js",
+        "bytes": 78895,
+        "sha256": "c13a80f0455795eb0c8a1c7844fb5e567cf37acc00fdd3e1f3e6b89f7b4601ce"
+      },
+      {
+        "path": "mpg123-decoder/index.js",
+        "bytes": 321,
+        "sha256": "88e6ec00ea80c0f44a25d38c7803f577179a2b92a984328a10557111643217e3"
+      },
+      {
+        "path": "mpg123-decoder/package.json",
+        "bytes": 1293,
+        "sha256": "164e2ad9a9ac0478e02e41713ae1c360df5f623a85ceb6f9523ae9c826ec65de"
+      },
+      {
+        "path": "mpg123-decoder/src/EmscriptenWasm.js",
+        "bytes": 76326,
+        "sha256": "8049f11cca486999538aa1b296ad18508d49d182a16cd6e1835f00148075db1a"
+      },
+      {
+        "path": "mpg123-decoder/src/MPEGDecoder.js",
+        "bytes": 5303,
+        "sha256": "ce4644a29d71dda50a1b78615f1de5cc68022b289a9e89ce5a6a6178f9b7904a"
+      },
+      {
+        "path": "mpg123-decoder/src/MPEGDecoderWebWorker.js",
+        "bytes": 585,
+        "sha256": "504a8acb126a28a538583f20920a18abe578081e9c503acaba2e5ab7e526de43"
+      },
+      {
+        "path": "simple-yenc/dist/esm.js",
+        "bytes": 2708,
+        "sha256": "14680ab2c8dec870ceffc05e79967b7358d31fd96eee6481388f06347a53ac3e"
+      },
+      {
+        "path": "simple-yenc/dist/index.js",
+        "bytes": 2722,
+        "sha256": "0ba1d90435ca68ac2e382171a1bbbc6c4b2796f4be6e8c48aeb9eadf12ea00b4"
+      },
+      {
+        "path": "simple-yenc/package.json",
+        "bytes": 1285,
+        "sha256": "68b0047a8d7853ebf56a60e30d5a32efe688024f6913b58061db3c7464160066"
+      },
+      {
+        "path": "simple-yenc/rollup.config.js",
+        "bytes": 449,
+        "sha256": "acb799fed385fcd24ff4bf511f4743d118082bd91262aa473d0b5beb97e77105"
+      },
+      {
+        "path": "simple-yenc/src/simple-yenc.js",
+        "bytes": 7627,
+        "sha256": "363cbcc23d55beed7b89398d1213a67722128ba958f6d1eb1964f8797375af4a"
+      }
+    ]
+  },
+  "inputs": [
+    {
+      "path": "tools/audio-import/source-lock.json",
+      "bytes": 570517,
+      "sha256": "fd29ebea2632e7a71d141ea8bef65992f99f96d6a24937b4c4d35346ad89076f"
+    },
+    {
+      "path": "public/sound_effects/manifest.json",
+      "bytes": 177770,
+      "sha256": "63d4f1874b66ecb13dd7fb395940ae66d5cafd34bf34772e181bf0e06abc3011"
+    },
+    {
+      "path": "tools/audio-import/reports/optimization.json",
+      "bytes": 438,
+      "sha256": "6bcf93f9e705453737a898944a799acc4892a51e80b5dc1d1e7e5af291101558"
+    },
+    {
+      "path": "packages/game-data/data/gen3.json",
+      "bytes": 4479761,
+      "sha256": "1997623fda7c898ff8a4bdc5a5a158cadfdcf2d054a007c40d3c79180a9046fd"
+    },
+    {
+      "path": "packages/battle-fx/src/catalog.js",
+      "bytes": 21668,
+      "sha256": "542e7ef31ff9f022e117b973424527ff58446c62449da18eeb1b530ab69aa05e"
+    },
+    {
+      "path": "tools/audio-import/mapping-policy.json",
+      "bytes": 5539,
+      "sha256": "a58cf466f872f28e0acd56bb6c231e0b60d60cc126493c8ebcb4eea1c8a82953"
+    },
+    {
+      "path": "tools/audio-import/package.json",
+      "bytes": 168,
+      "sha256": "ec3c9e3674c99ecb05f76cd7eb7d21428e70b54e4c264776a614a268602b5c10"
+    },
+    {
+      "path": "tools/audio-import/package-lock.json",
+      "bytes": 1996,
+      "sha256": "23770b6023dbaeeab4916223564d6e2bfe598d1c1f0a4c23fd95222fb686ba5a"
+    },
+    {
+      "path": "tools/audio-import/decode.mjs",
+      "bytes": 8263,
+      "sha256": "7e9c85232d44af27920258c8ca974dc5e5c58f22eebcfb578d50b372cd9e8a0a"
+    },
+    {
+      "path": "tools/audio-import/sfx-mappings.mjs",
+      "bytes": 10199,
+      "sha256": "9b83982cd2583f1e2b05b1233258076987203563a52f57bbf9a819139b1d3a22"
+    },
+    {
+      "path": "tools/audio-import/mp3.mjs",
+      "bytes": 4384,
+      "sha256": "40a7f4791891e362e326b47121175e2db8cbfd0090241605dd2b0d9343a4297c"
+    },
+    {
+      "path": "tools/audio-import/import.mjs",
+      "bytes": 10266,
+      "sha256": "3b8860d986538eb0b3c4035dd24e11323bf06b17ffa61c52157d3d31aa05c9aa"
+    },
+    {
+      "path": "tools/audio-import/audit.mjs",
+      "bytes": 16084,
+      "sha256": "6fe3a8c65338aadc0327d9d81cfec6541d44a99f2eba9c3c3e805a30915550d6"
+    },
+    {
+      "path": "tools/audio-import/audit-io.mjs",
+      "bytes": 1897,
+      "sha256": "7bbaf805fbe0e28406dd9bfd4256878f26b472e138e288d93f51f7d92b600105"
+    }
+  ]
+}

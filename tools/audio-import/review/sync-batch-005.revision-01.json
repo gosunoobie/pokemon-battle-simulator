@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "batchId": "sync-005",
+  "reviewedRevision": "a96b8f2d6af26f4ae466d509e214ac831101e81bfeac65b961ea4b18165267c8",
+  "moves": [
+    {
+      "id": "fireblast",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.18,
+            "cueSeconds": 2.0225,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The orb now charges and travels later, arriving with the strongest fire impact at 2.697 s. The five-armed flash and the result cue meet that same frame.",
+        "The full recording keeps its original start and pitch; the expanded fire burst and embers carry its ending through recovery."
+      ]
+    },
+    {
+      "id": "solarbeam",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.08,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The charged beam now stays connected to the opponent through the later sound section. Repeated bright receiving pulses and solar sparks land at 2.737, 3.517 and 3.697 s.",
+        "The user holds its firing pose until the beam fades; the glow and sparks settle with the recording instead of leaving sound after the beam."
+      ]
+    },
+    {
+      "id": "razorleaf",
+      "plan": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.21,
+            "soundAnchorSeconds": 0.31,
+            "cueSeconds": 0.28,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The last part of the recording now fades out with the final leaf fragments, before the empty settling portion of the clip. The leaf volley and its pacing stay unchanged."
+      ]
+    },
+    {
+      "id": "sludgebomb",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.83,
+            "soundAnchorSeconds": 1.19,
+            "cueSeconds": 1.02,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The sound now ends exactly with the 3.00 s animation, with a short fade at the cut to avoid a click. The glob burst and timing stay unchanged."
+      ]
+    },
+    {
+      "id": "overheat",
+      "plan": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.86,
+            "soundAnchorSeconds": 0.96,
+            "cueSeconds": 0.98,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The sound now ends exactly with the 3.125 s animation, with a short fade at the cut. The dynamic fire choreography stays unchanged."
+      ]
+    },
+    {
+      "id": "eruption",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 2.86,
+            "endSeconds": 6.67,
+            "soundAnchorSeconds": 3.08,
+            "cueSeconds": 0.94,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The two early sound sections are removed. Playback now uses source 2.86–6.67 s, the later run of repeated eruption pulses.",
+        "Nine lava arcs keep their familiar shape, with arrivals spread across measured pulses in that later section. Their small flashes and embers follow each arrival; only the first impact reveals the battle result.",
+        "The sound starts at 0.72 s and finishes at 4.53 s; the final sparks settle by 4.75 s. The edited beginning and ending have a short fade, and the sound retains its natural pitch."
+      ]
+    },
+    {
+      "id": "earthquake",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.7,
+            "soundAnchorSeconds": 1.5,
+            "cueSeconds": 1.2,
+            "gainDb": -2.15
+          }
+        ]
+      },
+      "notes": [
+        "The rumble now fades out exactly when the 2.80 s animation ends. The stomp, cracks and aftershock stay as reviewed, with the existing -2.15 dB gain."
+      ]
+    },
+    {
+      "id": "thunder",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.72,
+            "cueSeconds": 0.84,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "After the first bolt, a second electrical explosion blooms at 1.99 s and crests at 2.11 s with the second impact sound. White-yellow branches and sparks keep crackling through the later discharge.",
+        "The original sound is unchanged. This extra burst is cosmetic; the first bolt still produces the single battle-result cue."
+      ]
+    },
+    {
+      "id": "blizzard",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.53,
+            "cueSeconds": 1.929,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The snowstorm lasts longer. Larger translucent crystals strike and shatter during the later sound section, with a main icy flash at 2.572 s followed by further crystal impacts through 3.072 s.",
+        "Snow keeps moving during the fade, with falling ice fragments and target glows settling by 3.80 s. The original sound and first result cue stay unchanged."
+      ]
+    },
+    {
+      "id": "bubblebeam",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 3.063333333333333,
+            "soundAnchorSeconds": 0.53,
+            "cueSeconds": 0.4,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The sound now ends exactly with the 3.067 s animation, using a short fade at the cut. The bubbles, their pops and the firing motion stay unchanged."
+      ]
+    }
+  ]
+}

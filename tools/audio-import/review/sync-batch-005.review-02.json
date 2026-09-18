@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-sync-review-capture",
+  "source": {
+    "name": "sync-005-feedback.json",
+    "sha256": "c8beca21d76c6eb6622f11a48651669cade32d68e48863165d7e7480f704197b"
+  },
+  "manifestPath": "tools/audio-import/review/sync-batch-005.manifest-02.json",
+  "manifestSha256": "35cfc834973e11f8c460727d8a52796c062e2e2944a649127873de9acccb3ebb",
+  "playbackPins": [
+    {
+      "path": "apps/sfx-bench/src/audio.js",
+      "sha256": "9a6e0f27b0ae5ba1a3688a3f61cdf61de448354c5a4fb25649efa8345cb38cc2"
+    },
+    {
+      "path": "apps/sfx-bench/src/sync.js",
+      "sha256": "f49a75a1b14fb882d9ac948165017ba5e9c9e089e3d4ad252b15bcc387fc8645"
+    },
+    {
+      "path": "apps/sfx-bench/src/syncVisual.js",
+      "sha256": "a80878868a33642ee1bb490ebeb4aeb9f2bd9b94c937ba40971422ea1babb627"
+    },
+    {
+      "path": "apps/sfx-bench/src/batchFiveAudio.js",
+      "sha256": "9bc63398a83fc50d9b6738519a26b065469ad020c84367e8ebe4cb74b9ca48d0"
+    },
+    {
+      "path": "apps/sfx-bench/src/batchFiveVisual.js",
+      "sha256": "6c62e7a97d8553f614905ff91d1fe334d2075d7ecaafd5d9011bc755d0abefe2"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five/fire-blast.js",
+      "sha256": "90c5fda92f01f319830b60a19d454d324b0ccda04c215f64e9dee759e6617e24"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five/solar-beam.js",
+      "sha256": "fb4690238b27748697c8193316fc1cc4b55035474f7fd5c2369d96f677bc90ba"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five/eruption.js",
+      "sha256": "99a153cf5cb042e316268ac08dd103da25844ecdf56d1126c96e9ddd77bda141"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five/thunder.js",
+      "sha256": "f2dc6223818ef9a819f8a0ed8b77b0997a2af89b420480e2ef7e9cb88f7daf94"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five/blizzard.js",
+      "sha256": "ff8059e51d0995b069d622288707902598b038853e4ba20da82f85cdca175adf"
+    }
+  ]
+}

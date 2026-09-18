@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "id": "sync-007",
+  "title": "Songs, healing light and circling companions",
+  "status": "unreviewed-comparison",
+  "moves": [
+    {
+      "id": "sing",
+      "assetId": "source.sing",
+      "sourceSha256": "f2461de519a56444f258b062fe498d070283dad2a2486eb0d5316ea220c4d3c0",
+      "sourcePcmSha256": "3aca00e12ab2ebdb523a7ee44895bce87c5582c9567c2464469251c637e59e19",
+      "visualRevision": "a6cd9d31702fc1dd69483b110d975bf05b6684d31ce20d7fa484c11f091e2ed3",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.77,
+            "cueSeconds": 0.77,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 33957
+        }
+      ],
+      "authoredMarkers": [],
+      "notes": [
+        "Same pastel music notes and lullaby waves, with notes continuing through the complete song. Original contact and travel pace stay intact."
+      ]
+    },
+    {
+      "id": "grasswhistle",
+      "assetId": "source.grass-whistle",
+      "sourceSha256": "227951510cd731ab75119e9eb444da7069ae22f125d7f8b35763cff8aa13640b",
+      "sourcePcmSha256": "9b5ab436c44e288be59fba7fee11791d1c600908acf6c17735adde13973a94b1",
+      "visualRevision": "9426705af84fa68caaf464db5d4564f713761b35cbb7ad1e97ade968c49f4517",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1,
+            "cueSeconds": 1,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 44100
+        }
+      ],
+      "authoredMarkers": [],
+      "notes": [
+        "Same leaf whistle, drifting seeds and green sound waves, sustained through the complete recording at their original pace."
+      ]
+    },
+    {
+      "id": "attract",
+      "assetId": "source.attract",
+      "sourceSha256": "37532f9a3c4aee069d1de83a78e8ec1c15e0805caedb8d83f37b08386ddb3633",
+      "sourcePcmSha256": "f08bd202c7b0f192f0f1758407a1cb53b83b9fbb6fc3593a78b4c97feda3c789",
+      "visualRevision": "3e3e087715a761cd5d73cfedff65a2d5f95da70b9561d473b056f7fbcb7a2b46",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.19,
+            "cueSeconds": 1.19,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 52479
+        }
+      ],
+      "authoredMarkers": [],
+      "notes": [
+        "The original heart approach is unchanged. The six ending hearts keep circling the opponent until the sound finishes."
+      ]
+    },
+    {
+      "id": "morningsun",
+      "assetId": "source.morning-sun",
+      "sourceSha256": "17cd08b3375620bb2463fb9d3aa469512fc865dadb3233bd843a428d0240a05d",
+      "sourcePcmSha256": "87c035d5d95ec28c81f63ae64c26e6b70db6ae28ad02aa20fbb0c3d8d045c6a1",
+      "visualRevision": "9cd75229b57d502cd568b32cddb2156b2430f1b75d7cd1e942380c3df02c2f0b",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.09,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 3969
+        }
+      ],
+      "authoredMarkers": [],
+      "notes": [
+        "The original sun, rays and falling light continue longer. A rising healing aura and glints finish with the recording’s healing tail."
+      ]
+    },
+    {
+      "id": "moonlight",
+      "assetId": "source.moonlight",
+      "sourceSha256": "00597446bd8f766b9eab2e1afe1d5021a6addbbff4b8de6236eee3c88a1ad0ef",
+      "sourcePcmSha256": "bbfe298c9016cb1b9c9868df6ca1d6b29822f86515d806cd2b8c0be76d30785b",
+      "visualRevision": "3ec514e7611b95ba49c448f484f11e3250ac517a4ccb9c1e822c83969e2647b7",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.09,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 3969
+        }
+      ],
+      "authoredMarkers": [],
+      "notes": [
+        "The original crescent, falling moonlight and reflections continue longer. A soft healing aura and glints finish with the recording’s healing tail."
+      ]
+    },
+    {
+      "id": "confuseray",
+      "assetId": "source.confuse-ray",
+      "sourceSha256": "85941556a8c1f1d5eb61ebd1659bf95d4a53c1eb756a9005463fe160320b31ad",
+      "sourcePcmSha256": "6b0cf5ac804c7f497508321b75ebea0971de8b3aae93aa20a14aaaac9c6f7e36",
+      "visualRevision": "81ca1656ab2e7c86eebdda5cbaddd3326a2beb4a506d525fa701d0685f2470ad",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.29,
+            "cueSeconds": 2.29,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 100989
+        }
+      ],
+      "authoredMarkers": [],
+      "notes": [
+        "The original ray and swirling halo stay intact. Three yellow ducks circle above the opponent during the ending confusion sounds."
+      ]
+    }
+  ]
+}

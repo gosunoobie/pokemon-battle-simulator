@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-final-batch",
+  "batchId": "sync-006",
+  "reviewedRevision": "6e8c0107147cef09802a73458c80e20832dbf05eefbc3403794234257c513ba4",
+  "approval": {
+    "source": "user-message",
+    "text": "The final Outputs looks perfect for batch 6",
+    "date": "2026-09-18"
+  },
+  "reviewEvidence": {
+    "feedbackPath": "tools/audio-import/review/sync-batch-006.feedback-02.json",
+    "feedbackSha256": "5e1e862ddec789c918e47d98f93d30f553addefb9460863dcbb5506772c15f99",
+    "manifestPath": "tools/audio-import/review/sync-batch-006.manifest-02.json",
+    "manifestSha256": "cc217660b1660e5939e229463307a988e6df650a40959193aa4228aa5a6ecfdd"
+  },
+  "playbackPins": [
+    {
+      "path": "apps/sfx-bench/src/audio.js",
+      "sha256": "9a6e0f27b0ae5ba1a3688a3f61cdf61de448354c5a4fb25649efa8345cb38cc2"
+    },
+    {
+      "path": "apps/sfx-bench/src/sync.js",
+      "sha256": "f49a75a1b14fb882d9ac948165017ba5e9c9e089e3d4ad252b15bcc387fc8645"
+    },
+    {
+      "path": "apps/sfx-bench/src/syncVisual.js",
+      "sha256": "a80878868a33642ee1bb490ebeb4aeb9f2bd9b94c937ba40971422ea1babb627"
+    },
+    {
+      "path": "tools/audio-import/sync-sixth-batch.mjs",
+      "sha256": "b3a1a7b4cc0e2bfaca440d0d95649c69a1f823d34a561ec8d30107556ff9e40e"
+    },
+    {
+      "path": "tools/audio-import/review/sync-batch-006.request-01.md",
+      "sha256": "66bd6fb0ce81e757739e3056b2b46304abe717345367f04af850ef83db9ad636"
+    },
+    {
+      "path": "tools/audio-import/review/sync-batch-006.leaf-blade-measurements.json",
+      "sha256": "af3fca63a122cd1599000de7d19b2b33e6c244dc9ce6205855062508364674f8"
+    },
+    {
+      "path": "apps/sfx-bench/src/batchSixVisual.js",
+      "sha256": "f98f057590d75d2ac177f50aeca826799b6cc17d6d8223617a2be6dc74dda7cc"
+    },
+    {
+      "path": "packages/battle-fx/assets/rock.svg",
+      "sha256": "ebc299db10ecaf5b219cfcb24432b8b330a37333f5ec4997df74f353037be744"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-six/leaf-blade.js",
+      "sha256": "0ffe1e4b36ab9d1f9dfbd3c144df791c034ff981352024f294909f8afc058d7f"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-six/tri-attack.js",
+      "sha256": "7e860222f4969f139157758656321792f7101f2c35025a016472a1437cecac7f"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-six/meteor-mash.js",
+      "sha256": "e1137286a6d3cf5b7eb66dc914867cfad53001ae86fcc02fd0ba9e920c6375a9"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-six/ancient-power.js",
+      "sha256": "7ee1992be736ef6f921d8ccc6d51f3bcc8a8bd2f21e25199e806e6d05095d838"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-six/sacred-fire.js",
+      "sha256": "2f99c121a693c4376880c68d52403c2f00ee0b536fc96d356323f45fbd4ea6e2"
+    },
+    {
+      "path": "tools/audio-import/review/sync-batch-006.feedback-01.json",
+      "sha256": "4acb9282182540bbc5673bf3d6d2c1390f441686cd9fb49abe4db6c6650af358"
+    },
+    {
+      "path": "tools/audio-import/review/sync-batch-006.review-01.json",
+      "sha256": "8d83b064de5ed95ccddf949b086226339755f5e9829d0d86e0874c8e30306cf1"
+    },
+    {
+      "path": "tools/audio-import/review/sync-batch-006.manifest-01.json",
+      "sha256": "98097c43933527e59b3f72a927d63213a06f0eab2ec6f260ff7e210d39094867"
+    },
+    {
+      "path": "tools/audio-import/sync-sixth-second-revision.mjs",
+      "sha256": "165cda3fcb67c6c1dac959c69f2351dbb8e73b97519a7d7f4552153d3e582a17"
+    },
+    {
+      "path": "apps/sfx-bench/src/batchSixVisualV2.js",
+      "sha256": "2527221679ff011062944a4b4bae882b89d50f4e3b5845d124afe93a56a81ac9"
+    },
+    {
+      "path": "packages/battle-fx/src/assets.js",
+      "sha256": "d25c69d5c95ad70eccb7f068cf61715b745a80621ea0c2b0db4737907006e5cb"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-six-v2/leaf-blade.js",
+      "sha256": "86413d1e44cc5b79ab05478139720512d74f2cd6f4039f1a35757d50ea6f8f6a"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-six-v2/ancient-power.js",
+      "sha256": "398b3ae387d611769c66b72f79aa290cee9f702a1862f283dcd0055afd2d1555"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-six-v2/sacred-fire.js",
+      "sha256": "1edeb33ec1d66698c078298945b3e138a08a48670ec8ea8d4d4fd578fd2ab1d9"
+    },
+    {
+      "path": "tools/audio-import/review/sync-batch-006.json",
+      "sha256": "7338a7f426e2100b2cee92cb84a63b2dc707a5d6dfaaf10429525c533a15e4d2"
+    }
+  ]
+}

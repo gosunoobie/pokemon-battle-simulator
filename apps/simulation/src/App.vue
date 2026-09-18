@@ -1,14 +1,14 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import BattleView from '../../shared/battle/BattleView.vue'
-import { createBattleAudio } from '../../shared/battle/audio.js'
+import { createSimulationAudio } from './audio.js'
 import TeamBuilder from './TeamBuilder.vue'
 import { createCommandId, simulationRequest } from './api.js'
 import { activeMembers, spriteUrl, buildBattleLog, viewerResultTitle } from '../../shared/battle/index.js'
 import { createTeamDraft, toTeamPayload, draftIssues, readTeamDraft, saveTeamDraft } from './teamDraft.js'
 
 const config = shallowRef(null), latest = shallowRef(null), displayed = shallowRef(null)
-const battleAudio = createBattleAudio()
+const battleAudio = createSimulationAudio()
 const run = shallowRef(null), regionId = ref('kanto'), pendingAdvance = shallowRef(null)
 const presetId = ref('kanto'), leadIndex = ref(0), busy = ref(true), playing = ref(false)
 const teamMode = ref('preset'), customTeam = shallowRef(createTeamDraft()), teamCatalog = shallowRef(null)

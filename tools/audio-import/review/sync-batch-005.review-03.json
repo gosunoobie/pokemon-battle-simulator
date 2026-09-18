@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-sync-review-capture",
+  "source": {
+    "name": "sync-005-feedback.json",
+    "sha256": "51151716dd7be020f3791ec053ea1d91aed410711a7193c862c5755cbd77f497"
+  },
+  "manifestPath": "tools/audio-import/review/sync-batch-005.manifest-03.json",
+  "manifestSha256": "5a685999b1c16139e265cfc1f1dc41826f2a7d1727e8dab407369640499b70aa",
+  "playbackPins": [
+    {
+      "path": "apps/sfx-bench/src/audio.js",
+      "sha256": "9a6e0f27b0ae5ba1a3688a3f61cdf61de448354c5a4fb25649efa8345cb38cc2"
+    },
+    {
+      "path": "apps/sfx-bench/src/sync.js",
+      "sha256": "f49a75a1b14fb882d9ac948165017ba5e9c9e089e3d4ad252b15bcc387fc8645"
+    },
+    {
+      "path": "apps/sfx-bench/src/syncVisual.js",
+      "sha256": "a80878868a33642ee1bb490ebeb4aeb9f2bd9b94c937ba40971422ea1babb627"
+    },
+    {
+      "path": "apps/sfx-bench/src/batchFiveAudio.js",
+      "sha256": "9bc63398a83fc50d9b6738519a26b065469ad020c84367e8ebe4cb74b9ca48d0"
+    },
+    {
+      "path": "apps/sfx-bench/src/batchFiveVisual.js",
+      "sha256": "6c62e7a97d8553f614905ff91d1fe334d2075d7ecaafd5d9011bc755d0abefe2"
+    },
+    {
+      "path": "apps/sfx-bench/src/batchFiveVisualV2.js",
+      "sha256": "92d25cedb2d0ce7512538bebb381efa9590d37808d211dce04cbaeb719a4db46"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five/fire-blast.js",
+      "sha256": "90c5fda92f01f319830b60a19d454d324b0ccda04c215f64e9dee759e6617e24"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five/solar-beam.js",
+      "sha256": "fb4690238b27748697c8193316fc1cc4b55035474f7fd5c2369d96f677bc90ba"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five/eruption.js",
+      "sha256": "99a153cf5cb042e316268ac08dd103da25844ecdf56d1126c96e9ddd77bda141"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five/thunder.js",
+      "sha256": "f2dc6223818ef9a819f8a0ed8b77b0997a2af89b420480e2ef7e9cb88f7daf94"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five/blizzard.js",
+      "sha256": "ff8059e51d0995b069d622288707902598b038853e4ba20da82f85cdca175adf"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v2/fire-blast.js",
+      "sha256": "a294761b953beb2ee9eb94ad66141cc99d8bdb39b613dc2fa977c23b91c48c09"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v2/sludge-bomb.js",
+      "sha256": "700be9a0ad59475258246696e8f626781daede6662a1f012c898b78da8dda7c6"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v2/overheat.js",
+      "sha256": "ba8a2d3a2f0e802fd1e10df3a0c5949cfff0aff7f696426a84efb338ab8b031e"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v2/eruption.js",
+      "sha256": "f7dd0071bcb408d35ca0d7746c5bec8ab86c0852f70344e6c0238479609b5c7f"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v2/earthquake.js",
+      "sha256": "629fb4cd20f700462b2bb4f3a3a605fbfe24667c7379266679b8215fc15bf0e3"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v2/thunder.js",
+      "sha256": "955252e5d30ce2ebe885a3bef92c42cb58a3ea64d2d577f98262bd9db0f466d2"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v2/blizzard.js",
+      "sha256": "f26b7ddf1e80126300d9a30398693fec66402620d8c988d50a3cc9d23f44dabb"
+    },
+    {
+      "path": "packages/battle-fx/src/review-batch-five-v2/bubble-beam.js",
+      "sha256": "9beb3e57489d5da9e1dd21d58d1e33e1b40fa0517753b2328358eb0fd44ebb23"
+    }
+  ]
+}

@@ -24,6 +24,19 @@
     "test:roster": "node --test tools/roster-import/tests/*.test.mjs",
     "audio:optimize": "node tools/audio-import/import.mjs",
     "audio:check": "node tools/audio-import/import.mjs --check",
+    "audio:setup": "npm ci --prefix tools/audio-import --ignore-scripts --no-audit --no-fund",
+    "audio:audit": "node tools/audio-import/audit.mjs",
+    "audio:verify-originals": "node tools/audio-import/audit.mjs --verify-originals",
+    "sfx:build": "node tools/audio-import/audit.mjs",
+    "sfx:check": "node tools/audio-import/audit.mjs --check",
+    "sfx:runtime": "node tools/audio-import/runtime.mjs",
+    "sfx:runtime:check": "node tools/audio-import/runtime.mjs --check",
+    "sfx:analyze-remaining": "node tools/audio-import/analysis.mjs",
+    "sfx:remaining:check": "node tools/audio-import/analysis.mjs --check",
+    "sfx:simulation": "node tools/audio-import/draft-runtime.mjs",
+    "sfx:simulation:check": "node tools/audio-import/draft-runtime.mjs --check",
+    "test:sfx": "node --test tools/audio-import/tests/*.test.mjs packages/battle-sfx/tests/*.test.mjs",
+    "test:sfx-bench": "node --test packages/battle-sfx/tests/review.test.mjs tools/audio-import/tests/bench*.test.mjs tests/sfx-bench-*.test.mjs",
     "test:audio": "node --test tools/audio-import/tests/*.test.mjs",
     "cries:inventory": "node tools/cry-import/inventory.mjs",
     "cries:inventory:check": "node tools/cry-import/inventory.mjs --check",
@@ -32,7 +45,9 @@
     "cries:fetch": "node tools/cry-import/fetch.mjs",
     "cries:import": "node tools/cry-import/assets.mjs",
     "cries:verify-source": "node tools/cry-import/inventory.mjs --verify-remote",
-    "test:cries": "node --test tools/cry-import/tests/*.test.mjs"
+    "test:cries": "node --test tools/cry-import/tests/*.test.mjs",
+    "sfx:accepted": "node tools/audio-import/accepted-runtime.mjs",
+    "sfx:accepted:check": "node tools/audio-import/accepted-runtime.mjs --check"
   },
   "dependencies": {
     "vue": "^3.5.0",
@@ -41,6 +56,7 @@
     "@battle/battle-core": "file:packages/battle-core",
     "@battle/battle-fx": "file:packages/battle-fx",
     "@battle/battle-audio": "file:packages/battle-audio",
+    "@battle/battle-sfx": "file:packages/battle-sfx",
     "@battle/pokemon-cries": "file:packages/pokemon-cries",
     "@battle/pokemon-sprites": "file:packages/pokemon-sprites"
   },

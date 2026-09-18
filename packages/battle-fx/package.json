@@ -5,7 +5,9 @@
   "exports": {
     ".": "./src/index.js",
     "./catalog": "./src/catalog.js",
-    "./transitions": "./src/transitions/index.js"
+    "./transitions": "./src/transitions/index.js",
+    "./presentation-clock": "./src/presentation-clock.js",
+    "./accepted-effects": "./src/accepted-effects.js"
   },
   "files": [
     "src",

@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-sync-feedback",
+  "batchId": "sync-003",
+  "revision": "bf5cc4b3a5a4e0e65a5caaa888e71be0f8b04c6ca05a57b4075a783d3386387e",
+  "records": [
+    {
+      "moveId": "surf",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.67,
+            "cueSeconds": 1,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks and sounds good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 89280,
+        "durationSeconds": 1.86,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "watergun",
+      "plan": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.1,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks and sounds good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 81600,
+        "durationSeconds": 1.7,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "crunch",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 0.64,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks and sounds good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 55200,
+        "durationSeconds": 1.15,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "thunderpunch",
+      "plan": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.34,
+            "cueSeconds": 0.52,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 73357,
+        "durationSeconds": 1.5282708333333332,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "thunder-punch-impact-v1",
+        "revision": "c7eb5f957abef8f40f97c74f23e371c6768a921ec7ef9b17ff63f0cd93c55235"
+      }
+    },
+    {
+      "moveId": "swift",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.55,
+            "cueSeconds": 0.94,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks and sounds good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 54240,
+        "durationSeconds": 1.13,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "calmmind",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.15,
+            "cueSeconds": 0.9,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks and sounds good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 75711,
+        "durationSeconds": 1.5773125,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    }
+  ]
+}

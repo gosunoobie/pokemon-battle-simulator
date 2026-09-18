@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "assetId": "source.eruption",
+  "sourceSha256": "8c94c4337eadfb6a62e82bfc3f4b6f1dda5a148e7a46fe200343ba352c99d2da",
+  "pcmSha256": "a3156a976177be740b8a928591b0a73d435863b31b1fd55f5b2c302bcf231782",
+  "sampleRate": 44100,
+  "decoder": "mpg123-decoder@1.0.3, gapless",
+  "method": "Maximum stereo RMS over 10 ms windows in each of nine consecutive 0.37 s search intervals, each using its first 0.30 s, starting at source 2.96 s. Anchors guide cosmetic lava arrivals, not battle results.",
+  "sourceRegion": {
+    "startSeconds": 2.86,
+    "endSeconds": 6.67
+  },
+  "measurements": [
+    {
+      "time": 3.08,
+      "rms": 0.1069587325881232,
+      "startFrame": 135828,
+      "endFrame": 136269
+    },
+    {
+      "time": 3.38,
+      "rms": 0.1021671606266902,
+      "startFrame": 149058,
+      "endFrame": 149499
+    },
+    {
+      "time": 3.92,
+      "rms": 0.10531853500143011,
+      "startFrame": 172872,
+      "endFrame": 173313
+    },
+    {
+      "time": 4.09,
+      "rms": 0.10537450785127556,
+      "startFrame": 180369,
+      "endFrame": 180810
+    },
+    {
+      "time": 4.49,
+      "rms": 0.10484197880183278,
+      "startFrame": 198009,
+      "endFrame": 198450
+    },
+    {
+      "time": 5.06,
+      "rms": 0.10974765464830448,
+      "startFrame": 223146,
+      "endFrame": 223587
+    },
+    {
+      "time": 5.37,
+      "rms": 0.10656082751922298,
+      "startFrame": 236817,
+      "endFrame": 237258
+    },
+    {
+      "time": 5.63,
+      "rms": 0.10984515422990342,
+      "startFrame": 248283,
+      "endFrame": 248724
+    },
+    {
+      "time": 6.2,
+      "rms": 0.10807781280706885,
+      "startFrame": 273420,
+      "endFrame": 273861
+    }
+  ]
+}

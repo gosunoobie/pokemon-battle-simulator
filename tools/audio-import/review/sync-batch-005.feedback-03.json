@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-sync-feedback",
+  "batchId": "sync-005",
+  "revision": "dda0580189a09fb558b3557aef70df176d91141b0d8391121c9e5ccb1edcee34",
+  "records": [
+    {
+      "moveId": "fireblast",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.18,
+            "cueSeconds": 2.0225,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "The animation looks perfect just change the pacing where the charging is taking too much time just release it a little earlier , charge for a bit and release a little earlier",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 156155,
+        "durationSeconds": 3.253229166666667,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-fireblast-v2",
+        "revision": "b4fd8e71b56eab353a7cbfe7199de20dfd975b35ce409a564f98f1d200ca0a6f"
+      }
+    },
+    {
+      "moveId": "solarbeam",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.08,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 236225,
+        "durationSeconds": 4.921354166666666,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-solarbeam-v1",
+        "revision": "3d3cd8e4ea38a2e0b0907633e8f3c822bd75204fb313ec938cdc4f965b49dda2"
+      }
+    },
+    {
+      "moveId": "razorleaf",
+      "plan": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 1.67,
+            "soundAnchorSeconds": 0.31,
+            "cueSeconds": 0.28,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 110493,
+        "durationSeconds": 2.3019375,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "sludgebomb",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.83,
+            "soundAnchorSeconds": 1.19,
+            "cueSeconds": 1.02,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 136982,
+        "durationSeconds": 2.8537916666666665,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-sludgebomb-v2",
+        "revision": "656e574611139292a877082be82cf61667ed0b12716dcffd8e164204fbdc5983"
+      }
+    },
+    {
+      "moveId": "overheat",
+      "plan": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.86,
+            "soundAnchorSeconds": 0.96,
+            "cueSeconds": 0.98,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 138720,
+        "durationSeconds": 2.89,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-overheat-v2",
+        "revision": "f3df1342036be2af6feb9ef8cdb60034ba3920e688e3490d2811350005aa7409"
+      }
+    },
+    {
+      "moveId": "eruption",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 2.86,
+            "endSeconds": 6.67,
+            "soundAnchorSeconds": 3.08,
+            "cueSeconds": 0.94,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 325440,
+        "durationSeconds": 6.78,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-eruption-v2",
+        "revision": "4821a4a29697eb5bd432acfa6047687c6fea81804d696eb5e55c8da4a812e6f5"
+      }
+    },
+    {
+      "moveId": "earthquake",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.7,
+            "soundAnchorSeconds": 1.5,
+            "cueSeconds": 1.2,
+            "gainDb": -2.15
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "The direction of the waves is at an angle, keep the waves horizontal from the ground ",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 172016,
+        "durationSeconds": 3.583666666666667,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-earthquake-v2",
+        "revision": "0180a22eaf11f6c20829e147a2702575b13c8b7537f0ddc1789610f0eea8d335"
+      }
+    },
+    {
+      "moveId": "thunder",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.72,
+            "cueSeconds": 0.84,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "Make some branching bolts thicker than other and also increase the size of impact and glow should be bigger and brighter",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 144000,
+        "durationSeconds": 3,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-thunder-v2",
+        "revision": "7ace589e577f6eb0874dd44a579b56a443e2631adeb892acdf81bd11aff52f04"
+      }
+    },
+    {
+      "moveId": "blizzard",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.53,
+            "cueSeconds": 1.929,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "The crystals are appearing at the same position change the position to different places in the opponent and also change the orientation of the final big crystals from horizontal to vertical ",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 173760,
+        "durationSeconds": 3.62,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-blizzard-v2",
+        "revision": "00603ead09ac67cdfdc7a2cd4a1bbf7c23525018831074d262ac16cd0f03042d"
+      }
+    },
+    {
+      "moveId": "bubblebeam",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 3.063333333333333,
+            "soundAnchorSeconds": 0.53,
+            "cueSeconds": 0.4,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 158876,
+        "durationSeconds": 3.3099166666666666,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-bubblebeam-v2",
+        "revision": "c914f566f4d4eeaabe4466d8b24d3ce9a1f9a8cb921938ce20631e24004e0210"
+      }
+    }
+  ]
+}

@@ -1,0 +1,502 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-final-batch",
+  "batchId": "sync-003",
+  "reviewedRevision": "bf5cc4b3a5a4e0e65a5caaa888e71be0f8b04c6ca05a57b4075a783d3386387e",
+  "approval": {
+    "source": "user-message",
+    "text": "Okay now everything looks perfect now go ahead with the next batch",
+    "date": "2026-09-18"
+  },
+  "reviewEvidence": {
+    "path": "tools/audio-import/review/sync-batch-003.review-02.json",
+    "sha256": "805ddfbe7b27dd2ce20970491904741100d4916684bf50392d4985749da7e2e5",
+    "feedbackPath": "tools/audio-import/review/sync-batch-003.feedback-02.json",
+    "feedbackSha256": "54f6c1655f655327aee716cce538b23c73fc03a7e1e74d34497c5c58f39d3f67"
+  },
+  "moves": [
+    {
+      "id": "surf",
+      "fxId": "surf",
+      "name": "Surf",
+      "asset": {
+        "id": "source.surf",
+        "url": "/sound_effects/Surf.mp3",
+        "bytes": 77449,
+        "sha256": "e1e9183e09c274b666bfd7e139d2e2a4f280260e4b6fa1e03fe119271bd45e5d",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 82026,
+          "durationSeconds": 1.86,
+          "decodedBytes": 656208,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "0283ed447540048cfc940a7278b71ba2e2bbca6fb3a456250bb1f04772fb0500",
+          "peak": 0.27348614,
+          "peakDbfs": -11.26129365,
+          "rmsDbfs": -25.27633629,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4367,
+          "trailingQuietFrames": 5002,
+          "stereoCorrelation": 0.99999926,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 3.2,
+        "visualRevision": "3c227e76f3fe0fbd142353cd7fec34819b0340ce84739b5251cf5b57d0a91448",
+        "markers": [
+          {
+            "id": "launch",
+            "label": "Cosmetic leading crest begins moving",
+            "timeSeconds": 0.2
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1
+          },
+          {
+            "id": "wash-fade",
+            "label": "Cosmetic wash fade begins",
+            "timeSeconds": 2.35
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.67,
+            "cueSeconds": 1,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 89280,
+        "durationSeconds": 1.86,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Candidate keeps the original animation pace and delays the complete recording by 0.33 s. Its measured 0.67 s strongest-energy window meets the leading crest contact and existing result cue at 1.00 s.",
+        "The leading crest starts at 0.20 s, the following crest keeps its original route, and the wash fades from 2.35 s. The whole 1.86 s recording ends at 2.19 s within the 3.20 s animation.",
+        "Compare the wave buildup, first contact and receding wash. Both crests, spray sizes and their choreography remain unchanged; the measured energy anchor is a listening hypothesis, with native sound speed and 0 dB gain."
+      ]
+    },
+    {
+      "id": "watergun",
+      "fxId": "water-gun",
+      "name": "Water Gun",
+      "asset": {
+        "id": "source.water-gun",
+        "url": "/sound_effects/Water%20Gun.mp3",
+        "bytes": 71180,
+        "sha256": "1b261b2cd81fa02aa4730c4af1c508175e4b37635566b5ccb598e743e52f2dde",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 74970,
+          "durationSeconds": 1.7,
+          "decodedBytes": 599760,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "d3b480d1d5ff4b466bb4852b91f77f699cf924ce8a89a2e0cbd7200cbe0030c9",
+          "peak": 0.24975906,
+          "peakDbfs": -12.04957487,
+          "rmsDbfs": -27.8686916,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4179,
+          "trailingQuietFrames": 5219,
+          "stereoCorrelation": 0.99999865,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 1.45,
+        "visualRevision": "3ca49ba217b659da5d2e976277c43e89e3f7bab86b3465e4c3a4c5452e4e1c44",
+        "markers": [
+          {
+            "id": "charge",
+            "label": "Cosmetic muzzle glow begins",
+            "timeSeconds": 0.1
+          },
+          {
+            "id": "launch",
+            "label": "Cosmetic water stream starts",
+            "timeSeconds": 0.24
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.48
+          },
+          {
+            "id": "sustain-end",
+            "label": "Cosmetic water stream cutoff begins",
+            "timeSeconds": 0.72
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.1,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 81600,
+        "durationSeconds": 1.7,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Candidate runs this audition animation at 80% pace. The measured 0.09 s energy rise meets the muzzle glow at elapsed 0.125 s, so the complete recording starts at 0.035 s.",
+        "The paced stream launches at 0.30 s, reaches the target and result cue at 0.60 s, and begins cutoff at 0.90 s. The whole 1.70 s recording ends at 1.735 s within the 1.8125 s paced visual.",
+        "The original recording is longer than the 1.45 s baseline animation. This proposal gives the small stream and splash more time while retaining its full natural tail, native speed and 0 dB gain; compare the slower pulse and cleanup."
+      ]
+    },
+    {
+      "id": "crunch",
+      "fxId": "crunch",
+      "name": "Crunch",
+      "asset": {
+        "id": "source.crunch",
+        "url": "/sound_effects/Crunch.mp3",
+        "bytes": 49237,
+        "sha256": "30018e382b19f90c7aefcc6598763342da0a51c070dfe473bb09adc0b5fce3ae",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 50715,
+          "durationSeconds": 1.15,
+          "decodedBytes": 405720,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "7c105cd1dd6f3b7abfa9c2411620ce609ab281519430874e33f33c96c4730cec",
+          "peak": 0.32482097,
+          "peakDbfs": -9.76711894,
+          "rmsDbfs": -26.02248443,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 3971,
+          "trailingQuietFrames": 5206,
+          "stereoCorrelation": 0.99999913,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 1.8,
+        "visualRevision": "b07dca02ed9263f2978562fda092eabeeaffe441a13d1f1a4eb8e90297cdbdf2",
+        "markers": [
+          {
+            "id": "jaw-close",
+            "label": "Cosmetic jaws begin closing",
+            "timeSeconds": 0.49
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.64
+          },
+          {
+            "id": "grind",
+            "label": "Cosmetic jaws tighten again",
+            "timeSeconds": 0.76
+          },
+          {
+            "id": "release",
+            "label": "Cosmetic jaws begin opening",
+            "timeSeconds": 0.99
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 0.64,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 55200,
+        "durationSeconds": 1.15,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Candidate keeps the original animation pace and delays the complete recording by 0.38 s. Its measured 0.26 s strongest-energy window meets the closing jaws and existing result cue at 0.64 s.",
+        "The second jaw tightening at 0.76 s and release at 0.99 s remain cosmetic moments in one result. The whole 1.15 s recording ends at 1.53 s within the 1.80 s animation.",
+        "Compare the initial clamp, grinding movement and release. No extra sound layer or game hit is added, and the complete original recording retains its native speed and 0 dB gain."
+      ]
+    },
+    {
+      "id": "thunderpunch",
+      "fxId": "thunder-punch",
+      "name": "Thunder Punch",
+      "asset": {
+        "id": "source.thunder-punch",
+        "url": "/sound_effects/Thunder%20Punch.mp3",
+        "bytes": 63865,
+        "sha256": "d17f5d116b9b76ae84657e706f753ae070b480432df2264d8e066539c7d5b0e1",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 67397,
+          "durationSeconds": 1.52827664,
+          "decodedBytes": 539176,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "1343e4fa05f4ef239dd8e864030cb0ec5ceee9ff055f10e71e881964b7095207",
+          "peak": 0.36385915,
+          "peakDbfs": -8.78133406,
+          "rmsDbfs": -23.03166724,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 3970,
+          "trailingQuietFrames": 1,
+          "stereoCorrelation": 0.99991287,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 1.6,
+        "visualRevision": "cab312cdc651daced971ff0afdafa84296f848d297122782a2cb63c409dff0f8",
+        "markers": [
+          {
+            "id": "charge",
+            "label": "Cosmetic charged fist appears",
+            "timeSeconds": 0.08
+          },
+          {
+            "id": "jab",
+            "label": "Cosmetic jab begins",
+            "timeSeconds": 0.32
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.52
+          },
+          {
+            "id": "return",
+            "label": "Cosmetic return to the resting position begins",
+            "timeSeconds": 0.8
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.34,
+            "cueSeconds": 0.52,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 73357,
+        "durationSeconds": 1.5282708333333332,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Candidate runs this audition animation at 90% pace. The measured 0.34 s energy rise meets the existing 0.52 s contact at elapsed 0.5778 s, so the complete recording starts at about 0.2378 s.",
+        "Its earlier strongest-energy window at source 0.14 s arrives around elapsed 0.3778 s, just after the paced jab begins at 0.3556 s. The chosen later rise is a numerical hypothesis for the branching contact discharge, not a semantic sound classification.",
+        "The whole 1.5282766440 s recording ends at about 1.7661 s, just before the 1.7778 s paced animation. The small slowdown retains the entire active ending at native audio speed and 0 dB gain; compare the charge, jab and discharge.",
+        "Your sound and impact timing are unchanged. The proposed version adds a bright white-yellow spark and branching lightning on the opponent at the same contact.",
+        "The flash follows the opponent through the brief recoil and fades with the existing discharge. Previous proposal plays the version you reviewed without this added impact accent."
+      ],
+      "visualAccent": {
+        "id": "thunder-punch-impact-v1",
+        "revision": "c7eb5f957abef8f40f97c74f23e371c6768a921ec7ef9b17ff63f0cd93c55235",
+        "impactSeconds": 0.52
+      }
+    },
+    {
+      "id": "swift",
+      "fxId": "swift",
+      "name": "Swift",
+      "asset": {
+        "id": "source.swift",
+        "url": "/sound_effects/Swift.mp3",
+        "bytes": 48192,
+        "sha256": "63febf7c36f3c43961aaa28c6360e8c3b26b0108d164429377db29a59e0ee5a8",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 49833,
+          "durationSeconds": 1.13,
+          "decodedBytes": 398664,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "3a3cb4ef588d625e48f5c6a74add53149de40d8a61996a9c8f6adbd944c68aa2",
+          "peak": 0.25977904,
+          "peakDbfs": -11.70791798,
+          "rmsDbfs": -24.61898231,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4013,
+          "trailingQuietFrames": 4641,
+          "stereoCorrelation": 0.99999938,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.05,
+        "visualRevision": "6f4c5af5ba2804e8be8678a3000371f112c2172011d27915980c2c2a7f2ec377",
+        "markers": [
+          {
+            "id": "launch",
+            "label": "Cosmetic first star launches",
+            "timeSeconds": 0.32
+          },
+          {
+            "id": "first-contact",
+            "label": "Cosmetic first star arrives",
+            "timeSeconds": 0.94
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.28
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.55,
+            "cueSeconds": 0.94,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 54240,
+        "durationSeconds": 1.13,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Candidate keeps the original animation pace and delays the complete recording by 0.39 s. Its measured 0.55 s strongest-energy window meets the first cosmetic star contact at 0.94 s, from the authored 0.32 s launch plus 0.62 s flight.",
+        "All five stars retain their launch spacing of 0.085 s. The single result cue remains on the final contact at 1.28 s, separate from the earlier cosmetic arrival used for sound alignment.",
+        "The whole 1.13 s recording ends at 1.52 s within the 2.05 s visual. Compare the short volley from first arrival through the final sparkle; no hit-count role is inferred from audio, and native speed and 0 dB gain are retained."
+      ]
+    },
+    {
+      "id": "calmmind",
+      "fxId": "calm-mind",
+      "name": "Calm Mind",
+      "asset": {
+        "id": "source.calm-mind",
+        "url": "/sound_effects/Calm%20Mind.mp3",
+        "bytes": 65955,
+        "sha256": "6bf615a4c725fbe5359e84c2a2f0243af63570928ceb745e0a343fca0c08edfb",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 69560,
+          "durationSeconds": 1.57732426,
+          "decodedBytes": 556480,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "47127e05de04db69fbc681f1f61ecf01edd409673ed48546c3b66e3c6f608d48",
+          "peak": 0.27471089,
+          "peakDbfs": -11.22248237,
+          "rmsDbfs": -29.633231,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4230,
+          "trailingQuietFrames": 2602,
+          "stereoCorrelation": 0.99999802,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.4,
+        "visualRevision": "2a49d13e228b3cb606976e65df73f8bcd7fb896f6aa10485a896bccefa1012c5",
+        "markers": [
+          {
+            "id": "aura",
+            "label": "Cosmetic calm aura begins appearing",
+            "timeSeconds": 0.08
+          },
+          {
+            "id": "motes",
+            "label": "Cosmetic first inward mote begins",
+            "timeSeconds": 0.22
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.9
+          },
+          {
+            "id": "aura-fade",
+            "label": "Cosmetic aura fade begins",
+            "timeSeconds": 1.7
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.15,
+            "cueSeconds": 0.9,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 75711,
+        "durationSeconds": 1.5773125,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Candidate runs this audition animation at 75% pace and delays the complete recording by 0.05 s. Its measured 1.15 s strongest-energy window meets the existing 0.90 s result cue at elapsed 1.20 s.",
+        "At the original pace, aligning that strongest window to the result would require starting before the animation. Slowing the calm rings and inward motes gives the full recording room to reach that moment without trimming its lead-in.",
+        "The whole 1.5773242630 s recording ends at about 1.6273 s, followed by the quiet aura fade from about 2.2667 to 2.9067 s within the 3.20 s paced visual. Compare whether this calmer pacing feels too slow; the source-only recipe, native sound speed and 0 dB gain remain intact."
+      ]
+    }
+  ]
+}

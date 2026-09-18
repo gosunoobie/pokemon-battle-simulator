@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "kind": "weather-healing-native-suffix-evidence",
+  "status": "measured-proposal-awaiting-user-review",
+  "provenance": {
+    "referenceReport": "tools/audio-import/reports/sfx-remaining-analysis.json",
+    "referenceReportSha256": "5dc9cf5239da897f7b8be1a2357c5d888a1d3d02081186d4f6cca3a35c464630",
+    "decoder": {
+      "name": "mpg123-decoder",
+      "version": "1.0.3",
+      "enableGapless": true,
+      "referenceConvention": "Native-rate mpg123 Float32 output with Xing/LAME gapless handling enabled; no resampling, normalization, trimming or fades are added by this tool. This is a reference measurement, not a guarantee of browser-decoder sample alignment."
+    }
+  },
+  "method": {
+    "alignment": "Native decoded part-2 waveform is cross-correlated against the complete source near the independently decoded part-1 frame count; the filename does not establish the mapping. User identifies this matching suffix as the healing sound.",
+    "correlation": "Mean-centered Pearson correlation on left-channel Float32 PCM, using part-2 frames 2205–39689 (50–900 ms). Coarse candidate offsets within ±2000 frames, every four frames with sample stride 32, then ±5 frames around best candidate with every sample. Right-channel correlation independently checked at final offset.",
+    "frameConvention": "Zero-based native decoded frames; end frame is excluded. MP3 sources are independently encoded, so their PCM is similar rather than byte-identical. Decoder/browser output can differ slightly.",
+    "visualAnchor": "Healing starts at the correlated source suffix offset; the aura brightens at the full recording’s strongest 10 ms RMS window. This is measured alignment, not listening approval."
+  },
+  "moves": [
+    {
+      "moveId": "morning-sun",
+      "source": {
+        "assetId": "source.morning-sun",
+        "file": "Morning Sun.mp3",
+        "path": "public/sound_effects/Morning Sun.mp3",
+        "sha256": "17cd08b3375620bb2463fb9d3aa469512fc865dadb3233bd843a428d0240a05d",
+        "pcmSha256": "87c035d5d95ec28c81f63ae64c26e6b70db6ae28ad02aa20fbb0c3d8d045c6a1",
+        "sampleRate": 44100,
+        "sampleFrames": 201138,
+        "channels": 2,
+        "durationSeconds": 4.560952380952381
+      },
+      "referenceParts": [
+        {
+          "assetId": "source.morning-sun-part-1",
+          "file": "Morning Sun part 1.mp3",
+          "path": "public/sound_effects/Morning Sun part 1.mp3",
+          "sha256": "da7dd95b5359db09a37eb456e748da3550a58a3fd0fe97974b7c9e667db937e0",
+          "pcmSha256": "b723731b2eca6bf4a2ede20a361093433447cb0982d2b406c77b30313c72578f",
+          "sampleRate": 44100,
+          "sampleFrames": 148595,
+          "channels": 2,
+          "durationSeconds": 3.369501133786848
+        },
+        {
+          "assetId": "source.morning-sun-part-2",
+          "file": "Morning Sun part 2.mp3",
+          "path": "public/sound_effects/Morning Sun part 2.mp3",
+          "sha256": "77140d4253ca5d3431247d78d985d801e5dfd9d5ff72fdb8951a1481ca84fbac",
+          "pcmSha256": "f9ca43fb6832c2956a773303fc3eacebbaf05c104ed6bf5e828b558056cbddf1",
+          "sampleRate": 44100,
+          "sampleFrames": 52542,
+          "channels": 2,
+          "durationSeconds": 1.1914285714285715
+        }
+      ],
+      "suffixAlignment": {
+        "part2StartInFullFrame": 148595,
+        "part2StartInFullSeconds": 3.369501133786848,
+        "part1FrameCount": 148595,
+        "offsetMinusPart1Frames": 0,
+        "leftCorrelation": 0.9932620403107382,
+        "rightCorrelation": 0.9932625119255059,
+        "fullSuffixFrames": 52543,
+        "part2Frames": 52542
+      },
+      "strongestHealingWindow": {
+        "startFrame": 153909,
+        "endFrame": 154350,
+        "rmsDbfs": -20.67712113,
+        "peakDbfs": -12.5078623,
+        "sourceTimeSeconds": 3.49
+      },
+      "playback": {
+        "sourceStartFrame": 0,
+        "sourceEndFrameExclusive": 201138,
+        "audioStartSeconds": 0,
+        "playbackRate": 1,
+        "gainDb": 0,
+        "visualRate": 1,
+        "resultCueSeconds": 1.15,
+        "healingStartSeconds": 3.369501133786848,
+        "healingCrestSeconds": 3.49,
+        "visualDurationSeconds": 4.57,
+        "fullAudioEndSeconds": 4.560952380952381,
+        "processing": "Complete native recording with no trim, loop, splice, resampling, pitch shift, normalization, or additional audio fade."
+      }
+    },
+    {
+      "moveId": "moonlight",
+      "source": {
+        "assetId": "source.moonlight",
+        "file": "Moonlight.mp3",
+        "path": "public/sound_effects/Moonlight.mp3",
+        "sha256": "00597446bd8f766b9eab2e1afe1d5021a6addbbff4b8de6236eee3c88a1ad0ef",
+        "pcmSha256": "bbfe298c9016cb1b9c9868df6ca1d6b29822f86515d806cd2b8c0be76d30785b",
+        "sampleRate": 44100,
+        "sampleFrames": 245637,
+        "channels": 2,
+        "durationSeconds": 5.57
+      },
+      "referenceParts": [
+        {
+          "assetId": "source.moonlight-part-1",
+          "file": "Moonlight part 1.mp3",
+          "path": "public/sound_effects/Moonlight part 1.mp3",
+          "sha256": "fd19d9a4fcda843ded000e497e6b53700fe9cb21a07db8f375bc5aad5f57a4f3",
+          "pcmSha256": "d8f6fd30f1a72c087b6d82aae728c7450b41a0fb28e09c0fc0662e2899323059",
+          "sampleRate": 44100,
+          "sampleFrames": 193089,
+          "channels": 2,
+          "durationSeconds": 4.37843537414966
+        },
+        {
+          "assetId": "source.moonlight-part-2",
+          "file": "Moonlight part 2.mp3",
+          "path": "public/sound_effects/Moonlight part 2.mp3",
+          "sha256": "1b2e1f1430212b966fb6d0514e4f2556026682a1f620dccd425164b810c3b9ca",
+          "pcmSha256": "28e81689be16b63c3662f4389f587f006dd061616eab8d238c6a14007faa8dab",
+          "sampleRate": 44100,
+          "sampleFrames": 52548,
+          "channels": 2,
+          "durationSeconds": 1.19156462585034
+        }
+      ],
+      "suffixAlignment": {
+        "part2StartInFullFrame": 193089,
+        "part2StartInFullSeconds": 4.37843537414966,
+        "part1FrameCount": 193089,
+        "offsetMinusPart1Frames": 0,
+        "leftCorrelation": 0.9999454884717945,
+        "rightCorrelation": 0.9999454131920605,
+        "fullSuffixFrames": 52548,
+        "part2Frames": 52548
+      },
+      "strongestHealingWindow": {
+        "startFrame": 199773,
+        "endFrame": 200214,
+        "rmsDbfs": -20.60438706,
+        "peakDbfs": -12.69137537,
+        "sourceTimeSeconds": 4.53
+      },
+      "playback": {
+        "sourceStartFrame": 0,
+        "sourceEndFrameExclusive": 245637,
+        "audioStartSeconds": 0,
+        "playbackRate": 1,
+        "gainDb": 0,
+        "visualRate": 1,
+        "resultCueSeconds": 1.15,
+        "healingStartSeconds": 4.37843537414966,
+        "healingCrestSeconds": 4.53,
+        "visualDurationSeconds": 5.57,
+        "fullAudioEndSeconds": 5.57,
+        "processing": "Complete native recording with no trim, loop, splice, resampling, pitch shift, normalization, or additional audio fade."
+      }
+    }
+  ]
+}

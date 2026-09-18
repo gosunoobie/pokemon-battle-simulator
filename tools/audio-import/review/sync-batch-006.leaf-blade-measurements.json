@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "kind": "leaf-blade-native-section-energy-evidence",
+  "status": "measured-proposal-awaiting-user-review",
+  "source": {
+    "assetId": "source.leaf-blade",
+    "file": "Leaf Blade.mp3",
+    "path": "public/sound_effects/Leaf Blade.mp3",
+    "sha256": "7470d0046d85a0b09268dc324e2a79bca1a4549b6fcf2c81cd82ceabfc463b2b",
+    "pcmSha256": "d2817018f72da2233378ef95764db44438c3c769455cc7cabd5f0119bf3e9f3e",
+    "sampleRate": 44100,
+    "sampleFrames": 162289,
+    "channels": 2,
+    "durationSeconds": 3.68002268
+  },
+  "provenance": {
+    "referenceReport": "tools/audio-import/reports/sfx-remaining-analysis.json",
+    "referenceReportSha256": "5dc9cf5239da897f7b8be1a2357c5d888a1d3d02081186d4f6cca3a35c464630",
+    "decoder": {
+      "name": "mpg123-decoder",
+      "version": "1.0.3",
+      "enableGapless": true,
+      "referenceConvention": "Native-rate mpg123 Float32 output with Xing/LAME gapless handling enabled; no resampling, normalization, trimming or fades are added by this tool. This is a reference measurement, not a guarantee of browser-decoder sample alignment."
+    }
+  },
+  "method": {
+    "windowFrames": 441,
+    "windowSeconds": 0.01,
+    "stepFrames": 441,
+    "frameConvention": "Zero-based native decoded sample frames; every endFrameExclusive is excluded.",
+    "energy": "RMS across both channels and all frames in each non-overlapping window. The strongest RMS window is selected independently within each section.",
+    "sectionSelection": "Manual source-time ranges around the three separated strike-shaped envelope sections in the existing report; this is measurement-led alignment, not a listening approval.",
+    "anchor": "The start of each selected 10 ms energy window is aligned to its authored visual crest."
+  },
+  "sections": [
+    {
+      "id": "first-blade-contact",
+      "sourceRange": {
+        "startFrame": 0,
+        "endFrameExclusive": 39690,
+        "startSeconds": 0,
+        "endSecondsExclusive": 0.9
+      },
+      "strongestEnergyWindow": {
+        "startFrame": 18081,
+        "endFrameExclusive": 18522,
+        "sourceTimeSeconds": 0.41,
+        "rms": 0.12231904,
+        "rmsDbfs": -18.25011838,
+        "samplePeakDbfs": -10.80330087
+      },
+      "visualAccentSeconds": 0.81,
+      "resultCue": false
+    },
+    {
+      "id": "second-blade-contact",
+      "sourceRange": {
+        "startFrame": 41895,
+        "endFrameExclusive": 78498,
+        "startSeconds": 0.95,
+        "endSecondsExclusive": 1.78
+      },
+      "strongestEnergyWindow": {
+        "startFrame": 56889,
+        "endFrameExclusive": 57330,
+        "sourceTimeSeconds": 1.29,
+        "rms": 0.11231396,
+        "rmsDbfs": -18.99132516,
+        "samplePeakDbfs": -11.15817731
+      },
+      "visualAccentSeconds": 1.69,
+      "resultCue": false
+    },
+    {
+      "id": "cross-finish",
+      "sourceRange": {
+        "startFrame": 79380,
+        "endFrameExclusive": 112455,
+        "startSeconds": 1.8,
+        "endSecondsExclusive": 2.55
+      },
+      "strongestEnergyWindow": {
+        "startFrame": 95256,
+        "endFrameExclusive": 95697,
+        "sourceTimeSeconds": 2.16,
+        "rms": 0.11052926,
+        "rmsDbfs": -19.1304548,
+        "samplePeakDbfs": -11.27911309
+      },
+      "visualAccentSeconds": 2.56,
+      "resultCue": true
+    }
+  ],
+  "playback": {
+    "sourceStartFrame": 0,
+    "sourceEndFrameExclusive": 162289,
+    "playbackRate": 1,
+    "gainDb": 0,
+    "audioStartSeconds": 0.4,
+    "visualRate": 1,
+    "visualDurationSeconds": 4.2,
+    "fullAudioEndSeconds": 4.08002268,
+    "resultCueSeconds": 2.56,
+    "processing": "Complete source recording at native pitch and gain; no trim, loop, fade, splice, or normalization."
+  }
+}

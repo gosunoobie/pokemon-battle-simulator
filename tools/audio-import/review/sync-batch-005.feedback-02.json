@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-sync-feedback",
+  "batchId": "sync-005",
+  "revision": "52a990c1bc3c460c345d25f3f27b885f5d424a48973db9e1b8e87cace64c2228",
+  "records": [
+    {
+      "moveId": "fireblast",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.18,
+            "cueSeconds": 2.0225,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "The main orb appears too late maybe start with a charging animation and make the orb a little bigger while charging and releasing and also change the final vertical lines to flames similar to that of flamethrower in five directions.",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 156155,
+        "durationSeconds": 3.253229166666667,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-fireblast-v1",
+        "revision": "222f17014e8916121ac72f341e28f3ea009502d3eced88e0433c0b378f67f824"
+      }
+    },
+    {
+      "moveId": "solarbeam",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.08,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 236225,
+        "durationSeconds": 4.921354166666666,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-solarbeam-v1",
+        "revision": "3d3cd8e4ea38a2e0b0907633e8f3c822bd75204fb313ec938cdc4f965b49dda2"
+      }
+    },
+    {
+      "moveId": "razorleaf",
+      "plan": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.21,
+            "soundAnchorSeconds": 0.31,
+            "cueSeconds": 0.28,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-sound",
+      "notes": "Remove the final impact sound",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 110493,
+        "durationSeconds": 2.3019375,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "sludgebomb",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.83,
+            "soundAnchorSeconds": 1.19,
+            "cueSeconds": 1.02,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "The final impact sound when the ball hits the opponent looks good enough but the ball dipersion animation could be empahisized to match the sound frames ",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 136982,
+        "durationSeconds": 2.8537916666666665,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "overheat",
+      "plan": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.86,
+            "soundAnchorSeconds": 0.96,
+            "cueSeconds": 0.98,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "Add three more waves and final waves should match the impact sound frames where the final waves are little delayed",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 138720,
+        "durationSeconds": 2.89,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "eruption",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 2.86,
+            "endSeconds": 6.67,
+            "soundAnchorSeconds": 3.08,
+            "cueSeconds": 0.94,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "The sound is perfect , we just need to adjust the animation by keep the spree continuous rather than trying to match the sound pulses rather than releasing just one ball on sound pulse we should increase the numbers of balls i.e the rate of balls being released on each sound pulse to match the sound frames",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 325440,
+        "durationSeconds": 6.78,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-eruption-v1",
+        "revision": "e3a9b719ea108d74c26e810f7d94d4eddb100738c6b914957530cca3cf3a1dfa"
+      }
+    },
+    {
+      "moveId": "earthquake",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.7,
+            "soundAnchorSeconds": 1.5,
+            "cueSeconds": 1.2,
+            "gainDb": -2.15
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "We should extend the shock wave animation to match the sound waves",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 172016,
+        "durationSeconds": 3.583666666666667,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "thunder",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.72,
+            "cueSeconds": 0.84,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "The animation perfectly matches the sound impact frames but the explosion animation is looks awful, add some glow to the explosion, also make some lines bigger than others and treat the explosion like a semi circle where there is nothing below the ground the explosion sparks are only above the ground",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 144000,
+        "durationSeconds": 3,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-thunder-v1",
+        "revision": "b3c4ea976e5dffaf014f95a1750c5a07fdbf3e00f860d0939071164730ecf35a"
+      }
+    },
+    {
+      "moveId": "blizzard",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.53,
+            "cueSeconds": 1.929,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "The current animation looks good but the big crystals should not be appearing out of no where , the big crystals should be the small ones that came in contact with the opponent and those small ones should stop and start growing. Sound wise it looks good.",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 173760,
+        "durationSeconds": 3.62,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-blizzard-v1",
+        "revision": "30abc7a4ff26a76453bb44b1cf6251d261b145e49a3add5fb0c9dc9d7d3df39f"
+      }
+    },
+    {
+      "moveId": "bubblebeam",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 3.063333333333333,
+            "soundAnchorSeconds": 0.53,
+            "cueSeconds": 0.4,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "Extend the animation to match the sound frames",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 158876,
+        "durationSeconds": 3.3099166666666666,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    }
+  ]
+}

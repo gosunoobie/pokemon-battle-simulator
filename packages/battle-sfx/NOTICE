@@ -1,0 +1,18 @@
+Battle sound catalog provenance
+
+The sound files were supplied locally by the user in the context of this
+collection:
+https://downloads.khinsider.com/game-soundtracks/album/pokemon-sfx-gen-3-attack-moves-rse-fr-lg
+
+The collection's embedded album, artist, publisher and year fields are preserved
+as supplied in tools/audio-import/source-lock.json and public/sound_effects/
+manifest.json. They are not independently verified authorship or licensing
+statements. Catalog records retain source hashes and inspection provenance.
+
+Rights status: unverified. Availability to download does not establish permission
+to redistribute these recordings in a game. This package grants no license to
+the sound recordings, characters, trademarks or other upstream material.
+
+Stage A is a data and candidate-mapping catalog only. Successful decoding, an
+asset descriptor or a candidate mapping is not approval of a recording's sound
+identity, timing, playback recipe or redistribution rights.

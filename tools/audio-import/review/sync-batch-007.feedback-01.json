@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-sync-feedback",
+  "batchId": "sync-007",
+  "revision": "3e579872dcf811b8d818a903d3e281ad13a66d1036abaac17c54764cf0876f07",
+  "records": [
+    {
+      "moveId": "sing",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.77,
+            "cueSeconds": 0.77,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks perfect",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 200854,
+        "durationSeconds": 4.184458333333334,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-seven-sing-v1",
+        "revision": "053aea4629890a55ddc65b854ff0f1c519107982a462db66497cd9be32a1f5c3"
+      }
+    },
+    {
+      "moveId": "grasswhistle",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1,
+            "cueSeconds": 1,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "looks perfect",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 165120,
+        "durationSeconds": 3.44,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-seven-grasswhistle-v1",
+        "revision": "3167b23869ab6ef824194416ff1bc794e536f39c44f929a6af38a080d43d1e74"
+      }
+    },
+    {
+      "moveId": "attract",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.19,
+            "cueSeconds": 1.19,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "looks perfect",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 288480,
+        "durationSeconds": 6.01,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-seven-attract-v1",
+        "revision": "33434b719ba1980f6c98e16f2279d9d83101630ca2a86f7c640f28d3aaffc503"
+      }
+    },
+    {
+      "moveId": "morningsun",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.09,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "looks and sounds perfect",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 218925,
+        "durationSeconds": 4.5609375,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-seven-morningsun-v1",
+        "revision": "0ffc0c04bb4617444dfdd810cea0bc01ebdb24eb662d64191dbe2603d85eb06f"
+      }
+    },
+    {
+      "moveId": "moonlight",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.09,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "looks and sounds perfect",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 267360,
+        "durationSeconds": 5.57,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-seven-moonlight-v1",
+        "revision": "1dac178d8f694bb20725d6e44fa5414e1d24ddf4c40010ae2c17cea2544a1cb5"
+      }
+    },
+    {
+      "moveId": "confuseray",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.29,
+            "cueSeconds": 2.29,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "looks and sounds perfect",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 152640,
+        "durationSeconds": 3.18,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-seven-confuseray-v1",
+        "revision": "ba44a66dbdf5786d2009f5f0c69da6cfb706131019c9190ebf1505ecf6f47d7e"
+      }
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 1,
+  "id": "sync-002",
+  "title": "Beams, projectiles and draining effects",
+  "status": "unreviewed-comparison",
+  "moves": [
+    {
+      "id": "icebeam",
+      "assetId": "source.ice-beam",
+      "sourceSha256": "b33270bc0ba8116a2bc425cc119b0d03b04f1913286a55e1979a6fc771101c0a",
+      "sourcePcmSha256": "6505da128e723fcf35b9c8400810b439c651397f0c32daff3b1fb80cd7287eca",
+      "visualRevision": "5426670ca359bf9f54f21032c67fa9f45e3ac7aff526009e6fb52fd49ce7880d",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.6,
+            "soundAnchorSeconds": 0.23,
+            "cueSeconds": 0.5,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "strongest-energy-window",
+          "startFrame": 10143
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "launch",
+          "label": "Cosmetic beam launch",
+          "timeSeconds": 0.5,
+          "evidence": ".to(beam, { alpha: 0.95, duration: 0.08 }, 0.5)"
+        },
+        {
+          "id": "sustain-end",
+          "label": "Cosmetic beam fade begins",
+          "timeSeconds": 1.4,
+          "evidence": ".to(beam, { alpha: 0, duration: 0.3 }, 1.4)"
+        }
+      ],
+      "notes": [
+        "Candidate runs this audition animation at 80% pace and starts the recording at 0.395 s. The measured 0.23 s strongest-energy window meets the beam launch at elapsed 0.625 s; result impact remains the separate authored 0.68 s cue, at elapsed 0.85 s.",
+        "Only the final 80 ms of the reference recording is excluded: its proposed source end is 2.60 s, inside the measured below -60 dBFS tail from 2.5620 to 2.68 s. Sound ends at elapsed 2.995 s alongside the 3.00 s paced animation.",
+        "Compare beam sustain and the later crystal breakup as well as launch. This is a numerical timing proposal, not a listening approval; the source recording and pitch are unchanged."
+      ]
+    },
+    {
+      "id": "psychic",
+      "assetId": "source.psychic",
+      "sourceSha256": "5a6a1e05b16ff7596d893fc22ac9cc32d01d8f4e3c7bd28abaa1c4d4d0b28b12",
+      "sourcePcmSha256": "aa3bc352c06209c08e62ba7a7695c53176202eb5d93f8ccbccfbda393d4302ca",
+      "visualRevision": "254db5fab94b359553cb80fec739e55b7ecce96a49a8680bf2b39365690e6fdc",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.97,
+            "cueSeconds": 1.03,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "strongest-energy-window",
+          "startFrame": 42777
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "lift",
+          "label": "Cosmetic target lift begins",
+          "timeSeconds": 0.4,
+          "evidence": ".to(defender, { y: defenderHome.y - 32, rotation: -0.045, duration: 0.45, ease: 'power1.inOut', onUpdate: followTarget }, 0.4)"
+        },
+        {
+          "id": "field-expansion",
+          "label": "Cosmetic psychic field expands",
+          "timeSeconds": 1.03,
+          "evidence": ".to(field.scale, { x: 1.18, y: 1.18, duration: 0.28 }, 1.03)"
+        }
+      ],
+      "notes": [
+        "Candidate keeps the original animation pace and delays the complete recording by 0.06 s. Its measured 0.97 s strongest-energy window meets the field expansion at 1.03 s.",
+        "The result cue stays at 0.95 s. Aligning the whole recording's strongest window directly to that earlier cue would require starting before the animation, so the nearby cosmetic expansion is used instead.",
+        "This is a subtle timing comparison. Check whether the lift, compression and expansion feel connected without needing to slow the animation. The whole original recording and 0 dB gain are retained."
+      ]
+    },
+    {
+      "id": "flamethrower",
+      "assetId": "source.flamethrower",
+      "sourceSha256": "6dbe5f9c21bfbcea605bd4efac7b14ce87a00c2a6789f848e5685bc3902cd285",
+      "sourcePcmSha256": "6ff948373f4c3bdc29681d66f645aa235083cbb39ef652acaf13d4bec9d84ce5",
+      "visualRevision": "2decf3e49a5cdb4ff66f9ebe5d9bab5020350804810ae3264481c65b77e377e4",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.1,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 3969
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "charge",
+          "label": "Cosmetic mouth glow begins",
+          "timeSeconds": 0.1,
+          "evidence": ".to(mouthGlow, { alpha: 0.7, duration: 0.28 }, 0.1)"
+        },
+        {
+          "id": "launch",
+          "label": "Cosmetic fire emitter starts",
+          "timeSeconds": 0.36,
+          "evidence": ".to(emitter, { strength: 1, duration: 0.12 }, 0.36)"
+        },
+        {
+          "id": "sustain-end",
+          "label": "Cosmetic fire emitter cutoff begins",
+          "timeSeconds": 1.6,
+          "evidence": ".to(emitter, { strength: 0, duration: 0.22 }, 1.6)"
+        }
+      ],
+      "notes": [
+        "Candidate runs this audition animation at 75% pace while keeping the approved original recording at normal speed and its existing 0 dB gain. The early measured 0.09 s energy rise meets the mouth glow at elapsed 0.1333 s, so the recording starts at about 0.0433 s.",
+        "The paced emitter starts at 0.48 s, result impact occurs at 1.20 s and emission fades from 2.1333 to 2.4267 s. The whole recording ends at about 3.4288 s within the 3.5333 s paced animation, preserving its sustained character without cutting active audio.",
+        "The visual change is deliberately audible and visible for review: compare the longer fire sustain and recovery against the quicker current version. No claim is made that an energy rise identifies the recording's semantic attack onset."
+      ]
+    },
+    {
+      "id": "shadowball",
+      "assetId": "source.shadow-ball",
+      "sourceSha256": "f2e76d1a1259ec53bb4b6cfbf7e3ce77584315cc04f4f22d389a1bbd0430588d",
+      "sourcePcmSha256": "612a68020b8c3ab2b2d6aae939564726c0562c61b73d1b22796c795283e16e9f",
+      "visualRevision": "c6bf829a02ef2ec51d977d90bc8c1211e4a17af15facd3aef0e4f4defa8e2a02",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.81,
+            "cueSeconds": 1.1,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "strongest-energy-window",
+          "startFrame": 35721
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "launch",
+          "label": "Cosmetic orb flight begins",
+          "timeSeconds": 0.55,
+          "evidence": ".to(orb.scale, { x: 1.2, y: 1.2, duration: 0.55 }, 0.55)"
+        }
+      ],
+      "notes": [
+        "Candidate delays the complete recording by 0.29 s so the measured 0.81 s strongest-energy window meets the existing 1.10 s result impact.",
+        "Animation pace, orb geometry and its 0.55 s launch are unchanged. Sound ends at 1.69 s during the visual aftermath; the recording keeps its complete natural tail and 0 dB gain.",
+        "Compare the buildup, travelling orb and burst. The energy-window anchor is a review hypothesis, not a semantic impact identification."
+      ]
+    },
+    {
+      "id": "rockslide",
+      "assetId": "source.rock-slide",
+      "sourceSha256": "37ea23ade49dfee2f1a0502ecc9af6cd2dfc0856377b4e8ddfaf6fbc59c9f496",
+      "sourcePcmSha256": "9719091dfff56f62fe9be7d74e82a9004955197f2ebe99671d78cd9cd1336b88",
+      "visualRevision": "1afed24bc00202d08c30b3b527a4d5d851c4051e86b05ffa2952589b31870dbb",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.68,
+            "cueSeconds": 0.87,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 29988
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "launch",
+          "label": "Cosmetic first boulder starts falling",
+          "timeSeconds": 0.32,
+          "evidence": "const at = 0.32 + i * 0.09"
+        },
+        {
+          "id": "last-contact",
+          "label": "Cosmetic last boulder lands",
+          "timeSeconds": 1.41,
+          "evidence": "// Last boulder lands at 1.41 s; the final dust fades by 2.06 s."
+        }
+      ],
+      "notes": [
+        "Candidate delays the complete recording by 0.19 s so the measured 0.68 s energy rise meets the first boulder contact and single result cue at 0.87 s. Its strongest-energy window then occurs at 1.07 s during the following falling rocks.",
+        "The strongest window at source time 0.88 s cannot align to the first 0.87 s contact without a negative start, so the earlier measured rise is used. The animation keeps its original pace and all seven cosmetic boulders.",
+        "The whole 2.15 s recording ends at 2.34 s, just before the 2.35 s visual completes. Check the initial drop, successive impacts and settling tail; gain stays at 0 dB."
+      ]
+    },
+    {
+      "id": "gigadrain",
+      "assetId": "source.giga-drain",
+      "sourceSha256": "7d276b32bdbb98ad85d6cbed8eb319662a73ad5832400ef4f1d62ebadb6bd1a1",
+      "sourcePcmSha256": "8553321e993b2809006a187eaadf44c622d5392e1d51dd1c5da7e9ac5b91df01",
+      "visualRevision": "ee79f222f993974f08ac557f47eb94d959ec0b99e0efa7b59a5aeebda564fcd0",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.6,
+            "cueSeconds": 0.68,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 26460
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "leaf-launch",
+          "label": "Cosmetic first leaf leaves target",
+          "timeSeconds": 0.68,
+          "evidence": "start:.68+i*.034"
+        },
+        {
+          "id": "ribbon-fade",
+          "label": "Cosmetic ribbon fade begins",
+          "timeSeconds": 1.9,
+          "evidence": "Math.max(0,time-1.9)/.34"
+        }
+      ],
+      "notes": [
+        "Candidate runs this audition animation at 80% pace and delays the complete recording by 0.25 s. Its measured 0.60 s energy rise meets the first leaf launch and impact at elapsed 0.85 s.",
+        "The authored recovery cue remains independent at 1.46 s, now elapsed 1.825 s. The whole 3.12 s recording ends at 3.37 s within the 3.4375 s paced visual; no drain or receiving sound is cut or repeated.",
+        "Compare the target gathering, leaf travel and receiving aura as separate moments. Keeping the whole recording avoids assigning unreviewed roles to the separate part files; 0 dB gain and native audio speed remain unchanged."
+      ]
+    }
+  ]
+}

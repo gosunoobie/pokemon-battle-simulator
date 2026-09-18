@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-runtime-selection",
+  "reviewBundleSha256": "34a1329c7553899131c9410bc0af71ea663226396fc61b9329d6592dcfd3de1f",
+  "policy": {
+    "mode": "normal",
+    "outcome": "hit",
+    "playbackRate": 1,
+    "tailPolicy": "continue-until-region-end",
+    "unreviewed": "silence"
+  },
+  "entries": [
+    {
+      "moveId": "tackle",
+      "phase": "attack",
+      "assetId": "source.tackle"
+    },
+    {
+      "moveId": "flamethrower",
+      "phase": "attack",
+      "assetId": "source.flamethrower"
+    },
+    {
+      "moveId": "hyperbeam",
+      "phase": "attack",
+      "assetId": "source.hyper-beam"
+    },
+    {
+      "moveId": "doublekick",
+      "phase": "attack",
+      "assetId": "source.double-kick-1hit"
+    },
+    {
+      "moveId": "bulletseed",
+      "phase": "attack",
+      "assetId": "source.bullet-seed-1hit"
+    },
+    {
+      "moveId": "absorb",
+      "phase": "attack",
+      "assetId": "source.absorb"
+    },
+    {
+      "moveId": "protect",
+      "phase": "attack",
+      "assetId": "source.protect"
+    },
+    {
+      "moveId": "willowisp",
+      "phase": "attack",
+      "assetId": "source.will-o-wisp"
+    },
+    {
+      "moveId": "raindance",
+      "phase": "attack",
+      "assetId": "source.rain-dance"
+    },
+    {
+      "moveId": "fly",
+      "phase": "attack",
+      "assetId": "source.fly"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@battle/battle-sfx",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js",
+    "./review": "./src/review.js",
+    "./runtime": "./src/runtime.js",
+    "./draft-runtime": "./src/draft-runtime.js",
+    "./catalog.json": "./data/catalog.json",
+    "./accepted-runtime": "./src/accepted-runtime.js"
+  },
+  "files": [
+    "src",
+    "data",
+    "README.md",
+    "NOTICE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  }
+}

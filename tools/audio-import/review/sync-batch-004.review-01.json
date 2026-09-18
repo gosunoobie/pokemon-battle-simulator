@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "name": "sync-004-feedback.json",
+    "sha256": "301eede91835545044b42e2d402b1545ce2561cba166869c821191b531fa39dd"
+  },
+  "feedback": {
+    "schemaVersion": 1,
+    "kind": "battle-sfx-sync-feedback",
+    "batchId": "sync-004",
+    "revision": "e9d4bb3eacf649fdbd333ab108eabf1a9785a350ddd3cd2947cd75b3547a14ea",
+    "records": [
+      {
+        "moveId": "ember",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.24,
+              "cueSeconds": 0.7,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Looks good enough",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 57729,
+          "durationSeconds": 1.2026875,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "waterfall",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.71,
+              "cueSeconds": 0.78,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Looks good enough",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 118944,
+          "durationSeconds": 2.478,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "dragonclaw",
+        "plan": {
+          "visualRate": 0.9,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.78,
+              "cueSeconds": 0.82,
+              "gainDb": -0.55
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Looks good enough",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 95520,
+          "durationSeconds": 1.99,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "ancientpower",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 1.24,
+              "cueSeconds": 1.34,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Looks good enough",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 93600,
+          "durationSeconds": 1.95,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "shadowpunch",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.26,
+              "cueSeconds": 0.74,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Looks perfect",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 34080,
+          "durationSeconds": 0.71,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "swordsdance",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.87,
+              "cueSeconds": 0.95,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Looks good enough",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 59588,
+          "durationSeconds": 1.2414166666666666,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      }
+    ]
+  },
+  "playbackPins": [
+    {
+      "path": "apps/sfx-bench/src/audio.js",
+      "sha256": "9a6e0f27b0ae5ba1a3688a3f61cdf61de448354c5a4fb25649efa8345cb38cc2"
+    },
+    {
+      "path": "apps/sfx-bench/src/sync.js",
+      "sha256": "f49a75a1b14fb882d9ac948165017ba5e9c9e089e3d4ad252b15bcc387fc8645"
+    },
+    {
+      "path": "apps/sfx-bench/src/syncVisual.js",
+      "sha256": "a80878868a33642ee1bb490ebeb4aeb9f2bd9b94c937ba40971422ea1babb627"
+    }
+  ],
+  "moves": [
+    {
+      "id": "ember",
+      "sourceSha256": "849b40eeaa1d922b1c79c9e276657b55c1abe8a18d16a9f887faaf3f8c4b0456",
+      "sourcePcmSha256": "be27c655d3b112067b7151f974b57b461ba16fac8a0ff50035b410891a12f964",
+      "visualRevision": "9215c8576e6e14ae9dfd6002128b04bbfa8a89ce47e7c709a2c2e3f30e48a0ae",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.24,
+            "cueSeconds": 0.7,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "waterfall",
+      "sourceSha256": "3433f208caf59e33ba0f020d6523243567103afae92e8f382bbe54464a6e634f",
+      "sourcePcmSha256": "f5cae7b13734073bcbfa9607f7a84b0da7e2b08f909b35aaf2da079534664094",
+      "visualRevision": "2111fc91b26b3bec071e56efb34bcb6acdab694b71659bfc2328ce9b3ee75b3f",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.71,
+            "cueSeconds": 0.78,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "dragonclaw",
+      "sourceSha256": "ea17cc040768906bb775cbaef61d185e1c107c47b5aceac3734ba8a5d3996ea8",
+      "sourcePcmSha256": "933be9875eb387645420a04e59542a5cd8af08f1ee5138d568b93ea6d92c90cd",
+      "visualRevision": "c54b981be46c4428ad726f4c1e329584dc76885026ca02767353fe91819ad271",
+      "plan": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.78,
+            "cueSeconds": 0.82,
+            "gainDb": -0.55
+          }
+        ]
+      }
+    },
+    {
+      "id": "ancientpower",
+      "sourceSha256": "022c18c84ae9860ebdd490aecb253507ac8c610522d38c1a6cc8f5975599d924",
+      "sourcePcmSha256": "8f77da4179ca92cf7d7718038afab949ea7eee905041240ebfce2d97a2cd36a5",
+      "visualRevision": "13681e6bf0c3443b2c6d81d30a17d44646720f8b1abbeeef5b19eec4ee3077b2",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.24,
+            "cueSeconds": 1.34,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "shadowpunch",
+      "sourceSha256": "504ca820663f72410285108dd3f6fc6983e81122e9689103d606b5392b894f43",
+      "sourcePcmSha256": "9c1b5233d9ea160e5197dc022fa5c32bab4e6e467a0eca56cc59d90e16a9a5b6",
+      "visualRevision": "d1cf2382aa0029f850f46c961d1f4ea0ac594109144feaf28fee15f6257bd078",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 0.74,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "swordsdance",
+      "sourceSha256": "d629ddcc09c92259aebfa2e9ec4c0c80bdee30960d784d62dd4bcd9bb014cd80",
+      "sourcePcmSha256": "f0e02d82540d7733b5a7517191b6da3ff07e81092ffa4c2458e59d5cadca13d4",
+      "visualRevision": "dee5f534825d994802a8b972164c14ec3249e178d8907c70d5a186aa03093612",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.87,
+            "cueSeconds": 0.95,
+            "gainDb": 0
+          }
+        ]
+      }
+    }
+  ]
+}

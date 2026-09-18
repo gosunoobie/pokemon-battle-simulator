@@ -1,0 +1,480 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-final-batch",
+  "batchId": "sync-001",
+  "reviewedRevision": "450fca44ddbfd36f4e14e4ed4ff27982d5ff73beece48ab8347f9b3755abf824",
+  "approval": {
+    "source": "user-message",
+    "text": "Now these ones looks good and sounds good and let's keep the final versions and remove the previous ones and go ahead with the next batch",
+    "date": "2026-09-18"
+  },
+  "moves": [
+    {
+      "id": "bodyslam",
+      "fxId": "body-slam",
+      "name": "Body Slam",
+      "asset": {
+        "id": "source.body-slam",
+        "url": "/sound_effects/Body%20Slam.mp3",
+        "bytes": 63865,
+        "sha256": "7e6f0a7bd89556d3665290446be934dc718225493c02d98b349e2b4776d8e8cf",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 67473,
+          "durationSeconds": 1.53,
+          "decodedBytes": 539784,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "b04883b9a30d18104cda75fe62b9d46278d4b281a138ca17633643e6f2451921",
+          "peak": 0.43713838,
+          "peakDbfs": -7.18762126,
+          "rmsDbfs": -21.44898533,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4184,
+          "trailingQuietFrames": 4895,
+          "stereoCorrelation": 0.99998997,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 1.85,
+        "visualRevision": "0252f8faa25be75879d1b9d851f616c3b1c51b515382ac8e1129693845035d22",
+        "markers": [
+          {
+            "id": "launch",
+            "label": "Cosmetic takeoff",
+            "timeSeconds": 0.22
+          },
+          {
+            "id": "descent",
+            "label": "Cosmetic descent begins",
+            "timeSeconds": 0.58
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.82
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.88,
+            "cueSeconds": 0.82,
+            "gainDb": -0.8
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 73440,
+        "durationSeconds": 1.53,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Baseline preserves the current whole clip at visual start and -0.8 dB gain.",
+        "Candidate slows only this audition animation to 0.90×. Its authored 0.82 s impact occurs at about 0.911 s, allowing the measured 0.88 s strongest-energy window to meet it without trimming the recording.",
+        "Retained after your review: “Sounds perfect”. The 90% animation pace, sound timing and original sound character are unchanged."
+      ]
+    },
+    {
+      "id": "aerialace",
+      "fxId": "aerial-ace",
+      "name": "Aerial Ace",
+      "asset": {
+        "id": "source.aerial-ace",
+        "url": "/sound_effects/Aerial%20Ace.mp3",
+        "bytes": 35653,
+        "sha256": "448d2ea6cbdbdb4aefa42a82def691cfaadf84c1db9fa885a74f52e5f620cee1",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 35898,
+          "durationSeconds": 0.81401361,
+          "decodedBytes": 287184,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "9958aed588f128bbc0ce8f8f0a112a3e2bf2321647d3c0c59c8fdc003001cfc2",
+          "peak": 0.29112262,
+          "peakDbfs": -10.71848112,
+          "rmsDbfs": -26.62979838,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4176,
+          "trailingQuietFrames": 924,
+          "stereoCorrelation": 0.99999899,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 1.8,
+        "visualRevision": "3a554e785fff1e4301db4de1224e38b3f9d65368f4b26e8c07093641b3d9a0f6",
+        "markers": [
+          {
+            "id": "dash",
+            "label": "Cosmetic diving dash begins",
+            "timeSeconds": 0.28
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.62
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.35,
+            "cueSeconds": 0.62,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 39072,
+        "durationSeconds": 0.814,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Baseline preserves the whole recording at animation start.",
+        "Candidate delays the whole clip by 0.27 s so its measured 0.35 s strongest-energy window meets the 0.62 s impact.",
+        "Retained after your review: “Sounds good”. Animation pacing, sound timing and volume are unchanged."
+      ]
+    },
+    {
+      "id": "hydropump",
+      "fxId": "hydro-pump",
+      "name": "Hydro Pump",
+      "asset": {
+        "id": "source.hydro-pump",
+        "url": "/sound_effects/Hydro%20Pump.mp3",
+        "bytes": 88943,
+        "sha256": "89533f7c8aec1582dda6f89874511c954654749c4804d27f828f70b4d5cdeaeb",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 94765,
+          "durationSeconds": 2.14886621,
+          "decodedBytes": 758120,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "228d48409ca6e24b8b75de56cf7cb7a03639760c9c75a6e40dfd7f9c8e64493e",
+          "peak": 0.3222132,
+          "peakDbfs": -9.83713337,
+          "rmsDbfs": -21.99885866,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4273,
+          "trailingQuietFrames": 349,
+          "stereoCorrelation": 0.99999966,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.8,
+        "visualRevision": "99fcefe5e683fd45fba0e6ea9412259efee9c1cb417a7c32ac5f02fe40fd49c4",
+        "markers": [
+          {
+            "id": "launch",
+            "label": "Cosmetic jet launch",
+            "timeSeconds": 0.5
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.72
+          },
+          {
+            "id": "sustain-end",
+            "label": "Cosmetic jet cutoff begins",
+            "timeSeconds": 1.66
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.23,
+            "cueSeconds": 0.72,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 103145,
+        "durationSeconds": 2.1488541666666667,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Candidate delays the whole recording by 0.49 s, aligning its measured 0.23 s strongest-energy window with the 0.72 s target impact.",
+        "The visual jet starts at 0.50 s and its cutoff begins at 1.66 s. Compare the sound lead-in, sustained jet and remaining tail; no loop or stretch is inserted.",
+        "Retained after your review: “Sounds perfect”. Animation pacing, sound timing and volume are unchanged."
+      ]
+    },
+    {
+      "id": "thunderbolt",
+      "fxId": "thunderbolt",
+      "name": "Thunderbolt",
+      "asset": {
+        "id": "source.thunderbolt",
+        "url": "/sound_effects/Thunderbolt.mp3",
+        "bytes": 125514,
+        "sha256": "0148a58c0e367c6e08b32bb80fddf6d9cede885c4e01ed57f2f94a04a32ed255",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 135387,
+          "durationSeconds": 3.07,
+          "decodedBytes": 1083096,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "d05defbc31909c03ac2aa45a4aae5d1f530a0d66f4ff3125f7682512aa078782",
+          "peak": 0.33465198,
+          "peakDbfs": -9.5081321,
+          "rmsDbfs": -25.09907604,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 3976,
+          "trailingQuietFrames": 2835,
+          "stereoCorrelation": 0.99999921,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2,
+        "visualRevision": "4cc069ed1425e46ef1e7ccfae66f7381f2d4681da1162b77f57ac328e2e0d33b",
+        "markers": [
+          {
+            "id": "launch",
+            "label": "Cosmetic main bolt launch",
+            "timeSeconds": 0.36
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.52
+          },
+          {
+            "id": "sustain-end",
+            "label": "Cosmetic main bolt fade begins",
+            "timeSeconds": 1.02
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 1.91,
+            "soundAnchorSeconds": 0.43,
+            "cueSeconds": 0.52,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 147360,
+        "durationSeconds": 3.07,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Your feedback: keep the sound character and impact timing, but finish the sound with the animation.",
+        "The proposed excerpt ends at 1.91 s in the recording. With its unchanged 0.09 s start delay, sound now ends at 2.00 s alongside the animation, instead of 3.16 s.",
+        "The recording is already very quiet at this boundary. Only the later tail is excluded; animation, pitch, volume and the 0.52 s impact remain unchanged.",
+        "Compare Previous proposal with Play proposed to review the shorter ending. Your five other choices are retained."
+      ]
+    },
+    {
+      "id": "triplekick",
+      "fxId": "triple-kick",
+      "name": "Triple Kick",
+      "asset": {
+        "id": "source.triple-kick-1hit",
+        "url": "/sound_effects/Triple%20Kick%201hit.mp3",
+        "bytes": 25204,
+        "sha256": "9dcf7ecf3a28a5c8756eee1d408c817110530f98c947bbbf17ef3d3daf95fe05",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 24560,
+          "durationSeconds": 0.5569161,
+          "decodedBytes": 196480,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "09087b4ede6981c5353f913106984a9b9d2eeebdc3e1e70fecab0ae87ed5ac3b",
+          "peak": 0.34227756,
+          "peakDbfs": -9.31243154,
+          "rmsDbfs": -23.63252495,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4195,
+          "trailingQuietFrames": 22,
+          "stereoCorrelation": 0.99994076,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.25,
+        "visualRevision": "9f05d2e3650d7882a84c28fd7f3182a4ce2b25ea2de5ab6bee779033e25204f9",
+        "markers": [
+          {
+            "id": "contact-1",
+            "label": "First cosmetic contact",
+            "timeSeconds": 0.5
+          },
+          {
+            "id": "contact-2",
+            "label": "Second cosmetic contact",
+            "timeSeconds": 0.84
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.2
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 0.5,
+            "gainDb": 0
+          },
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 0.84,
+            "gainDb": 0
+          },
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 1.2,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 26731,
+        "durationSeconds": 0.5568958333333334,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Baseline plays the selected one-hit recording once at visual start, matching current runtime behavior.",
+        "Candidate repeats the same complete one-hit recording three times. Its measured 0.26 s strongest-energy window aligns with cosmetic contacts at 0.50, 0.84 and 1.20 s.",
+        "The first two contacts are cosmetic only; the 1.20 s third contact remains the only battle result cue. Overlapping tails are intentional audition material, with no added battle hits.",
+        "Retained after your review: “Sounds perfect”. Three cosmetic sound contacts and the single battle-result cue are unchanged."
+      ]
+    },
+    {
+      "id": "absorb",
+      "fxId": "absorb",
+      "name": "Absorb",
+      "asset": {
+        "id": "source.absorb",
+        "url": "/sound_effects/Absorb.mp3",
+        "bytes": 116110,
+        "sha256": "89cbc4c8189c8766793c06196c702e31f546459e7f68b6537a95874b92b7c386",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 124830,
+          "durationSeconds": 2.83061224,
+          "decodedBytes": 998640,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "ac5b11054583799e2ecda7c9bb7758c2bec4f477a716f82dde33902842eb5243",
+          "peak": 0.30195725,
+          "peakDbfs": -10.40109078,
+          "rmsDbfs": -25.61732397,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4186,
+          "trailingQuietFrames": 1987,
+          "stereoCorrelation": 0.99999863,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 1.8,
+        "visualRevision": "4fe6f8d9d95e23c011ab5b498ecbc2f18152ca48ee5207698186119df20a51c7",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.4
+          },
+          {
+            "id": "mote-launch",
+            "label": "Cosmetic first mote leaves target",
+            "timeSeconds": 0.4
+          },
+          {
+            "id": "recovery",
+            "label": "Recovery result cue",
+            "timeSeconds": 0.98
+          }
+        ]
+      },
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.1,
+            "cueSeconds": 0.4,
+            "gainDb": 0
+          }
+        ]
+      },
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 135869,
+        "durationSeconds": 2.830604166666667,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "notes": [
+        "Baseline preserves the already approved whole Absorb recording and 0 dB gain. No part recordings are substituted.",
+        "The strongest-energy window at 1.13 s cannot meet the 0.40 s impact without starting before the animation. Candidate instead tests the measured early energy rise at 0.10 s against the first mote launch/impact at 0.40 s, delaying the whole clip by 0.30 s.",
+        "The separate 0.98 s recovery cue marks first arrival at the user. Retained after your review: “Sounds perfect”. The full recording and existing timing are unchanged."
+      ]
+    }
+  ]
+}

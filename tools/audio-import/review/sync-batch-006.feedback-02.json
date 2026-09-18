@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-sync-feedback",
+  "batchId": "sync-006",
+  "revision": "6e8c0107147cef09802a73458c80e20832dbf05eefbc3403794234257c513ba4",
+  "records": [
+    {
+      "moveId": "leafblade",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.41,
+            "cueSeconds": 0.81,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks perfect",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 176641,
+        "durationSeconds": 3.6800208333333333,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-six-leafblade-v2",
+        "revision": "8feef9e26536d7693e676f25791608d3cbab42a62c08788dcb3c908ed6b5aa46"
+      }
+    },
+    {
+      "moveId": "triattack",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.96,
+            "cueSeconds": 1.96,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 226560,
+        "durationSeconds": 4.72,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-six-triattack-v1",
+        "revision": "f44616a3ec9f7836b2efae8abf4feec227f88b2511949faa4ed6990dedaf46b3"
+      }
+    },
+    {
+      "moveId": "meteormash",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.24,
+            "cueSeconds": 1.34,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 90240,
+        "durationSeconds": 1.88,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-six-meteormash-v1",
+        "revision": "957981d9f9cc7889530b0e6f9beef95a89007a60905757cfcbe761c280f84ed1"
+      }
+    },
+    {
+      "moveId": "ancientpower",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.24,
+            "cueSeconds": 1.34,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks perfect",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 93600,
+        "durationSeconds": 1.95,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-six-ancientpower-v2",
+        "revision": "dba3e27d5c7b9355dc09bac31858058e2db7525e6afe3e177ace360ff6296e54"
+      }
+    },
+    {
+      "moveId": "sacredfire",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.12,
+            "cueSeconds": 0.18,
+            "gainDb": -0.46
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "looks perfect",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 193078,
+        "durationSeconds": 4.022458333333334,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-six-sacredfire-v2",
+        "revision": "e3bdfe18b7640edbf34ea0ea6ce8a4f4e1fe7a9f0cec2f6b454794bd6a89be79"
+      }
+    }
+  ]
+}

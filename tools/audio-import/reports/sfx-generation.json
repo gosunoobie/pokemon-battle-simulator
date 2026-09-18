@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887",
+  "outputs": [
+    {
+      "path": "packages/battle-sfx/data/catalog.json",
+      "bytes": 894153,
+      "sha256": "e5c581b52ec719e12b1fb5bcf38f901ee114e1c58605afcd366fd056c702a66a"
+    },
+    {
+      "path": "packages/battle-sfx/src/catalog.generated.js",
+      "bytes": 639950,
+      "sha256": "fd5719b38ffab66078e29dc0c7c59931dd3276c501e3e0cbc7a64d7cd7d2bfbe"
+    },
+    {
+      "path": "tools/audio-import/reports/decoded.json",
+      "bytes": 643047,
+      "sha256": "0783980113220bc10a55b029bd1d94f19724f9ddaed24404ac29926d34819dca"
+    },
+    {
+      "path": "tools/audio-import/reports/sfx-coverage.json",
+      "bytes": 152490,
+      "sha256": "a4a17aa1f7d9212d956f37facdd4e86b0e069676e026d7f670391edcd5b8b9c9"
+    },
+    {
+      "path": "tools/audio-import/reports/sfx-discrepancies.json",
+      "bytes": 30963,
+      "sha256": "829a45c80449006fde0447d8482e932842915f47328de07c5ac54a1b64082bc1"
+    },
+    {
+      "path": "tools/audio-import/reports/sfx-audit.md",
+      "bytes": 1851,
+      "sha256": "78c88fefbadac545246c70816c2d6ed64646ef7bbcd3acbf3b43ee0998c66708"
+    }
+  ]
+}

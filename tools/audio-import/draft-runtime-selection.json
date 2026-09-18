@@ -1,0 +1,1669 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-draft-runtime-selection",
+  "analysisReportSha256": "5dc9cf5239da897f7b8be1a2357c5d888a1d3d02081186d4f6cca3a35c464630",
+  "collectionRevision": "f37bde1cf96b5caedd1c2fa269818e08c4bd387fae1adec9d2fe64f3c6141a09",
+  "batches": [
+    {
+      "id": "batch-001",
+      "sha256": "02c0ab10848f0ebeec018eae66fe519f8d45d137a1a4685b70c5b67d3a885394"
+    },
+    {
+      "id": "batch-002",
+      "sha256": "c3d0f06f08a2ff2e706472dfb2ca9025168ff17b0dec7fa2fb5e1b8cd6922075"
+    },
+    {
+      "id": "batch-003",
+      "sha256": "770682ff9bac5da0eb6dfa2a4f6e70dd7b9014525d598b3ded1e71fd7bb7501c"
+    },
+    {
+      "id": "batch-004",
+      "sha256": "c15c4f6d6ea4a938dda7530ae7617d7a4e881401956f9d474d4eb27954ee101a"
+    },
+    {
+      "id": "batch-005",
+      "sha256": "bc4f0355c97ef1678077d1502f0d8c0eacef0d1199ead9c46749f8b3eaab6042"
+    },
+    {
+      "id": "batch-006",
+      "sha256": "aaffd4086bd8b76f7960e5d433b5f4acfc3bffde104872b3dca42f0868ad57a3"
+    },
+    {
+      "id": "batch-007",
+      "sha256": "8149f28f23dda73de381cb982e6f18ee16bc9aa09b50b86e2156bda96b473519"
+    },
+    {
+      "id": "batch-008",
+      "sha256": "ed0d43f74e5e967b345e0237816c86096ab7b1b26f68783e741f3dce704421fa"
+    }
+  ],
+  "policy": {
+    "scope": "battle-simulation-and-move-preview",
+    "mode": "normal",
+    "outcome": "hit",
+    "phase": "attack",
+    "reviewStatus": "technical-draft",
+    "playbackPolicy": "whole-native-buffer-at-visual-start",
+    "playbackRate": 1,
+    "tailPolicy": "continue-until-region-end",
+    "gainPolicy": "exact-attenuation-only-analysis-default",
+    "unselected": "silence"
+  },
+  "entries": [
+    {
+      "moveId": "acidarmor",
+      "phase": "attack",
+      "assetId": "source.acid-armor"
+    },
+    {
+      "moveId": "aerialace",
+      "phase": "attack",
+      "assetId": "source.aerial-ace"
+    },
+    {
+      "moveId": "aeroblast",
+      "phase": "attack",
+      "assetId": "source.aeroblast"
+    },
+    {
+      "moveId": "agility",
+      "phase": "attack",
+      "assetId": "source.agility"
+    },
+    {
+      "moveId": "aircutter",
+      "phase": "attack",
+      "assetId": "source.air-cutter"
+    },
+    {
+      "moveId": "amnesia",
+      "phase": "attack",
+      "assetId": "source.amnesia"
+    },
+    {
+      "moveId": "ancientpower",
+      "phase": "attack",
+      "assetId": "source.ancient-power"
+    },
+    {
+      "moveId": "armthrust",
+      "phase": "attack",
+      "assetId": "source.arm-thrust-1hit"
+    },
+    {
+      "moveId": "aromatherapy",
+      "phase": "attack",
+      "assetId": "source.aromatherapy"
+    },
+    {
+      "moveId": "assist",
+      "phase": "attack",
+      "assetId": "source.assist"
+    },
+    {
+      "moveId": "astonish",
+      "phase": "attack",
+      "assetId": "source.astonish"
+    },
+    {
+      "moveId": "attract",
+      "phase": "attack",
+      "assetId": "source.attract"
+    },
+    {
+      "moveId": "aurorabeam",
+      "phase": "attack",
+      "assetId": "source.aurora-beam"
+    },
+    {
+      "moveId": "barrage",
+      "phase": "attack",
+      "assetId": "source.barrage-1hit"
+    },
+    {
+      "moveId": "barrier",
+      "phase": "attack",
+      "assetId": "source.barrier"
+    },
+    {
+      "moveId": "batonpass",
+      "phase": "attack",
+      "assetId": "source.baton-pass"
+    },
+    {
+      "moveId": "beatup",
+      "phase": "attack",
+      "assetId": "source.beat-up"
+    },
+    {
+      "moveId": "bellydrum",
+      "phase": "attack",
+      "assetId": "source.belly-drum"
+    },
+    {
+      "moveId": "bide",
+      "phase": "attack",
+      "assetId": "source.bide"
+    },
+    {
+      "moveId": "bind",
+      "phase": "attack",
+      "assetId": "source.bind"
+    },
+    {
+      "moveId": "bite",
+      "phase": "attack",
+      "assetId": "source.bite"
+    },
+    {
+      "moveId": "blastburn",
+      "phase": "attack",
+      "assetId": "source.blast-burn"
+    },
+    {
+      "moveId": "blazekick",
+      "phase": "attack",
+      "assetId": "source.blaze-kick"
+    },
+    {
+      "moveId": "blizzard",
+      "phase": "attack",
+      "assetId": "source.blizzard"
+    },
+    {
+      "moveId": "block",
+      "phase": "attack",
+      "assetId": "source.block"
+    },
+    {
+      "moveId": "bodyslam",
+      "phase": "attack",
+      "assetId": "source.body-slam"
+    },
+    {
+      "moveId": "boneclub",
+      "phase": "attack",
+      "assetId": "source.bone-club"
+    },
+    {
+      "moveId": "bonemerang",
+      "phase": "attack",
+      "assetId": "source.bonemerang-1hit"
+    },
+    {
+      "moveId": "bonerush",
+      "phase": "attack",
+      "assetId": "source.bone-rush-1hit"
+    },
+    {
+      "moveId": "bounce",
+      "phase": "attack",
+      "assetId": "source.bounce"
+    },
+    {
+      "moveId": "brickbreak",
+      "phase": "attack",
+      "assetId": "source.brick-break"
+    },
+    {
+      "moveId": "bubble",
+      "phase": "attack",
+      "assetId": "source.bubble"
+    },
+    {
+      "moveId": "bubblebeam",
+      "phase": "attack",
+      "assetId": "source.bubble-beam"
+    },
+    {
+      "moveId": "bulkup",
+      "phase": "attack",
+      "assetId": "source.bulk-up"
+    },
+    {
+      "moveId": "calmmind",
+      "phase": "attack",
+      "assetId": "source.calm-mind"
+    },
+    {
+      "moveId": "charge",
+      "phase": "attack",
+      "assetId": "source.charge"
+    },
+    {
+      "moveId": "charm",
+      "phase": "attack",
+      "assetId": "source.charm"
+    },
+    {
+      "moveId": "clamp",
+      "phase": "attack",
+      "assetId": "source.clamp"
+    },
+    {
+      "moveId": "cometpunch",
+      "phase": "attack",
+      "assetId": "source.comet-punch-1hit"
+    },
+    {
+      "moveId": "confuseray",
+      "phase": "attack",
+      "assetId": "source.confuse-ray"
+    },
+    {
+      "moveId": "confusion",
+      "phase": "attack",
+      "assetId": "source.confusion"
+    },
+    {
+      "moveId": "constrict",
+      "phase": "attack",
+      "assetId": "source.constrict"
+    },
+    {
+      "moveId": "cosmicpower",
+      "phase": "attack",
+      "assetId": "source.cosmic-power"
+    },
+    {
+      "moveId": "cottonspore",
+      "phase": "attack",
+      "assetId": "source.cotton-spore"
+    },
+    {
+      "moveId": "counter",
+      "phase": "attack",
+      "assetId": "source.counter"
+    },
+    {
+      "moveId": "crabhammer",
+      "phase": "attack",
+      "assetId": "source.crabhammer"
+    },
+    {
+      "moveId": "crosschop",
+      "phase": "attack",
+      "assetId": "source.cross-chop"
+    },
+    {
+      "moveId": "crunch",
+      "phase": "attack",
+      "assetId": "source.crunch"
+    },
+    {
+      "moveId": "crushclaw",
+      "phase": "attack",
+      "assetId": "source.crush-claw"
+    },
+    {
+      "moveId": "curse",
+      "phase": "attack",
+      "assetId": "source.curse"
+    },
+    {
+      "moveId": "cut",
+      "phase": "attack",
+      "assetId": "source.cut"
+    },
+    {
+      "moveId": "defensecurl",
+      "phase": "attack",
+      "assetId": "source.defense-curl"
+    },
+    {
+      "moveId": "destinybond",
+      "phase": "attack",
+      "assetId": "source.destiny-bond"
+    },
+    {
+      "moveId": "detect",
+      "phase": "attack",
+      "assetId": "source.detect"
+    },
+    {
+      "moveId": "dig",
+      "phase": "attack",
+      "assetId": "source.dig"
+    },
+    {
+      "moveId": "disable",
+      "phase": "attack",
+      "assetId": "source.disable"
+    },
+    {
+      "moveId": "dive",
+      "phase": "attack",
+      "assetId": "source.dive"
+    },
+    {
+      "moveId": "dizzypunch",
+      "phase": "attack",
+      "assetId": "source.dizzy-punch"
+    },
+    {
+      "moveId": "doomdesire",
+      "phase": "attack",
+      "assetId": "source.doom-desire"
+    },
+    {
+      "moveId": "doubleedge",
+      "phase": "attack",
+      "assetId": "source.double-edge"
+    },
+    {
+      "moveId": "doubleslap",
+      "phase": "attack",
+      "assetId": "source.double-slap-1hit"
+    },
+    {
+      "moveId": "doubleteam",
+      "phase": "attack",
+      "assetId": "source.double-team"
+    },
+    {
+      "moveId": "dragonbreath",
+      "phase": "attack",
+      "assetId": "source.dragon-breath"
+    },
+    {
+      "moveId": "dragonclaw",
+      "phase": "attack",
+      "assetId": "source.dragon-claw"
+    },
+    {
+      "moveId": "dragondance",
+      "phase": "attack",
+      "assetId": "source.dragon-dance"
+    },
+    {
+      "moveId": "dragonrage",
+      "phase": "attack",
+      "assetId": "source.dragon-rage"
+    },
+    {
+      "moveId": "dreameater",
+      "phase": "attack",
+      "assetId": "source.dream-eater"
+    },
+    {
+      "moveId": "drillpeck",
+      "phase": "attack",
+      "assetId": "source.drill-peck"
+    },
+    {
+      "moveId": "dynamicpunch",
+      "phase": "attack",
+      "assetId": "source.dynamic-punch"
+    },
+    {
+      "moveId": "earthquake",
+      "phase": "attack",
+      "assetId": "source.earthquake"
+    },
+    {
+      "moveId": "eggbomb",
+      "phase": "attack",
+      "assetId": "source.egg-bomb"
+    },
+    {
+      "moveId": "ember",
+      "phase": "attack",
+      "assetId": "source.ember"
+    },
+    {
+      "moveId": "encore",
+      "phase": "attack",
+      "assetId": "source.encore"
+    },
+    {
+      "moveId": "endeavor",
+      "phase": "attack",
+      "assetId": "source.endeavor"
+    },
+    {
+      "moveId": "endure",
+      "phase": "attack",
+      "assetId": "source.endure"
+    },
+    {
+      "moveId": "eruption",
+      "phase": "attack",
+      "assetId": "source.eruption"
+    },
+    {
+      "moveId": "explosion",
+      "phase": "attack",
+      "assetId": "source.explosion"
+    },
+    {
+      "moveId": "extrasensory",
+      "phase": "attack",
+      "assetId": "source.extrasensory"
+    },
+    {
+      "moveId": "extremespeed",
+      "phase": "attack",
+      "assetId": "source.extreme-speed"
+    },
+    {
+      "moveId": "facade",
+      "phase": "attack",
+      "assetId": "source.facade"
+    },
+    {
+      "moveId": "fakeout",
+      "phase": "attack",
+      "assetId": "source.fake-out"
+    },
+    {
+      "moveId": "faketears",
+      "phase": "attack",
+      "assetId": "source.fake-tears"
+    },
+    {
+      "moveId": "falseswipe",
+      "phase": "attack",
+      "assetId": "source.false-swipe"
+    },
+    {
+      "moveId": "featherdance",
+      "phase": "attack",
+      "assetId": "source.feather-dance"
+    },
+    {
+      "moveId": "feintattack",
+      "phase": "attack",
+      "assetId": "source.feint-attack"
+    },
+    {
+      "moveId": "fireblast",
+      "phase": "attack",
+      "assetId": "source.fire-blast"
+    },
+    {
+      "moveId": "firepunch",
+      "phase": "attack",
+      "assetId": "source.fire-punch"
+    },
+    {
+      "moveId": "firespin",
+      "phase": "attack",
+      "assetId": "source.fire-spin"
+    },
+    {
+      "moveId": "fissure",
+      "phase": "attack",
+      "assetId": "source.fissure"
+    },
+    {
+      "moveId": "flail",
+      "phase": "attack",
+      "assetId": "source.flail"
+    },
+    {
+      "moveId": "flamewheel",
+      "phase": "attack",
+      "assetId": "source.flame-wheel"
+    },
+    {
+      "moveId": "flash",
+      "phase": "attack",
+      "assetId": "source.flash"
+    },
+    {
+      "moveId": "flatter",
+      "phase": "attack",
+      "assetId": "source.flatter"
+    },
+    {
+      "moveId": "focusenergy",
+      "phase": "attack",
+      "assetId": "source.focus-energy"
+    },
+    {
+      "moveId": "focuspunch",
+      "phase": "attack",
+      "assetId": "source.focus-punch"
+    },
+    {
+      "moveId": "followme",
+      "phase": "attack",
+      "assetId": "source.follow-me"
+    },
+    {
+      "moveId": "foresight",
+      "phase": "attack",
+      "assetId": "source.foresight"
+    },
+    {
+      "moveId": "frenzyplant",
+      "phase": "attack",
+      "assetId": "source.frenzy-plant"
+    },
+    {
+      "moveId": "frustration",
+      "phase": "attack",
+      "assetId": "source.frustration"
+    },
+    {
+      "moveId": "furyattack",
+      "phase": "attack",
+      "assetId": "source.fury-attack-1hit"
+    },
+    {
+      "moveId": "furycutter",
+      "phase": "attack",
+      "assetId": "source.fury-cutter"
+    },
+    {
+      "moveId": "furyswipes",
+      "phase": "attack",
+      "assetId": "source.fury-swipes-1hit"
+    },
+    {
+      "moveId": "futuresight",
+      "phase": "attack",
+      "assetId": "source.future-sight"
+    },
+    {
+      "moveId": "gigadrain",
+      "phase": "attack",
+      "assetId": "source.giga-drain"
+    },
+    {
+      "moveId": "glare",
+      "phase": "attack",
+      "assetId": "source.glare"
+    },
+    {
+      "moveId": "grasswhistle",
+      "phase": "attack",
+      "assetId": "source.grass-whistle"
+    },
+    {
+      "moveId": "growl",
+      "phase": "attack",
+      "assetId": "source.growl"
+    },
+    {
+      "moveId": "grudge",
+      "phase": "attack",
+      "assetId": "source.grudge"
+    },
+    {
+      "moveId": "guillotine",
+      "phase": "attack",
+      "assetId": "source.guillotine"
+    },
+    {
+      "moveId": "gust",
+      "phase": "attack",
+      "assetId": "source.gust"
+    },
+    {
+      "moveId": "hail",
+      "phase": "attack",
+      "assetId": "source.hail"
+    },
+    {
+      "moveId": "harden",
+      "phase": "attack",
+      "assetId": "source.harden"
+    },
+    {
+      "moveId": "headbutt",
+      "phase": "attack",
+      "assetId": "source.headbutt"
+    },
+    {
+      "moveId": "healbell",
+      "phase": "attack",
+      "assetId": "source.heal-bell"
+    },
+    {
+      "moveId": "helpinghand",
+      "phase": "attack",
+      "assetId": "source.helping-hand"
+    },
+    {
+      "moveId": "hiddenpower",
+      "phase": "attack",
+      "assetId": "source.hidden-power"
+    },
+    {
+      "moveId": "highjumpkick",
+      "phase": "attack",
+      "assetId": "source.high-jump-kick"
+    },
+    {
+      "moveId": "hornattack",
+      "phase": "attack",
+      "assetId": "source.horn-attack"
+    },
+    {
+      "moveId": "horndrill",
+      "phase": "attack",
+      "assetId": "source.horn-drill"
+    },
+    {
+      "moveId": "howl",
+      "phase": "attack",
+      "assetId": "source.howl"
+    },
+    {
+      "moveId": "hydrocannon",
+      "phase": "attack",
+      "assetId": "source.hydro-cannon"
+    },
+    {
+      "moveId": "hydropump",
+      "phase": "attack",
+      "assetId": "source.hydro-pump"
+    },
+    {
+      "moveId": "hyperfang",
+      "phase": "attack",
+      "assetId": "source.hyper-fang"
+    },
+    {
+      "moveId": "hypervoice",
+      "phase": "attack",
+      "assetId": "source.hyper-voice"
+    },
+    {
+      "moveId": "hypnosis",
+      "phase": "attack",
+      "assetId": "source.hypnosis"
+    },
+    {
+      "moveId": "iceball",
+      "phase": "attack",
+      "assetId": "source.ice-ball"
+    },
+    {
+      "moveId": "icebeam",
+      "phase": "attack",
+      "assetId": "source.ice-beam"
+    },
+    {
+      "moveId": "icepunch",
+      "phase": "attack",
+      "assetId": "source.ice-punch"
+    },
+    {
+      "moveId": "iciclespear",
+      "phase": "attack",
+      "assetId": "source.icicle-spear-1hit"
+    },
+    {
+      "moveId": "icywind",
+      "phase": "attack",
+      "assetId": "source.icy-wind"
+    },
+    {
+      "moveId": "imprison",
+      "phase": "attack",
+      "assetId": "source.imprison"
+    },
+    {
+      "moveId": "ingrain",
+      "phase": "attack",
+      "assetId": "source.ingrain"
+    },
+    {
+      "moveId": "irondefense",
+      "phase": "attack",
+      "assetId": "source.iron-defense"
+    },
+    {
+      "moveId": "irontail",
+      "phase": "attack",
+      "assetId": "source.iron-tail"
+    },
+    {
+      "moveId": "jumpkick",
+      "phase": "attack",
+      "assetId": "source.jump-kick"
+    },
+    {
+      "moveId": "karatechop",
+      "phase": "attack",
+      "assetId": "source.karate-chop"
+    },
+    {
+      "moveId": "kinesis",
+      "phase": "attack",
+      "assetId": "source.kinesis"
+    },
+    {
+      "moveId": "knockoff",
+      "phase": "attack",
+      "assetId": "source.knock-off"
+    },
+    {
+      "moveId": "leafblade",
+      "phase": "attack",
+      "assetId": "source.leaf-blade"
+    },
+    {
+      "moveId": "leechlife",
+      "phase": "attack",
+      "assetId": "source.leech-life"
+    },
+    {
+      "moveId": "leechseed",
+      "phase": "attack",
+      "assetId": "source.leech-seed"
+    },
+    {
+      "moveId": "leer",
+      "phase": "attack",
+      "assetId": "source.leer"
+    },
+    {
+      "moveId": "lick",
+      "phase": "attack",
+      "assetId": "source.lick"
+    },
+    {
+      "moveId": "lightscreen",
+      "phase": "attack",
+      "assetId": "source.light-screen"
+    },
+    {
+      "moveId": "lockon",
+      "phase": "attack",
+      "assetId": "source.lock-on"
+    },
+    {
+      "moveId": "lovelykiss",
+      "phase": "attack",
+      "assetId": "source.lovely-kiss"
+    },
+    {
+      "moveId": "lowkick",
+      "phase": "attack",
+      "assetId": "source.low-kick"
+    },
+    {
+      "moveId": "lusterpurge",
+      "phase": "attack",
+      "assetId": "source.luster-purge"
+    },
+    {
+      "moveId": "machpunch",
+      "phase": "attack",
+      "assetId": "source.mach-punch"
+    },
+    {
+      "moveId": "magicalleaf",
+      "phase": "attack",
+      "assetId": "source.magical-leaf"
+    },
+    {
+      "moveId": "magiccoat",
+      "phase": "attack",
+      "assetId": "source.magic-coat"
+    },
+    {
+      "moveId": "magnitude",
+      "phase": "attack",
+      "assetId": "source.magnitude"
+    },
+    {
+      "moveId": "meanlook",
+      "phase": "attack",
+      "assetId": "source.mean-look"
+    },
+    {
+      "moveId": "meditate",
+      "phase": "attack",
+      "assetId": "source.meditate"
+    },
+    {
+      "moveId": "megadrain",
+      "phase": "attack",
+      "assetId": "source.mega-drain"
+    },
+    {
+      "moveId": "megahorn",
+      "phase": "attack",
+      "assetId": "source.megahorn"
+    },
+    {
+      "moveId": "megakick",
+      "phase": "attack",
+      "assetId": "source.mega-kick"
+    },
+    {
+      "moveId": "megapunch",
+      "phase": "attack",
+      "assetId": "source.mega-punch"
+    },
+    {
+      "moveId": "memento",
+      "phase": "attack",
+      "assetId": "source.memento"
+    },
+    {
+      "moveId": "metalclaw",
+      "phase": "attack",
+      "assetId": "source.metal-claw"
+    },
+    {
+      "moveId": "metalsound",
+      "phase": "attack",
+      "assetId": "source.metal-sound"
+    },
+    {
+      "moveId": "meteormash",
+      "phase": "attack",
+      "assetId": "source.meteor-mash"
+    },
+    {
+      "moveId": "metronome",
+      "phase": "attack",
+      "assetId": "source.metronome"
+    },
+    {
+      "moveId": "milkdrink",
+      "phase": "attack",
+      "assetId": "source.milk-drink"
+    },
+    {
+      "moveId": "mimic",
+      "phase": "attack",
+      "assetId": "source.mimic"
+    },
+    {
+      "moveId": "mindreader",
+      "phase": "attack",
+      "assetId": "source.mind-reader"
+    },
+    {
+      "moveId": "minimize",
+      "phase": "attack",
+      "assetId": "source.minimize"
+    },
+    {
+      "moveId": "mirrorcoat",
+      "phase": "attack",
+      "assetId": "source.mirror-coat"
+    },
+    {
+      "moveId": "mistball",
+      "phase": "attack",
+      "assetId": "source.mist-ball"
+    },
+    {
+      "moveId": "moonlight",
+      "phase": "attack",
+      "assetId": "source.moonlight"
+    },
+    {
+      "moveId": "morningsun",
+      "phase": "attack",
+      "assetId": "source.morning-sun"
+    },
+    {
+      "moveId": "muddywater",
+      "phase": "attack",
+      "assetId": "source.muddy-water"
+    },
+    {
+      "moveId": "mudshot",
+      "phase": "attack",
+      "assetId": "source.mud-shot"
+    },
+    {
+      "moveId": "mudslap",
+      "phase": "attack",
+      "assetId": "source.mud-slap"
+    },
+    {
+      "moveId": "mudsport",
+      "phase": "attack",
+      "assetId": "source.mud-sport"
+    },
+    {
+      "moveId": "needlearm",
+      "phase": "attack",
+      "assetId": "source.needle-arm"
+    },
+    {
+      "moveId": "nightmare",
+      "phase": "attack",
+      "assetId": "source.nightmare"
+    },
+    {
+      "moveId": "nightshade",
+      "phase": "attack",
+      "assetId": "source.night-shade"
+    },
+    {
+      "moveId": "octazooka",
+      "phase": "attack",
+      "assetId": "source.octazooka"
+    },
+    {
+      "moveId": "odorsleuth",
+      "phase": "attack",
+      "assetId": "source.odor-sleuth"
+    },
+    {
+      "moveId": "outrage",
+      "phase": "attack",
+      "assetId": "source.outrage"
+    },
+    {
+      "moveId": "overheat",
+      "phase": "attack",
+      "assetId": "source.overheat"
+    },
+    {
+      "moveId": "painsplit",
+      "phase": "attack",
+      "assetId": "source.pain-split"
+    },
+    {
+      "moveId": "payday",
+      "phase": "attack",
+      "assetId": "source.pay-day"
+    },
+    {
+      "moveId": "peck",
+      "phase": "attack",
+      "assetId": "source.peck"
+    },
+    {
+      "moveId": "perishsong",
+      "phase": "attack",
+      "assetId": "source.perish-song"
+    },
+    {
+      "moveId": "petaldance",
+      "phase": "attack",
+      "assetId": "source.petal-dance"
+    },
+    {
+      "moveId": "pinmissile",
+      "phase": "attack",
+      "assetId": "source.pin-missile-1hit"
+    },
+    {
+      "moveId": "poisonfang",
+      "phase": "attack",
+      "assetId": "source.poison-fang"
+    },
+    {
+      "moveId": "poisongas",
+      "phase": "attack",
+      "assetId": "source.poison-gas"
+    },
+    {
+      "moveId": "poisonpowder",
+      "phase": "attack",
+      "assetId": "source.poison-powder"
+    },
+    {
+      "moveId": "poisonsting",
+      "phase": "attack",
+      "assetId": "source.poison-sting"
+    },
+    {
+      "moveId": "poisontail",
+      "phase": "attack",
+      "assetId": "source.poison-tail"
+    },
+    {
+      "moveId": "pound",
+      "phase": "attack",
+      "assetId": "source.pound"
+    },
+    {
+      "moveId": "present",
+      "phase": "attack",
+      "assetId": "source.present-damage"
+    },
+    {
+      "moveId": "psybeam",
+      "phase": "attack",
+      "assetId": "source.psybeam"
+    },
+    {
+      "moveId": "psychic",
+      "phase": "attack",
+      "assetId": "source.psychic"
+    },
+    {
+      "moveId": "psychoboost",
+      "phase": "attack",
+      "assetId": "source.psycho-boost"
+    },
+    {
+      "moveId": "psychup",
+      "phase": "attack",
+      "assetId": "source.psych-up"
+    },
+    {
+      "moveId": "psywave",
+      "phase": "attack",
+      "assetId": "source.psywave"
+    },
+    {
+      "moveId": "quickattack",
+      "phase": "attack",
+      "assetId": "source.quick-attack"
+    },
+    {
+      "moveId": "rage",
+      "phase": "attack",
+      "assetId": "source.rage"
+    },
+    {
+      "moveId": "rapidspin",
+      "phase": "attack",
+      "assetId": "source.rapid-spin"
+    },
+    {
+      "moveId": "razorleaf",
+      "phase": "attack",
+      "assetId": "source.razor-leaf"
+    },
+    {
+      "moveId": "razorwind",
+      "phase": "attack",
+      "assetId": "source.razor-wind"
+    },
+    {
+      "moveId": "recover",
+      "phase": "attack",
+      "assetId": "source.recover"
+    },
+    {
+      "moveId": "recycle",
+      "phase": "attack",
+      "assetId": "source.recycle"
+    },
+    {
+      "moveId": "reflect",
+      "phase": "attack",
+      "assetId": "source.reflect"
+    },
+    {
+      "moveId": "refresh",
+      "phase": "attack",
+      "assetId": "source.refresh"
+    },
+    {
+      "moveId": "rest",
+      "phase": "attack",
+      "assetId": "source.rest"
+    },
+    {
+      "moveId": "return",
+      "phase": "attack",
+      "assetId": "source.return"
+    },
+    {
+      "moveId": "revenge",
+      "phase": "attack",
+      "assetId": "source.revenge"
+    },
+    {
+      "moveId": "reversal",
+      "phase": "attack",
+      "assetId": "source.reversal"
+    },
+    {
+      "moveId": "roar",
+      "phase": "attack",
+      "assetId": "source.roar"
+    },
+    {
+      "moveId": "rockblast",
+      "phase": "attack",
+      "assetId": "source.rock-blast-1hit"
+    },
+    {
+      "moveId": "rockslide",
+      "phase": "attack",
+      "assetId": "source.rock-slide"
+    },
+    {
+      "moveId": "rocksmash",
+      "phase": "attack",
+      "assetId": "source.rock-smash"
+    },
+    {
+      "moveId": "rockthrow",
+      "phase": "attack",
+      "assetId": "source.rock-throw"
+    },
+    {
+      "moveId": "rocktomb",
+      "phase": "attack",
+      "assetId": "source.rock-tomb"
+    },
+    {
+      "moveId": "roleplay",
+      "phase": "attack",
+      "assetId": "source.role-play"
+    },
+    {
+      "moveId": "rollingkick",
+      "phase": "attack",
+      "assetId": "source.rolling-kick"
+    },
+    {
+      "moveId": "rollout",
+      "phase": "attack",
+      "assetId": "source.rollout"
+    },
+    {
+      "moveId": "sacredfire",
+      "phase": "attack",
+      "assetId": "source.sacred-fire"
+    },
+    {
+      "moveId": "safeguard",
+      "phase": "attack",
+      "assetId": "source.safeguard"
+    },
+    {
+      "moveId": "sandattack",
+      "phase": "attack",
+      "assetId": "source.sand-attack"
+    },
+    {
+      "moveId": "sandstorm",
+      "phase": "attack",
+      "assetId": "source.sandstorm"
+    },
+    {
+      "moveId": "sandtomb",
+      "phase": "attack",
+      "assetId": "source.sand-tomb"
+    },
+    {
+      "moveId": "scaryface",
+      "phase": "attack",
+      "assetId": "source.scary-face"
+    },
+    {
+      "moveId": "scratch",
+      "phase": "attack",
+      "assetId": "source.scratch"
+    },
+    {
+      "moveId": "screech",
+      "phase": "attack",
+      "assetId": "source.screech"
+    },
+    {
+      "moveId": "secretpower",
+      "phase": "attack",
+      "assetId": "source.secret-power"
+    },
+    {
+      "moveId": "seismictoss",
+      "phase": "attack",
+      "assetId": "source.seismic-toss"
+    },
+    {
+      "moveId": "selfdestruct",
+      "phase": "attack",
+      "assetId": "source.self-destruct"
+    },
+    {
+      "moveId": "shadowball",
+      "phase": "attack",
+      "assetId": "source.shadow-ball"
+    },
+    {
+      "moveId": "shadowpunch",
+      "phase": "attack",
+      "assetId": "source.shadow-punch"
+    },
+    {
+      "moveId": "sharpen",
+      "phase": "attack",
+      "assetId": "source.sharpen"
+    },
+    {
+      "moveId": "sheercold",
+      "phase": "attack",
+      "assetId": "source.sheer-cold"
+    },
+    {
+      "moveId": "signalbeam",
+      "phase": "attack",
+      "assetId": "source.signal-beam"
+    },
+    {
+      "moveId": "silverwind",
+      "phase": "attack",
+      "assetId": "source.silver-wind"
+    },
+    {
+      "moveId": "sing",
+      "phase": "attack",
+      "assetId": "source.sing"
+    },
+    {
+      "moveId": "sketch",
+      "phase": "attack",
+      "assetId": "source.sketch"
+    },
+    {
+      "moveId": "skillswap",
+      "phase": "attack",
+      "assetId": "source.skill-swap"
+    },
+    {
+      "moveId": "skullbash",
+      "phase": "attack",
+      "assetId": "source.skull-bash"
+    },
+    {
+      "moveId": "skyattack",
+      "phase": "attack",
+      "assetId": "source.sky-attack"
+    },
+    {
+      "moveId": "skyuppercut",
+      "phase": "attack",
+      "assetId": "source.sky-uppercut"
+    },
+    {
+      "moveId": "slackoff",
+      "phase": "attack",
+      "assetId": "source.slack-off"
+    },
+    {
+      "moveId": "slam",
+      "phase": "attack",
+      "assetId": "source.slam"
+    },
+    {
+      "moveId": "slash",
+      "phase": "attack",
+      "assetId": "source.slash"
+    },
+    {
+      "moveId": "sleeppowder",
+      "phase": "attack",
+      "assetId": "source.sleep-powder"
+    },
+    {
+      "moveId": "sleeptalk",
+      "phase": "attack",
+      "assetId": "source.sleep-talk"
+    },
+    {
+      "moveId": "sludgebomb",
+      "phase": "attack",
+      "assetId": "source.sludge-bomb"
+    },
+    {
+      "moveId": "smellingsalts",
+      "phase": "attack",
+      "assetId": "source.smelling-salts"
+    },
+    {
+      "moveId": "smog",
+      "phase": "attack",
+      "assetId": "source.smog"
+    },
+    {
+      "moveId": "smokescreen",
+      "phase": "attack",
+      "assetId": "source.smokescreen"
+    },
+    {
+      "moveId": "snore",
+      "phase": "attack",
+      "assetId": "source.snore"
+    },
+    {
+      "moveId": "softboiled",
+      "phase": "attack",
+      "assetId": "source.soft-boiled"
+    },
+    {
+      "moveId": "solarbeam",
+      "phase": "attack",
+      "assetId": "source.solar-beam"
+    },
+    {
+      "moveId": "sonicboom",
+      "phase": "attack",
+      "assetId": "source.sonic-boom"
+    },
+    {
+      "moveId": "spark",
+      "phase": "attack",
+      "assetId": "source.spark"
+    },
+    {
+      "moveId": "spiderweb",
+      "phase": "attack",
+      "assetId": "source.spider-web"
+    },
+    {
+      "moveId": "spikecannon",
+      "phase": "attack",
+      "assetId": "source.spike-cannon-1hit"
+    },
+    {
+      "moveId": "spikes",
+      "phase": "attack",
+      "assetId": "source.spikes"
+    },
+    {
+      "moveId": "spite",
+      "phase": "attack",
+      "assetId": "source.spite"
+    },
+    {
+      "moveId": "spitup",
+      "phase": "attack",
+      "assetId": "source.spit-up"
+    },
+    {
+      "moveId": "splash",
+      "phase": "attack",
+      "assetId": "source.splash"
+    },
+    {
+      "moveId": "steelwing",
+      "phase": "attack",
+      "assetId": "source.steel-wing"
+    },
+    {
+      "moveId": "stomp",
+      "phase": "attack",
+      "assetId": "source.stomp"
+    },
+    {
+      "moveId": "strength",
+      "phase": "attack",
+      "assetId": "source.strength"
+    },
+    {
+      "moveId": "stringshot",
+      "phase": "attack",
+      "assetId": "source.string-shot"
+    },
+    {
+      "moveId": "struggle",
+      "phase": "attack",
+      "assetId": "source.struggle"
+    },
+    {
+      "moveId": "stunspore",
+      "phase": "attack",
+      "assetId": "source.stun-spore"
+    },
+    {
+      "moveId": "submission",
+      "phase": "attack",
+      "assetId": "source.submission"
+    },
+    {
+      "moveId": "substitute",
+      "phase": "attack",
+      "assetId": "source.substitute"
+    },
+    {
+      "moveId": "sunnyday",
+      "phase": "attack",
+      "assetId": "source.sunny-day"
+    },
+    {
+      "moveId": "superfang",
+      "phase": "attack",
+      "assetId": "source.super-fang"
+    },
+    {
+      "moveId": "superpower",
+      "phase": "attack",
+      "assetId": "source.superpower"
+    },
+    {
+      "moveId": "supersonic",
+      "phase": "attack",
+      "assetId": "source.supersonic"
+    },
+    {
+      "moveId": "surf",
+      "phase": "attack",
+      "assetId": "source.surf"
+    },
+    {
+      "moveId": "swagger",
+      "phase": "attack",
+      "assetId": "source.swagger"
+    },
+    {
+      "moveId": "sweetkiss",
+      "phase": "attack",
+      "assetId": "source.sweet-kiss"
+    },
+    {
+      "moveId": "sweetscent",
+      "phase": "attack",
+      "assetId": "source.sweet-scent"
+    },
+    {
+      "moveId": "swift",
+      "phase": "attack",
+      "assetId": "source.swift"
+    },
+    {
+      "moveId": "swordsdance",
+      "phase": "attack",
+      "assetId": "source.swords-dance"
+    },
+    {
+      "moveId": "synthesis",
+      "phase": "attack",
+      "assetId": "source.synthesis"
+    },
+    {
+      "moveId": "tailglow",
+      "phase": "attack",
+      "assetId": "source.tail-glow"
+    },
+    {
+      "moveId": "tailwhip",
+      "phase": "attack",
+      "assetId": "source.tail-whip"
+    },
+    {
+      "moveId": "takedown",
+      "phase": "attack",
+      "assetId": "source.take-down"
+    },
+    {
+      "moveId": "taunt",
+      "phase": "attack",
+      "assetId": "source.taunt"
+    },
+    {
+      "moveId": "teeterdance",
+      "phase": "attack",
+      "assetId": "source.teeter-dance"
+    },
+    {
+      "moveId": "teleport",
+      "phase": "attack",
+      "assetId": "source.teleport"
+    },
+    {
+      "moveId": "thrash",
+      "phase": "attack",
+      "assetId": "source.thrash"
+    },
+    {
+      "moveId": "thunder",
+      "phase": "attack",
+      "assetId": "source.thunder"
+    },
+    {
+      "moveId": "thunderbolt",
+      "phase": "attack",
+      "assetId": "source.thunderbolt"
+    },
+    {
+      "moveId": "thunderpunch",
+      "phase": "attack",
+      "assetId": "source.thunder-punch"
+    },
+    {
+      "moveId": "thundershock",
+      "phase": "attack",
+      "assetId": "source.thunder-shock"
+    },
+    {
+      "moveId": "thunderwave",
+      "phase": "attack",
+      "assetId": "source.thunder-wave"
+    },
+    {
+      "moveId": "tickle",
+      "phase": "attack",
+      "assetId": "source.tickle"
+    },
+    {
+      "moveId": "torment",
+      "phase": "attack",
+      "assetId": "source.torment"
+    },
+    {
+      "moveId": "toxic",
+      "phase": "attack",
+      "assetId": "source.toxic"
+    },
+    {
+      "moveId": "transform",
+      "phase": "attack",
+      "assetId": "source.transform"
+    },
+    {
+      "moveId": "triattack",
+      "phase": "attack",
+      "assetId": "source.tri-attack"
+    },
+    {
+      "moveId": "trick",
+      "phase": "attack",
+      "assetId": "source.trick"
+    },
+    {
+      "moveId": "triplekick",
+      "phase": "attack",
+      "assetId": "source.triple-kick-1hit"
+    },
+    {
+      "moveId": "twineedle",
+      "phase": "attack",
+      "assetId": "source.twineedle-1hit"
+    },
+    {
+      "moveId": "twister",
+      "phase": "attack",
+      "assetId": "source.twister"
+    },
+    {
+      "moveId": "uproar",
+      "phase": "attack",
+      "assetId": "source.uproar"
+    },
+    {
+      "moveId": "vinewhip",
+      "phase": "attack",
+      "assetId": "source.vine-whip"
+    },
+    {
+      "moveId": "visegrip",
+      "phase": "attack",
+      "assetId": "source.vice-grip"
+    },
+    {
+      "moveId": "vitalthrow",
+      "phase": "attack",
+      "assetId": "source.vital-throw"
+    },
+    {
+      "moveId": "volttackle",
+      "phase": "attack",
+      "assetId": "source.volt-tackle"
+    },
+    {
+      "moveId": "waterfall",
+      "phase": "attack",
+      "assetId": "source.waterfall"
+    },
+    {
+      "moveId": "watergun",
+      "phase": "attack",
+      "assetId": "source.water-gun"
+    },
+    {
+      "moveId": "waterpulse",
+      "phase": "attack",
+      "assetId": "source.water-pulse"
+    },
+    {
+      "moveId": "watersport",
+      "phase": "attack",
+      "assetId": "source.water-sport"
+    },
+    {
+      "moveId": "weatherball",
+      "phase": "attack",
+      "assetId": "source.weather-ball"
+    },
+    {
+      "moveId": "whirlpool",
+      "phase": "attack",
+      "assetId": "source.whirlpool"
+    },
+    {
+      "moveId": "whirlwind",
+      "phase": "attack",
+      "assetId": "source.whirlwind"
+    },
+    {
+      "moveId": "wingattack",
+      "phase": "attack",
+      "assetId": "source.wing-attack"
+    },
+    {
+      "moveId": "wish",
+      "phase": "attack",
+      "assetId": "source.wish"
+    },
+    {
+      "moveId": "withdraw",
+      "phase": "attack",
+      "assetId": "source.withdraw"
+    },
+    {
+      "moveId": "wrap",
+      "phase": "attack",
+      "assetId": "source.wrap"
+    },
+    {
+      "moveId": "yawn",
+      "phase": "attack",
+      "assetId": "source.yawn"
+    },
+    {
+      "moveId": "zapcannon",
+      "phase": "attack",
+      "assetId": "source.zap-cannon"
+    }
+  ]
+}

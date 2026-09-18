@@ -1,0 +1,1796 @@
+{
+  "schemaVersion": 1,
+  "id": "sync-005",
+  "title": "The odd ones out",
+  "status": "unreviewed-comparison",
+  "revision": "52a990c1bc3c460c345d25f3f27b885f5d424a48973db9e1b8e87cace64c2228",
+  "moves": [
+    {
+      "id": "fireblast",
+      "fxId": "fire-blast",
+      "name": "Fire Blast",
+      "asset": {
+        "id": "source.fire-blast",
+        "url": "/sound_effects/Fire%20Blast.mp3",
+        "bytes": 132829,
+        "sha256": "1304c343f8dd67c9215682d798a0fb5f4aec4f1701bbae9cad3744bfd3386f0c",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 143468,
+          "durationSeconds": 3.25324263,
+          "decodedBytes": 1147744,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "d9335cbb87af145ca4f1f625890e9eda5fda1fbdb70c9b290a73497a06e26ea2",
+          "peak": 0.38591194,
+          "peakDbfs": -8.27023565,
+          "rmsDbfs": -21.74029406,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4385,
+          "trailingQuietFrames": 11481,
+          "stereoCorrelation": 0.99999969,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 3.15,
+        "visualRevision": "222f17014e8916121ac72f341e28f3ea009502d3eced88e0433c0b378f67f824",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 2.0225
+          },
+          {
+            "id": "windup",
+            "label": "Delayed fire windup",
+            "timeSeconds": 0.9725
+          },
+          {
+            "id": "charge",
+            "label": "Fire orb charge",
+            "timeSeconds": 1.1525
+          },
+          {
+            "id": "launch",
+            "label": "Fire orb launch",
+            "timeSeconds": 1.5425
+          },
+          {
+            "id": "blast-fade",
+            "label": "Five-ray fire fade",
+            "timeSeconds": 2.4425
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.18,
+            "cueSeconds": 2.0225,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The orb now charges and travels later, arriving with the strongest fire impact at 2.697 s. The five-armed flash and the result cue meet that same frame.",
+        "The full recording keeps its original start and pitch; the expanded fire burst and embers carry its ending through recovery."
+      ],
+      "previousReview": {
+        "verdict": "adjust-both",
+        "notes": "Currently the main impact sound and the main animation frames are not matching, we can futher delay the orb charging and reaching the opponent frames to match the main impact animation frames",
+        "plan": {
+          "visualRate": 0.75,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.91,
+              "cueSeconds": 1.07,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": true,
+        "revision": "a96b8f2d6af26f4ae466d509e214ac831101e81bfeac65b961ea4b18165267c8"
+      },
+      "visualAccent": {
+        "id": "batch-five-fireblast-v1",
+        "revision": "222f17014e8916121ac72f341e28f3ea009502d3eced88e0433c0b378f67f824"
+      },
+      "originalVisual": {
+        "durationSeconds": 2.5,
+        "visualRevision": "a6f26d31b66d2ad139fcd40e57e6c62fd5a5aa748897115c8ced2a88278af6ea",
+        "markers": [
+          {
+            "id": "charge",
+            "label": "Cosmetic fire orb starts charging",
+            "timeSeconds": 0.18
+          },
+          {
+            "id": "launch",
+            "label": "Cosmetic fire orb launches",
+            "timeSeconds": 0.57
+          },
+          {
+            "id": "blast",
+            "label": "Cosmetic five-ray fire burst begins appearing",
+            "timeSeconds": 1.05
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.07
+          },
+          {
+            "id": "blast-fade",
+            "label": "Cosmetic five-ray fire burst starts fading",
+            "timeSeconds": 1.55
+          },
+          {
+            "id": "return",
+            "label": "Cosmetic return to the resting position begins",
+            "timeSeconds": 1.75
+          }
+        ]
+      }
+    },
+    {
+      "id": "solarbeam",
+      "fxId": "solar-beam",
+      "name": "Solar Beam",
+      "asset": {
+        "id": "source.solar-beam",
+        "url": "/sound_effects/Solar%20Beam.mp3",
+        "bytes": 199702,
+        "sha256": "d9967097e1070e85934bf2ef5c64d62d43ab12c4a4c59bf9f52fcd4a51fd08e0",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 217032,
+          "durationSeconds": 4.92136054,
+          "decodedBytes": 1736256,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "db8f92fe8e43da9cfa3aa10b62e237a32f472c2e702baa557bc000b4064c2488",
+          "peak": 0.30359384,
+          "peakDbfs": -10.35414077,
+          "rmsDbfs": -25.12042863,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 3994,
+          "trailingQuietFrames": 411,
+          "stereoCorrelation": 0.99999931,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 3.8,
+        "visualRevision": "3d3cd8e4ea38a2e0b0907633e8f3c822bd75204fb313ec938cdc4f965b49dda2",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.26
+          },
+          {
+            "id": "charge",
+            "label": "Solar orb charge",
+            "timeSeconds": 0.06
+          },
+          {
+            "id": "launch",
+            "label": "Solar beam launch",
+            "timeSeconds": 1.14
+          },
+          {
+            "id": "pulse-one",
+            "label": "Cosmetic solar impact pulse",
+            "timeSeconds": 2.0525
+          },
+          {
+            "id": "pulse-main",
+            "label": "Strong cosmetic solar impact pulse",
+            "timeSeconds": 2.6375
+          },
+          {
+            "id": "pulse-last",
+            "label": "Cosmetic solar impact pulse",
+            "timeSeconds": 2.7725
+          },
+          {
+            "id": "beam-fade",
+            "label": "Solar beam cutoff",
+            "timeSeconds": 3.4
+          },
+          {
+            "id": "return",
+            "label": "Return after beam cutoff",
+            "timeSeconds": 3.56
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.08,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The charged beam now stays connected to the opponent through the later sound section. Repeated bright receiving pulses and solar sparks land at 2.737, 3.517 and 3.697 s.",
+        "The user holds its firing pose until the beam fades; the glow and sparks settle with the recording instead of leaving sound after the beam."
+      ],
+      "previousReview": {
+        "verdict": "adjust-both",
+        "notes": "Extend the beam animation frames and show more impact on the opponent like sparks or glows to match the later sound impact frames",
+        "plan": {
+          "visualRate": 0.75,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.09,
+              "cueSeconds": 0.08,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": true,
+        "revision": "a96b8f2d6af26f4ae466d509e214ac831101e81bfeac65b961ea4b18165267c8"
+      },
+      "visualAccent": {
+        "id": "batch-five-solarbeam-v1",
+        "revision": "3d3cd8e4ea38a2e0b0907633e8f3c822bd75204fb313ec938cdc4f965b49dda2"
+      },
+      "originalVisual": {
+        "durationSeconds": 2.9,
+        "visualRevision": "97148982c1fe906f8c1fc714358019dd548873ba781746bea01489d5e35185ec",
+        "markers": [
+          {
+            "id": "charge",
+            "label": "Cosmetic solar orb begins appearing",
+            "timeSeconds": 0.06
+          },
+          {
+            "id": "motes",
+            "label": "Cosmetic first charging mote begins moving inward",
+            "timeSeconds": 0.08
+          },
+          {
+            "id": "launch",
+            "label": "Cosmetic solar beam begins extending",
+            "timeSeconds": 1.14
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.26
+          },
+          {
+            "id": "beam-fade",
+            "label": "Cosmetic solar beam fade begins",
+            "timeSeconds": 2.05
+          },
+          {
+            "id": "return",
+            "label": "Cosmetic return to the resting position begins",
+            "timeSeconds": 2.35
+          }
+        ]
+      }
+    },
+    {
+      "id": "razorleaf",
+      "fxId": "razor-leaf",
+      "name": "Razor Leaf",
+      "asset": {
+        "id": "source.razor-leaf",
+        "url": "/sound_effects/Razor%20Leaf.mp3",
+        "bytes": 95212,
+        "sha256": "8e99515ca5264bed0718dc51c367613e079305ffe78bc9925db822cc3e7d57c8",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 101516,
+          "durationSeconds": 2.30195011,
+          "decodedBytes": 812128,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "66616e7a1e78f38eb5f1208d4da4ba7fe92605bba8cb18bc3b92334314ed13d4",
+          "peak": 0.29125884,
+          "peakDbfs": -10.71441764,
+          "rmsDbfs": -29.73506235,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4123,
+          "trailingQuietFrames": 873,
+          "stereoCorrelation": 0.99999788,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.15,
+        "visualRevision": "61a9e8eb29b50e80141c2757aa901838154201443d2285f7c87129fb31882c38",
+        "markers": [
+          {
+            "id": "launch",
+            "label": "Cosmetic first spinning leaf launches",
+            "timeSeconds": 0.28
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.75
+          },
+          {
+            "id": "final-launch",
+            "label": "Cosmetic twelfth spinning leaf launches",
+            "timeSeconds": 0.775
+          },
+          {
+            "id": "return",
+            "label": "Cosmetic return to the resting position begins",
+            "timeSeconds": 1.22
+          },
+          {
+            "id": "final-contact",
+            "label": "Cosmetic final leaf arrives",
+            "timeSeconds": 1.295
+          },
+          {
+            "id": "impact-fade",
+            "label": "Cosmetic leaf impact glow starts fading",
+            "timeSeconds": 1.3
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.21,
+            "soundAnchorSeconds": 0.31,
+            "cueSeconds": 0.28,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The last part of the recording now fades out with the final leaf fragments, before the empty settling portion of the clip. The leaf volley and its pacing stay unchanged."
+      ],
+      "previousReview": {
+        "verdict": "adjust-sound",
+        "notes": "Cut the sound when the animation ends",
+        "plan": {
+          "visualRate": 0.9,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.31,
+              "cueSeconds": 0.28,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": true,
+        "revision": "a96b8f2d6af26f4ae466d509e214ac831101e81bfeac65b961ea4b18165267c8"
+      },
+      "originalVisual": {
+        "durationSeconds": 2.15,
+        "visualRevision": "61a9e8eb29b50e80141c2757aa901838154201443d2285f7c87129fb31882c38",
+        "markers": [
+          {
+            "id": "launch",
+            "label": "Cosmetic first spinning leaf launches",
+            "timeSeconds": 0.28
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.75
+          },
+          {
+            "id": "final-launch",
+            "label": "Cosmetic twelfth spinning leaf launches",
+            "timeSeconds": 0.775
+          },
+          {
+            "id": "return",
+            "label": "Cosmetic return to the resting position begins",
+            "timeSeconds": 1.22
+          },
+          {
+            "id": "final-contact",
+            "label": "Cosmetic final leaf arrives",
+            "timeSeconds": 1.295
+          },
+          {
+            "id": "impact-fade",
+            "label": "Cosmetic leaf impact glow starts fading",
+            "timeSeconds": 1.3
+          }
+        ]
+      }
+    },
+    {
+      "id": "sludgebomb",
+      "fxId": "sludge-bomb",
+      "name": "Sludge Bomb",
+      "asset": {
+        "id": "source.sludge-bomb",
+        "url": "/sound_effects/Sludge%20Bomb.mp3",
+        "bytes": 117155,
+        "sha256": "5ef0cc0ca6e350864668cb188b0576a6c79b40e0a954d6c6d30f061ea03aeb28",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 125853,
+          "durationSeconds": 2.85380952,
+          "decodedBytes": 1006824,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "fbfd48e68286345e16b491ddd42a6509777f4763dcf4f44148ca20a60e518230",
+          "peak": 0.39557651,
+          "peakDbfs": -8.05539018,
+          "rmsDbfs": -22.80676181,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4005,
+          "trailingQuietFrames": 7,
+          "stereoCorrelation": 0.99999414,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.25,
+        "visualRevision": "79c8c0f6931ae89654ecc45192b507c25832745c2397248f829ac348bfed7682",
+        "markers": [
+          {
+            "id": "glob",
+            "label": "Cosmetic sludge glob begins appearing",
+            "timeSeconds": 0.32
+          },
+          {
+            "id": "launch",
+            "label": "Cosmetic sludge glob begins its arcing flight",
+            "timeSeconds": 0.38
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.02
+          },
+          {
+            "id": "pool",
+            "label": "Cosmetic sludge pool starts spreading",
+            "timeSeconds": 1.08
+          },
+          {
+            "id": "pool-fade",
+            "label": "Cosmetic sludge pool fade begins",
+            "timeSeconds": 1.35
+          },
+          {
+            "id": "return",
+            "label": "Cosmetic return to the resting position begins",
+            "timeSeconds": 1.4
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.83,
+            "soundAnchorSeconds": 1.19,
+            "cueSeconds": 1.02,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The sound now ends exactly with the 3.00 s animation, with a short fade at the cut to avoid a click. The glob burst and timing stay unchanged."
+      ],
+      "previousReview": {
+        "verdict": "adjust-sound",
+        "notes": "Cut the sound when the animation ends",
+        "plan": {
+          "visualRate": 0.75,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 1.19,
+              "cueSeconds": 1.02,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": true,
+        "revision": "a96b8f2d6af26f4ae466d509e214ac831101e81bfeac65b961ea4b18165267c8"
+      },
+      "originalVisual": {
+        "durationSeconds": 2.25,
+        "visualRevision": "79c8c0f6931ae89654ecc45192b507c25832745c2397248f829ac348bfed7682",
+        "markers": [
+          {
+            "id": "glob",
+            "label": "Cosmetic sludge glob begins appearing",
+            "timeSeconds": 0.32
+          },
+          {
+            "id": "launch",
+            "label": "Cosmetic sludge glob begins its arcing flight",
+            "timeSeconds": 0.38
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.02
+          },
+          {
+            "id": "pool",
+            "label": "Cosmetic sludge pool starts spreading",
+            "timeSeconds": 1.08
+          },
+          {
+            "id": "pool-fade",
+            "label": "Cosmetic sludge pool fade begins",
+            "timeSeconds": 1.35
+          },
+          {
+            "id": "return",
+            "label": "Cosmetic return to the resting position begins",
+            "timeSeconds": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "overheat",
+      "fxId": "overheat",
+      "name": "Overheat",
+      "asset": {
+        "id": "source.overheat",
+        "url": "/sound_effects/Overheat.mp3",
+        "bytes": 118200,
+        "sha256": "39bcb3ca889dfaecccd75f2c5c10a7881815e0eabbc4d84b402d2e8f6354a76a",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 127449,
+          "durationSeconds": 2.89,
+          "decodedBytes": 1019592,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "826f6ce2c25e7cfcb77766f937a2d0fa32e76f3d9e1d44c6d2007d8811ec4c92",
+          "peak": 0.35377088,
+          "peakDbfs": -9.02555832,
+          "rmsDbfs": -21.28995268,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4090,
+          "trailingQuietFrames": 5140,
+          "stereoCorrelation": 0.99999578,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.5,
+        "visualRevision": "82f6508c091a2f023fdff01fbab00f4eed23b6941f41503925e90549f35b8333",
+        "markers": [
+          {
+            "id": "aura",
+            "label": "Cosmetic source aura begins appearing",
+            "timeSeconds": 0.05
+          },
+          {
+            "id": "launch",
+            "label": "Cosmetic first heat wave launches",
+            "timeSeconds": 0.58
+          },
+          {
+            "id": "final-launch",
+            "label": "Cosmetic third heat wave launches",
+            "timeSeconds": 0.76
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.98
+          },
+          {
+            "id": "smoke",
+            "label": "Cosmetic first cooling smoke puff appears",
+            "timeSeconds": 1.3
+          },
+          {
+            "id": "return",
+            "label": "Cosmetic return to the resting position begins",
+            "timeSeconds": 1.65
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.86,
+            "soundAnchorSeconds": 0.96,
+            "cueSeconds": 0.98,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The sound now ends exactly with the 3.125 s animation, with a short fade at the cut. The dynamic fire choreography stays unchanged."
+      ],
+      "previousReview": {
+        "verdict": "adjust-sound",
+        "notes": "Cut the sound when the animation ends",
+        "plan": {
+          "visualRate": 0.8,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.96,
+              "cueSeconds": 0.98,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": true,
+        "revision": "a96b8f2d6af26f4ae466d509e214ac831101e81bfeac65b961ea4b18165267c8"
+      },
+      "originalVisual": {
+        "durationSeconds": 2.5,
+        "visualRevision": "82f6508c091a2f023fdff01fbab00f4eed23b6941f41503925e90549f35b8333",
+        "markers": [
+          {
+            "id": "aura",
+            "label": "Cosmetic source aura begins appearing",
+            "timeSeconds": 0.05
+          },
+          {
+            "id": "launch",
+            "label": "Cosmetic first heat wave launches",
+            "timeSeconds": 0.58
+          },
+          {
+            "id": "final-launch",
+            "label": "Cosmetic third heat wave launches",
+            "timeSeconds": 0.76
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.98
+          },
+          {
+            "id": "smoke",
+            "label": "Cosmetic first cooling smoke puff appears",
+            "timeSeconds": 1.3
+          },
+          {
+            "id": "return",
+            "label": "Cosmetic return to the resting position begins",
+            "timeSeconds": 1.65
+          }
+        ]
+      }
+    },
+    {
+      "id": "eruption",
+      "fxId": "eruption",
+      "name": "Eruption",
+      "asset": {
+        "id": "source.eruption",
+        "url": "/sound_effects/Eruption.mp3",
+        "bytes": 273890,
+        "sha256": "8c94c4337eadfb6a62e82bfc3f4b6f1dda5a148e7a46fe200343ba352c99d2da",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 298998,
+          "durationSeconds": 6.78,
+          "decodedBytes": 2391984,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "a3156a976177be740b8a928591b0a73d435863b31b1fd55f5b2c302bcf231782",
+          "peak": 0.37688783,
+          "peakDbfs": -8.47575776,
+          "rmsDbfs": -22.66170322,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 3992,
+          "trailingQuietFrames": 4870,
+          "stereoCorrelation": 0.9999996,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 4.75,
+        "visualRevision": "e3a9b719ea108d74c26e810f7d94d4eddb100738c6b914957530cca3cf3a1dfa",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.94
+          },
+          {
+            "id": "lava-1",
+            "label": "Lava impact 1",
+            "timeSeconds": 0.94
+          },
+          {
+            "id": "lava-2",
+            "label": "Lava impact 2",
+            "timeSeconds": 1.24
+          },
+          {
+            "id": "lava-3",
+            "label": "Lava impact 3",
+            "timeSeconds": 1.78
+          },
+          {
+            "id": "lava-4",
+            "label": "Lava impact 4",
+            "timeSeconds": 1.95
+          },
+          {
+            "id": "lava-5",
+            "label": "Lava impact 5",
+            "timeSeconds": 2.35
+          },
+          {
+            "id": "lava-6",
+            "label": "Lava impact 6",
+            "timeSeconds": 2.92
+          },
+          {
+            "id": "lava-7",
+            "label": "Lava impact 7",
+            "timeSeconds": 3.23
+          },
+          {
+            "id": "lava-8",
+            "label": "Lava impact 8",
+            "timeSeconds": 3.49
+          },
+          {
+            "id": "lava-9",
+            "label": "Lava impact 9",
+            "timeSeconds": 4.06
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 2.86,
+            "endSeconds": 6.67,
+            "soundAnchorSeconds": 3.08,
+            "cueSeconds": 0.94,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The two early sound sections are removed. Playback now uses source 2.86–6.67 s, the later run of repeated eruption pulses.",
+        "Nine lava arcs keep their familiar shape, with arrivals spread across measured pulses in that later section. Their small flashes and embers follow each arrival; only the first impact reveals the battle result.",
+        "The sound starts at 0.72 s and finishes at 4.53 s; the final sparks settle by 4.75 s. The edited beginning and ending have a short fade, and the sound retains its natural pitch."
+      ],
+      "previousReview": {
+        "verdict": "adjust-both",
+        "notes": "Remove the earlier part of the sound and match the animations of spree with the later part of the sound with continuous intervals of sound impact frames , keep the animation similar to as it is just try to match the animation with the sound frames",
+        "plan": {
+          "visualRate": 0.9,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.23,
+              "cueSeconds": 0.46,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": true,
+        "revision": "a96b8f2d6af26f4ae466d509e214ac831101e81bfeac65b961ea4b18165267c8"
+      },
+      "visualAccent": {
+        "id": "batch-five-eruption-v1",
+        "revision": "e3a9b719ea108d74c26e810f7d94d4eddb100738c6b914957530cca3cf3a1dfa"
+      },
+      "originalVisual": {
+        "durationSeconds": 2.85,
+        "visualRevision": "c3f21d6503c6d24430986c9bbe388c7e0942aeec57e6c083e29360c6f5392be1",
+        "markers": [
+          {
+            "id": "vent",
+            "label": "Cosmetic source vent begins glowing",
+            "timeSeconds": 0.28
+          },
+          {
+            "id": "launch",
+            "label": "Cosmetic first lava projectile launches",
+            "timeSeconds": 0.46
+          },
+          {
+            "id": "final-launch",
+            "label": "Cosmetic ninth lava projectile launches",
+            "timeSeconds": 1.02
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.11
+          },
+          {
+            "id": "return",
+            "label": "Cosmetic return to the resting position begins",
+            "timeSeconds": 1.15
+          },
+          {
+            "id": "last-arrival",
+            "label": "Cosmetic ninth lava projectile arrives",
+            "timeSeconds": 1.75
+          },
+          {
+            "id": "glow-fade",
+            "label": "Cosmetic receiving glow begins fading",
+            "timeSeconds": 1.8
+          }
+        ]
+      }
+    },
+    {
+      "id": "earthquake",
+      "fxId": "earthquake",
+      "name": "Earthquake",
+      "asset": {
+        "id": "source.earthquake",
+        "url": "/sound_effects/Earthquake.mp3",
+        "bytes": 146412,
+        "sha256": "8ffa1f0e7e6023610f3bba4de61921e3a7b8da97dfee0f15e77512db99efde51",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 158040,
+          "durationSeconds": 3.58367347,
+          "decodedBytes": 1264320,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "5f3207aaf0cf6db4a0b4003d8c28fd2a1a9cdd54ee200c25feb1200b48dd0551",
+          "peak": 0.44573835,
+          "peakDbfs": -7.01840007,
+          "rmsDbfs": -17.8668602,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 3975,
+          "trailingQuietFrames": 0,
+          "stereoCorrelation": 0.99995343,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.1,
+        "visualRevision": "fe2a0f2c7cfa34bf10635c80b31bec0b540cab4f71590ada69c8ec3ff3b57a84",
+        "markers": [
+          {
+            "id": "stomp",
+            "label": "Cosmetic ground strike and first ripple",
+            "timeSeconds": 0.32
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.66
+          },
+          {
+            "id": "aftershock",
+            "label": "Cosmetic weaker aftershock begins",
+            "timeSeconds": 1.2
+          },
+          {
+            "id": "settle",
+            "label": "Cosmetic camera settles",
+            "timeSeconds": 1.58
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": -2.15
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.7,
+            "soundAnchorSeconds": 1.5,
+            "cueSeconds": 1.2,
+            "gainDb": -2.15
+          }
+        ]
+      },
+      "notes": [
+        "The rumble now fades out exactly when the 2.80 s animation ends. The stomp, cracks and aftershock stay as reviewed, with the existing -2.15 dB gain."
+      ],
+      "previousReview": {
+        "verdict": "adjust-sound",
+        "notes": "Cut the sound when the animation ends",
+        "plan": {
+          "visualRate": 0.75,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 1.5,
+              "cueSeconds": 1.2,
+              "gainDb": -2.15
+            }
+          ]
+        },
+        "changed": true,
+        "revision": "a96b8f2d6af26f4ae466d509e214ac831101e81bfeac65b961ea4b18165267c8"
+      },
+      "originalVisual": {
+        "durationSeconds": 2.1,
+        "visualRevision": "fe2a0f2c7cfa34bf10635c80b31bec0b540cab4f71590ada69c8ec3ff3b57a84",
+        "markers": [
+          {
+            "id": "stomp",
+            "label": "Cosmetic ground strike and first ripple",
+            "timeSeconds": 0.32
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.66
+          },
+          {
+            "id": "aftershock",
+            "label": "Cosmetic weaker aftershock begins",
+            "timeSeconds": 1.2
+          },
+          {
+            "id": "settle",
+            "label": "Cosmetic camera settles",
+            "timeSeconds": 1.58
+          }
+        ]
+      }
+    },
+    {
+      "id": "thunder",
+      "fxId": "thunder",
+      "name": "Thunder",
+      "asset": {
+        "id": "source.thunder",
+        "url": "/sound_effects/Thunder.mp3",
+        "bytes": 122380,
+        "sha256": "3141d72de39197af8f56f4140b0ce40cbea47f24cf17052d3369b87cd364f8a5",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 132300,
+          "durationSeconds": 3,
+          "decodedBytes": 1058400,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "321ad1cb877778f3cd609d9c91f056608eb21488287ee5ab3340f0a2673d86d6",
+          "peak": 0.38898349,
+          "peakDbfs": -8.20137667,
+          "rmsDbfs": -24.23870598,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4205,
+          "trailingQuietFrames": 5045,
+          "stereoCorrelation": 0.99999943,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.65,
+        "visualRevision": "b3c4ea976e5dffaf014f95a1750c5a07fdbf3e00f860d0939071164730ecf35a",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.84
+          },
+          {
+            "id": "second-burst",
+            "label": "Cosmetic second electrical explosion",
+            "timeSeconds": 1.4925
+          },
+          {
+            "id": "second-crest",
+            "label": "Cosmetic second electrical crest",
+            "timeSeconds": 1.5825
+          },
+          {
+            "id": "crackle-end",
+            "label": "Cosmetic sustained crackle starts fading",
+            "timeSeconds": 2.1975
+          },
+          {
+            "id": "second-fade",
+            "label": "Cosmetic second electrical fade ends",
+            "timeSeconds": 2.5
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.72,
+            "cueSeconds": 0.84,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "After the first bolt, a second electrical explosion blooms at 1.99 s and crests at 2.11 s with the second impact sound. White-yellow branches and sparks keep crackling through the later discharge.",
+        "The original sound is unchanged. This extra burst is cosmetic; the first bolt still produces the single battle-result cue."
+      ],
+      "previousReview": {
+        "verdict": "adjust-animation",
+        "notes": "Currently the animation ends on the first impact sound frame after the first impact create a explosion like effect with  electric sparks to match the second impact sound frame",
+        "plan": {
+          "visualRate": 0.75,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.72,
+              "cueSeconds": 0.84,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": true,
+        "revision": "a96b8f2d6af26f4ae466d509e214ac831101e81bfeac65b961ea4b18165267c8"
+      },
+      "visualAccent": {
+        "id": "batch-five-thunder-v1",
+        "revision": "b3c4ea976e5dffaf014f95a1750c5a07fdbf3e00f860d0939071164730ecf35a"
+      },
+      "originalVisual": {
+        "durationSeconds": 2.45,
+        "visualRevision": "3a8f7f5fe44b5bcb5dbd3e60fb8cf5006b20191fff7e38006fc58b408747caac",
+        "markers": [
+          {
+            "id": "charge",
+            "label": "Cosmetic sky charge begins",
+            "timeSeconds": 0.15
+          },
+          {
+            "id": "strike",
+            "label": "Cosmetic main lightning bolt starts descending",
+            "timeSeconds": 0.68
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.84
+          },
+          {
+            "id": "glow-fade",
+            "label": "Cosmetic impact glow begins fading",
+            "timeSeconds": 1.26
+          }
+        ]
+      }
+    },
+    {
+      "id": "blizzard",
+      "fxId": "blizzard",
+      "name": "Blizzard",
+      "asset": {
+        "id": "source.blizzard",
+        "url": "/sound_effects/Blizzard.mp3",
+        "bytes": 147457,
+        "sha256": "5a1d9ce97eac773f3250686a44dea44da964423b40cc7e94e94715264f7032d2",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 159642,
+          "durationSeconds": 3.62,
+          "decodedBytes": 1277136,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "3280af49fae32016ab252f05fb01ccee30fe2593d286f44dfdbc9e94963841b9",
+          "peak": 0.34480366,
+          "peakDbfs": -9.24856263,
+          "rmsDbfs": -26.03935569,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4200,
+          "trailingQuietFrames": 5090,
+          "stereoCorrelation": 0.99999752,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.85,
+        "visualRevision": "30abc7a4ff26a76453bb44b1cf6251d261b145e49a3add5fb0c9dc9d7d3df39f",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.82
+          },
+          {
+            "id": "late-crystal-1",
+            "label": "Cosmetic first large crystal impact",
+            "timeSeconds": 1.5165
+          },
+          {
+            "id": "late-crystal-2",
+            "label": "Cosmetic large crystal crest",
+            "timeSeconds": 1.929
+          },
+          {
+            "id": "late-crystal-3",
+            "label": "Cosmetic third large crystal impact",
+            "timeSeconds": 2.004
+          },
+          {
+            "id": "late-crystal-4",
+            "label": "Cosmetic fourth large crystal impact",
+            "timeSeconds": 2.079
+          },
+          {
+            "id": "late-crystal-5",
+            "label": "Cosmetic fifth large crystal impact",
+            "timeSeconds": 2.154
+          },
+          {
+            "id": "late-crystal-6",
+            "label": "Cosmetic sixth large crystal impact",
+            "timeSeconds": 2.229
+          },
+          {
+            "id": "late-crystal-7",
+            "label": "Cosmetic final large crystal impact",
+            "timeSeconds": 2.304
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.53,
+            "cueSeconds": 1.929,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The snowstorm lasts longer. Larger translucent crystals strike and shatter during the later sound section, with a main icy flash at 2.572 s followed by further crystal impacts through 3.072 s.",
+        "Snow keeps moving during the fade, with falling ice fragments and target glows settling by 3.80 s. The original sound and first result cue stay unchanged."
+      ],
+      "previousReview": {
+        "verdict": "adjust-animation",
+        "notes": "Extend the blizzard animation and towards the end of the animation make bigger crystals appear and show some impact on the opponent which matches the sound impact frames",
+        "plan": {
+          "visualRate": 0.75,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 2.53,
+              "cueSeconds": 1.929,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": true,
+        "revision": "a96b8f2d6af26f4ae466d509e214ac831101e81bfeac65b961ea4b18165267c8"
+      },
+      "visualAccent": {
+        "id": "batch-five-blizzard-v1",
+        "revision": "30abc7a4ff26a76453bb44b1cf6251d261b145e49a3add5fb0c9dc9d7d3df39f"
+      },
+      "originalVisual": {
+        "durationSeconds": 2.65,
+        "visualRevision": "44e6bf061185fbc6778736d4fbdf44f1518b22abad3738d0454ac89a1eb158dd",
+        "markers": [
+          {
+            "id": "wind",
+            "label": "Cosmetic first wind ribbon launches",
+            "timeSeconds": 0.3
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.82
+          },
+          {
+            "id": "final-snow-launch",
+            "label": "Cosmetic last snow particle launches",
+            "timeSeconds": 1.354
+          },
+          {
+            "id": "mist-fade",
+            "label": "Cosmetic mist fade begins",
+            "timeSeconds": 1.62
+          },
+          {
+            "id": "final-snow-fade",
+            "label": "Cosmetic last snow particle starts fading",
+            "timeSeconds": 1.929
+          }
+        ]
+      }
+    },
+    {
+      "id": "bubblebeam",
+      "fxId": "bubble-beam",
+      "name": "Bubble Beam",
+      "asset": {
+        "id": "source.bubble-beam",
+        "url": "/sound_effects/Bubble%20Beam.mp3",
+        "bytes": 134919,
+        "sha256": "694203ef16850cf6243b49684f70cee3c0aef296ee81392d0bb3e20b43d213f6",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 145968,
+          "durationSeconds": 3.30993197,
+          "decodedBytes": 1167744,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "ba15e59b56ccc96420858c0f836c54593542171e81d741da0ff0295cf6720f29",
+          "peak": 0.26673013,
+          "peakDbfs": -11.47855848,
+          "rmsDbfs": -22.38388021,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4092,
+          "trailingQuietFrames": 0,
+          "stereoCorrelation": 0.99999963,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "durationSeconds": 2.3,
+        "visualRevision": "3a7b37d63529a96be3194ea472aa4dc9ab66fd51c4d810af260480bd30c74884",
+        "markers": [
+          {
+            "id": "launch",
+            "label": "Cosmetic first bubble and stream launch",
+            "timeSeconds": 0.4
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.78
+          },
+          {
+            "id": "final-launch",
+            "label": "Cosmetic last bubble launches",
+            "timeSeconds": 1.205
+          },
+          {
+            "id": "final-pop",
+            "label": "Cosmetic last bubble pops",
+            "timeSeconds": 1.585
+          },
+          {
+            "id": "return",
+            "label": "Cosmetic source returns to rest",
+            "timeSeconds": 1.75
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 3.063333333333333,
+            "soundAnchorSeconds": 0.53,
+            "cueSeconds": 0.4,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The sound now ends exactly with the 3.067 s animation, using a short fade at the cut. The bubbles, their pops and the firing motion stay unchanged."
+      ],
+      "previousReview": {
+        "verdict": "adjust-sound",
+        "notes": "Cut the sound when the animation ends",
+        "plan": {
+          "visualRate": 0.75,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.53,
+              "cueSeconds": 0.4,
+              "gainDb": 0
+            }
+          ]
+        },
+        "changed": true,
+        "revision": "a96b8f2d6af26f4ae466d509e214ac831101e81bfeac65b961ea4b18165267c8"
+      },
+      "originalVisual": {
+        "durationSeconds": 2.3,
+        "visualRevision": "3a7b37d63529a96be3194ea472aa4dc9ab66fd51c4d810af260480bd30c74884",
+        "markers": [
+          {
+            "id": "launch",
+            "label": "Cosmetic first bubble and stream launch",
+            "timeSeconds": 0.4
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.78
+          },
+          {
+            "id": "final-launch",
+            "label": "Cosmetic last bubble launches",
+            "timeSeconds": 1.205
+          },
+          {
+            "id": "final-pop",
+            "label": "Cosmetic last bubble pops",
+            "timeSeconds": 1.585
+          },
+          {
+            "id": "return",
+            "label": "Cosmetic source returns to rest",
+            "timeSeconds": 1.75
+          }
+        ]
+      }
+    }
+  ],
+  "feedbackRecords": [
+    {
+      "moveId": "fireblast",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.18,
+            "cueSeconds": 2.0225,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "unreviewed",
+      "notes": "Currently the main impact sound and the main animation frames are not matching, we can futher delay the orb charging and reaching the opponent frames to match the main impact animation frames",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 156155,
+        "durationSeconds": 3.253229166666667,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-fireblast-v1",
+        "revision": "222f17014e8916121ac72f341e28f3ea009502d3eced88e0433c0b378f67f824"
+      }
+    },
+    {
+      "moveId": "solarbeam",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.08,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "unreviewed",
+      "notes": "Extend the beam animation frames and show more impact on the opponent like sparks or glows to match the later sound impact frames",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 236225,
+        "durationSeconds": 4.921354166666666,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-solarbeam-v1",
+        "revision": "3d3cd8e4ea38a2e0b0907633e8f3c822bd75204fb313ec938cdc4f965b49dda2"
+      }
+    },
+    {
+      "moveId": "razorleaf",
+      "plan": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.21,
+            "soundAnchorSeconds": 0.31,
+            "cueSeconds": 0.28,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "unreviewed",
+      "notes": "Cut the sound when the animation ends",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 110493,
+        "durationSeconds": 2.3019375,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "sludgebomb",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.83,
+            "soundAnchorSeconds": 1.19,
+            "cueSeconds": 1.02,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "unreviewed",
+      "notes": "Cut the sound when the animation ends",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 136982,
+        "durationSeconds": 2.8537916666666665,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "overheat",
+      "plan": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.86,
+            "soundAnchorSeconds": 0.96,
+            "cueSeconds": 0.98,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "unreviewed",
+      "notes": "Cut the sound when the animation ends",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 138720,
+        "durationSeconds": 2.89,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "eruption",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 2.86,
+            "endSeconds": 6.67,
+            "soundAnchorSeconds": 3.08,
+            "cueSeconds": 0.94,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "unreviewed",
+      "notes": "Remove the earlier part of the sound and match the animations of spree with the later part of the sound with continuous intervals of sound impact frames , keep the animation similar to as it is just try to match the animation with the sound frames",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 325440,
+        "durationSeconds": 6.78,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-eruption-v1",
+        "revision": "e3a9b719ea108d74c26e810f7d94d4eddb100738c6b914957530cca3cf3a1dfa"
+      }
+    },
+    {
+      "moveId": "earthquake",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.7,
+            "soundAnchorSeconds": 1.5,
+            "cueSeconds": 1.2,
+            "gainDb": -2.15
+          }
+        ]
+      },
+      "verdict": "unreviewed",
+      "notes": "Cut the sound when the animation ends",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 172016,
+        "durationSeconds": 3.583666666666667,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "thunder",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.72,
+            "cueSeconds": 0.84,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "unreviewed",
+      "notes": "Currently the animation ends on the first impact sound frame after the first impact create a explosion like effect with  electric sparks to match the second impact sound frame",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 144000,
+        "durationSeconds": 3,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-thunder-v1",
+        "revision": "b3c4ea976e5dffaf014f95a1750c5a07fdbf3e00f860d0939071164730ecf35a"
+      }
+    },
+    {
+      "moveId": "blizzard",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.53,
+            "cueSeconds": 1.929,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "unreviewed",
+      "notes": "Extend the blizzard animation and towards the end of the animation make bigger crystals appear and show some impact on the opponent which matches the sound impact frames",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 173760,
+        "durationSeconds": 3.62,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-five-blizzard-v1",
+        "revision": "30abc7a4ff26a76453bb44b1cf6251d261b145e49a3add5fb0c9dc9d7d3df39f"
+      }
+    },
+    {
+      "moveId": "bubblebeam",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 3.063333333333333,
+            "soundAnchorSeconds": 0.53,
+            "cueSeconds": 0.4,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "unreviewed",
+      "notes": "Cut the sound when the animation ends",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 158876,
+        "durationSeconds": 3.3099166666666666,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    }
+  ],
+  "defaultMoveId": "fireblast",
+  "reviewPlayback": "batch-five-feedback-v1",
+  "batches": [
+    {
+      "id": "sync-001",
+      "label": "Batch 1 · Accepted",
+      "status": "accepted"
+    },
+    {
+      "id": "sync-002",
+      "label": "Batch 2 · Accepted",
+      "status": "accepted"
+    },
+    {
+      "id": "sync-003",
+      "label": "Batch 3 · Accepted",
+      "status": "accepted"
+    },
+    {
+      "id": "sync-004",
+      "label": "Batch 4 · Review",
+      "status": "unreviewed-comparison"
+    },
+    {
+      "id": "sync-005",
+      "label": "Batch 5 · Odd ones out",
+      "status": "unreviewed-comparison"
+    }
+  ]
+}

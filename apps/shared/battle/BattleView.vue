@@ -4,6 +4,7 @@ import HealthCard from './HealthCard.vue'
 import BattleDetails from './BattleDetails.vue'
 import BattleOverlay from './BattleOverlay.vue'
 import ImpactFeedback from './ImpactFeedback.vue'
+import AudioControls from './AudioControls.vue'
 import { activeMembers, createSimulationScene, spriteUrl } from './scene.js'
 import { createSimulationPresenter } from './presentation.js'
 import { createBattleSequence } from './sequence.js'
@@ -38,7 +39,8 @@ const movePresenter = createSimulationPresenter({
   onMessage: publishMessage,
   onEntry: (view, actorId) => { if (!props.inactive) audioScope?.entry(view, actorId) },
   onEntryCancel: () => audioScope?.cancel(),
-  loadFx: async () => (await import('@battle/battle-fx')).createBattleFx(),
+  onMove: request => !props.inactive ? audioScope?.move(request) : null,
+  loadFx: async () => (await import('./reviewedFx.js')).createReviewedBattleFx(),
 })
 const presenter = createBattleSequence({ presenter: movePresenter, onOverlay: value => { battleOverlay.value = value } })
 const members = computed(() => activeMembers(displayed.value))
@@ -146,11 +148,5 @@ onBeforeUnmount(() => {
   <div class="sim-battle-details"><BattleDetails :member="members[0]"/><BattleDetails :member="members[1]" opponent/></div>
   <p v-if="sceneAvailable === false" class="sim-render-note">Effects are unavailable on this device. Battle controls still work.</p>
   <div class="sim-playback"><label><input v-model="effectsEnabled" type="checkbox">Battle animations</label><label><input v-model="reducedMotion" type="checkbox">Reduced motion</label><button v-if="playing" class="sim-skip-animation" @click="skip">Skip animations</button><span>Visuals never change a battle result.</span></div>
-  <div class="sim-playback sim-audio-controls">
-    <label><input type="checkbox" :checked="audioState.enabled" @change="audio.setEnabled($event.target.checked)">Pokémon cries</label>
-    <label>Volume <input type="range" min="0" max="100" step="5" :value="Math.round(audioState.volume * 100)" :disabled="!audioState.enabled" @input="audio.setVolume(Number($event.target.value) / 100)"><output>{{ Math.round(audioState.volume * 100) }}%</output></label>
-    <button v-if="audioState.enabled && audioState.status === 'locked'" class="sim-skip-animation" @click="audio.unlock()">Enable sound</button>
-    <span v-if="audioState.enabled && audioState.status === 'unavailable'" role="status">Sound is unavailable on this device. Battle controls still work.</span>
-    <span v-else-if="audioState.enabled && audioState.loadError" role="status">Some cries could not load or decode. Battle controls still work.</span>
-  </div>
+  <AudioControls :audio="audio" :state="audioState"/>
 </template>

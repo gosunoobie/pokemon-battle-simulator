@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-sync-accent",
+  "batchId": "sync-002",
+  "moveId": "psychic",
+  "assetId": "source.hit-normal-damage",
+  "sourceSha256": "57c483e134fb4c47550b401019672f902e265d51e98dd8f1c32f2f73b3bafea2",
+  "sourcePcmSha256": "93d2d7d43330e88b6888db9a21d9c599bf6dd7477f1fe55ed3a144e18606f1ff",
+  "visualRevision": "254db5fab94b359553cb80fec739e55b7ecce96a49a8680bf2b39365690e6fdc",
+  "segment": {
+    "startSeconds": 0,
+    "endSeconds": null,
+    "soundAnchorSeconds": 0.1,
+    "cueSeconds": 0.95,
+    "gainDb": -6
+  },
+  "anchorEvidence": { "kind": "positive-energy-rise", "startFrame": 4410 },
+  "visualEvidence": {
+    "markerId": "impact",
+    "recipe": "addHit(tl, move, 0.95, { recoil: 0, shake: 1, duration: 0.7 })"
+  },
+  "notes": [
+    "Your reviewed Psychic animation and original sound timing are unchanged. A separate Hit Normal Damage recording adds an impact accent at the existing 0.95 s burst.",
+    "The whole impact recording starts at 0.85 s: its measured 0.10 s energy rise aligns with the burst. The accent is attenuated by 6 dB; no sound is stretched, trimmed or re-encoded.",
+    "This additional layer is a new listening proposal. Previous proposal plays the version you reviewed without the impact accent."
+  ]
+}

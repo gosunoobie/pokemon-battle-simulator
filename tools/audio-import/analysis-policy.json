@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-technical-draft-policy",
+  "windowMilliseconds": 10,
+  "envelopeBinLimit": 64,
+  "transientLimit": 5,
+  "transientSpacingMilliseconds": 50,
+  "quietThresholdDbfs": -60,
+  "quietTrimPrePaddingMilliseconds": 20,
+  "quietTrimPostPaddingMilliseconds": 50,
+  "samplePeakCeilingDbfs": -3,
+  "gainStepDb": 0.01,
+  "rmsLowOutlierDbfs": -35,
+  "rmsHighOutlierDbfs": -12,
+  "defaultRegion": "whole-original-at-visual-zero",
+  "defaultGain": "attenuate-only-to-approved-pilot-peak-and-whole-rms-ceilings",
+  "gainReference": "validated-runtime-selection-whole-recordings",
+  "accentAlternative": "strongest-10ms-energy-window-start-to-declared-result-cue-if-whole-recording-start-is-nonnegative",
+  "playbackRate": 1,
+  "promotion": "never"
+}

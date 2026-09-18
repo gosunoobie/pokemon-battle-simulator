@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-sync-feedback",
+  "batchId": "sync-001",
+  "revision": "47f87e8df32ab9b3e9411ff9fec5fd9e11b6082e4646afd75e5a34ecc9c3e4dd",
+  "records": [
+    {
+      "moveId": "bodyslam",
+      "plan": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.88,
+            "cueSeconds": 0.82,
+            "gainDb": -0.8
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Sounds perfect",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 73440,
+        "durationSeconds": 1.53,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "aerialace",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.35,
+            "cueSeconds": 0.62,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Sounds good",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 39072,
+        "durationSeconds": 0.814,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "hydropump",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.23,
+            "cueSeconds": 0.72,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Sounds perfect",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 103145,
+        "durationSeconds": 2.1488541666666667,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "thunderbolt",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.43,
+            "cueSeconds": 0.52,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-sound",
+      "notes": "The sound exceeds the animation frame , the sound effect is good till the animation so in my opinion the sound sound not exceed the animation frames",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 147360,
+        "durationSeconds": 3.07,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "triplekick",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 0.5,
+            "gainDb": 0
+          },
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 0.84,
+            "gainDb": 0
+          },
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 1.2,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Sounds perfect",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 26731,
+        "durationSeconds": 0.5568958333333334,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "absorb",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.1,
+            "cueSeconds": 0.4,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Sounds perfect",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 135869,
+        "durationSeconds": 2.830604166666667,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    }
+  ]
+}

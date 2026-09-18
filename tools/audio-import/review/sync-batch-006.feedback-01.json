@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-sync-feedback",
+  "batchId": "sync-006",
+  "revision": "1494b2d4f74885194ef3a95e13e0ea3e6cbd49e99d7b1c37ebcfcf6ba8a2e1af",
+  "records": [
+    {
+      "moveId": "leafblade",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.41,
+            "cueSeconds": 0.81,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "Everything looks good the animation, sound frames and all just change the curved green blade, where the curved green blade is only the top half , remove the bottom half of the curved green blade. And keep everything else the same",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 176641,
+        "durationSeconds": 3.6800208333333333,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-six-leafblade-v1",
+        "revision": "531eadff8d49fd6f57732297e3a576c9d779efd6199dbf87a10e066612bd4416"
+      }
+    },
+    {
+      "moveId": "triattack",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.96,
+            "cueSeconds": 1.96,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "Looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 226560,
+        "durationSeconds": 4.72,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-six-triattack-v1",
+        "revision": "f44616a3ec9f7836b2efae8abf4feec227f88b2511949faa4ed6990dedaf46b3"
+      }
+    },
+    {
+      "moveId": "meteormash",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.24,
+            "cueSeconds": 1.34,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "keep",
+      "notes": "looks good enough",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 90240,
+        "durationSeconds": 1.88,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-six-meteormash-v1",
+        "revision": "957981d9f9cc7889530b0e6f9beef95a89007a60905757cfcbe761c280f84ed1"
+      }
+    },
+    {
+      "moveId": "ancientpower",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.24,
+            "cueSeconds": 1.34,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "Use the final rendered rock slide's rock not the silhouette ones, show the actual renders and increase the sizes of the rocks by 100% and also make them appear infront and behind the user pokemon in a circle which gives a 3d kind of effect keep the number of rocks the same just increase the size and increase the radius of their orbit to surround the user pokemon and keep the spacings between them even. Keep the sound frames and impact timings the same",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 93600,
+        "durationSeconds": 1.95,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-six-ancientpower-v1",
+        "revision": "dd4fcefbbe1d83b03382dfef5ef0d1103be92999691398d7b642b1fb721321ef"
+      }
+    },
+    {
+      "moveId": "sacredfire",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.12,
+            "cueSeconds": 0.18,
+            "gainDb": -0.46
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "The initial purple ember flames that surrounds the user pokemon looks perfect when releasing the release should be the flames just like in dragon breath and on impact the final explosion should have the same flames as in the initial flames at the start but in crown formation and the sizes of the flames should be double in height and width and spacings should be well maintained where they form a crown like structure.",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 193078,
+        "durationSeconds": 4.022458333333334,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      },
+      "visualAccent": {
+        "id": "batch-six-sacredfire-v1",
+        "revision": "da339bbe6348d32984a45804b1594700a2baf18257007d317e9c86af0ffbee12"
+      }
+    }
+  ]
+}

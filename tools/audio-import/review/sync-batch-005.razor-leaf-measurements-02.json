@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "moveId": "razorleaf",
+  "sourceSha256": "8e99515ca5264bed0718dc51c367613e079305ffe78bc9925db822cc3e7d57c8",
+  "pcmSha256": "66616e7a1e78f38eb5f1208d4da4ba7fe92605bba8cb18bc3b92334314ed13d4",
+  "decoder": {
+    "name": "mpg123-decoder",
+    "version": "1.0.3",
+    "enableGapless": true,
+    "referenceConvention": "Native-rate mpg123 Float32 output with Xing/LAME gapless handling enabled; no resampling, normalization, trimming or fades are added by this tool. This is a reference measurement, not a guarantee of browser-decoder sample alignment."
+  },
+  "sampleRate": 44100,
+  "cutSeconds": 1.67,
+  "quietGap": {
+    "startSeconds": 1.66,
+    "endSeconds": 1.67,
+    "peak": 0.00014143231965135783
+  },
+  "finalImpactOnset": {
+    "threshold": 0.005,
+    "frame": 74361,
+    "timeSeconds": 1.6861904761904762
+  },
+  "note": "Cut before the last separated impact begins; the existing 12 ms edit fade stays inside the retained region."
+}

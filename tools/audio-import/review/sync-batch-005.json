@@ -1,0 +1,718 @@
+{
+  "schemaVersion": 1,
+  "id": "sync-005",
+  "title": "The odd ones out",
+  "status": "unreviewed-comparison",
+  "moves": [
+    {
+      "id": "fireblast",
+      "assetId": "source.fire-blast",
+      "sourceSha256": "1304c343f8dd67c9215682d798a0fb5f4aec4f1701bbae9cad3744bfd3386f0c",
+      "sourcePcmSha256": "d9335cbb87af145ca4f1f625890e9eda5fda1fbdb70c9b290a73497a06e26ea2",
+      "visualRevision": "a6f26d31b66d2ad139fcd40e57e6c62fd5a5aa748897115c8ced2a88278af6ea",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.91,
+            "cueSeconds": 1.07,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 40131
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "charge",
+          "label": "Cosmetic fire orb starts charging",
+          "timeSeconds": 0.18,
+          "evidence": ".to(orb, { alpha: 1, duration: 0.28 }, 0.18)"
+        },
+        {
+          "id": "launch",
+          "label": "Cosmetic fire orb launches",
+          "timeSeconds": 0.57,
+          "evidence": ".to(orb, { x: (focus.x - 2), y: (focus.y - 10), duration: 0.48, ease: 'power2.in' }, 0.57)"
+        },
+        {
+          "id": "blast",
+          "label": "Cosmetic five-ray fire burst begins appearing",
+          "timeSeconds": 1.05,
+          "evidence": ".to(blast, { alpha: 1, duration: 0.08 }, 1.05)"
+        },
+        {
+          "id": "blast-fade",
+          "label": "Cosmetic five-ray fire burst starts fading",
+          "timeSeconds": 1.55,
+          "evidence": ".to(blast, { alpha: 0, duration: 0.65 }, 1.55)"
+        },
+        {
+          "id": "return",
+          "label": "Cosmetic return to the resting position begins",
+          "timeSeconds": 1.75,
+          "evidence": ".to(attacker, { x: home.x, duration: 0.3 }, 1.75)"
+        }
+      ],
+      "notes": [
+        "Candidate runs the audition animation at 75% pace. The measured 0.91 s positive-energy rise meets the existing 1.07 s result cue at elapsed 1.4267 s, so the complete recording starts at about 0.5167 s. The fire orb launches at 0.76 s and the five-ray burst starts appearing at 1.40 s.",
+        "The longer visual pace gives the full fire recording more room through the flare and recovery while preserving every shape, particle law and relative cue. Its strongest-energy window at source 2.18 s occurs at elapsed 2.6967 s during the five-ray burst fade, which runs from about 2.0667 to 2.9333 s.",
+        "The whole 3.2532426304 s source finishes at about 3.7699 s, about 0.4366 s after the 3.3333 s visual. The measured final above-threshold sample occurs about 0.1762 s after the visual, followed by the retained quiet ending. This is an explicit tail-fit compromise for listening review; native pitch, full source boundaries and 0 dB gain are retained."
+      ]
+    },
+    {
+      "id": "solarbeam",
+      "assetId": "source.solar-beam",
+      "sourceSha256": "d9967097e1070e85934bf2ef5c64d62d43ab12c4a4c59bf9f52fcd4a51fd08e0",
+      "sourcePcmSha256": "db8f92fe8e43da9cfa3aa10b62e237a32f472c2e702baa557bc000b4064c2488",
+      "visualRevision": "97148982c1fe906f8c1fc714358019dd548873ba781746bea01489d5e35185ec",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.08,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 3969
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "charge",
+          "label": "Cosmetic solar orb begins appearing",
+          "timeSeconds": 0.06,
+          "evidence": ".to(orb, { alpha: 0.9, duration: 0.3 }, 0.06)"
+        },
+        {
+          "id": "motes",
+          "label": "Cosmetic first charging mote begins moving inward",
+          "timeSeconds": 0.08,
+          "evidence": "const at = 0.08 + i * 0.036"
+        },
+        {
+          "id": "launch",
+          "label": "Cosmetic solar beam begins extending",
+          "timeSeconds": 1.14,
+          "evidence": ".to(beam, { alpha: 0.85, duration: 0.04 }, 1.14)"
+        },
+        {
+          "id": "beam-fade",
+          "label": "Cosmetic solar beam fade begins",
+          "timeSeconds": 2.05,
+          "evidence": ".to(beam, { alpha: 0, duration: 0.3 }, 2.05)"
+        },
+        {
+          "id": "return",
+          "label": "Cosmetic return to the resting position begins",
+          "timeSeconds": 2.35,
+          "evidence": ".to(attacker, { x: home.x, duration: 0.3, onUpdate: followMouth }, 2.35)"
+        }
+      ],
+      "notes": [
+        "Candidate runs the unchanged animation at 75% pace to give the long recording as much room as this review allows. Its measured 0.09 s early energy rise meets the first inward charging mote at authored 0.08 s, or elapsed 0.1067 s; the whole sound begins at about 0.0167 s.",
+        "The beam launches at elapsed 1.52 s, contacts at 1.68 s and begins fading at about 2.7333 s. This comparison aligns an early charging landmark, not the later 3.50 s source energy maximum; that maximum remains late in the visual recovery.",
+        "The complete 4.9213605442 s recording ends at about 4.9380 s, around 1.0714 s after the 3.8667 s paced visual. Even a zero-delay full recording cannot fit within the minimum allowed pace. This remains a review limitation: the natural tail continues after cleanup, with no cut, loop, pitch change or gain change."
+      ]
+    },
+    {
+      "id": "razorleaf",
+      "assetId": "source.razor-leaf",
+      "sourceSha256": "8e99515ca5264bed0718dc51c367613e079305ffe78bc9925db822cc3e7d57c8",
+      "sourcePcmSha256": "66616e7a1e78f38eb5f1208d4da4ba7fe92605bba8cb18bc3b92334314ed13d4",
+      "visualRevision": "61a9e8eb29b50e80141c2757aa901838154201443d2285f7c87129fb31882c38",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.31,
+            "cueSeconds": 0.28,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 13671
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "launch",
+          "label": "Cosmetic first spinning leaf launches",
+          "timeSeconds": 0.28,
+          "evidence": "const start = 0.28 + i * 0.045"
+        },
+        {
+          "id": "final-launch",
+          "label": "Cosmetic twelfth spinning leaf launches",
+          "timeSeconds": 0.775,
+          "evidence": "const start = 0.28 + i * 0.045"
+        },
+        {
+          "id": "final-contact",
+          "label": "Cosmetic final leaf arrives",
+          "timeSeconds": 1.295,
+          "evidence": "// The final leaf lands at 1.295 s; its longest-lived impact particles end by 1.995 s."
+        },
+        {
+          "id": "return",
+          "label": "Cosmetic return to the resting position begins",
+          "timeSeconds": 1.22,
+          "evidence": ".to(attacker, { x: home.x, y: home.y, rotation: 0, duration: 0.32, ease: 'power2.out' }, 1.22)"
+        },
+        {
+          "id": "impact-fade",
+          "label": "Cosmetic leaf impact glow starts fading",
+          "timeSeconds": 1.3,
+          "evidence": ".to(impactGlow, { alpha: 0, duration: 0.42 }, 1.3)"
+        }
+      ],
+      "notes": [
+        "Candidate runs the unchanged animation at 90% pace. The measured 0.31 s energy rise meets the first leaf launch at authored 0.28 s, or elapsed 0.3111 s, so the whole recording begins almost immediately at about 0.0011 s.",
+        "Twelve leaves keep their original relative launch spacing and curved flights. The existing first-contact result cue occurs at elapsed 0.8333 s; the final leaf arrives at about 1.4389 s. The later 1.84 s source energy maximum is left with the dispersing particles rather than forced onto the first hit.",
+        "The complete 2.3019501134 s recording ends at about 2.3031 s inside the 2.3889 s paced visual. Slower visual pacing gives the uncut recording room through the last particles, while source playback speed, original pitch and 0 dB gain stay unchanged."
+      ]
+    },
+    {
+      "id": "sludgebomb",
+      "assetId": "source.sludge-bomb",
+      "sourceSha256": "5ef0cc0ca6e350864668cb188b0576a6c79b40e0a954d6c6d30f061ea03aeb28",
+      "sourcePcmSha256": "fbfd48e68286345e16b491ddd42a6509777f4763dcf4f44148ca20a60e518230",
+      "visualRevision": "79c8c0f6931ae89654ecc45192b507c25832745c2397248f829ac348bfed7682",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.19,
+            "cueSeconds": 1.02,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "strongest-energy-window",
+          "startFrame": 52479
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "glob",
+          "label": "Cosmetic sludge glob begins appearing",
+          "timeSeconds": 0.32,
+          "evidence": ".to(bomb, { alpha: 1, duration: 0.06 }, 0.32)"
+        },
+        {
+          "id": "launch",
+          "label": "Cosmetic sludge glob begins its arcing flight",
+          "timeSeconds": 0.38,
+          "evidence": "}, 0.38)"
+        },
+        {
+          "id": "pool",
+          "label": "Cosmetic sludge pool starts spreading",
+          "timeSeconds": 1.08,
+          "evidence": "tl.to(pool, { alpha: 1, duration: 0.15 }, 1.08)"
+        },
+        {
+          "id": "pool-fade",
+          "label": "Cosmetic sludge pool fade begins",
+          "timeSeconds": 1.35,
+          "evidence": ".to(pool, { alpha: 0, duration: 0.6 }, 1.35)"
+        },
+        {
+          "id": "return",
+          "label": "Cosmetic return to the resting position begins",
+          "timeSeconds": 1.4,
+          "evidence": ".to(attacker, { x: home.x, duration: 0.3 }, 1.4)"
+        }
+      ],
+      "notes": [
+        "Candidate runs the unchanged animation at 75% pace. Its strongest measured 1.19 s energy window meets the glob burst and existing result cue at authored 1.02 s, or elapsed 1.36 s. The complete recording begins at 0.17 s.",
+        "The glob becomes visible at about 0.4267 s and launches at about 0.5067 s. Droplets and the pool retain their relative timing, with the pool fade ending at 2.60 s. The slower comparison gives the long native recording more room around the arcing throw and splash.",
+        "The whole 2.8538095238 s recording ends at about 3.0238 s, just 0.0238 s after the 3.00 s paced visual. Fitting the whole tail while keeping this energy peak at contact would require a rate below the allowed 75%; retain and review the small natural overrun. Native audio speed, full source boundaries and 0 dB gain are preserved."
+      ]
+    },
+    {
+      "id": "overheat",
+      "assetId": "source.overheat",
+      "sourceSha256": "39bcb3ca889dfaecccd75f2c5c10a7881815e0eabbc4d84b402d2e8f6354a76a",
+      "sourcePcmSha256": "826f6ce2c25e7cfcb77766f937a2d0fa32e76f3d9e1d44c6d2007d8811ec4c92",
+      "visualRevision": "82f6508c091a2f023fdff01fbab00f4eed23b6941f41503925e90549f35b8333",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.96,
+            "cueSeconds": 0.98,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 42336
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "aura",
+          "label": "Cosmetic source aura begins appearing",
+          "timeSeconds": 0.05,
+          "evidence": ".to(aura, { alpha: 0.55, duration: 0.45 }, 0.05)"
+        },
+        {
+          "id": "launch",
+          "label": "Cosmetic first heat wave launches",
+          "timeSeconds": 0.58,
+          "evidence": "const at = 0.58 + i * 0.09"
+        },
+        {
+          "id": "final-launch",
+          "label": "Cosmetic third heat wave launches",
+          "timeSeconds": 0.76,
+          "evidence": "const at = 0.58 + i * 0.09"
+        },
+        {
+          "id": "smoke",
+          "label": "Cosmetic first cooling smoke puff appears",
+          "timeSeconds": 1.3,
+          "evidence": "const at = 1.3 + i * 0.06"
+        },
+        {
+          "id": "return",
+          "label": "Cosmetic return to the resting position begins",
+          "timeSeconds": 1.65,
+          "evidence": ".to(attacker, { x: home.x, duration: 0.3, onUpdate: followBody }, 1.65)"
+        }
+      ],
+      "notes": [
+        "Candidate runs the audition animation at 80% pace. The measured 0.96 s positive-energy rise meets the first heat wave and existing 0.98 s result cue at elapsed 1.225 s, delaying the complete recording by 0.265 s.",
+        "The three independent heat waves launch at elapsed 0.725, 0.8375 and 0.95 s. The smoke begins at 1.625 s and the return begins at 2.0625 s. Slowing the complete choreography gives the longer recording room through the waves and cooling aftermath without changing the restored dynamic recipe.",
+        "The whole 2.89 s recording ends at 3.155 s, 0.030 s after the 3.125 s visual. Its last measured above-threshold sample occurs before visual completion, with the original quiet ending retained. Compare the first contact and cooling smoke at native audio speed and unchanged 0 dB gain."
+      ]
+    },
+    {
+      "id": "eruption",
+      "assetId": "source.eruption",
+      "sourceSha256": "8c94c4337eadfb6a62e82bfc3f4b6f1dda5a148e7a46fe200343ba352c99d2da",
+      "sourcePcmSha256": "a3156a976177be740b8a928591b0a73d435863b31b1fd55f5b2c302bcf231782",
+      "visualRevision": "c3f21d6503c6d24430986c9bbe388c7e0942aeec57e6c083e29360c6f5392be1",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.23,
+            "cueSeconds": 0.46,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 10143
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "vent",
+          "label": "Cosmetic source vent begins glowing",
+          "timeSeconds": 0.28,
+          "evidence": ".to(vent, { alpha: 0.55, duration: 0.18 }, 0.28)"
+        },
+        {
+          "id": "launch",
+          "label": "Cosmetic first lava projectile launches",
+          "timeSeconds": 0.46,
+          "evidence": "const at = 0.46 + i * 0.07"
+        },
+        {
+          "id": "final-launch",
+          "label": "Cosmetic ninth lava projectile launches",
+          "timeSeconds": 1.02,
+          "evidence": "const at = 0.46 + i * 0.07"
+        },
+        {
+          "id": "last-arrival",
+          "label": "Cosmetic ninth lava projectile arrives",
+          "timeSeconds": 1.75,
+          "evidence": "const duration = 0.65 + (i % 3) * 0.04"
+        },
+        {
+          "id": "return",
+          "label": "Cosmetic return to the resting position begins",
+          "timeSeconds": 1.15,
+          "evidence": ".to(attacker, { y: home.y, duration: 0.35 }, 1.15)"
+        },
+        {
+          "id": "glow-fade",
+          "label": "Cosmetic receiving glow begins fading",
+          "timeSeconds": 1.8,
+          "evidence": ".to(impactGlow, { alpha: 0, duration: 0.55 }, 1.8)"
+        }
+      ],
+      "notes": [
+        "Candidate runs the audition animation at 90% pace and aligns the measured 0.23 s positive-energy rise with the first lava launch at authored 0.46 s, elapsed 0.5111 s. The complete recording therefore begins at about 0.2811 s. This is a launch alignment; the existing result remains at the first arrival, authored 1.11 s and elapsed 1.2333 s.",
+        "The nine projectiles retain their distinct arcs and 0.07 s launch spacing. The source strongest-energy window at 1.67 s occurs at elapsed 1.9511 s, within about 0.0067 s of the final lava arrival at 1.9444 s. This pacing choice aligns two measured energy landmarks with the launch group and final arrival without assigning semantic phases to the recording.",
+        "The complete source lasts 6.78 s and finishes at about 7.0611 s, almost 3.8944 s after the 3.1667 s visual. This remains a substantial audible tail and is deliberately presented for review: the full recording cannot fit this recipe even at the minimum allowed 75% visual pace. The proposal preserves natural pitch, the whole source and 0 dB gain; a closer duration fit would need a separate decision about sound selection, editing or choreography."
+      ]
+    },
+    {
+      "id": "earthquake",
+      "assetId": "source.earthquake",
+      "sourceSha256": "8ffa1f0e7e6023610f3bba4de61921e3a7b8da97dfee0f15e77512db99efde51",
+      "sourcePcmSha256": "5f3207aaf0cf6db4a0b4003d8c28fd2a1a9cdd54ee200c25feb1200b48dd0551",
+      "visualRevision": "fe2a0f2c7cfa34bf10635c80b31bec0b540cab4f71590ada69c8ec3ff3b57a84",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": -2.15
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.5,
+            "cueSeconds": 1.2,
+            "gainDb": -2.15
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "strongest-energy-window",
+          "startFrame": 66150
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "stomp",
+          "label": "Cosmetic ground strike and first ripple",
+          "timeSeconds": 0.32,
+          "evidence": "const at = 0.32 + i * 0.13"
+        },
+        {
+          "id": "aftershock",
+          "label": "Cosmetic weaker aftershock begins",
+          "timeSeconds": 1.2,
+          "evidence": "tl.to(world, { x: 2, y: 1, duration: 0.06, repeat: 5, yoyo: true, ease: 'none' }, 1.2)"
+        },
+        {
+          "id": "settle",
+          "label": "Cosmetic camera settles",
+          "timeSeconds": 1.58,
+          "evidence": ".set(world, { x: 0, y: 0 }, 1.58)"
+        }
+      ],
+      "notes": [
+        "Compare a 75% animation pace with the full rumble starting at 0.10 s. Its measured 1.50 s energy maximum meets the weaker aftershock at elapsed 1.60 s; the main result still occurs earlier at elapsed 0.88 s.",
+        "The first ground ripple starts at elapsed 0.4267 s, after the initial rumble begins. Compare the stomp, traveling cracks and late aftershock as a sequence; the sound maximum is not labeled as the first impact.",
+        "The full 3.5837 s recording ends at about 3.6837 s, 0.8837 s after the 2.80 s paced visual. This is a remaining timing mismatch to judge, not a completed fit. Natural pitch, full ending and the existing -2.15 dB gain remain intact."
+      ]
+    },
+    {
+      "id": "thunder",
+      "assetId": "source.thunder",
+      "sourceSha256": "3141d72de39197af8f56f4140b0ce40cbea47f24cf17052d3369b87cd364f8a5",
+      "sourcePcmSha256": "321ad1cb877778f3cd609d9c91f056608eb21488287ee5ab3340f0a2673d86d6",
+      "visualRevision": "3a8f7f5fe44b5bcb5dbd3e60fb8cf5006b20191fff7e38006fc58b408747caac",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.72,
+            "cueSeconds": 0.84,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "strongest-energy-window",
+          "startFrame": 31752
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "charge",
+          "label": "Cosmetic sky charge begins",
+          "timeSeconds": 0.15,
+          "evidence": ".to(skyCharge, { alpha: 0.28, duration: 0.35 }, 0.15)"
+        },
+        {
+          "id": "strike",
+          "label": "Cosmetic main lightning bolt starts descending",
+          "timeSeconds": 0.68,
+          "evidence": "{ at: 0.68, travel: 0.16, hold: 0.28, fade: 0.42, width: 7 }"
+        },
+        {
+          "id": "glow-fade",
+          "label": "Cosmetic impact glow begins fading",
+          "timeSeconds": 1.26,
+          "evidence": ".to(impactGlow, { alpha: 0, duration: 0.65 }, 1.26)"
+        }
+      ],
+      "notes": [
+        "The proposed 75% pace places the original 0.84 s lightning contact at elapsed 1.12 s. Starting the complete recording at 0.40 s brings its measured 0.72 s energy maximum to that contact.",
+        "The main bolt descends at elapsed 0.9067 s, followed by the original branching arcs and glow. Compare the sound buildup to the sky charge and the strongest window to the strike.",
+        "The full 3.00 s sound ends at 3.40 s, about 0.1333 s after the 3.2667 s visual. Keep this small remaining tail available for review. Audio stays at native speed and 0 dB; no extra bolt, recording or impact cue is added."
+      ]
+    },
+    {
+      "id": "blizzard",
+      "assetId": "source.blizzard",
+      "sourceSha256": "5a1d9ce97eac773f3250686a44dea44da964423b40cc7e94e94715264f7032d2",
+      "sourcePcmSha256": "3280af49fae32016ab252f05fb01ccee30fe2593d286f44dfdbc9e94963841b9",
+      "visualRevision": "44e6bf061185fbc6778736d4fbdf44f1518b22abad3738d0454ac89a1eb158dd",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.53,
+            "cueSeconds": 1.929,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "strongest-energy-window",
+          "startFrame": 111573
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "wind",
+          "label": "Cosmetic first wind ribbon launches",
+          "timeSeconds": 0.3,
+          "evidence": "const at = 0.3 + i * 0.14"
+        },
+        {
+          "id": "final-snow-launch",
+          "label": "Cosmetic last snow particle launches",
+          "timeSeconds": 1.354,
+          "evidence": "const at = 0.36 + i * 0.014"
+        },
+        {
+          "id": "final-snow-fade",
+          "label": "Cosmetic last snow particle starts fading",
+          "timeSeconds": 1.929,
+          "evidence": ".to(snow, { alpha: 0, duration: 0.18 }, at + duration - 0.18)"
+        },
+        {
+          "id": "mist-fade",
+          "label": "Cosmetic mist fade begins",
+          "timeSeconds": 1.62,
+          "evidence": ".to(mist, { alpha: 0, duration: 0.5 }, 1.62)"
+        }
+      ],
+      "notes": [
+        "Compare a 75% pace with the complete recording starting at 0.042 s. The measured maximum at source 2.53 s falls at elapsed 2.572 s, as the last snow particle starts fading. It is a late-storm anchor, not an impact claim.",
+        "The original result cue occurs at elapsed 1.0933 s and the final snow launches at 1.8053 s. The last particle starts at authored 0.36 + 71 × 0.014 s and begins its fade 0.62 + 3 × 0.045 - 0.18 s later.",
+        "The full sound ends at 3.662 s, about 0.1287 s after the 3.5333 s visual. Listen to whether the second sound section is too late for the storm; the original quiet gap, both active sections, pitch and 0 dB gain are retained."
+      ]
+    },
+    {
+      "id": "bubblebeam",
+      "assetId": "source.bubble-beam",
+      "sourceSha256": "694203ef16850cf6243b49684f70cee3c0aef296ee81392d0bb3e20b43d213f6",
+      "sourcePcmSha256": "ba15e59b56ccc96420858c0f836c54593542171e81d741da0ff0295cf6720f29",
+      "visualRevision": "3a7b37d63529a96be3194ea472aa4dc9ab66fd51c4d810af260480bd30c74884",
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.53,
+            "cueSeconds": 0.4,
+            "gainDb": 0
+          }
+        ]
+      },
+      "anchorEvidence": [
+        {
+          "kind": "positive-energy-rise",
+          "startFrame": 23373
+        }
+      ],
+      "authoredMarkers": [
+        {
+          "id": "launch",
+          "label": "Cosmetic first bubble and stream launch",
+          "timeSeconds": 0.4,
+          "evidence": "tl.to(thread, { alpha: 0.6, duration: 0.12 }, 0.4)"
+        },
+        {
+          "id": "final-launch",
+          "label": "Cosmetic last bubble launches",
+          "timeSeconds": 1.205,
+          "evidence": "at: 0.4 + i * 0.035, duration: 0.38, sway: lane * 11, cycles: 4, drops: i % 3 === 0 ? 4 : 0,"
+        },
+        {
+          "id": "final-pop",
+          "label": "Cosmetic last bubble pops",
+          "timeSeconds": 1.585,
+          "evidence": "pop(tl, target.x, target.y, radius, at + duration, drops)"
+        },
+        {
+          "id": "return",
+          "label": "Cosmetic source returns to rest",
+          "timeSeconds": 1.75,
+          "evidence": ".to(attacker, { x: home.x, duration: 0.3, onUpdate: follow }, 1.75)"
+        }
+      ],
+      "notes": [
+        "The proposed 75% pace starts the whole recording at about 0.0033 s. Its measured rise at source 0.53 s meets the first bubble and stream launch at elapsed 0.5333 s; the original result follows at 1.04 s.",
+        "The 24 bubbles retain their original spacing and paths. The final bubble launches at elapsed 1.6067 s and pops at 2.1133 s; the later sound section remains in the recovery for comparison.",
+        "The full 3.3099 s recording ends at about 3.3133 s, 0.2466 s after the 3.0667 s visual. Compare the later active sound section and quiet gap before deciding whether the ending needs an edit. Native speed, full boundaries and 0 dB gain are unchanged."
+      ]
+    }
+  ]
+}

@@ -4,6 +4,8 @@ import { createBattleState } from '@battle/battle-core'
 import { MOVES } from '../moveCatalog.js'
 import { createPresenter } from '../presentation/presenter.js'
 import { createPreviewState, createPreviewTransaction } from '../previewState.js'
+import { createPreviewAudio } from '../presentation/audio.js'
+import AudioControls from '../../../shared/battle/AudioControls.vue'
 
 import PokemonInfo from './PokemonInfo.vue'
 import RosterPicker from './RosterPicker.vue'
@@ -78,15 +80,19 @@ const previewResult = computed(() => preparing.value ? 'preparation only, no HP 
   : selectedMove.value.confuses ? selectedMove.value.damage > 0 ? `${selectedMove.value.damage} demo damage · confusion preview` : 'confusion preview, no HP damage'
   : `${selectedMove.value.damage} demo damage`)
 const status = ref('Charizard is ready. Choose a move.'), animateHealth = ref(false)
+const battleAudio = createPreviewAudio()
+const audioState = shallowRef(battleAudio.getState())
+const unsubscribeAudio = battleAudio.subscribe(value => { audioState.value = value })
 let scene, disposed = false, media, sceneGeneration = 0, playGeneration = 0
 const presenter = createPresenter({
-  loadFx: async () => (await import('@battle/battle-fx')).createBattleFx(),
+  loadFx: async () => (await import('../../../shared/battle/reviewedFx.js')).createReviewedBattleFx(),
+  onMove: request => battleAudio.previewMove(request),
   getScene: () => scene,
   onDisplay: value => { displayed.value = value.state; status.value = value.message; animateHealth.value = value.animate },
   onBusy: value => { busy.value = value },
   onError: error => console.warn('Effect skipped:', error),
 })
-const changeMotion = () => { reducedMotion.value = media.matches }
+const changeMotion = () => { reducedMotion.value = media.matches; battleAudio.stop() }
 async function refreshScene() {
   const token = ++sceneGeneration
   playGeneration++; presenter.reset(); scene?.dispose(); scene = null; sceneReady.value = false; error.value = ''
@@ -108,6 +114,9 @@ onMounted(() => {
 
 async function attack() {
   if (busy.value) return
+  battleAudio.stop()
+  void battleAudio.unlock()
+  battleAudio.warmMoves([selectedId.value], { fxIds: true })
   // Replay intentionally starts a new preview; presentation never applies this result again.
   const token = ++playGeneration
   const transaction = createPreviewTransaction(selectedMove.value, { ...fixtureOptions(), targetId: activeActorId.value === 'source' ? 'target' : 'source', phase: phase.value })
@@ -117,6 +126,7 @@ async function attack() {
 }
 function reset() {
   playGeneration++
+  battleAudio.stop(); battleAudio.warmMoves([selectedId.value], { fxIds: true })
   committed.value = createPreviewState(selectedMove.value, fixtureOptions()); presenter.reset(committed.value, `${committed.value.actors[activeActorId.value].name} is ready. Choose a move.`); hasPlayed.value = false
 }
 function selectMove(id) {
@@ -128,8 +138,9 @@ function selectAttacker(id) {
   if (id === activeActorId.value) return
   activeActorId.value = id; reset()
 }
-function toggleEffects() { if (!effectsEnabled.value) presenter.skip(); else presenter.retryEffects() }
-onBeforeUnmount(() => { disposed = true; sceneGeneration++; playGeneration++; presenter.destroy(); scene?.dispose(); media?.removeEventListener('change', changeMotion) })
+function skipPlayback() { battleAudio.stop(); presenter.skip() }
+function toggleEffects() { if (!effectsEnabled.value) skipPlayback(); else presenter.retryEffects() }
+onBeforeUnmount(() => { disposed = true; sceneGeneration++; playGeneration++; presenter.destroy(); scene?.dispose(); media?.removeEventListener('change', changeMotion); unsubscribeAudio(); battleAudio.dispose() })
 </script>
 
 <template>
@@ -190,11 +201,12 @@ onBeforeUnmount(() => { disposed = true; sceneGeneration++; playGeneration++; pr
             <span v-else class="button-spinner" aria-hidden="true"></span>
             {{ busy ? preparing ? 'Preparing…' : 'Attacking…' : preparing ? `${hasPlayed ? 'Replay' : 'Play'} preparation` : `${hasPlayed ? 'Replay' : 'Use'} ${selectedMove.name}` }}
           </button>
-          <button v-if="busy" class="reset-button" @click="presenter.skip()">Skip animation</button>
+          <button v-if="busy" class="reset-button" @click="skipPlayback">Skip animation</button>
           <button class="reset-button" :disabled="busy || !hasPlayed" @click="reset">↺ <span>Reset preview</span></button>
         </div>
       </div>
 
+      <AudioControls :audio="battleAudio" :state="audioState" :cries="false"/>
       <div class="move-selector" role="group" aria-label="Choose a move">
         <button v-for="move in MOVES" :key="move.id" type="button" class="move-choice"
           :class="{ selected: selectedId === move.id }" :style="{ '--move-accent': move.color }"

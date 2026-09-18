@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "name": "sync-002-feedback.json",
+    "sha256": "ca8b32887d6e297ecdf9e35a386549bef579b4aa75752889b80569d92e39b055"
+  },
+  "feedback": {
+    "schemaVersion": 1,
+    "kind": "battle-sfx-sync-feedback",
+    "batchId": "sync-002",
+    "revision": "75216efedbd3a129d2a65a5b5142c3a2359cc4984aae8200a5c9a6d13f7ac56b",
+    "records": [
+      {
+        "moveId": "icebeam",
+        "plan": {
+          "visualRate": 0.8,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": 2.6,
+              "soundAnchorSeconds": 0.23,
+              "cueSeconds": 0.5,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Sounds good",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 128640,
+          "durationSeconds": 2.68,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "psychic",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.97,
+              "cueSeconds": 1.03,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "adjust-sound",
+        "notes": "The animation and sounds good but we could add an impact sound on the impact animation at the end ",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 64559,
+          "durationSeconds": 1.3449791666666666,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "flamethrower",
+        "plan": {
+          "visualRate": 0.75,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.09,
+              "cueSeconds": 0.1,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Sounds perfect",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 162502,
+          "durationSeconds": 3.3854583333333332,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "shadowball",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.81,
+              "cueSeconds": 1.1,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Sounds perfect",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 67200,
+          "durationSeconds": 1.4,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "rockslide",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.68,
+              "cueSeconds": 0.87,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Sounds and looks perfect",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 103200,
+          "durationSeconds": 2.15,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "gigadrain",
+        "plan": {
+          "visualRate": 0.8,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.6,
+              "cueSeconds": 0.68,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Looks good enough",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 149760,
+          "durationSeconds": 3.12,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      }
+    ]
+  },
+  "playbackPins": [
+    {
+      "path": "apps/sfx-bench/src/audio.js",
+      "sha256": "9a6e0f27b0ae5ba1a3688a3f61cdf61de448354c5a4fb25649efa8345cb38cc2"
+    },
+    {
+      "path": "apps/sfx-bench/src/sync.js",
+      "sha256": "f49a75a1b14fb882d9ac948165017ba5e9c9e089e3d4ad252b15bcc387fc8645"
+    },
+    {
+      "path": "apps/sfx-bench/src/syncVisual.js",
+      "sha256": "a80878868a33642ee1bb490ebeb4aeb9f2bd9b94c937ba40971422ea1babb627"
+    }
+  ],
+  "moves": [
+    {
+      "id": "icebeam",
+      "sourceSha256": "b33270bc0ba8116a2bc425cc119b0d03b04f1913286a55e1979a6fc771101c0a",
+      "sourcePcmSha256": "6505da128e723fcf35b9c8400810b439c651397f0c32daff3b1fb80cd7287eca",
+      "visualRevision": "5426670ca359bf9f54f21032c67fa9f45e3ac7aff526009e6fb52fd49ce7880d",
+      "plan": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": 2.6,
+            "soundAnchorSeconds": 0.23,
+            "cueSeconds": 0.5,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "psychic",
+      "sourceSha256": "5a6a1e05b16ff7596d893fc22ac9cc32d01d8f4e3c7bd28abaa1c4d4d0b28b12",
+      "sourcePcmSha256": "aa3bc352c06209c08e62ba7a7695c53176202eb5d93f8ccbccfbda393d4302ca",
+      "visualRevision": "254db5fab94b359553cb80fec739e55b7ecce96a49a8680bf2b39365690e6fdc",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.97,
+            "cueSeconds": 1.03,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "flamethrower",
+      "sourceSha256": "6dbe5f9c21bfbcea605bd4efac7b14ce87a00c2a6789f848e5685bc3902cd285",
+      "sourcePcmSha256": "6ff948373f4c3bdc29681d66f645aa235083cbb39ef652acaf13d4bec9d84ce5",
+      "visualRevision": "2decf3e49a5cdb4ff66f9ebe5d9bab5020350804810ae3264481c65b77e377e4",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.1,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "shadowball",
+      "sourceSha256": "f2e76d1a1259ec53bb4b6cfbf7e3ce77584315cc04f4f22d389a1bbd0430588d",
+      "sourcePcmSha256": "612a68020b8c3ab2b2d6aae939564726c0562c61b73d1b22796c795283e16e9f",
+      "visualRevision": "c6bf829a02ef2ec51d977d90bc8c1211e4a17af15facd3aef0e4f4defa8e2a02",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.81,
+            "cueSeconds": 1.1,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "rockslide",
+      "sourceSha256": "37ea23ade49dfee2f1a0502ecc9af6cd2dfc0856377b4e8ddfaf6fbc59c9f496",
+      "sourcePcmSha256": "9719091dfff56f62fe9be7d74e82a9004955197f2ebe99671d78cd9cd1336b88",
+      "visualRevision": "1afed24bc00202d08c30b3b527a4d5d851c4051e86b05ffa2952589b31870dbb",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.68,
+            "cueSeconds": 0.87,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "gigadrain",
+      "sourceSha256": "7d276b32bdbb98ad85d6cbed8eb319662a73ad5832400ef4f1d62ebadb6bd1a1",
+      "sourcePcmSha256": "8553321e993b2809006a187eaadf44c622d5392e1d51dd1c5da7e9ac5b91df01",
+      "visualRevision": "ee79f222f993974f08ac557f47eb94d959ec0b99e0efa7b59a5aeebda564fcd0",
+      "plan": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.6,
+            "cueSeconds": 0.68,
+            "gainDb": 0
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "name": "sync-003-feedback.json",
+    "sha256": "4c8addb95dd53ef9e08b7fb1b6b14f83b63593a93d3711cff8f66bf6c7c6cc1d"
+  },
+  "feedback": {
+    "schemaVersion": 1,
+    "kind": "battle-sfx-sync-feedback",
+    "batchId": "sync-003",
+    "revision": "4f42a1b0e602b20f05e970a264eee12f55f1296608dc245fa2dd288c4e83c3e7",
+    "records": [
+      {
+        "moveId": "surf",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.67,
+              "cueSeconds": 1,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Looks and sounds good enough",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 89280,
+          "durationSeconds": 1.86,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "watergun",
+        "plan": {
+          "visualRate": 0.8,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.09,
+              "cueSeconds": 0.1,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Looks and sounds good enough",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 81600,
+          "durationSeconds": 1.7,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "crunch",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.26,
+              "cueSeconds": 0.64,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Looks and sounds good enough",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 55200,
+          "durationSeconds": 1.15,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "thunderpunch",
+        "plan": {
+          "visualRate": 0.9,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.34,
+              "cueSeconds": 0.52,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "adjust-animation",
+        "notes": "The effects sounds good and impact timing is perfect but we could add some lighting effect when the punch impact happens to the opponent something like a spark or something to show the impact",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 73357,
+          "durationSeconds": 1.5282708333333332,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "swift",
+        "plan": {
+          "visualRate": 1,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 0.55,
+              "cueSeconds": 0.94,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Looks and sounds good enough",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 54240,
+          "durationSeconds": 1.13,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      },
+      {
+        "moveId": "calmmind",
+        "plan": {
+          "visualRate": 0.75,
+          "segments": [
+            {
+              "startSeconds": 0,
+              "endSeconds": null,
+              "soundAnchorSeconds": 1.15,
+              "cueSeconds": 0.9,
+              "gainDb": 0
+            }
+          ]
+        },
+        "verdict": "keep",
+        "notes": "Looks and sounds good enough",
+        "native": {
+          "sampleRate": 48000,
+          "sampleFrames": 75711,
+          "durationSeconds": 1.5773125,
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+        }
+      }
+    ]
+  },
+  "playbackPins": [
+    {
+      "path": "apps/sfx-bench/src/audio.js",
+      "sha256": "9a6e0f27b0ae5ba1a3688a3f61cdf61de448354c5a4fb25649efa8345cb38cc2"
+    },
+    {
+      "path": "apps/sfx-bench/src/sync.js",
+      "sha256": "f49a75a1b14fb882d9ac948165017ba5e9c9e089e3d4ad252b15bcc387fc8645"
+    },
+    {
+      "path": "apps/sfx-bench/src/syncVisual.js",
+      "sha256": "a80878868a33642ee1bb490ebeb4aeb9f2bd9b94c937ba40971422ea1babb627"
+    }
+  ],
+  "moves": [
+    {
+      "id": "surf",
+      "sourceSha256": "e1e9183e09c274b666bfd7e139d2e2a4f280260e4b6fa1e03fe119271bd45e5d",
+      "sourcePcmSha256": "0283ed447540048cfc940a7278b71ba2e2bbca6fb3a456250bb1f04772fb0500",
+      "visualRevision": "3c227e76f3fe0fbd142353cd7fec34819b0340ce84739b5251cf5b57d0a91448",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.67,
+            "cueSeconds": 1,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "watergun",
+      "sourceSha256": "1b261b2cd81fa02aa4730c4af1c508175e4b37635566b5ccb598e743e52f2dde",
+      "sourcePcmSha256": "d3b480d1d5ff4b466bb4852b91f77f699cf924ce8a89a2e0cbd7200cbe0030c9",
+      "visualRevision": "3ca49ba217b659da5d2e976277c43e89e3f7bab86b3465e4c3a4c5452e4e1c44",
+      "plan": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.1,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "crunch",
+      "sourceSha256": "30018e382b19f90c7aefcc6598763342da0a51c070dfe473bb09adc0b5fce3ae",
+      "sourcePcmSha256": "7c105cd1dd6f3b7abfa9c2411620ce609ab281519430874e33f33c96c4730cec",
+      "visualRevision": "b07dca02ed9263f2978562fda092eabeeaffe441a13d1f1a4eb8e90297cdbdf2",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.26,
+            "cueSeconds": 0.64,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "thunderpunch",
+      "sourceSha256": "d17f5d116b9b76ae84657e706f753ae070b480432df2264d8e066539c7d5b0e1",
+      "sourcePcmSha256": "1343e4fa05f4ef239dd8e864030cb0ec5ceee9ff055f10e71e881964b7095207",
+      "visualRevision": "cab312cdc651daced971ff0afdafa84296f848d297122782a2cb63c409dff0f8",
+      "plan": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.34,
+            "cueSeconds": 0.52,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "swift",
+      "sourceSha256": "63febf7c36f3c43961aaa28c6360e8c3b26b0108d164429377db29a59e0ee5a8",
+      "sourcePcmSha256": "3a3cb4ef588d625e48f5c6a74add53149de40d8a61996a9c8f6adbd944c68aa2",
+      "visualRevision": "6f4c5af5ba2804e8be8678a3000371f112c2172011d27915980c2c2a7f2ec377",
+      "plan": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.55,
+            "cueSeconds": 0.94,
+            "gainDb": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "calmmind",
+      "sourceSha256": "6bf615a4c725fbe5359e84c2a2f0243af63570928ceb745e0a343fca0c08edfb",
+      "sourcePcmSha256": "47127e05de04db69fbc681f1f61ecf01edd409673ed48546c3b66e3c6f608d48",
+      "visualRevision": "2a49d13e228b3cb606976e65df73f8bcd7fb896f6aa10485a896bccefa1012c5",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.15,
+            "cueSeconds": 0.9,
+            "gainDb": 0
+          }
+        ]
+      }
+    }
+  ]
+}

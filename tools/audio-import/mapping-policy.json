@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "name": "gen3-source-filename-candidates-v1",
+  "moveNameAliases": {
+    "Vice Grip": {
+      "moveId": "visegrip",
+      "reason": "The recording uses the older Vice Grip spelling; the pinned game data uses Vise Grip."
+    }
+  },
+  "fxAliases": {
+    "vice-grip": {
+      "moveId": "visegrip",
+      "reason": "The independent FX catalog retains its existing vice-grip ID."
+    }
+  },
+  "calledMoves": {
+    "mirrormove": {
+      "reason": "No named recording exists in this source pack. A later reviewed policy may use the executed move only when authoritative events expose it; do not infer it from client rules."
+    },
+    "naturepower": {
+      "reason": "No named recording exists in this source pack. A later reviewed policy may use the executed move only when authoritative events expose it; do not infer it from terrain or client rules."
+    }
+  },
+  "genericFiles": {
+    "Hit Normal Damage.mp3": {
+      "eventId": "battle.hit.normal",
+      "reason": "Filename proposes normal damage feedback; its audible onset and interaction with move recordings remain unreviewed."
+    },
+    "Hit Super Effective.mp3": {
+      "eventId": "battle.hit.super-effective",
+      "reason": "Filename proposes super-effective feedback; use would require a confirmed battle event and listening review."
+    },
+    "Hit Weak Not Very Effective.mp3": {
+      "eventId": "battle.hit.resisted",
+      "reason": "Filename proposes resisted-hit feedback, not immunity."
+    },
+    "In-Battle Faint No Health.mp3": {
+      "eventId": "battle.faint",
+      "reason": "Filename proposes faint feedback; it is not a Pokemon cry or a reviewed result sound."
+    },
+    "In-Battle Heal HP Restore.mp3": {
+      "eventId": "battle.heal",
+      "reason": "Filename proposes HP-restoration feedback; timing and suitable uses need listening review."
+    },
+    "In-Battle Health Low Loop.mp3": {
+      "eventId": "battle.low-health.loop",
+      "reason": "The filename contains Loop; seamless loop boundaries have not been measured or approved. Persistent alarms are deferred.",
+      "initialRelease": "deferred"
+    },
+    "In-Battle Health Low.mp3": {
+      "eventId": "battle.low-health.notice",
+      "reason": "Filename proposes a low-health notification. Repetition, fatigue and lifecycle policy are deferred.",
+      "initialRelease": "deferred"
+    },
+    "In-Battle Held Item Activate.mp3": {
+      "eventId": "battle.item.activate",
+      "reason": "Filename proposes held-item activation feedback; do not infer activation from HP snapshots."
+    },
+    "In-Battle Recall Switch Flee Run.mp3": {
+      "eventId": "battle.recall.flee",
+      "reason": "Filename groups recall, switching and fleeing; its correct audible role needs review and is not a release cue."
+    },
+    "In-Battle Recall Switch Pokeball.mp3": {
+      "eventId": "battle.recall.pokeball",
+      "reason": "Filename proposes recall into a Poke Ball; do not automatically reuse it for release."
+    },
+    "Stat Fall Down.mp3": {
+      "eventId": "battle.stat.fall",
+      "reason": "Filename proposes a stat decrease; stage and event deduplication policies remain unreviewed."
+    },
+    "Stat Rise Up.mp3": {
+      "eventId": "battle.stat.rise",
+      "reason": "Filename proposes a stat increase; stage and event deduplication policies remain unreviewed."
+    },
+    "Status Burned.mp3": {
+      "eventId": "battle.status.burn",
+      "reason": "Filename proposes burn feedback; application versus residual-damage use needs listening review."
+    },
+    "Status Confused.mp3": {
+      "eventId": "battle.status.confusion",
+      "reason": "Filename proposes confusion feedback; application versus action feedback needs listening review."
+    },
+    "Status Frozen.mp3": {
+      "eventId": "battle.status.freeze",
+      "reason": "Filename proposes freeze feedback; application versus prevented-action use needs listening review."
+    },
+    "Status Paralyzed.mp3": {
+      "eventId": "battle.status.paralysis",
+      "reason": "Filename proposes paralysis feedback; application versus prevented-action use needs listening review."
+    },
+    "Status Poisoned.mp3": {
+      "eventId": "battle.status.poison",
+      "reason": "Filename proposes poison feedback; do not assume separate ordinary and toxic recordings."
+    },
+    "Status Sleep.mp3": {
+      "eventId": "battle.status.sleep",
+      "reason": "Filename proposes sleep feedback; application versus sleeping-action use needs listening review."
+    }
+  },
+  "deferredEvents": {
+    "battle.release.pokeball": "No dedicated release recording is identified; recall is not automatically a release sound.",
+    "battle.intro": "No dedicated intro recording is identified in this pack.",
+    "battle.result.victory": "No dedicated victory recording is identified in this pack.",
+    "battle.result.defeat": "No dedicated defeat recording is identified in this pack.",
+    "battle.ui.confirm": "No dedicated menu confirmation recording is identified in this pack.",
+    "battle.ui.cancel": "No dedicated menu cancellation recording is identified in this pack.",
+    "battle.miss": "No dedicated miss recording is identified; do not reuse damaging-hit feedback by default.",
+    "battle.immune": "No dedicated immunity recording is identified; resisted damage does not mean immunity.",
+    "battle.failure": "No dedicated failed-action recording is identified in this pack.",
+    "battle.weather.ambience": "Persistent weather ambience has no reviewed asset or lifecycle policy and is deferred."
+  }
+}

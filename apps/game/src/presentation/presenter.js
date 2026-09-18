@@ -1,7 +1,7 @@
 // No rendering or battle-rule imports. Committed transactions are read-only inputs.
-export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}, onError = () => {}, deadlineMs = 6500 }) {
+export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}, onError = () => {}, onMove = () => null, deadlineMs }) {
   let generation = 0, destroyed = false, active = null, queue = [], fxPromise, fxUnavailable = false
-  const safe = (fn, ...args) => { if (!destroyed) { try { fn(...args) } catch (error) { try { onError(error) } catch {} } } }
+  const safe = (fn, ...args) => { if (!destroyed) { try { return fn(...args) } catch (error) { try { onError(error) } catch {} } } }
 
   function reconcile(job) {
     safe(onDisplay, { state: job.transaction.after, message: job.transaction.event.resultMessage, animate: false })
@@ -10,21 +10,29 @@ export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}
   async function run(job) {
     const token = generation
     const controller = new AbortController()
-    let playback, timer, impact = false, recovery = false, playbackCancelled = false
+    let playback, sound, timer, impact = false, recovery = false, playbackCancelled = false, soundCancelled = false
     let end
     const stopped = new Promise(resolve => { end = resolve })
+    const cancelSound = () => {
+      if (soundCancelled) return
+      soundCancelled = true; safe(() => sound?.cancel())
+    }
     const cancelPlayback = () => {
       if (playbackCancelled) return
       playbackCancelled = true
       try { playback?.cancel?.() } catch (error) { safe(onError, error) }
     }
     const current = { job, stop: status => {
-      try { controller.abort(); cancelPlayback() } finally { end({ status }) }
+      try { cancelSound(); controller.abort(); cancelPlayback() } finally { end({ status }) }
     } }
     active = current
     safe(onBusy, true)
     safe(onDisplay, { state: job.transaction.before, message: job.transaction.event.usedMessage, animate: false })
     const valid = () => !destroyed && token === generation && active === current
+    const armDeadline = milliseconds => {
+      clearTimeout(timer)
+      timer = setTimeout(() => { fxUnavailable = true; current.stop('failed') }, milliseconds)
+    }
     const work = async () => {
       if (!job.options.effectsEnabled || fxUnavailable || !getScene()) return { status: 'skipped' }
       if (!fxPromise) {
@@ -36,10 +44,19 @@ export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}
       }
       const fx = await fxPromise
       if (controller.signal.aborted || !valid()) return { status: 'cancelled' }
+      if (typeof fx?.play !== 'function') throw new Error('Effect unavailable')
       const { event } = job.transaction
-      playback = fx.play({ moveId: event.moveId, sourceId: event.sourceId, targetIds: event.targetIds,
-        outcome: event.outcome, ...(event.phase ? { phase: event.phase } : {}), visualSeed: job.options.visualSeed ?? 1 }, {
+      const request = { moveId: event.moveId, sourceId: event.sourceId, targetIds: event.targetIds,
+        outcome: event.outcome, ...(event.phase ? { phase: event.phase } : {}), visualSeed: job.options.visualSeed ?? 1 }
+      const fxDeadline = safe(() => fx.getPresentationDeadlineMs?.(request, { reducedMotion: job.options.reducedMotion }))
+      if (deadlineMs === undefined && Number.isFinite(fxDeadline) && fxDeadline + 500 > 6500) armDeadline(fxDeadline + 500)
+      if (!event.outcome || event.outcome === 'hit') {
+        sound = safe(onMove, { moveId: event.moveId, phase: event.phase ?? 'attack', outcome: event.outcome ?? 'hit',
+          mode: job.options.reducedMotion ? 'reduced' : 'normal' })
+      }
+      playback = fx.play(request, {
         scene: getScene(), signal: controller.signal, reducedMotion: job.options.reducedMotion,
+        onPresentation(cue) { if (valid() && !controller.signal.aborted) safe(() => sound?.onPresentation(cue)) },
         onCue(cue) {
           if (!valid() || controller.signal.aborted) return
           if (event.phase === 'prepare') {
@@ -60,13 +77,15 @@ export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}
       })
       return await playback.finished
     }
-    timer = setTimeout(() => { fxUnavailable = true; current.stop('failed') }, deadlineMs)
+    armDeadline(deadlineMs ?? 6500)
     let result
     try {
       result = await Promise.race([work(), stopped])
       if (!['completed', 'skipped', 'cancelled', 'failed'].includes(result?.status)) result = { status: 'failed' }
     } catch (error) { result = { status: 'failed' }; safe(onError, error) }
     finally {
+      if (result?.status === 'completed' && !soundCancelled) safe(() => sound?.finish(result))
+      else cancelSound()
       clearTimeout(timer)
       controller.abort()
       cancelPlayback()

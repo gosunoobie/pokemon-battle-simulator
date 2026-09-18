@@ -1,0 +1,668 @@
+{
+  "schemaVersion": 1,
+  "id": "sync-007",
+  "title": "Songs, healing light and circling companions",
+  "status": "unreviewed-comparison",
+  "revision": "3e579872dcf811b8d818a903d3e281ad13a66d1036abaac17c54764cf0876f07",
+  "moves": [
+    {
+      "id": "sing",
+      "fxId": "sing",
+      "name": "Sing",
+      "asset": {
+        "id": "source.sing",
+        "url": "/sound_effects/Sing.mp3",
+        "bytes": 170445,
+        "sha256": "f2461de519a56444f258b062fe498d070283dad2a2486eb0d5316ea220c4d3c0",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 184535,
+          "durationSeconds": 4.18446712,
+          "decodedBytes": 1476280,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "3aca00e12ab2ebdb523a7ee44895bce87c5582c9567c2464469251c637e59e19",
+          "peak": 0.25243229,
+          "peakDbfs": -11.95710197,
+          "rmsDbfs": -25.53766107,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4041,
+          "trailingQuietFrames": 3,
+          "stereoCorrelation": 0.99999922,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "visualRevision": "053aea4629890a55ddc65b854ff0f1c519107982a462db66497cd9be32a1f5c3",
+        "durationSeconds": 4.19,
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.96
+          },
+          {
+            "id": "last-note-release",
+            "label": "Final continuing note release",
+            "timeSeconds": 3.2
+          },
+          {
+            "id": "lullaby-fade",
+            "label": "Final moving lullaby fade",
+            "timeSeconds": 3.81
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.77,
+            "cueSeconds": 0.77,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "Same pastel music notes and lullaby waves, with notes continuing through the complete song. Original contact and travel pace stay intact."
+      ],
+      "originalVisual": {
+        "durationSeconds": 2.5,
+        "visualRevision": "a6cd9d31702fc1dd69483b110d975bf05b6684d31ce20d7fa484c11f091e2ed3",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.96
+          }
+        ]
+      },
+      "visualAccent": {
+        "id": "batch-seven-sing-v1",
+        "revision": "053aea4629890a55ddc65b854ff0f1c519107982a462db66497cd9be32a1f5c3"
+      }
+    },
+    {
+      "id": "grasswhistle",
+      "fxId": "grass-whistle",
+      "name": "Grass Whistle",
+      "asset": {
+        "id": "source.grass-whistle",
+        "url": "/sound_effects/Grass%20Whistle.mp3",
+        "bytes": 140143,
+        "sha256": "227951510cd731ab75119e9eb444da7069ae22f125d7f8b35763cff8aa13640b",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 151704,
+          "durationSeconds": 3.44,
+          "decodedBytes": 1213632,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "9b5ab436c44e288be59fba7fee11791d1c600908acf6c17735adde13973a94b1",
+          "peak": 0.25539261,
+          "peakDbfs": -11.85583344,
+          "rmsDbfs": -25.95722797,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4123,
+          "trailingQuietFrames": 5174,
+          "stereoCorrelation": 0.99999913,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "visualRevision": "3167b23869ab6ef824194416ff1bc794e536f39c44f929a6af38a080d43d1e74",
+        "durationSeconds": 3.44,
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.88
+          },
+          {
+            "id": "last-whistle-pulse",
+            "label": "Final continuing whistle pulse",
+            "timeSeconds": 2.68
+          },
+          {
+            "id": "seed-drift-fade",
+            "label": "Final moving seed drift fade",
+            "timeSeconds": 2.99
+          },
+          {
+            "id": "music-fade",
+            "label": "Final leaf and pulse fade",
+            "timeSeconds": 3.14
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1,
+            "cueSeconds": 1,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "Same leaf whistle, drifting seeds and green sound waves, sustained through the complete recording at their original pace."
+      ],
+      "originalVisual": {
+        "durationSeconds": 2.5,
+        "visualRevision": "9426705af84fa68caaf464db5d4564f713761b35cbb7ad1e97ade968c49f4517",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.88
+          }
+        ]
+      },
+      "visualAccent": {
+        "id": "batch-seven-grasswhistle-v1",
+        "revision": "3167b23869ab6ef824194416ff1bc794e536f39c44f929a6af38a080d43d1e74"
+      }
+    },
+    {
+      "id": "attract",
+      "fxId": "attract",
+      "name": "Attract",
+      "asset": {
+        "id": "source.attract",
+        "url": "/sound_effects/Attract.mp3",
+        "bytes": 243588,
+        "sha256": "37532f9a3c4aee069d1de83a78e8ec1c15e0805caedb8d83f37b08386ddb3633",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 265041,
+          "durationSeconds": 6.01,
+          "decodedBytes": 2120328,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "f08bd202c7b0f192f0f1758407a1cb53b83b9fbb6fc3593a78b4c97feda3c789",
+          "peak": 0.22393045,
+          "peakDbfs": -12.99773701,
+          "rmsDbfs": -26.52522762,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4387,
+          "trailingQuietFrames": 5244,
+          "stereoCorrelation": 0.99999894,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "visualRevision": "33434b719ba1980f6c98e16f2279d9d83101630ca2a86f7c640f28d3aaffc503",
+        "durationSeconds": 6.01,
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.92
+          },
+          {
+            "id": "heart-orbit-fade",
+            "label": "Final circling heart fade",
+            "timeSeconds": 5.59
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.19,
+            "cueSeconds": 1.19,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The original heart approach is unchanged. The six ending hearts keep circling the opponent until the sound finishes."
+      ],
+      "originalVisual": {
+        "durationSeconds": 2.55,
+        "visualRevision": "3e3e087715a761cd5d73cfedff65a2d5f95da70b9561d473b056f7fbcb7a2b46",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.92
+          }
+        ]
+      },
+      "visualAccent": {
+        "id": "batch-seven-attract-v1",
+        "revision": "33434b719ba1980f6c98e16f2279d9d83101630ca2a86f7c640f28d3aaffc503"
+      }
+    },
+    {
+      "id": "morningsun",
+      "fxId": "morning-sun",
+      "name": "Morning Sun",
+      "asset": {
+        "id": "source.morning-sun",
+        "url": "/sound_effects/Morning%20Sun.mp3",
+        "bytes": 185074,
+        "sha256": "17cd08b3375620bb2463fb9d3aa469512fc865dadb3233bd843a428d0240a05d",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 201138,
+          "durationSeconds": 4.56095238,
+          "decodedBytes": 1609104,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "87c035d5d95ec28c81f63ae64c26e6b70db6ae28ad02aa20fbb0c3d8d045c6a1",
+          "peak": 0.24420884,
+          "peakDbfs": -12.2447723,
+          "rmsDbfs": -26.88520675,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4108,
+          "trailingQuietFrames": 5121,
+          "stereoCorrelation": 0.99999897,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "visualRevision": "0ffc0c04bb4617444dfdd810cea0bc01ebdb24eb662d64191dbe2603d85eb06f",
+        "durationSeconds": 4.57,
+        "markers": [
+          {
+            "id": "sun-rise",
+            "label": "Sun rises",
+            "timeSeconds": 0.06
+          },
+          {
+            "id": "sun-high",
+            "label": "Sun reaches its height",
+            "timeSeconds": 0.76
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.15
+          },
+          {
+            "id": "heal",
+            "label": "Golden healing aura begins",
+            "timeSeconds": 3.369501133786848
+          },
+          {
+            "id": "heal-crest",
+            "label": "Healing glints brighten",
+            "timeSeconds": 3.49
+          },
+          {
+            "id": "heal-fade",
+            "label": "Rising healing light fades",
+            "timeSeconds": 4.25
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.09,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The original sun, rays and falling light continue longer. A rising healing aura and glints finish with the recording’s healing tail."
+      ],
+      "originalVisual": {
+        "durationSeconds": 2.5,
+        "visualRevision": "9cd75229b57d502cd568b32cddb2156b2430f1b75d7cd1e942380c3df02c2f0b",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.15
+          }
+        ]
+      },
+      "visualAccent": {
+        "id": "batch-seven-morningsun-v1",
+        "revision": "0ffc0c04bb4617444dfdd810cea0bc01ebdb24eb662d64191dbe2603d85eb06f"
+      }
+    },
+    {
+      "id": "moonlight",
+      "fxId": "moonlight",
+      "name": "Moonlight",
+      "asset": {
+        "id": "source.moonlight",
+        "url": "/sound_effects/Moonlight.mp3",
+        "bytes": 225825,
+        "sha256": "00597446bd8f766b9eab2e1afe1d5021a6addbbff4b8de6236eee3c88a1ad0ef",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 245637,
+          "durationSeconds": 5.57,
+          "decodedBytes": 1965096,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "bbfe298c9016cb1b9c9868df6ca1d6b29822f86515d806cd2b8c0be76d30785b",
+          "peak": 0.26853329,
+          "peakDbfs": -11.42003736,
+          "rmsDbfs": -28.1328133,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4100,
+          "trailingQuietFrames": 5255,
+          "stereoCorrelation": 0.99999857,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "visualRevision": "1dac178d8f694bb20725d6e44fa5414e1d24ddf4c40010ae2c17cea2544a1cb5",
+        "durationSeconds": 5.57,
+        "markers": [
+          {
+            "id": "moon-rise",
+            "label": "Moonlight curtain appears",
+            "timeSeconds": 0.08
+          },
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.15
+          },
+          {
+            "id": "heal",
+            "label": "Silver healing aura begins",
+            "timeSeconds": 4.37843537414966
+          },
+          {
+            "id": "heal-crest",
+            "label": "Healing light brightens",
+            "timeSeconds": 4.53
+          },
+          {
+            "id": "heal-fade",
+            "label": "Rising healing light fades",
+            "timeSeconds": 5.25
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.09,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The original crescent, falling moonlight and reflections continue longer. A soft healing aura and glints finish with the recording’s healing tail."
+      ],
+      "originalVisual": {
+        "durationSeconds": 2.5,
+        "visualRevision": "3ec514e7611b95ba49c448f484f11e3250ac517a4ccb9c1e822c83969e2647b7",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 1.15
+          }
+        ]
+      },
+      "visualAccent": {
+        "id": "batch-seven-moonlight-v1",
+        "revision": "1dac178d8f694bb20725d6e44fa5414e1d24ddf4c40010ae2c17cea2544a1cb5"
+      }
+    },
+    {
+      "id": "confuseray",
+      "fxId": "confuse-ray",
+      "name": "Confuse Ray",
+      "asset": {
+        "id": "source.confuse-ray",
+        "url": "/sound_effects/Confuse%20Ray.mp3",
+        "bytes": 129694,
+        "sha256": "85941556a8c1f1d5eb61ebd1659bf95d4a53c1eb756a9005463fe160320b31ad",
+        "decoded": {
+          "sampleRate": 44100,
+          "channels": 2,
+          "sampleFrames": 140238,
+          "durationSeconds": 3.18,
+          "decodedBytes": 1121904,
+          "pcmFormat": "interleaved-float32-le",
+          "pcmSha256": "6b0cf5ac804c7f497508321b75ebea0971de8b3aae93aa20a14aaaac9c6f7e36",
+          "peak": 0.39239773,
+          "peakDbfs": -8.12547024,
+          "rmsDbfs": -24.17327384,
+          "samplesAboveFullScale": 0,
+          "quietThresholdDbfs": -60,
+          "leadingQuietFrames": 4027,
+          "trailingQuietFrames": 4883,
+          "stereoCorrelation": 0.99999938,
+          "allBelowThreshold": false,
+          "truePeakDbfs": null,
+          "truePeakStatus": "not-measured",
+          "warnings": []
+        }
+      },
+      "visual": {
+        "visualRevision": "ba44a66dbdf5786d2009f5f0c69da6cfb706131019c9190ebf1505ecf6f47d7e",
+        "durationSeconds": 3.18,
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.98
+          },
+          {
+            "id": "ducks-start",
+            "label": "Three confusion ducks begin circling",
+            "timeSeconds": 1.81
+          },
+          {
+            "id": "duck-bob-1",
+            "label": "Duck bob at sound accent 1",
+            "timeSeconds": 1.92
+          },
+          {
+            "id": "duck-bob-2",
+            "label": "Duck bob at sound accent 2",
+            "timeSeconds": 2.17
+          },
+          {
+            "id": "duck-bob-3",
+            "label": "Duck bob at sound accent 3",
+            "timeSeconds": 2.29
+          },
+          {
+            "id": "duck-bob-4",
+            "label": "Duck bob at sound accent 4",
+            "timeSeconds": 2.41
+          },
+          {
+            "id": "duck-bob-5",
+            "label": "Duck bob at sound accent 5",
+            "timeSeconds": 2.66
+          },
+          {
+            "id": "ducks-clear",
+            "label": "Circling ducks finish their fade",
+            "timeSeconds": 3.18
+          }
+        ]
+      },
+      "baseline": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0,
+            "cueSeconds": 0,
+            "gainDb": 0
+          }
+        ]
+      },
+      "candidate": {
+        "visualRate": 1,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.29,
+            "cueSeconds": 2.29,
+            "gainDb": 0
+          }
+        ]
+      },
+      "notes": [
+        "The original ray and swirling halo stay intact. Three yellow ducks circle above the opponent during the ending confusion sounds."
+      ],
+      "originalVisual": {
+        "durationSeconds": 2.35,
+        "visualRevision": "81ca1656ab2e7c86eebdda5cbaddd3326a2beb4a506d525fa701d0685f2470ad",
+        "markers": [
+          {
+            "id": "impact",
+            "label": "Result impact cue",
+            "timeSeconds": 0.98
+          }
+        ]
+      },
+      "visualAccent": {
+        "id": "batch-seven-confuseray-v1",
+        "revision": "ba44a66dbdf5786d2009f5f0c69da6cfb706131019c9190ebf1505ecf6f47d7e"
+      }
+    }
+  ],
+  "defaultMoveId": "sing",
+  "reviewPlayback": "batch-seven-v1",
+  "batches": [
+    {
+      "id": "sync-001",
+      "label": "Batch 1 · Accepted",
+      "status": "accepted"
+    },
+    {
+      "id": "sync-002",
+      "label": "Batch 2 · Accepted",
+      "status": "accepted"
+    },
+    {
+      "id": "sync-003",
+      "label": "Batch 3 · Accepted",
+      "status": "accepted"
+    },
+    {
+      "id": "sync-004",
+      "label": "Batch 4 · Review",
+      "status": "unreviewed-comparison"
+    },
+    {
+      "id": "sync-005",
+      "label": "Batch 5 · Odd ones out",
+      "status": "unreviewed-comparison"
+    },
+    {
+      "id": "sync-006",
+      "label": "Batch 6 · Accepted",
+      "status": "accepted"
+    },
+    {
+      "id": "sync-007",
+      "label": "Batch 7 · Songs and healing",
+      "status": "unreviewed-comparison"
+    }
+  ]
+}

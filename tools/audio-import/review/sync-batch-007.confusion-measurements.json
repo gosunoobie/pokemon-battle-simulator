@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "kind": "confuse-ray-tail-section-evidence",
+  "provenance": {
+    "referenceReport": "tools/audio-import/reports/sfx-remaining-analysis.json",
+    "referenceReportSha256": "5dc9cf5239da897f7b8be1a2357c5d888a1d3d02081186d4f6cca3a35c464630"
+  },
+  "source": {
+    "assetId": "source.confuse-ray",
+    "sha256": "85941556a8c1f1d5eb61ebd1659bf95d4a53c1eb756a9005463fe160320b31ad",
+    "pcmSha256": "6b0cf5ac804c7f497508321b75ebea0971de8b3aae93aa20a14aaaac9c6f7e36",
+    "sampleRate": 44100,
+    "sampleFrames": 140238,
+    "durationSeconds": 3.18
+  },
+  "parts": [
+    {
+      "assetId": "source.confuse-ray-part-1",
+      "sha256": "6177171bc1127d47863be6c0868859b284f4e554f7832593f113e2e3e0f698a4",
+      "pcmSha256": "c7bc3ef735ae6fedac8b954d76b90dea8609c289b9df6a7cac8af48652341f73",
+      "sampleRate": 44100,
+      "sampleFrames": 79821,
+      "durationSeconds": 1.81
+    },
+    {
+      "assetId": "source.confuse-ray-part-2",
+      "sha256": "aaecc0e21b60f160d195f027e1bc19b83b940f26a42e33c0013fc9585bff9bad",
+      "pcmSha256": "81c8184ee8098c52772f9bec6539dfc32fe5c468add024e1325f38b1928704eb",
+      "sampleRate": 44100,
+      "sampleFrames": 60417,
+      "durationSeconds": 1.37
+    }
+  ],
+  "computedAlignment": {
+    "offsetFrames": 79821,
+    "offsetSeconds": 1.81,
+    "totalFrames": 140238,
+    "totalMatchesFull": true,
+    "matchedRises": [
+      {
+        "part2StartFrame": 4851,
+        "fullStartFrame": 84672,
+        "timeSeconds": 1.92,
+        "part2RmsDbfs": -14.02755253,
+        "fullRmsDbfs": -14.05349957,
+        "rmsDifferenceDb": 0.025947040000000143,
+        "part2RmsRise": 0.12894261,
+        "fullRmsRise": 0.12863888
+      },
+      {
+        "part2StartFrame": 15876,
+        "fullStartFrame": 95697,
+        "timeSeconds": 2.17,
+        "part2RmsDbfs": -13.65059386,
+        "fullRmsDbfs": -13.65548229,
+        "rmsDifferenceDb": 0.0048884299999993885,
+        "part2RmsRise": 0.1281494,
+        "fullRmsRise": 0.12825021
+      },
+      {
+        "part2StartFrame": 21168,
+        "fullStartFrame": 100989,
+        "timeSeconds": 2.29,
+        "part2RmsDbfs": -13.75110213,
+        "fullRmsDbfs": -13.74556911,
+        "rmsDifferenceDb": 0.0055330199999996665,
+        "part2RmsRise": 0.14930799,
+        "fullRmsRise": 0.14948797
+      },
+      {
+        "part2StartFrame": 26460,
+        "fullStartFrame": 106281,
+        "timeSeconds": 2.41,
+        "part2RmsDbfs": -12.72962643,
+        "fullRmsDbfs": -12.73406116,
+        "rmsDifferenceDb": 0.004434729999999831,
+        "part2RmsRise": 0.10309454,
+        "fullRmsRise": 0.10304511
+      },
+      {
+        "part2StartFrame": 37485,
+        "fullStartFrame": 117306,
+        "timeSeconds": 2.66,
+        "part2RmsDbfs": -14.97917878,
+        "fullRmsDbfs": -14.97612748,
+        "rmsDifferenceDb": 0.003051299999999202,
+        "part2RmsRise": 0.10041724,
+        "fullRmsRise": 0.10065252
+      }
+    ],
+    "strongestWindow": {
+      "part2StartFrame": 26460,
+      "fullStartFrame": 106281,
+      "timeSeconds": 2.41
+    },
+    "transitionEnvelope": {
+      "columns": [
+        "startFrame",
+        "endFrameExclusive",
+        "maximumWindowRmsDbfs",
+        "samplePeakDbfs"
+      ],
+      "bins": [
+        [
+          74088,
+          76293,
+          -63.79763237,
+          -42.53751867
+        ],
+        [
+          76293,
+          78498,
+          -85.78390141,
+          -74.59422568
+        ],
+        [
+          78498,
+          80703,
+          -85.36873491,
+          -74.9673656
+        ],
+        [
+          80703,
+          82908,
+          -85.27418035,
+          -73.92100225
+        ],
+        [
+          82908,
+          85113,
+          -14.05349957,
+          -10.03803697
+        ],
+        [
+          85113,
+          87318,
+          -17.02824191,
+          -11.65906462
+        ]
+      ]
+    }
+  },
+  "interpretation": {
+    "computed": "All five strongest positive tail energy rises in Part 2 align exactly to full-recording rise frames after adding 79,821 frames (1.81 s). Their RMS values differ by under 0.03 dB. The part frame lengths sum to the full duration; this is measured energy alignment, not a claim of byte-identical independently encoded PCM.",
+    "semantic": "The user explicitly requested circling ducks during this sound tail. Energy measurements locate its timing; they do not identify the sound as ducks.",
+    "visual": "Three yellow ducks enter at 1.81 s, are fully readable at the 1.92 s rise, bob at the five measured rise times, and keep orbiting through their fade to 3.18 s."
+  },
+  "playback": {
+    "sourceStartSeconds": 0,
+    "sourceEndSeconds": null,
+    "soundDelaySeconds": 0,
+    "playbackRate": 1,
+    "gainDb": 0,
+    "contactSeconds": 0.98,
+    "ducksStartSeconds": 1.81,
+    "ducksFullSeconds": 1.92,
+    "ducksEndSeconds": 3.18
+  }
+}

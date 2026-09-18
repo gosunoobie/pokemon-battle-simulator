@@ -1,0 +1,2329 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-reviews",
+  "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "torment",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.torment",
+        "sha256": "17c00e847da2127da31fa4d90a79ad46a45985854e4328d0e513ad348f601f3f",
+        "pcmSha256": "e6ee0ae008f54b4ae21b82e70583f2df20b4b956fd59e1f31f5e48b4fb16f9fd",
+        "sampleRate": 44100,
+        "sampleFrames": 137592,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "850101cf82f49d5e17ae63ea9e04410f9d8b58b1032f6f1241645263b2d69441",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 137592,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. The strongest energy window occurs too late in the source to align the complete recording at the result cue without starting before the animation. No lead-in was cut to force alignment. Flags: listening-unreviewed, native-decoder-unmeasured, whole-recording-tail-exceeds-animation. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "toxic",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.toxic",
+        "sha256": "d915e42d7312b05f972f0ae644491a272d9a105e542cdf54887557c102b11cd8",
+        "pcmSha256": "bf347d1cb09fd34f9650426f31ab9d58f55d0f595b2f1fe1d236a49d39151bf8",
+        "sampleRate": 44100,
+        "sampleFrames": 253575,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "136f140f0e21594f9b38eb1b86f2f40c9bcff6ca815319ba0c147e41a3832db5",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 253575,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. The strongest energy window occurs too late in the source to align the complete recording at the result cue without starting before the animation. No lead-in was cut to force alignment. Flags: listening-unreviewed, native-decoder-unmeasured, whole-recording-tail-exceeds-animation. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "transform",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.transform",
+        "sha256": "af03dd1a2a0bd833ca332b4aac6cf1610c2ba72424a0e0b5e2331179fafba4a6",
+        "pcmSha256": "6328e1457b6768e7d2c9f3d477dc358790f4569b15edb0f6441c9a0e20fa4baf",
+        "sampleRate": 44100,
+        "sampleFrames": 89523,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "d7124057d18a58fed6756df091603dbe8eea333d36ed6e39453922dcaca93095",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 89523,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. Flags: listening-unreviewed, native-decoder-unmeasured. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "triattack",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.tri-attack",
+        "sha256": "f50e1cd0c25dd3957f777d4490e25b134d1ee296612ebef69c721c8785f618a6",
+        "pcmSha256": "443f8766ff4e4f0c9fb498de237d594ec9bfef8417ed6e9ba81473ea63e8301d",
+        "sampleRate": 44100,
+        "sampleFrames": 208152,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "b93ba0de28549015952e1b9334fbc5a22724e05c834e90c9537526b1bd96b396",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 208152,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. The strongest energy window occurs too late in the source to align the complete recording at the result cue without starting before the animation. No lead-in was cut to force alignment. Flags: listening-unreviewed, native-decoder-unmeasured, whole-recording-tail-exceeds-animation. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "trick",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.trick",
+        "sha256": "1c51acc23496dc779042e2a7347ad00ddbcadda920ae28729d97c925ed5d5ea3",
+        "pcmSha256": "f9b7b906546bc8998a1b6c608d5765df4581312679272d16ce4c0202a807cc3a",
+        "sampleRate": 44100,
+        "sampleFrames": 158319,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "2a392ec62cc6016df295b27988547617c7cf2f03b3eec46dccb2068a7229b8bf",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 158319,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. The strongest energy window occurs too late in the source to align the complete recording at the result cue without starting before the animation. No lead-in was cut to force alignment. Flags: listening-unreviewed, native-decoder-unmeasured, whole-recording-tail-exceeds-animation. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "triplekick",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.triple-kick-1hit",
+        "sha256": "9dcf7ecf3a28a5c8756eee1d408c817110530f98c947bbbf17ef3d3daf95fe05",
+        "pcmSha256": "09087b4ede6981c5353f913106984a9b9d2eeebdc3e1e70fecab0ae87ed5ac3b",
+        "sampleRate": 44100,
+        "sampleFrames": 24560,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "9f05d2e3650d7882a84c28fd7f3182a4ce2b25ea2de5ab6bee779033e25204f9",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 24560,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, variant-role-unassigned:hit-count. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "triplekick",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.triple-kick-2hits",
+        "sha256": "3f6a8f50660f658c1968363dabaf2db727eaa3c01826246f2c95bc16e2af1601",
+        "pcmSha256": "91fc3b65fedae66f6aa6a936c8ca70fe2fa6fc4088bfad9140eb3ee1d00eba76",
+        "sampleRate": 44100,
+        "sampleFrames": 48917,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "9f05d2e3650d7882a84c28fd7f3182a4ce2b25ea2de5ab6bee779033e25204f9",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 48917,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, variant-role-unassigned:hit-count. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "twineedle",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.twineedle-1hit",
+        "sha256": "7da0d40905163c837e88edd0f249c43017834db9b7b3835c45575e36b850776f",
+        "pcmSha256": "8e360dcb27a8595db8fd8da77123156ba3aaa551025b831459f173191857b7da",
+        "sampleRate": 44100,
+        "sampleFrames": 43936,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "f5fcd607cfea3e0027b0bc42a8f089a4076ac417721ad52424ee8263a3d084e4",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 43936,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, variant-role-unassigned:hit-count. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "twineedle",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.twineedle-2hits",
+        "sha256": "6391cad26e284a1656985ede188015361bf1634f894103981cc09c13a3ef930c",
+        "pcmSha256": "cc0346a8567d37dc015939fc5ad51fe98c388d234609fb2a1231a3945d015f8e",
+        "sampleRate": 44100,
+        "sampleFrames": 88199,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "f5fcd607cfea3e0027b0bc42a8f089a4076ac417721ad52424ee8263a3d084e4",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 88199,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, variant-role-unassigned:hit-count, whole-recording-tail-exceeds-animation. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "twister",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.twister",
+        "sha256": "0056865e5586bcbb27cc1bdd2cd7a446080c38f402a63f56af12d3ed160a7162",
+        "pcmSha256": "9d56dd4751a9fcd0534a86ee6ee62726f97676204a4d7b951505ee0623d47581",
+        "sampleRate": 44100,
+        "sampleFrames": 141484,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "a39ba9d2805b0501e8a00575c76e8fe105811c892bf2eb640c796ce37455b060",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 141484,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": -1.6,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain -1.6 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. The strongest energy window occurs too late in the source to align the complete recording at the result cue without starting before the animation. No lead-in was cut to force alignment. Flags: listening-unreviewed, native-decoder-unmeasured, whole-recording-tail-exceeds-animation. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "uproar",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.uproar",
+        "sha256": "7e07dc69a6c9715c57c2ad0ae5261bf91a96c44e5acc510879b3fb12b6c120b3",
+        "pcmSha256": "8fea859568e95a4fc964cb6a0b062c239e8f531c26c698b1ff912520e4a4e94b",
+        "sampleRate": 44100,
+        "sampleFrames": 51170,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "8e8beb4fbbb4acd9bd71cb54a9cdcad4d7329eb8b27eb015f1944ed97be45ec6",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 51170,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. The strongest energy window occurs too late in the source to align the complete recording at the result cue without starting before the animation. No lead-in was cut to force alignment. Flags: listening-unreviewed, native-decoder-unmeasured. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "vinewhip",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.vine-whip",
+        "sha256": "021a80e83ff33e361667778c8d74a8ed1d7939a1adca140b0cb68858d09f4083",
+        "pcmSha256": "d886b9af5c73631155a28dacc4cffec8192679943fe1ad6dfa67d64bf5e6a1a9",
+        "sampleRate": 44100,
+        "sampleFrames": 25328,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "e5fe6e2d9157b92b077bec97923cfc8b39d69f49fe76bda1f8513fd6894d520a",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 25328,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. Flags: listening-unreviewed, native-decoder-unmeasured. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "visegrip",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.vice-grip",
+        "sha256": "18489e53ce81588e2b89e6722aa405486d2ca5bd14004436b1c9a32e9d80635c",
+        "pcmSha256": "d975a3aafa86c520dda8abb271e045536619c87bd3a372b61268426c747dd028",
+        "sampleRate": 44100,
+        "sampleFrames": 28224,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "c5c367ac57c4321adb14d12f1388ccc65eddc619d2a6ca6a72dfaacd44e12229",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 28224,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. Flags: listening-unreviewed, native-decoder-unmeasured. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "vitalthrow",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.vital-throw",
+        "sha256": "0da18ad108eadca23847f2afa39c4daaf60aa963dc39c26e108412cade48a3c2",
+        "pcmSha256": "7e6fc30bc25f513f5b6312a134400d119cf9017c4044158cc4c351ad3b6438a3",
+        "sampleRate": 44100,
+        "sampleFrames": 61640,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "58fe6301256c43cd9437efe96955a00abda20829249f43bf6369eca3ffdb5115",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 61640,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. Flags: listening-unreviewed, native-decoder-unmeasured. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "volttackle",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.volt-tackle-part-1",
+        "sha256": "7d917c37770118fd3a66d07985c893d44f500497032eea5a8a1f56ecfc095c19",
+        "pcmSha256": "29c4390b84ac07c67562f57ef2b33523f338034b877819baf6bb560dac360eeb",
+        "sampleRate": 44100,
+        "sampleFrames": 158319,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "f534960b799030908c2d24b66f0dce7a11647e2a8d85e0e157bdd68e9085e7e2",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 158319,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": -3.67,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain -3.67 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, variant-role-unassigned:part, whole-recording-tail-exceeds-animation. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "volttackle",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.volt-tackle-part-2",
+        "sha256": "17e97a75197a3d86142741a08de9410d5f7a7afdadf491250826410c06931a0b",
+        "pcmSha256": "7981939c9a82495f2c5f032ea7360e781314d7ae2efe1731c02bebbf1be19e1e",
+        "sampleRate": 44100,
+        "sampleFrames": 31228,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "f534960b799030908c2d24b66f0dce7a11647e2a8d85e0e157bdd68e9085e7e2",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 31228,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, variant-role-unassigned:part. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "volttackle",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.volt-tackle",
+        "sha256": "f1fd1c8ad9209e1182a332aa0f8f0f037d05a00d412ee8c05f46995143d5962b",
+        "pcmSha256": "85ecc9e1e70bc1804efee5f18b2f8aa1d73a4a84036bfa6750f64133b3a5c9a6",
+        "sampleRate": 44100,
+        "sampleFrames": 189547,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "f534960b799030908c2d24b66f0dce7a11647e2a8d85e0e157bdd68e9085e7e2",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 189547,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": -3.71,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain -3.71 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. The strongest energy window occurs too late in the source to align the complete recording at the result cue without starting before the animation. No lead-in was cut to force alignment. Flags: listening-unreviewed, native-decoder-unmeasured, whole-recording-tail-exceeds-animation. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "waterfall",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.waterfall-part-1",
+        "sha256": "4d3e48ad647b0530d14e68dad8e05a788c5a752bd7a8b6dc2e7a6a1ec3ac0099",
+        "pcmSha256": "3e95f1e525a325609ee6f125834bd4f64e73c271f9da482de140ed970b21f4e4",
+        "sampleRate": 44100,
+        "sampleFrames": 57642,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "2111fc91b26b3bec071e56efb34bcb6acdab694b71659bfc2328ce9b3ee75b3f",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 57642,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, variant-role-unassigned:part. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "waterfall",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.waterfall-part-2",
+        "sha256": "a94ed076e661be2cfaa5ee2b820890d919f2bec3e4702fafce41907decff678e",
+        "pcmSha256": "c464f9ce30ee59f05d20c99341674eb784c5a016102ba3bffb6bd9cb4f6c90e4",
+        "sampleRate": 44100,
+        "sampleFrames": 51638,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "2111fc91b26b3bec071e56efb34bcb6acdab694b71659bfc2328ce9b3ee75b3f",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 51638,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, variant-role-unassigned:part. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "waterfall",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.waterfall",
+        "sha256": "3433f208caf59e33ba0f020d6523243567103afae92e8f382bbe54464a6e634f",
+        "pcmSha256": "f5cae7b13734073bcbfa9607f7a84b0da7e2b08f909b35aaf2da079534664094",
+        "sampleRate": 44100,
+        "sampleFrames": 109280,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "2111fc91b26b3bec071e56efb34bcb6acdab694b71659bfc2328ce9b3ee75b3f",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 109280,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. The strongest energy window occurs too late in the source to align the complete recording at the result cue without starting before the animation. No lead-in was cut to force alignment. Flags: listening-unreviewed, native-decoder-unmeasured. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "watergun",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.water-gun",
+        "sha256": "1b261b2cd81fa02aa4730c4af1c508175e4b37635566b5ccb598e743e52f2dde",
+        "pcmSha256": "d3b480d1d5ff4b466bb4852b91f77f699cf924ce8a89a2e0cbd7200cbe0030c9",
+        "sampleRate": 44100,
+        "sampleFrames": 74970,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "3ca49ba217b659da5d2e976277c43e89e3f7bab86b3465e4c3a4c5452e4e1c44",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 74970,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. Flags: listening-unreviewed, native-decoder-unmeasured, whole-recording-tail-exceeds-animation. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "waterpulse",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.water-pulse",
+        "sha256": "3a83ca89bbe3cb1c0adcf608b42f5cae5e57d8418d28552fff9e311606ac7658",
+        "pcmSha256": "72a66732d34eaa5d787161d4320eabcfb2db03c79ceb6edc3812542af5ed8c85",
+        "sampleRate": 44100,
+        "sampleFrames": 92610,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "d8e598f81c775fa453b01cea56da2dcafe775744825821629cde9f07075055a6",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 92610,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. The strongest energy window occurs too late in the source to align the complete recording at the result cue without starting before the animation. No lead-in was cut to force alignment. Flags: listening-unreviewed, native-decoder-unmeasured. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "watersport",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.water-sport",
+        "sha256": "2391e36d793c83272fd16244317298c582814111cfe3e8c390e3f2abcfda29cc",
+        "pcmSha256": "e494da6a65d6f65c0326301ae8fa2af43a2c90253298b177e41bd79e2c44e25e",
+        "sampleRate": 44100,
+        "sampleFrames": 183897,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "dbce242310521015726f7c5d6ffda915e46483354162a28d9023823d820d91c3",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 183897,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. Flags: listening-unreviewed, native-decoder-unmeasured, whole-recording-tail-exceeds-animation. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "weatherball",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.weather-ball",
+        "sha256": "dc63b648d260353c789210c11c1da605c65bbfe4684e07f8b91891d6ce4ce167",
+        "pcmSha256": "579d2211949eaf81dbcdd37c1e46e81110a2025bc9ba5d8eed3b2171c700723c",
+        "sampleRate": 44100,
+        "sampleFrames": 93709,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "fa86344b9ecdd358854ac9e3084704f2f54b95a7c6e639141849feb16407877d",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 93709,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": -0.61,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain -0.61 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. The strongest energy window occurs too late in the source to align the complete recording at the result cue without starting before the animation. No lead-in was cut to force alignment. Flags: listening-unreviewed, native-decoder-unmeasured, whole-recording-tail-exceeds-animation. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "whirlpool",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.whirlpool-turn-damage",
+        "sha256": "037e6b0da423fecc16fae12d864c6ce07266b01031a09e891d9c108c4897cd71",
+        "pcmSha256": "4bc1f639b1d618f6cc61d7cd886e07927ac6e48af378240401e5787ed45c9e4f",
+        "sampleRate": 44100,
+        "sampleFrames": 92169,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "8cf1ae9c9c9be25f355fb29893f3acc7feee3d7147a0090f35787e10cb507403",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 92169,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, audio-only-variant-no-compatible-visual, variant-role-unassigned:turn-effect, outcome-visual-compatibility-unconfirmed. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "whirlpool",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.whirlpool",
+        "sha256": "c48d5d60b230eb44d52e0e3893df1e9874713794cb89174996ddbfc99412805d",
+        "pcmSha256": "8e2392a241239c42b76de50e79cb53c95bd8a7aa779dab64fbd00787300df365",
+        "sampleRate": 44100,
+        "sampleFrames": 94940,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "8cf1ae9c9c9be25f355fb29893f3acc7feee3d7147a0090f35787e10cb507403",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 94940,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. The strongest energy window occurs too late in the source to align the complete recording at the result cue without starting before the animation. No lead-in was cut to force alignment. Flags: listening-unreviewed, native-decoder-unmeasured. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "whirlwind",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.whirlwind",
+        "sha256": "a09419d2152024ef2203768aae33e745bcca80cce3562731fbc899ec3c6ee0ef",
+        "pcmSha256": "86cfc7b475b2d55e1d353b47028df3100d1c1305de5050c8f904036534e602d3",
+        "sampleRate": 44100,
+        "sampleFrames": 66591,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "edf982eb642fc3765ad5b3c5b1f7f1b0d08d7ba8b422e013a7e802a4fa2056c8",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 66591,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. The strongest energy window occurs too late in the source to align the complete recording at the result cue without starting before the animation. No lead-in was cut to force alignment. Flags: listening-unreviewed, native-decoder-unmeasured. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "wingattack",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.wing-attack",
+        "sha256": "eb4a9247d6a2a85825e77815b0aef49ee537aae160d2c98b90c9c58e51a0b777",
+        "pcmSha256": "09fc1f4f189a984999f15fcdfd3861fec91ee9e78bf4f735c70852d5b85b34be",
+        "sampleRate": 44100,
+        "sampleFrames": 64827,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "0e9382a6ba68b09783a91affcb9f33d5ba9bf89cfdba21d621cc463e5fc692e8",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 64827,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. Flags: listening-unreviewed, native-decoder-unmeasured. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "wish",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.wish-part-1",
+        "sha256": "7bf8301c1392c631364080c2f4ef0464929d874e55e444ca0dbea5c5b5dc4211",
+        "pcmSha256": "04609656d2f58c5060820de7144821c28075b04c36a53a24761a84b4b687fb79",
+        "sampleRate": 44100,
+        "sampleFrames": 106722,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "11733f30dd701d5ee817c3385edee64c265a2fe1105039aab9a9b40f60db596a",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 106722,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, variant-role-unassigned:part. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "wish",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.wish-part-2",
+        "sha256": "6e6dc394d3d6968a90e5685863db0388207f4655911bae40cf9c48424157af76",
+        "pcmSha256": "a7dbbd9f2e99698968acb74f90b030f238cd8d02fbea1f7b6017a0e3c32df28d",
+        "sampleRate": 44100,
+        "sampleFrames": 111132,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "11733f30dd701d5ee817c3385edee64c265a2fe1105039aab9a9b40f60db596a",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 111132,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, variant-role-unassigned:part. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "wish",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.wish",
+        "sha256": "d563d4bbc4c2e9704e49bcc0334e7920042415cf360923d145e1a5900d38d9a5",
+        "pcmSha256": "70bdef709b88e54213f11af74c98575defd4f1363f6e196688aebad5f1f57455",
+        "sampleRate": 44100,
+        "sampleFrames": 217854,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "11733f30dd701d5ee817c3385edee64c265a2fe1105039aab9a9b40f60db596a",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 217854,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. Flags: listening-unreviewed, native-decoder-unmeasured, whole-recording-tail-exceeds-animation. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "withdraw",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.withdraw",
+        "sha256": "76c07705faab90a93b06c4f8478a57e4ac517ed67836348703076fa75cba8cc4",
+        "pcmSha256": "e5eb22734f03169905b8db56a1fd9dd8fcb553b9a188b3075f1320d247d67e34",
+        "sampleRate": 44100,
+        "sampleFrames": 33957,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "c792e5204e77425930239f661a775496e7c23417601263489d6d0271bcfb5725",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 33957,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. Flags: listening-unreviewed, native-decoder-unmeasured. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "wrap",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.wrap-turn-damage",
+        "sha256": "0fb750c346df15f24717eafa3a991e1acf55740dd681b41d338ca0950d98e703",
+        "pcmSha256": "40c8250c881048df9529a9866393a9acbd00af9f690747b574092822c341385c",
+        "sampleRate": 44100,
+        "sampleFrames": 61299,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "367d073048f7aa71adf32dfa08bf9b68c3e12656efed3f6f3518bb609ef06ced",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 61299,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, audio-only-variant-no-compatible-visual, variant-role-unassigned:turn-effect, outcome-visual-compatibility-unconfirmed. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "wrap",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.wrap",
+        "sha256": "792cee2154899e891ce111b8fba0018081e3e653fc583049d1fd40efa716538d",
+        "pcmSha256": "c836fa2c89642799ae8b3ee599c5cd20423ebe3a0ffa78c2398ac28a7cc6e165",
+        "sampleRate": 44100,
+        "sampleFrames": 31765,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "367d073048f7aa71adf32dfa08bf9b68c3e12656efed3f6f3518bb609ef06ced",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 31765,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. Flags: listening-unreviewed, native-decoder-unmeasured. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "yawn",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.yawn",
+        "sha256": "53dc2fb50953296b550b616013e4ac87b014634c38ff0a36d3186dd47f3325f8",
+        "pcmSha256": "9f200ba4a327d55fff8768366185534cd3fb1c417b5b80958e081af6e76975df",
+        "sampleRate": 44100,
+        "sampleFrames": 157437,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "ececc3e81ec953388a66c6cc9d828ed9d697dfa4e77009116d74e5720c369f1e",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 157437,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. The strongest energy window occurs too late in the source to align the complete recording at the result cue without starting before the animation. No lead-in was cut to force alignment. Flags: listening-unreviewed, native-decoder-unmeasured, whole-recording-tail-exceeds-animation. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "move",
+        "id": "zapcannon",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.zap-cannon",
+        "sha256": "5d1f99d0971fd6661d94e16968f50f561b291b164ee20304a830e7e3061f8052",
+        "pcmSha256": "ea86a9fa10382cbd06afb1ede7b0a11bc035c6433d3c18d966b822c02a1eb675",
+        "sampleRate": 44100,
+        "sampleFrames": 82609,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "4b422581eec4967c68cf00c058bea05e9808c58293fbf8fb65ab6b39845b0778",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 82609,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. Flags: listening-unreviewed, native-decoder-unmeasured. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.faint",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.in-battle-faint-no-health",
+        "sha256": "c71721da6cc02d8dbe5b5d77bf68879b561551efb9173c1bec77066a95ae76d4",
+        "pcmSha256": "c8825f43731b9fd6d803cb729866081b43630fe18b3d5015658947baa91e5a55",
+        "sampleRate": 44100,
+        "sampleFrames": 44100,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "35f16e185b67b274f897e466eddef2ea4e62e1f4a57d8c64ed51478b40a780d2",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 44100,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": -0.57,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain -0.57 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.heal",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.in-battle-heal-hp-restore",
+        "sha256": "d4494b21979c541ac3d22f68692c6f26da4a6ae3137739059a7594e1fd60fa7e",
+        "pcmSha256": "c2fa2a5f1d7fe45a2f560e154c4837dfc2c04649c84c07f47d2433d6245953d0",
+        "sampleRate": 44100,
+        "sampleFrames": 56448,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "260b70ac09a9ef30c2141d38ea8fc7da97e0c6ebbda582c45dff71ee126ab131",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 56448,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.hit.normal",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.hit-normal-damage",
+        "sha256": "57c483e134fb4c47550b401019672f902e265d51e98dd8f1c32f2f73b3bafea2",
+        "pcmSha256": "93d2d7d43330e88b6888db9a21d9c599bf6dd7477f1fe55ed3a144e18606f1ff",
+        "sampleRate": 44100,
+        "sampleFrames": 39826,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "321b1eae059cdaa71daf55740ab443cf97e8b0d9b1ae1f125888e9bae8564f63",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 39826,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": -1.84,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain -1.84 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.hit.resisted",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.hit-weak-not-very-effective",
+        "sha256": "cfaa3e077c7a8451a6a6d325755eee10b95db9081196fd7cd8eacde4996bdeb1",
+        "pcmSha256": "0ac62937be4f8740fd475a434e6090df602e5f17851300289cf70abcb52549cf",
+        "sampleRate": 44100,
+        "sampleFrames": 30870,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "a26195e80e78b346fb263bea25c78948a5c0180a24f53325b1d3311a328d3393",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 30870,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": -0.44,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain -0.44 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.hit.super-effective",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.hit-super-effective",
+        "sha256": "78652aa7b163ef73a0fcb37af61068a12d83a0a298e64ef447e792e58b34150e",
+        "pcmSha256": "22f6732810ec91f2620637c3004f8411310a61d4023fde63f3014447118a0d16",
+        "sampleRate": 44100,
+        "sampleFrames": 75852,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "1b8a0c8c50f9c74e32b6ef34344dbf383587276d2fdd35e3773b68c3c2e548be",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 75852,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": -1.68,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain -1.68 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.item.activate",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.in-battle-held-item-activate",
+        "sha256": "afd289326df6b00eecae56367e29d29609bb0eda8c16d0754c3f69ccec551a7c",
+        "pcmSha256": "18a90e2eeb2621420acfafc95cd3f5a58ed537080ff28b045aa4ad6841af2be6",
+        "sampleRate": 44100,
+        "sampleFrames": 168122,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "dc0b7927a3cae603fd53824ac2d422bd1c44f19eab100f2a1b595ff5050ba116",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 168122,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.low-health.loop",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.in-battle-health-low-loop",
+        "sha256": "7caf19a11c4b24c2400a72bad86f9929b530fe767d4745e69d2458a71cc5d492",
+        "pcmSha256": "49cc8930a91a069f17f6d83dc838bc0cae89b8842fd1bffd8dcc6d397ae86eb8",
+        "sampleRate": 44100,
+        "sampleFrames": 218008,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "1fa90db79a5e1e748641c1621000876dd8bc7c91767ceeed4ad1e92b7eea4ad9",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 218008,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": -7.77,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain -7.77 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.low-health.notice",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.in-battle-health-low",
+        "sha256": "de1f92fb26a2153334f70d1e4a3622377c53bc8fb1c8f1e16270f96851fd8edf",
+        "pcmSha256": "20c1bebffb00f67859534d7c12e43756cb82641ea4bec07708558a91b946fba9",
+        "sampleRate": 44100,
+        "sampleFrames": 109004,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "e8e1a0e543ab400e686ae20bb6028a5f35ab4c11ed6b611af1dc12bfebfd7c98",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 109004,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": -7.77,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain -7.77 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.recall.flee",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.in-battle-recall-switch-flee-run",
+        "sha256": "22d16d440642fe78256dab5d30ba2a7b63182c56c335bc89cf259af17931e6d7",
+        "pcmSha256": "c28c97e909d342bd5bcf4e5d4512ffff3d3f95cf3aced22f0325d687dc6dbd83",
+        "sampleRate": 44100,
+        "sampleFrames": 37485,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "478e9b39b1076cf28abfff97492eeb5bd6451621faebcfdd1937046796ddc4d6",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 37485,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": -7.28,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain -7.28 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.recall.pokeball",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.in-battle-recall-switch-pokeball",
+        "sha256": "a078ff0a5695ddc6ce41a2499b0b2ea1d429d182dc1452bc1723833efe0031a4",
+        "pcmSha256": "155e6585f38458bc821d0c98525fdf0f25633991d00e5b216f4d572b0f14359a",
+        "sampleRate": 44100,
+        "sampleFrames": 36603,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "0ba7066e2a2f467fd95c8538609cb704770f836ea39a720b15f797703a7f33ec",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 36603,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": -5.68,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain -5.68 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.stat.fall",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.stat-fall-down",
+        "sha256": "1c07a32c73f7fcdecc2fd9f9f77af00e95face61c5ba38f4299ff88940b9aa43",
+        "pcmSha256": "af5a8f11760d1e1468a936660e108b547a6cf53faad7d61caf9ae3c50cf56e0d",
+        "sampleRate": 44100,
+        "sampleFrames": 68355,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "c7cb7091d1612ccb5c8e011475316b2a623af2c71bae0585839ed5d9630665a1",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 68355,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.stat.rise",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.stat-rise-up",
+        "sha256": "8a17b3424394b88404927aa933df4c56acedfc984fa30f455f46edce8873d9e0",
+        "pcmSha256": "0c06b06b100623879463d48dd814e0a0db6ac746c756910180aaf127379e862a",
+        "sampleRate": 44100,
+        "sampleFrames": 67032,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "2a111e20f5d3dc492cf93a2918e3ecd20b23ad39b9c9f895df99895e64b4508a",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 67032,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.status.burn",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.status-burned",
+        "sha256": "cfcd5aef50ca02ce36f71a01123ef758459c77bf0cee69cede9b03e96675bd00",
+        "pcmSha256": "fed5e38f074af9e2634225f9d58cdaceaed1cd0bfc3414009b980df50ac33130",
+        "sampleRate": 44100,
+        "sampleFrames": 35721,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "c8b48cb4c8b4cb3ea93ff1e23110062bb3d832fb1473d6730d27506bec2b1944",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 35721,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.status.confusion",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.status-confused",
+        "sha256": "37f32ec8afbe4d92cc47625225afc35dfe9ad090a4cfedc3e8b7c14ad9dba6a3",
+        "pcmSha256": "911840418a892c97cf948b8248890093cf0b2a88159a57e7f5a7ec315da795f0",
+        "sampleRate": 44100,
+        "sampleFrames": 78498,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "bec57d2a2f5a31997e901c3a6bbde57c229bf430780dc1351b7b745150b2adff",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 78498,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.status.freeze",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.status-frozen",
+        "sha256": "0b052213979b094e846b177bf68a9a4d9684a6464fe393c7b10ce9cbd28e99a9",
+        "pcmSha256": "5bcdc5a708bbb604080a883d65563b236ba353bbf4c2b1024cab561d7b303b89",
+        "sampleRate": 44100,
+        "sampleFrames": 57230,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "6c2395123a2561588590a712b9aa38c33d1b3e575df1b36f5d1f3e5852e8d390",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 57230,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.status.paralysis",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.status-paralyzed",
+        "sha256": "2032045f990ecf72821c157fed8fb0b453e8f94a3cca8667058a5384e36eb902",
+        "pcmSha256": "d2124079da58949e79a70591b883578dc50e43416073e9a3c1ee1041c0e0ef0b",
+        "sampleRate": 44100,
+        "sampleFrames": 37044,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "a047e4901051adb82c7a6ca073a4718cc0fc8e2c594e96b486c407368d1d202c",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 37044,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.status.poison",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.status-poisoned",
+        "sha256": "bbd29159422f5c2848d66288fc9d72d8b83b7e0ddc7e89e2dfa1f75449a2d96b",
+        "pcmSha256": "355ce4d96b8b3096eef9a70cd74fade3ead9fb5faefadabbc1db823e2ff9ca10",
+        "sampleRate": 44100,
+        "sampleFrames": 85554,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "11049e9751d447762d0dc1e2e0854b2e93c166a98aa536bdc390eff7082b80c5",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 85554,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": 0,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain 0 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    },
+    {
+      "schemaVersion": 1,
+      "status": "draft",
+      "subject": {
+        "kind": "event",
+        "id": "battle.status.sleep",
+        "phase": "attack"
+      },
+      "source": {
+        "assetId": "source.status-sleep",
+        "sha256": "8caea3cf7f679c5c2e0249514c2337de4869f543d78414443092195eede01b1e",
+        "pcmSha256": "0f5250683581ba48050d25f0779ead727c737f2817e347a10bd262fb3bf80d2d",
+        "sampleRate": 44100,
+        "sampleFrames": 37485,
+        "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887"
+      },
+      "visualRevision": "f1dc1976019348cb9d72c268d71a1d47cf540c32037890e502e4767b5c6be9ad",
+      "segments": [
+        {
+          "startFrame": 0,
+          "endFrame": 37485,
+          "sourceAnchorFrame": 0,
+          "visualAnchorSeconds": 0,
+          "gainDb": -0.14,
+          "nativeOffsetSeconds": 0
+        }
+      ],
+      "review": {
+        "reviewer": "",
+        "notes": "Automated technical DRAFT only. Whole original is the default comparison: no resampling, time stretch, fades, edits, or guessed sound roles. Suggested gain -0.14 dB uses attenuation-only peak and whole-recording RMS ceilings from the approved pilot; perceived balance remains unreviewed. Energy windows and threshold crossings are measurements, not semantic impacts or evidence of an audible onset. Native offset 0 is an unmeasured placeholder. Browser sample alignment and both perspectives remain unchecked. No energy-to-result alignment proposed for an ambiguous variant, prepare phase, or audio-only subject; filenames do not assign timing roles. Flags: listening-unreviewed, native-decoder-unmeasured, event-role-unassigned, variant-role-unassigned:generic. Optional alternatives are in the remaining-analysis report; none is an approval.",
+        "near": false,
+        "far": false,
+        "native": {
+          "browser": "",
+          "version": "",
+          "sampleRate": null,
+          "sampleFrames": null,
+          "alignmentConfirmed": false,
+          "notes": ""
+        }
+      },
+      "approvalFingerprint": null
+    }
+  ]
+}

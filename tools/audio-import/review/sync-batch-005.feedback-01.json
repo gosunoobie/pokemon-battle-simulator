@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-sync-feedback",
+  "batchId": "sync-005",
+  "revision": "a96b8f2d6af26f4ae466d509e214ac831101e81bfeac65b961ea4b18165267c8",
+  "records": [
+    {
+      "moveId": "fireblast",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.91,
+            "cueSeconds": 1.07,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-both",
+      "notes": "Currently the main impact sound and the main animation frames are not matching, we can futher delay the orb charging and reaching the opponent frames to match the main impact animation frames",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 156155,
+        "durationSeconds": 3.253229166666667,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "solarbeam",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.09,
+            "cueSeconds": 0.08,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-both",
+      "notes": "Extend the beam animation frames and show more impact on the opponent like sparks or glows to match the later sound impact frames",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 236225,
+        "durationSeconds": 4.921354166666666,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "razorleaf",
+      "plan": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.31,
+            "cueSeconds": 0.28,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-sound",
+      "notes": "Cut the sound when the animation ends",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 110493,
+        "durationSeconds": 2.3019375,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "sludgebomb",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.19,
+            "cueSeconds": 1.02,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-sound",
+      "notes": "Cut the sound when the animation ends",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 136982,
+        "durationSeconds": 2.8537916666666665,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "overheat",
+      "plan": {
+        "visualRate": 0.8,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.96,
+            "cueSeconds": 0.98,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-sound",
+      "notes": "Cut the sound when the animation ends",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 138720,
+        "durationSeconds": 2.89,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "eruption",
+      "plan": {
+        "visualRate": 0.9,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.23,
+            "cueSeconds": 0.46,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-both",
+      "notes": "Remove the earlier part of the sound and match the animations of spree with the later part of the sound with continuous intervals of sound impact frames , keep the animation similar to as it is just try to match the animation with the sound frames",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 325440,
+        "durationSeconds": 6.78,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "earthquake",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 1.5,
+            "cueSeconds": 1.2,
+            "gainDb": -2.15
+          }
+        ]
+      },
+      "verdict": "adjust-sound",
+      "notes": "Cut the sound when the animation ends",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 172016,
+        "durationSeconds": 3.583666666666667,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "thunder",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.72,
+            "cueSeconds": 0.84,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "Currently the animation ends on the first impact sound frame after the first impact create a explosion like effect with  electric sparks to match the second impact sound frame",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 144000,
+        "durationSeconds": 3,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "blizzard",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 2.53,
+            "cueSeconds": 1.929,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-animation",
+      "notes": "Extend the blizzard animation and towards the end of the animation make bigger crystals appear and show some impact on the opponent which matches the sound impact frames",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 173760,
+        "durationSeconds": 3.62,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "moveId": "bubblebeam",
+      "plan": {
+        "visualRate": 0.75,
+        "segments": [
+          {
+            "startSeconds": 0,
+            "endSeconds": null,
+            "soundAnchorSeconds": 0.53,
+            "cueSeconds": 0.4,
+            "gainDb": 0
+          }
+        ]
+      },
+      "verdict": "adjust-sound",
+      "notes": "Cut the sound when the animation ends",
+      "native": {
+        "sampleRate": 48000,
+        "sampleFrames": 158876,
+        "durationSeconds": 3.3099166666666666,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+      }
+    }
+  ]
+}
