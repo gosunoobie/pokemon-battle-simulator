@@ -1,5 +1,7 @@
 # Sound and animation review: batch 4
 
+Current status: accepted and active in all three game hosts through the [seven-batch rollout](SFX_ACCEPTED_ROLLOUT.md). The notes below preserve the review history.
+
 Open `/sfx-bench?batch=sync-004` while `npm run dev` is running. This comparison
 covers Ember, Waterfall, Dragon Claw, Ancient Power, Shadow Punch and Swords Dance.
 The proposals keep each complete original runtime recording at its natural pitch.

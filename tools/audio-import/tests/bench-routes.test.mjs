@@ -104,9 +104,9 @@ test('real Vite development serves the bench and verified read-only endpoints be
   const fourthResponse = await fetch(`${origin}/__sfx-bench/sync-batch?batch=sync-004`)
   assert.equal(fourthResponse.status, 200)
   const fourthBatch = await fourthResponse.json()
-  assert.equal(fourthBatch.status, 'unreviewed-comparison')
+  assert.equal(fourthBatch.status, 'accepted')
   assert.deepEqual(fourthBatch.moves.map(move => move.id), ['ember', 'waterfall', 'dragonclaw', 'ancientpower', 'shadowpunch', 'swordsdance'])
-  assert.ok(fourthBatch.moves.every(move => move.baseline && move.candidate && !move.plan && move.previousReview.verdict === 'keep' && !move.previousReview.changed))
+  assert.ok(fourthBatch.moves.every(move => !move.baseline && !move.candidate && move.plan && move.native && !move.previousReview))
 
   const fifthPage = await fetch(`${origin}/sfx-bench?batch=sync-005`, { headers: { Accept: 'text/html' } })
   assert.equal(fifthPage.status, 200)
@@ -116,10 +116,10 @@ test('real Vite development serves the bench and verified read-only endpoints be
   const fifthBatch = await fifthResponse.json()
   assert.deepEqual(fifthBatch.moves.map(move => move.id), ['fireblast', 'solarbeam', 'razorleaf', 'sludgebomb', 'overheat', 'eruption', 'earthquake', 'thunder', 'blizzard', 'bubblebeam'])
   assert.equal(fifthBatch.reviewPlayback, 'batch-five-feedback-v4')
-  assert.equal(fifthBatch.feedbackRecords.length, 10)
-  const changedFifthMoves = ['eruption', 'blizzard']
-  assert.ok(fifthBatch.feedbackRecords.every(record => record.verdict === (changedFifthMoves.includes(record.moveId) ? 'unreviewed' : 'keep')))
-  assert.ok(fifthBatch.moves.every(move => move.previousReview.changed === changedFifthMoves.includes(move.id) && move.originalVisual && move.previousVisual))
+  assert.equal(fifthBatch.status, 'accepted')
+  assert.equal(fifthBatch.feedbackRecords, undefined)
+  assert.ok(fifthBatch.moves.every(move => move.plan && move.native && !move.candidate && !move.previousVisual))
+  for (const id of ['eruption', 'blizzard']) assert.equal(fifthBatch.moves.find(move => move.id === id).visualAccent.id, `batch-five-${id}-v4`)
 
   const sixthPage = await fetch(`${origin}/sfx-bench?batch=sync-006`, { headers: { Accept: 'text/html' } })
   assert.equal(sixthPage.status, 200)
@@ -139,10 +139,10 @@ test('real Vite development serves the bench and verified read-only endpoints be
   const seventhResponse = await fetch(`${origin}/__sfx-bench/sync-batch?batch=sync-007`)
   assert.equal(seventhResponse.status, 200)
   const seventhBatch = await seventhResponse.json()
-  assert.equal(seventhBatch.status, 'unreviewed-comparison')
+  assert.equal(seventhBatch.status, 'accepted')
   assert.equal(seventhBatch.reviewPlayback, 'batch-seven-v1')
   assert.deepEqual(seventhBatch.moves.map(move => move.id), ['sing','grasswhistle','attract','morningsun','moonlight','confuseray'])
-  assert.ok(seventhBatch.moves.every(move => move.originalVisual && move.candidate && move.baseline && move.visualAccent.id.startsWith('batch-seven-')))
+  assert.ok(seventhBatch.moves.every(move => move.plan && move.native && !move.candidate && !move.baseline && move.visualAccent.id.startsWith('batch-seven-')))
   assert.equal(seventhBatch.feedbackRecords, undefined)
 
   for (const path of ['/__sfx-bench/sync-batch?batch=sync-008', '/__sfx-bench/sync-batch?batch=sync-001&extra=1', '/sfx-bench?batch=sync-001&collection=remaining']) {

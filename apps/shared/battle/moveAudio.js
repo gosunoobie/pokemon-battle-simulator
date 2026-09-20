@@ -3,14 +3,27 @@ import { getFxSoundPlan, getMoveSoundPlan } from '@battle/battle-sfx/runtime'
 const safe = callback => { try { return callback() } catch { return undefined } }
 const canonical = value => typeof value === 'string' ? value.toLowerCase().replace(/[^a-z0-9]/g, '') : ''
 
-// A listening approval covers a specific native decoder, not every Web Audio
-// implementation. New browser families/majors need their own reviewed evidence.
+// Legacy frame-based pilot plans still require their measured decoder. Accepted
+// batch plans below use seconds and can play on any valid Web Audio decoder.
 export function nativeSoundCompatibility(plan, userAgent, info) {
   const chrome = /\bChrome\/(\d+)\./.exec(userAgent ?? '')
   const expected = plan?.nativeCompatibility
   if (!expected || expected.browser !== 'Chrome' || !chrome || /Edg\/|OPR\//.test(userAgent)
     || chrome[1] !== expected.version.split('.')[0]) return false
   return !info || info.sampleRate === expected.sampleRate && info.sampleFrames === expected.sampleFrames
+}
+
+function acceptedSoundCompatibility(plan, info) {
+  const measured = plan?.nativeCompatibility
+  const validBuffer = value => Number.isSafeInteger(value?.sampleRate) && value.sampleRate >= 8000
+    && value.sampleRate <= 192000 && Number.isSafeInteger(value.sampleFrames) && value.sampleFrames > 0
+    && value.sampleFrames / value.sampleRate <= 120
+  if (!validBuffer(measured)) return false
+  if (!info) return true
+  // Browser versions and output devices can resample the same pinned MP3.
+  // Keep the approved seconds unchanged and reject a materially wrong decode.
+  return validBuffer(info) && Math.abs(info.sampleFrames / info.sampleRate
+    - measured.sampleFrames / measured.sampleRate) <= .1
 }
 
 // User-authorized technical drafts play the complete native decode. Reference
@@ -38,7 +51,8 @@ function wholeDraftCompatibility(plan, info) {
 function acceptedRegions(plan, info) {
   if (plan.phase !== 'attack' || plan.playbackRate !== 1 || !Number.isFinite(plan.visualRate)
     || plan.visualRate < .75 || plan.visualRate > 1.25 || !Number.isFinite(plan.visualDurationSeconds)
-    || plan.visualDurationSeconds <= 0 || !Array.isArray(plan.segments)
+    || plan.visualDurationSeconds <= 0 || (plan.taperEdits !== undefined && typeof plan.taperEdits !== 'boolean')
+    || !Array.isArray(plan.segments)
     || !plan.segments.length || plan.segments.length > 8
     || !Number.isSafeInteger(info.sampleRate) || info.sampleRate <= 0
     || !Number.isSafeInteger(info.sampleFrames) || info.sampleFrames <= 0) return null
@@ -47,14 +61,17 @@ function acceptedRegions(plan, info) {
   const regions = []
   for (const segment of plan.segments) {
     const { startSeconds, soundAnchorSeconds, cueSeconds, gainDb } = segment
-    const endSeconds = segment.endSeconds === null ? duration : segment.endSeconds
+    const requestedEnd = segment.endSeconds === null ? duration : segment.endSeconds
+    // An endpoint can round to the adjacent sample when the device resamples.
+    const endSeconds = Math.min(requestedEnd, duration)
     const delay = cueSeconds / plan.visualRate - (soundAnchorSeconds - startSeconds)
-    if (![startSeconds, endSeconds, soundAnchorSeconds, cueSeconds, gainDb, delay].every(Number.isFinite)
-      || startSeconds < 0 || endSeconds <= startSeconds || endSeconds > duration
+    if (![startSeconds, requestedEnd, endSeconds, soundAnchorSeconds, cueSeconds, gainDb, delay].every(Number.isFinite)
+      || startSeconds < 0 || endSeconds <= startSeconds || requestedEnd > duration + 1 / info.sampleRate
       || soundAnchorSeconds < startSeconds || soundAnchorSeconds >= endSeconds
       || cueSeconds < 0 || cueSeconds > plan.visualDurationSeconds || delay < 0
       || delay + endSeconds - startSeconds > 120 || gainDb < -60 || gainDb > 0) return null
-    regions.push({ startSeconds, endSeconds, delay, gainDb })
+    regions.push({ startSeconds, endSeconds, delay, gainDb,
+      ...(plan.taperEdits === undefined ? {} : { taperEdits: plan.taperEdits }) })
   }
   return regions
 }
@@ -76,7 +93,8 @@ export function createMoveAudio({ player, userAgent = globalThis.navigator?.user
   }
   const supported = (plan, info) => isDraft(plan)
     ? allowTechnicalDrafts === true && wholeDraftCompatibility(plan, info)
-    : nativeSoundCompatibility(plan, userAgent, info)
+    : plan?.reviewStatus === 'accepted-sync' ? acceptedSoundCompatibility(plan, info)
+      : nativeSoundCompatibility(plan, userAgent, info)
   const supportedPlan = plan => {
     const parts = layers(plan)
     return parts.length > 0 && parts.every(part => supported(part))
@@ -92,7 +110,7 @@ export function createMoveAudio({ player, userAgent = globalThis.navigator?.user
     const plan = phase === 'attack' && outcome === 'hit' && mode === 'normal' ? getPlan(moveId, { phase, outcome, mode }) : null
     const scope = Object.freeze({ soundRun: ++serial })
     const eventKey = key ?? `preview:${serial}`
-    let started = false, cancelled = false, complete = false, audioBase, visualBase, voices = []
+    let started = false, cancelled = false, complete = false, audioBase, visualBase, voices = [], ready
     const cancel = () => {
       if (cancelled) return
       cancelled = true; runs.delete(run)
@@ -100,6 +118,14 @@ export function createMoveAudio({ player, userAgent = globalThis.navigator?.user
       for (const voice of voices) safe(() => voice.cancel())
     }
     const run = Object.freeze({
+      get ready() {
+        // Presenters may give a first-use recording a short loading window
+        // before starting FX. Loading never schedules playback or retries a cue.
+        if (disposed || cancelled || complete || !enabled() || !supportedPlan(plan)) return undefined
+        const ids = layers(plan).map(part => part.assetId)
+        if (ids.every(id => safe(() => player.readyInfo(id)))) return undefined
+        return ready ??= Promise.resolve(safe(() => player.preload(ids, { priority: 1, scope }))).catch(() => {})
+      },
       onPresentation(cue) {
         if (disposed || cancelled || complete || !enabled() || !plan) return
         if (cue?.type === 'start') {
@@ -163,7 +189,7 @@ export function createMoveAudio({ player, userAgent = globalThis.navigator?.user
   }
   function stop() { for (const run of [...runs]) run.cancel() }
   return Object.freeze({ warm, begin, stop,
-    supported: () => allowTechnicalDrafts === true || supported(getCanonicalPlan('tackle')),
+    supported: () => allowTechnicalDrafts === true || supported(getCanonicalPlan('flamethrower')) || supported(getCanonicalPlan('tackle')),
     diagnostics: () => Object.freeze({ ...counts, activeRuns: runs.size }),
     dispose() { disposed = true; stop(); heard.clear() },
   })

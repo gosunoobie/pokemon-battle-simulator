@@ -101,6 +101,14 @@
       "sha256": "a80878868a33642ee1bb490ebeb4aeb9f2bd9b94c937ba40971422ea1babb627"
     },
     {
+      "path": "packages/battle-fx/assets/rock.svg",
+      "sha256": "ebc299db10ecaf5b219cfcb24432b8b330a37333f5ec4997df74f353037be744"
+    },
+    {
+      "path": "packages/battle-fx/src/assets.js",
+      "sha256": "d25c69d5c95ad70eccb7f068cf61715b745a80621ea0c2b0db4737907006e5cb"
+    },
+    {
       "path": "packages/battle-fx/src/moves/restored/ancient-power.js",
       "sha256": "6a4aa4e6fb112b7c759be265b5f494bda060e469a0e21805d45fe4397c859bf0"
     },

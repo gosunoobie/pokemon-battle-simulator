@@ -128,6 +128,11 @@ export function playPokeballRelease({ scene, actorIds = [], reducedMotion = fals
       // interrupt the clip, and seeking or revisiting a frame cannot replay it.
       for (const entry of entries) {
         if (settled) return
+        if (!entry.opened && (reducedMotion ? entry.actor.pose.alpha > 0 : time - entry.offset >= OPEN)) {
+          entry.opened = true
+          try { onCue?.({ type: 'open', actorId: entry.actor.id }) } catch {}
+        }
+        if (settled) return
         if (entry.revealed || entry.actor.pose.alpha <= 0) continue
         entry.revealed = true
         try { onCue?.({ type: 'reveal', actorId: entry.actor.id }) } catch {}

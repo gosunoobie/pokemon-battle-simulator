@@ -1,13 +1,13 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef } from 'vue'
 import BattleView from '../../shared/battle/BattleView.vue'
-import { createBattleAudio } from '../../shared/battle/audio.js'
+import { createBattleAudio, BATTLE_AUDIO_MIX } from '../../shared/battle/audio.js'
 import { activeMembers, spriteUrl, buildBattleLog } from '../../shared/battle/index.js'
 import { multiplayerRequest, createOperationId } from './api.js'
 import { createRoomSession } from './roomSession.js'
 
 const config = shallowRef(null), guest = shallowRef(null), state = shallowRef({ envelope: null, playing: false, pending: null })
-const battleAudio = createBattleAudio()
+const battleAudio = createBattleAudio({ categoryVolumes: BATTLE_AUDIO_MIX })
 const battle = ref(null), displayed = shallowRef(null), log = ref([]), logHost = ref(null)
 const name = ref(''), invitation = ref(''), busy = ref(false), connecting = ref(true), error = ref(''), notice = ref('')
 const pendingOperation = shallowRef(null), networkOkay = ref(true), confirming = ref(false), now = ref(Date.now())

@@ -47,7 +47,9 @@
     "cries:verify-source": "node tools/cry-import/inventory.mjs --verify-remote",
     "test:cries": "node --test tools/cry-import/tests/*.test.mjs",
     "sfx:accepted": "node tools/audio-import/accepted-runtime.mjs",
-    "sfx:accepted:check": "node tools/audio-import/accepted-runtime.mjs --check"
+    "sfx:accepted:check": "node tools/audio-import/accepted-runtime.mjs --check",
+    "sfx:events": "node tools/audio-import/event-runtime.mjs",
+    "sfx:events:check": "node tools/audio-import/event-runtime.mjs --check"
   },
   "dependencies": {
     "vue": "^3.5.0",

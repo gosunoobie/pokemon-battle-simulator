@@ -11,7 +11,7 @@ import { planSyncAudition } from '../apps/sfx-bench/src/sync.js'
 import { createSyncBatchManifest } from '../tools/audio-import/sync-batch.mjs'
 import accepted from '../packages/battle-sfx/src/accepted-runtime.generated.js'
 
-const batch = await createSyncBatchManifest({ batch: 'sync-004' })
+const batch = await createSyncBatchManifest({ batch: 'sync-004', historical: true })
 const definition = JSON.parse(await readFile(new URL('../tools/audio-import/review/sync-batch-004.json', import.meta.url)))
 const analysis = JSON.parse(await readFile(new URL('../tools/audio-import/reports/sfx-remaining-analysis.json', import.meta.url)))
 const tick = () => new Promise(resolve => setImmediate(resolve))
@@ -22,7 +22,9 @@ test('batch four contains six distinct whole-recording comparisons with preserve
   assert.equal(batch.feedbackRecords.length, 6)
   assert.ok(batch.feedbackRecords.every(record => record.verdict === 'keep'))
   for (const move of batch.moves) {
-    assert.equal(accepted.moves[move.id], undefined)
+    assert.equal(accepted.moves[move.id].reviewStatus, 'accepted-sync')
+    if (move.id !== 'ancientpower') assert.deepEqual(accepted.moves[move.id].segments, move.candidate.segments)
+    else assert.equal(accepted.moves[move.id].visualAccent.id, 'batch-six-ancientpower-v2')
     for (const field of ['accent', 'visualAccent', 'plan', 'native']) assert.equal(move[field], undefined)
     assert.equal(move.previousReview.changed, false)
     assert.equal(move.previousReview.verdict, 'keep')

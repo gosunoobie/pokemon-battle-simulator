@@ -153,13 +153,13 @@ explicit compiler command `npm run sfx:simulation:check`.
 
 `@battle/battle-sfx/accepted-runtime` exports `ACCEPTED_SFX_RUNTIME_CATALOG`,
 `getAcceptedMoveSoundPlan`, `getAcceptedFxSoundPlan` and
-`getAcceptedRuntimeSoundAsset`. It contains the eighteen final plans from Batches 1, 2 and 3 accepted
-by the user. The shared host selects these before pilot/draft defaults, without
+`getAcceptedRuntimeSoundAsset`. It contains 44 final plans from all seven user-accepted batches. Batch 6’s
+Ancient Power supersedes Batch 4’s version. The shared host selects these before pilot/draft defaults, without
 falling back to an older version for unsupported decoders. Assets reuse the
 original MP3 bytes at hash-addressed URLs.
 
 Plans contain reviewed native-second regions, sound/visual anchors and a cosmetic
-`visualRate`. Audio remains at its original speed and pitch. The host supplies
+`visualRate`. These accepted plans work across Web Audio browsers and device sample rates: the host validates decoded duration instead of matching a browser major and exact frame count. Archived native measurements remain provenance. Audio remains at its original speed and pitch. The host supplies
 pacing to the separate FX clock; no gameplay data enters this package. The
 compiler validates source/PCM/visual identities and actual native decode bounds.
 Psychic adds the reviewed Hit Normal Damage recording at −6 dB, starting at
@@ -174,3 +174,5 @@ See [accepted Batch 1](../../docs/SFX_SYNC_BATCH_01.md) and
 [accepted Batch 3](../../docs/SFX_SYNC_BATCH_03.md) for timing and browser scope.
 Batch 3 pins the approved Thunder Punch visual accent as metadata; its renderer
 lives in the separate optional FX entry, with no graphics dependency here.
+
+The [seven-batch rollout](../../docs/SFX_ACCEPTED_ROLLOUT.md) pins the latest custom visuals, native measurements and 45 assets. Only Batch 5 sets `taperEdits: true` for its reviewed 12 ms edited-boundary fades. Full source boundaries remain untapered.

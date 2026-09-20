@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Battle transition audio browser checks</title>
+    <style>
+      body { max-width: 1000px; margin: 28px auto; padding: 0 20px; font: 16px/1.5 system-ui, sans-serif; }
+      button { padding: 10px 16px; margin: 8px 8px 8px 0; font: inherit; }
+      .host { margin: 20px 0; }
+      .stage { position: relative; width: 100%; aspect-ratio: 1000 / 450; background: #102333; border-radius: 12px; overflow: hidden; }
+      .sim-canvas-layer { position: absolute; inset: 0; }
+      canvas { display: block; }
+      .health { display: flex; justify-content: space-between; }
+      pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f2f4f7; padding: 16px; }
+    </style>
+  </head>
+  <body>
+    <h1>Battle transition audio browser checks</h1>
+    <p>Runs the real send-out and faint animations with original sound recordings, native browser decoding, and the production solo and private battle audio factories. Cries are muted so the new sounds can be heard clearly. Playback evidence is not a listening approval.</p>
+    <button id="run" type="button">Run transition checks</button>
+    <button id="stop" type="button" disabled>Stop checks</button>
+    <p id="status" role="status">Ready. Keep this tab visible while checks run.</p>
+    <div id="hosts"></div>
+    <pre id="results">No checks run.</pre>
+    <script type="module" src="./transition-audio-browser.js"></script>
+  </body>
+</html>

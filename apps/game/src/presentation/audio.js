@@ -3,5 +3,5 @@ import { technicalSoundPack } from '../../../shared/battle/draftSoundPack.js'
 
 /** Move preview opts into the same user-authorized drafts as solo simulation. */
 export function createPreviewAudio({ draftSfxEnabled = import.meta.env?.VITE_PREVIEW_DRAFT_SFX_ENABLED !== 'false', ...options } = {}) {
-  return createBattleAudio({ ...options, technicalSoundPack: draftSfxEnabled ? technicalSoundPack : null })
+  return createBattleAudio({ ...options, transitionSounds: false, technicalSoundPack: draftSfxEnabled ? technicalSoundPack : null })
 }

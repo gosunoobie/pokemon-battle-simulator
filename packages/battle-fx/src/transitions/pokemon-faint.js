@@ -6,7 +6,7 @@ const clamp = (value, low, high) => Math.max(low, Math.min(high, value))
 const progress = (time, start, duration) => clamp((time - start) / duration, 0, 1)
 
 /** Cosmetic exit only. The host chooses fainted actors and owns final visibility. */
-export function playPokemonFaint({ scene, actorIds = [], reducedMotion = false, signal, timelineEngine = gsap } = {}) {
+export function playPokemonFaint({ scene, actorIds = [], reducedMotion = false, signal, onCue, timelineEngine = gsap } = {}) {
   let settled = false, layer, timeline, timer, resolve
   const actors = [], entries = [], filters = []
   const finished = new Promise(done => { resolve = done })
@@ -69,6 +69,14 @@ export function playPokemonFaint({ scene, actorIds = [], reducedMotion = false, 
           mote.scale.set(1 - travel * .55)
           mote.alpha = age >= 0 ? Math.sin(Math.PI * travel) * .28 : 0
         }
+      }
+      // Publish after the first frame is ready, including the owned snapshot.
+      // Revisited frames and optional consumers cannot restart or break a clip.
+      for (const entry of entries) {
+        if (settled) return
+        if (entry.started) continue
+        entry.started = true
+        try { onCue?.({ type: 'faint', actorId: entry.actor.id }) } catch {}
       }
     } catch (error) { finish('failed', error) }
   }

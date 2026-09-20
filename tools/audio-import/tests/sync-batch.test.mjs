@@ -253,7 +253,7 @@ test('accepted manifest contains only exact approved finals, with no prior plans
   for (const move of compiled.moves) for (const key of ['baseline', 'candidate', 'previousReview']) assert.equal(Object.hasOwn(move, key), false)
   const served = await createSyncBatchManifest({ batch: 'sync-001' })
   assert.deepEqual(served.moves, final.moves)
-  assert.deepEqual(served.batches.map(batch => [batch.id, batch.status]), [['sync-001', 'accepted'], ['sync-002', 'accepted'], ['sync-003', 'accepted'], ['sync-004', 'unreviewed-comparison'], ['sync-005', 'unreviewed-comparison'], ['sync-006', 'accepted'], ['sync-007', 'unreviewed-comparison']])
+  assert.deepEqual(served.batches.map(batch => [batch.id, batch.status]), [['sync-001', 'accepted'], ['sync-002', 'accepted'], ['sync-003', 'accepted'], ['sync-004', 'accepted'], ['sync-005', 'accepted'], ['sync-006', 'accepted'], ['sync-007', 'accepted']])
   compiled.moves[0].plan.visualRate = .8
   assert.equal(final.moves[0].plan.visualRate, .9, 'served mutable objects must not change the captured approval')
 })

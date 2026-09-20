@@ -32,12 +32,17 @@ const impactPlayer = createImpactPlayback({ getScene: scene.get, onFeedback: val
 function publishMessage(text) {
   if (!disposed && text) { message.value = text; emit('message', text) }
 }
+function playImpact(feedback, options) {
+  try { if (!props.inactive) audioScope?.impact(feedback, options) } catch { /* Sound cannot suppress the impact overlay. */ }
+  return impactPlayer.play(feedback, options)
+}
 const movePresenter = createSimulationPresenter({
   getScene: scene.get, ensureScene: (view, options) => scene.ensure(view, options),
-  faintScene: (view, options) => scene.faint(view, options), playImpact: impactPlayer.play,
+  faintScene: (view, options) => scene.faint(view, options), playImpact,
   onDisplay: (view, options) => { displayed.value = view; scene.display(view, options); emit('display', view) },
   onMessage: publishMessage,
   onEntry: (view, actorId) => { if (!props.inactive) audioScope?.entry(view, actorId) },
+  onTransition: (view, cue) => { if (!props.inactive) audioScope?.transition(view, cue) },
   onEntryCancel: () => audioScope?.cancel(),
   onMove: request => !props.inactive ? audioScope?.move(request) : null,
   loadFx: async () => (await import('./reviewedFx.js')).createReviewedBattleFx(),

@@ -37,9 +37,9 @@ const start = run => run.onPresentation({ type: 'start', timelineSeconds: 0, obs
 const moveAudio = (h, options = {}) => createMoveAudio({ player: h.player, userAgent: CHROME,
   getPlan: getAcceptedFxSoundPlan, getCanonicalPlan: getAcceptedMoveSoundPlan, now: () => 1000, ...options })
 
-test('all eighteen accepted finals schedule exact auditioned native regions, attenuation and cosmetic delays', () => {
+test('all forty-four accepted finals schedule exact auditioned native regions, attenuation and cosmetic delays', () => {
   const h = harness(), audio = moveAudio(h), plans = Object.values(ACCEPTED_SFX_RUNTIME_CATALOG.moves)
-  assert.equal(plans.length, 18)
+  assert.equal(plans.length, 44)
   for (const plan of plans) {
     const first = h.voices.length, run = audio.begin({ moveId: plan.fxId })
     start(run)
@@ -51,9 +51,10 @@ test('all eighteen accepted finals schedule exact auditioned native regions, att
       assert.equal(voice.id, assetId)
       assert.equal(voice.options.startSeconds, region.startSeconds)
       assert.equal(voice.options.endSeconds, region.endSeconds ?? h.native[assetId].sampleFrames / h.native[assetId].sampleRate)
-      assert.ok(Math.abs(voice.options.when - (10 + region.cueSeconds / plan.visualRate - (region.soundAnchorSeconds - region.startSeconds))) < 1e-9)
+      assert.ok(Math.abs((voice.options.when ?? 10) - (10 + region.cueSeconds / plan.visualRate - (region.soundAnchorSeconds - region.startSeconds))) < 1e-9)
       assert.equal(voice.options.gainDb, region.gainDb)
       assert.equal(voice.options.playbackRate, undefined)
+      assert.equal(voice.options.taperEdits, plan.taperEdits)
     })
     run.finish({ status: 'completed' })
   }
@@ -64,24 +65,22 @@ test('all eighteen accepted finals schedule exact auditioned native regions, att
   audio.dispose()
 })
 
-test('accepted native decoder evidence is strict and never falls back to an old technical or pilot plan', () => {
+test('accepted regions work across browsers without falling back to an old technical or pilot plan', () => {
   for (const userAgent of ['Mozilla/5.0 Firefox/145.0', CHROME, CHROME.replace('152.', '153.')]) {
     const h = harness(), audio = createBattleAudio({ playerFactory: () => h.player, userAgent,
       technicalSoundPack, storage: null, document: null })
-    if (userAgent === CHROME) h.native['source.body-slam'].sampleFrames++
+    h.native['source.body-slam'].sampleFrames++
     audio.warmMoves(['body-slam', 'absorb'], { fxIds: true })
     for (const moveId of ['body-slam', 'absorb']) {
       const run = audio.previewMove({ moveId })
       run.onPresentation({ type: 'start', timelineSeconds: 0, observedAtMs: performance.now() })
     }
-    if (userAgent === CHROME) {
-      assert.equal(h.voices.length, 1)
-      assert.equal(h.voices[0].id, 'source.absorb')
-      assert.ok(h.voices[0].options.when > 10, 'accepted delayed Absorb replaces the earlier pilot at time zero')
-    } else {
-      assert.equal(h.voices.length, 0, 'unsupported accepted moves stay silent instead of using old drafts')
-      assert.equal(h.loads.flat().some(id => id === 'source.body-slam' || id === 'source.absorb'), false)
-    }
+    assert.equal(h.voices.length, 2)
+    assert.equal(h.voices[0].id, 'source.body-slam')
+    assert.equal(h.voices[0].options.gainDb, -.8)
+    assert.equal(h.voices[1].id, 'source.absorb')
+    assert.ok(h.voices[1].options.when > 10, 'accepted delayed Absorb replaces the earlier pilot at time zero')
+    assert.ok(h.loads.flat().includes('source.body-slam'))
     audio.dispose()
   }
 })
@@ -159,11 +158,11 @@ test('accepted Psychic warms both recordings and owns two native-speed voices on
   audio.dispose()
 })
 
-test('accepted Psychic fails closed for missing, changed or unsupported accent buffers and invalid regions', () => {
+test('accepted Psychic fails closed for missing or invalid accent decodes and regions', () => {
   for (const change of [
     h => { delete h.native['source.hit-normal-damage'] },
-    h => { h.native['source.hit-normal-damage'].sampleFrames++ },
-    h => { h.native['source.hit-normal-damage'].sampleRate = 44100 },
+    h => { h.native['source.hit-normal-damage'].sampleFrames += 48000 },
+    h => { h.native['source.hit-normal-damage'].sampleRate = 0 },
   ]) {
     const h = harness(); change(h)
     const audio = moveAudio(h); start(audio.begin({ moveId: 'psychic' }))
@@ -171,7 +170,7 @@ test('accepted Psychic fails closed for missing, changed or unsupported accent b
     audio.dispose()
   }
   for (const change of [
-    plan => { plan.accent.nativeCompatibility.version = '153.0.0.0' },
+    plan => { plan.accent.nativeCompatibility.sampleFrames = 0 },
     plan => { plan.accent.segment.gainDb = 1 },
     plan => { plan.accent.segment.cueSeconds = 0 },
     plan => { plan.accent.segment.endSeconds = 9 },

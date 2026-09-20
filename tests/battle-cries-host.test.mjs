@@ -33,7 +33,7 @@ function harness({ saved = null, storageThrows = false } = {}) {
 
 test('host resolves server species and explicit forms independently of nickname and viewer seat', () => {
   const h = harness(), v = view(), scope = h.audio.begin(v)
-  assert.deepEqual(h.loads.at(-1), ['deoxysattack', 'castformrainy', 'unownb'])
+  assert.deepEqual(h.loads.filter(ids => ids.every(id => !id.startsWith('source.'))).at(-1), ['deoxysattack', 'castformrainy', 'unownb'])
   assert.equal(scope.entry(v, 'source'), true)
   assert.equal(scope.entry(v, 'target'), true)
   assert.deepEqual(h.played, ['deoxysattack', 'castformrainy'])
@@ -99,7 +99,7 @@ test('preferences persist; unlock is invoked in the calling gesture and never re
   h.audio.setEnabled(true)
   assert.equal(h.unlocks(), 1)
   await tick()
-  assert.deepEqual(h.loads.at(-1), ['unownb'])
+  assert.deepEqual(h.loads.filter(ids => ids.every(id => !id.startsWith('source.'))).at(-1), ['unownb'])
   assert.deepEqual(h.stored.at(-1), ['battle-lab:audio:v2', { schemaVersion: 2, enabled: true, volume: .25, criesEnabled: true, sfxEnabled: true }])
   assert.equal(h.played.length, 0)
   h.audio.dispose()

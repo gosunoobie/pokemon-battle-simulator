@@ -10,7 +10,7 @@ export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}
   async function run(job) {
     const token = generation
     const controller = new AbortController()
-    let playback, sound, timer, impact = false, recovery = false, playbackCancelled = false, soundCancelled = false
+    let playback, sound, timer, impact = false, recovery = false, playbackCancelled = false, soundCancelled = false, soundImpacted = false
     let end
     const stopped = new Promise(resolve => { end = resolve })
     const cancelSound = () => {
@@ -29,6 +29,13 @@ export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}
     safe(onBusy, true)
     safe(onDisplay, { state: job.transaction.before, message: job.transaction.event.usedMessage, animate: false })
     const valid = () => !destroyed && token === generation && active === current
+    const impactSound = () => {
+      const { event } = job.transaction
+      if (soundImpacted || soundCancelled || !valid() || controller.signal.aborted || event.phase === 'prepare' ||
+        (event.outcome && event.outcome !== 'hit')) return
+      soundImpacted = true
+      safe(() => sound?.onImpact?.())
+    }
     const armDeadline = milliseconds => {
       clearTimeout(timer)
       timer = setTimeout(() => { fxUnavailable = true; current.stop('failed') }, milliseconds)
@@ -54,6 +61,21 @@ export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}
         sound = safe(onMove, { moveId: event.moveId, phase: event.phase ?? 'attack', outcome: event.outcome ?? 'hit',
           mode: job.options.reducedMotion ? 'reduced' : 'normal' })
       }
+      const soundReady = safe(() => sound?.ready)
+      if (soundReady) {
+        // Loading may delay the start briefly; the sound must still start on
+        // the real visual clock, and unavailable audio cannot block playback.
+        let audioTimer
+        try {
+          await Promise.race([Promise.resolve(soundReady).catch(() => {}), stopped,
+            new Promise(resolve => { audioTimer = setTimeout(resolve, 500) })])
+        } finally { clearTimeout(audioTimer) }
+        if (controller.signal.aborted || !valid()) return { status: 'cancelled' }
+        // Keep the normal rendering allowance intact after optional loading;
+        // an explicit caller deadline still bounds the whole presentation.
+        if (deadlineMs === undefined) armDeadline(Number.isFinite(fxDeadline) && fxDeadline > 0
+          ? Math.max(6500, fxDeadline + 500) : 6500)
+      }
       playback = fx.play(request, {
         scene: getScene(), signal: controller.signal, reducedMotion: job.options.reducedMotion,
         onPresentation(cue) { if (valid() && !controller.signal.aborted) safe(() => sound?.onPresentation(cue)) },
@@ -63,6 +85,7 @@ export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}
             if (cue.type === 'prepared' && !impact) { impact = true; safe(onDisplay, { state: job.transaction.after, message: event.resultMessage, animate: false }) }
           } else if (cue.type === 'impact' && !impact) {
             impact = true
+            impactSound()
             const after = job.transaction.after
             // Presentation snapshot only: both HP changes are already committed in core.
             const state = event.healing > 0 ? { ...after, actors: { ...after.actors,
@@ -84,7 +107,11 @@ export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}
       if (!['completed', 'skipped', 'cancelled', 'failed'].includes(result?.status)) result = { status: 'failed' }
     } catch (error) { result = { status: 'failed' }; safe(onError, error) }
     finally {
-      if (result?.status === 'completed' && !soundCancelled) safe(() => sound?.finish(result))
+      if (result?.status === 'completed' && !soundCancelled) {
+        // A successful clip without a cue still reveals its committed result here.
+        if (!impact) impactSound()
+        safe(() => sound?.finish(result))
+      }
       else cancelSound()
       clearTimeout(timer)
       controller.abort()

@@ -1,5 +1,7 @@
 # Sound and animation review: batch 6 — accepted finals
 
+Current status: accepted and active in all three game hosts through the [seven-batch rollout](SFX_ACCEPTED_ROLLOUT.md). The notes below preserve the review history.
+
 All five final versions were approved on 2026-09-18: “The final Outputs looks perfect for batch 6”. Open [Batch 6](http://localhost:5173/sfx-bench?batch=sync-006) and choose **Play final version**. The five saved Keep reviews and native measurements are archived in `sync-batch-006.feedback-02.json`, with the exact reviewed proposal in `sync-batch-006.manifest-02.json`. The final approval file pins both records and all 23 playback sources; the bench exposes only the accepted versions. Earlier comparisons remain archived.
 
 | Move | Latest change |

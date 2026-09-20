@@ -86,7 +86,8 @@ const unsubscribeAudio = battleAudio.subscribe(value => { audioState.value = val
 let scene, disposed = false, media, sceneGeneration = 0, playGeneration = 0
 const presenter = createPresenter({
   loadFx: async () => (await import('../../../shared/battle/reviewedFx.js')).createReviewedBattleFx(),
-  onMove: request => battleAudio.previewMove(request),
+  onMove: request => battleAudio.previewMove({ ...request,
+    effectiveness: MOVES.find(move => move.id === request.moveId)?.effective === true ? 'super-effective' : null }),
   getScene: () => scene,
   onDisplay: value => { displayed.value = value.state; status.value = value.message; animateHealth.value = value.animate },
   onBusy: value => { busy.value = value },

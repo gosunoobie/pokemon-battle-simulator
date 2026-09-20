@@ -24,13 +24,13 @@ const analysis = JSON.parse(await readFile(new URL('../tools/audio-import/report
 const tick = () => new Promise(resolve => setImmediate(resolve))
 const close = (actual, expected, label) => assert.ok(Math.abs(actual - expected) < 1e-9, `${label}: ${actual} vs ${expected}`)
 
-test('batch five contains the ten explicitly requested comparisons without modifying accepted game playback', async () => {
+test('historical batch five comparisons remain archived after final playback promotion', async () => {
   assert.deepEqual(batch.moves.map(move => move.id), ids)
   assert.equal(batch.status, 'unreviewed-comparison')
   assert.equal(batch.feedbackRecords, undefined)
   assert.deepEqual(await readFile(acceptedUrl), acceptedBefore)
   for (const move of batch.moves) {
-    assert.equal(accepted.moves[move.id], undefined)
+    assert.equal(accepted.moves[move.id].reviewStatus, 'accepted-sync')
     for (const field of ['previousReview', 'accent', 'visualAccent', 'plan', 'native']) assert.equal(move[field], undefined)
     assert.equal(move.visual.markers.find(marker => marker.id === 'impact').timeSeconds, impacts[ids.indexOf(move.id)])
   }

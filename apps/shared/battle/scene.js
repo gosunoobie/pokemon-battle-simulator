@@ -139,7 +139,7 @@ export function createSimulationScene({ getHost, onAvailability = () => {},
     syncIdle()
     operation.resolve({ status })
   }
-  async function faint(view, { actorIds: requestedIds = [], reducedMotion = false, signal } = {}) {
+  async function faint(view, { actorIds: requestedIds = [], reducedMotion = false, signal, onFaintStart } = {}) {
     if (fainting) finishFaint(fainting, 'cancelled')
     const holds = [...new Set(requestedIds)].flatMap(id => {
       const hold = retainedFainted.get(id)
@@ -158,8 +158,16 @@ export function createSimulationScene({ getHost, onAvailability = () => {},
       // modules cannot animate a replacement member or revive a completed faint.
       void Promise.resolve().then(loadFaint).then(async module => {
         if (operation.settled || fainting !== operation || scene !== operation.scene) return
+        const started = new Set()
         operation.playback = module.playPokemonFaint({ scene: operation.scene, actorIds: holds.map(([id]) => id),
-          reducedMotion, signal: operation.controller.signal })
+          reducedMotion, signal: operation.controller.signal, onCue(cue) {
+            const id = cue?.actorId, hold = holds.find(([actorId]) => actorId === id)?.[1]
+            if (cue?.type !== 'faint' || !hold || started.has(id) || disposed || operation.settled ||
+              fainting !== operation || scene !== operation.scene || operation.controller.signal.aborted || signal?.aborted ||
+              retainedFainted.get(id) !== hold || !matchingHold(hold, currentView) || !scene.actor(id)?.root.visible) return
+            started.add(id)
+            try { onFaintStart?.(id, hold.identity.ids[hold.index]) } catch {}
+          } })
         if (operation.settled) {
           try { operation.playback?.cancel?.() } catch {}
           return
@@ -216,7 +224,7 @@ export function createSimulationScene({ getHost, onAvailability = () => {},
     try { await ensureScene(view, options) }
     finally { idleBlocked--; syncIdle() }
   }
-  async function ensureScene(view, { entryActorIds = [], reducedMotion = false, signal, onEntryReveal } = {}) {
+  async function ensureScene(view, { entryActorIds = [], reducedMotion = false, signal, onEntryReveal, onEntrySound } = {}) {
     display(view)
     const next = identity(view)
     if (pending?.key === next.key) { await waitFor(pending, signal); return }
@@ -275,19 +283,28 @@ export function createSimulationScene({ getHost, onAvailability = () => {},
           try {
             const release = await Promise.race([loadRelease(), operation.entryStopped])
             if (release && valid(operation) && !operation.skipEntry) {
-              const revealed = new Set()
-              operation.playback = release.playPokeballRelease({ scene: nextScene, actorIds: operation.entries,
+              const revealed = new Set(), opened = new Set()
+              operation.startingPlayback = true
+              try { operation.playback = release.playPokeballRelease({ scene: nextScene, actorIds: operation.entries,
                 reducedMotion, signal: operation.controller.signal, onCue(cue) {
                   const id = cue?.actorId, index = actorIds.indexOf(id)
-                  if (cue?.type !== 'reveal' || !operation.entries.includes(id) || revealed.has(id) ||
+                  const seen = cue?.type === 'open' ? opened : cue?.type === 'reveal' ? revealed : null
+                  if (!seen || !operation.entries.includes(id) || seen.has(id) ||
                     !valid(operation) || pending !== operation || operation.skipEntry || operation.controller.signal.aborted ||
                     signal?.aborted || scene !== nextScene || !entering.has(id)) return
                   const displayed = identity(currentView)
                   if (!sameActor(next, displayed, index) || displayed.members[index]?.fainted ||
-                    !nextScene.actor(id)?.root.visible) return
-                  revealed.add(id)
-                  try { onEntryReveal?.(id) } catch {}
-                } })
+                    displayed.members[index]?.hp?.current === 0 || !nextScene.actor(id) ||
+                    (!nextScene.actor(id).root.visible && (cue.type !== 'open' || !operation.startingPlayback))) return
+                  // An opening cue can arrive synchronously before the clip has
+                  // returned and the host exposes its safely hidden actor root.
+                  seen.add(id)
+                  try { (cue.type === 'open' ? onEntrySound : onEntryReveal)?.(id) } catch {}
+                } }) } finally { operation.startingPlayback = false }
+              if (!valid(operation) || pending !== operation || operation.skipEntry || operation.controller.signal.aborted || signal?.aborted || scene !== nextScene) {
+                stopEntry(operation)
+                return
+              }
               // The clip synchronously hides its actor pose before returning.
               // Expose the root only now, so its expanding pose can be seen.
               const displayed = identity(currentView)

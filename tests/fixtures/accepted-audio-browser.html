@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Accepted battle audio browser checks</title>
+    <style>
+      body { max-width: 1000px; margin: 32px auto; padding: 0 20px; font: 16px/1.5 system-ui, sans-serif; }
+      button { padding: 10px 16px; margin: 8px 8px 8px 0; font: inherit; }
+      label { display: block; margin: 16px 0; }
+      pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f2f4f7; padding: 16px; }
+    </style>
+  </head>
+  <body>
+    <h1>Accepted battle audio browser checks</h1>
+    <p>Uses the real preview, simulation and private multiplayer audio factories, original recordings, browser decoder and Web Audio player. Successful starts establish playback availability, not a listening or synchronization verdict.</p>
+    <label><input id="audible" type="checkbox"> Also play one complete representative recording per host</label>
+    <button id="run" type="button">Run audio checks</button>
+    <button id="stop" type="button" disabled>Stop checks</button>
+    <p id="status" role="status">Ready. Keep this tab visible while the checks run.</p>
+    <pre id="results">No checks run.</pre>
+    <script type="module" src="./accepted-audio-browser.js"></script>
+  </body>
+</html>

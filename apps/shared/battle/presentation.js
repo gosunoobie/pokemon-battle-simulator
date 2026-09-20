@@ -220,9 +220,9 @@ function groupsFor(events) {
 
 /** Optional FX for a batch already committed by the authoritative server. */
 export function createSimulationPresenter({ getScene, ensureScene = async () => {}, onDisplay,
-  onMessage = () => {}, onEntry = () => {}, onEntryCancel = () => {}, onMove = () => null,
+  onMessage = () => {}, onEntry = () => {}, onEntryCancel = () => {}, onTransition = () => {}, onMove = () => null,
   faintScene = async () => {}, playImpact = () => null, loadFx, timeoutMs }) {
-  if (![getScene, ensureScene, onDisplay, onMessage, onEntry, onEntryCancel, onMove, faintScene, playImpact, loadFx].every(value => typeof value === 'function')) throw new TypeError('Presenter callbacks are required')
+  if (![getScene, ensureScene, onDisplay, onMessage, onEntry, onEntryCancel, onTransition, onMove, faintScene, playImpact, loadFx].every(value => typeof value === 'function')) throw new TypeError('Presenter callbacks are required')
   if (timeoutMs !== undefined && (!Number.isFinite(timeoutMs) || timeoutMs <= 0)) throw new TypeError('A positive presentation timeout is required')
   let generation = 0, active = null, destroyed = false, fxPromise = null
   const safe = (callback, ...args) => { try { return callback(...args) } catch {} }
@@ -266,6 +266,9 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
       const member = memberFor(view, side?.active)
       if (valid() && !stoppedStatus && member && !member.fainted && member.hp?.current !== 0) safe(onEntry, view, actorId)
     }
+    const transition = (view, type, actorId, memberId) => {
+      if (effectsEnabled && valid() && !stoppedStatus && !controller.signal.aborted) safe(onTransition, view, { type, actorId, memberId })
+    }
     const bounded = async (work, cancellable = true, milliseconds = timeoutMs ?? 7500) => {
       let timer
       const deadline = new Promise(resolve => { timer = setTimeout(() => resolve({ stopped: 'failed' }), milliseconds) })
@@ -276,12 +279,20 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
       } finally { clearTimeout(timer) }
     }
     const prepareScene = async (view, cancellable = true, entryActorIds = []) => {
-      const revealed = new Set()
+      const revealed = new Set(), opened = new Set()
       try { await bounded(() => valid() ? ensureScene(view, {
         entryActorIds, reducedMotion, signal: cancellable ? controller.signal : undefined,
         onEntryReveal(actorId) {
           if (!entryActorIds.includes(actorId) || revealed.has(actorId) || controller.signal.aborted) return
           revealed.add(actorId); entry(view, actorId)
+        },
+        onEntrySound(actorId) {
+          if (!entryActorIds.includes(actorId) || opened.has(actorId) || controller.signal.aborted) return
+          const memberId = actorId === 'source' ? view?.own?.active : view?.opponent?.active
+          const member = memberFor(view, memberId)
+          if (!member || member.fainted || member.hp?.current === 0) return
+          opened.add(actorId)
+          transition(view, 'pokeball', actorId, memberId)
         },
       }) : undefined, cancellable) }
       catch (error) {
@@ -357,6 +368,17 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
               const sound = safe(onMove, { moveId: effect.id, cursor: first.cursor,
                 phase: prepare ? 'prepare' : 'attack', outcome: soundOutcome, mode: reducedMotion ? 'reduced' : 'normal' })
               soundPlayback = sound
+              const soundReady = safe(() => sound?.ready)
+              if (soundReady) {
+                // Give a newly revealed opponent recording a bounded chance to
+                // load before the visual clock starts. Audio stays optional.
+                let audioTimer
+                try {
+                  await Promise.race([Promise.resolve(soundReady).catch(() => {}), stopped,
+                    new Promise(resolve => { audioTimer = setTimeout(resolve, 500) })])
+                } finally { clearTimeout(audioTimer) }
+                if (!valid() || stoppedStatus) break
+              }
               const request = { moveId: effect.id, sourceId,
                 targetIds: fieldsOf(first)[2] && fieldsOf(first)[2] !== '[notarget]' ? [targetId] : [],
                 outcome: 'hit', phase: prepare ? 'prepare' : 'attack', visualSeed: first.cursor }
@@ -385,8 +407,14 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
           if (faintActorIds.length && valid() && !stoppedStatus) {
             // Let the attack recover first. Only then retire its defeated actor,
             // before any switch, forced replacement, or result that follows.
+            const started = new Set()
             const result = await bounded(() => faintScene(next, {
               actorIds: faintActorIds, reducedMotion, signal: controller.signal,
+              onFaintStart(actorId, memberId) {
+                const outgoingId = actorId === 'source' ? displayed?.own?.active : displayed?.opponent?.active
+                if (!faintActorIds.includes(actorId) || started.has(actorId) || memberId !== outgoingId || !memberFor(next, memberId)?.fainted) return
+                started.add(actorId); transition(next, 'faint', actorId, memberId)
+              },
             }))
             if (result?.status === 'failed' || result?.status === 'cancelled') {
               throw Object.assign(new Error('Faint animation unavailable'), { presentationStatus: 'failed' })

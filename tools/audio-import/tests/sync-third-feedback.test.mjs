@@ -184,7 +184,7 @@ test('batch three acceptance preserves both earlier final batches and all unrela
     for (const move of served.moves) for (const key of ['visualAccent', 'previousReview', 'candidate', 'baseline']) assert.equal(Object.hasOwn(move, key), false)
   }
   const runtime = await generateAcceptedRuntime({ check: true })
-  assert.deepEqual(runtime.catalog.provenance.batches.map(row => row.batchId), ['sync-001', 'sync-002', 'sync-003'])
-  assert.equal(Object.keys(runtime.catalog.moves).length, 18)
+  assert.deepEqual(runtime.catalog.provenance.batches.map(row => row.batchId), ['sync-001', 'sync-002', 'sync-003', 'sync-004', 'sync-005', 'sync-006', 'sync-007'])
+  assert.equal(Object.keys(runtime.catalog.moves).length, 44)
   for (const move of definition.moves) assert.equal(Object.hasOwn(runtime.catalog.moves, move.id), true)
 })

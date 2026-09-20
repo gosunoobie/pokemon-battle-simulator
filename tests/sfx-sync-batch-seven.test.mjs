@@ -15,7 +15,7 @@ import { planSyncAudition } from '../apps/sfx-bench/src/sync.js'
 
 const read = path => readFile(new URL(`../${path}`, import.meta.url))
 const hash = bytes => createHash('sha256').update(bytes).digest('hex')
-const batch = await createSyncBatchManifest({ batch: 'sync-007' })
+const batch = await createSyncBatchManifest({ batch: 'sync-007', historical: true })
 const expected = ['sing', 'grasswhistle', 'attract', 'morningsun', 'moonlight', 'confuseray']
 const durations = [4.19, 3.44, 6.01, 4.57, 5.57, 3.18]
 const tick = () => new Promise(resolve => setImmediate(resolve))

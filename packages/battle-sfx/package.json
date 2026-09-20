@@ -8,7 +8,8 @@
     "./runtime": "./src/runtime.js",
     "./draft-runtime": "./src/draft-runtime.js",
     "./catalog.json": "./data/catalog.json",
-    "./accepted-runtime": "./src/accepted-runtime.js"
+    "./accepted-runtime": "./src/accepted-runtime.js",
+    "./event-runtime": "./src/event-runtime.js"
   },
   "files": [
     "src",

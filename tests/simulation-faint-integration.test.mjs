@@ -23,7 +23,7 @@ function fixture() {
     event(4, 'faint', 'p2:1'), event(5, 'switch', 'p2:2', 'Gengar, L100', '48/48')] }
 }
 function harness({ holdAttack = false, timeoutMs = 7500 } = {}) {
-  const attackReady = deferred(), attackDone = deferred(), faintReady = deferred(), displayed = [], scenes = [], entries = []
+  const attackReady = deferred(), attackDone = deferred(), faintReady = deferred(), displayed = [], scenes = [], entries = [], transitions = []
   let faintTimeline, faintCount = 0, visibilityBeforeReplacement
   const coordinator = createSimulationScene({
     getHost: () => ({ appendChild() {} }), createHost: () => ({ remove() {} }),
@@ -40,11 +40,12 @@ function harness({ holdAttack = false, timeoutMs = 7500 } = {}) {
   })
   const presenter = createSimulationPresenter({ getScene: coordinator.get, ensureScene: coordinator.ensure,
     faintScene: coordinator.faint, onDisplay(view, options) { displayed.push(view); coordinator.display(view, options) }, timeoutMs,
+    onTransition: (view, cue) => transitions.push({ view, cue }),
     loadFx: async () => ({ play(request, options) { options.onCue({ type: 'impact' }); attackReady.resolve();
       return { finished: holdAttack ? attackDone.promise : Promise.resolve({ status: 'completed' }), cancel() {} }
     } }),
   })
-  return { coordinator, presenter, attackReady, attackDone, faintReady, displayed, scenes, entries,
+  return { coordinator, presenter, attackReady, attackDone, faintReady, displayed, scenes, entries, transitions,
     get timeline() { return faintTimeline }, get faintCount() { return faintCount }, get visibilityBeforeReplacement() { return visibilityBeforeReplacement },
     dispose() { presenter.destroy(); coordinator.destroy() },
   }
@@ -60,7 +61,9 @@ test('real faint clip follows HP impact and attack recovery, hides the old root,
     assert.equal(h.displayed.at(-1).opponent.known[0].hp.current, 0)
     assert.equal(opponent.root.visible, true, 'zero HP does not pop artwork out during the attack')
     assert.equal(h.faintCount, 0)
+    assert.deepEqual(h.transitions, [], 'faint sound waits through attack recovery')
     h.attackDone.resolve({ status: 'completed' }); await h.faintReady.promise
+    assert.deepEqual(h.transitions.map(value => value.cue), [{ type: 'faint', actorId: 'target', memberId: 'p2:1' }])
     assert.equal(opponent.root.visible, true)
     assert.equal(opponent.pose.alpha, 0, 'owned copy replaces the retained live pose')
     assert.ok(scene.effects.getChildByLabel('faint-copy-target', true))

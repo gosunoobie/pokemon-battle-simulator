@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "kind": "battle-sfx-event-runtime-report",
+  "authorization": {
+    "kind": "user-message",
+    "scope": "effectiveness-pokeball-and-faint-events",
+    "description": "The user previously requested super-effective and not-very-effective hit sounds, and now requested Poké Ball and Pokémon faint sound effects.",
+    "requests": [
+      {
+        "scope": "effectiveness-events",
+        "quote": "Now lets add super effective and not very effective sound effects when these occurs"
+      },
+      {
+        "scope": "pokeball-and-faint-events",
+        "quote": "Now lets add the poke ball and pokemon faint sound effect"
+      }
+    ],
+    "listeningApproval": false,
+    "nativeDecoderReview": false
+  },
+  "provenance": {
+    "auditLockSha256": "614020287f2c9bca3e75dd20bd4b7f759a2822987a01586802070a3cc7321887",
+    "catalogSha256": "e5c581b52ec719e12b1fb5bcf38f901ee114e1c58605afcd366fd056c702a66a",
+    "sourceLockSha256": "fd29ebea2632e7a71d141ea8bef65992f99f96d6a24937b4c4d35346ad89076f"
+  },
+  "policy": {
+    "playbackPolicy": "whole-native-buffer-at-event-cue",
+    "playbackRate": 1,
+    "startSeconds": 0,
+    "endSeconds": null,
+    "defaultGainDb": -6,
+    "nativeCompatibility": null,
+    "tailPolicy": "continue-until-source-end",
+    "gainBasis": "Hit cues retain conservative -6 dB attenuation; standalone transition cues use 0 dB. These are host mix choices, not perceived-loudness normalization or listening approvals.",
+    "unselected": "silence"
+  },
+  "selected": [
+    {
+      "eventId": "battle.hit.super-effective",
+      "assetId": "source.hit-super-effective",
+      "file": "Hit Super Effective.mp3",
+      "bytes": 71180,
+      "sha256": "78652aa7b163ef73a0fcb37af61068a12d83a0a298e64ef447e792e58b34150e",
+      "pcmSha256": "22f6732810ec91f2620637c3004f8411310a61d4023fde63f3014447118a0d16",
+      "sampleFrames": 75852,
+      "originalSourceSha256": "f2ea58c1c7ba376577c5dcb42640c01ad1c56209d44c300569c693ec7ec0444e",
+      "sampleRate": 44100,
+      "channels": 2,
+      "referenceDurationSeconds": 1.72,
+      "referencePeakDbfs": -6.31419665,
+      "referenceRmsDbfs": -24.00688591,
+      "gainDb": -6
+    },
+    {
+      "eventId": "battle.hit.resisted",
+      "assetId": "source.hit-weak-not-very-effective",
+      "file": "Hit Weak Not Very Effective.mp3",
+      "bytes": 30429,
+      "sha256": "cfaa3e077c7a8451a6a6d325755eee10b95db9081196fd7cd8eacde4996bdeb1",
+      "pcmSha256": "0ac62937be4f8740fd475a434e6090df602e5f17851300289cf70abcb52549cf",
+      "sampleFrames": 30870,
+      "originalSourceSha256": "a66f38e182ed8143246b55186ea7c93be5861b39f2bd707bbb28600d296e6126",
+      "sampleRate": 44100,
+      "channels": 2,
+      "referenceDurationSeconds": 0.7,
+      "referencePeakDbfs": -7.55436357,
+      "referenceRmsDbfs": -23.62250375,
+      "gainDb": -6
+    },
+    {
+      "eventId": "battle.release.pokeball",
+      "sourceEventId": "battle.recall.pokeball",
+      "sourceUse": "Host-selected reuse of the existing recall/switch recording for Poké Ball activation during send-out; not a dedicated release recording.",
+      "assetId": "source.in-battle-recall-switch-pokeball",
+      "file": "In-Battle Recall Switch Pokeball.mp3",
+      "gainDb": 0,
+      "bytes": 35653,
+      "sha256": "a078ff0a5695ddc6ce41a2499b0b2ea1d429d182dc1452bc1723833efe0031a4",
+      "pcmSha256": "155e6585f38458bc821d0c98525fdf0f25633991d00e5b216f4d572b0f14359a",
+      "sampleFrames": 36603,
+      "originalSourceSha256": "25886579b0bb31d42af6e6e6ab660496feb598633083c4525694c0bc0dbe5810",
+      "sampleRate": 44100,
+      "channels": 2,
+      "referenceDurationSeconds": 0.83,
+      "referencePeakDbfs": -2.31373742,
+      "referenceRmsDbfs": -16.46296578
+    },
+    {
+      "eventId": "battle.faint",
+      "sourceEventId": "battle.faint",
+      "sourceUse": "Whole faint/no-health event recording, separate from the Pokémon cry.",
+      "assetId": "source.in-battle-faint-no-health",
+      "file": "In-Battle Faint No Health.mp3",
+      "gainDb": 0,
+      "bytes": 42968,
+      "sha256": "c71721da6cc02d8dbe5b5d77bf68879b561551efb9173c1bec77066a95ae76d4",
+      "pcmSha256": "c8825f43731b9fd6d803cb729866081b43630fe18b3d5015658947baa91e5a55",
+      "sampleFrames": 44100,
+      "originalSourceSha256": "7b99ff195c53c4f4379f9b5f51930230d20f5d0e85edda35972dea6ebad2a43b",
+      "sampleRate": 44100,
+      "channels": 2,
+      "referenceDurationSeconds": 1,
+      "referencePeakDbfs": -7.41954872,
+      "referenceRmsDbfs": -23.81593938
+    }
+  ],
+  "selectedEventCount": 4,
+  "selectedAssetCount": 4,
+  "encodedBytes": 180230,
+  "listeningApprovalsAdded": 0,
+  "nativeDecoderReviewsAdded": 0,
+  "acceptedMoveMappingsChanged": 0,
+  "decoderReference": {
+    "name": "mpg123-decoder",
+    "version": "1.0.3",
+    "enableGapless": true,
+    "referenceConvention": "Native-rate mpg123 Float32 output with Xing/LAME gapless handling enabled; no resampling, normalization, trimming or fades are added by this tool. This is a reference measurement, not a guarantee of browser-decoder sample alignment."
+  },
+  "runtimeModuleBytes": 4458,
+  "runtimeModuleSha256": "860c1e2fa4d391b5056ac78f3f9a895a0da972664061f6cbc98cec9974909f4d",
+  "limitations": [
+    "The delivered files exactly match the verified collection MP3 bytes. The earlier collection import removed leading ID3 metadata only; MPEG audio was preserved.",
+    "Reference PCM measurements describe source provenance and levels only. No native browser sample-count or listening review is claimed.",
+    "Playback uses the entire actual native decode at rate one, including its original quiet beginning and tail. No trimming, taper, normalization, or latency correction is inferred.",
+    "The host supplies confirmed effectiveness or transition cues. Neutral hits and immunity have no selected event recording.",
+    "The host explicitly reuses the existing recall/switch Poké Ball recording for send-out activation. The original collection event remains battle.recall.pokeball; no dedicated release source or listening approval is claimed."
+  ],
+  "compiler": {
+    "path": "tools/audio-import/event-runtime.mjs",
+    "sha256": "bc720833e5d2f4247af54f08f93c0c56b079b4c9e6d1c0bd25447a5c72cf29e0"
+  },
+  "outputs": [
+    {
+      "path": "packages/battle-sfx/src/event-runtime.generated.js",
+      "bytes": 4458,
+      "sha256": "860c1e2fa4d391b5056ac78f3f9a895a0da972664061f6cbc98cec9974909f4d"
+    },
+    {
+      "path": "public/audio/sfx/78652aa7b163ef73a0fcb37af61068a12d83a0a298e64ef447e792e58b34150e.mp3",
+      "bytes": 71180,
+      "sha256": "78652aa7b163ef73a0fcb37af61068a12d83a0a298e64ef447e792e58b34150e"
+    },
+    {
+      "path": "public/audio/sfx/cfaa3e077c7a8451a6a6d325755eee10b95db9081196fd7cd8eacde4996bdeb1.mp3",
+      "bytes": 30429,
+      "sha256": "cfaa3e077c7a8451a6a6d325755eee10b95db9081196fd7cd8eacde4996bdeb1"
+    },
+    {
+      "path": "public/audio/sfx/a078ff0a5695ddc6ce41a2499b0b2ea1d429d182dc1452bc1723833efe0031a4.mp3",
+      "bytes": 35653,
+      "sha256": "a078ff0a5695ddc6ce41a2499b0b2ea1d429d182dc1452bc1723833efe0031a4"
+    },
+    {
+      "path": "public/audio/sfx/c71721da6cc02d8dbe5b5d77bf68879b561551efb9173c1bec77066a95ae76d4.mp3",
+      "bytes": 42968,
+      "sha256": "c71721da6cc02d8dbe5b5d77bf68879b561551efb9173c1bec77066a95ae76d4"
+    }
+  ]
+}

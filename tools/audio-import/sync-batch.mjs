@@ -16,6 +16,7 @@ import { SIXTH_FILES, reviseSixthBatch } from './sync-sixth-batch.mjs'
 import { SIXTH_SECOND_FILES, reviseSixthBatchAgain } from './sync-sixth-second-revision.mjs'
 import { SIXTH_FINAL_FILES, compileSixthFinalBatch } from './sync-sixth-final.mjs'
 import { SEVENTH_FILES, reviseSeventhBatch } from './sync-seventh-batch.mjs'
+import { readApprovedRollout } from './sync-rollout.mjs'
 
 const DEFINITION = 'tools/audio-import/review/sync-batch-001.json'
 const FEEDBACK = 'tools/audio-import/review/sync-batch-001.feedback-01.json'
@@ -52,10 +53,10 @@ export const SYNC_BATCH_CATALOG = Object.freeze([
   Object.freeze({ id: 'sync-001', label: 'Batch 1 · Accepted', status: 'accepted', moveIds: Object.freeze(IDS) }),
   Object.freeze({ id: 'sync-002', label: 'Batch 2 · Accepted', status: 'accepted', moveIds: Object.freeze(['icebeam', 'psychic', 'flamethrower', 'shadowball', 'rockslide', 'gigadrain']) }),
   Object.freeze({ id: 'sync-003', label: 'Batch 3 · Accepted', status: 'accepted', moveIds: Object.freeze(['surf', 'watergun', 'crunch', 'thunderpunch', 'swift', 'calmmind']) }),
-  Object.freeze({ id: 'sync-004', label: 'Batch 4 · Review', status: 'unreviewed-comparison', moveIds: Object.freeze(['ember', 'waterfall', 'dragonclaw', 'ancientpower', 'shadowpunch', 'swordsdance']) }),
-  Object.freeze({ id: 'sync-005', label: 'Batch 5 · Odd ones out', status: 'unreviewed-comparison', moveIds: Object.freeze(['fireblast', 'solarbeam', 'razorleaf', 'sludgebomb', 'overheat', 'eruption', 'earthquake', 'thunder', 'blizzard', 'bubblebeam']) }),
+  Object.freeze({ id: 'sync-004', label: 'Batch 4 · Accepted', status: 'accepted', moveIds: Object.freeze(['ember', 'waterfall', 'dragonclaw', 'ancientpower', 'shadowpunch', 'swordsdance']) }),
+  Object.freeze({ id: 'sync-005', label: 'Batch 5 · Accepted', status: 'accepted', moveIds: Object.freeze(['fireblast', 'solarbeam', 'razorleaf', 'sludgebomb', 'overheat', 'eruption', 'earthquake', 'thunder', 'blizzard', 'bubblebeam']) }),
   Object.freeze({ id: 'sync-006', label: 'Batch 6 · Accepted', status: 'accepted', moveIds: Object.freeze(['leafblade', 'triattack', 'meteormash', 'ancientpower', 'sacredfire']) }),
-  Object.freeze({ id: 'sync-007', label: 'Batch 7 · Songs and healing', status: 'unreviewed-comparison', moveIds: Object.freeze(['sing', 'grasswhistle', 'attract', 'morningsun', 'moonlight', 'confuseray']) }),
+  Object.freeze({ id: 'sync-007', label: 'Batch 7 · Accepted', status: 'accepted', moveIds: Object.freeze(['sing', 'grasswhistle', 'attract', 'morningsun', 'moonlight', 'confuseray']) }),
 ])
 export const isSyncBatchId = id => SYNC_BATCH_CATALOG.some(batch => batch.id === id)
 const equal = (a, b) => JSON.stringify(a) === JSON.stringify(b)
@@ -351,8 +352,13 @@ export function compileSyncFeedback({ batch, snapshot, feedbackBytes, playbackPi
   return { ...batch, revision, moves, feedbackRecords, defaultMoveId }
 }
 
-export async function createSyncBatchManifest({ root = BENCH_ROOT, batch = 'sync-001' } = {}) {
+export async function createSyncBatchManifest({ root = BENCH_ROOT, batch = 'sync-001', historical = false } = {}) {
   if (!isSyncBatchId(batch)) throw new BenchError('Unknown sync review batch', 404)
+  if (!historical && ['sync-004', 'sync-005', 'sync-007'].includes(batch)) {
+    const rollout = await readApprovedRollout({ root })
+    return { ...rollout.batches.find(item => item.id === batch),
+      batches: SYNC_BATCH_CATALOG.map(({ id, label, status }) => ({ id, label, status })) }
+  }
   const catalog = SYNC_BATCH_CATALOG.find(item => item.id === batch), ids = catalog.moveIds
   const definitionPath = `tools/audio-import/review/sync-batch-${batch.slice(-3)}.json`
   const manifest = await createCollectionManifest({ root }), analysis = await readRemainingAnalysis({ root, manifest })
@@ -385,7 +391,7 @@ export async function createSyncBatchManifest({ root = BENCH_ROOT, batch = 'sync
     batch: comparison, snapshot: JSON.parse(await readLocal(root, batch === 'sync-001' ? REVIEW : batch === 'sync-002' ? SECOND_REVIEW : batch === 'sync-004' ? FOURTH_REVIEW : FIFTH_FILES[1])), feedbackBytes: await readLocal(root, batch === 'sync-001' ? FEEDBACK : batch === 'sync-002' ? SECOND_FEEDBACK : batch === 'sync-004' ? FOURTH_FEEDBACK : FIFTH_FILES[0]),
     playbackPins: SYNC_REVIEW_PLAYBACK_FILES.map(path => revisionPins.find(pin => pin.path === path)),
   }) : comparison
-  const result = catalog.status === 'accepted' && batch !== 'sync-006' ? compileFinalSyncBatch({
+  const result = ['sync-001', 'sync-002', 'sync-003'].includes(batch) ? compileFinalSyncBatch({
     final: JSON.parse(await readLocal(root, batch === 'sync-001' ? FINAL : batch === 'sync-002' ? SECOND_FINAL : THIRD_FINAL)), batch: reviewed, revisionPins,
     ...(batch === 'sync-002' ? { nativeEvidenceBytes: await readLocal(root, SECOND_NATIVE) } : {}),
     ...(batch === 'sync-003' ? { reviewEvidenceBytes: await readLocal(root, THIRD_FINAL_REVIEW), feedbackEvidenceBytes: await readLocal(root, THIRD_FINAL_FEEDBACK) } : {}),

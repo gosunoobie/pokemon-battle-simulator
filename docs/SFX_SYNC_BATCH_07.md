@@ -1,5 +1,7 @@
 # Sound and animation review: Batch 7
 
+Current status: accepted and active in all three game hosts through the [seven-batch rollout](SFX_ACCEPTED_ROLLOUT.md). The notes below preserve the review history.
+
 Open [Batch 7](http://localhost:5173/sfx-bench?batch=sync-007), load each sound,
 and choose **Play proposed**. All six proposals await review. **Play current**
 retains the original registered animation with the same full recording.

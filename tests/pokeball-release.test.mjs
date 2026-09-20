@@ -92,9 +92,45 @@ test('simultaneous initial entries stagger briefly, preserve both footprints, an
   } finally { run.cancel(); h.scene.dispose() }
 })
 
+test('opening cues precede the existing reveal with the same per-actor stagger, without replay on seek', async () => {
+  const h = harness(), cues = []
+  const run = h.play(['source', 'target', 'source'], { onCue(cue) {
+    cues.push({ ...cue, alpha: h.scene.actor(cue.actorId).pose.alpha })
+  } })
+  try {
+    h.tl.time(.519, false); assert.equal(cues.length, 0)
+    h.tl.time(.52, false)
+    assert.deepEqual(cues, [{ type: 'open', actorId: 'source', alpha: 0 }])
+    h.tl.time(.55, false); assert.equal(cues[1].type, 'reveal'); assert.ok(cues[1].alpha > 0)
+    h.tl.time(.62, false); assert.deepEqual(cues[2], { type: 'open', actorId: 'target', alpha: 0 })
+    h.tl.time(.65, false); assert.equal(cues[3].type, 'reveal'); assert.ok(cues[3].alpha > 0)
+    h.tl.time(.1, false); h.tl.time(.8, false); assert.equal(cues.length, 4)
+    h.tl.time(1.45, false); assert.equal((await run.finished).status, 'completed')
+  } finally { run.cancel(); h.scene.dispose() }
+})
+
+test('reduced opening cues use the first visible frame and cancellation from opening prevents later cues', async () => {
+  for (const reducedMotion of [false, true]) {
+    const h = harness(), cues = [], controller = new AbortController()
+    const run = h.play(['source', 'target'], { reducedMotion, signal: controller.signal, onCue(cue) {
+      cues.push(cue)
+      assert.equal(cue.type, 'open')
+      assert.equal(h.scene.actor(cue.actorId).pose.alpha > 0, reducedMotion)
+      controller.abort()
+    } })
+    try {
+      assert.deepEqual(cues, [])
+      h.tl.time(reducedMotion ? .001 : .52, false)
+      assert.equal((await run.finished).status, 'cancelled')
+      assert.deepEqual(cues, [{ type: 'open', actorId: 'source' }])
+    } finally { run.cancel(); h.scene.dispose() }
+  }
+})
+
 test('release cues fire once per visible actor after its reveal pose, preserving the stagger', async () => {
   const h = harness(), cues = []
   const run = h.play(['source', 'target', 'source'], { onCue(cue) {
+    if (cue.type !== 'reveal') return
     assert.ok(h.scene.actor(cue.actorId).pose.alpha > 0)
     cues.push(cue)
   } })
@@ -116,6 +152,7 @@ test('release cues fire once per visible actor after its reveal pose, preserving
 test('reduced-motion reveal cues follow the first positive fade frame and callback errors remain cosmetic', async () => {
   const h = harness(), cues = []
   const run = h.play(['source', 'target'], { reducedMotion: true, onCue(cue) {
+    if (cue.type !== 'reveal') return
     cues.push({ ...cue, alpha: h.scene.actor(cue.actorId).pose.alpha })
     throw new Error('Optional sound failed')
   } })
@@ -136,6 +173,7 @@ test('cancelled and aborted releases do not emit unreached reveal cues', async (
     const h = harness(), cues = [], controller = new AbortController()
     if (mode === 'pre-aborted') controller.abort()
     const run = h.play(['source', 'target'], { signal: controller.signal, onCue(cue) {
+      if (cue.type !== 'reveal') return
       cues.push(cue)
       if (mode === 'cancel-from-cue') controller.abort()
     } })

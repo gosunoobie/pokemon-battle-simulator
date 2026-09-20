@@ -4,14 +4,14 @@ import { ACCEPTED_SFX_RUNTIME_CATALOG, getAcceptedMoveSoundPlan, getAcceptedFxSo
 
 test('final sound catalog is immutable, explicit and silent for unreviewed phases and outcomes', () => {
   const ids = Object.keys(ACCEPTED_SFX_RUNTIME_CATALOG.moves)
-  assert.equal(ids.length, 18)
+  assert.equal(ids.length, 44)
   for (const id of ids) {
     const plan = getAcceptedMoveSoundPlan(id)
     assert.equal(getAcceptedFxSoundPlan(plan.fxId), plan)
     assert.throws(() => { plan.segments[0].gainDb = -40 }, TypeError)
     for (const options of [{ phase: 'prepare' }, { mode: 'reduced' }, { outcome: 'miss' }, { outcome: 'immune' }]) assert.equal(getAcceptedMoveSoundPlan(id, options), null)
   }
-  assert.equal(getAcceptedMoveSoundPlan('ember'), null)
+  assert.equal(getAcceptedMoveSoundPlan('tackle'), null)
   assert.equal(getAcceptedFxSoundPlan('Body Slam'), null)
   assert.equal(getAcceptedMoveSoundPlan('__proto__'), null)
 })

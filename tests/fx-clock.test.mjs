@@ -4,6 +4,7 @@ import assert from 'node:assert/strict'
 import { Graphics, Texture } from 'pixi.js'
 import { gsap } from 'gsap'
 import { createBattleFx } from '@battle/battle-fx'
+import { createAcceptedBattleFx, ACCEPTED_MOVE_EFFECTS } from '@battle/battle-fx/accepted-effects'
 import { createClockedBattleFx } from '@battle/battle-fx/presentation-clock'
 import { createSceneGraph } from '../apps/game/src/scene/index.js'
 import { ACCEPTED_SFX_RUNTIME_CATALOG } from '@battle/battle-sfx/accepted-runtime'
@@ -282,14 +283,18 @@ test('invalid rates never construct a visual and cancelling a paced run clears i
   } finally { h.dispose() }
 })
 
-test('accepted production pacing preserves all six original recipes and result cues from either perspective', async () => {
+test('all 44 latest accepted production recipes retain poses and result cues at approved pacing from either perspective', async () => {
   const sample = actor => ({ x: actor.pose.x, y: actor.pose.y, rotation: actor.pose.rotation,
     scaleX: actor.pose.scale.x, scaleY: actor.pose.scale.y, alpha: actor.pose.alpha })
+  assert.equal(Object.keys(ACCEPTED_SFX_RUNTIME_CATALOG.moves).length, 44)
   for (const plan of Object.values(ACCEPTED_SFX_RUNTIME_CATALOG.moves)) for (const sourceId of ['source', 'target']) {
+    const effect = ACCEPTED_MOVE_EFFECTS[plan.fxId]
     let baseline
     for (const visualRate of [1, plan.visualRate]) {
       const scene = createSceneGraph({ textures: { charizard: Texture.WHITE, venusaur: Texture.WHITE } }), timelines = [], events = [], cues = [], snapshots = []
-      const fx = createClockedBattleFx({ glowTexture: Texture.WHITE, assetLoader: async () => Texture.WHITE,
+      const loaded = []
+      const fx = createClockedBattleFx({ createFx: createAcceptedBattleFx, glowTexture: Texture.WHITE,
+        assetLoader: async key => { loaded.push(key); return Texture.WHITE },
         timelineEngine: { timeline(vars) {
           const raw = gsap.timeline({ ...vars, paused: true }); raw.play = () => raw; timelines.push(raw); return raw
         } },
@@ -298,11 +303,13 @@ test('accepted production pacing preserves all six original recipes and result c
         const handle = fx.play({ moveId: plan.fxId, sourceId, targetIds: [sourceId === 'source' ? 'target' : 'source'], visualSeed: 42 }, {
           scene, visualRate, onCue: cue => cues.push({ type: cue.type, authoredTime: timelines[0].time() }), onPresentation: event => events.push(event),
         })
-        await tick()
+        for (let wait = 0; !timelines.length && wait < 5; wait++) await tick()
         const raw = timelines[0]
+        assert.ok(raw, `${plan.moveId} starts after its accepted artwork is ready`)
+        if (plan.fxId === 'ancient-power') assert.deepEqual(loaded, ['rock'], 'latest Ancient Power preloads the real Rock Slide texture')
         assert.equal(raw.timeScale(), visualRate, plan.moveId)
-        assert.equal(events[0].durationSeconds, plan.visualDurationSeconds / visualRate)
-        for (const at of [...new Set(plan.segments.map(segment => segment.cueSeconds))].sort((a, b) => a - b)) {
+        assert.equal(events[0].durationSeconds, plan.visualDurationSeconds / visualRate, plan.moveId)
+        for (const at of [...new Set([effect.contact, ...plan.segments.map(segment => segment.cueSeconds)])].sort((a, b) => a - b)) {
           raw.time(at, false)
           snapshots.push([...scene.actors.values()].map(sample))
           assert.equal(events.at(-1).timelineSeconds, at / visualRate)
@@ -311,7 +318,7 @@ test('accepted production pacing preserves all six original recipes and result c
         assert.deepEqual(await handle.finished, { status: 'completed' })
         assert.equal(cues.filter(cue => cue.type === 'impact').length, 1, `${plan.moveId} still has one result impact`)
         const outcome = { cues, snapshots }
-        if (baseline) assert.deepEqual(outcome, baseline, `${plan.moveId} keeps its original contacts and cosmetic positions`)
+        if (baseline) assert.deepEqual(outcome, baseline, `${plan.moveId} keeps its accepted contacts and cosmetic positions`)
         else baseline = outcome
         assert.equal(scene.effects.children.length, 0)
         for (const actor of scene.actors.values()) assert.deepEqual(sample(actor), { x: 0, y: 0, rotation: 0, scaleX: 1, scaleY: 1, alpha: 1 })

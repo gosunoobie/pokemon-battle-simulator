@@ -8,6 +8,7 @@ import { sha256 } from './mp3.mjs'
 import { planSyncAudition } from '../../apps/sfx-bench/src/sync.js'
 import { normalizeSyncFeedback } from '../../apps/sfx-bench/src/syncFeedback.js'
 import { validateFinalReviewEvidence, THIRD_FINAL_REVIEW, THIRD_FINAL_FEEDBACK, THIRD_REVIEW_PLAYBACK_FILES } from './sync-batch.mjs'
+import { readApprovedRollout, compileRolloutRuntime } from './sync-rollout.mjs'
 
 export const ACCEPTED_BATCH = 'tools/audio-import/review/sync-batch-001.final.json'
 export const ACCEPTED_BATCHES = Object.freeze([ACCEPTED_BATCH, 'tools/audio-import/review/sync-batch-002.final.json', 'tools/audio-import/review/sync-batch-003.final.json'])
@@ -100,9 +101,12 @@ export async function generateAcceptedRuntime({ root = BENCH_ROOT, check = false
         playbackPins: await Promise.all(THIRD_REVIEW_PLAYBACK_FILES.map(async path => ({ path, sha256: sha256(await readLocal(root, path)) }))),
       } : {}) }).catalog)
   }
-  const catalog = { schemaVersion: 1, kind: 'battle-sfx-accepted-runtime', provenance: { batches: catalogs.map(row => row.provenance) }, assets: {}, moves: {}, fxMoves: {} }
+  const rollout = await readApprovedRollout({ root })
+  catalogs.push(...compileRolloutRuntime({ rollout, manifest }))
+  const catalog = { schemaVersion: 1, kind: 'battle-sfx-accepted-runtime', provenance: { batches: catalogs.map(row => row.provenance), supersedes: rollout.final.supersedes }, assets: {}, moves: {}, fxMoves: {} }
   for (const row of catalogs) for (const field of ['assets', 'moves', 'fxMoves']) for (const [id, value] of Object.entries(row[field])) {
-    assert(!Object.hasOwn(catalog[field], id) || field === 'assets' && isDeepStrictEqual(catalog[field][id], value), `Duplicate accepted runtime ${field}: ${id}`)
+    const supersedes = row.provenance.batchId === 'sync-006' && ((field === 'moves' && id === 'ancientpower') || (field === 'fxMoves' && id === 'ancient-power'))
+    assert(!Object.hasOwn(catalog[field], id) || supersedes || field === 'assets' && isDeepStrictEqual(catalog[field][id], value), `Duplicate accepted runtime ${field}: ${id}`)
     catalog[field][id] = value
   }
   const result = { catalog, generated: generatedSource(catalog) }

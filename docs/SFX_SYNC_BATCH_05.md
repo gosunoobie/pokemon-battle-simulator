@@ -1,5 +1,7 @@
 # Sound and animation review: batch 5 — fourth feedback revision
 
+Current status: accepted and active in all three game hosts through the [seven-batch rollout](SFX_ACCEPTED_ROLLOUT.md). The notes below preserve the review history.
+
 Open [Batch 5](http://localhost:5173/sfx-bench?batch=sync-005) and choose **Play proposed**. Eight moves now retain their exact approved proposals and Keep verdicts. Only Eruption and Blizzard have new changes to review; Eruption is selected by default.
 
 | Move | Latest change |

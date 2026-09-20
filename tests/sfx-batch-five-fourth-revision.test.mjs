@@ -19,7 +19,7 @@ const read = path => readFile(new URL(`../${path}`, import.meta.url))
 const priorBytes = await read('tools/audio-import/review/sync-batch-005.manifest-04.json')
 const prior = JSON.parse(priorBytes)
 const chat = JSON.parse(await read('tools/audio-import/review/sync-batch-005.chat-review-04.json'))
-const batch = await createSyncBatchManifest({ batch: 'sync-005' })
+const batch = await createSyncBatchManifest({ batch: 'sync-005', historical: true })
 const hash = bytes => createHash('sha256').update(bytes).digest('hex')
 const tick = () => new Promise(resolve => setImmediate(resolve))
 

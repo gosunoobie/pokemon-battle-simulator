@@ -1,5 +1,6 @@
 const MiB = 1024 * 1024
 const CATEGORIES = Object.freeze({ cries: 2, sfx: 4, ui: 2 })
+const CATEGORY_GAINS = Object.freeze({ cries: .35, sfx: .25, ui: .05 })
 const defaultContext = () => {
   const AudioContext = globalThis.AudioContext ?? globalThis.webkitAudioContext
   if (!AudioContext) throw new Error('Web Audio is unavailable')
@@ -26,10 +27,16 @@ export function createAudioPlayer({
   maxWorkingBytes = 48 * MiB,
   maxQueued = 32,
   loadTimeoutMs = 10_000,
+  categoryVolumes = {},
   onState = () => {},
 } = {}) {
   if (typeof resolveAsset !== 'function') throw new TypeError('resolveAsset must be a function')
   for (const [name, value] of Object.entries({ maxCacheBytes, maxVoices, concurrency, maxEncodedBytes, maxDecodedBytes, maxWorkingBytes, maxQueued, loadTimeoutMs })) positiveInteger(value, name)
+  const categoryGains = Object.fromEntries(Object.entries(CATEGORY_GAINS).map(([category, gain]) => {
+    const multiplier = categoryVolumes[category] ?? 1
+    if (!Number.isFinite(multiplier) || multiplier < 0 || multiplier > 2) throw new TypeError('Category volume must be between 0 and 2')
+    return [category, gain * multiplier]
+  }))
   let context = null, master = null
   let disposed = false, enabled = true, volume = 0.6, suspended = false
   let status = 'locked', loadError = null, epoch = 0, cacheBytes = 0, sequence = 0
@@ -75,7 +82,7 @@ export function createAudioPlayer({
       if (!bus) continue
       const peakSum = [...voices, ...fading].filter(voice => voice.category === category)
         .reduce((sum, voice) => sum + voice.entry.peak * voice.mixGain, 0)
-      const next = (category === 'sfx' ? 0.25 : 0.05) / Math.max(1, peakSum)
+      const next = categoryGains[category] / Math.max(1, peakSum)
       const parameter = bus.gain, now = context.currentTime
       try {
         parameter.cancelScheduledValues?.(now)
@@ -193,7 +200,7 @@ export function createAudioPlayer({
           output = candidate.createGain(); output.gain.value = volume; output.connect(candidate.destination)
           for (const category of Object.keys(CATEGORIES)) {
             const bus = candidate.createGain()
-            bus.gain.value = category === 'cries' ? 0.35 : category === 'sfx' ? 0.25 : 0.05
+            bus.gain.value = categoryGains[category]
             bus.connect(output); categories.set(category, bus)
           }
         } catch (error) {
@@ -337,14 +344,15 @@ export function createAudioPlayer({
     return Object.freeze({ sampleRate: buffer.sampleRate ?? context?.sampleRate ?? buffer.length / buffer.duration,
       sampleFrames: buffer.length, durationSeconds: buffer.duration })
   }
-  const playSegment = (id, { startSeconds = 0, endSeconds, gainDb = 0, when, category = 'sfx', priority = 0, scope, signal } = {}) => {
+  const playSegment = (id, { startSeconds = 0, endSeconds, gainDb = 0, taperEdits = false, when, category = 'sfx', priority = 0, scope, signal } = {}) => {
     if (disposed || !enabled || suspended || context?.state !== 'running' || signal?.aborted || !categoryEnabled.get(category)) return null
     const asset = assetFor(id), entry = asset && touch(asset.key)
     if (!entry) return null
     const now = context.currentTime
     const end = endSeconds ?? entry.buffer.duration, startAt = when ?? now
     if (![startSeconds, end, gainDb, startAt].every(Number.isFinite) || startSeconds < 0 || end <= startSeconds
-      || end > entry.buffer.duration || gainDb < -60 || gainDb > 6 || startAt < now || startAt > now + 120) return null
+      || end > entry.buffer.duration || gainDb < -60 || gainDb > 6 || typeof taperEdits !== 'boolean'
+      || startAt < now || startAt > now + 120) return null
     const rank = priorityValue(priority)
     const categoryVoices = [...voices].filter(voice => voice.category === category)
     const fadingCategory = [...fading].filter(voice => voice.category === category).length
@@ -370,6 +378,19 @@ export function createAudioPlayer({
       source.buffer = entry.buffer; source.loop = false
       if (source.playbackRate) source.playbackRate.value = 1
       gain.gain.value = mixGain
+      if (taperEdits) {
+        const span = end - startSeconds, fade = Math.min(.012, span / 4)
+        // Match the reviewed edit tapers inside the selected source region.
+        // Complete native beginnings and endings retain their original envelope.
+        if (startSeconds > 0) {
+          gain.gain.setValueAtTime(0, startAt)
+          gain.gain.linearRampToValueAtTime(mixGain, startAt + fade)
+        }
+        if (end < entry.buffer.duration) {
+          gain.gain.setValueAtTime(mixGain, startAt + span - fade)
+          gain.gain.linearRampToValueAtTime(0, startAt + span)
+        }
+      }
       updateMix()
       source.connect(gain); gain.connect(buses.get(category))
       source.onended = () => stopVoice(voice, 'ended', false)

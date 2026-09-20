@@ -69,8 +69,9 @@ const attack = fx.play({
 ## Accepted presentation variants
 
 `@battle/battle-fx/accepted-effects` exports `createAcceptedBattleFx(options)`.
-It retains all 335 registered recipes and wraps Thunder Punch with the approved
-white-yellow impact flash and branching lightning at its existing 0.52 s cue.
+It retains all 335 registrations, selects the latest 20 custom Batch 5–7 recipes,
+and wraps Thunder Punch with the approved white-yellow impact flash and
+branching lightning at its existing 0.52 s cue.
 The original recipe and default package entry stay available. The accent owns
 its graphics under the same timeline and cleanup, and requires no sound player,
 battle state, Vue or app imports. Explicit `options.effects` remains supported.
@@ -78,3 +79,5 @@ battle state, Vue or app imports. Explicit `options.effects` remains supported.
 The shared game host supplies this factory to the optional
 `@battle/battle-fx/presentation-clock` adapter, which applies reviewed visual
 pacing. Muting sound does not disable the accepted visual variant.
+
+`ACCEPTED_MOVE_EFFECTS` and `ACCEPTED_EFFECT_TIMINGS` expose the selected descriptors and authored timings. Ancient Power preloads the shared Rock Slide texture before the timeline starts, with owned cancellation and loading deadlines. Hosts reserve enough wall time for approved pacing and the complete endings. See the [rollout record](../../docs/SFX_ACCEPTED_ROLLOUT.md).

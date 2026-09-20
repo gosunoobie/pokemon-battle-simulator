@@ -9,8 +9,12 @@ import { fileURLToPath } from 'node:url'
 import { createSimulationHttpServer } from '../apps/server/start.mjs'
 import { SFX_RUNTIME_CATALOG } from '../packages/battle-sfx/src/runtime.js'
 
+import { ACCEPTED_SFX_RUNTIME_CATALOG } from '../packages/battle-sfx/src/accepted-runtime.js'
+
+import { EVENT_SFX_RUNTIME_CATALOG } from '../packages/battle-sfx/src/event-runtime.js'
+
 const root = fileURLToPath(new URL('../', import.meta.url))
-const assets = Object.values(SFX_RUNTIME_CATALOG.assets)
+const assets = Object.values({ ...SFX_RUNTIME_CATALOG.assets, ...ACCEPTED_SFX_RUNTIME_CATALOG.assets, ...EVENT_SFX_RUNTIME_CATALOG.assets })
 const hash = bytes => createHash('sha256').update(bytes).digest('hex')
 
 async function fixture(t) {
@@ -35,7 +39,8 @@ async function fixture(t) {
 
 test('production GET and HEAD deliver every approved MP3 with matching bytes, MIME, immutable cache and content ETag', async t => {
   const origin = await fixture(t)
-  assert.equal(assets.length, 10)
+  assert.equal(Object.keys(ACCEPTED_SFX_RUNTIME_CATALOG.assets).length, 45)
+  assert.equal(Object.keys(EVENT_SFX_RUNTIME_CATALOG.assets).length, 4)
   for (const asset of assets) {
     const response = await fetch(`${origin}/audio/sfx/${asset.file}`)
     assert.equal(response.status, 200, asset.id)

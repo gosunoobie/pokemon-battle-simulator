@@ -25,6 +25,44 @@ function normal(actor) {
   assert.equal(actor.pose.alpha, 1); assert.equal(actor.pose.tint, 0xffffff)
 }
 
+test('faint cues fire once after successful first-frame setup, including reduced motion, and survive callback errors', async () => {
+  for (const reducedMotion of [false, true]) {
+    const h = harness(), cues = []
+    const run = h.play(['source', 'target', 'source', 'missing'], { reducedMotion, onCue(cue) {
+      if (!reducedMotion) assert.ok(h.node(`faint-copy-${cue.actorId}`))
+      cues.push(cue)
+      throw new Error('Sound is optional')
+    } })
+    try {
+      assert.deepEqual(cues, [{ type: 'faint', actorId: 'source' }, { type: 'faint', actorId: 'target' }])
+      h.tl.time(.1, false); h.tl.time(0, false); h.tl.time(reducedMotion ? .22 : .9, false)
+      assert.equal((await run.finished).status, 'completed'); assert.equal(cues.length, 2)
+    } finally { run.cancel(); h.scene.dispose() }
+  }
+})
+
+test('faint cues stay silent when absent, pre-aborted, or unable to build the first frame', async () => {
+  for (const mode of ['missing', 'abort', 'capture', 'builder', 'frame']) {
+    const h = harness(), cues = [], controller = new AbortController()
+    if (mode === 'abort') controller.abort()
+    if (mode === 'capture') h.scene.actor('source').snapshot = () => { throw new Error('No capture') }
+    if (mode === 'frame') {
+      const snapshot = h.scene.actor('source').snapshot
+      h.scene.actor('source').snapshot = () => {
+        const copy = snapshot(); copy.position.set = () => { throw new Error('No first frame') }; return copy
+      }
+    }
+    const options = { scene: h.scene, actorIds: mode === 'missing' ? ['missing'] : ['source'], signal: controller.signal,
+      onCue: cue => cues.push(cue), timelineEngine: mode === 'builder' ? { timeline() { throw new Error('No timeline') } } :
+        { timeline: config => gsap.timeline({ ...config, paused: true }) } }
+    const run = playPokemonFaint(options)
+    try {
+      assert.equal((await run.finished).status, mode === 'missing' ? 'skipped' : mode === 'abort' ? 'cancelled' : 'failed')
+      assert.deepEqual(cues, [])
+    } finally { run.cancel(); h.scene.dispose() }
+  }
+})
+
 test('either side dips, loses saturation and sinks behind its actual visible bottom without changing the other actor', async () => {
   for (const actorId of ['source', 'target']) {
     const h = harness('charizard'), actor = h.scene.actor(actorId)

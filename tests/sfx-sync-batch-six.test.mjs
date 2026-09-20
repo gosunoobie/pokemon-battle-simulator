@@ -39,7 +39,7 @@ function harness(createFx, sourceId = 'source', portrait = false) {
 test('Batch 6 contains only the five requested redesigns and complete native recordings with Ancient Power timing preserved',async()=>{
   assert.deepEqual(batch.moves.map(m=>m.id),expected);assert.equal(batch.defaultMoveId,'leafblade');assert.equal(batch.reviewPlayback,'batch-six-v1')
   assert.equal(batch.feedbackRecords,undefined)
-  const fourth=await createSyncBatchManifest({batch:'sync-004'})
+  const fourth=await createSyncBatchManifest({ batch: 'sync-004', historical: true })
   assert.deepEqual(batch.moves.find(m=>m.id==='ancientpower').candidate,fourth.moves.find(m=>m.id==='ancientpower').candidate)
   const delays=[.4,0,.1,.1,.06]
   for(const [i,move] of batch.moves.entries()){

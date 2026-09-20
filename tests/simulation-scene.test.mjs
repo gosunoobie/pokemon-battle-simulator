@@ -79,6 +79,53 @@ test('opening waits for both releases and never attaches fully visible incoming 
   h.coordinator.destroy()
 })
 
+test('opening sound can precede root reveal but rejects duplicate, stale, dead and unrelated actors', async () => {
+  const cues = [], reveals = [], done = deferred(); let retainedCue
+  const h = harness({ callbacks: { loadRelease: async () => ({ playPokeballRelease(request) {
+    retainedCue = request.onCue
+    assert.equal(request.scene.actor('source').root.visible, false)
+    retainedCue({ type: 'open', actorId: 'missing' })
+    retainedCue({ type: 'reveal', actorId: 'source' })
+    retainedCue({ type: 'open', actorId: 'source' }); retainedCue({ type: 'open', actorId: 'source' })
+    return { finished: done.promise, cancel() {} }
+  } }) } })
+  const original = view(), pending = h.coordinator.ensure(original, { entryActorIds: ['source', 'target'],
+    onEntrySound: id => cues.push(id), onEntryReveal: id => reveals.push(id) })
+  try {
+    await tick(); assert.deepEqual(cues, ['source']); assert.deepEqual(reveals, [])
+    retainedCue({ type: 'reveal', actorId: 'source' }); assert.deepEqual(reveals, ['source'])
+    const dead = clone(original); dead.opponent.known[0].fainted = true
+    h.coordinator.display(dead)
+    retainedCue({ type: 'open', actorId: 'target' }); assert.deepEqual(cues, ['source'])
+    done.resolve({ status: 'completed' }); await pending
+    retainedCue({ type: 'open', actorId: 'target' }); assert.deepEqual(cues, ['source'])
+    await h.coordinator.ensure(original, { entryActorIds: ['source', 'target'], onEntrySound: id => cues.push(id) })
+    assert.equal(cues.length, 1, 'same-identity reconciliation has no new transition')
+  } finally { done.resolve({ status: 'completed' }); h.coordinator.destroy() }
+})
+
+test('a synchronous opening callback may clear the scene without reviving its old root or leaking playback', async () => {
+  let cancelled = 0, heldScene, writesAfterDispose = 0
+  const h = harness({ callbacks: { loadRelease: async () => ({ playPokeballRelease(request) {
+    heldScene = request.scene
+    for (const actor of heldScene.actors) {
+      let visible = actor.root.visible
+      Object.defineProperty(actor.root, 'visible', { get: () => visible, set(value) {
+        if (heldScene.disposed) writesAfterDispose++
+        visible = value
+      } })
+    }
+    request.onCue({ type: 'open', actorId: 'source' })
+    return { finished: new Promise(() => {}), cancel() { cancelled++ } }
+  } }) } })
+  await h.coordinator.ensure(view(), { entryActorIds: ['source', 'target'], onEntrySound() { h.coordinator.clear() } })
+  assert.equal(h.coordinator.get(), null)
+  assert.equal(heldScene.disposed, 1)
+  assert.equal(writesAfterDispose, 0)
+  assert.equal(cancelled, 1)
+  h.coordinator.destroy()
+})
+
 test('same-species teammate switch releases only the incoming stable field ID and retains the opponent pose', async () => {
   const h = harness(), before = view(), after = clone(before)
   await h.coordinator.ensure(before)

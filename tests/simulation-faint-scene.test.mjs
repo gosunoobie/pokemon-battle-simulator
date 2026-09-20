@@ -98,6 +98,30 @@ test('direct faint events with no active member retain the preceding rendered me
   }
 })
 
+test('synchronous faint start cues carry the retained member even after active clears, once and only while current', async () => {
+  for (const id of ['source', 'target']) for (const clearActive of [false, true]) {
+    const cues = [], done = deferred(); let retainedCue
+    const h = harness({ loadFaint: async () => ({ playPokemonFaint(request) {
+      retainedCue = request.onCue
+      assert.equal(request.scene.actor(id).root.visible, true)
+      retainedCue({ type: 'reveal', actorId: id }); retainedCue({ type: 'faint', actorId: 'missing' })
+      retainedCue({ type: 'faint', actorId: id }); retainedCue({ type: 'faint', actorId: id })
+      return { finished: done.promise, cancel() {} }
+    } }) }), before = view(), after = fainted(before, id, clearActive)
+    try {
+      await h.coordinator.ensure(before)
+      h.coordinator.display(after, { retainFaintedActorIds: [id] })
+      const result = h.coordinator.faint(after, { actorIds: [id], onFaintStart: (...cue) => cues.push(cue) })
+      await tick()
+      assert.deepEqual(cues, [[id, id === 'source' ? 'p1:1' : 'p2:1']])
+      h.coordinator.display(after)
+      assert.equal((await result).status, 'cancelled')
+      retainedCue({ type: 'faint', actorId: id }); done.resolve({ status: 'completed' }); await tick()
+      assert.equal(cues.length, 1)
+    } finally { h.coordinator.destroy() }
+  }
+})
+
 test('retention never reveals a different member, form, match, missing member or already hidden actor', async () => {
   const changes = [
     after => { after.own.active = 'p1:2' },
