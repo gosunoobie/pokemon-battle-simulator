@@ -2,13 +2,14 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import BattleView from '../../shared/battle/BattleView.vue'
 import { createSimulationAudio } from './audio.js'
+import { createExperienceAudio } from '../../shared/music/audio.js'
 import TeamBuilder from './TeamBuilder.vue'
 import { createCommandId, simulationRequest } from './api.js'
 import { activeMembers, spriteUrl, buildBattleLog, viewerResultTitle } from '../../shared/battle/index.js'
 import { createTeamDraft, toTeamPayload, draftIssues, readTeamDraft, saveTeamDraft } from './teamDraft.js'
 
 const config = shallowRef(null), latest = shallowRef(null), displayed = shallowRef(null)
-const battleAudio = createSimulationAudio()
+const battleAudio = createExperienceAudio({ createBattle: createSimulationAudio })
 const run = shallowRef(null), regionId = ref('kanto'), pendingAdvance = shallowRef(null)
 const presetId = ref('kanto'), leadIndex = ref(0), busy = ref(true), playing = ref(false)
 const teamMode = ref('preset'), customTeam = shallowRef(createTeamDraft()), teamCatalog = shallowRef(null)
@@ -140,6 +141,8 @@ async function acceptResponse(response, token, animate = true) {
   pendingQuit.value = null
   busy.value = false
   confirmingForfeit.value = false
+  // Results and the interval before the next trainer still belong to this match.
+  battleAudio.setMusicContext({ kind: run.value ? 'league' : 'private', matchId: response.matchId, opponentTitle: run.value?.opponent.title })
   if (!animate) {
     displayed.value = response.view
     await nextTick()
@@ -251,6 +254,7 @@ function clearBattleState() {
   // Invalidate presentation before removing its actors. Late imports, impact
   // cues and result timers cannot repopulate a battle that has been cleared.
   battleView.value?.clear()
+  battleAudio.setMusicContext({ kind: 'menu' })
   latest.value = null; displayed.value = null; run.value = null; log.value = []
   pendingChoice.value = null; pendingAdvance.value = null; pendingQuit.value = null
   confirmingForfeit.value = false; playing.value = false

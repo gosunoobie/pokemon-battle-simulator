@@ -1,5 +1,10 @@
 <script setup>
+import { onBeforeUnmount } from 'vue'
 import { SPRITE_URLS } from '@battle/pokemon-sprites'
+import { createExperienceAudio } from '../../shared/music/audio.js'
+
+const audio = createExperienceAudio()
+onBeforeUnmount(() => audio.dispose())
 
 const experiences = [
   {

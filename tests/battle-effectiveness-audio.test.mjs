@@ -1,12 +1,13 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createImpactAudio } from '../apps/shared/battle/impactAudio.js'
-import { createBattleAudio } from '../apps/shared/battle/audio.js'
+import { createBattleAudio, BATTLE_IMPACT_VOLUME } from '../apps/shared/battle/audio.js'
+import { createSimulationAudio } from '../apps/simulation/src/audio.js'
 import { EVENT_SFX_RUNTIME_CATALOG } from '@battle/battle-sfx/event-runtime'
 
 const tick = () => new Promise(resolve => setImmediate(resolve))
 const strong = 'source.hit-super-effective', weak = 'source.hit-weak-not-very-effective'
-function harness({ sampleRate = 48000, ...options } = {}) {
+function harness({ sampleRate = 48000, createAudio = createBattleAudio, ...options } = {}) {
   const loads = [], voices = [], listeners = new Map(), resolved = []
   const infos = Object.fromEntries(Object.values(EVENT_SFX_RUNTIME_CATALOG.assets).map(asset => [asset.id,
     { sampleRate, sampleFrames: Math.round(asset.reference.sampleFrames / asset.reference.sampleRate * sampleRate) }]))
@@ -29,7 +30,7 @@ function harness({ sampleRate = 48000, ...options } = {}) {
     stopScope(scope) { voices.filter(v => v.options.scope === scope).forEach(v => v.cancel()) },
     stop() { voices.forEach(v => v.cancel()) }, dispose() { player.stop() },
   }
-  const audio = createBattleAudio({ storage: null, document: doc, userAgent: 'Firefox/153.0',
+  const audio = createAudio({ storage: null, document: doc, userAgent: 'Firefox/153.0',
     playerFactory(configuration) { notify = configuration.onState; for (const id of [strong, weak]) resolved.push(configuration.resolveAsset(id)); return player }, ...options })
   return { audio, player, doc, loads, voices, infos, resolved, hide() { doc.hidden = true; listeners.get('visibilitychange')() } }
 }
@@ -50,6 +51,26 @@ test('both effectiveness recordings preload independently and play whole native 
       for (const field of ['when', 'startSeconds', 'endSeconds', 'playbackRate', 'signal']) assert.equal(voice.options[field], undefined)
     }
     h.audio.dispose()
+  }
+})
+
+test('both battle effectiveness cues gain 25% total including the 10% SFX bus increase', () => {
+  for (const options of [{ createAudio: createSimulationAudio }, { impactVolume: BATTLE_IMPACT_VOLUME }]) {
+    const h = harness(options), scope = h.audio.begin(view)
+    for (const [index, kind] of ['super-effective', 'resisted'].entries()) {
+      const voice = scope.impact(feedback(kind, index + 1))
+      const voiceRatio = 10 ** ((voice.options.gainDb - (-6)) / 20)
+      assert.ok(Math.abs(voiceRatio * 1.1 - 1.25) < 1e-12)
+    }
+    h.audio.dispose()
+  }
+})
+
+test('invalid event multipliers preserve the authored gain', () => {
+  for (const gainMultiplier of [NaN, Infinity, -1, 0, 3, '1.25']) {
+    const h = harness(), controller = createImpactAudio({ player: h.player, gainMultiplier })
+    assert.equal(controller.play(feedback('resisted')).options.gainDb, -6)
+    controller.dispose(); h.audio.dispose()
   }
 })
 

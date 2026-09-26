@@ -5,7 +5,6 @@ import { MOVES } from '../moveCatalog.js'
 import { createPresenter } from '../presentation/presenter.js'
 import { createPreviewState, createPreviewTransaction } from '../previewState.js'
 import { createPreviewAudio } from '../presentation/audio.js'
-import AudioControls from '../../../shared/battle/AudioControls.vue'
 
 import PokemonInfo from './PokemonInfo.vue'
 import RosterPicker from './RosterPicker.vue'
@@ -17,7 +16,7 @@ const selectedActor = computed(() => displayed.value.actors[activeActorId.value]
 const previewActors = () => previewBattleActors(nearProfile.value, farProfile.value)
 const fixtureOptions = () => ({ sourceId: activeActorId.value, actors: previewActors() })
 const stage = ref(null), busy = ref(false), error = ref(''), hasPlayed = ref(false)
-const sceneReady = ref(false), effectsEnabled = ref(true), reducedMotion = ref(false)
+const sceneReady = ref(false), reducedMotion = ref(false)
 const selectedId = ref('flamethrower'), phase = ref('attack')
 const selectedMove = computed(() => MOVES.find(move => move.id === selectedId.value))
 const preparing = computed(() => Boolean(selectedMove.value.preparation) && phase.value === 'prepare')
@@ -81,8 +80,6 @@ const previewResult = computed(() => preparing.value ? 'preparation only, no HP 
   : `${selectedMove.value.damage} demo damage`)
 const status = ref('Charizard is ready. Choose a move.'), animateHealth = ref(false)
 const battleAudio = createPreviewAudio()
-const audioState = shallowRef(battleAudio.getState())
-const unsubscribeAudio = battleAudio.subscribe(value => { audioState.value = value })
 let scene, disposed = false, media, sceneGeneration = 0, playGeneration = 0
 const presenter = createPresenter({
   loadFx: async () => (await import('../../../shared/battle/reviewedFx.js')).createReviewedBattleFx(),
@@ -105,7 +102,7 @@ async function refreshScene() {
     if (disposed || token !== sceneGeneration) { next.dispose(); return }
     scene = next; sceneReady.value = true
   } catch {
-    if (!disposed && token === sceneGeneration) error.value = 'Battlefield unavailable. Moves still work with effects off.'
+    if (!disposed && token === sceneGeneration) error.value = 'Battlefield unavailable. Move results are still available.'
   }
 }
 onMounted(() => {
@@ -122,7 +119,7 @@ async function attack() {
   const token = ++playGeneration
   const transaction = createPreviewTransaction(selectedMove.value, { ...fixtureOptions(), targetId: activeActorId.value === 'source' ? 'target' : 'source', phase: phase.value })
   committed.value = transaction.after
-  await presenter.enqueue(transaction, { effectsEnabled: effectsEnabled.value, reducedMotion: reducedMotion.value, visualSeed: 42 })
+  await presenter.enqueue(transaction, { effectsEnabled: true, reducedMotion: reducedMotion.value, visualSeed: 42 })
   if (!disposed && token === playGeneration) hasPlayed.value = true
 }
 function reset() {
@@ -139,9 +136,7 @@ function selectAttacker(id) {
   if (id === activeActorId.value) return
   activeActorId.value = id; reset()
 }
-function skipPlayback() { battleAudio.stop(); presenter.skip() }
-function toggleEffects() { if (!effectsEnabled.value) skipPlayback(); else presenter.retryEffects() }
-onBeforeUnmount(() => { disposed = true; sceneGeneration++; playGeneration++; presenter.destroy(); scene?.dispose(); media?.removeEventListener('change', changeMotion); unsubscribeAudio(); battleAudio.dispose() })
+onBeforeUnmount(() => { disposed = true; sceneGeneration++; playGeneration++; presenter.destroy(); scene?.dispose(); media?.removeEventListener('change', changeMotion); battleAudio.dispose() })
 </script>
 
 <template>
@@ -196,18 +191,15 @@ onBeforeUnmount(() => { disposed = true; sceneGeneration++; playGeneration++; pr
             <button :aria-pressed="phase === 'prepare'" :disabled="busy" @click="selectPhase('prepare')">Round 1 · Prepare</button>
             <button :aria-pressed="phase === 'attack'" :disabled="busy" @click="selectPhase('attack')">Round 2 · Attack</button>
           </div>
-          <label class="effects-toggle"><input v-model="effectsEnabled" type="checkbox" @change="toggleEffects"> Battle effects</label>
-          <button class="attack-button" :disabled="busy || (!sceneReady && !error && effectsEnabled)" @click="attack">
+          <button class="attack-button" :disabled="busy || (!sceneReady && !error)" @click="attack">
             <span v-if="!busy" aria-hidden="true">▶</span>
             <span v-else class="button-spinner" aria-hidden="true"></span>
             {{ busy ? preparing ? 'Preparing…' : 'Attacking…' : preparing ? `${hasPlayed ? 'Replay' : 'Play'} preparation` : `${hasPlayed ? 'Replay' : 'Use'} ${selectedMove.name}` }}
           </button>
-          <button v-if="busy" class="reset-button" @click="skipPlayback">Skip animation</button>
           <button class="reset-button" :disabled="busy || !hasPlayed" @click="reset">↺ <span>Reset preview</span></button>
         </div>
       </div>
 
-      <AudioControls :audio="battleAudio" :state="audioState" :cries="false"/>
       <div class="move-selector" role="group" aria-label="Choose a move">
         <button v-for="move in MOVES" :key="move.id" type="button" class="move-choice"
           :class="{ selected: selectedId === move.id }" :style="{ '--move-accent': move.color }"

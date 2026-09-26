@@ -4,7 +4,6 @@ import HealthCard from './HealthCard.vue'
 import BattleDetails from './BattleDetails.vue'
 import BattleOverlay from './BattleOverlay.vue'
 import ImpactFeedback from './ImpactFeedback.vue'
-import AudioControls from './AudioControls.vue'
 import { activeMembers, createSimulationScene, spriteUrl } from './scene.js'
 import { createSimulationPresenter } from './presentation.js'
 import { createBattleSequence } from './sequence.js'
@@ -21,10 +20,8 @@ const props = defineProps({
 const emit = defineEmits(['display', 'playback', 'message'])
 const displayed = shallowRef(null), stage = ref(null), sceneAvailable = ref(null)
 const playing = ref(false), openingBattle = ref(false), message = ref('')
-const effectsEnabled = ref(true), reducedMotion = ref(false), pageVisible = ref(true)
+const reducedMotion = ref(false), pageVisible = ref(true)
 const battleOverlay = shallowRef(null), impactFeedback = shallowRef(null)
-const audioState = shallowRef(props.audio.getState())
-const unsubscribeAudio = props.audio.subscribe(value => { audioState.value = value })
 let audioScope = null
 let generation = 0, disposed = false
 const scene = createSimulationScene({ getHost: () => stage.value, onAvailability: value => { sceneAvailable.value = value } })
@@ -53,11 +50,11 @@ const weather = computed(() => ({ RainDance: 'Rain', SunnyDay: 'Harsh sunlight',
 const sideConditions = computed(() => sideConditionLabels(displayed.value))
 function playback(value) { playing.value = value; emit('playback', value) }
 // Idle relinquishes its transforms synchronously before any presenter borrows them.
-watch([effectsEnabled, reducedMotion, playing, pageVisible, () => props.inactive], ([enabled, reduced, active, visible, inactive]) => {
-  scene.setIdleMotion({ enabled, reducedMotion: reduced, paused: active || !visible || inactive })
+watch([reducedMotion, playing, pageVisible, () => props.inactive], ([reduced, active, visible, inactive]) => {
+  scene.setIdleMotion({ enabled: true, reducedMotion: reduced, paused: active || !visible || inactive })
 }, { immediate: true, flush: 'sync' })
-watch([effectsEnabled, reducedMotion, pageVisible], ([enabled, reduced, visible], [, previousReduced]) => {
-  if (!enabled || !visible || reduced !== previousReduced) skip()
+watch([reducedMotion, pageVisible], ([reduced, visible], [previousReduced]) => {
+  if (!visible || reduced !== previousReduced) skip()
 }, { flush: 'sync' })
 watch(() => props.inactive, inactive => { if (inactive) skip() }, { flush: 'sync' })
 const updateVisibility = () => { pageVisible.value = !document.hidden }
@@ -79,7 +76,7 @@ async function present(batch, options = {}) {
   const scope = props.audio.begin(batch.after, batch.events)
   audioScope = scope
   const token = ++generation
-  const enabled = (options.effectsEnabled ?? effectsEnabled.value) && pageVisible.value
+  const enabled = (options.effectsEnabled ?? true) && pageVisible.value
   playback(true)
   openingBattle.value = !batch.before && enabled
   if (!batch.before) displayed.value = batch.after
@@ -132,7 +129,7 @@ onMounted(() => {
 })
 onBeforeUnmount(() => {
   disposed = true; generation++
-  audioScope?.cancel(); props.audio.stop(); unsubscribeAudio()
+  audioScope?.cancel(); props.audio.stop()
   document.removeEventListener('visibilitychange', updateVisibility)
   presenter.destroy(); impactPlayer.destroy(); scene.destroy()
 })
@@ -152,6 +149,4 @@ onBeforeUnmount(() => {
   <div v-if="sideConditions.length" class="sim-side-conditions"><span v-for="condition in sideConditions" :key="condition">{{ condition }}</span></div>
   <div class="sim-battle-details"><BattleDetails :member="members[0]"/><BattleDetails :member="members[1]" opponent/></div>
   <p v-if="sceneAvailable === false" class="sim-render-note">Effects are unavailable on this device. Battle controls still work.</p>
-  <div class="sim-playback"><label><input v-model="effectsEnabled" type="checkbox">Battle animations</label><label><input v-model="reducedMotion" type="checkbox">Reduced motion</label><button v-if="playing" class="sim-skip-animation" @click="skip">Skip animations</button><span>Visuals never change a battle result.</span></div>
-  <AudioControls :audio="audio" :state="audioState"/>
 </template>

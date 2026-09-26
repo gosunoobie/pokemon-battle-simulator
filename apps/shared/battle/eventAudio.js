@@ -3,8 +3,10 @@ import { getEventSoundPlan, getEventRuntimeSoundAsset } from '@battle/battle-sfx
 const safe = callback => { try { return callback() } catch { return undefined } }
 
 /** Plays explicit host cues only, with shared source validation and owned cleanup. */
-export function createEventAudio({ player, eventIds, enabled = () => true } = {}) {
+export function createEventAudio({ player, eventIds, enabled = () => true, gainMultiplier = 1 } = {}) {
   const heard = new Set(), voices = new Set()
+  const gainOffset = Number.isFinite(gainMultiplier) && gainMultiplier > 0 && gainMultiplier <= 2
+    ? 20 * Math.log10(gainMultiplier) : 0
   let disposed = false
   const available = () => !disposed && enabled()
   function warm() {
@@ -26,7 +28,7 @@ export function createEventAudio({ player, eventIds, enabled = () => true } = {}
     const duration = info.sampleFrames / info.sampleRate
     if (duration > 120 || !reference || Math.abs(duration - reference.sampleFrames / reference.sampleRate) > .1) return null
     const voice = safe(() => player.playSegment(plan.assetId, { category: 'sfx', priority: 2,
-      gainDb: plan.gainDb, scope: Object.freeze({ eventSound: feedback.key }) }))
+      gainDb: Math.max(-60, Math.min(6, plan.gainDb + gainOffset)), scope: Object.freeze({ eventSound: feedback.key }) }))
     if (!voice) return null
     voices.add(voice)
     void Promise.resolve(voice.finished).then(() => voices.delete(voice), () => { safe(() => voice.cancel()); voices.delete(voice) })

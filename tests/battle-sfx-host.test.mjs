@@ -162,14 +162,15 @@ const view = (cursor = 1) => ({ matchId: 'battle-one', cursor,
   opponent: { active: 'p2:1', known: [member('p2:1', 'Venusaur', ['willowisp'])] },
 })
 
-test('V1 settings migrate on save without losing mute; V2 persists independent cry and move categories', async () => {
+test('V1 settings migrate without losing mute; V3 persists independent sound categories', async () => {
   const h = battleHarness({ saved: { 'battle-lab:audio:v1': JSON.stringify({ enabled: false, volume: .25 }) } })
   assert.equal(h.audio.getState().enabled, false)
   assert.equal(h.audio.getState().volume, .25)
   h.audio.setCriesEnabled(false)
   assert.equal(h.categories.get('cries'), false)
   assert.equal(h.categories.get('sfx'), true)
-  assert.deepEqual(h.stored.get('battle-lab:audio:v2'), { schemaVersion: 2, enabled: false, volume: .25, criesEnabled: false, sfxEnabled: true })
+  assert.deepEqual(h.stored.get('battle-lab:audio:v3'), { schemaVersion: 3, enabled: false, volume: .25, criesEnabled: false, sfxEnabled: true,
+    musicEnabled: true, musicVolume: .8, battleMusicMode: 'themed' })
   h.audio.setSfxEnabled(false)
   assert.equal(h.categories.get('sfx'), false)
   h.audio.setCriesEnabled(true)

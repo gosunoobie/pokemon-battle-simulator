@@ -272,7 +272,7 @@ test('simulation and move preview opt into drafts while multiplayer keeps the ap
     read('apps/simulation/src/App.vue'), read('apps/multiplayer/src/App.vue'),
     read('apps/game/src/components/BattleDemo.vue'), read('apps/shared/battle/audio.js'),
   ])
-  assert.match(solo, /createSimulationAudio\(\)/)
+  assert.match(solo, /createExperienceAudio\(\{ createBattle: createSimulationAudio \}\)/)
   assert.match(preview, /createPreviewAudio\(\)/)
   assert.match(multiplayer, /createBattleAudio\(/)
   assert.doesNotMatch(multiplayer, /createSimulationAudio|createPreviewAudio|technicalSoundPack|draftSoundPack/)

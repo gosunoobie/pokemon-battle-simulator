@@ -2,6 +2,15 @@
 
 An optional browser presentation service with no Pokémon, renderer, Vue, game-state or SFX-catalog dependency. The host resolves IDs to `{ url, bytes?, sha256? }` and decides when a sound is appropriate. One lazy `AudioContext` serves cries, SFX and UI through separate gain buses and a shared master.
 
+Hosts with background music can create a page-owned `createAudioSession()` and
+pass it to both `createAudioPlayer({ session, resolveAsset })` and
+`createMusicPlayer({ session })`. Music streams independently of the short-sound
+cache and cancellation scopes. Borrowed players never close the session; the page
+owner disposes it after its players. The shared session applies master volume
+once, with a 0.75 transient/0.25 music peak allocation. Standalone player behavior
+below is unchanged. See [the music guide](../../docs/MUSIC.md) for host lifecycle,
+soundtrack policy, preferences and loop limitations.
+
 ```js
 import { createAudioPlayer } from '@battle/battle-audio'
 

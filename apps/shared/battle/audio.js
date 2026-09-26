@@ -7,20 +7,28 @@ import { createMoveAudio } from './moveAudio.js'
 import { createImpactAudio } from './impactAudio.js'
 import { createEventAudio } from './eventAudio.js'
 import { getEventRuntimeSoundAsset } from '@battle/battle-sfx/event-runtime'
+import { createAudioPreferences } from '../music/preferences.js'
 
-const SETTINGS_KEY = 'battle-lab:audio:v1'
-const CURRENT_SETTINGS_KEY = 'battle-lab:audio:v2'
 const safeStorage = () => { try { return globalThis.localStorage } catch { return null } }
 const safe = callback => { try { return callback() } catch { return undefined } }
-export const BATTLE_AUDIO_MIX = Object.freeze({ cries: .75, sfx: 1.1 })
+// Favor attack/impact transients and keep cries underneath.
+// The shared player still bounds the combined transient output to its .75 share.
+// Relative to the previous normalized mix: SFX +10%, cries -15%.
+// These gains fit below .75, so the shared branch no longer needs attenuation.
+export const BATTLE_AUDIO_MIX = Object.freeze({ cries: .4107182077750933, sfx: 1.6184713375796178 })
+// The SFX bus already supplies +10%; effectiveness cues receive +25% in total.
+export const BATTLE_IMPACT_VOLUME = 1.25 / 1.1
 const transitionEvents = Object.freeze({ pokeball: 'battle.release.pokeball', faint: 'battle.faint' })
 
 // Composition belongs to the host: the player knows sound IDs and URLs, never
 // battle state. Only this adapter maps a viewer-safe species to a cry identity.
 export function createBattleAudio({ playerFactory = createAudioPlayer, storage = safeStorage(), document: doc = globalThis.document,
-  userAgent = globalThis.navigator?.userAgent ?? '', sfxEnabled = import.meta.env?.VITE_BATTLE_SFX_ENABLED !== 'false', technicalSoundPack = null, categoryVolumes, transitionSounds = true } = {}) {
+  userAgent = globalThis.navigator?.userAgent ?? '', sfxEnabled = import.meta.env?.VITE_BATTLE_SFX_ENABLED !== 'false', technicalSoundPack = null, categoryVolumes, impactVolume = 1, transitionSounds = true } = {}) {
   if (technicalSoundPack && !['getFxSoundPlan', 'getMoveSoundPlan', 'getSoundAsset'].every(key => typeof technicalSoundPack[key] === 'function')) throw new TypeError('A technical sound pack requires explicit plan and asset lookups')
   const listeners = new Set(), heard = new Set()
+  // Experience hosts supply their own shared preferences and pass storage:null.
+  // Standalone preview hosts use the same schema, preserving music preferences.
+  const preferences = storage ? createAudioPreferences({ storage }) : null
   let disposed = false, generation = 0, previewSerial = 0, warmIds = [], warmMoveIds = [], warmMoveFxIds = false, state, moveAudio, impactAudio, transitionAudio
   let criesEnabled = true, moveSoundsEnabled = true
   const publish = value => {
@@ -29,8 +37,7 @@ export function createBattleAudio({ playerFactory = createAudioPlayer, storage =
     for (const listener of listeners) safe(() => listener(state))
   }
   const player = playerFactory({ resolveAsset: id => getEventRuntimeSoundAsset(id) ?? getAcceptedRuntimeSoundAsset(id) ?? getRuntimeSoundAsset(id) ?? technicalSoundPack?.getSoundAsset(id) ?? getPokemonCry(id), onState: publish, categoryVolumes })
-  const currentSaved = safe(() => JSON.parse(storage?.getItem(CURRENT_SETTINGS_KEY) ?? 'null'))
-  const saved = currentSaved?.schemaVersion === 2 ? currentSaved : safe(() => JSON.parse(storage?.getItem(SETTINGS_KEY) ?? 'null'))
+  const saved = preferences?.getState()
   if (typeof saved?.criesEnabled === 'boolean') criesEnabled = saved.criesEnabled
   if (typeof saved?.sfxEnabled === 'boolean') moveSoundsEnabled = saved.sfxEnabled
   if (typeof saved?.enabled === 'boolean') player.setEnabled(saved.enabled)
@@ -39,16 +46,24 @@ export function createBattleAudio({ playerFactory = createAudioPlayer, storage =
     getPlan: (id, options) => getAcceptedFxSoundPlan(id, options) ?? getFxSoundPlan(id, options) ?? technicalSoundPack?.getFxSoundPlan(id, options) ?? null,
     getCanonicalPlan: (id, options) => getAcceptedMoveSoundPlan(id, options) ?? getMoveSoundPlan(id, options) ?? technicalSoundPack?.getMoveSoundPlan(id, options) ?? null,
     enabled: () => !disposed && sfxEnabled && moveSoundsEnabled && state?.enabled && !doc?.hidden })
-  impactAudio = createImpactAudio({ player,
+  impactAudio = createImpactAudio({ player, gainMultiplier: impactVolume,
     enabled: () => !disposed && sfxEnabled && moveSoundsEnabled && state?.enabled && !doc?.hidden })
   if (transitionSounds) transitionAudio = createEventAudio({ player, eventIds: transitionEvents,
     enabled: () => !disposed && sfxEnabled && moveSoundsEnabled && state?.enabled && !doc?.hidden })
   player.setCategoryEnabled?.('cries', criesEnabled)
   player.setCategoryEnabled?.('sfx', moveSoundsEnabled && sfxEnabled)
   publish(player.getState())
-  const persist = () => safe(() => storage?.setItem(CURRENT_SETTINGS_KEY, JSON.stringify({ schemaVersion: 2,
-    enabled: state.enabled, volume: state.volume, criesEnabled, sfxEnabled: moveSoundsEnabled })))
+  const persist = () => preferences?.set({ enabled: state.enabled, volume: state.volume, criesEnabled, sfxEnabled: moveSoundsEnabled })
   const cancel = () => { generation++; moveAudio.stop(); impactAudio.stop(); transitionAudio?.stop(); player.stop() }
+  const unsubscribePreferences = preferences?.subscribe(value => {
+    if (!value.enabled && state.enabled) cancel()
+    criesEnabled = value.criesEnabled; moveSoundsEnabled = value.sfxEnabled
+    player.setEnabled(value.enabled); player.setVolume(value.volume)
+    player.setCategoryEnabled?.('cries', criesEnabled)
+    player.setCategoryEnabled?.('sfx', moveSoundsEnabled && sfxEnabled)
+    if (!moveSoundsEnabled) { moveAudio.stop(); impactAudio.stop(); transitionAudio?.stop() }
+    publish(player.getState())
+  })
   const visibility = () => { if (doc?.hidden) cancel(); player.setSuspended(Boolean(doc?.hidden)) }
   doc?.addEventListener('visibilitychange', visibility)
   visibility()
@@ -176,6 +191,7 @@ export function createBattleAudio({ playerFactory = createAudioPlayer, storage =
     dispose() {
       if (disposed) return
       disposed = true; generation++; doc?.removeEventListener('visibilitychange', visibility)
+      unsubscribePreferences?.(); preferences?.dispose()
       listeners.clear(); heard.clear(); moveAudio.dispose(); impactAudio.dispose(); transitionAudio?.dispose(); player.dispose()
     },
   })

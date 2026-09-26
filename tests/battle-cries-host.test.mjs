@@ -100,7 +100,8 @@ test('preferences persist; unlock is invoked in the calling gesture and never re
   assert.equal(h.unlocks(), 1)
   await tick()
   assert.deepEqual(h.loads.filter(ids => ids.every(id => !id.startsWith('source.'))).at(-1), ['unownb'])
-  assert.deepEqual(h.stored.at(-1), ['battle-lab:audio:v2', { schemaVersion: 2, enabled: true, volume: .25, criesEnabled: true, sfxEnabled: true }])
+  assert.deepEqual(h.stored.at(-1), ['battle-lab:audio:v3', { schemaVersion: 3, enabled: true, volume: .25, criesEnabled: true, sfxEnabled: true,
+    musicEnabled: true, musicVolume: .8, battleMusicMode: 'themed' }])
   assert.equal(h.played.length, 0)
   h.audio.dispose()
 })

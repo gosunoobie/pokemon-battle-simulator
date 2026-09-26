@@ -1,13 +1,14 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef } from 'vue'
 import BattleView from '../../shared/battle/BattleView.vue'
-import { createBattleAudio, BATTLE_AUDIO_MIX } from '../../shared/battle/audio.js'
+import { createBattleAudio, BATTLE_AUDIO_MIX, BATTLE_IMPACT_VOLUME } from '../../shared/battle/audio.js'
+import { createExperienceAudio } from '../../shared/music/audio.js'
 import { activeMembers, spriteUrl, buildBattleLog } from '../../shared/battle/index.js'
 import { multiplayerRequest, createOperationId } from './api.js'
 import { createRoomSession } from './roomSession.js'
 
 const config = shallowRef(null), guest = shallowRef(null), state = shallowRef({ envelope: null, playing: false, pending: null })
-const battleAudio = createBattleAudio({ categoryVolumes: BATTLE_AUDIO_MIX })
+const battleAudio = createExperienceAudio({ createBattle: options => createBattleAudio({ ...options, categoryVolumes: BATTLE_AUDIO_MIX, impactVolume: BATTLE_IMPACT_VOLUME }) })
 const battle = ref(null), displayed = shallowRef(null), log = ref([]), logHost = ref(null)
 const name = ref(''), invitation = ref(''), busy = ref(false), connecting = ref(true), error = ref(''), notice = ref('')
 const pendingOperation = shallowRef(null), networkOkay = ref(true), confirming = ref(false), now = ref(Date.now())
@@ -45,14 +46,18 @@ const session = createRoomSession({
   onChange(value) {
     state.value = value
     if (!value.pending) pendingOperation.value = null
+    // Keep match music on results/reconnects until the player leaves the field.
+    if (!value.envelope?.view) battleAudio.setMusicContext({ kind: 'menu' })
   },
   clear() { battle.value?.clear(); displayed.value = null; log.value = [] },
   async present(batch, { isCurrent }) {
     await nextTick(); if (!isCurrent()) return
+    battleAudio.setMusicContext({ kind: 'private', matchId: batch.after.matchId })
     await battle.value?.present({ ...batch, playerLabel: room.value?.own.name || 'Your team', opponentName: room.value?.opponent?.name || 'Opponent', opponentTitle: 'Guest trainer' })
   },
   async sync(view, { isCurrent }) {
     battle.value?.clear()
+    battleAudio.setMusicContext(view ? { kind: 'private', matchId: view.matchId } : { kind: 'menu' })
     await nextTick(); if (!isCurrent()) return
     await battle.value?.sync(view)
     if (isCurrent()) displayed.value = view

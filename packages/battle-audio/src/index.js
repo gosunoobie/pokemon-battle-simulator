@@ -16,6 +16,7 @@ const disconnect = node => { try { node?.disconnect() } catch { /* Owned cleanup
 /** Optional presentation audio. Loading can make a clip ready, but never plays it. */
 export function createAudioPlayer({
   resolveAsset,
+  session,
   createContext = defaultContext,
   fetch: fetchAsset = (...args) => globalThis.fetch(...args),
   crypto: cryptoImpl = globalThis.crypto,
@@ -31,6 +32,7 @@ export function createAudioPlayer({
   onState = () => {},
 } = {}) {
   if (typeof resolveAsset !== 'function') throw new TypeError('resolveAsset must be a function')
+  if (session && !['ensure', 'unlock', 'getState', 'setVolume', 'subscribe'].every(method => typeof session[method] === 'function')) throw new TypeError('Invalid audio session')
   for (const [name, value] of Object.entries({ maxCacheBytes, maxVoices, concurrency, maxEncodedBytes, maxDecodedBytes, maxWorkingBytes, maxQueued, loadTimeoutMs })) positiveInteger(value, name)
   const categoryGains = Object.fromEntries(Object.entries(CATEGORY_GAINS).map(([category, gain]) => {
     const multiplier = categoryVolumes[category] ?? 1
@@ -38,7 +40,10 @@ export function createAudioPlayer({
     return [category, gain * multiplier]
   }))
   let context = null, master = null
-  let disposed = false, enabled = true, volume = 0.6, suspended = false
+  let disposed = false, enabled = true, volume = session?.getState().volume ?? 0.6, suspended = false
+  // Two peak-limited cries plus normalized SFX/UI stay within the transient share.
+  // Music owns the remaining .25; master volume is applied only by the session.
+  const transientGain = session ? Math.min(1, .75 / (2 * categoryGains.cries + categoryGains.sfx + categoryGains.ui || 1)) : 1
   let status = 'locked', loadError = null, epoch = 0, cacheBytes = 0, sequence = 0
   const cache = new Map(), pending = new Map(), queue = [], physical = new Set(), voices = new Set(), fading = new Set()
   const buses = new Map()
@@ -186,26 +191,28 @@ export function createAudioPlayer({
   }
   // Context creation/resume must occur synchronously within the user's gesture.
   const unlock = () => {
-    if (disposed || !enabled || suspended) return Promise.resolve(false)
+    if (disposed || !enabled || suspended || (session && !session.getState().enabled)) return Promise.resolve(false)
     try {
       if (!context) {
-        const candidate = createContext()
-        if (!candidate || !['resume', 'decodeAudioData', 'createBufferSource', 'createGain'].every(method => typeof candidate[method] === 'function')) {
-          try { Promise.resolve(candidate?.close?.()).catch(() => {}) } catch { /* Invalid factory. */ }
+        const shared = session?.ensure()
+        const candidate = session ? shared?.context : createContext()
+        if (!candidate || (session && !shared?.output) || !['resume', 'decodeAudioData', 'createBufferSource', 'createGain'].every(method => typeof candidate[method] === 'function')) {
+          if (!session) { try { Promise.resolve(candidate?.close?.()).catch(() => {}) } catch { /* Invalid factory. */ } }
           throw new Error('Invalid audio context')
         }
         let output
         const categories = new Map()
         try {
-          output = candidate.createGain(); output.gain.value = volume; output.connect(candidate.destination)
+          output = candidate.createGain(); output.gain.value = session ? transientGain : volume; output.connect(shared?.output ?? candidate.destination)
           for (const category of Object.keys(CATEGORIES)) {
             const bus = candidate.createGain()
+            categories.set(category, bus)
             bus.gain.value = categoryGains[category]
-            bus.connect(output); categories.set(category, bus)
+            bus.connect(output)
           }
         } catch (error) {
           disconnect(output); for (const bus of categories.values()) disconnect(bus)
-          try { Promise.resolve(candidate.close?.()).catch(() => {}) } catch { /* Invalid node factory. */ }
+          if (!session) { try { Promise.resolve(candidate.close?.()).catch(() => {}) } catch { /* Invalid node factory. */ } }
           throw error
         }
         context = candidate; master = output
@@ -214,16 +221,16 @@ export function createAudioPlayer({
       }
     } catch { setStatus('unavailable'); return Promise.resolve(false) }
     let resumed
-    try { resumed = context.state === 'running' ? undefined : context.resume() }
+    try { resumed = session ? session.unlock() : context.state === 'running' ? undefined : context.resume() }
     catch { contextChanged(); return Promise.resolve(false) }
     contextChanged()
     return Promise.resolve(resumed).then(() => {
       if (disposed) return false
       contextChanged()
-      return enabled && !suspended && status === 'ready'
+      return enabled && !suspended && status === 'ready' && (!session || session.getState().enabled)
     }, () => { if (!disposed) contextChanged(); return false })
   }
-  const current = job => !disposed && !job.settled && enabled && !suspended && job.epoch === epoch && context === job.context
+  const current = job => !disposed && !job.settled && enabled && !suspended && (!session || session.getState().enabled) && job.epoch === epoch && context === job.context
   const remember = (key, buffer) => {
     const bytes = buffer.length * buffer.numberOfChannels * 4
     if (!Number.isSafeInteger(buffer.length) || buffer.length < 1 || !Number.isSafeInteger(buffer.numberOfChannels) || buffer.numberOfChannels < 1
@@ -308,7 +315,7 @@ export function createAudioPlayer({
     }
   }
   const preloadOne = (id, { signal, scope, priority = 0 }) => {
-    if (disposed || !enabled || suspended || !context || context.state === 'closed' || signal?.aborted) return Promise.resolve(false)
+    if (disposed || !enabled || suspended || (session && !session.getState().enabled) || !context || context.state === 'closed' || signal?.aborted) return Promise.resolve(false)
     const asset = assetFor(id)
     if (!asset) return Promise.resolve(false)
     if (touch(asset.key)) return Promise.resolve(true)
@@ -345,7 +352,7 @@ export function createAudioPlayer({
       sampleFrames: buffer.length, durationSeconds: buffer.duration })
   }
   const playSegment = (id, { startSeconds = 0, endSeconds, gainDb = 0, taperEdits = false, when, category = 'sfx', priority = 0, scope, signal } = {}) => {
-    if (disposed || !enabled || suspended || context?.state !== 'running' || signal?.aborted || !categoryEnabled.get(category)) return null
+    if (disposed || !enabled || suspended || (session && !session.getState().enabled) || context?.state !== 'running' || signal?.aborted || !categoryEnabled.get(category)) return null
     const asset = assetFor(id), entry = asset && touch(asset.key)
     if (!entry) return null
     const now = context.currentTime
@@ -412,6 +419,7 @@ export function createAudioPlayer({
   }
   const setVolume = value => {
     if (disposed || !Number.isFinite(value)) return
+    if (session) { session.setVolume(value); return }
     const next = Math.min(1, Math.max(0, value))
     if (next === volume) return
     volume = next
@@ -446,9 +454,20 @@ export function createAudioPlayer({
     context?.removeEventListener?.('statechange', contextChanged)
     for (const bus of buses.values()) disconnect(bus)
     buses.clear(); disconnect(master)
-    try { Promise.resolve(context?.close()).catch(() => {}) } catch { /* Already closed. */ }
+    unsubscribeSession?.()
+    if (!session) { try { Promise.resolve(context?.close()).catch(() => {}) } catch { /* Already closed. */ } }
     status = 'unavailable'; notify()
   }
+  const unsubscribeSession = session?.subscribe(state => {
+    if (disposed) return
+    const changed = volume !== state.volume
+    volume = state.volume
+    if (!state.enabled || state.status === 'unavailable') stop()
+    if (state.status === 'unavailable') setStatus('unavailable')
+    else if (changed) notify()
+  })
   return Object.freeze({ unlock, preload, play, playSegment, stop, stopScope, stopCategory, setCategoryEnabled, readyInfo, contextTime, diagnostics,
     setEnabled, setVolume, setSuspended, getState, dispose })
 }
+export { createAudioSession } from './session.js'
+export { createMusicPlayer } from './music.js'
