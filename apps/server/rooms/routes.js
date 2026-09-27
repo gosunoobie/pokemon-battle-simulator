@@ -5,9 +5,10 @@ const COOKIE = 'battle_multiplayer_v1'
 const TOKEN = /^[a-f0-9]{64}$/
 const ID = /^[a-zA-Z0-9:_-]{1,128}$/
 const MAX_BODY = 4096
+const MAX_TEAM_BODY = 20 * 1024
 const DEFAULT_LIMITS = Object.freeze({
   windowMs: 60_000, global: 6000, guest: 120, publicRead: 600,
-  read: 240, command: 120, create: 30, maxPrincipals: 5000,
+  read: 240, command: 120, create: 30, generate: 30, maxPrincipals: 5000,
 })
 const plain = value => value !== null && typeof value === 'object' && !Array.isArray(value) && Object.getPrototypeOf(value) === Object.prototype
 
@@ -47,10 +48,10 @@ function checkOrigin(req, publicOrigin) {
   }
 }
 
-async function readBody(req) {
+async function readBody(req, maximum = MAX_BODY) {
   if (!/^application\/json(?:\s*;|$)/i.test(req.headers['content-type'] ?? '')) throw new HttpError(415, 'JSON_REQUIRED', 'Send application/json.')
   if (req.headers['content-encoding'] && req.headers['content-encoding'] !== 'identity') throw new HttpError(415, 'ENCODING_REJECTED', 'Send uncompressed JSON.')
-  if (Number(req.headers['content-length']) > MAX_BODY) throw new HttpError(413, 'BODY_TOO_LARGE', 'The request is too large.')
+  if (Number(req.headers['content-length']) > maximum) throw new HttpError(413, 'BODY_TOO_LARGE', 'The request is too large.')
   const chunks = await new Promise((resolve, reject) => {
     let size = 0
     const parts = []
@@ -65,7 +66,7 @@ async function readBody(req) {
     const onEnd = () => { cleanup(); resolve(parts) }
     const onData = chunk => {
       size += chunk.length
-      if (size > MAX_BODY) {
+      if (size > maximum) {
         cleanup()
         // Drain an oversized chunked body without destroying the response
         // socket before the client receives its bounded 413 error.
@@ -165,7 +166,7 @@ export function createMultiplayerService({ publicOrigin, rateLimits = {}, ...ser
     checkOrigin(req, publicOrigin)
     let operation
     let roomId
-    const simple = new Map([['/guest', 'guest'], ['/config', 'config'], ['/session', 'session'], ['/rooms', 'create'], ['/rooms/join', 'join']])
+    const simple = new Map([['/guest', 'guest'], ['/config', 'config'], ['/session', 'session'], ['/rooms', 'create'], ['/rooms/join', 'join'], ['/team-builder', 'teamCatalog'], ['/team/random', 'randomTeam']])
     const suffix = url.pathname.slice(PREFIX.length)
     operation = simple.get(suffix)
     if (!operation) {
@@ -173,7 +174,7 @@ export function createMultiplayerService({ publicOrigin, rateLimits = {}, ...ser
       if (match) [, roomId, operation] = match
     }
     if (!operation) throw new HttpError(404, 'NOT_FOUND', 'No multiplayer endpoint exists at this address.')
-    const method = ['config', 'session', 'updates'].includes(operation) ? 'GET' : 'POST'
+    const method = ['config', 'session', 'updates', 'teamCatalog'].includes(operation) ? 'GET' : 'POST'
     if (req.method !== method) {
       res.setHeader('Allow', method)
       throw new HttpError(405, 'METHOD_NOT_ALLOWED', `Use ${method} for this endpoint.`)
@@ -194,10 +195,15 @@ export function createMultiplayerService({ publicOrigin, rateLimits = {}, ...ser
     }
     const guestId = await rooms.authenticate(cookieToken(req))
     principalRate(guestId, method === 'GET' ? 'read' : 'command')
+    if (operation === 'teamCatalog') return send(res, 200, await rooms.teamCatalog(guestId))
+    if (operation === 'randomTeam') {
+      principalRate(guestId, 'generate')
+      return send(res, 200, await rooms.randomTeam(guestId, await readBody(req, MAX_TEAM_BODY)))
+    }
     if (operation === 'session') return send(res, 200, await rooms.session(guestId))
     if (operation === 'updates') return send(res, 200, await rooms.updates(guestId, roomId, updateQuery(url.searchParams)))
     if (operation === 'create' || operation === 'join') principalRate(guestId, 'create')
-    const body = await readBody(req)
+    const body = await readBody(req, operation === 'selection' ? MAX_TEAM_BODY : MAX_BODY)
     if (Object.hasOwn(body, 'roomId')) throw new HttpError(400, 'INVALID_REQUEST', 'The room identity belongs in the request path.')
     return send(res, 200, await rooms.execute(guestId, operation, { ...body, ...(roomId ? { roomId } : {}) }))
   }
@@ -216,6 +222,7 @@ export function createMultiplayerService({ publicOrigin, rateLimits = {}, ...ser
       send(res, status, { error: {
         code: expected && typeof error.code === 'string' ? error.code.slice(0, 64) : 'MULTIPLAYER_UNAVAILABLE',
         message: expected && typeof error.message === 'string' ? error.message.slice(0, 512) : 'The room server could not complete this request. Please try again.',
+        ...(error instanceof RoomError && error.details ? { details: error.details } : {}),
       } })
     }
     return true

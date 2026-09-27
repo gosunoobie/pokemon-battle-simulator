@@ -3,6 +3,9 @@ import { createEngineFactory } from '@battle/battle-engine'
 import { createMemoryRoomStore } from './memoryStore.js'
 import { roomPolicy } from './policy.js'
 import { createRoomCatalog } from './presets.js'
+import { getTeamBuilderCatalog } from '../team-builder.js'
+import { createRandomTeamGenerator } from '../teams/random-team.js'
+import { editableTeam } from '../teams/selection.js'
 
 const SEATS = ['p1', 'p2']
 const ID = /^[a-zA-Z0-9:_-]{1,128}$/
@@ -20,13 +23,45 @@ const terminal = room => ['ended', 'interrupted', 'closed'].includes(room.status
 const ready = (member, room) => Boolean(member && member.readySelectionRevision === member.selectionRevision && member.readyMembershipEpoch === room.membershipEpoch)
 
 export class RoomError extends Error {
-  constructor(status, code, message) { super(message); this.name = 'RoomError'; this.status = status; this.code = code }
+  constructor(status, code, message, details) { super(message); this.name = 'RoomError'; this.status = status; this.code = code; this.details = details }
 }
 class EngineFailure extends Error {
   constructor(room) { super('Room engine failed'); this.roomId = room.id; this.version = room.version }
 }
 const fail = (status, code, message) => { throw new RoomError(status, code, message) }
-const safeError = error => ({ status: error.status, code: error.code, message: error.message })
+const safeError = error => ({ status: error.status, code: error.code, message: error.message, ...(error.details ? { details: error.details } : {}) })
+
+// Inspect caller descriptors before copying or fingerprinting a custom request.
+// Rule validation happens later, after ownership and receipt lookup, so retries
+// acknowledge the already-committed selection without repeating admission.
+function copyTeamRequest(input) {
+  const seen = new Set()
+  let nodes = 0
+  const invalid = () => { throw new RoomError(400, 'INVALID_TEAM', 'Send a bounded plain JSON team.', { errors: [{ code: 'INVALID_JSON', message: 'Team data must be bounded plain JSON without accessors or shared references.' }] }) }
+  const copy = (value, depth = 0) => {
+    if (++nodes > 2048 || depth > 6) return invalid()
+    if (value === null || typeof value === 'boolean' || typeof value === 'number' && Number.isFinite(value)) return value
+    if (typeof value === 'string' && value.length <= 256) return value
+    if (!value || typeof value !== 'object' || seen.has(value)) return invalid()
+    const array = Array.isArray(value)
+    if (array ? Object.getPrototypeOf(value) !== Array.prototype || value.length > 32 : ![Object.prototype, null].includes(Object.getPrototypeOf(value))) return invalid()
+    seen.add(value)
+    const result = array ? [] : {}, keys = Reflect.ownKeys(value)
+    if (keys.length > 33) return invalid()
+    for (const key of keys) {
+      if (array && key === 'length') continue
+      const descriptor = Object.getOwnPropertyDescriptor(value, key)
+      if (typeof key !== 'string' || ['__proto__', 'constructor', 'prototype'].includes(key) || !descriptor?.enumerable || !('value' in descriptor) ||
+          array && (!/^(0|[1-9]\d*)$/.test(key) || Number(key) >= value.length)) return invalid()
+      result[key] = copy(descriptor.value, depth + 1)
+    }
+    if (array && Object.keys(result).length !== value.length) return invalid()
+    return result
+  }
+  const result = copy(input)
+  if (Buffer.byteLength(JSON.stringify(result)) > 16384) return invalid()
+  return result
+}
 
 /** Authoritative guest room domain. The injected asynchronous store is the commit boundary.
  * Engine instances are candidates, restored for one mutation and always disposed.
@@ -38,6 +73,7 @@ export function createRoomService(options = {}) {
   const factory = options.engineFactory ?? createEngineFactory()
   if (factory.getProfile().id !== 'gen3opensinglesv1') throw new TypeError('Human rooms require the Open Singles profile')
   const catalog = createRoomCatalog(factory, options.presetCatalog)
+  let generator
   let closed = false
   let cleanup
   const nowValue = () => {
@@ -76,7 +112,7 @@ export function createRoomService(options = {}) {
       ? creator?.receipts[room.createOperationId]?.ack.inviteToken : undefined
     return {
       id: room.id, status: room.status, seat, membershipEpoch: room.membershipEpoch,
-      own: { name: own.name, presetId: own.presetId, leadIndex: own.leadIndex, selectionRevision: own.selectionRevision, ready: ready(own, room) },
+      own: { name: own.name, presetId: own.presetId, ...(own.team ? { team: clone(own.team) } : {}), leadIndex: own.leadIndex, selectionRevision: own.selectionRevision, ready: ready(own, room) },
       opponent: opponent ? { name: opponent.name, ready: ready(opponent, room), connected: Boolean(otherGuest && otherGuest.expiresAt > now && now - otherGuest.lastContactAt < policy.presenceMs) } : null,
       ...(invitation ? { inviteToken: invitation } : {}),
       expiresAt: room.status === 'active' ? null : room.expiresAt,
@@ -200,7 +236,7 @@ export function createRoomService(options = {}) {
   function validateOperation(operation, input) {
     const fields = {
       create: ['presetId', 'leadIndex'], join: ['inviteToken'],
-      selection: ['roomId', 'presetId', 'leadIndex', 'selectionRevision'],
+      selection: ['roomId', 'presetId', 'team', 'leadIndex', 'selectionRevision'],
       ready: ['roomId', 'ready', 'selectionRevision', 'membershipEpoch'],
       choice: ['roomId', 'commandId', 'decisionId', 'action', 'matchId'],
       forfeit: ['roomId', 'matchId'], leave: ['roomId'],
@@ -210,8 +246,13 @@ export function createRoomService(options = {}) {
     const operationId = input.operationId ?? (operation === 'choice' ? input.commandId : undefined)
     if (typeof operationId !== 'string' || !ID.test(operationId)) fail(400, 'INVALID_OPERATION_ID', 'Supply a bounded operation identity.')
     if (!['create', 'join'].includes(operation) && (typeof input.roomId !== 'string' || !ID.test(input.roomId))) fail(400, 'INVALID_ROOM', 'Supply a valid room identity.')
+    let copiedTeam
+    if (operation === 'selection') {
+      if (Object.hasOwn(input, 'team') === Object.hasOwn(input, 'presetId')) fail(400, 'INVALID_SELECTION', 'Choose exactly one preset or custom team.')
+      if (Object.hasOwn(input, 'team')) copiedTeam = copyTeamRequest(input.team)
+    }
     if (['create', 'selection'].includes(operation)) {
-      if (operation === 'selection' || input.presetId !== undefined) if (!preset(input.presetId)) fail(400, 'INVALID_PRESET', 'Choose an available preset team.')
+      if (Object.hasOwn(input, 'presetId')) if (!preset(input.presetId)) fail(400, 'INVALID_PRESET', 'Choose an available preset team.')
       if (operation === 'selection' || input.leadIndex !== undefined) if (!Number.isInteger(input.leadIndex) || input.leadIndex < 0 || input.leadIndex > 5) fail(400, 'INVALID_LEAD', 'Choose one of your six team members.')
     }
     if (['selection', 'ready'].includes(operation) && (!Number.isSafeInteger(input.selectionRevision) || input.selectionRevision < 0)) fail(400, 'INVALID_SELECTION', 'Supply your current selection revision.')
@@ -224,7 +265,7 @@ export function createRoomService(options = {}) {
       if (!(action.kind === 'move' && Object.keys(action).every(key => ['kind', 'slot'].includes(key)) && Number.isInteger(action.slot) && action.slot >= 1 && action.slot <= 4) &&
           !(action.kind === 'switch' && Object.keys(action).every(key => ['kind', 'memberId'].includes(key)) && typeof action.memberId === 'string' && /^p[12]:[1-6]$/.test(action.memberId))) fail(400, 'INVALID_ACTION', 'Select an available move or owned team member.')
     }
-    const body = clone(input)
+    const body = clone(copiedTeam === undefined ? input : { ...input, team: copiedTeam })
     body.operationId = operationId
     const { afterCursor, afterRevision, sync, ...semantic } = body
     return { body, hash: digest(canonical({ operation, ...semantic })) }
@@ -253,7 +294,7 @@ export function createRoomService(options = {}) {
         try { return operation(tx, nowValue()) }
         catch (error) { if (error instanceof RoomError) return { roomError: safeError(error) }; throw error }
       })
-      if (result?.roomError) throw new RoomError(result.roomError.status, result.roomError.code, result.roomError.message)
+      if (result?.roomError) throw new RoomError(result.roomError.status, result.roomError.code, result.roomError.message, result.roomError.details)
       return result
     } catch (error) {
       if (error instanceof RoomError) throw error
@@ -286,6 +327,20 @@ export function createRoomService(options = {}) {
     return transaction('guests', null, null, (tx, now) => requireGuest(tx, tx.get('tokens', digest(token)), now).id)
   }
   async function config() { ensureOpen(); return clone({ protocolVersion: 1, ...catalog, policy }) }
+  async function teamCatalog(guestId) {
+    return transaction('team-catalog', guestId, null, (tx, now) => {
+      requireGuest(tx, guestId, now)
+      return getTeamBuilderCatalog()
+    })
+  }
+  async function randomTeam(guestId, input) {
+    if (!dataObject(input) || Object.keys(input).some(key => !['team', 'lockedSlots'].includes(key))) fail(400, 'INVALID_REQUEST', 'Send only the current team and locked slots.')
+    return transaction('team-generation', guestId, null, (tx, now) => {
+      requireGuest(tx, guestId, now)
+      generator ??= createRandomTeamGenerator({ validateTeam: team => factory.validateTeam(team) })
+      return generator.generate(input)
+    })
+  }
   async function session(guestId) {
     return transaction('session', guestId, { sync: true }, (tx, now) => {
       const own = requireGuest(tx, guestId, now)
@@ -368,11 +423,16 @@ export function createRoomService(options = {}) {
             if (room.status !== 'lobby') fail(409, 'ROOM_STARTED', 'Team selection is locked after the battle starts.')
             if (body.selectionRevision !== member.selectionRevision) fail(409, 'SELECTION_CHANGED', 'Your selected team changed. Refresh before continuing.')
             if (operation === 'selection') {
-              if (body.presetId !== member.presetId || body.leadIndex !== member.leadIndex) {
-                member.presetId = body.presetId; member.leadIndex = body.leadIndex; member.selectionRevision++
+              const checked = Object.hasOwn(body, 'team') ? factory.validateTeam(body.team) : null
+              if (checked && !checked.valid) throw new RoomError(400, 'INVALID_TEAM', 'Your team needs changes before it can be selected.', { errors: checked.errors })
+              const team = checked ? editableTeam(checked.team) : null
+              const presetId = checked ? null : body.presetId
+              if (presetId !== member.presetId || body.leadIndex !== member.leadIndex || canonical(team) !== canonical(member.team ?? null)) {
+                member.presetId = presetId; member.team = team; member.leadIndex = body.leadIndex; member.selectionRevision++
                 member.readySelectionRevision = null; member.readyMembershipEpoch = null
                 room.expiresAt = now + policy.lobbyTtlMs
               }
+              if (checked) ack.selectionChanges = checked.changes
             } else {
               if (body.membershipEpoch !== room.membershipEpoch) fail(409, 'MEMBERSHIP_CHANGED', 'The players in this lobby changed. Confirm readiness again.')
               if (body.ready && !room.members.p2) fail(409, 'OPPONENT_REQUIRED', 'Wait for your opponent to join before becoming ready.')
@@ -421,7 +481,9 @@ export function createRoomService(options = {}) {
     if (tx.values('rooms').filter(value => value.status === 'active').length >= policy.maxActiveMatches) fail(503, 'BATTLE_CAPACITY', 'Battle capacity is currently full. Please try again shortly.')
     const teams = Object.fromEntries(SEATS.map(seat => {
       const member = room.members[seat]
-      const team = clone(preset(member.presetId).team)
+      const checked = factory.validateTeam(member.team ?? preset(member.presetId)?.team)
+      if (!checked.valid) throw new RoomError(409, 'TEAM_RECHECK_FAILED', 'A selected team could not be admitted. Choose a legal team and confirm readiness again.')
+      const team = editableTeam(checked.team)
       team.unshift(...team.splice(member.leadIndex, 1))
       return [seat, team]
     }))
@@ -446,7 +508,7 @@ export function createRoomService(options = {}) {
     cleanup = setInterval(() => { sweep().catch(() => {}) }, policy.cleanupMs)
     cleanup.unref?.()
   }
-  return Object.freeze({ guest, authenticate, config, session, execute, updates,
+  return Object.freeze({ guest, authenticate, config, teamCatalog, randomTeam, session, execute, updates,
     async close() { if (closed) return; closed = true; clearInterval(cleanup); await store.close?.() },
   })
 }

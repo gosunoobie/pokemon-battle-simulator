@@ -1,0 +1,24 @@
+{
+  "fullTeamLegality": "All 386 sets pass the six-member Open Singles validator and editable DTO round trip.",
+  "lowMoveExceptions": {
+    "beldum": "Take Down is its only obtainable Gen 3 move.",
+    "cascoon": "Its three Wurmple moves and Harden are the limited evolution-line movepool.",
+    "caterpie": "Tackle and String Shot are its complete usable Gen 3 learnset.",
+    "ditto": "Transform is its only move. Defensive investment supports surviving the transformation.",
+    "kakuna": "Poison Sting, String Shot and Harden include its pre-evolution moves.",
+    "magikarp": "Tackle and Flail are its only attacks; Splash adds no utility.",
+    "metapod": "Tackle, String Shot and Harden include its pre-evolution moves.",
+    "silcoon": "Its three Wurmple moves and Harden are the limited evolution-line movepool.",
+    "unown": "Hidden Power is its only move; its IVs preserve the selected type and 70 power.",
+    "weedle": "Poison Sting and String Shot are its complete Gen 3 learnset.",
+    "wurmple": "Tackle, Poison Sting and String Shot exhaust its useful move choices."
+  },
+  "projectGenerated": 173,
+  "rejectedVendorCandidates": 6,
+  "rejectedVendorQuality": 4,
+  "schemaVersion": 1,
+  "speciesCount": 386,
+  "vendorDerived": 213,
+  "vendorFallbackSpecies": [],
+  "version": "gen3-starters-v1"
+}

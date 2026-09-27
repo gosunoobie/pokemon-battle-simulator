@@ -1,0 +1,14 @@
+Starter-set templates are adapted in part from Pokémon Showdown 0.11.11,
+source commit 739a5e1fee432ad80ff7136d70cca993be358b59:
+https://github.com/smogon/pokemon-showdown/tree/739a5e1fee432ad80ff7136d70cca993be358b59/data/random-battles/gen3
+
+Pokémon Showdown is distributed under the MIT License. Its copyright and full
+license remain in node_modules/pokemon-showdown/LICENSE; the project's existing
+packages/battle-engine/NOTICE also records this dependency and attribution.
+
+Project-authored set selection, nature/EV adaptation, exceptions and quality
+checks are separate from imported reference facts and vendor recommendations.
+Each generated entry records its origin, role, adaptation notes and review status.
+
+Reference facts come from @battle/game-data and retain that package's LICENSE,
+NOTICE and pinned manifest. No claim is made to Pokémon names, characters or art.

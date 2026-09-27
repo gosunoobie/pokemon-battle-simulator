@@ -1,8 +1,8 @@
 # Private-room multiplayer runtime
 
-This first slice runs two authenticated guests against the existing `gen3opensinglesv1` battle engine. Guests select one of the three server-owned six-Pokémon presets and a lead. Both ready records must be current before a match starts. The server derives each seat from its guest membership; clients cannot choose a seat, supply mechanics, override the format, or submit arbitrary teams.
+This first slice runs two authenticated guests against the existing `gen3opensinglesv1` battle engine. Guests select one of the three server-owned six-Pokémon presets or a validated custom team and a lead. Both ready records must be current before a match starts. The server derives each seat from its guest membership; clients cannot choose a seat, supply mechanics, override the format, or bypass whole-team legality validation.
 
-The existing solo simulation, regional leagues, custom-team builder, move preview and FX playground remain separate. Multiplayer does not use the solo bot or its session cookie.
+The solo simulation and private rooms share the editable random-team builder and server generator. Regional league, battle presentation, move preview and FX playground behavior stays independent. Multiplayer does not use the solo bot or its session cookie.
 
 ## Play locally
 
@@ -10,15 +10,15 @@ The existing solo simulation, regional leagues, custom-team builder, move previe
 2. Open **Private battle** on the home page, or `/multiplayer`.
 3. Optionally enter a trainer name, create a private room, and copy its invitation link.
 4. Open that link in another browser profile/private window or send it to a friend using the same reachable frontend host. Two ordinary tabs in one browser profile share one guest identity.
-5. Each guest chooses a preset and lead, then presses **Ready to battle**. Both players must be ready. Changing a selection cancels that guest's readiness.
+5. Each guest chooses a preset and lead or opens **Build or randomize team**, generates six, locks favorites, edits and presses **Use team**. Then press **Ready to battle**. Both players must be ready. Changing a selection cancels that guest's readiness.
 6. Submit moves or switches. The server waits for all required choices before resolving the turn. A forced replacement is also a server decision.
 7. Refresh to resume the current state without replaying old animations. **Forfeit battle** awards the opponent a win; **Back to private rooms** leaves the completed room.
 
-The invitation identifies a room, not a player's credential. Opening a link fills the join field; joining remains an explicit action. No account, custom PvP team, chat, public matchmaking, spectator or database feature is included.
+The invitation identifies a room, not a player's credential. Opening a link fills the join field; joining remains an explicit action. No account, chat, public matchmaking, spectator or database feature is included. Randomization is a casual editable preparation tool, not a server-enforced random-battle format.
 
 ## Frontend and presentation
 
-- `apps/multiplayer/src/App.vue` owns the private lobby, ready controls, polling, countdown, reconnection and battle choices.
+- `apps/multiplayer/src/App.vue` owns the private lobby, ready controls, polling, countdown, reconnection and battle choices. Its editor uses `apps/shared/teams/RandomTeamBuilder.vue`. Dirty/in-flight drafts cannot ready up. Editing an already-ready team waits for an acknowledged unready; a winning match-start race closes editing and synchronizes the match. **Use team** sends the revision captured when editing began, so changes in another tab cannot be overwritten silently.
 - `api.js` is the same-origin HTTP adapter. Every request has its own cancellation and timeout; a poll cannot abort a submitted choice.
 - `roomSession.js` validates match identity, viewer revision and event cursor, reconciles acknowledgements and serializes presentation. Older responses cannot restore a previous decision or replay a move. Missing event ranges synchronize the latest view.
 - `apps/shared/battle/BattleView.vue` and its adjacent modules contain the reusable scene, HUD and presentation sequence. Solo and multiplayer use the same move FX, Poké Ball releases, fainting, idle motion, effectiveness feedback, introduction and outcome overlays. The existing simulation import paths remain compatibility wrappers.
@@ -39,23 +39,27 @@ The page normally polls an active room every 1.5 seconds, a lobby every 2 second
 
 ## HTTP surface
 
-All routes begin with `/api/multiplayer`. POST bodies must be JSON objects no larger than 4 KiB. The service validates each operation's allowed fields and semantics. The room ID belongs in the path, never the body.
+All routes begin with `/api/multiplayer`. POST bodies must be JSON objects no larger than 4 KiB, except team generation and selection (20 KiB; individual team validation also enforces its existing 16 KiB bound). The service validates each operation's allowed fields and semantics. The room ID belongs in the path, never the body.
 
 | Method and path | Purpose |
 | --- | --- |
 | `POST /guest` | Create or resume a guest, optionally providing `name`. This is the only route that sets the credential cookie. |
 | `GET /config` | Public preset, move and policy catalog; no credentials are created. |
 | `GET /session` | Return the authenticated guest and current room envelope, if any. |
+| `GET /team-builder` | Authenticated pinned catalog for the shared editor. |
+| `POST /team/random` | Authenticated candidate generation with six `team` slots and `lockedSlots`; 30 requests per guest per minute by default. Does not commit a room selection. |
 | `POST /rooms` | Create a lobby using `operationId`, with optional preset and lead. |
 | `POST /rooms/join` | Join with `operationId` and `inviteToken`. |
-| `POST /rooms/:roomId/selection` | Select own preset/lead using the expected own `selectionRevision`. |
+| `POST /rooms/:roomId/selection` | Select exactly one `presetId` or custom `team`, plus lead, using the expected own `selectionRevision`. |
 | `POST /rooms/:roomId/ready` | Set readiness bound to `selectionRevision` and `membershipEpoch`. |
 | `POST /rooms/:roomId/choice` | Submit `commandId`, `matchId`, `decisionId` and the current legal action. |
 | `POST /rooms/:roomId/forfeit` | Explicitly forfeit the authenticated active seat. |
 | `POST /rooms/:roomId/leave` | Leave a lobby or terminal room; active matches require explicit forfeit. |
 | `GET /rooms/:roomId/updates` | Poll using `afterRevision`, `afterCursor`, optional `matchId`, and optional `sync`. |
 
-Mutations other than choices carry an `operationId`; choices can use their `commandId` as the operation identity. Retrying the same semantic operation returns its acknowledgement. Reusing an identity for different intent is rejected. An engine-level illegal action can return HTTP 200 with `ack.accepted: false`; the client must inspect acknowledgements, not status alone.
+Room mutations other than choices carry an `operationId`; choices can use their `commandId` as the operation identity. Retrying the same semantic operation returns its acknowledgement. Reusing an identity for different intent is rejected. An engine-level illegal action can return HTTP 200 with `ack.accepted: false`; the client must inspect acknowledgements, not status alone.
+
+A custom selection is checked with the pinned engine validator, converted back to editable fields and returned only under `room.own.team`. Derived fields such as `hpType` never become client-editable inputs. `ack.selectionChanges` returns normalization adjustments for owner review before a separate ready action. A room selection change clears that member’s readiness. Reconnecting restores the committed selection; opponents receive no team, moves, items, generation metadata or selection revision. Both teams are revalidated at start, reordered by lead and copied into the immutable match snapshot.
 
 Updates use an independent viewer revision as well as the event cursor. A player's accepted choice can change its decision to `wait` without adding battle events. The other player's revision does not expose that hidden choice. Unchanged polls omit the full view. Full synchronization reconciles the current authoritative state instead of replaying historical animations.
 

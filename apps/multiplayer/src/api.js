@@ -1,5 +1,5 @@
 export class MultiplayerError extends Error {
-  constructor(message, code, status = 0) { super(message); this.code = code; this.status = status }
+  constructor(message, code, status = 0, details) { super(message); this.code = code; this.status = status; this.details = details }
 }
 
 export function createOperationId(random = globalThis.crypto) {
@@ -22,7 +22,7 @@ export async function multiplayerRequest(path, { method = 'GET', body, signal, t
     let data
     try { data = await response.json() }
     catch { throw new MultiplayerError('The multiplayer server is unavailable. Wait a moment and reconnect.', 'SERVER_UNAVAILABLE', response.status) }
-    if (!response.ok) throw new MultiplayerError(data.error?.message || 'The room request failed.', data.error?.code, response.status)
+    if (!response.ok) throw new MultiplayerError(data.error?.message || 'The room request failed.', data.error?.code, response.status, data.error?.details)
     return data
   } catch (error) {
     if (error instanceof MultiplayerError) throw error

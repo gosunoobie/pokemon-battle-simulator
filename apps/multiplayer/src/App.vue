@@ -6,6 +6,8 @@ import { createExperienceAudio } from '../../shared/music/audio.js'
 import { activeMembers, spriteUrl, buildBattleLog } from '../../shared/battle/index.js'
 import { multiplayerRequest, createOperationId } from './api.js'
 import { createRoomSession } from './roomSession.js'
+import RandomTeamBuilder from '../../shared/teams/RandomTeamBuilder.vue'
+import { createTeamDraft, toTeamPayload, readTeamDraft, saveTeamDraft } from '../../shared/teams/teamDraft.js'
 
 const config = shallowRef(null), guest = shallowRef(null), state = shallowRef({ envelope: null, playing: false, pending: null })
 const battleAudio = createExperienceAudio({ createBattle: options => createBattleAudio({ ...options, categoryVolumes: BATTLE_AUDIO_MIX, impactVolume: BATTLE_IMPACT_VOLUME }) })
@@ -13,12 +15,16 @@ const battle = ref(null), displayed = shallowRef(null), log = ref([]), logHost =
 const name = ref(''), invitation = ref(''), busy = ref(false), connecting = ref(true), error = ref(''), notice = ref('')
 const pendingOperation = shallowRef(null), networkOkay = ref(true), confirming = ref(false), now = ref(Date.now())
 const pollInFlight = ref(false), unavailable = ref(false)
+const teamCatalog = shallowRef(null), editorOpen = ref(false), draft = ref(createTeamDraft()), draftLead = ref(0), generating = ref(false)
+const selectionIssues = ref([]), selectionChanges = ref([])
+const draftSelectionRevision = ref(0)
 let lifetime = 0, disposed = false, pollTimer, clockTimer, pollController, commandController, failures = 0, serverOffset = 0, lastServerNow = -1, syncRequested = false
 const room = computed(() => state.value.envelope?.room)
 const latest = computed(() => state.value.envelope?.view)
 const active = computed(() => room.value?.status === 'active')
 const terminal = computed(() => ['ended', 'interrupted', 'closed', 'expired'].includes(room.value?.status))
-const selected = computed(() => config.value?.presets.find(p => p.id === room.value?.own.presetId) ?? config.value?.presets[0])
+const selected = computed(() => room.value?.own.team ? { id: null, name: 'Your custom team', team: room.value.own.team }
+  : config.value?.presets.find(p => p.id === room.value?.own.presetId) ?? config.value?.presets[0])
 const lead = computed(() => selected.value?.team[room.value?.own.leadIndex ?? 0])
 const decision = computed(() => latest.value?.decision)
 const locked = computed(() => busy.value || !!pendingOperation.value || state.value.playing || !active.value || !networkOkay.value)
@@ -45,6 +51,11 @@ function remember(id) { try { if (id) sessionStorage.setItem('battle-room-v1', i
 const session = createRoomSession({
   onChange(value) {
     state.value = value
+    if (value.envelope?.room?.status !== 'lobby' || value.envelope?.room?.own.ready) {
+      if (editorOpen.value && value.envelope?.room?.status === 'lobby') notice.value = 'Your selection was marked ready in another tab. Draft edits were not applied to the room.'
+      editorOpen.value = false; generating.value = false
+    }
+    if (!value.envelope?.room) { selectionIssues.value = []; selectionChanges.value = [] }
     if (!value.pending) pendingOperation.value = null
     // Keep match music on results/reconnects until the player leaves the field.
     if (!value.envelope?.view) battleAudio.setMusicContext({ kind: 'menu' })
@@ -194,11 +205,20 @@ async function execute(operation, payload = {}, retry = false) {
     const acknowledgedId = response.ack?.operationId ?? response.ack?.commandId
     if (acknowledgedId === request.body.operationId) session.clearPending()
     if (request.operation === 'join') { invitation.value = ''; history.replaceState(null, '', location.pathname) }
+    if (request.operation === 'selection' && response.ack?.accepted) {
+      editorOpen.value = false
+      selectionIssues.value = []
+      selectionChanges.value = response.ack.selectionChanges?.filter(change => change.kind !== 'added' && change.field !== 'hpType') ?? []
+      if (request.body.team) notice.value = 'Your team is selected. Review it, then choose Ready to battle.'
+    }
     confirming.value = false
+    return response
   } catch (cause) {
     if (disposed || lifetime !== token) return
     error.value = cause.message
+    selectionIssues.value = cause.details?.errors ?? []
     if (cause.status >= 400 && cause.status < 500 && cause.status !== 408 && cause.status !== 429) session.clearPending()
+    if (['ROOM_STARTED', 'SELECTION_CHANGED', 'MEMBERSHIP_CHANGED'].includes(cause.code)) void poll(true)
   } finally { if (!disposed && lifetime === token) { busy.value = false; schedule(0) } }
 }
 function createRoom() { return execute('create') }
@@ -208,9 +228,44 @@ function joinRoom() {
   return execute('join', { inviteToken: token })
 }
 function selectTeam(presetId, leadIndex = 0) {
-  return execute('selection', { presetId, leadIndex, selectionRevision: room.value.own.selectionRevision })
+  if (editorOpen.value || generating.value) return
+  const choice = presetId ? { presetId } : { team: selected.value.team }
+  return execute('selection', { ...choice, leadIndex, selectionRevision: room.value.own.selectionRevision })
 }
-function ready() { return execute('ready', { ready: !room.value.own.ready, selectionRevision: room.value.own.selectionRevision, membershipEpoch: room.value.membershipEpoch }) }
+function ready() {
+  if (editorOpen.value || generating.value) return
+  return execute('ready', { ready: !room.value.own.ready, selectionRevision: room.value.own.selectionRevision, membershipEpoch: room.value.membershipEpoch })
+}
+async function openBuilder() {
+  if (busy.value || pendingOperation.value || !networkOkay.value || room.value?.status !== 'lobby') return
+  const id = room.value.id
+  if (room.value.own.ready) {
+    const response = await execute('ready', { ready: false, selectionRevision: room.value.own.selectionRevision, membershipEpoch: room.value.membershipEpoch })
+    if (!response?.ack?.accepted || room.value?.id !== id || room.value.status !== 'lobby' || room.value.own.ready) return
+  }
+  busy.value = true; error.value = ''
+  const token = lifetime
+  try {
+    teamCatalog.value ??= await multiplayerRequest('team-builder')
+    if (disposed || lifetime !== token || room.value?.id !== id || room.value.status !== 'lobby' || room.value.own.ready) return
+    let saved
+    try { saved = readTeamDraft(localStorage) } catch {}
+    draft.value = createTeamDraft(room.value.own.team ?? saved ?? selected.value.team)
+    draftLead.value = room.value.own.leadIndex
+    draftSelectionRevision.value = room.value.own.selectionRevision
+    selectionIssues.value = []; selectionChanges.value = []; editorOpen.value = true
+  } catch (cause) { if (!disposed && lifetime === token) error.value = cause.message }
+  finally { if (!disposed && lifetime === token) busy.value = false }
+}
+function updateDraft(team) {
+  draft.value = team; selectionIssues.value = []; selectionChanges.value = []
+  try { saveTeamDraft(localStorage, team) } catch {}
+}
+function useDraft() {
+  if (!editorOpen.value || generating.value || room.value?.status !== 'lobby' || room.value.own.ready) return
+  return execute('selection', { team: toTeamPayload(draft.value), leadIndex: draftLead.value, selectionRevision: draftSelectionRevision.value })
+}
+function generateTeam(body, { signal }) { return multiplayerRequest('team/random', { method: 'POST', body, signal }) }
 function choose(action) { return execute('choice', { matchId: latest.value.matchId, decisionId: decision.value.id, action }) }
 function forfeit() { return execute('forfeit', { matchId: latest.value.matchId }) }
 function leave() { return execute('leave') }
@@ -245,13 +300,13 @@ onBeforeUnmount(() => {
       <nav class="sim-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/multiplayer" aria-current="page">Multiplayer</a><a href="/simulation">Simulation</a><a href="/preview">Move preview</a><a href="/playground">FX playground</a></nav>
     </header>
     <main id="multiplayer">
-      <div class="sim-heading"><div><p class="sim-eyebrow">A FRIEND. A TEAM. A CHALLENGE.</p><h1>Private battle<span>.</span></h1><p class="sim-intro">Choose your team. Invite a friend. Make every turn count.</p></div><div class="sim-format"><span class="sim-dot"></span> GENERATION 3 SINGLES <small>Two players · Preset teams · Level 100</small></div></div>
+      <div class="sim-heading"><div><p class="sim-eyebrow">A FRIEND. A TEAM. A CHALLENGE.</p><h1>Private battle<span>.</span></h1><p class="sim-intro">Choose your team. Invite a friend. Make every turn count.</p></div><div class="sim-format"><span class="sim-dot"></span> GENERATION 3 SINGLES <small>Two players · Build your team · Level 100</small></div></div>
       <div v-if="error" class="sim-error" role="alert"><p>{{ error }}</p><div class="sim-error-actions"><button v-if="pendingOperation" :disabled="busy" @click="execute(pendingOperation.operation, {}, true)">Retry last action</button><button v-if="room" :disabled="busy || pollInFlight" @click="poll(true)">Sync room</button><button v-if="!room" :disabled="busy" @click="initialize">Reconnect</button><button v-if="room && !networkOkay" :disabled="busy" @click="forget">Return to lobby</button></div></div>
       <p v-if="notice" class="mp-notice" role="status">{{ notice }}</p>
       <div v-if="connecting" class="sim-loading" role="status">Connecting to multiplayer…</div>
       <section v-if="config && !room && !connecting" class="sim-setup mp-welcome" aria-labelledby="room-title">
         <p class="sim-eyebrow">YOUR NEXT RIVAL IS ONE LINK AWAY</p><h2 id="room-title">Bring a friend to the battlefield.</h2>
-        <p class="mp-muted">Play a private six-on-six battle with a ready-made team. No account needed.</p>
+        <p class="mp-muted">Play a private six-on-six battle with a preset or a team you build. No account needed.</p>
         <label class="mp-name">Trainer name <span>Optional · 24 characters</span><input v-model="name" maxlength="24" autocomplete="nickname" placeholder="Guest trainer" :disabled="busy || !!pendingOperation"></label>
         <div class="mp-entry-grid">
           <section class="mp-entry"><span class="mp-step">01 / HOST A BATTLE</span><h3>Set the challenge.</h3><p>Create a room, pick your team and send the invitation to your opponent.</p><button class="sim-primary" :disabled="busy || !!pendingOperation" @click="createRoom">Create private room <span aria-hidden="true">↗</span></button></section>
@@ -264,10 +319,20 @@ onBeforeUnmount(() => {
         <section v-if="room.status === 'lobby'" class="sim-setup" aria-labelledby="lobby-title">
           <div class="sim-setup-heading"><div><p class="sim-eyebrow">PREPARE FOR BATTLE</p><h2 id="lobby-title">Choose your team.</h2></div><button class="mp-text-button" :disabled="busy || !!pendingOperation" @click="leave">Leave room</button></div>
           <div v-if="inviteUrl" class="mp-invite"><label for="room-invite">Invite your opponent</label><div><input id="room-invite" :value="inviteUrl" readonly @focus="$event.target.select()"><button class="mp-secondary" @click="copyInvite">Copy link</button></div></div>
-          <div class="sim-presets"><button v-for="preset in config.presets" :key="preset.id" class="sim-preset" :class="{ selected: selected?.id === preset.id }" :aria-pressed="selected?.id === preset.id" :disabled="busy || !!pendingOperation || !networkOkay" @click="selectTeam(preset.id)"><div class="sim-preset-top"><span>{{ preset.id.toUpperCase() }}</span><span aria-hidden="true">{{ selected?.id === preset.id ? '●' : '○' }}</span></div><h3>{{ preset.name }}</h3><p>{{ preset.description }}</p><div class="sim-preset-sprites"><img v-for="member in preset.team" :key="member.species" :src="spriteUrl(member.species)" :alt="member.species" width="56" height="56"></div></button></div>
-          <div class="sim-lead-heading"><p class="sim-eyebrow">PICK YOUR LEAD</p><span>Your lead enters first. Your opponent's selection stays hidden.</span></div>
-          <div class="sim-lead-grid"><button v-for="(member, index) in selected?.team" :key="member.species" class="sim-lead" :class="{ selected: room.own.leadIndex === index }" :aria-pressed="room.own.leadIndex === index" :disabled="busy || !!pendingOperation || !networkOkay" @click="selectTeam(selected.id,index)"><img :src="spriteUrl(member.species)" alt="" width="84" height="84"><strong>{{ member.species }}</strong><span>{{ room.own.leadIndex === index ? 'Selected lead' : 'Choose as lead' }}</span></button></div>
-          <div v-if="lead" class="sim-team-summary"><div><h3>{{ lead.species }} <span>Lv. 100</span></h3><p>{{ lead.ability }} · {{ lead.item || 'No held item' }} · {{ lead.nature }}</p><div class="sim-lead-moves"><span v-for="move in lead.moves" :key="move">{{ moveInfo(move).name || move }}</span></div></div><button class="sim-primary" :disabled="busy || !!pendingOperation || !networkOkay || !room.opponent" @click="ready">{{ room.own.ready ? 'Cancel ready' : 'Ready to battle' }} <span aria-hidden="true">↗</span></button></div>
+          <div class="sim-presets"><button v-for="preset in config.presets" :key="preset.id" class="sim-preset" :class="{ selected: selected?.id === preset.id }" :aria-pressed="selected?.id === preset.id" :disabled="busy || !!pendingOperation || !networkOkay || editorOpen" @click="selectTeam(preset.id)"><div class="sim-preset-top"><span>{{ preset.id.toUpperCase() }}</span><span aria-hidden="true">{{ selected?.id === preset.id ? '●' : '○' }}</span></div><h3>{{ preset.name }}</h3><p>{{ preset.description }}</p><div class="sim-preset-sprites"><img v-for="member in preset.team" :key="member.species" :src="spriteUrl(member.species)" :alt="member.species" width="56" height="56"></div></button></div>
+          <div class="mp-builder-entry"><div><h3>{{ room.own.team ? 'Your custom team is selected.' : 'Make the team your own.' }}</h3><p>Generate six, lock favorites and reroll the rest. Edit any legal set before committing it to this room.</p></div><button v-if="!editorOpen" class="mp-secondary" :disabled="busy || !!pendingOperation || !networkOkay" @click="openBuilder">{{ room.own.ready ? 'Unready and edit team' : 'Build or randomize team' }}</button></div>
+          <section v-if="editorOpen" class="mp-team-editor" aria-label="Prepare a custom team">
+            <RandomTeamBuilder :team="draft" :catalog="teamCatalog" :presets="config.presets" :disabled="busy || !!pendingOperation || !networkOkay" :generate-team="generateTeam" :reset-key="`${room.id}:${room.own.selectionRevision}:${draftLead}`" @update:team="updateDraft" @busy-change="generating = $event"/>
+            <label class="mp-draft-lead">First Pokémon to send out <select v-model.number="draftLead" :disabled="busy || !!pendingOperation"><option v-for="(member, index) in draft" :key="index" :value="index">Slot {{ index + 1 }} · {{ member.species || 'Empty slot' }}</option></select></label>
+            <ul v-if="selectionIssues.length" class="sim-error" role="alert"><li v-for="(issue, index) in selectionIssues" :key="index">{{ Number.isInteger(issue.setIndex) ? `Slot ${issue.setIndex + 1}: ` : '' }}{{ issue.message }}</li></ul>
+            <div class="mp-builder-actions"><button class="sim-primary" :disabled="busy || !!pendingOperation || !networkOkay || generating" @click="useDraft">Use team</button><button class="mp-secondary" :disabled="busy || !!pendingOperation" @click="editorOpen = false">Cancel editing</button><span>Draft edits save in this browser. Use team validates and selects this version for the room.</span></div>
+          </section>
+          <template v-else>
+            <div class="sim-lead-heading"><p class="sim-eyebrow">PICK YOUR LEAD</p><span>Your lead enters first. Your opponent's selection stays hidden.</span></div>
+            <div class="sim-lead-grid"><button v-for="(member, index) in selected?.team" :key="`${index}:${member.species}`" class="sim-lead" :class="{ selected: room.own.leadIndex === index }" :aria-pressed="room.own.leadIndex === index" :disabled="busy || !!pendingOperation || !networkOkay" @click="selectTeam(selected.id,index)"><img :src="spriteUrl(member.species)" alt="" width="84" height="84"><strong>{{ member.species }}</strong><span>{{ room.own.leadIndex === index ? 'Selected lead' : 'Choose as lead' }}</span></button></div>
+            <details v-if="selectionChanges.length" class="mp-selection-changes"><summary>Review {{ selectionChanges.length }} normalized team settings</summary><ul><li v-for="(change, index) in selectionChanges" :key="index">Slot {{ change.setIndex + 1 }} · {{ change.field }}: {{ change.before ?? 'Default' }} → {{ change.after ?? 'Removed' }}</li></ul></details>
+            <div v-if="lead" class="sim-team-summary"><div><h3>{{ lead.species }} <span>Lv. 100</span></h3><p>{{ lead.ability }} · {{ lead.item || 'No held item' }} · {{ lead.nature }}</p><div class="sim-lead-moves"><span v-for="move in lead.moves" :key="move">{{ moveInfo(move).name || move }}</span></div></div><button class="sim-primary" :disabled="busy || !!pendingOperation || !networkOkay || !room.opponent || editorOpen || generating" @click="ready">{{ room.own.ready ? 'Cancel ready' : 'Ready to battle' }} <span aria-hidden="true">↗</span></button></div>
+          </template>
           <div class="mp-readiness" role="status"><span :class="{ ready: room.own.ready }">{{ room.own.ready ? '✓ You are ready' : '○ Choose your team, then ready up' }}</span><span :class="{ ready: room.opponent?.ready }">{{ !room.opponent ? '○ Waiting for your opponent to join' : room.opponent.ready ? '✓ Opponent ready' : '○ Opponent choosing a team' }}</span></div>
           <p class="sim-setup-note">The battle starts when both players are ready. Changing your team or lead cancels your ready status. A lobby expires after 15 minutes without a selection, join or ready change.</p>
         </section>

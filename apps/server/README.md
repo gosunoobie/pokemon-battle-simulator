@@ -13,10 +13,27 @@ The engine stays on the server. A random HttpOnly, SameSite=Strict cookie identi
 
 The automated opponent chooses the first available damaging move, then another legal move or switch when necessary. It does not evaluate strategy or inspect p1's secret state. Both automated decisions and player choices go through the engine's ordinary legal decision port. Reloading retrieves the same in-memory battle; retrying an admitted command keeps its original engine acknowledgment.
 
+The team builder can generate six complete Gen 3 sets, retain locked members,
+reroll individual slots, and undo the latest generation. `POST /team/random`
+accepts `{team, lockedSlots}` (six editable draft slots and zero-based retained
+indexes) and returns `{valid, team, errors, changes, collection}`. Generation
+never creates or changes a battle/session. The public solo preparation endpoints
+share a limit of 120 validation/generation requests per minute and accept bounded
+20 KiB envelopes; the engine still limits submitted teams to 16 KiB. Invalid
+locked sets fail without changing the draft. Locked species use catalog names or
+IDs; upstream shorthand aliases are not part of this editor contract.
+
+The collection contains one starter set for each of the 386 base species, sampled
+with equal odds without duplicate base species. It includes legendaries and weak
+species, so matchup strength varies. Sets pass the existing validator and a
+documented baseline quality checklist; they are not competitively balanced.
+See [the collection tool](../../tools/team-generation/README.md) for provenance,
+reproduction and coverage checks. The existing three demo presets are unchanged.
+
 The UI starts regional Elite Four challenges. `league-rosters.js` holds pinned
 FRLG Kanto, GS Johto and RS Hoenn (Steven) parties; `league-run.js` owns the
-five-round lifecycle through an injected engine factory. Team choices remain the
-three existing six-member presets. The server validates every NPC set at startup
+five-round lifecycle through an injected engine factory. Team choices include the
+three existing presets and validated custom or generated six-member teams. The server validates every NPC set at startup
 with `gen3regionalleaguev1`, which allows original party sizes/repeated species
 and a narrow NPC-only Karen/Murkrow exception. See
 [roster provenance](../../docs/LEAGUE_ROSTERS.md).

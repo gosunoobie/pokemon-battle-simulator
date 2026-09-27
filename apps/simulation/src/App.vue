@@ -3,7 +3,7 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch 
 import BattleView from '../../shared/battle/BattleView.vue'
 import { createSimulationAudio } from './audio.js'
 import { createExperienceAudio } from '../../shared/music/audio.js'
-import TeamBuilder from './TeamBuilder.vue'
+import RandomTeamBuilder from '../../shared/teams/RandomTeamBuilder.vue'
 import { createCommandId, simulationRequest } from './api.js'
 import { activeMembers, spriteUrl, buildBattleLog, viewerResultTitle } from '../../shared/battle/index.js'
 import { createTeamDraft, toTeamPayload, draftIssues, readTeamDraft, saveTeamDraft } from './teamDraft.js'
@@ -14,7 +14,7 @@ const run = shallowRef(null), regionId = ref('kanto'), pendingAdvance = shallowR
 const presetId = ref('kanto'), leadIndex = ref(0), busy = ref(true), playing = ref(false)
 const teamMode = ref('preset'), customTeam = shallowRef(createTeamDraft()), teamCatalog = shallowRef(null)
 const catalogLoading = ref(false), catalogError = ref(''), teamErrors = shallowRef([]), teamValidation = shallowRef(null)
-const draftSaved = ref(false)
+const draftSaved = ref(false), generatingTeam = ref(false)
 const error = ref(''), reducedMotion = ref(false)
 const battleView = ref(null), arena = ref(null), logHost = ref(null), setupTitle = ref(null)
 const message = ref('Choose a region, your team and a lead Pokémon to begin.'), log = ref([])
@@ -87,7 +87,7 @@ async function loadTeamCatalog() {
   } finally { if (!disposed && catalogController === request) catalogLoading.value = false }
 }
 async function validateCustomTeam() {
-  if (busy.value || latest.value || !teamCatalog.value || teamMode.value !== 'custom') return
+  if (busy.value || generatingTeam.value || latest.value || !teamCatalog.value || teamMode.value !== 'custom') return
   teamValidation.value = null
   teamErrors.value = customIssues.value
   if (teamErrors.value.length) return
@@ -101,6 +101,9 @@ async function validateCustomTeam() {
     } else teamErrors.value = checked.errors
   } catch (cause) { if (isCurrent(token)) error.value = cause.message }
   finally { if (isCurrent(token)) busy.value = false }
+}
+function generateTeam(body, { signal } = {}) {
+  return simulationRequest('team/random', { method: 'POST', body, signal })
 }
 function showBattle() {
   battleView.value?.showBattle()
@@ -180,7 +183,7 @@ async function initialize() {
   finally { if (isCurrent(token)) busy.value = false }
 }
 async function startBattle() {
-  if (busy.value || !lead.value?.species) return
+  if (busy.value || generatingTeam.value || !lead.value?.species) return
   if (teamMode.value === 'custom' && !customReady.value) { teamErrors.value = customIssues.value; return }
   void battleAudio.unlock()
   battleAudio.preload(selectedTeam.value.map(member => member.species))
@@ -357,9 +360,9 @@ onBeforeUnmount(() => {
           <p v-if="catalogLoading" class="sim-builder-note" role="status">Loading the Gen 3 team catalog…</p>
           <div v-else-if="catalogError" class="sim-error" role="alert"><p>{{ catalogError }}</p><div class="sim-error-actions"><button @click="loadTeamCatalog">Retry team catalog</button></div></div>
           <template v-if="teamCatalog">
-            <TeamBuilder :team="customTeam" :catalog="teamCatalog" :presets="config.presets" :disabled="busy" @update:team="customTeam = $event"/>
+            <RandomTeamBuilder :team="customTeam" :catalog="teamCatalog" :presets="config.presets" :disabled="busy" :generate-team="generateTeam" :reset-key="`${teamMode}:${leadIndex}`" @update:team="customTeam = $event" @busy-change="generatingTeam = $event"/>
             <div class="sim-team-validation">
-              <div class="sim-team-validation-actions"><button :disabled="busy" @click="validateCustomTeam">{{ busy ? 'Please wait…' : 'Check team' }}</button><span>{{ draftSaved ? 'Draft saved in this browser.' : 'Draft is available for this visit.' }}</span></div>
+              <div class="sim-team-validation-actions"><button :disabled="busy || generatingTeam" @click="validateCustomTeam">{{ busy || generatingTeam ? 'Please wait…' : 'Check team' }}</button><span>{{ draftSaved ? 'Draft saved in this browser.' : 'Draft is available for this visit.' }}</span></div>
               <p class="sim-builder-note">Six distinct Pokémon, level 100, with one to four moves each. The server checks move combinations and event restrictions before starting a battle.</p>
               <p v-if="teamValidation?.valid" class="sim-team-valid" role="status">Your team passed Gen 3 validation.</p>
               <details v-if="teamValidation?.changes.length" class="sim-team-adjustments"><summary>Adjustments from validation</summary><ul><li v-for="(change, index) in teamValidation.changes" :key="index">Slot {{ change.setIndex + 1 }} · {{ change.field }}: {{ change.before }} → {{ change.after ?? 'removed' }}</li></ul></details>
@@ -376,7 +379,7 @@ onBeforeUnmount(() => {
         </div>
         <div v-if="lead?.species" class="sim-team-summary">
           <div><h3>{{ lead.species }} <span>Lv. {{ lead.level }}</span></h3><p>{{ pretty(lead.ability) }} <span aria-hidden="true">·</span> {{ pretty(lead.item) || 'No held item' }}</p><div class="sim-lead-moves"><span v-for="move in lead.moves.filter(Boolean)" :key="move">{{ moveInfo(move).name || pretty(move) }}</span></div></div>
-          <button class="sim-primary" :disabled="busy || (teamMode === 'custom' && !customReady)" @click="startBattle">{{ busy ? 'Please wait…' : selectedLeague ? `Challenge ${selectedLeague.name}` : 'Start battle' }} <span aria-hidden="true">↗</span></button>
+          <button class="sim-primary" :disabled="busy || generatingTeam || (teamMode === 'custom' && !customReady)" @click="startBattle">{{ busy || generatingTeam ? 'Please wait…' : selectedLeague ? `Challenge ${selectedLeague.name}` : 'Start battle' }} <span aria-hidden="true">↗</span></button>
         </div>
         <p class="sim-setup-note">Cartridge-inspired trainer rosters, adapted to Level 100 and Gen 3 mechanics. Play against a simple automated opponent with a preset or your own team.</p>
       </section>

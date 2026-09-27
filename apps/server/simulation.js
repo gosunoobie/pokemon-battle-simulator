@@ -5,6 +5,8 @@ import { PRESET_TEAMS } from './presets.js'
 import { REGIONAL_LEAGUES } from './league-rosters.js'
 import { createLeagueRun, LeagueRunError, publicLeague } from './league-run.js'
 import { getTeamBuilderCatalog } from './team-builder.js'
+import { createRandomTeamGenerator } from './teams/random-team.js'
+import { editableTeam } from './teams/selection.js'
 
 const PREFIX = '/api/simulation'
 const COOKIE = 'battle_simulation_v1'
@@ -94,8 +96,8 @@ function cookieToken(req) {
 }
 
 /** In-memory local simulation host. Sessions survive page reloads, not restarts. */
-export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 24, requestsPerMinute = 600, publicOrigin } = {}) {
-  for (const [name, value] of Object.entries({ ttlMs, maxSessions, requestsPerMinute })) {
+export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 24, requestsPerMinute = 600, teamRequestsPerMinute = 120, publicOrigin } = {}) {
+  for (const [name, value] of Object.entries({ ttlMs, maxSessions, requestsPerMinute, teamRequestsPerMinute })) {
     if (!Number.isSafeInteger(value) || value < 1) throw new TypeError(`Invalid ${name}`)
   }
   publicOrigin = parsePublicOrigin(publicOrigin)
@@ -104,8 +106,19 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
   let leagueFactory
   let leagues
   let config
+  let randomTeams
   let closed = false
   let createWindow = { started: Date.now(), count: 0 }
+  let teamWindow = { started: Date.now(), count: 0 }
+
+  function admitTeamRequest(res) {
+    const now = Date.now()
+    if (now - teamWindow.started >= 60_000) teamWindow = { started: now, count: 0 }
+    if (++teamWindow.count > teamRequestsPerMinute) {
+      res.setHeader('Retry-After', String(Math.max(1, Math.ceil((teamWindow.started + 60_000 - now) / 1000))))
+      throw new HttpError(429, 'RATE_LIMITED', 'Team preparation is busy. Please wait before checking or rerolling again.')
+    }
+  }
 
   function initialize() {
     if (config) return
@@ -232,10 +245,23 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
     }
     if (req.method === 'POST' && url.pathname === `${PREFIX}/team/validate`) {
       if (url.search) badRequest('INVALID_QUERY', 'This endpoint does not accept query parameters.')
+      admitTeamRequest(res)
       const body = await readBody(req, MAX_TEAM_BODY)
       if (!keysAre(body, ['team']) || !Object.hasOwn(body, 'team')) badRequest('INVALID_REQUEST', 'Send only the team to validate.')
       initialize()
       send(res, 200, factory.validateTeam(body.team))
+      return
+    }
+    if (req.method === 'POST' && url.pathname === `${PREFIX}/team/random`) {
+      if (url.search) badRequest('INVALID_QUERY', 'This endpoint does not accept query parameters.')
+      admitTeamRequest(res)
+      const body = await readBody(req, MAX_TEAM_BODY)
+      if (!keysAre(body, ['team', 'lockedSlots']) || !Object.hasOwn(body, 'team') || !Object.hasOwn(body, 'lockedSlots')) {
+        badRequest('INVALID_REQUEST', 'Send only the draft team and locked slot indexes.')
+      }
+      initialize()
+      randomTeams ??= createRandomTeamGenerator({ validateTeam: factory.validateTeam })
+      send(res, 200, randomTeams.generate(body))
       return
     }
     if (req.method === 'POST' && url.pathname === `${PREFIX}/match`) {
@@ -265,11 +291,7 @@ export function createSimulationService({ ttlMs = 30 * 60 * 1000, maxSessions = 
       if (!existing && sessions.size >= maxSessions) throw new HttpError(503, 'SESSION_LIMIT', 'This local server has reached its session limit. Try again later.')
       if (Date.now() - createWindow.started >= 60_000) createWindow = { started: Date.now(), count: 0 }
       if (++createWindow.count > 60) throw new HttpError(429, 'RATE_LIMITED', 'Too many new battles. Please wait a minute.')
-      const playerTeam = clone(startingTeam)
-      // The pinned validator adds this derived field, while engine creation
-      // accepts only editable set fields. Recompute it from the same IVs when
-      // the engine validates each round; never accept it from raw client input.
-      for (const set of playerTeam) delete set.hpType
+      const playerTeam = editableTeam(startingTeam)
       playerTeam.unshift(...playerTeam.splice(body.leadIndex, 1))
       const presetId = custom ? 'custom' : preset.id
       const run = league ? createLeagueRun({ league, playerTeam, presetId, createBattle: leagueFactory.create }) : null

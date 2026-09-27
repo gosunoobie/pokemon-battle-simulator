@@ -138,6 +138,114 @@ test('both ready requests create one match, freeze lead ordering and retain orig
   assert.equal(starts, 1)
 })
 
+test('custom selection admits normalized editable teams privately, retries once and starts Hidden Power correctly', async t => {
+  const h = setup(t)
+  const { a, b, roomId } = await h.lobby()
+  const team = structuredClone((await h.service.config()).presets[0].team)
+  team[0].moves = ['Hidden Power']
+  team[0].ivs = { hp: 31, atk: 30, def: 30, spa: 31, spd: 31, spe: 31 }
+  const opponentBefore = await h.read(b, roomId)
+  const body = { operationId: 'custom-selection', roomId, team, leadIndex: 0, selectionRevision: 0 }
+  const selected = await h.service.execute(a, 'selection', body)
+  assert.equal(selected.room.own.presetId, null)
+  assert.equal(selected.room.own.selectionRevision, 1)
+  assert.equal(selected.room.own.team[0].hpType, undefined)
+  assert.deepEqual(selected.room.own.team[0].ivs, team[0].ivs)
+  assert(selected.ack.selectionChanges.some(change => change.field === 'hpType' && change.after === 'Ice'))
+  assert.deepEqual((await h.service.session(a)).room.room.own.team, selected.room.own.team)
+  const opponentAfter = await h.read(b, roomId, { afterRevision: opponentBefore.revision, afterCursor: 0 })
+  assert.equal(opponentAfter.mode, 'unchanged')
+  assert.deepEqual(Object.keys(opponentAfter.room.opponent).sort(), ['connected', 'name', 'ready'])
+  assert(!JSON.stringify(opponentAfter).includes('Hidden Power'))
+  const retried = await h.service.execute(a, 'selection', body)
+  assert.equal(retried.room.own.selectionRevision, 1)
+  assert.deepEqual(retried.ack, selected.ack)
+  await assert.rejects(h.service.execute(a, 'selection', { ...body, leadIndex: 1 }), { code: 'OPERATION_ID_REUSED' })
+  await h.setReady(a, roomId)
+  await h.setReady(b, roomId)
+  const started = await h.read(a, roomId)
+  assert.match(started.view.decision.moves[0].name, /Hidden Power Ice/)
+  assert.equal(started.room.own.team[0].hpType, undefined)
+  await assert.rejects(h.act(a, 'selection', { roomId, team, leadIndex: 1, selectionRevision: 1 }), { code: 'ROOM_STARTED' })
+  team[0].moves[0] = 'Surf'
+  const stored = await h.store.transact('inspect', tx => tx.get('rooms', roomId))
+  assert.deepEqual(stored.match.teams.p1[0].moves, ['Hidden Power'])
+  assert.equal(await h.store.transact('inspect', tx => Object.isFrozen(tx.get('rooms', roomId).match.teams.p1)), true)
+})
+
+test('custom selection validates discriminants and nested getters and preserves the previous selection on error', async t => {
+  const h = setup(t)
+  const { a, roomId } = await h.lobby()
+  const team = structuredClone((await h.service.config()).presets[0].team)
+  const body = { roomId, leadIndex: 0, selectionRevision: 0 }
+  for (const choice of [{}, { presetId: 'kanto', team }, { presetId: undefined }]) {
+    await assert.rejects(h.act(a, 'selection', { ...body, ...choice }), error => ['INVALID_SELECTION', 'INVALID_PRESET'].includes(error.code))
+  }
+  let accessed = false
+  const invalid = structuredClone(team)
+  Object.defineProperty(invalid[0], 'moves', { enumerable: true, get() { accessed = true; return ['Tackle'] } })
+  await assert.rejects(h.act(a, 'selection', { ...body, team: invalid }), { code: 'INVALID_TEAM' })
+  assert.equal(accessed, false)
+  team[0].hpType = 'Ice'
+  await assert.rejects(h.act(a, 'selection', { ...body, team }), error => error.code === 'INVALID_TEAM' && error.details.errors.some(item => item.code === 'UNKNOWN_FIELD'))
+  assert.equal((await h.read(a, roomId)).room.own.presetId, 'kanto')
+  assert.equal((await h.read(a, roomId)).room.own.selectionRevision, 0)
+})
+
+test('custom edits clear readiness; racing starts either freeze the accepted team or keep an unready lobby', async t => {
+  for (const selectFirst of [true, false]) {
+    const h = setup(t)
+    const { a, b, roomId } = await h.lobby()
+    const team = structuredClone((await h.service.config()).presets[1].team)
+    await h.setReady(a, roomId)
+    const selection = () => h.act(a, 'selection', { roomId, team, leadIndex: 2, selectionRevision: 0 })
+    const opponentReady = () => h.act(b, 'ready', { roomId, ready: true, selectionRevision: 0, membershipEpoch: 2 })
+    const results = await Promise.allSettled((selectFirst ? [selection, opponentReady] : [opponentReady, selection]).map(run => run()))
+    const current = await h.read(a, roomId)
+    if (selectFirst) {
+      assert(results.every(result => result.status === 'fulfilled'))
+      assert.equal(current.room.status, 'lobby')
+      assert.equal(current.room.own.ready, false)
+      assert.equal(current.room.own.selectionRevision, 1)
+      await assert.rejects(h.act(a, 'ready', { roomId, ready: true, selectionRevision: 0, membershipEpoch: 2 }), { code: 'SELECTION_CHANGED' })
+      assert.equal((await h.setReady(a, roomId)).view.own.team[0].species, 'Meganium')
+    } else {
+      assert.equal(current.room.status, 'active')
+      assert.equal(results[1].reason.code, 'ROOM_STARTED')
+      assert.equal(current.view.own.team[0].species, 'Charizard')
+      assert.equal(current.room.own.team, undefined)
+    }
+  }
+})
+
+test('custom receipt retries bypass admission and start-time validation failures retain the usable lobby', async t => {
+  const base = createEngineFactory()
+  let checks = 0, reject = false, starts = 0
+  const h = setup(t, { engineFactory: { ...base,
+    validateTeam(team) { checks++; return reject ? { valid: false, errors: [{ code: 'RECHECK', message: 'Test admission failure' }] } : base.validateTeam(team) },
+    create(options) { starts++; return base.create(options) },
+  } })
+  const { a, b, roomId } = await h.lobby()
+  const team = (await h.service.config()).presets[0].team
+  const body = { operationId: 'accepted-custom', roomId, team, leadIndex: 1, selectionRevision: 0 }
+  await h.service.execute(a, 'selection', body)
+  const admittedChecks = checks
+  reject = true
+  assert.equal((await h.service.execute(a, 'selection', body)).ack.accepted, true)
+  assert.equal(checks, admittedChecks, 'An identical committed receipt is authoritative')
+  await h.setReady(a, roomId)
+  const readyBody = { operationId: 'recheck-ready', roomId, ready: true, selectionRevision: 0, membershipEpoch: 2 }
+  await assert.rejects(h.service.execute(b, 'ready', readyBody), { code: 'TEAM_RECHECK_FAILED' })
+  const lobby = await h.read(b, roomId)
+  assert.equal(lobby.room.status, 'lobby')
+  assert.equal(lobby.room.own.ready, false)
+  assert.equal(lobby.room.opponent.ready, true)
+  assert.equal(starts, 0)
+  reject = false
+  assert.equal((await h.service.execute(b, 'ready', readyBody)).room.status, 'active')
+  assert.equal(starts, 1)
+})
+
 test('first human choice changes only its viewer revision; retries retain ack with fresh state', async t => {
   const h = setup(t)
   const { a, b, roomId } = await h.battle()
