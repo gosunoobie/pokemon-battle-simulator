@@ -15,7 +15,7 @@ const activeActorId = ref('source'), nearProfile = ref('charizard'), farProfile 
 const selectedActor = computed(() => displayed.value.actors[activeActorId.value])
 const previewActors = () => previewBattleActors(nearProfile.value, farProfile.value)
 const fixtureOptions = () => ({ sourceId: activeActorId.value, actors: previewActors() })
-const stage = ref(null), busy = ref(false), error = ref(''), hasPlayed = ref(false)
+const stage = ref(null), busy = ref(false), error = ref(''), hasPlayed = ref(false), continuingWeather = ref(false)
 const sceneReady = ref(false), reducedMotion = ref(false)
 const selectedId = ref('flamethrower'), phase = ref('attack')
 const selectedMove = computed(() => MOVES.find(move => move.id === selectedId.value))
@@ -78,19 +78,20 @@ const previewResult = computed(() => preparing.value ? 'preparation only, no HP 
   : selectedMove.value.recoilMaxHp ? `${selectedMove.value.damage} demo damage · recoil: ¼ of maximum HP`
   : selectedMove.value.confuses ? selectedMove.value.damage > 0 ? `${selectedMove.value.damage} demo damage · confusion preview` : 'confusion preview, no HP damage'
   : `${selectedMove.value.damage} demo damage`)
-const status = ref('Charizard is ready. Choose a move.'), animateHealth = ref(false)
+const status = ref('Charizard is ready. Choose a move.'), animateHealth = ref(false), hitStep = ref(false)
 const battleAudio = createPreviewAudio()
 let scene, disposed = false, media, sceneGeneration = 0, playGeneration = 0
 const presenter = createPresenter({
   loadFx: async () => (await import('../../../shared/battle/reviewedFx.js')).createReviewedBattleFx(),
+  loadWeather: () => import('@battle/battle-fx/weather'),
   onMove: request => battleAudio.previewMove({ ...request,
     effectiveness: MOVES.find(move => move.id === request.moveId)?.effective === true ? 'super-effective' : null }),
   getScene: () => scene,
-  onDisplay: value => { displayed.value = value.state; status.value = value.message; animateHealth.value = value.animate },
+  onDisplay: value => { displayed.value = value.state; status.value = value.message; animateHealth.value = value.animate; hitStep.value = Boolean(value.hitStep) },
   onBusy: value => { busy.value = value },
   onError: error => console.warn('Effect skipped:', error),
 })
-const changeMotion = () => { reducedMotion.value = media.matches; battleAudio.stop() }
+const changeMotion = () => { reducedMotion.value = media.matches; battleAudio.stop(); presenter.skip() }
 async function refreshScene() {
   const token = ++sceneGeneration
   playGeneration++; presenter.reset(); scene?.dispose(); scene = null; sceneReady.value = false; error.value = ''
@@ -110,22 +111,26 @@ onMounted(() => {
   void refreshScene()
 })
 
-async function attack() {
+async function attack(weatherContinuation = false) {
   if (busy.value) return
+  if (weatherContinuation && !selectedMove.value.weather) return
+  continuingWeather.value = weatherContinuation
   battleAudio.stop()
-  void battleAudio.unlock()
-  battleAudio.warmMoves([selectedId.value], { fxIds: true })
+  if (!weatherContinuation) {
+    void battleAudio.unlock()
+    battleAudio.warmMoves([selectedId.value], { fxIds: true })
+  }
   // Replay intentionally starts a new preview; presentation never applies this result again.
   const token = ++playGeneration
   const transaction = createPreviewTransaction(selectedMove.value, { ...fixtureOptions(), targetId: activeActorId.value === 'source' ? 'target' : 'source', phase: phase.value })
   committed.value = transaction.after
-  await presenter.enqueue(transaction, { effectsEnabled: true, reducedMotion: reducedMotion.value, visualSeed: 42 })
+  await presenter.enqueue(transaction, { effectsEnabled: true, reducedMotion: reducedMotion.value, visualSeed: 42, weatherContinuation })
   if (!disposed && token === playGeneration) hasPlayed.value = true
 }
 function reset() {
   playGeneration++
   battleAudio.stop(); battleAudio.warmMoves([selectedId.value], { fxIds: true })
-  committed.value = createPreviewState(selectedMove.value, fixtureOptions()); presenter.reset(committed.value, `${committed.value.actors[activeActorId.value].name} is ready. Choose a move.`); hasPlayed.value = false
+  committed.value = createPreviewState(selectedMove.value, fixtureOptions()); presenter.reset(committed.value, `${committed.value.actors[activeActorId.value].name} is ready. Choose a move.`); hasPlayed.value = false; continuingWeather.value = false
 }
 function selectMove(id) {
   if (busy.value || id === selectedId.value) return
@@ -156,8 +161,8 @@ onBeforeUnmount(() => { disposed = true; sceneGeneration++; playGeneration++; pr
         <div class="field-lines" aria-hidden="true"></div>
         <div ref="stage" class="canvas-mount" role="img" :aria-label="`${displayed.actors.source.name} on your side faces ${displayed.actors.target.name} on the opponent side. ${selectedActor.name} is selected to use the move.`"></div>
 
-        <PokemonInfo class="attacker-info" :actor="displayed.actors.source" :types="ROSTER[nearProfile].types" :active="activeActorId === 'source'" :animate="animateHealth" :reduced-motion="reducedMotion" />
-        <PokemonInfo class="defender-info" :actor="displayed.actors.target" :types="ROSTER[farProfile].types" :active="activeActorId === 'target'" :animate="animateHealth" :reduced-motion="reducedMotion" />
+        <PokemonInfo class="attacker-info" :actor="displayed.actors.source" :types="ROSTER[nearProfile].types" :active="activeActorId === 'source'" :animate="animateHealth" :hit-step="hitStep" :reduced-motion="reducedMotion" />
+        <PokemonInfo class="defender-info" :actor="displayed.actors.target" :types="ROSTER[farProfile].types" :active="activeActorId === 'target'" :animate="animateHealth" :hit-step="hitStep" :reduced-motion="reducedMotion" />
 
         <div v-if="!sceneReady" class="load-message" role="status">{{ error || 'Preparing the battlefield…' }}</div>
         <div v-if="fieldSummary" class="weather-badge">{{ fieldSummary }}</div>
@@ -183,6 +188,7 @@ onBeforeUnmount(() => { disposed = true; sceneGeneration++; playGeneration++; pr
           <div class="move-stats"><span>{{ selectedMove.powerLabel || 'POWER' }} <strong>{{ selectedMove.power ?? '—' }}</strong></span><span>ACCURACY <strong>{{ selectedMove.accuracyText || (selectedMove.accuracy == null ? '—' : `${selectedMove.accuracy}%`) }}</strong></span></div>
           <p class="demo-note">Animation preview · {{ preparing ? 'Round 1' : selectedMove.preparation ? 'Round 2 · guaranteed hit' : selectedMove.target === 'field' ? 'affects the battlefield' : selectedMove.target === 'self' ? 'affects the user’s side' : 'guaranteed hit' }} · {{ previewResult }}</p>
           <p v-if="selectedMove.mechanicNote" class="demo-note">{{ selectedMove.mechanicNote }}</p>
+          <p v-if="selectedMove.weather" class="demo-note">Preview continuing weather to see its end-of-turn effect. This standalone preview does not advance turns or apply weather damage.</p>
           <p class="demo-note">All-moves showcase · learnsets are not filtered.</p>
         </div>
         <div class="move-actions">
@@ -191,11 +197,12 @@ onBeforeUnmount(() => { disposed = true; sceneGeneration++; playGeneration++; pr
             <button :aria-pressed="phase === 'prepare'" :disabled="busy" @click="selectPhase('prepare')">Round 1 · Prepare</button>
             <button :aria-pressed="phase === 'attack'" :disabled="busy" @click="selectPhase('attack')">Round 2 · Attack</button>
           </div>
-          <button class="attack-button" :disabled="busy || (!sceneReady && !error)" @click="attack">
+          <button class="attack-button" :disabled="busy || (!sceneReady && !error)" @click="attack()">
             <span v-if="!busy" aria-hidden="true">▶</span>
             <span v-else class="button-spinner" aria-hidden="true"></span>
-            {{ busy ? preparing ? 'Preparing…' : 'Attacking…' : preparing ? `${hasPlayed ? 'Replay' : 'Play'} preparation` : `${hasPlayed ? 'Replay' : 'Use'} ${selectedMove.name}` }}
+            {{ busy ? continuingWeather ? 'Continuing weather…' : preparing ? 'Preparing…' : 'Attacking…' : preparing ? `${hasPlayed ? 'Replay' : 'Play'} preparation` : `${hasPlayed ? 'Replay' : 'Use'} ${selectedMove.name}` }}
           </button>
+          <button v-if="selectedMove.weather" class="reset-button" :disabled="busy || (!sceneReady && !error)" @click="attack(true)">Preview continuing weather</button>
           <button class="reset-button" :disabled="busy || !hasPlayed" @click="reset">↺ <span>Reset preview</span></button>
         </div>
       </div>

@@ -31,8 +31,9 @@ export default function tripleKick(context) {
   }
   const room = Math.max(0, right - targetSocket(context.target.hasAnchor?.('visualCenter') ? 'visualCenter' : 'center').x - context.target.metrics.width / (2 * unit))
 
-  const stretch={value:1},scales=[1,1.15,1.3],times=[.5,.84,1.2]
-  const hits=[contact(.03,.72,1),contact(-.035,.4,1.15),contact(.07,.08,1.3)]
+  const counted=Number.isInteger(context.hitCount)&&context.hitCount>=1&&context.hitCount<=3,count=counted?context.hitCount:3
+  const stretch={value:1},scales=[1,1.15,1.3],times=[.5,.84,1.2].slice(0,count),last=times.at(-1)
+  const hits=[contact(.03,.72,1),contact(-.035,.4,1.15),contact(.07,.08,1.3)].slice(0,count)
   const foot=new Container();foot.label='triple-kick-foot';foot.alpha=0;temporary.addChild(foot)
   foot.addChild(new Graphics().moveTo(-r*.56,-r*.43).lineTo(-r*.19,-r*.45).lineTo(-r*.01,-r*.14).lineTo(r*.75,-r*.19)
     .quadraticCurveTo(r,-r*.14,r,0).lineTo(r,r*.14).lineTo(r*.48,r*.28).lineTo(-r*.54,r*.21).closePath().fill(0xdfbba0).stroke({color:0xffe4cb,width:1.7,join:'round'})
@@ -44,14 +45,15 @@ export default function tripleKick(context) {
   const update=time=>{follow(foot,0,stretch.value);arcs.clear();for(let i=0;i<2;i++)arcs.arc(0,0,r*(.85+i*.25),1.9+Math.sin(time*8)*.18,4.1).stroke({color:i?0xf0d4b5:0xc9a486,width:1.7,alpha:.8});for(const p of splinters){const age=time-p.at,t=age/p.life;p.g.alpha=t>=0&&t<1?Math.sin(t*Math.PI)*.83:0;if(age>=0){p.g.position.set(p.point.x+Math.cos(p.a)*p.v*age,p.point.y+Math.sin(p.a)*p.v*age+35*age*age);p.g.rotation=p.a}}}
   onFrame(update)
   tl.to(attacker,{x:home.x-8,rotation:-.06,duration:.16},0).to(attacker,{...hits[0].pose,duration:.34,ease:'power3.in'},.16)
-    .to(attacker,{x:hits[0].pose.x-r*.65,y:hits[0].pose.y+3,rotation:-.08,duration:.12},.54).to(attacker,{...hits[1].pose,duration:.18,ease:'power3.in'},.66)
-    .to(attacker,{x:hits[1].pose.x-r*.75,y:hits[1].pose.y+4,rotation:-.09,duration:.13},.88).to(attacker,{...hits[2].pose,duration:.19,ease:'power3.in'},1.01)
-    .to(stretch,{value:scales[1],duration:.12},.54).to(stretch,{value:scales[2],duration:.13},.88)
-    .to(attacker,{x:home.x,y:home.y,rotation:0,duration:.55,ease:'power2.inOut'},1.45)
-    .to(foot,{alpha:1,duration:.12},.2).to(foot,{alpha:0,duration:.25},1.38).to(arcs,{alpha:.7,duration:.12},.22)
+  if(count>1)tl.to(attacker,{x:hits[0].pose.x-r*.65,y:hits[0].pose.y+3,rotation:-.08,duration:.12},.54).to(attacker,{...hits[1].pose,duration:.18,ease:'power3.in'},.66)
+    .to(stretch,{value:scales[1],duration:.12},.54)
+  if(count>2)tl.to(attacker,{x:hits[1].pose.x-r*.75,y:hits[1].pose.y+4,rotation:-.09,duration:.13},.88).to(attacker,{...hits[2].pose,duration:.19,ease:'power3.in'},1.01)
+    .to(stretch,{value:scales[2],duration:.13},.88)
+  tl.to(attacker,{x:home.x,y:home.y,rotation:0,duration:.55,ease:'power2.inOut'},last+.25)
+    .to(foot,{alpha:1,duration:.12},.2).to(foot,{alpha:0,duration:.25},last+.18).to(arcs,{alpha:.7,duration:.12},.22)
   hits.forEach((hit,i)=>{const at=times[i],g=bursts[i];tl.to(g,{alpha:1,duration:.025},at).to(g.scale,{x:1.2,y:1.2,duration:.18},at).to(g,{alpha:0,duration:.19},at+.06)
-    .call(()=>{update(at);if(i===2)onCue({type:'impact'});defender.tint=i===2?0xf2d0ac:0xe5c0a0},[],at)
+    .call(()=>{update(at);if(counted)onCue({type:'hit',hitIndex:i+1});if(i===count-1)onCue({type:'impact'});defender.tint=i===2?0xf2d0ac:0xe5c0a0},[],at)
     .to(defender,{x:defenderHome.x+Math.min(6+i*3,room),duration:.055,repeat:1,yoyo:true},at)
     .call(()=>{defender.tint=0xffffff},[],at+.15)})
-
+  if(counted)return{duration:last+1.05,hitTimes:times}
 }

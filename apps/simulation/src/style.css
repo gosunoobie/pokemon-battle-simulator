@@ -79,3 +79,62 @@
   .sim-trainer-path strong { font-size: 16px; }
   .sim-league-progress-note { font-size: 10px; margin-top: 9px; }
 }
+
+/* Solo modes share setup and presentation while retaining their own run rules. */
+.sim-mode-links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:-6px 0 26px; }
+.sim-mode-links a { border:1px solid #455b40; border-radius:8px; padding:18px 20px; color:#c6d6b4; text-decoration:none; }
+.sim-mode-links strong { display:block; font-size:15px; margin-bottom:8px; }
+.sim-mode-links span { display:block; color:#aebf9d; font-size:12px; line-height:1.7; }
+.sim-mode-links a:hover { background:#2b3c26; }
+.sim-mode-links a:focus-visible { outline:2px solid #edbe84; outline-offset:3px; }
+.sim-mode-links a[aria-current] { background:#34482e; border-color:#bed792; color:#edf2df; }
+/* Survival progress is server-owned and separate from the compact battle party. */
+.sim-survival-rules { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; background:#14231b; padding:23px; border:1px solid #506340; border-radius:10px; margin:0 0 28px; }
+.sim-survival-rules strong { display:block; color:#d9e7bf; font-size:14px; margin-bottom:8px; }
+.sim-survival-rules span, .sim-survival-rules p { color:#aebf9d; font-size:12px; line-height:1.8; }
+.sim-survival-rules p { grid-column:1/-1; margin:0; }
+.sim-survival-rules .sim-survival-retention { padding-top:13px; border-top:1px solid #405238; color:#d4ba8d; }
+.sim-survival-progress { margin-bottom:22px; padding:23px 25px 17px; border:1px solid #4b5c3f; border-radius:12px; background:#17251d; }
+.sim-survival-score { text-align:right; }
+.sim-survival-score strong, .sim-survival-score span { display:block; font-size:12px; color:#cee0ad; }
+.sim-survival-score span { color:#97ab89; font-size:11px; margin-top:7px; }
+.sim-survivors { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:10px; list-style:none; padding:0; margin:0; }
+.sim-survivors li { display:flex; flex-direction:column; align-items:center; min-width:0; padding:11px; border:1px solid #3c5138; border-radius:8px; background:#203025; }
+.sim-survivors img, .sim-next-lead img { object-fit:contain; image-rendering:pixelated; }
+.sim-survivors strong { color:#d6e3c5; font-size:12px; margin:6px 0; overflow-wrap:anywhere; }
+.sim-survivors span, .sim-survivors small { font-size:10px; color:#a9bc98; line-height:1.5; }
+.sim-survivors meter { width:100%; height:8px; margin-top:9px; accent-color:#b8d084; }
+.sim-survivors .sim-survivor-out { background:#1d2420; border-color:#3a433c; }
+.sim-survivor-out img { filter:grayscale(1); opacity:.4; }
+.sim-survivor-out strong, .sim-survivor-out span, .sim-survivor-out small { color:#9caaa0; }
+.sim-survivor-out small { margin-top:9px; text-transform:uppercase; font-size:8px; letter-spacing:.8px; }
+.sim-recovery-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px 20px; padding:0; margin:22px 0; list-style:none; }
+.sim-recovery-list li { display:flex; flex-wrap:wrap; justify-content:space-between; gap:5px 12px; border-bottom:1px solid #4a583b; padding:8px 0; font-size:11px; color:#b9c9a4; }
+.sim-recovery-list strong { font-weight:500; color:#dbe8c7; }
+.sim-next-lead { border:0; padding:0; margin:22px 0; min-width:0; }
+.sim-next-lead legend { font-size:14px; margin-bottom:12px; color:#e1eacf; }
+.sim-next-lead > div { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px; }
+.sim-next-lead label { position:relative; display:flex; flex-direction:column; align-items:center; padding:10px 7px; border:1px solid #566447; border-radius:7px; background:#1d2b20; cursor:pointer; }
+.sim-next-lead label.selected { border-color:#c5d796; background:#34472a; }
+.sim-next-lead input { position:absolute; top:10px; left:10px; accent-color:#bed792; }
+.sim-next-lead strong { font-size:11px; margin:4px 0; }
+.sim-next-lead span { font-size:10px; color:#b3c49c; }
+.sim-next-lead label.eliminated { cursor:not-allowed; color:#8c9787; border-color:#42493c; opacity:.65; }
+.sim-next-lead label.eliminated img { filter:grayscale(1); }
+.sim-next-lead:disabled label { cursor:default; }
+.sim-next-lead label:focus-within { outline:2px solid #edbe84; outline-offset:3px; }
+.sim-survival-notice { padding:17px; border:1px solid #766446; border-radius:8px; background:#3d3422; color:#e2cca5; font-size:12px; line-height:1.8; margin-bottom:20px; }
+.sim-survival-notice button { padding:9px 15px; background:#d5bf91; border:0; border-radius:5px; margin:10px 10px 0 0; color:#252b1b; cursor:pointer; }
+@media(max-width:650px) {
+  .sim-mode-links { grid-template-columns:1fr; }
+  .sim-mode-links a { padding:15px 17px; }
+  .sim-survival-rules { grid-template-columns:1fr; padding:18px; gap:17px; }
+  .sim-survival-rules span, .sim-survival-rules p { font-size:11px; }
+  .sim-survival-progress { padding:19px 14px 14px; }
+  .sim-survivors { grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+  .sim-survivors li { padding:8px; }
+  .sim-survivors strong { font-size:11px; }
+  .sim-survival-score strong { font-size:11px; }
+  .sim-recovery-list { grid-template-columns:1fr; gap:0; }
+  .sim-next-lead > div { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}

@@ -3,6 +3,8 @@ import { bindEffectSpace } from '../../effect-space.js'
 
 export default function pinMissile(context) {
   const { tl, random, onFrame, onCue } = context
+  const counted = Number.isInteger(context.hitCount), count = counted ? context.hitCount : 4
+  const timingOffset = counted ? (count - 4) * 0.12 : 0
   const { temporary, attacker, defender, home, defenderHome, socket, targetSocket, unit } = bindEffectSpace(context)
   const attachment = context.source.hasAnchor?.('spike') ? 'spike' : 'emission'
   const r = Math.min(12, Math.max(7, context.target.metrics.height / unit * .052))
@@ -15,7 +17,7 @@ export default function pinMissile(context) {
   const recoil = Math.max(0, Math.min(8, right - receiver.x - context.target.metrics.width / (2 * unit)))
 
   const missiles=[],chips=[]
-  for(let i=0;i<4;i++){
+  for(let i=0;i<count;i++){
     const pin=new Graphics().poly([0,0,-r*2.65,-r*.23,-r*2.34,0,-r*2.65,r*.23]).fill(0xe5dab0)
       .poly([-r*1.85,0,-r*2.5,-r*.57,-r*2.28,0,-r*2.5,r*.57]).fill(0x899d66)
       .moveTo(-r*2.28,0).lineTo(-r*.25,0).stroke({color:0xffffdd,width:1.2})
@@ -23,11 +25,11 @@ export default function pinMissile(context) {
     const flash=new Graphics().poly([-r*.65,0,-r*.12,-r*.12,0,-r*.8,r*.12,-r*.12,r*.65,0,r*.12,r*.12,0,r*.8,-r*.12,r*.12]).fill(0xe3ecc1)
     flash.label=`pin-missile-impact-${i}`;flash.alpha=0;temporary.addChild(flash)
     const trail=new Graphics();trail.alpha=0;temporary.addChildAt(trail,0)
-    const p={pin,flash,trail,start:.3+i*.12,flight:.46,lane:(i-1.5)*r*.5,bow:(i-1.5)*r*1.9,from:null,impact:null};missiles.push(p)
+    const p={pin,flash,trail,start:.3+i*.12,flight:.46,lane:(i-(count-1)/2)*r*.5,bow:(i-(count-1)/2)*r*1.9,from:null,impact:null};missiles.push(p)
     for(let j=0;j<6;j++){const g=new Graphics().moveTo(-3,0).lineTo(4,0).stroke({color:j%2?0xd6d4a8:0xa9bb7e,width:1.4});g.alpha=0;temporary.addChild(g);chips.push({g,p,a:random()*Math.PI*2,v:35+random()*50,life:.25+random()*.13})}
     const at=p.start+p.flight
     tl.call(()=>{p.from=socket(attachment,true);update(p.start)},[],p.start).to(flash,{alpha:1,duration:.025},at).to(flash,{alpha:0,duration:.23},at+.04)
-      .call(()=>{p.impact=endPoint(p);update(at);if(i===3)onCue({type:'impact'});defender.tint=0xd6e2ac},[],at)
+      .call(()=>{p.impact=endPoint(p);update(at);if(counted)onCue({type:'hit',hitIndex:i+1});if(i===count-1)onCue({type:'impact'});defender.tint=0xd6e2ac},[],at)
       .to(defender,{x:defenderHome.x+Math.min(5,recoil),duration:.04,repeat:1,yoyo:true},at)
   }
   function endPoint(p){const b=targetSocket('center',true),c=targetSocket(context.target.hasAnchor?.('visualCenter')?'visualCenter':'center',true),half=context.target.metrics.height/(2*unit);return{x:b.x,y:Math.max(c.y-half,Math.min(c.y+half,b.y+p.lane))}}
@@ -43,6 +45,7 @@ export default function pinMissile(context) {
   }
   onFrame(update)
   tl.to(attacker,{x:home.x-back,duration:.18},0).to(attacker,{x:home.x+thrust,duration:.1},.18)
-    .to(attacker,{x:home.x,duration:.36},.72).call(()=>{defender.tint=0xffffff},[],1.27)
+    .to(attacker,{x:home.x,duration:.36},.72+timingOffset).call(()=>{defender.tint=0xffffff},[],1.27+timingOffset)
+  if(counted)return{duration:1.8+timingOffset,hitTimes:missiles.map(p=>p.start+p.flight)}
 
 }

@@ -1,16 +1,25 @@
 // No rendering or battle-rule imports. Committed transactions are read-only inputs.
-export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}, onError = () => {}, onMove = () => null, deadlineMs }) {
-  let generation = 0, destroyed = false, active = null, queue = [], fxPromise, fxUnavailable = false
+const WEATHER_MOVES = { 'rain-dance': 'rain', 'sunny-day': 'sun', sandstorm: 'sandstorm', hail: 'hail' }
+const WEATHER_MESSAGES = { rain: 'Rain continues.', sun: 'The sunlight remains strong.', sandstorm: 'The sandstorm continues.', hail: 'Hail continues.' }
+
+export function createPresenter({ loadFx, loadWeather, getScene, onDisplay, onBusy = () => {}, onError = () => {}, onMove = () => null, deadlineMs }) {
+  let generation = 0, destroyed = false, active = null, queue = [], fxPromise, fxUnavailable = false, weatherPromise, weatherUnavailable = false
   const safe = (fn, ...args) => { if (!destroyed) { try { return fn(...args) } catch (error) { try { onError(error) } catch {} } } }
 
+  const continuationWeather = job => job.options.weatherContinuation && job.transaction.event.outcome === 'hit' &&
+    WEATHER_MOVES[job.transaction.event.moveId] === job.transaction.after.weather ? job.transaction.after.weather : null
+  const resultMessage = job => continuationWeather(job) ? `${WEATHER_MESSAGES[job.transaction.after.weather]} Weather preview only.`
+    : job.transaction.presentation?.resultMessage ?? job.transaction.event.resultMessage
   function reconcile(job) {
-    safe(onDisplay, { state: job.transaction.after, message: job.transaction.event.resultMessage, animate: false })
+    safe(onDisplay, { state: job.transaction.after, message: resultMessage(job), animate: false })
   }
 
   async function run(job) {
     const token = generation
     const controller = new AbortController()
     let playback, sound, timer, impact = false, recovery = false, playbackCancelled = false, soundCancelled = false, soundImpacted = false
+    const presentation = job.transaction.presentation
+    let revealedHits = 0
     let end
     const stopped = new Promise(resolve => { end = resolve })
     const cancelSound = () => {
@@ -27,7 +36,8 @@ export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}
     } }
     active = current
     safe(onBusy, true)
-    safe(onDisplay, { state: job.transaction.before, message: job.transaction.event.usedMessage, animate: false })
+    if (job.options.weatherContinuation) reconcile(job)
+    else safe(onDisplay, { state: job.transaction.before, message: job.transaction.event.usedMessage, animate: false })
     const valid = () => !destroyed && token === generation && active === current
     const impactSound = () => {
       const { event } = job.transaction
@@ -38,9 +48,31 @@ export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}
     }
     const armDeadline = milliseconds => {
       clearTimeout(timer)
-      timer = setTimeout(() => { fxUnavailable = true; current.stop('failed') }, milliseconds)
+      timer = setTimeout(() => {
+        if (job.options.weatherContinuation) weatherUnavailable = true
+        else fxUnavailable = true
+        current.stop('failed')
+      }, milliseconds)
     }
     const work = async () => {
+      if (job.options.weatherContinuation) {
+        const weatherId = continuationWeather(job)
+        if (!weatherId || !job.options.effectsEnabled || weatherUnavailable || !getScene()) return { status: 'skipped' }
+        if (!weatherPromise) {
+          const pending = Promise.resolve().then(loadWeather).catch(error => {
+            if (weatherPromise === pending) weatherPromise = undefined
+            throw error
+          })
+          weatherPromise = pending
+        }
+        const weather = await weatherPromise
+        if (controller.signal.aborted || !valid()) return { status: 'cancelled' }
+        if (typeof weather?.playWeatherContinuation !== 'function') throw new Error('Weather effect unavailable')
+        playback = weather.playWeatherContinuation({ weatherId, visualSeed: job.options.visualSeed ?? 1 }, {
+          scene: getScene(), signal: controller.signal, reducedMotion: job.options.reducedMotion,
+        })
+        return await playback.finished
+      }
       if (!job.options.effectsEnabled || fxUnavailable || !getScene()) return { status: 'skipped' }
       if (!fxPromise) {
         const pending = Promise.resolve().then(loadFx).catch(error => {
@@ -54,11 +86,13 @@ export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}
       if (typeof fx?.play !== 'function') throw new Error('Effect unavailable')
       const { event } = job.transaction
       const request = { moveId: event.moveId, sourceId: event.sourceId, targetIds: event.targetIds,
-        outcome: event.outcome, ...(event.phase ? { phase: event.phase } : {}), visualSeed: job.options.visualSeed ?? 1 }
+        outcome: event.outcome, ...(event.phase ? { phase: event.phase } : {}),
+        ...(presentation ? { hitCount: presentation.hitCount } : {}), visualSeed: job.options.visualSeed ?? 1 }
       const fxDeadline = safe(() => fx.getPresentationDeadlineMs?.(request, { reducedMotion: job.options.reducedMotion }))
       if (deadlineMs === undefined && Number.isFinite(fxDeadline) && fxDeadline + 500 > 6500) armDeadline(fxDeadline + 500)
       if (!event.outcome || event.outcome === 'hit') {
         sound = safe(onMove, { moveId: event.moveId, phase: event.phase ?? 'attack', outcome: event.outcome ?? 'hit',
+          ...(presentation ? { hitCount: presentation.hitCount } : {}),
           mode: job.options.reducedMotion ? 'reduced' : 'normal' })
       }
       const soundReady = safe(() => sound?.ready)
@@ -83,7 +117,12 @@ export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}
           if (!valid() || controller.signal.aborted) return
           if (event.phase === 'prepare') {
             if (cue.type === 'prepared' && !impact) { impact = true; safe(onDisplay, { state: job.transaction.after, message: event.resultMessage, animate: false }) }
+          } else if (cue.type === 'hit' && presentation && !job.options.reducedMotion && !impact) {
+            if (cue.hitIndex !== revealedHits + 1 || cue.hitIndex > presentation.hitCount) return
+            const hit = presentation.hits[revealedHits++]
+            safe(onDisplay, { state: hit.state, message: hit.message, animate: true, hitStep: true })
           } else if (cue.type === 'impact' && !impact) {
+            if (presentation && !job.options.reducedMotion && revealedHits < presentation.hitCount) return
             impact = true
             impactSound()
             const after = job.transaction.after
@@ -91,7 +130,8 @@ export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}
             const state = event.healing > 0 ? { ...after, actors: { ...after.actors,
               [event.sourceId]: { ...after.actors[event.sourceId], hp: event.sourceBeforeHp },
             } } : after
-            safe(onDisplay, { state, message: event.healing > 0 ? event.impactMessage : event.resultMessage, animate: true })
+            safe(onDisplay, { state, message: presentation?.resultMessage ?? (event.healing > 0 ? event.impactMessage : event.resultMessage),
+              animate: !job.options.reducedMotion, ...(presentation && !job.options.reducedMotion ? { hitStep: true } : {}) })
           } else if (cue.type === 'recovery' && impact && !recovery && event.healing > 0) {
             recovery = true
             safe(onDisplay, { state: job.transaction.after, message: event.resultMessage, animate: true })
@@ -146,7 +186,7 @@ export function createPresenter({ loadFx, getScene, onDisplay, onBusy = () => {}
     retryEffects() {
       active?.stop('skipped')
       const previous = fxPromise
-      fxPromise = undefined; fxUnavailable = false
+      fxPromise = undefined; fxUnavailable = false; weatherPromise = undefined; weatherUnavailable = false
       previous?.then(fx => fx.dispose?.()).catch(() => {})
     },
     destroy() {

@@ -1,9 +1,18 @@
 import { createBattleState, resolveMove } from '@battle/battle-core'
+import { withPreviewHits } from './previewHits.js'
 
 // Actor IDs identify fixed field positions, never who must attack.
 export function createPreviewState(move, { sourceId = 'source', targetId, actors } = {}) {
   const state = createBattleState(actors)
   if (!Object.hasOwn(state.actors, sourceId)) throw new Error('Unknown preview attacker.')
+  if (move?.clearStages || move?.id === 'swallow') {
+    return createBattleState(Object.values(state.actors).map(actor => actor.hp <= 0 ? actor : {
+      ...actor,
+      ...(move.clearStages ? actor.id === sourceId
+        ? { specialAttackStage: 2, accuracyStage: -1 } : { attackStage: 1, defenseStage: -2 } : {}),
+      ...(actor.id === sourceId && move.id === 'swallow' ? { hp: Math.min(actor.hp, Math.max(1, Math.floor(actor.maxHp * .4))) } : {}),
+    }))
+  }
   if (move?.minimumTargetHp || move?.lowHpPower || move?.revengeBoost) {
     const recipient = targetId ?? Object.keys(state.actors).find(id => id !== sourceId)
     return createBattleState(Object.values(state.actors).map(actor => actor.hp <= 0 ? actor : {
@@ -75,5 +84,5 @@ export function createPreviewTransaction(move, { sourceId = 'source', targetId =
     return Object.freeze({ id, before, after: before, event })
   }
   const previousHit = move.revengeBoost ? { sourceId: targetId, targetId: sourceId, category: 'physical', damage: 32, thisTurn: true } : move.retaliates ? { sourceId: targetId, targetId: sourceId, category: move.retaliates, damage: move.retaliates === 'physical' ? 32 : 36 } : undefined
-  return resolveMove(before, { moveId: move.id, sourceId, targetId, previousHit })
+  return withPreviewHits(resolveMove(before, { moveId: move.id, sourceId, targetId, previousHit }), move)
 }

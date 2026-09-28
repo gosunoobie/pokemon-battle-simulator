@@ -139,10 +139,14 @@ test('all new outcomes reconcile atomically through optional effects, cue, missi
     const targetId=side==='source'?'target':'source',tx=createPreviewTransaction(rule(id),{sourceId:side,targetId})
     let display,finish,cueState,played=false
     const presenter=createPresenter({getScene:()=>({}),onDisplay:next=>{display=next;if(next.animate)cueState=next.state},loadFx:async()=>({play(request,options){
-      played=true;assert.deepEqual(Object.keys(request).sort(),['moveId','outcome','sourceId','targetIds','visualSeed'])
+      played=true;assert.deepEqual(Object.keys(request).sort(),[...(tx.presentation ? ['hitCount'] : []),'moveId','outcome','sourceId','targetIds','visualSeed'])
+      if(tx.presentation)assert.equal(request.hitCount,tx.presentation.hitCount)
       assert.deepEqual(request.targetIds,tx.event.targetIds)
       if(mode==='failure')throw new Error('Simulated renderer failure')
-      if(mode==='cue')options.onCue({type:'impact'})
+      if(mode==='cue'){
+        for(let hitIndex=1;hitIndex<=(tx.presentation?.hitCount??0);hitIndex++)options.onCue({type:'hit',hitIndex})
+        options.onCue({type:'impact'})
+      }
       return {finished:new Promise(resolve=>{finish=resolve}),cancel(){finish?.({status:'cancelled'})}}
     }})})
     const result=presenter.enqueue(tx,{effectsEnabled:mode!=='off'});await tick()

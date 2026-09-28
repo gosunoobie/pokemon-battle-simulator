@@ -11,7 +11,7 @@ node apps/server/start.mjs
 
 The engine stays on the server. A random HttpOnly, SameSite=Strict cookie identifies the player's p1 session. Mutating requests require a matching Origin and JSON input with bounded, allowlisted fields. Responses contain only p1's permitted view and events; rule seeds, checkpoints, p2 requests and private end records are never returned. The three selectable teams are public fixtures; their entire sets validate under the battle's Gen 3 profile.
 
-The automated opponent chooses the first available damaging move, then another legal move or switch when necessary. It does not evaluate strategy or inspect p1's secret state. Both automated decisions and player choices go through the engine's ordinary legal decision port. Reloading retrieves the same in-memory battle; retrying an admitted command keeps its original engine acknowledgment.
+The original single-battle and League opponent chooses the first available damaging move, then another legal move or switch when necessary. Survival uses a separate modest matchup-aware policy with deterministic tie-breaking and only its own private/revealed opponent information. Both automated decisions and player choices go through the engine's ordinary legal decision port. Reloading retrieves the same in-memory battle; retrying an admitted command keeps its original engine acknowledgment.
 
 The team builder can generate six complete Gen 3 sets, retain locked members,
 reroll individual slots, and undo the latest generation. `POST /team/random`
@@ -30,7 +30,9 @@ documented baseline quality checklist; they are not competitively balanced.
 See [the collection tool](../../tools/team-generation/README.md) for provenance,
 reproduction and coverage checks. The existing three demo presets are unchanged.
 
-The UI starts regional Elite Four challenges. `league-rosters.js` holds pinned
+Battle Simulation offers Regional League at `/simulation` and Survival at
+`/survival`, with League / Survival choices on both setup screens. Regional League
+starts Elite Four challenges. `league-rosters.js` holds pinned
 FRLG Kanto, GS Johto and RS Hoenn (Steven) parties; `league-run.js` owns the
 five-round lifecycle through an injected engine factory. Team choices include the
 three existing presets and validated custom or generated six-member teams. The server validates every NPC set at startup
@@ -47,7 +49,7 @@ An exact retry for a previously advanced match in the same run returns the
 current battle without advancing again. Unknown/stale run IDs fail with 409;
 losses/draws and already completed challenges cannot advance. No client field can
 declare victory or choose an opponent/stage. Creating without `regionId` retains
-the old single-battle API for compatibility; the current UI supplies a region.
+the old single-battle API for compatibility; the Regional League UI supplies a region.
 
 The run and its current battle share one cookie, inactivity timeout and session
 capacity slot. Progress and Champion results survive reloads while that session
@@ -55,13 +57,28 @@ exists, but are lost on restart, deployment, sleep or expiry. There is no durabl
 save or trophy history. Deploy backend and frontend from the same revision; the
 existing Vercel wildcard proxy already forwards the new `/advance` endpoint.
 
+Battle Simulation's Survival mode at `/survival` is an endless solo challenge
+against fresh random teams. After wins, survivors recover 25% max HP and fainted
+members revive at 50% max HP (both rounded down, minimum 1). Revived members do not
+also gain the survivor heal. Loss, draw and forfeit end the run without recovery.
+PP, original items and temporary conditions reset between rounds.
+`survival-run.js` owns immutable checkpoint candidates, once-only settlement,
+bounded history and prepared-opponent retries under `gen3-survival-v2` run rules.
+The existing `gen3survivalsinglesv1` engine profile still supports one through six
+members; victory recovery now returns all six originals to the next round.
+A pre-run `/owner`
+bootstrap makes Survival starts idempotent even after a lost first response.
+Technical errors preserve the last committed Survival checkpoint. See
+[Survival rules and API](../../docs/SURVIVAL.md) for exact ownership, retry and
+recovery contracts. Runs remain RAM-only; no durable-save promise is made.
+
 Every choice, forfeit and deletion includes the displayed `matchId` in its JSON body. Creating/replacing a battle includes `expectedMatchId` (the current match ID, or `null` when no session exists). Stale tabs receive `409 MATCH_CHANGED` before a battle mutation; they must fetch the current match before continuing. `GET /api/simulation/match` without a cursor returns a complete permitted snapshot for this synchronization.
 
-Default limits are 24 active sessions, 600 requests per session per minute, 60 new matches per minute, and 4 KiB JSON request bodies. Expired/replaced sessions and stopped servers dispose their engines. An unsupported protocol projection stops that session with a safe error. These limits are bounds for the local prototype, not measured production capacity.
+The standalone service defaults to 24 active sessions; the combined host partitions 24 into 14 solo (including Survival) and 10 multiplayer matches. Other defaults are 600 requests per session per minute, 60 new matches per minute, and 4 KiB command bodies (20 KiB team envelopes). Expired/replaced sessions and stopped servers dispose their engines. An unsupported projection stops an ordinary simulation; Survival retains its last valid checkpoint. These limits are bounds for the local prototype, not measured production capacity.
 
 ## Vercel frontend and Render backend
 
-Public pages use `/simulation`, `/multiplayer`, `/preview` and `/playground`.
+Public pages use `/simulation`, `/multiplayer`, `/survival`, `/preview` and `/playground`.
 Vite development/preview and the built Node host resolve these to the existing
 HTML entries and redirect old `.html` links with HTTP 308. Query strings are
 preserved; browsers retain fragments such as multiplayer invitations. Vercel

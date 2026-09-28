@@ -29,12 +29,50 @@ const loadSceneModules = async () => {
 export function createSimulationScene({ getHost, onAvailability = () => {},
   loadScene = loadSceneModules, loadRelease = () => import('@battle/battle-fx/transitions'),
   loadFaint = () => import('@battle/battle-fx/transitions'),
+  loadConditions = () => import('@battle/battle-fx/conditions'),
   loadIdle = () => import('./idle.js'),
   createHost = () => document.createElement('div'),
 }) {
   let scene = null, rendered = null, generation = 0, pending = null, disposed = false, currentView = null, fainting = null
   const entering = new Set()
   const retainedFainted = new Map()
+  let hazards = null, hazardScene = null, hazardRequest = null, effectsEnabled = true
+  function hazardEntries() {
+    if (!effectsEnabled || disposed || !currentView) return []
+    const ownSeat = currentView.seat
+    return ['p1', 'p2'].flatMap(seat => {
+      const listed = currentView.sideConditions?.[seat]?.some(value => value.replace(/^move: /, '') === 'Spikes')
+      const layers = listed ? currentView.sideConditionLayers?.[seat]?.Spikes ?? 1 : 0
+      return layers ? [{ side: seat === ownSeat ? 'near' : 'far', layers }] : []
+    })
+  }
+  function disposeHazards() {
+    hazardRequest = null
+    try { hazards?.destroy() } catch {}
+    hazards = null; hazardScene = null
+  }
+  function syncHazards() {
+    const entries = hazardEntries()
+    if (hazards && hazardScene === scene) {
+      try { hazards.update(entries) } catch { disposeHazards() }
+      return
+    }
+    if (!scene || !entries.length) { hazardRequest = null; return }
+    if (hazardRequest?.scene === scene) return
+    const request = { scene }
+    hazardRequest = request
+    void Promise.resolve().then(() => hazardRequest === request ? loadConditions() : null).then(module => {
+      if (hazardRequest !== request || scene !== request.scene || disposed || !hazardEntries().length) return
+      hazardRequest = null
+      hazards = module.createHazardDisplay({ scene: request.scene }); hazardScene = request.scene
+      syncHazards()
+    }).catch(() => { if (hazardRequest === request) hazardRequest = null })
+  }
+  function setEffectsEnabled(enabled) {
+    effectsEnabled = Boolean(enabled)
+    if (!effectsEnabled) disposeHazards()
+    else syncHazards()
+  }
   let idle = null, idleScene = null, idleRequest = null, idleActive = false, idleActorKey = '', idleBlocked = 0
   const idleSettings = { enabled: false, reducedMotion: false, paused: false }
   function pauseIdle() {
@@ -117,6 +155,7 @@ export function createSimulationScene({ getHost, onAvailability = () => {},
     currentView = view
     if (fainting?.holds.some(([id, hold]) => retainedFainted.get(id) !== hold)) finishFaint(fainting, 'cancelled')
     paintVisibility(view)
+    syncHazards()
     syncIdle()
   }
   function finishFaint(operation, status) {
@@ -251,6 +290,13 @@ export function createSimulationScene({ getHost, onAvailability = () => {},
         const actors = previewSceneActors(...next.profiles).map(actor => actor.id === 'source' ? { ...actor, y: .82 } : actor)
         try { nextScene = await createScene(staging, { actors }) }
         catch (error) { staging.remove(); throw error }
+        // Fixed platform slots are scene layout metadata, independent of sprites
+        // and transient poses. The optional hazard artwork stays outside renderer.
+        nextScene.hazardSlots = Object.fromEntries(actors.map(actor => {
+          const near = actor.id === 'source'
+          return [near ? 'near' : 'far', { x: actor.x * nextScene.width, y: actor.y * nextScene.height,
+            rx: (near ? 173 : 143) * nextScene.unit, ry: (near ? 38 : 31) * nextScene.unit }]
+        }))
         const originalDispose = nextScene.dispose
         let released = false
         nextScene.dispose = () => { if (released) return; released = true; try { originalDispose() } finally { staging.remove() } }
@@ -258,6 +304,7 @@ export function createSimulationScene({ getHost, onAvailability = () => {},
         if (!valid(operation) || !host) { nextScene.dispose(); return }
         // Restore only owned idle poses before copying any presentation pose.
         disposeIdle()
+        disposeHazards()
         // Keep the unchanged side's presentation pose when replacing the canvas.
         actorIds.forEach((id, index) => {
           const old = scene?.actor(id), actor = nextScene.actor(id)
@@ -320,7 +367,7 @@ export function createSimulationScene({ getHost, onAvailability = () => {},
       } catch {
         if (valid(operation)) {
           if (scene === nextScene && nextScene) finishEntry(operation)
-          else { disposeIdle(); scene?.dispose(); scene = null; rendered = null; entering.clear(); onAvailability(false) }
+          else { disposeIdle(); disposeHazards(); scene?.dispose(); scene = null; rendered = null; entering.clear(); onAvailability(false) }
         }
       } finally { if (pending === operation) pending = null; syncIdle() }
     })()
@@ -329,11 +376,11 @@ export function createSimulationScene({ getHost, onAvailability = () => {},
   function clear() {
     idleBlocked++
     try {
-      pauseIdle(); supersede(); disposeIdle(); scene?.dispose(); scene = null; rendered = null; entering.clear(); currentView = null; onAvailability(null)
+      pauseIdle(); supersede(); disposeIdle(); disposeHazards(); scene?.dispose(); scene = null; rendered = null; entering.clear(); currentView = null; onAvailability(null)
     } finally { idleBlocked-- }
   }
   return {
-    get: () => scene, ensure, display, faint, setIdleMotion,
+    get: () => scene, ensure, display, faint, setIdleMotion, setEffectsEnabled,
     clear,
     destroy() { disposed = true; clear() },
   }

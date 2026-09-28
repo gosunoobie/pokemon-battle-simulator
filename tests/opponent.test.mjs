@@ -32,7 +32,7 @@ function clean(h){
   }
 }
 
-test('all 335 previews route results, self effects, healing and recoil to either actor even with effects off',async()=>{
+test('all 345 previews route results, self effects, healing and recoil to either actor even with effects off',async()=>{
   for(const sourceId of ['source','target'])for(const move of MOVE_RULES){
     const targetId=sourceId==='source'?'target':'source',actors=previewBattleActors('bulbasaur','blastoise')
     const tx=createPreviewTransaction(move,{sourceId,targetId,actors}),affected=move.target==='self'?sourceId:targetId
@@ -52,7 +52,7 @@ test('all 335 previews route results, self effects, healing and recoil to either
   assert.throws(()=>createPreviewState(MOVE_RULES[0],{sourceId:'missing'}),/Unknown preview attacker/)
 })
 
-test('all 335 effects play from both field positions for all nine starters and their front/back artwork',async()=>{
+test('all 345 effects play from both field positions for all nine starters and their front/back artwork',async()=>{
   const ids=Object.keys(STARTER_SPRITES),pairs=ids.map((id,i)=>[id,ids[(i+1)%ids.length]])
   for(const [near,far] of pairs){
     const h=harness(near,far)

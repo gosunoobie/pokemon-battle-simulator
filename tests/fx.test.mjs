@@ -21,7 +21,7 @@ function harness(options={}) {
   }
   return{scene,fx,clean,get timeline(){return timeline},dispose(){fx.dispose();scene.dispose()}}
 }
-test('335 recipes complete in normal/reduced modes with ordered cosmetic cues and clean up all temporary state',async()=>{
+test('345 recipes complete in normal/reduced modes with ordered cosmetic cues and clean up all temporary state',async()=>{
   const h=harness()
   for(const reducedMotion of [false,true])for(const [moveId,timing]of Object.entries(EFFECT_TIMINGS)){
     const cues=[];const run=h.fx.play({moveId,sourceId:'source',targetIds:['target'],visualSeed:42},{scene:h.scene,reducedMotion,onCue:e=>cues.push(e)})
@@ -642,7 +642,7 @@ test('self shields use their source in both motion modes regardless of requested
 test('sprite-independent contact, reversed direction, scale and camera resize preserve anchors',async()=>{
   for(const reversed of [false,true])for(const [sourceProfile,targetProfile] of [['tall','wide'],['venusaur','charizard']]){
     const h=harness({scene:{width:720,height:600,actors:[{id:'source',profile:sourceProfile,x:reversed?.75:.25,y:.8,height:.35,facing:reversed?-1:1},{id:'target',profile:targetProfile,x:reversed?.25:.75,y:.62,height:.2,facing:reversed?1:-1}]}})
-    for(const [moveId,socket,dx,dy] of [['bite','emission',0,6],['crunch','emission',0,6],['hyper-fang','emission',0,6],['poison-fang','emission',0,6],['quick-attack','tackle',0,8],['mach-punch','hand',0,8],['body-slam','slam',0,8],['ice-punch','hand',-3.80586277568716,5.163820637595279],['blaze-kick','foot',-7.7301705491141774,24.335918897456907]]){
+    for(const [moveId,socket,dx,dy] of [['bite','emission',0,6],['crunch','emission',0,6],['hyper-fang','emission',0,6],['poison-fang','emission',0,6],['quick-attack','tackle',0,8],['mach-punch','hand',0,8],['body-slam','slam',0,8],['ice-punch','hand',-3.80586277568716,5.163820637595279],['blaze-kick','foot',-7.7301705491141774,24.345918897456907]]){
       const run=h.fx.play({moveId,sourceId:'source',targetIds:['target']},{scene:h.scene});await tick()
       h.timeline.time(EFFECT_TIMINGS[moveId].contact,false)
       const from=h.scene.actor('source').anchor(socket),to=h.scene.actor('target').anchor('center')

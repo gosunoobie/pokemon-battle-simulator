@@ -18,7 +18,8 @@ function state(side='source', source={}, target={}) {
 const resolve=(before,id,side='source')=>resolveMove(before,{moveId:id,sourceId:side,targetId:side==='source'?'target':'source'})
 
 test('all 26 additions appear once in core, FX and host without adding battle fixtures or changing participant identity',()=>{
-  assert.deepEqual(MOVE_RULES.slice(-26).map(move=>move.id),ids)
+  // Preserve this historical batch in place when later moves are appended.
+  for(const list of [MOVE_RULES,FX_CATALOG,MOVES])assert.deepEqual(list.slice(309,335).map(move=>move.id),ids)
   for(const id of ids){
     const move=MOVES.find(move=>move.id===id)
     for(const list of [MOVE_RULES,FX_CATALOG,MOVES])assert.equal(list.filter(move=>move.id===id).length,1)
@@ -117,10 +118,14 @@ test('all 26 immutable outcomes reveal once and reconcile across effects off, cu
     const targetId=side==='source'?'target':'source',tx=createPreviewTransaction(rule(id),{sourceId:side,targetId})
     let display,finish,cueState,played=false,options
     const presenter=createPresenter({getScene:()=>({}),onDisplay:next=>{display=next;if(next.animate)cueState=next.state},loadFx:async()=>({play(request,opts){
-      played=true;options=opts;assert.deepEqual(Object.keys(request).sort(),['moveId','outcome','sourceId','targetIds','visualSeed'])
+      played=true;options=opts;assert.deepEqual(Object.keys(request).sort(),[...(tx.presentation ? ['hitCount'] : []),'moveId','outcome','sourceId','targetIds','visualSeed'])
+      if(tx.presentation)assert.equal(request.hitCount,tx.presentation.hitCount)
       assert.deepEqual(request.targetIds,[targetId]);assert.equal(request.sourceId,side)
       if(mode==='failure')throw new Error('Simulated renderer failure')
-      if(mode==='cue'){opts.onCue({type:'impact'});opts.onCue({type:'impact'})}
+      if(mode==='cue'){
+        for(let hitIndex=1;hitIndex<=(tx.presentation?.hitCount??0);hitIndex++)opts.onCue({type:'hit',hitIndex})
+        opts.onCue({type:'impact'});opts.onCue({type:'impact'})
+      }
       return {finished:new Promise(resolve=>{finish=resolve}),cancel(){finish?.({status:'cancelled'})}}
     }})})
     const result=presenter.enqueue(tx,{effectsEnabled:mode!=='off'});await tick()

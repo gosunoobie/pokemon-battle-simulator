@@ -3,6 +3,8 @@ import { bindEffectSpace } from '../../effect-space.js'
 
 export default function bulletSeed(context) {
   const { tl, random, onFrame, onCue } = context
+  const counted = Number.isInteger(context.hitCount), count = counted ? context.hitCount : 5
+  const timingOffset = counted ? (count - 5) * 0.105 : 0
   const { temporary, attacker, defender, home, defenderHome, socket, targetSocket, unit } = bindEffectSpace(context)
   const attachment = context.source.hasAnchor?.('emission') ? 'emission' : 'emission'
   const r = Math.min(10, Math.max(6, context.target.metrics.height / unit * .044))
@@ -15,7 +17,7 @@ export default function bulletSeed(context) {
   const recoil = Math.max(0, Math.min(8, right - receiver.x - context.target.metrics.width / (2 * unit)))
 
   const shots=[],flecks=[]
-  for(let i=0;i<5;i++){
+  for(let i=0;i<count;i++){
     const seed=new Graphics().ellipse(0,0,r,r*.62).fill(0x9daa42).stroke({color:0xd8dd80,width:1.2})
       .moveTo(-r*.65,0).quadraticCurveTo(0,-r*.19,r*.67,0).stroke({color:0x616d2b,width:1.3})
     seed.label=`bullet-seed-shot-${i}`;seed.alpha=0;temporary.addChild(seed)
@@ -26,7 +28,7 @@ export default function bulletSeed(context) {
     const at=p.start+p.flight
     tl.call(()=>{p.from=socket(attachment,true);update(p.start)},[],p.start)
       .to(hit,{alpha:.9,duration:.025},at).to(hit.scale,{x:1.5,y:1.4,duration:.2},at).to(hit,{alpha:0,duration:.17},at+.05)
-      .call(()=>{p.impact=destination(p);update(at);if(i===4)onCue({type:'impact'});defender.tint=0xd8df9a},[],at)
+      .call(()=>{p.impact=destination(p);update(at);if(counted)onCue({type:'hit',hitIndex:i+1});if(i===count-1)onCue({type:'impact'});defender.tint=0xd8df9a},[],at)
       .to(defender,{x:defenderHome.x+Math.min(4,recoil),duration:.035,repeat:1,yoyo:true},at)
   }
   function destination(p){const b=targetSocket('center',true),c=targetSocket(context.target.hasAnchor?.('visualCenter')?'visualCenter':'center',true),half=context.target.metrics.height/(2*unit);return{x:b.x,y:Math.max(c.y-half,Math.min(c.y+half,b.y+p.lane))}}
@@ -42,6 +44,7 @@ export default function bulletSeed(context) {
   }
   onFrame(update)
   tl.to(attacker,{x:home.x-back,duration:.13},0).to(attacker,{x:home.x+thrust,duration:.1},.13)
-    .to(attacker,{x:home.x,duration:.3},.72).call(()=>{defender.tint=0xffffff},[],1.17)
+    .to(attacker,{x:home.x,duration:.3},.72+timingOffset).call(()=>{defender.tint=0xffffff},[],1.17+timingOffset)
+  if(counted)return{duration:1.7+timingOffset,hitTimes:shots.map(p=>p.start+p.flight)}
 
 }

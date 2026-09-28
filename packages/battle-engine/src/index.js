@@ -36,6 +36,30 @@ function seatCheck(seat) {
   if (!SEATS.includes(seat)) throw new EngineError('INVALID_SEAT', 'Seat must be p1 or p2.');
 }
 
+function initialConditions(value, teams, profile) {
+  if (!profile.initialConditions || !hasDataProperties(value) || !keysAre(value, ['p1']) || !Object.hasOwn(value, 'p1')) {
+    throw new EngineError('INVALID_INITIAL_CONDITIONS', 'Initial HP is supported only for the Survival player party.');
+  }
+  const members = value.p1;
+  if (!Array.isArray(members) || Object.getPrototypeOf(members) !== Array.prototype || members.length !== teams.p1.length ||
+    Reflect.ownKeys(members).length !== members.length + 1 ||
+    !Array.from({ length: members.length }, (_, index) => Object.getOwnPropertyDescriptor(members, String(index)))
+      .every(descriptor => descriptor?.enumerable && 'value' in descriptor)) {
+    throw new EngineError('INVALID_INITIAL_CONDITIONS', 'Initial HP must cover every player party member exactly once.');
+  }
+  const byId = new Map();
+  for (const member of members) {
+    if (!hasDataProperties(member) || !keysAre(member, ['memberId', 'hp']) ||
+      typeof member.memberId !== 'string' || !/^p1:[1-6]$/.test(member.memberId) ||
+      Number(member.memberId.slice(3)) > teams.p1.length || byId.has(member.memberId) ||
+      !Number.isSafeInteger(member.hp) || member.hp <= 0) {
+      throw new EngineError('INVALID_INITIAL_CONDITIONS', 'Initial HP requires unique player member IDs and positive safe integers.');
+    }
+    byId.set(member.memberId, member.hp);
+  }
+  return { p1: teams.p1.map((_, index) => ({ memberId: `p1:${index + 1}`, hp: byId.get(`p1:${index + 1}`) })) };
+}
+
 function seedValue(seed) {
   if (seed === undefined) {
     return `sodium,${randomBytes(32).toString('hex')}`;
@@ -86,19 +110,35 @@ export function createEngineFactory(options = {}) {
   const validateProfileTeam = team => validateTeam(team, profile.id);
   const validateOpponentTeam = team => validateTeam(team, profile.id, { npc: true });
 
-  function create(options = {}) {
-    if (!keysAre(options, ['teams', 'seed', 'matchId']) || !keysAre(options.teams, SEATS)) {
-      throw new EngineError('INVALID_OPTIONS', 'Supply teams for p1 and p2 and optional seed/matchId.');
+  function normalizeInitial(options = {}, saved = false) {
+    if (!hasDataProperties(options) || !keysAre(options, ['teams', 'seed', 'matchId', 'initialConditions']) ||
+      !hasDataProperties(options.teams) || !keysAre(options.teams, SEATS)) {
+      throw new EngineError('INVALID_OPTIONS', 'Supply teams for p1 and p2 and optional seed, matchId or Survival initial conditions.');
     }
     const matchId = options.matchId ?? 'battle';
     if (!validId(matchId)) throw new EngineError('INVALID_MATCH_ID', 'Match ID must be a bounded identifier.');
     const teams = {};
     for (const seat of SEATS) {
-      const validation = seat === 'p2' ? validateOpponentTeam(options.teams[seat]) : validateProfileTeam(options.teams[seat]);
+      // The validator derives hpType from Hidden Power IVs. Recovery artifacts
+      // retain that canonical field, but ordinary editable input must not set it.
+      const input = saved && Array.isArray(options.teams[seat]) ? options.teams[seat].map(set => {
+        if (!plain(set)) return set;
+        const { hpType, ...editable } = set;
+        return editable;
+      }) : options.teams[seat];
+      const validation = seat === 'p2' ? validateOpponentTeam(input) : validateProfileTeam(input);
       if (!validation.valid) throw new EngineError('INVALID_TEAM', `${seat} has an invalid team.`, validation.errors);
+      if (saved && canonical(validation.team) !== canonical(options.teams[seat])) {
+        throw new EngineError('INVALID_RECORD', 'Saved initial teams do not match their canonical legal sets.');
+      }
       teams[seat] = validation.team;
     }
-    return makeEngine({ initial: { matchId, teams, seed: seedValue(options.seed) }, expectedIdentity, profile });
+    return { matchId, teams, seed: seedValue(options.seed), ...(Object.hasOwn(options, 'initialConditions')
+      ? { initialConditions: initialConditions(options.initialConditions, teams, profile) } : {}) };
+  }
+
+  function create(options = {}) {
+    return makeEngine({ initial: normalizeInitial(options), expectedIdentity, profile });
   }
 
   function restore(record) {
@@ -115,12 +155,12 @@ export function createEngineFactory(options = {}) {
       !plain(saved.decisionCounters)) {
       throw new EngineError('INVALID_CHECKPOINT', 'Checkpoint contains invalid engine metadata.');
     }
-    seedValue(saved.initial.seed);
+    const initial = normalizeInitial(saved.initial, true);
     for (const seat of SEATS) {
       if (!Number.isSafeInteger(saved.decisionCounters[seat]) || saved.decisionCounters[seat] < 0) throw new EngineError('INVALID_CHECKPOINT', 'Invalid decision counters.');
     }
     // Checkpoints are private trusted storage artifacts, never client-supplied state.
-    return makeEngine({ initial: saved.initial, expectedIdentity, saved, profile });
+    return makeEngine({ initial, expectedIdentity, saved, profile });
   }
 
   function replay(record) {
@@ -129,7 +169,7 @@ export function createEngineFactory(options = {}) {
       canonical(saved.identity) !== canonical(expectedIdentity) || !Array.isArray(saved.journal) || saved.journal.length > MAX_COMMANDS + 1) {
       throw new EngineError('INCOMPATIBLE_REPLAY', 'Replay schema or engine identity does not match.');
     }
-    const engine = create(saved.initial);
+    const engine = makeEngine({ initial: normalizeInitial(saved.initial, true), expectedIdentity, profile });
     try {
       for (const entry of saved.journal) {
         if (entry.kind === 'decision') {
@@ -162,6 +202,24 @@ function makeEngine({ initial, expectedIdentity, saved, profile }) {
   const counters = clone(saved?.decisionCounters ?? { p1: 0, p2: 0 });
   let battle;
   let requestRefs = { p1: null, p2: null };
+
+  function memberIdentity(pokemon, seat) {
+    const match = new RegExp(`^${seat}-([1-6])$`).exec(pokemon.name);
+    if (!match || Number(match[1]) > initial.teams[seat].length) {
+      throw new EngineError('INVALID_ROSTER', 'Unrecognized stable party-member identity.');
+    }
+    return `${seat}:${match[1]}`;
+  }
+
+  function applyInitialHp(apply = true) {
+    if (!initial.initialConditions) return;
+    const byId = new Map(battle.getSide('p1').pokemon.map(pokemon => [memberIdentity(pokemon, 'p1'), pokemon]));
+    for (const { memberId, hp } of initial.initialConditions.p1) {
+      const pokemon = byId.get(memberId);
+      if (!pokemon || hp > pokemon.maxhp) throw new EngineError('INVALID_INITIAL_CONDITIONS', 'Initial HP exceeds the engine-calculated maximum.');
+    }
+    if (apply) for (const { memberId, hp } of initial.initialConditions.p1) byId.get(memberId).sethp(hp);
+  }
 
   function ensureAlive() {
     if (disposed) throw new EngineError('DISPOSED', 'This engine has been disposed.');
@@ -203,12 +261,16 @@ function makeEngine({ initial, expectedIdentity, saved, profile }) {
     if (saved) {
       battle = Battle.fromJSON(saved.battle);
       battle.restart(receive);
+      applyInitialHp(false);
       for (const seat of SEATS) requestRefs[seat] = battle.getSide(seat).activeRequest;
     } else {
       battle = new Battle({ formatid: getFormat(profile.id).id, seed: initial.seed, send: receive });
       for (const seat of SEATS) {
         const team = initial.teams[seat].map((set, index) => ({ ...clone(set), name: `${seat}-${index + 1}` }));
         battle.setPlayer(seat, { name: seat, team });
+        // Registering p2 starts the battle. Set p1 HP before opening abilities,
+        // protocol lines and the initial owner request are generated.
+        if (seat === 'p1') applyInitialHp();
       }
       battle.sendUpdates();
       syncDecisions();
@@ -247,6 +309,20 @@ function makeEngine({ initial, expectedIdentity, saved, profile }) {
     ensureAlive();
     seatCheck(seat);
     return { ...projection.getView(seat), decision: getDecision(seat), result: clone(result) };
+  }
+
+  function getTerminalRoster(seat) {
+    ensureAlive();
+    seatCheck(seat);
+    if (!result) throw new EngineError('MATCH_NOT_FINISHED', 'The terminal roster is available only after a result.');
+    const roster = battle.getSide(seat).pokemon.map(pokemon => ({
+      memberId: memberIdentity(pokemon, seat), hp: pokemon.hp, maxHp: pokemon.maxhp, fainted: Boolean(pokemon.fainted || pokemon.hp === 0),
+    }));
+    if (roster.length !== initial.teams[seat].length || new Set(roster.map(member => member.memberId)).size !== roster.length ||
+      roster.some(member => !Number.isSafeInteger(member.hp) || !Number.isSafeInteger(member.maxHp) || member.hp < 0 || member.hp > member.maxHp || member.maxHp < 1)) {
+      throw new EngineError('INVALID_ROSTER', 'Terminal party health or identity is inconsistent.');
+    }
+    return roster.sort((left, right) => Number(left.memberId.slice(3)) - Number(right.memberId.slice(3)));
   }
 
   function submitDecision(seat, command) {
@@ -347,7 +423,7 @@ function makeEngine({ initial, expectedIdentity, saved, profile }) {
   }
 
   return Object.freeze({
-    getIdentity: () => clone(expectedIdentity), getPlayerView, getDecision, submitDecision, adjudicate, exportCheckpoint,
+    getIdentity: () => clone(expectedIdentity), getPlayerView, getDecision, getTerminalRoster, submitDecision, adjudicate, exportCheckpoint,
     getEvents(seat, afterCursor = 0) { ensureAlive(); seatCheck(seat); return projection.getEvents(seat, afterCursor); },
     exportReplay() { ensureAlive(); return { schemaVersion: 1, identity: clone(expectedIdentity), initial: clone(initial), journal: clone(journal) }; },
     dispose() { if (!disposed) { disposed = true; battle.destroy(); projection = null; receipts.clear(); journal.length = 0; } },

@@ -1,6 +1,6 @@
 # FX playground
 
-The playground is an independent visual and sound audition tool. It uses all 335
+The playground is an independent visual and sound audition tool. It uses all 345
 entries from `@battle/battle-fx/catalog`, the same reviewed FX/pacing adapter as
 the battle hosts, and the existing sprite scene. It does not import battle-core,
 resolve moves, or use the battle presenter.

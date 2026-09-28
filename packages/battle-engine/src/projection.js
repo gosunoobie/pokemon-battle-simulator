@@ -58,7 +58,7 @@ function freshViewer(seat, team) {
   return {
     seat, turn: 0, cursor: 0, own: { team: ownTeam, active: null },
     opponent: { known: [], active: null }, weather: null, result: null,
-    sideConditions: { p1: [], p2: [] }, fieldConditions: [],
+    sideConditions: { p1: [], p2: [] }, sideConditionLayers: { p1: {}, p2: {} }, fieldConditions: [],
     complete: true, projectionWarnings: [], events: [], request: null,
     identities: Object.fromEntries(ownTeam.map(member => [
       `${seat}: ${seat}-${member.memberId.split(':')[1]}`, member.memberId,
@@ -288,9 +288,18 @@ function applyFacts(viewer, opcode, fields) {
   if (opcode === '-fieldend') remove(viewer.fieldConditions, fields[0])
   if (['-sidestart', '-sideend'].includes(opcode)) {
     const seat = fields[0]?.slice(0, 2)
-    if (SEATS.includes(seat)) (opcode === '-sidestart' ? uniqueAdd : remove)(viewer.sideConditions[seat], fields[1])
+    if (SEATS.includes(seat)) {
+      (opcode === '-sidestart' ? uniqueAdd : remove)(viewer.sideConditions[seat], fields[1])
+      if (fields[1]?.replace(/^move: /, '') === 'Spikes') {
+        if (opcode === '-sidestart') viewer.sideConditionLayers[seat].Spikes = Math.min(3, (viewer.sideConditionLayers[seat].Spikes ?? 0) + 1)
+        else delete viewer.sideConditionLayers[seat].Spikes
+      }
+    }
   }
-  if (opcode === '-swapsideconditions') [viewer.sideConditions.p1, viewer.sideConditions.p2] = [viewer.sideConditions.p2, viewer.sideConditions.p1]
+  if (opcode === '-swapsideconditions') {
+    [viewer.sideConditions.p1, viewer.sideConditions.p2] = [viewer.sideConditions.p2, viewer.sideConditions.p1];
+    [viewer.sideConditionLayers.p1, viewer.sideConditionLayers.p2] = [viewer.sideConditionLayers.p2, viewer.sideConditionLayers.p1]
+  }
   // Abilities/items are often revealed by attribution instead of a dedicated
   // -ability/-item line (for example Intimidate, Drought and Leftovers).
   const from = fields.find(field => /^\[from\] (?:ability|item): /.test(field))
@@ -370,6 +379,19 @@ export function createProjection({ matchId, teams = {}, state } = {}) {
     if (state.schemaVersion !== 1 || !state.viewers?.p1 || !state.viewers?.p2) throw new TypeError('Unsupported projection checkpoint')
     if (matchId !== undefined && state.matchId !== matchId) throw new TypeError('Projection match identity mismatch')
     ledger = clone(state)
+    // Old checkpoints retain the ordered public facts needed to recover layers.
+    // This is protocol projection, not a damage or hazard-eligibility calculation.
+    for (const viewer of Object.values(ledger.viewers)) if (!viewer.sideConditionLayers) {
+      viewer.sideConditionLayers = { p1: {}, p2: {} }
+      for (const event of viewer.events ?? []) {
+        const { opcode, fields = [] } = event.args ?? {}, seat = fields[0]?.slice(0, 2)
+        if (SEATS.includes(seat) && fields[1]?.replace(/^move: /, '') === 'Spikes') {
+          if (opcode === '-sidestart') viewer.sideConditionLayers[seat].Spikes = Math.min(3, (viewer.sideConditionLayers[seat].Spikes ?? 0) + 1)
+          if (opcode === '-sideend') delete viewer.sideConditionLayers[seat].Spikes
+        }
+        if (opcode === '-swapsideconditions') [viewer.sideConditionLayers.p1, viewer.sideConditionLayers.p2] = [viewer.sideConditionLayers.p2, viewer.sideConditionLayers.p1]
+      }
+    }
   } else {
     if (typeof matchId !== 'string' || !matchId) throw new TypeError('A match ID is required')
     ledger = { schemaVersion: 1, matchId, viewers: Object.fromEntries(SEATS.map((seat, index) => [

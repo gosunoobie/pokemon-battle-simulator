@@ -28,7 +28,8 @@ export function createClockedBattleFx({ createFx = createBattleFx, timelineEngin
       if (!active() || typeof onPresentation !== 'function') return
       try {
         onPresentation(Object.freeze({ type, timelineSeconds: type === 'start' ? 0 : run.raw.time() / visualRate,
-          observedAtMs: now(), durationSeconds: run.raw.duration() / visualRate, reducedMotion: Boolean(reducedMotion) }))
+          observedAtMs: now(), durationSeconds: run.raw.duration() / visualRate, reducedMotion: Boolean(reducedMotion),
+          ...(type === 'start' && run.raw.data?.hitTimes ? { hitTimes: Object.freeze(run.raw.data.hitTimes.map(time => time / visualRate)) } : {}) }))
       } catch { /* Presentation observers have no authority over FX results. */ }
     }
     const handle = {

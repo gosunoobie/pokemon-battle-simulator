@@ -1,5 +1,8 @@
 import { FX_CATALOG } from '@battle/battle-fx/catalog'
 import { deriveMoveImpact } from './impact.js'
+import { deriveHitSequence } from './hits.js'
+import { classifyMoveOutcome, cosmeticMoveRequest } from './outcomes.js'
+import { conditionReactions, isConditionResidual } from './conditionReactions.js'
 
 // This is a display ledger of server facts, not a rules engine. Neither the
 // intermediate snapshots nor an animation cue can change a submitted decision.
@@ -9,10 +12,11 @@ const effects = new Map(FX_CATALOG.flatMap(effect => [[normalize(effect.name), e
 effects.set('visegrip', effects.get('vicegrip'))
 const structural = new Set(['switch', 'drag', 'replace', 'swap', 'detailschange', '-formechange', '-transform', 'faint'])
 const boundaries = new Set([...structural, 'move', 'cant', 'turn', 'upkeep', 'win', 'tie'])
-const failures = new Set(['-fail', '-block', '-notarget', '-miss', '-immune'])
 const statNames = { atk: 'Attack', def: 'Defense', spa: 'Special Attack', spd: 'Special Defense', spe: 'Speed', accuracy: 'accuracy', evasion: 'evasion' }
 const conditions = { brn: 'burned', par: 'paralyzed', slp: 'asleep', psn: 'poisoned', tox: 'badly poisoned', frz: 'frozen' }
 const weatherNames = { RainDance: 'Rain', SunnyDay: 'Harsh sunlight', Sandstorm: 'A sandstorm', Hail: 'Hail' }
+const weatherIds = { RainDance: 'rain', SunnyDay: 'sun', Sandstorm: 'sandstorm', Hail: 'hail' }
+const weatherMoves = { 'rain-dance': 'rain', 'sunny-day': 'sun', sandstorm: 'sandstorm', hail: 'hail' }
 const members = view => [...(view?.own?.team ?? []), ...(view?.opponent?.known ?? [])]
 const memberFor = (view, id) => members(view).find(member => member.memberId === id)
 // The server already decided the knockout. These IDs only retain the outgoing
@@ -133,10 +137,19 @@ function applyFact(view, event) {
   if (opcode === '-fieldstart') append(view.fieldConditions, fields[0])
   if (opcode === '-fieldend') remove(view.fieldConditions, fields[0])
   if (['-sidestart', '-sideend'].includes(opcode)) {
-    const side = view.sideConditions[fields[0]?.slice(0, 2)]
+    const seat = fields[0]?.slice(0, 2), side = view.sideConditions[seat]
     if (side) (opcode === '-sidestart' ? append : remove)(side, fields[1])
+    if (side && fields[1]?.replace(/^move: /, '') === 'Spikes') {
+      view.sideConditionLayers ??= { p1: {}, p2: {} }
+      view.sideConditionLayers[seat] ??= {}
+      if (opcode === '-sidestart') view.sideConditionLayers[seat].Spikes = Math.min(3, (view.sideConditionLayers[seat].Spikes ?? 0) + 1)
+      else delete view.sideConditionLayers[seat].Spikes
+    }
   }
-  if (opcode === '-swapsideconditions') [view.sideConditions.p1, view.sideConditions.p2] = [view.sideConditions.p2, view.sideConditions.p1]
+  if (opcode === '-swapsideconditions') {
+    [view.sideConditions.p1, view.sideConditions.p2] = [view.sideConditions.p2, view.sideConditions.p1]
+    if (view.sideConditionLayers) [view.sideConditionLayers.p1, view.sideConditionLayers.p2] = [view.sideConditionLayers.p2, view.sideConditionLayers.p1]
+  }
   if (opcode === 'turn') view.turn = Number(fields[0])
 }
 
@@ -154,22 +167,28 @@ export function describeEvent(event, view, fallback = view) {
     case 'move': return `${name} used ${value}!`
     case 'switch': case 'drag': case 'replace': return `${actor?.startsWith(`${view?.seat ?? 'p1'}:`) ? 'Go, ' : 'The opponent sent out '}${value?.split(',')[0] ?? 'a Pokémon'}!`
     case 'faint': return `${name} fainted.`
-    case 'cant': return `${name} could not move${conditions[value] ? ` (${conditions[value]})` : value === 'recharge' ? ' (recharging)' : ''}.`
-    case '-damage': return `${name} lost HP.`
+    case 'cant': return value === 'flinch' ? `${name} flinched!`
+      : `${name} could not move${conditions[value] ? ` (${conditions[value]})` : value === 'recharge' ? ' (recharging)' : ''}.`
+    case '-damage': {
+      const cause = fieldsOf(event).find(field => field.startsWith('[from] '))?.slice(7).replace(/^move: /, '')
+      return cause ? `${name} was hurt by ${{ psn: 'poison', tox: 'poison', brn: 'its burn' }[cause] ?? cause}!` : `${name} lost HP.`
+    }
     case '-heal': return `${name} recovered HP.`
     case '-status': return `${name} is ${conditions[value] ?? 'affected by a status condition'}.`
     case '-curestatus': return `${name} recovered from its status condition.`
     case '-cureteam': return 'The team recovered from its status conditions.'
-    case '-boost': return `${name}’s ${statNames[value] ?? 'stat'} rose${Number(amount) > 1 ? ' sharply' : ''}.`
-    case '-unboost': return `${name}’s ${statNames[value] ?? 'stat'} fell${Number(amount) > 1 ? ' sharply' : ''}.`
+    case '-boost': return Number(amount) > 0 ? `${name}’s ${statNames[value] ?? 'stat'} rose${Number(amount) > 1 ? ' sharply' : ''}.` : null
+    case '-unboost': return Number(amount) > 0 ? `${name}’s ${statNames[value] ?? 'stat'} fell${Number(amount) > 1 ? ' sharply' : ''}.` : null
+    case '-setboost': return `${name}’s ${statNames[value] ?? 'stat'} changed to ${Number(amount) > 0 ? '+' : ''}${amount}.`
     case '-clearboost': return `${name}’s stat changes were removed.`
+    case '-clearallboost': return 'All stat changes were removed.'
     case '-miss': return 'The attack missed!'
     case '-fail': case '-block': case '-notarget': return 'The move did not succeed.'
     case '-immune': return `${name} was unaffected.`
     case '-crit': return 'A critical hit!'
     case '-supereffective': return 'It’s super effective!'
     case '-resisted': return 'It’s not very effective.'
-    case '-hitcount': return `Hit ${value} times!`
+    case '-hitcount': return `Hit ${value} ${Number(value) === 1 ? 'time' : 'times'}!`
     case '-prepare': return `${name} is preparing ${value}.`
     case '-mustrecharge': return `${name} must recharge.`
     case '-weather': return actor === 'none' ? 'The weather returned to normal.' : `${weatherNames[actor] ?? 'The weather effect'} ${fieldsOf(event).includes('[upkeep]') ? 'continues' : 'began'}.`
@@ -178,6 +197,18 @@ export function describeEvent(event, view, fallback = view) {
     case '-ability': return `${name}’s ability is ${value}.`
     case '-start': return `${name} is affected by ${value?.replace(/^move: /, '')}.`
     case '-end': return `${name}’s ${value?.replace(/^move: /, '')} ended.`
+    case '-sidestart': case '-sideend': {
+      const side = actor?.slice(0, 2) === view?.seat ? 'Your side' : 'The opposing side'
+      const condition = value?.replace(/^move: /, '')
+      const layers = view?.sideConditionLayers?.[actor?.slice(0, 2)]?.Spikes
+      return opcodeOf(event) === '-sideend' ? `${side}’s ${condition} ended.`
+        : `${side} gained ${condition}${condition === 'Spikes' && layers ? ` (${layers} ${layers === 1 ? 'layer' : 'layers'})` : ''}.`
+    }
+    case '-fieldstart': return `${actor?.replace(/^move: /, '')} began on the battlefield.`
+    case '-fieldend': return `${actor?.replace(/^move: /, '')} ended.`
+    case '-singleturn': case '-singlemove': return `${name} used ${value?.replace(/^move: /, '')}.`
+    case '-activate': return ['Protect', 'Detect', 'Safeguard', 'Substitute', 'Mist'].includes(value?.replace(/^move: /, ''))
+      ? `${name} was protected by ${value.replace(/^move: /, '')}.` : null
     case 'detailschange': case '-formechange': return `${name} changed form.`
     case '-transform': return `${name} transformed!`
     case 'turn': return `Turn ${actor}`
@@ -202,7 +233,9 @@ export function buildBattleLog(events, before, after) {
 function isBoundary(event) {
   const opcode = opcodeOf(event)
   if (boundaries.has(opcode) || (!opcode && ['request', 'result'].includes(event.type))) return true
-  if (opcode === '-weather' && fieldsOf(event).includes('[upkeep]')) return true
+  if (isConditionResidual(event)) return true
+  // Upkeep and expiry happen after the preceding move finishes recovering.
+  if (opcode === '-weather' && (fieldsOf(event).includes('[upkeep]') || fieldsOf(event)[0] === 'none')) return true
   // Residual damage/healing happens after an attack, not at its visual contact.
   return ['-damage', '-heal'].includes(opcode) && fieldsOf(event).some(field => /^\[from\] (?:psn|brn|Sandstorm|Hail|Leech Seed|Curse|item: Leftovers|item: Black Sludge|move: (?:Bind|Clamp|Fire Spin|Sand Tomb|Whirlpool|Wrap|Wish))$/.test(field))
 }
@@ -221,10 +254,11 @@ function groupsFor(events) {
 /** Optional FX for a batch already committed by the authoritative server. */
 export function createSimulationPresenter({ getScene, ensureScene = async () => {}, onDisplay,
   onMessage = () => {}, onEntry = () => {}, onEntryCancel = () => {}, onTransition = () => {}, onMove = () => null,
-  faintScene = async () => {}, playImpact = () => null, loadFx, timeoutMs }) {
-  if (![getScene, ensureScene, onDisplay, onMessage, onEntry, onEntryCancel, onTransition, onMove, faintScene, playImpact, loadFx].every(value => typeof value === 'function')) throw new TypeError('Presenter callbacks are required')
+  faintScene = async () => {}, playImpact = () => null, loadFx,
+  loadWeather = () => import('@battle/battle-fx/weather'), loadConditions = () => import('@battle/battle-fx/conditions'), timeoutMs }) {
+  if (![getScene, ensureScene, onDisplay, onMessage, onEntry, onEntryCancel, onTransition, onMove, faintScene, playImpact, loadFx, loadWeather, loadConditions].every(value => typeof value === 'function')) throw new TypeError('Presenter callbacks are required')
   if (timeoutMs !== undefined && (!Number.isFinite(timeoutMs) || timeoutMs <= 0)) throw new TypeError('A positive presentation timeout is required')
-  let generation = 0, active = null, destroyed = false, fxPromise = null
+  let generation = 0, active = null, destroyed = false, fxPromise = null, weatherPromise = null, conditionsPromise = null
   const safe = (callback, ...args) => { try { return callback(...args) } catch {} }
   const disposeFx = pending => pending?.then(fx => { try { fx?.dispose?.() } catch {} }).catch(() => {})
 
@@ -300,6 +334,65 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
         throw error
       }
     }
+    const playWeather = async (event, view) => {
+      const weatherId = weatherIds[fieldsOf(event)[0]]
+      if (!weatherId || !valid() || stoppedStatus || view.result) return
+      await prepareScene(view)
+      if (!valid() || stoppedStatus || !getScene()) return
+      if (!weatherPromise) {
+        const pending = Promise.resolve().then(loadWeather).catch(error => {
+          if (weatherPromise === pending) weatherPromise = null
+          throw error
+        })
+        weatherPromise = pending
+      }
+      const pending = weatherPromise
+      let weather
+      try { weather = await bounded(() => pending) }
+      catch (error) { if (weatherPromise === pending) weatherPromise = null; throw error }
+      if (!valid() || stoppedStatus) return
+      if (typeof weather?.playWeatherContinuation !== 'function') {
+        if (weatherPromise === pending) weatherPromise = null
+        throw new Error('Weather effect unavailable')
+      }
+      // No actor or rule state enters field FX. Upkeep never repeats the move's
+      // casting sound or emits a damage/impact cue.
+      playback = weather.playWeatherContinuation({ weatherId, visualSeed: event.cursor }, {
+        scene: getScene(), signal: controller.signal, reducedMotion,
+      })
+      playbackCancelled = false
+      const result = await bounded(() => playback.finished)
+      if (!['completed', 'skipped'].includes(result?.status)) throw new Error('Weather effect unavailable')
+      playback = null
+    }
+    const playCondition = async request => {
+      if (!valid() || stoppedStatus || !getScene()) return
+      if (!conditionsPromise) {
+        const pending = Promise.resolve().then(loadConditions).catch(error => {
+          if (conditionsPromise === pending) conditionsPromise = null
+          throw error
+        })
+        conditionsPromise = pending
+      }
+      const pending = conditionsPromise
+      let conditions
+      try { conditions = await bounded(() => pending) }
+      catch (error) { if (conditionsPromise === pending) conditionsPromise = null; throw error }
+      if (!valid() || stoppedStatus) return
+      if (typeof conditions?.playConditionReaction !== 'function') {
+        if (conditionsPromise === pending) conditionsPromise = null
+        throw new Error('Condition effect unavailable')
+      }
+      // The displayed HP/condition is already a committed server fact. The
+      // reaction only borrows the current scene, including any held faint sprite.
+      playback = conditions.playConditionReaction(request, {
+        scene: getScene(), signal: controller.signal, reducedMotion,
+      })
+      playbackCancelled = false
+      const result = await bounded(() => playback.finished)
+      if (!['completed', 'skipped'].includes(result?.status)) throw new Error('Condition effect unavailable')
+      playback = null
+    }
     let status = effectsEnabled ? 'completed' : 'skipped'
     try {
       if (!effectsEnabled || !before) {
@@ -307,6 +400,16 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
         const entries = effectsEnabled && !before ? ['source', 'target'] : []
         if (entries.length) message('The trainers are sending out their Pokémon!')
         await prepareScene(after, true, entries)
+        // Opening abilities can establish weather without a move. Reconnect
+        // snapshots and later-turn history must not replay that introduction.
+        if (effectsEnabled && !before && after.turn === 1 && !after.result) {
+          const start = eventList(events, null).findLast(event => opcodeOf(event) === '-weather' &&
+            !fieldsOf(event).includes('[upkeep]'))
+          if (start && fieldsOf(start)[0] === after.weather && weatherIds[after.weather]) {
+            message(describeEvent(start, after))
+            await playWeather(start, after)
+          }
+        }
         if (!effectsEnabled) {
           // Instant presentation reveals only the final visible lineup. A form
           // correction or reconnect snapshot is not a new send-out.
@@ -329,16 +432,42 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
           const faintActorIds = newlyFaintedActors(displayed, next)
           const effect = opcodeOf(first) === 'move' ? effects.get(normalize(fieldsOf(first)[1])) : null
           const prepare = group.some(event => opcodeOf(event) === '-prepare')
-          // A later kick can miss after an earlier hit. Only skip successful-hit
-          // art when no opposing HP loss was reported for this move.
-          const landedDamage = group.some(event => opcodeOf(event) === '-damage' && fieldsOf(event)[0] !== fieldsOf(first)[0])
-          const failed = !landedDamage && group.some(event => failures.has(opcodeOf(event)))
+          const hits = effect && !prepare ? deriveHitSequence(group, effect.id) : null
+          const hitViews = []
+          if (hits?.steps) {
+            let stepView = clone(displayed)
+            for (const step of hits.steps) {
+              stepView = clone(stepView)
+              for (const event of step) applyFact(stepView, event)
+              hitViews.push(stepView)
+            }
+          }
+          const outcome = classifyMoveOutcome(group)
+          const landedDamage = outcome.landedDamage
+          const failed = outcome.failed && !hits
+          const reactions = conditionReactions(group, displayed)
           const impact = deriveMoveImpact(group, displayed)
           message(describeEvent(first, displayed, after))
-          let revealed = false
+          const feedbackOpcodes = new Set(['-status', '-curestatus', '-cureteam', '-boost', '-unboost', '-setboost',
+            '-clearboost', '-clearallboost', '-start', '-end', '-sidestart', '-sideend', '-fieldstart', '-fieldend',
+            '-fail', '-block', '-miss', '-immune', '-notarget', '-activate'])
+          const feedback = [...new Set(group.filter(event => event !== first && feedbackOpcodes.has(opcodeOf(event)))
+            .map(event => outcome.partial && opcodeOf(event) === '-immune'
+              ? `${actorName(fieldsOf(event)[0], next, after)} resisted ${fieldsOf(event)[1] === 'confusion' ? 'confusion' : 'part of the move'}.`
+              : describeEvent(event, next, after)).filter(Boolean))].join(' ')
+          let revealed = false, revealedHits = 0, acceptingCues = true
+          const revealHit = index => {
+            if (!acceptingCues || revealed || !valid() || stoppedStatus || !Number.isSafeInteger(index) ||
+              index !== revealedHits + 1 || index > (hits?.count ?? 0)) return
+            revealedHits = index
+            if (hitViews[index - 1]) publish(hitViews[index - 1], {
+              retainFaintedActorIds: newlyFaintedActors(displayed, hitViews[index - 1]), hitStep: true,
+            })
+          }
           const reveal = () => { if (!revealed && valid() && !stoppedStatus) {
             revealed = true
-            publish(next, { retainFaintedActorIds: faintActorIds })
+            publish(next, { retainFaintedActorIds: faintActorIds, ...(hits && !reducedMotion ? { hitStep: true } : {}) })
+            if (feedback) message(feedback)
             if (impact) {
               // Only server-reported effectiveness and visible HP deltas enter
               // this host overlay. Attack recipes still receive no battle data.
@@ -350,7 +479,11 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
               } catch { clearImpact() }
             }
           } }
-          if (effect && !failed && (!prepare || effect.phases?.includes('prepare'))) {
+          // Establish actors before publishing a possible knockout. Rebuilding
+          // from the old view afterwards would discard the faint retention hold.
+          const playsMove = effect && !failed && (!prepare || effect.phases?.includes('prepare'))
+          if (reactions.length && !playsMove) await prepareScene(displayed)
+          if (playsMove) {
             await prepareScene(displayed)
             if (valid() && !stoppedStatus && getScene()) {
               if (!fxPromise) {
@@ -360,13 +493,12 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
               const fx = await bounded(() => fxPromise)
               if (!valid() || stoppedStatus) break
               if (typeof fx?.play !== 'function') throw new Error('Effect unavailable')
-              const sourceId = fieldsOf(first)[0]?.startsWith(`${after.seat ?? 'p1'}:`) ? 'source' : 'target'
-              const targetId = fieldsOf(first)[2]?.startsWith(`${after.seat ?? 'p1'}:`) ? 'source' : 'target'
               // Present has a damage-only recording. Use the server's reported
               // outcome; its healing variant must not borrow the damage sound.
               const soundOutcome = effect.id === 'present' && !landedDamage ? 'heal' : 'hit'
               const sound = safe(onMove, { moveId: effect.id, cursor: first.cursor,
-                phase: prepare ? 'prepare' : 'attack', outcome: soundOutcome, mode: reducedMotion ? 'reduced' : 'normal' })
+                phase: prepare ? 'prepare' : 'attack', outcome: soundOutcome, mode: reducedMotion ? 'reduced' : 'normal',
+                ...(hits ? { hitCount: hits.count } : {}) })
               soundPlayback = sound
               const soundReady = safe(() => sound?.ready)
               if (soundReady) {
@@ -379,18 +511,23 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
                 } finally { clearTimeout(audioTimer) }
                 if (!valid() || stoppedStatus) break
               }
-              const request = { moveId: effect.id, sourceId,
-                targetIds: fieldsOf(first)[2] && fieldsOf(first)[2] !== '[notarget]' ? [targetId] : [],
-                outcome: 'hit', phase: prepare ? 'prepare' : 'attack', visualSeed: first.cursor }
+              const request = { moveId: effect.id, ...cosmeticMoveRequest(group, effect, after.seat ?? 'p1'),
+                outcome: 'hit', phase: prepare ? 'prepare' : 'attack', visualSeed: first.cursor,
+                ...(hits ? { hitCount: hits.count } : {}) }
               const fxDeadline = safe(() => fx.getPresentationDeadlineMs?.(request, { reducedMotion }))
               const playbackDeadline = timeoutMs ?? (Number.isFinite(fxDeadline) && fxDeadline > 0 ? Math.max(7500, fxDeadline + 500) : 7500)
               playback = fx.play(request, {
                 scene: getScene(), signal: controller.signal, reducedMotion,
                 onPresentation(cue) { if (valid() && !stoppedStatus && soundPlayback === sound) safe(() => sound?.onPresentation(cue)) },
-                onCue(cue) { if (cue?.type === (prepare ? 'prepared' : 'impact')) reveal() },
+                onCue(cue) {
+                  if (!acceptingCues) return
+                  if (cue?.type === 'hit' && !reducedMotion) revealHit(cue.hitIndex)
+                  else if (cue?.type === (prepare ? 'prepared' : 'impact')) reveal()
+                },
               })
               playbackCancelled = false
               const result = await bounded(() => playback.finished, true, playbackDeadline)
+              acceptingCues = false
               if (result?.status === 'completed') safe(() => sound?.finish(result))
               else safe(() => sound?.cancel())
               soundPlayback = null
@@ -399,11 +536,23 @@ export function createSimulationPresenter({ getScene, ensureScene = async () => 
             }
           }
           reveal()
+          acceptingCues = false
+          if (hits) message(`Hit ${hits.count} ${hits.count === 1 ? 'time' : 'times'}!`)
           // Usually this has already finished during attack recovery. A move
           // with no hit animation (immunity, for example) still gets readable
           // feedback before the next action, faint, switch or result.
           if (impactFinished && valid() && !stoppedStatus) await bounded(() => impactFinished)
           clearImpact()
+          for (const reaction of reactions) await playCondition(reaction)
+          for (const event of group) {
+            if (opcodeOf(event) !== '-weather' || !weatherIds[fieldsOf(event)[0]]) continue
+            // A weather move already supplied its full casting animation. All
+            // upkeep and standalone/ability starts use the short field clip.
+            const castWeather = effect && !failed && !prepare && weatherMoves[effect.id]
+            if (!fieldsOf(event).includes('[upkeep]') && castWeather === weatherIds[fieldsOf(event)[0]]) continue
+            if (event !== first) message(describeEvent(event, next, after))
+            await playWeather(event, next)
+          }
           if (faintActorIds.length && valid() && !stoppedStatus) {
             // Let the attack recover first. Only then retire its defeated actor,
             // before any switch, forced replacement, or result that follows.

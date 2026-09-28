@@ -66,11 +66,13 @@ export function resolveMove(before, { moveId, sourceId, targetId, previousHit })
     const failed = Boolean((move.perishSong && listeners.every(actor => actor.perishSong)) || (move.sportPreview && before[move.sportPreview]))
     const after = freezeState({ ...before, revision: before.revision + 1, ...(move.sportPreview ? { [move.sportPreview]: true } : move.perishSong
       ? { actors: { ...before.actors, ...Object.fromEntries(listeners.map(actor => [actor.id, { ...actor, perishSong: true }])) } }
-      : { weather: move.weather }) })
+      : move.clearStages ? { actors: { ...before.actors, ...Object.fromEntries(listeners.map(actor => [actor.id, {
+        ...actor, ...Object.fromEntries([...BOOST_FIELDS.map(([key]) => key), 'defenseStage', 'accuracyStage'].map(key => [key, 0])),
+      }])) } } : { weather: move.weather }) })
     const id = `move-${after.revision}-${sourceId}-${moveId}`
     const event = Object.freeze({ id, moveId, sourceId, targetIds: Object.freeze([]), outcome: failed ? 'failed' : 'hit',
       usedMessage: `${source.name} used ${move.name}!`,
-      resultMessage: move.sportPreview ? failed ? `${move.name} is already active in this preview.` : `${SPORT_TEXT[move.sportPreview]}! Power reduction and duration are not simulated.` : move.perishSong ? `${failed ? 'All active Pokémon already heard' : 'All active Pokémon heard'} Perish Song! Countdown and fainting are not simulated.` : `${WEATHER_TEXT[move.weather]} Weather preview only.`,
+      resultMessage: move.clearStages ? 'Haze removed all active Pokémon’s stat changes!' : move.sportPreview ? failed ? `${move.name} is already active in this preview.` : `${SPORT_TEXT[move.sportPreview]}! Power reduction and duration are not simulated.` : move.perishSong ? `${failed ? 'All active Pokémon already heard' : 'All active Pokémon heard'} Perish Song! Countdown and fainting are not simulated.` : `${WEATHER_TEXT[move.weather]} Weather preview only.`,
     })
     return Object.freeze({ id, before, after, event })
   }

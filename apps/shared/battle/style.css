@@ -26,6 +26,8 @@
 .sim-hp-line > span { color: #b3c58e; font-size: 12px; font-weight: 700; }
 .sim-hp-track { height: 7px; flex: 1; overflow: hidden; background: #0c1d17; border-radius: 4px; }
 .sim-hp-track > span { display: block; height: 100%; border-radius: inherit; transition: width .25s ease; }
+.sim-hud-hit .sim-hp-track > span { transition-duration: .08s; }
+@media (prefers-reduced-motion: reduce) { .sim-hp-track > span { transition: none; } }
 .sim-health-bottom { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 7px; color: #c1ccb9; font-size: clamp(10px, 1.2cqw, 13px); font-variant-numeric: tabular-nums; }
 .sim-health-bottom > span { font-size: clamp(9px, 1.05cqw, 11px); }
 .sim-health-bottom strong { font-weight: 500; white-space: nowrap; }

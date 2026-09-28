@@ -21,6 +21,8 @@ const emit = defineEmits(['display', 'playback', 'message'])
 const displayed = shallowRef(null), stage = ref(null), sceneAvailable = ref(null)
 const playing = ref(false), openingBattle = ref(false), message = ref('')
 const reducedMotion = ref(false), pageVisible = ref(true)
+const effectsEnabled = ref(true)
+const hitStep = ref(false)
 const battleOverlay = shallowRef(null), impactFeedback = shallowRef(null)
 let audioScope = null
 let generation = 0, disposed = false
@@ -36,7 +38,7 @@ function playImpact(feedback, options) {
 const movePresenter = createSimulationPresenter({
   getScene: scene.get, ensureScene: (view, options) => scene.ensure(view, options),
   faintScene: (view, options) => scene.faint(view, options), playImpact,
-  onDisplay: (view, options) => { displayed.value = view; scene.display(view, options); emit('display', view) },
+  onDisplay: (view, options) => { displayed.value = view; hitStep.value = Boolean(options?.hitStep); scene.display(view, options); emit('display', view) },
   onMessage: publishMessage,
   onEntry: (view, actorId) => { if (!props.inactive) audioScope?.entry(view, actorId) },
   onTransition: (view, cue) => { if (!props.inactive) audioScope?.transition(view, cue) },
@@ -50,8 +52,9 @@ const weather = computed(() => ({ RainDance: 'Rain', SunnyDay: 'Harsh sunlight',
 const sideConditions = computed(() => sideConditionLabels(displayed.value))
 function playback(value) { playing.value = value; emit('playback', value) }
 // Idle relinquishes its transforms synchronously before any presenter borrows them.
-watch([reducedMotion, playing, pageVisible, () => props.inactive], ([reduced, active, visible, inactive]) => {
-  scene.setIdleMotion({ enabled: true, reducedMotion: reduced, paused: active || !visible || inactive })
+watch([reducedMotion, playing, pageVisible, () => props.inactive, effectsEnabled], ([reduced, active, visible, inactive, enabled]) => {
+  scene.setIdleMotion({ enabled, reducedMotion: reduced, paused: active || !visible || inactive })
+  scene.setEffectsEnabled(enabled && visible && !inactive)
 }, { immediate: true, flush: 'sync' })
 watch([reducedMotion, pageVisible], ([reduced, visible], [previousReduced]) => {
   if (!visible || reduced !== previousReduced) skip()
@@ -76,6 +79,7 @@ async function present(batch, options = {}) {
   const scope = props.audio.begin(batch.after, batch.events)
   audioScope = scope
   const token = ++generation
+  effectsEnabled.value = options.effectsEnabled ?? true
   const enabled = (options.effectsEnabled ?? true) && pageVisible.value
   playback(true)
   openingBattle.value = !batch.before && enabled
@@ -141,7 +145,7 @@ onBeforeUnmount(() => {
     <div ref="stage" class="sim-canvas" :aria-label="`${members[0]?.species || 'Your Pokémon'} versus ${members[1]?.species || 'opponent'}`" role="img"></div>
     <div v-if="sceneAvailable === false" class="sim-fallback" aria-hidden="true"><img v-if="members[0] && !members[0].fainted" class="sim-near-sprite" :src="spriteUrl(members[0].species, 'back')" alt=""><img v-if="members[1] && !members[1].fainted" class="sim-far-sprite" :src="spriteUrl(members[1].species)" alt=""></div>
     <div class="sim-impact-surface"><div class="sim-impact-fit"><ImpactFeedback :feedback="impactFeedback"/></div></div>
-    <div class="sim-hud"><HealthCard :member="members[0]" :impact="impactFeedback?.actorId === 'source' ? impactFeedback : null"/><HealthCard :member="members[1]" :impact="impactFeedback?.actorId === 'target' ? impactFeedback : null" opponent/></div>
+    <div class="sim-hud" :class="{ 'sim-hud-hit': hitStep }"><HealthCard :member="members[0]" :impact="impactFeedback?.actorId === 'source' ? impactFeedback : null"/><HealthCard :member="members[1]" :impact="impactFeedback?.actorId === 'target' ? impactFeedback : null" opponent/></div>
     <span v-if="weather" class="sim-weather">{{ weather }}</span>
     <BattleOverlay :overlay="battleOverlay"/>
   </div>

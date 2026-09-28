@@ -1109,3 +1109,24 @@ Validation: all 280 tests pass, including 28 focused tests for this batch, and t
 Surf keeps its approved pixel-art wave silhouette, floor wash, foam particles and recovery. Only the two crests are 12% smaller, with floor wash beginning at 0.16 s, leading crest at 0.20 s and following crest at 0.32 s. The first crest contacts at 1.00 s; the following crest reaches its departure point at 1.32 s. Both clips finish at 3.20 s.
 
 At the user’s request, Muddy Water now uses the exact revised Surf choreography in its own recipe. Its existing wave texture is rendered in silty browns with subtle grain; wash and foam use matching earth tones. Both use the same cached PNG, while Muddy Water’s filters are disposed per run. Damage and battle behavior remain unchanged (Surf 66, Muddy Water 64). Focused tests cover timing, crest size, choreography parity, contact and cleanup.
+
+### Remaining Gen 3 status moves
+
+The catalog now contains 345 independent move recipes. These ten additions use no external effect artwork and leave actor poses, sizes and visibility unchanged. Spore travels from the selected user's live emission socket to the opponent; Haze uses logical field coordinates and needs no opponent; the other eight clips are source-only. Each sends one impact cue and removes its owned artwork on every exit.
+
+| Move | Impact / completion | Distinct artwork |
+| --- | --- | --- |
+| Spore | 0.92 / 2.25 s | Fungal capsules, buoyant puffs and drifting spores |
+| Growth | 0.86 / 2.10 s | Climbing light stem, unfolding leaves and rising rings |
+| Haze | 0.88 / 2.25 s | Cool horizontal field banks and crystalline flecks |
+| Mist | 0.82 / 2.15 s | Counter-flowing white ribbons inside a local veil |
+| Conversion | 0.86 / 2.10 s | Colored square mosaic and a scanning line |
+| Conversion 2 | 0.92 / 2.20 s | Rotating resistance dial and folding diamond panels |
+| Stockpile | 0.94 / 2.20 s | Inward amber packets and three storage rings |
+| Swallow | 0.90 / 2.25 s | A swallowed pearl followed by rising recovery crosses |
+| Snatch | 0.78 / 2.05 s | Hooked hand silhouette, curling trail and a bright lure |
+| Camouflage | 0.94 / 2.30 s | Mottled translucent patches and a changing contour |
+
+Preview rules remain deliberately bounded. Spore sleeps only an otherwise unconditioned target. Growth follows Gen 3 and raises Special Attack by one; Haze resets seven stages on all living actors while preserving conditions, Focus Energy and weather. Swallow is an explicitly labeled one-stockpile quarter-HP sample; its fixture never raises low HP or revives a fainted actor. Mist, Conversion, Conversion 2, Stockpile, Snatch and Camouflage are labeled casting samples with no new history, type, protection or stockpile-count state. Live battles continue using the authoritative engine rules, including Gen 3 Stockpile's lack of defensive stat boosts.
+
+`tests/missing-status-moves.test.mjs` covers rule outcomes, capped/occupied conditions, fixtures, all presentation exits, both directions, solo source/field playback, full effect bounds in edge and portrait layouts, continued flow, reduced motion and cleanup. Existing cast recipes and accepted sound-review collections are unchanged.

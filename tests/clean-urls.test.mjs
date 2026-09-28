@@ -8,7 +8,7 @@ import { createServer as createViteServer, preview as previewVite } from 'vite'
 import { createSimulationHttpServer } from '../apps/server/start.mjs'
 import { cleanPageUrlsPlugin } from '../apps/server/pageRoutes.js'
 
-const pages = ['preview', 'playground', 'simulation', 'multiplayer']
+const pages = ['preview', 'playground', 'simulation', 'multiplayer', 'survival']
 const document = name => `<!doctype html><html><head><title>${name}</title></head><body>Page: ${name}</body></html>`
 
 async function fixture(t) {

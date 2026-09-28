@@ -3,6 +3,37 @@ import { getFxSoundPlan, getMoveSoundPlan } from '@battle/battle-sfx/runtime'
 const safe = callback => { try { return callback() } catch { return undefined } }
 const canonical = value => typeof value === 'string' ? value.toLowerCase().replace(/[^a-z0-9]/g, '') : ''
 
+// These selected recordings explicitly contain one hit. Other recordings must
+// not be repeated merely because their move has several visual contacts.
+const hitRecordings = Object.freeze(Object.fromEntries([
+  ['double-slap', 5], ['comet-punch', 5], ['fury-attack', 5], ['fury-swipes', 5], ['arm-thrust', 5],
+  ['bullet-seed', 5], ['pin-missile', 5], ['spike-cannon', 5], ['icicle-spear', 5], ['barrage', 5],
+  ['bone-rush', 5], ['rock-blast', 5], ['double-kick', 2], ['twineedle', 2], ['bonemerang', 2], ['triple-kick', 3],
+].map(([id, maximum]) => [id, { assetId: `source.${id}-1hit`, maximum }])))
+const soundLookaheadSeconds = .08
+
+function countedRegions(moveId, plan, regions, hitCount, cue) {
+  const recording = hitRecordings[moveId]
+  const maximum = recording?.maximum ?? (moveId === 'beat-up' ? 6 : 0)
+  if (!Number.isSafeInteger(hitCount) || hitCount < 1 || hitCount > maximum
+    || !Array.isArray(cue.hitTimes) || cue.hitTimes.length !== hitCount
+    || !Number.isFinite(cue.durationSeconds) || cue.durationSeconds <= 0 || cue.durationSeconds > 120
+    || cue.hitTimes.some((time, index) => !Number.isFinite(time) || time < 0 || time > cue.durationSeconds
+      || index > 0 && time <= cue.hitTimes[index - 1])) return null
+  // Beat Up has no verified individual-strike region. Keep its existing whole
+  // recording once, rather than manufacturing six copies of its internal hits.
+  if (moveId === 'beat-up') return regions
+  if (plan.assetId !== recording.assetId || plan.accent || !regions.length
+    || regions.some(region => region.assetId !== recording.assetId)) return null
+  const segment = plan.segments[0], template = regions[0]
+  const anchor = plan.reviewStatus === 'accepted-sync'
+    ? segment.soundAnchorSeconds - segment.startSeconds
+    : (segment.sourceAnchorFrame - segment.startFrame) / plan.reference.sampleRate
+  if (!Number.isFinite(anchor) || anchor < 0) return null
+  const result = cue.hitTimes.map(time => ({ ...template, delay: time - anchor }))
+  return result.some(region => region.delay < 0 || region.delay + region.endSeconds - region.startSeconds > 120) ? null : result
+}
+
 // Legacy frame-based pilot plans still require their measured decoder. Accepted
 // batch plans below use seconds and can play on any valid Web Audio decoder.
 export function nativeSoundCompatibility(plan, userAgent, info) {
@@ -106,16 +137,32 @@ export function createMoveAudio({ player, userAgent = globalThis.navigator?.user
     if (ids.length) safe(() => Promise.resolve(player.preload(ids, { priority: 1 })).catch(() => {}))
     return ids
   }
-  function begin({ moveId, phase = 'attack', outcome = 'hit', mode = 'normal', key } = {}) {
+  function begin({ moveId, phase = 'attack', outcome = 'hit', mode = 'normal', key, hitCount } = {}) {
     const plan = phase === 'attack' && outcome === 'hit' && mode === 'normal' ? getPlan(moveId, { phase, outcome, mode }) : null
     const scope = Object.freeze({ soundRun: ++serial })
     const eventKey = key ?? `preview:${serial}`
-    let started = false, cancelled = false, complete = false, audioBase, visualBase, voices = [], ready
+    let started = false, cancelled = false, complete = false, audioBase, visualBase, voices = [], pending = [], ready
+    const activeVoices = new Set()
     const cancel = () => {
       if (cancelled) return
-      cancelled = true; runs.delete(run)
+      cancelled = true; pending = []; runs.delete(run)
       safe(() => player.stopScope(scope))
       for (const voice of voices) safe(() => voice.cancel())
+    }
+    const release = () => { if (!pending.length && !activeVoices.size) runs.delete(run) }
+    function schedule(time, queued = false) {
+      while (pending.length && (!queued || pending[0].delay <= time + soundLookaheadSeconds)) {
+        const { delay, assetId, ...region } = pending.shift()
+        // Frame observations drive the queue. A suspended/tab-paused clock must
+        // not flush a burst of missed sounds when it resumes.
+        if (queued && time - delay > maxDriftSeconds) { counts.droppedLate++; cancel(); return }
+        const when = audioBase + delay
+        const voice = safe(() => player.playSegment(assetId, { ...region, category: 'sfx', priority: 1, scope,
+          ...(when > player.contextTime() ? { when } : {}) }))
+        if (!voice) { counts.cacheMiss++; cancel(); return }
+        voices.push(voice); activeVoices.add(voice)
+        void Promise.resolve(voice.finished).then(() => { activeVoices.delete(voice); release() }, cancel)
+      }
     }
     const run = Object.freeze({
       get ready() {
@@ -160,25 +207,25 @@ export function createMoveAudio({ player, userAgent = globalThis.navigator?.user
             }
           }
           if (regions.length > 8) { counts.unsupported++; cancel(); return }
+          pending = hitCount === undefined ? regions : countedRegions(moveId, plan, regions, hitCount, cue)
+          if (!pending) { counts.unsupported++; cancel(); return }
           audioBase = player.contextTime(); visualBase = cue.timelineSeconds
           if (!Number.isFinite(audioBase) || audioBase < 0) { counts.unsupported++; cancel(); return }
-          for (const { delay, assetId, ...region } of regions) {
-            const voice = safe(() => player.playSegment(assetId, { ...region, category: 'sfx', priority: 1, scope,
-              ...(delay > 0 ? { when: audioBase + delay } : {}) }))
-            if (!voice) { counts.cacheMiss++; cancel(); return }
-            voices.push(voice)
-          }
+          // Do not allocate five/six future voices immediately: the bounded
+          // player would steal the first sound before it was ever heard.
+          schedule(0, hitCount !== undefined)
+          if (cancelled) return
           counts.started++
-          void Promise.all(voices.map(voice => voice.finished)).then(() => runs.delete(run), cancel)
         } else if (cue?.type === 'frame' && audioBase != null) {
           const drift = Math.abs(player.contextTime() - audioBase - (cue.timelineSeconds - visualBase))
-          if (!Number.isFinite(drift) || drift > maxDriftSeconds) { counts.interrupted++; cancel() }
+          if (!Number.isFinite(drift) || drift > maxDriftSeconds) { counts.interrupted++; cancel(); return }
+          if (hitCount !== undefined) schedule(cue.timelineSeconds - visualBase, true)
         }
       },
       finish(result) {
         complete = true
         if (result?.status !== 'completed') cancel()
-        else if (!voices.length) runs.delete(run)
+        else { pending = []; release() }
         // Natural whole-recording tails may finish; no presenter cleanup signal
         // owns them. Explicit cancellation still stops this run after completion.
       },

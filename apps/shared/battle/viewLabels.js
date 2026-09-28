@@ -6,5 +6,8 @@ export function viewerResultTitle(view) {
 
 export function sideConditionLabels(view) {
   return Object.entries(view?.sideConditions ?? {}).flatMap(([seat, values]) =>
-    values.map(value => `${seat === view.seat ? 'Your side' : 'Opponent'}: ${value.replace(/^move: /, '')}`))
+    values.map(value => {
+      const name = value.replace(/^move: /, ''), layers = view?.sideConditionLayers?.[seat]?.[name]
+      return `${seat === view.seat ? 'Your side' : 'Opponent'}: ${name}${name === 'Spikes' && Number.isInteger(layers) && layers > 0 ? ` (${layers} ${layers === 1 ? 'layer' : 'layers'})` : ''}`
+    }))
 }

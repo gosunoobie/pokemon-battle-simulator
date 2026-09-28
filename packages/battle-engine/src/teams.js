@@ -70,7 +70,7 @@ export function validateTeam(input, profileId, { npc = false } = {}) {
   const minSize = profile.team.size ?? profile.team.minSize
   const maxSize = profile.team.size ?? profile.team.maxSize
   if (!Array.isArray(original) || original.length < minSize || original.length > maxSize) {
-    return { valid: false, team: null, errors: [{ code: 'TEAM_SIZE', message: minSize === maxSize ? 'Open Singles v1 requires exactly six Pokémon.' : 'Regional League v1 requires one through six Pokémon.' }], changes: [] }
+    return { valid: false, team: null, errors: [{ code: 'TEAM_SIZE', message: minSize === maxSize ? 'Open Singles v1 requires exactly six Pokémon.' : `${profile.id === 'gen3survivalsinglesv1' ? 'Survival Singles' : 'Regional League'} v1 requires one through six Pokémon.` }], changes: [] }
   }
   for (const [index, set] of original.entries()) {
     if (!set || Array.isArray(set) || typeof set !== 'object') {
@@ -121,7 +121,7 @@ export function validateTeam(input, profileId, { npc = false } = {}) {
       error('ROSTER', 'Species must belong to National Dex #001–386 and the Gen 3 roster.', index)
     }
     const base = Dex.toID(species.baseSpecies)
-    if (profile.team.distinctBaseSpecies && baseSpecies.has(base)) error('SPECIES_CLAUSE', 'Team members must have six distinct base species.', index)
+    if (profile.team.distinctBaseSpecies && baseSpecies.has(base)) error('SPECIES_CLAUSE', 'Team members must have distinct base species.', index)
     baseSpecies.add(base)
     const moves = set.moves.map(move => dex.moves.get(move).id)
     if (new Set(moves).size !== moves.length) error('DUPLICATE_MOVE', 'A move cannot appear twice in one moveset.', index)

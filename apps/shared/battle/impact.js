@@ -1,5 +1,7 @@
 // Presentation of already-published server facts only. No type chart, damage
 // formula, hidden HP, battle state updates or renderer dependencies belong here.
+import { classifyMoveOutcome } from './outcomes.js'
+
 const effectiveness = new Map([
   ['-supereffective', { kind: 'super-effective', label: 'Super effective!' }],
   ['-resisted', { kind: 'resisted', label: 'Not very effective…' }],
@@ -76,7 +78,7 @@ export function deriveMoveImpact(group, before) {
 
   // Some damaging moves subsequently fail to apply a secondary effect. A later
   // immunity message must not call the entire damaging move ineffective.
-  if (!selected && immunity && !directDamageSeen) selected = effectiveness.get('-immune')
+  if (!selected && immunity && !directDamageSeen && !classifyMoveOutcome(group).succeeded) selected = effectiveness.get('-immune')
   if (!selected) return null
   let damageText = null
   if (selected.kind !== 'immune' && !incompleteDamage && totalHp > 0) {

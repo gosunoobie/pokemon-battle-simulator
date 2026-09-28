@@ -9,20 +9,20 @@ onBeforeUnmount(() => audio.dispose())
 const experiences = [
   {
     id: 'multiplayer', number: '01', href: '/multiplayer', label: 'CHALLENGE A FRIEND',
-    title: 'Private battle', tag: 'TWO PLAYERS', action: 'Create or join a room',
-    description: 'Invite a friend to a private Generation 3 battle. Pick a preset team, ready up, and face each other on the battlefield.',
+    title: 'Private battles', tag: 'TWO PLAYERS', action: 'Create or join a room',
+    description: 'Invite a friend to a private Generation 3 duel. Build your team, ready up, and face each other on the battlefield.',
     details: ['Guest players', 'Private invitation'],
   },
   {
-    id: 'simulation', number: '02', href: '/simulation', label: 'PLAY A BATTLE',
-    title: 'Battle simulation', tag: 'GENERATION 3', action: 'Enter the battle',
-    description: 'Play a full Generation 3 singles battle with ready-made teams. Choose moves and switches as the battle unfolds.',
-    details: ['6-Pokémon teams', 'Turn-by-turn play'],
+    id: 'simulation', number: '02', href: '/simulation', label: 'CHOOSE YOUR SOLO CHALLENGE',
+    title: 'Battle simulation', tag: 'LEAGUE + SURVIVAL', action: 'Choose your battle mode',
+    description: 'Challenge a regional Pokémon League or see how long your team lasts against endless random rivals. Build your six and battle solo.',
+    details: ['Regional leagues', 'Endless Survival'],
   },
   {
     id: 'preview', number: '03', href: '/preview', label: 'TAKE A CLOSER LOOK',
-    title: 'Move preview', tag: '335 MOVES', action: 'Choose a move',
-    description: 'Choose from 335 moves and a roster of 386 Pokémon. See each animation with a fixed sample battle result.',
+    title: 'Move preview', tag: '345 MOVES', action: 'Choose a move',
+    description: 'Choose from 345 moves and a roster of 386 Pokémon. See each animation with a fixed sample battle result.',
     details: ['Either perspective', 'Replay any move'],
   },
   {
@@ -62,7 +62,7 @@ const experiences = [
           <div class="home-pokemon home-pokemon-charizard"><img :src="SPRITE_URLS['charizard-front.png']" alt="" width="96" height="96" decoding="async" fetchpriority="high"></div>
           <div class="home-pokemon home-pokemon-venusaur"><img :src="SPRITE_URLS['venusaur-front.png']" alt="" width="96" height="96" decoding="async"></div>
         </div>
-        <div class="home-roster-note"><span>GEN I–III</span><i aria-hidden="true"></i><span>386 POKÉMON</span><i aria-hidden="true"></i><span>335 MOVE EFFECTS</span></div>
+        <div class="home-roster-note"><span>GEN I–III</span><i aria-hidden="true"></i><span>386 POKÉMON</span><i aria-hidden="true"></i><span>345 MOVE EFFECTS</span></div>
       </section>
 
       <section id="experiences" class="home-experiences" aria-labelledby="experiences-title" tabindex="-1">

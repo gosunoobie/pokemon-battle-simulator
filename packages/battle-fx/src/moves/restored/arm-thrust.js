@@ -20,13 +20,15 @@ export default function armThrust(context) {
   const receiver=targetSocket(context.target.hasAnchor?.('visualCenter')?'visualCenter':'center')
   const recoil=Math.max(0,Math.min(9,right-receiver.x-context.target.metrics.width/(2*unit)))
 
-  const hand=context.source.hasAnchor?.('palm')?'palm':'hand',r=Math.min(34,Math.max(22,h*.15)),times=[.62,.98,1.34],points=[]
+  const counted=Number.isInteger(context.hitCount)&&context.hitCount>=1&&context.hitCount<=5
+  const times=counted?Array.from({length:context.hitCount},(_,i)=>Number((.62+i*.36).toFixed(3))):[.62,.98,1.34],last=times.at(-1),end=last+0.26
+  const hand=context.source.hasAnchor?.('palm')?'palm':'hand',r=Math.min(34,Math.max(22,h*.15)),points=[]
   const pose=fitPose(solveContact(hand,0)),palm=new Graphics();palm.label='arm-thrust-palm';palm.alpha=0;temporary.addChild(palm)
   const forearm=new Graphics();forearm.alpha=0;temporary.addChild(forearm)
   const presses=times.map((_,i)=>{const g=new Graphics();g.label=`arm-thrust-impact-${i}`;g.alpha=0;temporary.addChild(g);return g})
   function update(time){
-    fitActor();const i=Math.min(2,Math.max(0,Math.floor((time-.43)/.36))),at=times[i],u=time<=at?clamp((time-at+.19)/.19):1-clamp((time-at)/.15),from=socket(hand,true),to=points[i]??targetSocket('center',true),p={x:from.x+(to.x-from.x)*u,y:from.y+(to.y-from.y)*u}
-    fitArt(palm,p,r*1.7);palm.alpha=time>=.3&&time<1.6?Math.min(1,(time-.3)*10)*Math.min(1,(1.6-time)*7):0;palm.clear()
+    fitActor();const i=Math.min(times.length-1,Math.max(0,Math.floor((time-.43)/.36))),at=times[i],u=time<=at?clamp((time-at+.19)/.19):1-clamp((time-at)/.15),from=socket(hand,true),to=points[i]??targetSocket('center',true),p={x:from.x+(to.x-from.x)*u,y:from.y+(to.y-from.y)*u}
+    fitArt(palm,p,r*1.7);palm.alpha=time>=.3&&time<end?Math.min(1,(time-.3)*10)*Math.min(1,(end-time)*7):0;palm.clear()
       .roundRect(-r*.62,-r*.84,r*.62,r*1.6,r*.14).fill(0xdf967a).stroke({color:0xffd7ae,width:1.8})
       .roundRect(-r*.78,r*.18,r*.42,r*.57,r*.16).fill(0xedb08d)
     for(let j=0;j<3;j++)palm.moveTo(-r*.08,-r*.58+j*r*.23).lineTo(-r*.42,-r*.58+j*r*.23).stroke({color:0xaa705e,width:1.2,cap:'round'})
@@ -38,9 +40,9 @@ export default function armThrust(context) {
   }
   onFrame(update)
   tl.to(attacker,{...fitPose({x:-8,y:3,rotation:0}),duration:.2},0).to(attacker,{...pose,duration:.31,ease:'power2.in'},.28)
-  times.forEach((at,i)=>{tl.call(()=>{points[i]=targetSocket('center',true);update(at);if(i===2)onCue({type:'impact'});defender.tint=0xf3c6a0},[],at)
+  times.forEach((at,i)=>{tl.call(()=>{points[i]=targetSocket('center',true);update(at);if(counted)onCue({type:'hit',hitIndex:i+1});if(i===times.length-1)onCue({type:'impact'});defender.tint=0xf3c6a0},[],at)
     .to(defender,{x:defenderHome.x+recoil,duration:.065,repeat:1,yoyo:true},at).call(()=>{defender.tint=0xffffff},[],at+.16)
-    if(i<2)tl.to(attacker,{...fitPose({x:pose.x-11,y:pose.y,rotation:0}),duration:.14},at+.04).to(attacker,{...pose,duration:.17,ease:'power3.in'},at+.19)})
-  tl.to(attacker,{x:0,y:0,rotation:0,duration:.46,ease:'power2.inOut'},1.6)
-
+    if(i<times.length-1)tl.to(attacker,{...fitPose({x:pose.x-11,y:pose.y,rotation:0}),duration:.14},at+.04).to(attacker,{...pose,duration:.17,ease:'power3.in'},at+.19)})
+  tl.to(attacker,{x:0,y:0,rotation:0,duration:.46,ease:'power2.inOut'},last+.26)
+  if(counted)return{duration:last+.96,hitTimes:times}
 }

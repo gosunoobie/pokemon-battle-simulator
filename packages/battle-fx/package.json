@@ -5,7 +5,10 @@
   "exports": {
     ".": "./src/index.js",
     "./catalog": "./src/catalog.js",
+    "./multi-hit": "./src/multi-hit.js",
     "./transitions": "./src/transitions/index.js",
+    "./weather": "./src/weather/index.js",
+    "./conditions": "./src/conditions/index.js",
     "./presentation-clock": "./src/presentation-clock.js",
     "./accepted-effects": "./src/accepted-effects.js"
   },

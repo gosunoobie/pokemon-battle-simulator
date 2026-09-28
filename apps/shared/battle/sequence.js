@@ -3,12 +3,13 @@
 export const OVERLAY_TIMINGS = Object.freeze({ intro: 2000, result: 1800, reducedIntro: 900, reducedResult: 220 })
 
 export function introOverlay(view, run, playerLabel = 'Your team', { opponentName, opponentTitle } = {}) {
+  const survival = run?.kind === 'survival'
   return {
     key: `${view.matchId}:intro`, kind: 'intro', champion: run?.opponent?.title === 'Champion',
-    eyebrow: run ? `${run.regionName} Pokémon League` : 'Generation 3 singles',
+    eyebrow: survival ? 'Survival · Generation 3' : run ? `${run.regionName} Pokémon League` : 'Generation 3 singles',
     title: 'Battle start', detail: 'Let the battle begin!', playerLabel,
-    opponentName: run?.opponent?.name ?? opponentName ?? 'Opponent', opponentTitle: run?.opponent?.title ?? opponentTitle ?? 'Battle trainer',
-    roundLabel: run ? `Battle ${run.stageIndex + 1} / ${run.totalStages}` : 'Level 100',
+    opponentName: survival ? 'Random team' : run?.opponent?.name ?? opponentName ?? 'Opponent', opponentTitle: survival ? 'Survival rival' : run?.opponent?.title ?? opponentTitle ?? 'Battle trainer',
+    roundLabel: survival ? `Round ${run.roundNumber}` : run ? `Battle ${run.stageIndex + 1} / ${run.totalStages}` : 'Level 100',
   }
 }
 
@@ -17,12 +18,13 @@ export function resultOverlay(view, run) {
   if (!result) return null
   const win = result.kind === 'win' && result.winnerSeat === (view.seat ?? 'p1')
   const champion = win && run?.status === 'won'
+  const survival = run?.kind === 'survival'
   const kind = result.kind === 'win' ? win ? 'victory' : 'defeat' : result.kind === 'draw' ? 'draw' : 'no-contest'
   const opponent = run?.opponent?.name ?? 'your opponent'
   return {
     key: `${view.matchId}:result`, kind, champion,
     title: champion ? 'Champion' : { victory: 'Victory', defeat: 'Defeat', draw: 'Draw', 'no-contest': 'No contest' }[kind],
-    eyebrow: champion ? `${run.regionName} League conquered` : run ? `${run.regionName} League · Battle ${run.stageIndex + 1}` : 'Battle complete',
+    eyebrow: survival ? `Survival · Round ${run.roundNumber}` : champion ? `${run.regionName} League conquered` : run ? `${run.regionName} League · Battle ${run.stageIndex + 1}` : 'Battle complete',
     detail: champion ? `All ${run.totalStages} trainers defeated. The title is yours!`
       : kind === 'victory' ? `${opponent === 'your opponent' ? 'Your opponent' : opponent} defeated. Well battled!`
         : kind === 'defeat' ? result.reason === 'forfeit' ? 'You forfeited the battle.' : 'Your team gave it everything.'

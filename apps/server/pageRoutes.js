@@ -1,7 +1,7 @@
 // HTML remains the build entry format; public page URLs are extensionless.
 export const PAGE_ENTRIES = Object.freeze({
   home: 'index.html', preview: 'preview.html', playground: 'playground.html',
-  simulation: 'simulation.html', multiplayer: 'multiplayer.html',
+  simulation: 'simulation.html', multiplayer: 'multiplayer.html', survival: 'survival.html',
 })
 
 export function resolvePageRoute(pathname) {

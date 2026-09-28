@@ -1,11 +1,12 @@
 import { Container, Graphics, Texture, Sprite } from 'pixi.js'
 import { gsap } from 'gsap'
 import { FX_CATALOG } from './catalog.js'
+import { MULTI_HIT_LIMITS } from './multi-hit.js'
 import { MOVE_EFFECTS } from './registry.js'
 import { loadMoveAssets } from './assets.js'
 import { visualRandom } from './random.js'
 export { FX_CATALOG } from './catalog.js'
-export { EFFECT_TIMINGS, PHASE_TIMINGS } from './registry.js'
+export { EFFECT_TIMINGS, PHASE_TIMINGS, VARIANT_TIMINGS } from './registry.js'
 
 function makeGlow() {
   const canvas = document.createElement('canvas'); canvas.width = canvas.height = 64
@@ -21,6 +22,7 @@ export function createBattleFx({ timelineEngine = gsap, assetLoader, glowTexture
   const runs = new Set(), byScene = new WeakMap()
   function play(request = {}, { scene, signal, onCue = () => {}, reducedMotion = false } = {}) {
     let settled = false, raw, layer, timer, actors = [], resolve
+    const interrupted = Symbol('stopped effect callback')
     const finished = new Promise(done => { resolve = done })
     const handle = { finished, cancel: () => finish('cancelled') }
     function finish(status, error) {
@@ -43,13 +45,24 @@ export function createBattleFx({ timelineEngine = gsap, assetLoader, glowTexture
 
     const abort = () => finish('cancelled')
     function guard(fn) {
-      return (...args) => { if (!settled) { try { return fn(...args) } catch (error) { finish('failed', error) } } }
+      return (...args) => { if (!settled) { try { return fn(...args) } catch (error) { if (error !== interrupted) finish('failed', error) } } }
     }
     if (disposed || signal?.aborted) { finish('cancelled'); return handle }
     const registered = Object.hasOwn(effects, request.moveId) ? effects[request.moveId] : null
     const phase = request.phase ?? 'attack'
-    const effect = phase === 'attack' ? registered : phase === 'prepare' ? registered?.preparation : null
+    // Explicit cosmetic variants own their targeting. Unknown variants skip;
+    // they never relax the ordinary offensive self-target guard below.
+    const variant = request.variant
+    const effect = variant !== undefined
+      ? phase === 'attack' && typeof variant === 'string' && registered?.variants && Object.hasOwn(registered.variants, variant)
+        ? registered.variants[variant] : null
+      : phase === 'attack' ? registered : phase === 'prepare' ? registered?.preparation : null
     if (!scene || !effect || (request.outcome && request.outcome !== 'hit')) { finish('skipped'); return handle }
+    const hitCount = request.hitCount
+    if (hitCount !== undefined && (phase !== 'attack' || !Number.isSafeInteger(hitCount) || hitCount < 1 ||
+      !Object.hasOwn(MULTI_HIT_LIMITS, request.moveId) || hitCount > MULTI_HIT_LIMITS[request.moveId])) {
+      finish('skipped'); return handle
+    }
     let source, target
     const localSubject = effect.subject === 'source' || effect.subject === 'field'
     try { source = scene.actor(request.sourceId); target = localSubject ? source : scene.actor(request.targetIds?.[0]) }
@@ -79,12 +92,27 @@ export function createBattleFx({ timelineEngine = gsap, assetLoader, glowTexture
           const value = object[key]; return typeof value === 'function' ? value.bind(object) : value
         } })
         const cued = new Set()
-        const cue = guard(value => {
+        let lastHit = 0
+        // The enclosing timeline callback owns error cleanup. Catching here
+        // would let a recipe keep mutating poses after finish() restored them.
+        const cue = value => {
+          if (settled) return
+          if (value?.type === 'hit') {
+            if (hitCount === undefined || reducedMotion || cued.has('impact') ||
+              !Number.isSafeInteger(value.hitIndex) || value.hitIndex !== lastHit + 1 || value.hitIndex > hitCount) return
+            lastHit = value.hitIndex
+            scene.updateDepth?.(source, target); onCue({ type: 'hit', hitIndex: lastHit })
+            if (settled) throw interrupted
+            return
+          }
+          if (!value) return
+          if (value.type === 'impact' && hitCount !== undefined && !reducedMotion && lastHit !== hitCount) return
           if (!(phase === 'prepare' ? ['prepared'] : ['impact', 'recovery']).includes(value.type) || cued.has(value.type)) return
           if (value.type === 'recovery' && (!cued.has('impact') || effect.recovery == null)) return
           cued.add(value.type); scene.updateDepth?.(source, target); onCue(value)
-        })
-        const c = { tl, layer, source, target, scene, glowTexture, random: visualRandom(request.visualSeed), assets, tint: FX_CATALOG.find(m => m.id === request.moveId)?.tint ?? 0xffffff, onCue: cue, onFrame: fn => frameUpdates.push(fn) }
+          if (settled) throw interrupted
+        }
+        const c = { tl, layer, source, target, scene, glowTexture, random: visualRandom(request.visualSeed), assets, tint: FX_CATALOG.find(m => m.id === request.moveId)?.tint ?? 0xffffff, onCue: cue, onFrame: fn => frameUpdates.push(fn), ...(hitCount === undefined ? {} : { hitCount }) }
         if (reducedMotion && effect.subject === 'field') {
           const wash = new Graphics().rect(0, 0, scene.width, scene.height).fill(c.tint)
           wash.label = 'weather-reduced-wash'; wash.alpha = 0; layer.addChild(wash)
@@ -104,8 +132,15 @@ export function createBattleFx({ timelineEngine = gsap, assetLoader, glowTexture
               .call(() => cue({ type: 'recovery' }), [], .45)
           }
         } else {
-          effect.build(c)
-          tl.call(() => {}, [], effect.duration)
+          const timing = effect.build(c)
+          if (hitCount !== undefined) {
+            if (!timing || !Number.isFinite(timing.duration) || timing.duration <= 0 || timing.duration > 10 ||
+              !Array.isArray(timing.hitTimes) || timing.hitTimes.length !== hitCount ||
+              timing.hitTimes.some((time, index) => !Number.isFinite(time) || time <= 0 || time >= timing.duration ||
+                (index > 0 && time <= timing.hitTimes[index - 1]))) throw new Error('Invalid multi-hit presentation timing')
+            raw.data = { hitTimes: Object.freeze([...timing.hitTimes]) }
+          }
+          tl.call(() => {}, [], hitCount === undefined ? effect.duration : timing.duration)
         }
       } catch (error) { finish('failed', error) }
     })()

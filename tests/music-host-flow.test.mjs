@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs'
 import { parse, compileScript } from '@vue/compiler-sfc'
 import { createMusicDirector } from '../apps/shared/music/director.js'
 import { createRoomSession } from '../apps/multiplayer/src/roomSession.js'
+import { saveSurvivalStart, survivalAdvanceCommand } from '../apps/simulation/src/survival.js'
 
 const tick = () => new Promise(resolve => setImmediate(resolve))
 const deferred = () => { let resolve; const promise = new Promise(done => { resolve = done }); return { promise, resolve } }
@@ -31,12 +32,14 @@ function music() {
 function simulation({ present = async () => ({ status: 'completed' }) } = {}) {
   const audio = music(), refs = Object.fromEntries([
     'latest', 'displayed', 'run', 'regionId', 'teamMode', 'customTeam', 'leadIndex', 'presetId', 'pendingChoice',
-    'pendingAdvance', 'pendingQuit', 'busy', 'confirmingForfeit', 'playing', 'message', 'error',
+    'pendingAdvance', 'pendingStart', 'nextLeadMemberId', 'pendingQuit', 'busy', 'confirmingForfeit', 'playing', 'message', 'error',
   ].map(name => [name, ref(null)]))
   let generation = 1
   const bindings = { ...refs, ...audio, log: ref([]), resultTitle: ref('Battle complete'), selectedTeamLabel: ref('Your team'),
     battleView: ref({ present, sync() {}, clear() {} }), isCurrent: token => token === generation,
     createTeamDraft: team => team, nextTick: async () => {}, readyText: () => 'Choose a move', showBattle() {}, addLog() {},
+    survival: { get value() { return refs.run.value?.kind === 'survival' } },
+    saveSurvivalStart, survivalAdvanceCommand, setupMessage: () => 'Choose a team.',
   }
   const host = new Function(...Object.keys(bindings), `${simulationSource}; return { acceptResponse, clearBattleState }`)(...Object.values(bindings))
   return { ...audio, ...refs, ...host, nextGeneration: () => ++generation }
@@ -89,10 +92,29 @@ test('late league presentation completion cannot change music after clearing or 
   }
 })
 
+test('Survival recovery and subsequent rounds retain battle music until leaving the run', async () => {
+  const h = simulation()
+  const response = (matchId, status) => ({ matchId, view: { matchId, complete: true, result: status === 'active' ? null : { kind: 'win' } },
+    run: { id: 'survival-run', kind: 'survival', status, roundNumber: matchId === 'round-one' ? 1 : 2, roster: [{ id: 'slot:1', hp: 100, maxHp: 200, eliminated: false }] }, events: [] })
+  await h.acceptResponse(response('round-one', 'active'), 1)
+  const first = h.director.getState()
+  assert.equal(first.trackId, 'wild-battle')
+  await h.acceptResponse(response('round-one', 'between-rounds'), 1)
+  assert.deepEqual(h.director.getState(), first)
+  await h.acceptResponse(response('round-two', 'active'), 1)
+  assert.equal(h.director.getState().key, 'match:round-two')
+  await h.acceptResponse(response('round-two', 'ended'), 1, false)
+  assert.equal(h.director.getState().trackId, 'wild-battle')
+  noOpening(h.tracks.slice(1))
+  h.clearBattleState()
+  assert.equal(h.director.getState().trackId, 'opening-theme')
+})
+
 function multiplayer({ present = async () => {} } = {}) {
   const audio = music(), state = ref({ envelope: null }), error = ref('')
   const bindings = { ...audio, state, error, createRoomSession, nextTick: async () => {},
     pendingOperation: ref(null), displayed: ref(null), log: ref([]), logHost: ref(null),
+    editorOpen: ref(false), generating: ref(false), notice: ref(''), selectionIssues: ref([]), selectionChanges: ref([]),
     room: { get value() { return state.value.envelope?.room } }, buildBattleLog: () => [],
     battle: ref({ present, sync() {}, clear() {} }),
   }

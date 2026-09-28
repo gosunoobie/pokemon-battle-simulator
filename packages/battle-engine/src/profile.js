@@ -60,9 +60,25 @@ export const LEAGUE_PROFILE = freeze({
   },
 })
 
+// A compact party contains only the surviving members. Original six-member run
+// identities and recovery rules belong to the host, outside battle mechanics.
+export const SURVIVAL_PROFILE = freeze({
+  ...structuredClone(ENGINE_PROFILE),
+  id: 'gen3survivalsinglesv1',
+  team: { ...ENGINE_PROFILE.team, size: null, minSize: 1, maxSize: 6 },
+  initialConditions: { seat: 'p1', positiveHpOnly: true },
+  definition: {
+    ...structuredClone(ENGINE_PROFILE.definition),
+    name: '[Gen 3] Survival Singles v1',
+    ruleset: ['Obtainable', 'Species Clause', 'Min Team Size = 1', 'Max Team Size = 6',
+      'Min Level = 100', 'Max Level = 100', 'Default Level = 100', 'Max Move Count = 4'],
+  },
+})
+
 export function getProfile(id = ENGINE_PROFILE.id) {
   if (id === ENGINE_PROFILE.id) return ENGINE_PROFILE
   if (id === LEAGUE_PROFILE.id) return LEAGUE_PROFILE
+  if (id === SURVIVAL_PROFILE.id) return SURVIVAL_PROFILE
   throw new TypeError('Unknown battle profile.')
 }
 

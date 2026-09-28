@@ -3,6 +3,8 @@ import { bindEffectSpace } from '../../effect-space.js'
 
 export default function barrage(context) {
   const { tl, random, onFrame, onCue } = context
+  const counted = Number.isInteger(context.hitCount), count = counted ? context.hitCount : 5
+  const timingOffset = counted ? (count - 5) * 0.13 : 0
   const { temporary, attacker, defender, home, defenderHome, socket, targetSocket, unit } = bindEffectSpace(context)
   const attachment = context.source.hasAnchor?.('emission') ? 'emission' : 'emission'
   const r = Math.min(16, Math.max(11, context.target.metrics.height / unit * .071))
@@ -15,7 +17,7 @@ export default function barrage(context) {
   const recoil = Math.max(0, Math.min(8, right - receiver.x - context.target.metrics.width / (2 * unit)))
 
   const shots=[],chips=[]
-  for(let i=0;i<5;i++){
+  for(let i=0;i<count;i++){
     const nut=new Graphics().circle(0,0,r).fill(i%2?0xbfa476:0xcbb68c).stroke({color:0x7e7155,width:1.6})
       .moveTo(-r*.6,-r*.78).quadraticCurveTo(r*.15,0,-r*.6,r*.78).moveTo(r*.45,-r*.85).quadraticCurveTo(-r*.25,0,r*.45,r*.85).stroke({color:0x8e7958,width:1.8})
       .ellipse(-r*.22,-r*.34,r*.17,r*.1).fill(0xe5d3ac)
@@ -26,7 +28,7 @@ export default function barrage(context) {
     for(let j=0;j<8;j++){const g=new Graphics().poly([-2,-1,3,-2,2,2,-1,2]).fill(j%2?0xc3a67b:0xe3cfa6);g.alpha=0;temporary.addChild(g);chips.push({g,p,a:random()*Math.PI*2,v:45+random()*70,life:.22+random()*.17})}
     const at=p.start+p.flight
     tl.call(()=>{p.from=socket(attachment,true);update(p.start)},[],p.start).to(pop,{alpha:1,duration:.025},at).to(pop.scale,{x:1.4,y:1.4,duration:.16},at).to(pop,{alpha:0,duration:.19},at+.045)
-      .call(()=>{p.impact=endPoint(p);update(at);if(i===4)onCue({type:'impact'});defender.tint=0xe4cda5},[],at)
+      .call(()=>{p.impact=endPoint(p);update(at);if(counted)onCue({type:'hit',hitIndex:i+1});if(i===count-1)onCue({type:'impact'});defender.tint=0xe4cda5},[],at)
       .to(defender,{x:defenderHome.x+Math.min(5,recoil),duration:.035,repeat:1,yoyo:true},at)
   }
   function endPoint(p){const b=targetSocket('center',true),c=targetSocket(context.target.hasAnchor?.('visualCenter')?'visualCenter':'center',true),half=context.target.metrics.height/(2*unit);return{x:b.x,y:Math.max(c.y-half,Math.min(c.y+half,b.y+p.lane))}}
@@ -36,6 +38,7 @@ export default function barrage(context) {
     }for(const q of chips){const age=time-q.p.start-q.p.flight,t=age/q.life,p=q.p.impact;q.g.alpha=p&&t>=0&&t<1?Math.sin(t*Math.PI)*.9:0;if(p&&age>=0){q.g.position.set(p.x+Math.cos(q.a)*q.v*age,p.y+Math.sin(q.a)*q.v*age+55*age*age);q.g.rotation=age*8}}}
   onFrame(update)
   tl.to(attacker,{x:home.x-back,duration:.14},0).to(attacker,{x:home.x+thrust,duration:.1},.14)
-    .to(attacker,{x:home.x,duration:.36},.85).call(()=>{defender.tint=0xffffff},[],1.37)
+    .to(attacker,{x:home.x,duration:.36},.85+timingOffset).call(()=>{defender.tint=0xffffff},[],1.37+timingOffset)
+  if(counted)return{duration:1.95+timingOffset,hitTimes:shots.map(p=>p.start+p.flight)}
 
 }

@@ -31,7 +31,8 @@ export default function doubleKick(context) {
   }
   const room = Math.max(0, right - targetSocket(context.target.hasAnchor?.('visualCenter') ? 'visualCenter' : 'center').x - context.target.metrics.width / (2 * unit))
 
-  const hits=[contact(.05,.56),contact(-.045,.18)],times=[.52,.94]
+  const counted=Number.isInteger(context.hitCount)&&context.hitCount>=1&&context.hitCount<=2
+  const count=counted?context.hitCount:2,hits=[contact(.05,.56),contact(-.045,.18)].slice(0,count),times=[.52,.94].slice(0,count),last=times.at(-1)
   const foot=new Container();foot.label='double-kick-foot';foot.alpha=0;temporary.addChild(foot)
   foot.addChild(new Graphics().poly([-r*.6,-r*.43,-r*.19,-r*.47,-r*.03,-r*.17,r*.75,-r*.18,r,-r*.05,r,r*.17,r*.64,r*.28,-r*.56,r*.22])
     .fill(0xe0c09e).stroke({color:0xf6dfbd,width:1.8,join:'round'})
@@ -42,13 +43,13 @@ export default function doubleKick(context) {
   const update=time=>{follow(foot);for(const p of specks){const age=time-p.at,t=age/p.life;p.g.alpha=t>=0&&t<1?Math.sin(t*Math.PI)*.8:0;if(age>=0)p.g.position.set(p.point.x+Math.cos(p.a)*p.v*age,p.point.y+Math.sin(p.a)*p.v*age+30*age*age)}}
   onFrame(update)
   tl.to(attacker,{x:home.x-7,rotation:-.05,duration:.16},0).to(attacker,{...hits[0].pose,duration:.36,ease:'power3.in'},.16)
-    .to(attacker,{x:hits[0].pose.x-r*.75,y:hits[0].pose.y+4,rotation:-.09,duration:.16},.56)
+  if(count>1)tl.to(attacker,{x:hits[0].pose.x-r*.75,y:hits[0].pose.y+4,rotation:-.09,duration:.16},.56)
     .to(attacker,{...hits[1].pose,duration:.22,ease:'power3.in'},.72)
-    .to(attacker,{x:home.x,y:home.y,rotation:0,duration:.5,ease:'power2.inOut'},1.14)
-    .to(foot,{alpha:1,duration:.1},.2).to(foot,{alpha:0,duration:.2},1.08)
+  tl.to(attacker,{x:home.x,y:home.y,rotation:0,duration:.5,ease:'power2.inOut'},last+.2)
+    .to(foot,{alpha:1,duration:.1},.2).to(foot,{alpha:0,duration:.2},last+.14)
   hits.forEach((hit,i)=>{const at=times[i],g=stamps[i];tl.to(g,{alpha:1,duration:.025},at).to(g.scale,{x:1.25,y:1.13,duration:.16},at).to(g,{alpha:0,duration:.18},at+.055)
-    .call(()=>{update(at);if(i===1)onCue({type:'impact'});defender.tint=i?0xf5ddbc:0xe3c29a},[],at)
+    .call(()=>{update(at);if(counted)onCue({type:'hit',hitIndex:i+1});if(i===count-1)onCue({type:'impact'});defender.tint=i?0xf5ddbc:0xe3c29a},[],at)
     .to(defender,{x:defenderHome.x+Math.min(i?11:7,room),duration:.055,repeat:1,yoyo:true},at)
     .call(()=>{defender.tint=0xffffff},[],at+.14)})
-
+  if(counted)return{duration:last+.96,hitTimes:times}
 }

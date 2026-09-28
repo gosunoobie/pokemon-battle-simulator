@@ -11,6 +11,7 @@
     "test": "node --test tests/*.test.mjs",
     "test:simulation": "node --test tests/simulation-*.test.mjs",
     "test:multiplayer": "node --test tests/multiplayer-*.test.mjs",
+    "test:survival": "node --test tests/survival-*.test.mjs packages/battle-engine/tests/survival.test.mjs",
     "test:engine": "node --test packages/battle-engine/tests/*.test.mjs",
     "teams:build": "node tools/team-generation/build.mjs",
     "teams:check": "node tools/team-generation/build.mjs --check",

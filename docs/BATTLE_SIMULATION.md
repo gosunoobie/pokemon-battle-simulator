@@ -1,6 +1,17 @@
 # Visual battle simulation
 
-The home page (`/`) links the live battle simulation (`/simulation.html`), existing move preview (`/preview.html`) and independent effects playground (`/playground.html`). The preview and FX recipes keep their existing behavior.
+The home page (`/`) links **Battle Simulation**, which offers **Regional League**
+at `/simulation` and **Survival** at `/survival`. Both setup screens use the Battle
+simulation heading and provide League / Survival mode choices. The existing move
+preview (`/preview`) and independent effects playground (`/playground`) keep their
+existing behavior.
+
+Regional League is the five-battle challenge described below. Survival is an
+endless solo challenge against random teams. After a win, survivors recover 25%
+of maximum HP and fainted members revive at 50% maximum HP; losses, draws and
+forfeits end the run without recovery. See [Survival rules and
+API](SURVIVAL.md). Both modes share the team builder, battle presentation and solo
+service, while their progression rules remain separate.
 
 ## Run the complete slice
 
@@ -133,7 +144,17 @@ flowchart LR
 - `presentation.js` reads ordered, already-redacted protocol facts into display snapshots. It groups each move for optional animation, applies HP/status facts at an impact cue, and preserves switch/form/faint ordering. Missing FX, errors, missing cues, skip, reduced motion and deadlines all converge on the same final server view. Residual damage follows the move instead of being presented as contact damage.
 - `scene.js` maps species to the existing pinned sprite profiles. Near and far actors retain stable `source`/`target` scene IDs. Replacements rebuild only the scene, preserving native artwork, sockets, scale and platform geometry. Late asynchronous loads cannot attach stale canvases. A renderer failure leaves DOM sprites and all engine controls available.
 
-The browser does not import `battle-engine`, vendor Showdown code or the preview's fixed-result `battle-core`. FX receives only move ID, source/target field IDs, cosmetic phase/outcome and visual seed. The existing preview presenter remains independent. Animation clips are cosmetic: for example, a multi-hit recipe can show a different number of visible strikes from the engine's rolled hit count; the log and HP reflect the engine's complete result.
+The browser does not import `battle-engine`, vendor Showdown code or the preview's fixed-result `battle-core`. FX receives only move ID, source/target field IDs, cosmetic phase/outcome, visual seed and an optional already-resolved hit count. The existing preview presenter remains independent. All 17 multi-hit moves use the server's actual contact count, including early knockouts and partial Triple Kick. `hits.js` partitions published damage, Substitute and follow-up facts into display steps; each indexed FX contact reveals the corresponding snapshot. Unchanged rounded public HP still counts as a hit. An unfamiliar event shape falls back to the complete move snapshot without inventing intermediate damage. Fainting waits for attack recovery, and every interrupted path restores the final server view.
+
+Weather upkeep now plays a short field continuation through the independently loaded `@battle/battle-fx/weather` export. Rain, sunlight, sandstorm and hail follow the server's ordered `-weather` events, before any subsequent residual HP changes or fainting. Weather casts retain their original full animation; standalone ability starts receive a short field clip, including opening abilities after send-outs. No turn counter, damage, suppression or expiry calculation is added to the client. Cloud Nine/Air Lock do not falsely clear active weather. Effects-off, reduced motion, skip, reset, deadlines and reconnect preserve the authoritative view; historical weather does not replay on sync. Private rooms, League and Survival share this path.
+
+Counted sound playback schedules the existing one-hit recordings from the visual clock. Triple Kick preserves its approved internal anchor; recordings with no measured internal anchor align their starts to contacts. Beat Up retains its existing whole recording once because no individual-hit region has been verified. Reduced motion keeps a short aggregate reveal. Omitting `hitCount` preserves the showcase/playground choreography and fixed preview totals.
+
+Status and setup casts use public outcome facts to distinguish complete failure from partial success. Swagger/Flatter still animate when a stat changes but confusion is blocked, and Perish Song still animates when it affects only one participant. Published Protect, Detect, Safeguard and Mist blocks suppress the successful cast and show a blocked reaction. Non-Ghost Curse uses a source setup variant; Mirror Move has a source casting variant before the separately published copied move. Default move recipes and offensive targeting guards remain unchanged.
+
+The separate `@battle/battle-fx/conditions` module provides short reactions for status application, curing, stat changes, blocked actions, inability to act, and published poison/burn/Leech Seed/Spikes residual effects. Reactions follow the move's recovery and precede fainting or the next move. Delayed Yawn sleep and Shed Skin curing begin separate presentation groups, so they cannot appear at the preceding attack's impact. The host reads these results from server facts and adds no eligibility or residual-damage rules.
+
+Public `sideConditionLayers` stores one to three Spikes layers beside the existing side-condition labels. Projection checkpoints recover missing counts from their public event ledger. The scene draws persistent Spikes at fixed platform slots, restores them from current views, and clears them on published removal. Layer badges and artwork map correctly for either seat. Effects-off, scene replacement, late imports and cancellation clear owned graphics; reconnect restores static hazards without replaying old reactions. Private rooms, League and Survival share this presentation path.
 
 ## Verification and limits
 

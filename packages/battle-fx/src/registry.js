@@ -1,3 +1,15 @@
+import spore from './moves/restored/spore.js'
+import growth from './moves/restored/growth.js'
+import haze from './moves/restored/haze.js'
+import mist from './moves/restored/mist.js'
+import conversion from './moves/restored/conversion.js'
+import conversion2 from './moves/restored/conversion-2.js'
+import stockpile from './moves/restored/stockpile.js'
+import swallow from './moves/restored/swallow.js'
+import snatch from './moves/restored/snatch.js'
+import camouflage from './moves/restored/camouflage.js'
+import curseSelfSetup from './moves/restored/curse-self-setup.js'
+import mirrorMoveSourceCast from './moves/restored/mirror-move-source-cast.js'
 import bind from './moves/restored/bind.js'
 import wrap from './moves/restored/wrap.js'
 import constrict from './moves/restored/constrict.js'
@@ -620,6 +632,16 @@ const entries = [
   ['bonemerang', bonemerang, 1.35, 2.25],
   ['fury-swipes', furySwipes, 0.92, 1.9],
   ['transform', transform, 1.36, 2.6],
+  ['spore', spore, 0.92, 2.25],
+  ['growth', growth, 0.86, 2.1, 'source'],
+  ['haze', haze, 0.88, 2.25, 'field'],
+  ['mist', mist, 0.82, 2.15, 'source'],
+  ['conversion', conversion, 0.86, 2.1, 'source'],
+  ['conversion-2', conversion2, 0.92, 2.2, 'source'],
+  ['stockpile', stockpile, 0.94, 2.2, 'source'],
+  ['swallow', swallow, 0.9, 2.25, 'source'],
+  ['snatch', snatch, 0.78, 2.05, 'source'],
+  ['camouflage', camouflage, 0.94, 2.3, 'source'],
 ]
 const preparations = Object.freeze({
   'fly': Object.freeze({ build: flyPrepare, contact: 0.94, duration: 1.4, subject: 'source' }),
@@ -627,7 +649,12 @@ const preparations = Object.freeze({
   'dig': Object.freeze({ build: digPrepare, contact: 0.96, duration: 1.5, subject: 'source' }),
   'dive': Object.freeze({ build: divePrepare, contact: 1.06, duration: 1.65, subject: 'source' }),
 })
-export const MOVE_EFFECTS = Object.freeze(Object.fromEntries(entries.map(([id, build, contact, duration, subject, recovery]) => [id, Object.freeze({ build, contact, duration, ...(preparations[id] ? { preparation: preparations[id] } : {}), ...(subject ? { subject } : {}), ...(recovery != null ? { recovery } : {}) })])))
+const variants = Object.freeze({
+  curse: Object.freeze({ 'self-setup': Object.freeze({ build: curseSelfSetup, contact: .80, duration: 1.8, subject: 'source' }) }),
+  'mirror-move': Object.freeze({ 'source-cast': Object.freeze({ build: mirrorMoveSourceCast, contact: .65, duration: 1.4, subject: 'source' }) }),
+})
+export const VARIANT_TIMINGS = Object.freeze(Object.fromEntries(Object.entries(variants).map(([id, choices]) => [id, Object.freeze(Object.fromEntries(Object.entries(choices).map(([name, { contact, duration }]) => [name, Object.freeze({ contact, duration })])))])))
+export const MOVE_EFFECTS = Object.freeze(Object.fromEntries(entries.map(([id, build, contact, duration, subject, recovery]) => [id, Object.freeze({ build, contact, duration, ...(variants[id] ? { variants: variants[id] } : {}), ...(preparations[id] ? { preparation: preparations[id] } : {}), ...(subject ? { subject } : {}), ...(recovery != null ? { recovery } : {}) })])))
 export const EFFECT_TIMINGS = Object.freeze(Object.fromEntries(entries.map(([id, , contact, duration, , recovery]) => [id, Object.freeze({ contact, duration, ...(recovery != null ? { recovery } : {}) })])))
 
 // Phase lookup remains cosmetic; default EFFECT_TIMINGS continues to describe attacks.

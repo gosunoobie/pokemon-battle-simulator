@@ -1,6 +1,6 @@
 # @battle/battle-fx
 
-Optional Vue-free battle effects for PixiJS 8 and GSAP 3. Contains 335 moves with independent recipes and package-relative effect assets. It imports neither battle-core nor host Pokémon artwork.
+Optional Vue-free battle effects for PixiJS 8 and GSAP 3. Contains 345 moves with independent recipes and package-relative effect assets. It imports neither battle-core nor host Pokémon artwork.
 
 ```js
 import { createBattleFx } from '@battle/battle-fx'
@@ -16,11 +16,31 @@ Provide a host scene with `width`, `height`, `unit`, PixiJS `effects` and `camer
 
 `play` accepts optional `signal`, `onCue`, `reducedMotion`. Its handle supports `cancel()` and always settles `finished` as completed/skipped/cancelled/failed for supported lifecycle paths. Deadlines default to 6000 ms. Only the first target is animated; unsupported non-hit outcomes skip. The runtime owns one play per scene. Cancellation/replacement removes temporary graphics and restores actor/camera poses. It never reads or changes HP, conditions, PP or turns.
 
-Exports: `createBattleFx`, `FX_CATALOG`, `EFFECT_TIMINGS`, `PHASE_TIMINGS`. `@battle/battle-fx/catalog` exposes lightweight id/name/tint data without importing the renderer. Advanced options include `effects` registry, `assetLoader(key, url)`, `timelineEngine`, `glowTexture`, and `deadlineMs`.
+Exports: `createBattleFx`, `FX_CATALOG`, `EFFECT_TIMINGS`, `PHASE_TIMINGS`, `VARIANT_TIMINGS`. `@battle/battle-fx/catalog` exposes lightweight id/name/tint data without importing the renderer. Advanced options include `effects` registry, `assetLoader(key, url)`, `timelineEngine`, `glowTexture`, and `deadlineMs`.
+
+Optional request `variant` selects an explicitly registered cosmetic clip: Curse supports `self-setup` and Mirror Move supports `source-cast`. Both require only the source. `VARIANT_TIMINGS[moveId][variant]` describes their timing. Unknown variants and unsupported phase combinations skip safely; ordinary offensive moves still reject self targeting. The host selects these variants from public resolved events, never by passing types or battle history into FX.
+
+The 17 multi-hit recipes also accept optional request `hitCount`, an already-resolved cosmetic contact count. The renderer-free `@battle/battle-fx/multi-hit` entry exports `MULTI_HIT_LIMITS` for their capacities (one through five for variable volleys, two for Double Kick/Twineedle/Bonemerang, three for Triple Kick, six for Beat Up). Normal playback emits ordered `{ type: 'hit', hitIndex: 1 }` cues through the supplied count, then one final `impact`. Counts may be one after an early stop. Invalid/unsupported counts skip without borrowing actor poses. Omitting the count preserves the standalone recipe's original contacts and aggregate cue.
+
+Counted builders return `{ duration, hitTimes }` in authored seconds; the runtime validates these and uses the selected duration. The optional presentation clock includes `hitTimes` in its start notification, scaled to wall seconds. Each move still owns its art and contact paths. Reduced motion remains one short aggregate impact. Hosts reveal their existing per-hit snapshots at indexed cues, and must reconcile their complete committed result on completion or any interrupted/missing-cue path. FX never receives HP, party state or rule RNG.
 
 Effect textures are loaded on demand through the default shared PixiJS Assets cache or your loader. The cache/loader owns those textures; playback cleanup does not evict them. The runtime owns and disposes only its generated glow, while per-play containers/timelines are destroyed on settlement. Keep the included Bootstrap MIT license, Lorc rock CC BY 3.0 attribution and generated-art notes when redistributing assets. A consuming bundler must support `new URL(relativeAsset, import.meta.url)`; Vite is the supplied host integration.
 
 Local packaging: `npm pack --workspace @battle/battle-fx`. PixiJS and GSAP are peers. This is a local package, not a published npm release or a renderer-neutral engine.
+
+## Weather continuation
+
+The separately loaded `@battle/battle-fx/weather` exports `playWeatherContinuation({ weatherId, visualSeed }, { scene, signal, reducedMotion })`. IDs are `rain`, `sun`, `sandstorm` and `hail`. It returns `{ finished, cancel }` and plays a short field-only continuation without repeating a move cast, requiring actors, emitting impact cues or changing actor/camera poses. The supplied scene needs only `effects`, `width`, `height` and `unit`. Each clip owns its graphics and timeline, cleans up on all exits, and replaces only earlier weather continuation on that scene. Reduced motion uses a short tint. Optional `timelineEngine` and `deadlineMs` support integration/testing.
+
+Hosts trigger continuation from already-resolved weather start/upkeep events and retain responsibility for ordering, expiry, damage and final-state reconciliation. The four original weather move animations remain independent and unchanged; continuation receives no battle state or weather-duration counter.
+
+## Condition reactions and persistent hazards
+
+The separate `@battle/battle-fx/conditions` entry exports `playConditionReaction({ kind, actorId, visualSeed }, { scene, signal, reducedMotion })`. Supported kinds are `spikes`, `poison`, `burn`, `leech-seed`, `sleep`, `paralysis`, `freeze`, `confusion`, `cure`, `blocked`, `boost` and `unboost`. A reaction owns a short graphics timeline and returns `{ finished, cancel }`. It emits no impact cue and changes no actor pose or gameplay state. Optional `timelineEngine` and `deadlineMs` support testing and bounded host playback.
+
+`createHazardDisplay({ scene })` returns `{ update, destroy }`. Hosts call `update([{ side: 'near', layers: 2 }])` with cosmetic Spikes counts. The scene supplies `terrain` and `hazardSlots.near/far` containing fixed `{ x, y, rx, ry }` platform geometry. The display draws static rings without a particle loop; actor size, pose and replacement do not reposition them. The host owns effects preferences, current counts, removal and disposal.
+
+Live hosts derive reactions and counts from published events, reveal their committed result first, and await reactions after move recovery and before fainting or the next move. Skip, failure, effects-off and reconnect still reconcile the same final view. Persistent hazard artwork can be restored from that view without replaying a cast or reaction.
 
 ## Poké Ball release
 
@@ -69,7 +89,7 @@ const attack = fx.play({
 ## Accepted presentation variants
 
 `@battle/battle-fx/accepted-effects` exports `createAcceptedBattleFx(options)`.
-It retains all 335 registrations, selects the latest 20 custom Batch 5–7 recipes,
+It retains all 345 registrations, selects the latest 20 custom Batch 5–7 recipes,
 and wraps Thunder Punch with the approved white-yellow impact flash and
 branching lightning at its existing 0.52 s cue.
 The original recipe and default package entry stay available. The accent owns

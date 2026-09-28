@@ -2,7 +2,7 @@
 
 This first slice runs two authenticated guests against the existing `gen3opensinglesv1` battle engine. Guests select one of the three server-owned six-Pokémon presets or a validated custom team and a lead. Both ready records must be current before a match starts. The server derives each seat from its guest membership; clients cannot choose a seat, supply mechanics, override the format, or bypass whole-team legality validation.
 
-The solo simulation and private rooms share the editable random-team builder and server generator. Regional league, battle presentation, move preview and FX playground behavior stays independent. Multiplayer does not use the solo bot or its session cookie.
+The solo simulation and private rooms share the editable random-team builder and server generator. Regional League and Survival are modes within Battle Simulation; Private Battles is the human duel flow. Battle presentation, move preview and FX playground behavior stays independent. Multiplayer does not use the solo bot or its session cookie.
 
 ## Play locally
 
