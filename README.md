@@ -1,5 +1,7 @@
 # Battle Lab — Pokémon Battle Simulator
 
+https://github.com/user-attachments/assets/c7707ab2-049a-4da8-82a6-20956b67f914
+
 A modular Pokémon battle application with authentic Generation 3 mechanics, private multiplayer rooms, regional League challenges, and independently authored battle animations.
 
 Built with **Vue 3, JavaScript, PixiJS 8, GSAP 3, Vite, and Node.js 24**. Battle simulation, reference data, sprites, and visual effects live in separate workspace packages. The authoritative battle engine runs on the server; the browser presents its results.
