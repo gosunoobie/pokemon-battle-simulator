@@ -1,6 +1,6 @@
 # Battle Lab — Pokémon Battle Simulator
 
-https://github.com/user-attachments/assets/c7707ab2-049a-4da8-82a6-20956b67f914
+https://github.com/user-attachments/assets/fb1e9a01-b807-406f-89be-7a28a8354c0d
 
 A modular Pokémon battle application with authentic Generation 3 mechanics, private multiplayer rooms, regional League challenges, and independently authored battle animations.
 
